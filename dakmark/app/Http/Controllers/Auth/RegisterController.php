@@ -1,11 +1,14 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
-use App\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use App\Traits\ActivationKeyTrait;
+use App\Traits\reCaptchaTrait;
+
+
 
 class RegisterController extends Controller
 {
@@ -19,15 +22,13 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
-    use RegistersUsers;
-
+    use RegistersUsers, ActivationKeyTrait, reCaptchaTrait;
     /**
-     * Where to redirect users after registration.
+     * Where to redirect users after login / registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '';
 
     /**
      * Create a new controller instance.
@@ -38,7 +39,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
+    
     /**
      * Get a validator for an incoming registration request.
      *
@@ -47,25 +48,74 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+	
+		// call the verifyCaptcha method to see if Google approves
+		$data['captcha-verified'] = $this->verifyCaptcha($data['g-recaptcha-response']);
+		
+        $validator = Validator::make($data,
+            [
+                'username'           	 => 'required|unique:users|min:4',
+				'first_name'            => 'required',
+                'last_name'             => 'required',
+                'email'                 => 'required|email|unique:users',
+                'phone'                 => 'phone:LENIENT,VN',
+                'password'              => 'required|min:5|max:20',
+                'password_confirmation' => 'required|same:password',
+				'g-recaptcha-response'  => 'required',
+				'captcha-verified'      => 'required|min:1'
+            ],
+            [
+				'username.required'     => 'Username is required',
+                'username.min'           => 'Username needs to have at least 6 characters',
+                'first_name.required'   => 'First Name is required',
+                'last_name.required'    => 'Last Name is required',
+                'email.required'        => 'Email is required',
+                'email.email'           => 'Email is invalid',
+                'password.required'     => 'Password is required',
+                'password.min'          => 'Password needs to have at least 5 characters',
+                'password.max'          => 'Password maximum length is 20 characters',
+				'g-recaptcha-response.required' => 'Please confirm that you are not a robot',
+				'captcha-verified.min'           => 'reCaptcha verification failed'
+            ]
+        );
+        return $validator;
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $user =  User::create([
+            'username' => $data['username'],
+			'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
+            'phone' =>$data['phone'],
             'password' => bcrypt($data['password']),
+            'activated' => !config('settings.send_activation_email')  // if we do not send the activation email, then set this flag to 1 right away
         ]);
+        return $user;
     }
+	
+	public function register(Request $request)
+	{
+		$validator = $this->validator($request->all());
+		if ($validator->fails()) {
+			$this->throwValidationException(
+				$request, $validator
+			);
+		}
+	
+		// create the user
+		$user = $this->create($request->all());
+		// process the activation email for the user
+		$this->queueActivationKeyNotification($user);
+		// we do not want to login the new user
+		return redirect('/login')
+			->with('message', trans('messages.register_success')) //We sent you an activation code. Please check your email.
+			->with('status', 'success');
+	}
 }

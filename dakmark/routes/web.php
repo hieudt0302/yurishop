@@ -11,6 +11,108 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/* Added by Thang LD */
+Route::get('/', 'Front\PagesController@home');
+//Route::post('/', 'Front\PagesController@validInput');
+Route::get('/danh-sach-don-hang',  ['uses'=>'Front\PagesController@order_list','middleware' => 'auth']);
+Route::post('/thong-tin-san-pham', 'Front\PagesController@product_info');
+Route::post('/get-prop', 'Front\PagesController@get_prop');
+/*  --- */
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
+
+    //admin area
+    Route::get('/', ['as' => 'admin.dashboard', 'uses' => 'PagesController@getDashboard']);
+    Route::get('/blank', ['as' => 'admin.blank', 'uses' => 'PagesController@getBlank']);
+
+    //role area
+    Route::get('roles',['as'=>'admin.roles.index','uses'=>'RolesController@index','middleware' => ['permission:role-list']]);
+    Route::get('roles/create',['as'=>'admin.roles.create','uses'=>'RolesController@create','middleware' => ['permission:role-create']]);
+    Route::post('roles/create',['as'=>'admin.roles.store','uses'=>'RolesController@store','middleware' => ['permission:role-create']]);
+    Route::get('roles/{id}',['as'=>'admin.roles.show','uses'=>'RolesController@show', 'middleware'=> ['permission:role-show']]);
+    Route::get('roles/{id}/edit',['as'=>'admin.roles.edit','uses'=>'RolesController@edit','middleware' => ['permission:role-edit']]);
+    Route::patch('roles/{id}',['as'=>'admin.roles.update','uses'=>'RolesController@update','middleware' => ['permission:role-edit']]);
+    Route::delete('roles/{id}',['as'=>'admin.roles.destroy','uses'=>'RolesController@destroy','middleware' => ['permission:role-delete']]);
+
+    //user area
+    Route::get('users',['as'=>'admin.users.index','uses'=>'UsersController@index','middleware' => ['permission:user-list']]);
+    Route::get('users/create',['as'=>'admin.users.create','uses'=>'UsersController@create','middleware' => ['permission:user-create']]);
+    Route::post('users/create',['as'=>'admin.users.store','uses'=>'UsersController@store','middleware' => ['permission:user-create']]);
+    Route::get('users/{id}',['as'=>'admin.users.show','uses'=>'UsersController@show', 'middleware'=> ['permission:user-show']]);
+    Route::get('users/{id}/edit',['as'=>'admin.users.edit','uses'=>'UsersController@edit','middleware' => ['permission:user-edit']]);
+    Route::patch('users/{id}',['as'=>'admin.users.update','uses'=>'UsersController@update','middleware' => ['permission:user-edit']]);
+    Route::delete('users/{id}',['as'=>'admin.users.destroy','uses'=>'UsersController@destroy','middleware' => ['permission:user-delete']]);
+
+     //rate area
+    Route::get('rates',['as'=>'admin.rates.index','uses'=>'RatesController@index','middleware' => ['permission:rate-list']]);
+    Route::get('rates/create',['as'=>'admin.rates.create','uses'=>'RatesController@create','middleware' => ['permission:rate-create']]);
+    Route::post('rates/create',['as'=>'admin.rates.store','uses'=>'RatesController@store','middleware' => ['permission:rate-create']]);
+    Route::get('rates/{id}',['as'=>'admin.rates.show','uses'=>'RatesController@show', 'middleware'=> ['permission:rate-show']]);
+    Route::get('rates/{id}/edit',['as'=>'admin.rates.edit','uses'=>'RatesController@edit','middleware' => ['permission:rate-edit']]);
+    Route::patch('rates/{id}',['as'=>'admin.rates.update','uses'=>'RatesController@update','middleware' => ['permission:rate-edit']]);
+    Route::delete('rates/{id}',['as'=>'admin.rates.destroy','uses'=>'RatesController@destroy','middleware' => ['permission:rate-delete']]);
+
+    //order area - added by Thang LD
+    Route::get('orders',['as'=>'admin.orders','uses'=>'OrderController@index']);
+    Route::get('orders/details',['as'=>'admin.orders.details','uses'=>'OrderController@view_detail']);
 });
+
+
+Auth::routes();
+ 
+// registration activation routes
+Route::get('activation/key/{activation_key}', ['as' => 'activation_key', 'uses' => 'Auth\ActivationKeyController@activateKey']);
+Route::get('activation/resend', ['as' =>  'activation_key_resend', 'uses' => 'Auth\ActivationKeyController@showKeyResendForm']);
+Route::post('activation/resend', ['as' =>  'activation_key_resend.post', 'uses' => 'Auth\ActivationKeyController@resendKey']);
+
+// forgot_username
+Route::get('username/reminder', ['as' =>  'username_reminder', 'uses' => 'Auth\ForgotUsernameController@showForgotUsernameForm']);
+Route::post('username/reminder', ['as' =>  'username_reminder.post', 'uses' => 'Auth\ForgotUsernameController@sendUserameReminder']);
+
+// Products - old
+// Route::resource('products', 'Front\ProductController', ['only' => ['index', 'show']]);
+
+// Shoppings - old
+// Route::resource('cart', 'Front\CartController');
+// Route::delete('emptyCart', 'Front\CartController@emptyCart');
+// Route::post('switchToWishlist/{id}', 'Front\CartController@switchToWishlist');
+// Route::resource('wishlist', 'Front\WishlistController');
+// Route::delete('emptyWishlist', 'Front\WishlistController@emptyWishlist');
+// Route::post('switchToCart/{id}', 'Front\WishlistController@switchToCart');
+
+
+//Profiles
+Route::get('profile', ['as'=>'front.profiles.index','uses'=>'Front\ProfileController@index','middleware' => 'auth']);
+Route::patch('profile', ['as'=>'front.profiles.update','uses'=>'Front\ProfileController@update','middleware' => 'auth']);
+
+
+//Address
+Route::get('profile/address',['as'=>'front.profiles.address','uses'=>'Front\ProfileController@address','middleware' => 'auth']);
+Route::get('profile/address/create',['as'=>'front.profiles.createaddress','uses'=>'Front\ProfileController@createaddress','middleware' => 'auth']);
+Route::post('profile/address/create',['as'=>'front.profiles.storeaddress','uses'=>'Front\ProfileController@storeaddress','middleware' => 'auth']);
+Route::get('profile/address/{id}',['as'=>'front.profiles.showaddress','uses'=>'Front\ProfileController@showaddress', 'middleware'=> 'auth']);
+Route::get('profile/address/{id}/edit',['as'=>'front.profiles.editaddress','uses'=>'Front\ProfileController@editaddress','middleware' => 'auth']);
+Route::patch('profile/address/{id}',['as'=>'front.profiles.updateaddress','uses'=>'Front\ProfileController@updateaddress','middleware' => 'auth']);
+Route::delete('profile/address/{id}',['as'=>'front.profiles.destroyaddress','uses'=>'Front\ProfileController@destroyaddress','middleware' => 'auth']);
+
+
+//Orders
+Route::get('order',['as'=>'front.orders.index','uses'=>'Front\OrdersController@index','middleware' => 'auth']);
+Route::get('order/create',['as'=>'front.orders.create','uses'=>'Front\OrdersController@create','middleware' => 'auth']);
+Route::post('order/create',['as'=>'front.orders.store','uses'=>'Front\OrdersController@store','middleware' => 'auth']);
+Route::get('order/{id}',['as'=>'front.orders.show','uses'=>'Front\OrdersController@show', 'middleware'=> 'auth']);
+Route::get('order/{id}/edit',['as'=>'front.orders.edit','uses'=>'Front\OrdersController@edit','middleware' => 'auth']);
+Route::patch('order/{id}',['as'=>'front.orders.update','uses'=>'Front\OrdersController@update','middleware' => 'auth']);
+Route::delete('order/{id}',['as'=>'front.orders.destroy','uses'=>'Front\OrdersController@destroy','middleware' => 'auth']);
+Route::post('order',['as'=>'front.orders.find','uses'=>'Front\OrdersController@find','middleware' => 'auth']);
+
+
+//Cart
+Route::get('cart',['as'=>'front.carts.index','uses'=>'Front\CartsController@index','middleware' => 'auth']);
+Route::get('cart/create',['as'=>'front.carts.create','uses'=>'Front\CartsController@create','middleware' => 'auth']);
+Route::post('cart/create',['as'=>'front.carts.store','uses'=>'Front\CartsController@store','middleware' => 'auth']);
+Route::get('cart/{id}',['as'=>'front.carts.show','uses'=>'Front\CartsController@show', 'middleware'=> 'auth']);
+Route::get('cart/{id}/edit',['as'=>'front.carts.edit','uses'=>'Front\CartsController@edit','middleware' => 'auth']);
+Route::patch('cart/{id}',['as'=>'front.carts.update','uses'=>'Front\CartsController@update','middleware' => 'auth']);
+Route::delete('cart/{id}',['as'=>'front.carts.destroy','uses'=>'Front\CartsController@destroy','middleware' => 'auth']);
+
