@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\OrderShop;
+use DB;
 
 class OrderShopsController extends Controller
 {
@@ -12,10 +14,57 @@ class OrderShopsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+     public function index(Request $request)
+     {
+          $shop = $request->input('shop');  
+          $landingcode = $request->input('from');         
+          $status = $request->get('status');
+          
+            echo "<script>console.log( 'Debug Objects 1: " . $shop . "' );</script>";
+            echo "<script>console.log( 'Debug Objects 2: " . $landingcode . "' );</script>";
+            echo "<script>console.log( 'Debug Objects 3: " . $status . "' );</script>";
+ 
+          if(empty($status) || (int)$status===0)
+          {
+              $statusIn =[1,2,3,4];
+          } 
+          else
+          {
+              $statusIn=[$status];
+          }
+        
+         if(!empty($shop) && !empty($landingcode))
+         {
+             $ordershops = OrderShop::orderBy('id','DESC')
+             ->where('shop', 'like', '%' . $shop . '%')
+             ->where('landing_code','=', $landingcode)
+             ->whereIn('status', $statusIn)
+             ->paginate(10);
+         }
+         elseif(!empty($shop))
+         {
+              $ordershops = OrderShop::orderBy('id','DESC')
+              ->where('shop', 'like', '%' . $shop . '%')
+             ->whereIn('status', $statusIn)
+             ->paginate(10);
+         }
+         elseif(!empty($landingcode))
+         {
+             $ordershops = OrderShop::orderBy('id','DESC')
+             ->where('landing_code','=', $landingcode)
+             ->whereIn('status', $statusIn )
+             ->paginate(10);
+         }
+         else
+         {
+             $ordershops = OrderShop::orderBy('id','DESC')
+             ->whereIn('status', $statusIn)
+             ->paginate(10);
+         }
+ 
+         return view('admin.ordershops.index',compact('ordershops','shop','landingcode','status'))
+         ->with('i', ($request->input('page', 1) - 1) * 10);
+     }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +73,7 @@ class OrderShopsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.ordershops.create');
     }
 
     /**
@@ -35,7 +84,7 @@ class OrderShopsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -46,7 +95,8 @@ class OrderShopsController extends Controller
      */
     public function show($id)
     {
-        //
+        $ordershop = DB::table('ordershops')->where('id',$id)->get();
+        return view('admin.ordershops.show',compact('ordershop'));
     }
 
     /**
@@ -82,4 +132,63 @@ class OrderShopsController extends Controller
     {
         //
     }
+    
+    /**
+     * Find the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+     public function find(Request $request)
+     {
+        $shop = $request->input('shop');  
+        $landingcode = $request->input('from');         
+        $status = $request->get('status');
+        
+          echo "<script>console.log( 'Debug Objects 1: " . $shop . "' );</script>";
+          echo "<script>console.log( 'Debug Objects 2: " . $landingcode . "' );</script>";
+          echo "<script>console.log( 'Debug Objects 3: " . $status . "' );</script>";
+
+        if(empty($status) || (int)$status===0)
+        {
+            $statusIn =[1,2,3,4];
+        } 
+        else
+        {
+            $statusIn=[$status];
+        }
+      
+       if(!empty($shop) && !empty($landingcode))
+       {
+           $ordershops = OrderShop::orderBy('id','DESC')
+           ->where('shop', 'like', '%' . $shop . '%')
+           ->where('landing_code','=', $landingcode)
+           ->whereIn('status', $statusIn)
+           ->paginate(10);
+       }
+       elseif(!empty($shop))
+       {
+            $ordershops = OrderShop::orderBy('id','DESC')
+            ->where('shop', 'like', '%' . $shop . '%')
+           ->whereIn('status', $statusIn)
+           ->paginate(10);
+       }
+       elseif(!empty($landingcode))
+       {
+           $ordershops = OrderShop::orderBy('id','DESC')
+           ->where('landing_code','=', $landingcode)
+           ->whereIn('status', $statusIn )
+           ->paginate(10);
+       }
+       else
+       {
+           $ordershops = OrderShop::orderBy('id','DESC')
+           ->whereIn('status', $statusIn)
+           ->paginate(10);
+       }
+
+       return view('admin.ordershops.index',compact('ordershops','shop','landingcode','status'))
+       ->with('i', ($request->input('page', 1) - 1) * 10);
+     }
 }

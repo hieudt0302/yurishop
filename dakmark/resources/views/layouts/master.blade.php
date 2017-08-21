@@ -14,16 +14,17 @@
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/order.css">
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/image.css">
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/table.css">
+        <link rel="stylesheet" href="{{url('/')}}/public/assets/css/checkbox-radio.css">
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/header.css">
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/footer.css">
-        <link rel="stylesheet" href="{{url('/')}}/public/assets/css/product-info.css">
+		<link rel="stylesheet" href="{{url('/')}}/public/assets/css/product-info.css">
         <!-- <link rel="stylesheet" href="{{url('/')}}/public/assets/css/custom.css"> -->
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/spinner.css">
 		<link rel="stylesheet" href="{{url('/')}}/public/assets/css/auth.css" type="text/css" media="all">
 		
         <script src="{{url('/')}}/public/assets/js/jquery-1.12.4.js"></script>
         <script src="{{url('/')}}/public/assets/js/bootstrap.min.js"></script>
-        <script src="{{url('/')}}/public/assets/js/spinner.js"></script>
+        
         
     </head>
     <body>
@@ -31,9 +32,9 @@
             <?php echo View::make('front.pages.header') ?>
         </section>
         
-        <div class="container" id="content">
+        <section id="content">
             @yield('content') 
-        </div>
+        </section>
 
         <section id="footer">
             <?php echo View::make('front.pages.footer') ?>

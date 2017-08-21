@@ -128,6 +128,7 @@ class PagesController extends Controller
 					}
 				}
 				elseif(!empty($arrayColor)){  // trường hợp sản phẩm có size giống nhau, color khác nhau
+					echo "chi co mau sac";
 					foreach ($arrayColor as $k => $color) {
 						$pvs = ";".$color['colorId'].";";  // Lấy pvs
 						foreach($skuMap as $key => $value) {
@@ -139,6 +140,7 @@ class PagesController extends Controller
 					}
 				}
 				elseif(!empty($arraySize)){  // trường hợp sản phẩm có color giống nhau, size khác nhau
+					echo "chi co kich thuoc";
 					foreach ($arraySize as $k => $size) {
 						$pvs = ";".$size['sizeId'].";";  // Lấy pvs
 						foreach ($skuMap as $key => $value) {
@@ -186,15 +188,18 @@ class PagesController extends Controller
 
 			$colors = '';
 			$sizes = '';
-			if($html->find('.tm-sale-prop')){
-				foreach($html->find('.tm-sale-prop') as $p){  // phải đảm bảo rằng chỉ có 2 class "tm-sale-prop"
-					if($p->find('.tb-img')){
-						$colors = $p;
-					}
-					else{
-						$sizes = $p;
-					}
-				}
+			$first = '';  // thứ tự xuất hiện của color và size (cái nào xuất hiện trước)
+			if($html->find('.tm-sale-prop')){  // phải đảm bảo rằng chỉ có 2 class "tm-sale-prop"
+				if($html->find('.tm-sale-prop',0)->find('.tb-img')){
+					$colors = $html->find('.tm-sale-prop',0);
+					$sizes = $html->find('.tm-sale-prop',1);
+					$first = 'color';
+				}	
+				else{
+					$sizes = $html->find('.tm-sale-prop',0);
+					$colors = $html->find('.tm-sale-prop',1);
+					$first = 'size';
+				}	
 			}
 			
 			if($colors){
@@ -236,7 +241,10 @@ class PagesController extends Controller
 					// Lấy giá và số lượng sản phẩm mặc định theo kích thước và màu sắc mặc định (màu đầu tiên trong dánh sách)
 					$default_color_id = $arrayColor[0]['colorId'];
 					foreach ($arraySize as $k => $size) {
-						$pvs = ";".$size['sizeId'].";".$default_color_id.";";  // Lấy pvs trong array skuList
+						if($first=="size")
+							$pvs = ";".$size['sizeId'].";".$default_color_id.";";  // Lấy pvs trong array skuList
+						elseif($first=="color")
+							$pvs = ";".$default_color_id.";".$size['sizeId'].";";
 						foreach ($skuMap as $key => $value) {
 							if($pvs == $key){
 								$arraySize[$k]['sizePrice'] = $value['price'];
@@ -244,6 +252,7 @@ class PagesController extends Controller
 							}
 						}
 					}
+					//var_dump($arraySize); die();
 				}
 				elseif(!empty($arrayColor)){  // trường hợp sản phẩm có size giống nhau, color khác nhau
 					foreach ($arrayColor as $k => $color) {
@@ -414,6 +423,7 @@ class PagesController extends Controller
 					 							"skuMap" => $skuMap,
 					 							"sizes" => $arraySize, 
 					 							"colors" => $arrayColor, 
+												"first" => $first,
 					 							"description" => $description, 
 					 							"shop_name" => $shop_name,
 					 							"load_time" => $time_taken]);
@@ -423,9 +433,13 @@ class PagesController extends Controller
     function get_prop(){
     	$sizes = unserialize($_POST['sizes']);
     	$skuMap = unserialize($_POST['skuMap']);
+		$first = $_POST['first'];
 		$color_id = $_POST['colorId'];
 		foreach ($sizes as $k => $size) {
-			$pvs = ";".$size['sizeId'].";".$color_id.";";  // Lấy pvs trong array sizeList
+			if($first=="size")
+				$pvs = ";".$size['sizeId'].";".$color_id.";";  // Lấy pvs trong array skuList
+			elseif($first=="color")
+				$pvs = ";".$color_id.";".$size['sizeId'].";";
 			foreach ($skuMap as $key => $value) {
 				if($pvs == $key){
 					$sizes[$k]['sizePrice'] = $value['price'];

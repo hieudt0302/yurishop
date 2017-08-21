@@ -99,10 +99,13 @@
                     </li>
                     @endpermission
                     <li>
-                        <a href="{{ url('/admin/orders') }}"><i class="fa fa-fw fa-edit"></i> Đơn Đặt Hàng</a>
+                        <a href="{{ url('/admin/product-cat') }}"><i class="fa fa-fw fa-folder"></i> Danh mục sản phẩm</a>
                     </li>
                     <li>
-                        <a href="{{ url('/admin/blank') }}"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                        <a href="{{ url('/admin/product') }}"><i class="fa fa-fw fa-product-hunt "></i> Sản phẩm</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/admin/orders') }}"><i class="fa fa-fw fa-edit"></i> Đơn Đặt Hàng</a>
                     </li>
                     <li>
                         <a href="{{ url('/admin/blank') }}"><i class="fa fa-fw fa-wrench"></i> Cài Đặt</a>

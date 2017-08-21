@@ -15,21 +15,21 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('freight1', 12, 2);    				
-            $table->decimal('freight2', 12, 2);
-            $table->decimal('service', 12, 2);
-            $table->decimal('deposit', 12, 2);
-            $table->decimal('totalamount', 12, 2);
+            $table->decimal('freight1', 12, 2)->default(0);    				
+            $table->decimal('freight2', 12, 2)->default(0);
+            $table->decimal('service', 12, 2)->default(0);
+            $table->decimal('deposit', 12, 2)->default(0);
+            $table->decimal('totalamount', 12, 2)->default(0);
             $table->tinyInteger('status');
 
 
-            $table->dateTime('shippeddate');            
+            $table->dateTime('shippeddate')->nullable();            
             $table->string('shipaddress');
             $table->string('shipdistrict');
             $table->string('shipcity');
             $table->text('shipphone');
-            $table->string('note');
-            $table->string('feedback');
+            $table->string('note')->nullable(); 
+            $table->string('feedback')->nullable(); 
 
             $table->integer('user_id')->unsigned();		
             $table->foreign('user_id')->references('id')->on('users')

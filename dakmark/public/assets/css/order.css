@@ -2406,7 +2406,23 @@ max-width:400px}
   color: #959595;
   text-transform: uppercase;
   letter-spacing: 1px;
-  content: "YÊU CẦU";
+  /* content: "YÊU CẦU"; */
+}
+
+.bs-cart:after{
+  content: "GIỎ HÀNG";
+}
+
+.bs-order-detail:after{
+  content:"YÊU CẦU";
+}
+
+.bs-order-ship:after{
+  content:"ĐỊA CHỈ NHẬN HÀNG";
+}
+
+.bs-order-check:after{
+  content:"KIỂM TRA ĐƠN HÀNG";
 }
 
 .bs-example-padded-bottom {

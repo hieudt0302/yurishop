@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Models\Cart;
-use DB;
+use \Cart as Cart;
+use Validator;
 
 class CartsController extends Controller
 {
@@ -17,9 +16,7 @@ class CartsController extends Controller
      */
     public function index()
     {
-        $carts =  DB::table('carts')->where('user_id',Auth::user()->id)->get();
-
-        return view('front.carts.index',compact('carts'));
+        return view('front.carts.index');
     }
 
     /**
@@ -39,8 +36,25 @@ class CartsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {        
+        // $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
+        //     return $cartItem->id === $request->id;
+        // });
+
+        // if (!$duplicates->isEmpty()) {
+        //     return redirect('cart')->withSuccessMessage('Sản phẩm đã có trong giỏ!');
+        // }
+
+        // Cart::add($request->id, 
+        // $request->name,
+        // $request->size, 
+        // $request->color, 
+        // $request->quantity, 
+        // $request->price); //guid
+
+        Cart::add(['id' => 'SameID123', 'name' => 'Product 1', 'qty' => 1, 'price' => 1500.25, 
+        'options' => ['size' => 'M', 'color'=>'Red', 'shop'=>'Shop 1', 'url'=>'#','image'=>'#']]);
+        return redirect('cart')->withSuccessMessage('Sản phẩm đã được thêm vào giỏ!');
     }
 
     /**
@@ -74,7 +88,21 @@ class CartsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validation on max quantity
+        $validator = Validator::make($request->all(), [
+            'quantity' => 'required|numeric'
+        ]);
+
+        if ($validator->fails()) {
+            session()->flash('error_message', 'Số lượng không phù hợp!');
+            return response()->json(['success' => false]);
+        }
+
+        Cart::update($id, $request->quantity);
+
+        session()->flash('success_message', 'Số lượng đã cập nhật thành công!');
+
+        return response()->json(['success' => true]);
     }
 
     /**
@@ -85,6 +113,18 @@ class CartsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+        return redirect('cart')->withSuccessMessage('Sản phẩm đã được xóa!');
     }
+
+    /**
+     * Remove the resource from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+     public function emptyCart()
+     {
+         Cart::destroy();
+         return redirect('cart')->withSuccessMessage('Giỏ hàng của bạn đã được xóa!');
+     }
 }

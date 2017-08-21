@@ -2,14 +2,14 @@
     <div class="row top-header-container">
         <div class="container">
             <a href="{{url('/')}}" class="logo-top"></a>
-            <div class="cart-block">                
-                @if (!Auth::guest())
+            <div class="cart-block">                                
                 <span class="order-label">
                         <a href="{{ url('/cart') }}" >
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            Giỏ hàng ({{ Cart::count() }})
+                            Giỏ hàng ({{ Cart::instance('default')->count(false) }})
                         </a>
                 </span> 
+                @if (!Auth::guest())
                 <span class="list-label">
                         <a href="{{ url('/order') }}">
                             <i class="fa fa-list-alt" aria-hidden="true"></i>
@@ -34,7 +34,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->last_name }} {{ Auth::user()->first_name }}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="{{ url('/profiles') }}"><i class="fa fa-fw fa-user"></i> Tài Khoản</a>
+                                <a href="{{ url('/profile') }}"><i class="fa fa-fw fa-user"></i> Tài Khoản</a>
                             </li>
                             <li class="divider"></li>
                             <li>

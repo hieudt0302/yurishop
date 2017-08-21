@@ -30,6 +30,7 @@
 <div class="row" id="product-info">
     <input type="hidden" name="sizes" value="{{serialize($sizes)}}">
     <input type="hidden" name="skuMap" value="{{serialize($skuMap)}}">
+	<input type="hidden" name="first" value="{{$first}}">
     <div class="col-md-4 product-img">
         <img class="img-responsive" src="{{$image}}" alt="Hình sản phẩm" />
     </div>
@@ -190,6 +191,7 @@
                 data: {
                     sizes: $("input[name='sizes']").val(),
                     skuMap: $("input[name='skuMap']").val(),
+					first: $("input[name='first']").val(),
                     colorId: colorId,
                 },
                 success: function(res){

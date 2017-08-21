@@ -112,7 +112,7 @@ class LoginController extends Controller
 			$this->incrementLoginAttempts($request);
 			
             return redirect()->back()
-                ->with('message','Incorrect username or password')
+                ->with('message','Tên tài khoản và mật khẩu không đúng')
                 ->with('status', 'danger')
                 ->withInput();
         }
@@ -126,13 +126,36 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $this->guard()->logout();
-        $request->session()->flush();
-        $request->session()->regenerate();
-        return redirect('/')
+        try {
+            $cart = collect($request->session()->get('cart'));
+            $this->guard()->logout();
+            $request->session()->flush();
+            $request->session()->regenerate();
+    
+            if (!config('cart.destroy_on_logout')) {
+                $cart->each(function($rows, $identifier) use ($request) {
+                    $request->session()->put('cart.' . $identifier, $rows);
+                });
+            }
+    
+            return redirect('/')
 			->with('message','You are now signed out')
 			->with('status', 'success')
 			->withInput();
+    
+        } catch (Exception $e) 
+        {
+            return response()->json([
+                'status' => false, 'code' => $e->getCode()
+            ], 422);
+        }
+        // $this->guard()->logout();
+        // $request->session()->flush();
+        // $request->session()->regenerate();
+        // return redirect('/')
+		// 	->with('message','You are now signed out')
+		// 	->with('status', 'success')
+		// 	->withInput();
     }
 	
 	/**

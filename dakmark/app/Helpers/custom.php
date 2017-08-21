@@ -1,5 +1,6 @@
 <?php
 
+  
     function price_format($price,$currency) {
         if($price==''){
             $price=0;
@@ -9,6 +10,7 @@
         }
         return $price.' '.$currency;
     }
+
     function url_format($url=''){
 	$orginal_character = array(
                                 '/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/',

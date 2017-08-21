@@ -170,7 +170,7 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Propaganistas\LaravelPhone\PhoneServiceProvider::class,
-        // Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,9 +232,9 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        // 'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
-        'Cart'=> App\Models\Cart::class,
-
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'Order'=> App\Models\Order::class,
+        'OrderShop'=> App\Models\OrderShop::class,
     ],
 
 ];
