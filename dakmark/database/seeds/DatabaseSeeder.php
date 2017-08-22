@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
 
         //FOR DEMO
         $this->call(BookAddressTableSeeder::class);
+        $this->call(BlogsTableSeeder::class);
 
         //script re-new database 
         // DROP DATABASE IF EXISTS demo_wom;

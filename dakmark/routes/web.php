@@ -146,3 +146,7 @@ Route::delete('cart/{id}',['as'=>'front.carts.destroy','uses'=>'Front\CartsContr
 
 //Cart-Sub
 Route::delete('emptyCart', 'Front\CartsController@emptyCart');
+
+//Blogs
+Route::get('blog',['as'=>'front.blogs.index','uses'=>'Front\BlogsController@index']);
+Route::get('blog/{id}',['as'=>'front.blogs.show','uses'=>'Front\BlogsController@show']);
