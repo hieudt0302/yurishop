@@ -87,8 +87,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('product-cat/edit/{id}',['as' =>'admin.product-cat.update','uses' => 'ProductController@updateProductCat'])->where('id','[0-9]+');
     Route::get('product-cat/delete/{id}',['as'  =>'admin.product-cat.delete','uses' => 'ProductController@deleteProductCat'])->where('id','[0-9]+');
 
+
     Route::get('products',['as'=>'admin.product','uses'=>'ProductController@productList']);
     Route::get('product/add',['as'=>'admin.product.add','uses'=>'ProductController@addProduct']);
+
+    Route::post('generate-slug',['as'=>'admin.generate-slug','uses'=>'ProductController@generate_slug']);
 });
 
 
@@ -154,3 +157,7 @@ Route::delete('cart/{id}',['as'=>'front.carts.destroy','uses'=>'Front\CartsContr
 
 //Cart-Sub
 Route::delete('emptyCart', 'Front\CartsController@emptyCart');
+
+//Blogs
+Route::get('blog',['as'=>'front.blogs.index','uses'=>'Front\BlogsController@index']);
+Route::get('blog/{id}',['as'=>'front.blogs.show','uses'=>'Front\BlogsController@show']);

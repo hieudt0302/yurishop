@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
- 
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+
     <title><?php echo $__env->yieldContent('title'); ?></title>
      
     <meta name="description" content="<?php echo $__env->yieldContent('description'); ?>">
@@ -30,13 +31,6 @@
 
     <script src="<?php echo e(url('/')); ?>/public/assets/js/jquery-1.12.4.js"></script>
     <script src="<?php echo e(url('/')); ?>/public/assets/js/bootstrap.min.js"></script>
-
-    
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
  
 </head>
  
