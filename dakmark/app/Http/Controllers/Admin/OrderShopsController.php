@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\OrderShop;
+use App\Models\OrderDetail;
 use DB;
 
 class OrderShopsController extends Controller
@@ -95,8 +96,14 @@ class OrderShopsController extends Controller
      */
     public function show($id)
     {
-        $ordershop = DB::table('ordershops')->where('id',$id)->get();
-        return view('admin.ordershops.show',compact('ordershop'));
+        //get ordershop by id
+        $ordershop = OrderShop::where('id',$id)->first();
+
+        //get all product of ordershops by id where orderdetails.ordershop_id equal id
+        $orderdetails = OrderDetail::where('ordershop_id', $id)->get();
+
+        
+        return view('admin.ordershops.show',compact('ordershop','orderdetails'));
     }
 
     /**

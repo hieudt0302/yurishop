@@ -1,7 +1,13 @@
-@extends('layouts.admin') @section('title', 'Chi Tiết Đơn Hàng') @section('description', 'This is a blank description that
-needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') @section('pagedescription', 'Chi Tiết') @section('breadarea','Đơn
-Đặt Hàng') @section('breaditem', 'Người Dùng') 
-@section('content')
+@extends('layouts.admin') @section('title', 'Chi Tiết Đơn Hàng') @section('description', 'This is a blank description that needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') @section('pagedescription', 'Chi Tiết') @section('breadarea','Đơn
+Đặt Hàng') @section('breaditem', 'Người Dùng') @section('content') @include('notifications.status_message') @include('notifications.errors_message') @if (session()->has('success_message'))
+<div class="alert alert-success">
+    {{ session()->get('success_message') }}
+</div>
+@endif @if (session()->has('error_message'))
+<div class="alert alert-danger">
+    {{ session()->get('error_message') }}
+</div>
+@endif
 <div class="row">
     <div class="col-xs-12">
         <div class="box box-warning">
@@ -12,25 +18,27 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
             <!-- /.box-header -->
 
             <div class="box-body">
-				<div class="row">
-                    <div class="col-xs-12  text-right">                        
-                        <button type="submit" class="btn btn-warning"><i class="fa fa-stack-overflow"></i> Lưu &amp; Thêm Vào Đơn Hàng</button>
-						<button type="submit" class="btn btn-warning"><i class="fa fa-save"></i> Lưu</button>
+                @if($order->status===1 || $order->status=== 2)
+                <div class="row">
+                    <div class="col-xs-12  text-right">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-stack-overflow"></i> Lưu &amp; Thêm Vào Đơn Hàng</button>
+                        <button type="submit" class="btn btn-primary order-save"><i class="fa fa-save"></i> Lưu</button>
                     </div>
                 </div>
-				<hr>
+                @endif
+                <hr>
                 <div class="row">
                     <div class="col-xs-2">
                         <p class="text-right">Tên Khách Hàng:</p>
                     </div>
                     <div class="col-xs-5">
-                        <p class="text-left">Lê Minh Tuấn</p>
+                        <p class="text-left">{{$order->user->last_name}} {{$order->user->first_name}}</p>
                     </div>
                     <div class="col-xs-2">
                         <p class="text-right">Điện Thoại:</p>
                     </div>
                     <div class="col-xs-3">
-                        <p class="text-left">+84 989 183 193</p>
+                        <p class="text-left">{{$order->shipphone}}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -38,13 +46,20 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
                         <p class="text-right">Ngày Đặt Hàng:</p>
                     </div>
                     <div class="col-xs-5">
-                        <p class="text-left">2017-08-15</p>
+                        <p class="text-left">{{$order->created_at}}</p>
                     </div>
                     <div class="col-xs-2">
                         <p class="text-right">Trạng Thái:</p>
                     </div>
                     <div class="col-xs-3">
-                        <p class="text-left">Đang xử lý</p>
+                        <p class="text-left">
+                            @if($order->status===1)
+                            <span>Chờ xử lý</span> @elseif($order->status===2)
+                            <span>Đang xử lý</span> @elseif($order->status===3)
+                            <span>Hoàn thành</span> @elseif($order->status===4)
+                            <span>Hủy</span> @else
+                            <span>Không xác định!</span> @endif
+                        </p>
                     </div>
                 </div>
                 <div class="row">
@@ -52,21 +67,24 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
                         <p class="text-right">Địa Chỉ Nhận Hàng:</p>
                     </div>
                     <div class="col-xs-5">
-                        <p class="text-left">02 Quang Trung, Thạc Thang, Hải Châu, Đà Nẵng</p>
+                        <p class="text-left">{{ $order->shipaddress }}, {{ $order->shipdistrict }}, {{ $order->shipcity }}</p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-xs-8">
+                        @foreach ($orderdetails as $key => $item)
                         <div class="row">
-                            <div class="col-xs-3">
-                                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWRlNTI1Y2Y5NiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZGU1MjVjZjk2Ij48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
+                            <div class="col-xs-2">
+                            <!-- data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWRlNTI1Y2Y5NiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZGU1MjVjZjk2Ij48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4= -->
+                                <a href="{{$item->url}}" target="_blank"><img src="{{$item->image}}"
                                     alt="default" class="img-rounded img-inside">
+                                </a>
                             </div>
-                            <div class="col-xs-7">
+                            <div class="col-xs-8">
                                 <div class="row">
                                     <div class="col-xs-12 text-left">
-                                        <p>Tên Sản Phẩm</p>
+                                        <p>{{ $item->productname }}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -74,13 +92,13 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
                                         <p>Đơn Giá:</p>
                                     </div>
                                     <div class="col-xs-4 text-left">
-                                        <p>12,789.,456.00 vnđ</p>
+                                        <p>{{ $item->unitprice }}</p>
                                     </div>
                                     <div class="col-xs-3">
                                         <p>Kích Cỡ:</p>
                                     </div>
                                     <div class="col-xs-1">
-                                        <p>M</p>
+                                        <p>{{ $item->size }}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -88,24 +106,40 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
                                         <p>Số Lượng:</p>
                                     </div>
                                     <div class="col-xs-4 text-left">
+                                        @if($order->status===1)
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="0">
+                                            <div class="input-group spinner">
+                                                <input type="text" class="form-control quantity" data-id="{{ $item->id }}" value="{{$item->quantity}}" min="0" max="100000">
+                                                <div class="input-group-btn-vertical">
+                                                    <button class="btn btn-default ajust-quantity" type="button"><i class="fa fa-caret-up"></i></button>
+                                                    <button class="btn btn-default ajust-quantity" type="button"><i class="fa fa-caret-down"></i></button>
+                                                </div>
+                                            </div>
+                                            <!-- /.input group -->
                                         </div>
+                                        @else
+                                        <p>{{ $item->quantity }}</p>
+                                        @endif
                                     </div>
                                     <div class="col-xs-3">
                                         <p>Màu Sắc:</p>
                                     </div>
                                     <div class="col-xs-1">
-                                        <p>Xanh</p>
+                                        <p>{{ $item->color }}</p>
                                     </div>
                                 </div>
                             </div>
+                            @if($order->status===1)
                             <div class="col-xs-2 text-left">
-                                <button type="button" class="btn btn-danger" title="Xóa sản phẩm này khỏi đơn hàng!">
-                                    <i class="fa fa-ban"></i>
-                                </button>
+                                <form action="{{ url('order/itemdestroy', [$item->id]) }}" method="POST">
+                                    {!! csrf_field() !!}
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="submit" class="btn btn-danger btn-sm" value="Xóa">
+                                </form>
                             </div>
+                            @endif
                         </div>
+                        <hr> @endforeach
                     </div>
                     <div class="col-xs-4">
                         <div class="row">
@@ -121,9 +155,13 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
                                 <p>Phí vận chuyển 1:</p>
                             </div>
                             <div class="col-xs-6 text-left">
+                                @if($order->status===3 || $order->status===4)
+                                <p>{{$order->freight1}}</p>
+                                @else
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="0.00 vnđ">
+                                    <input id="freight1" type="text" class="form-control" value="{{$order->freight1}}" placeholder="0.00 vnđ">
                                 </div>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
@@ -131,9 +169,13 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
                                 <p>Phí vận chuyển 2:</p>
                             </div>
                             <div class="col-xs-6 text-left">
+                                @if($order->status===3 || $order->status===4)
+                                <p>{{$order->freight2}}</p>
+                                @else
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="0.00 vnđ">
+                                    <input id="freight2" type="text" class="form-control" value="{{$order->freight2}}" placeholder="0.00 vnđ">
                                 </div>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
@@ -141,9 +183,13 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
                                 <p>Phí dịch vụ:</p>
                             </div>
                             <div class="col-xs-6 text-left">
+                                @if($order->status===3 || $order->status===4)
+                                <p>{{$order->service}}</p>
+                                @else
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="0.00 vnđ">
+                                    <input id="service" type="text" class="form-control" value="{{$order->service}}" placeholder="0.00 vnđ">
                                 </div>
+                                @endif
                             </div>
                         </div>
                         <hr>
@@ -160,9 +206,13 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
                                 <p>Đặt cọc:</p>
                             </div>
                             <div class="col-xs-6 text-left">
+                                @if($order->status===3 || $order->status===4)
+                                <p>{{$order->deposit}}</p>
+                                @else
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="0.00 vnđ">
+                                    <input id="deposit" type="text" class="form-control" value="{{$order->deposit}}" placeholder="0.00 vnđ">
                                 </div>
+                                @endif
                             </div>
                         </div>
                         <hr>
@@ -187,21 +237,37 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
                             <label>Phản hồi của khách hàng</label>
                             <textarea class="form-control" rows="4" placeholder="I would to like..." disabled></textarea>
                         </div>
-                        <div class="form-group text-right">
-							<a class="btn-lg btn-warning"><i class="fa fa-stack-overflow"></i> Lưu &amp; Thêm Vào Đơn Hàng</a>
-                            <a class="btn-lg btn-warning">
-                                <i class="fa fa-save"></i> Lưu
-                            </a>
+                        @if($order->status===1 || $order->status===2)
+                        <div class="form-inline text-right">
+                            <form action="{{ url('/admin/orders/send/ordershop') }}/{{$order->id}}" method="POST" class="form-group">
+                                {!! method_field('patch') !!} {!! csrf_field() !!}
+                                <input type="hidden" name="freight1">
+                                <input type="hidden" name="freight2">
+                                <input type="hidden" name="service">
+                                <input type="hidden" name="deposit">
+                                <button class="btn-lg btn-primary" type="submit" disabled>
+                                    <i class="fa fa-save"></i> Lưu &amp; Thêm Vào Đơn Đặt Hàng
+                                </button>
+                            </form>
+                            <form action="{{ url('/admin/orders') }}/{{$order->id}}" method="POST" class="form-group">
+                                {!! method_field('patch') !!} {!! csrf_field() !!}
+                                <input type="hidden" name="freight1" >
+                                <input type="hidden" name="freight2" >
+                                <input type="hidden" name="service">
+                                <input type="hidden" name="deposit">
+                                <button class="btn-lg btn-primary" type="submit" disabled>
+                                    <i class="fa fa-save"></i> Lưu
+                                </button>
+                            </form>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
-
-@section('scripts')
+@endsection @section('scripts')
 
 <!-- bootstrap datepicker -->
 <script src="{{url('/')}}/public/assets/js/datepicker/bootstrap-datepicker.min.js"></script>
@@ -212,7 +278,7 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
 
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('#fromDate, #toDate').datepicker({
             autoclose: true,
             todayHighlight: true,
@@ -221,9 +287,139 @@ needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hàng') 
         });
 
         $("#dasboard").removeClass("active");
-        $("#order").addClass("active"); 
+        $("#order").addClass("active");
         $("#user").removeClass("active");
         $("#setting").removeClass("active");
+
+        /* Ajust Quantity of item */
+        $('.spinner .btn:first-of-type').on('click', function() {
+            var btn = $(this);
+            var input = btn.closest('.spinner').find('input');
+            if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {
+                input.val(parseInt(input.val(), 10) + 1);
+                //update quantity
+                var id = input.attr('data-id');
+                $.ajax({
+                    type: "PATCH",
+                    url: '{{ url("/admin/orders/ajust/quantity/item") }}' + '/' + id,
+                    data: {
+                        'quantity': input.val(),
+                    },
+                    success: function(data) {
+                        location.reload();
+                    },
+                    error: function(textStatus, errorThrown) {
+                        location.reload();
+                    }
+                });
+                //end update input
+            } else {
+                btn.next("disabled", true);
+            }
+        });
+
+        $('.spinner .btn:last-of-type').on('click', function() {
+            var btn = $(this);
+            var input = btn.closest('.spinner').find('input');
+            if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {
+                input.val(parseInt(input.val(), 10) - 1);
+                //update quantity
+                var id = input.attr('data-id');
+                $.ajax({
+                    type: "PATCH",
+                    url: '{{ url("/admin/orders/ajust/quantity/item") }}' + '/' + id,
+                    data: {
+                        'quantity': input.val(),
+                    },
+                    success: function(data) {
+                        location.reload();
+                    },
+                    error: function(textStatus, errorThrown) {
+                        location.reload();
+                    }
+                });
+                //end update input
+            } else {
+                btn.prev("disabled", true);
+            }
+        });
+
+        $('.quantity').focusout('input', function() {
+            var id = $(this).attr('data-id')
+            $.ajax({
+                type: "PATCH",
+                url: '{{ url("/admin/orders/ajust/quantity/item") }}' + '/' + id,
+                data: {
+                    'quantity': this.value,
+                },
+                success: function(data) {
+                    location.reload();
+                },
+                error: function(textStatus, errorThrown) {
+                    location.reload();
+                }
+            });
+        });
+
+        $('#freight1').on('input', function() {
+            var freight1 = this.value;
+            $('form input[name=freight1]').val(freight1);
+
+            var freight2 = $('#freight2').val();
+            var service = $('#service').val();
+            var deposit = $('#deposit').val();
+
+            $('form input[name=freight2]').val(freight2);
+            $('form input[name=service]').val(service);
+            $('form input[name=deposit]').val(deposit);
+
+            $('form button').prop('disabled', false);
+        });
+
+        $('#freight2').on('input', function() {
+            var freight2 = this.value;
+            $('form input[name=freight2]').val(freight2);
+
+            var freight1 = $('#freight1').val();
+            var service = $('#service').val();
+            var deposit = $('#deposit').val();
+
+            $('form input[name=freight1]').val(freight1);
+            $('form input[name=service]').val(service);
+            $('form input[name=deposit]').val(deposit);
+
+            $('form button').prop('disabled', false);
+        });
+
+        $('#service').on('input', function() {
+            var service = this.value;
+            $('form input[name=service]').val(service);
+
+            var freight1 = $('#freight1').val();
+            var freight2 = $('#freight2').val();
+            var deposit = $('#deposit').val();
+
+            $('form input[name=freight1]').val(freight1);
+            $('form input[name=freight2]').val(freight2);
+            $('form input[name=deposit]').val(deposit);
+
+            $('form button').prop('disabled', false);
+        });
+
+        $('#deposit').on('input', function() {
+            var deposit = this.value;
+            $('form input[name=deposit]').val(deposit);
+
+            var freight1 = $('#freight1').val();
+            var freight2 = $('#freight2').val();
+            var service = $('#service').val();
+
+            $('form input[name=freight1]').val(freight1);
+            $('form input[name=freight2]').val(freight2);
+            $('form input[name=service]').val(deposit);
+
+            $('form button').prop('disabled', false);
+        });
     });
 </script>
 @endsection

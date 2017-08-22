@@ -246,7 +246,7 @@ class OrdersController extends Controller
             DB::rollBack();
            
             return redirect()->back()
-            ->with('message','Đã xảy ra lỗi, không thể tạo đơn hàng')
+            ->with('message',$e->getMessage())//Đã xảy ra lỗi, không thể tạo đơn hàng
             ->with('status', 'danger')
             ->withInput();
         }
@@ -256,7 +256,8 @@ class OrdersController extends Controller
 
         //return order list
         return redirect()->route('front.orders.index')
-        ->with('success','Bạn đã gửi tạo mới đơn hàng thành công!');
+        ->with('message','Bạn đã gửi tạo mới đơn hàng thành công!')
+        ->with('status', 'success');
     }
 
     /**

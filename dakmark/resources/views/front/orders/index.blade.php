@@ -3,6 +3,8 @@
 <div class="container">
     <div class="row">
         <h1>Danh Sách Đơn Hàng</h1>
+        @include('notifications.status_message') 
+        @include('notifications.errors_message')
     </div>
     <div class="row">
 

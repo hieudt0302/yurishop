@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Order;
 
 class OrderDetail extends Model
 {
@@ -12,4 +13,9 @@ class OrderDetail extends Model
      * @var string
      */
     protected $table = 'orderdetails';
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }

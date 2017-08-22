@@ -62,6 +62,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::patch('orders/{id}',['as'=>'admin.orders.update','uses'=>'OrdersController@update','middleware' => ['permission:order-edit']]);
     Route::delete('orders/{id}',['as'=>'admin.orders.destroy','uses'=>'OrdersController@destroy','middleware' => ['permission:order-delete']]);
     Route::post('orders',['as'=>'admin.orders.find','uses'=>'OrdersController@find','middleware' => ['permission:order-list']]);
+    //Order-Sub
+    Route::patch('orders/ajust/quantity/item/{id}',['as'=>'admin.orders.ajustquantity','uses'=>'OrdersController@ajustquantity','middleware' => ['permission:order-edit']]);
+    Route::patch('orders/send/ordershop/{id}',['as'=>'admin.orders.sendshop','uses'=>'OrdersController@sendshop','middleware' => ['permission:order-edit']]);
 
     //OrderShops
     Route::get('ordershops',['as'=>'admin.ordershops.index','uses'=>'OrderShopsController@index','middleware' => ['permission:order-list']]);
@@ -72,13 +75,18 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::patch('ordershops/{id}',['as'=>'admin.ordershops.update','uses'=>'OrderShopsController@update','middleware' => ['permission:order-edit']]);
     Route::delete('ordershops/{id}',['as'=>'admin.ordershops.destroy','uses'=>'OrderShopsController@destroy','middleware' => ['permission:order-delete']]);
     Route::post('ordershops',['as'=>'admin.ordershops.find','uses'=>'OrderShopsController@find','middleware' => ['permission:order-list']]);
-
-    //order area - added by Thang LD
+	
+	//order area - added by Thang LD
     Route::get('orders',['as'=>'admin.orders','uses'=>'OrderController@index']);
     Route::get('orders/details',['as'=>'admin.orders.details','uses'=>'OrderController@view_detail']);
 
     Route::get('product-cat',['as'=>'admin.product-cat','uses'=>'ProductController@productCatList']);
     Route::get('product-cat/add',['as'=>'admin.product-cat.add','uses'=>'ProductController@addProductCat']);
+    Route::post('product-cat/add',['as'=>'admin.product-cat.insert','uses'=>'ProductController@insertProductCat']);
+    Route::get('product-cat/edit/{id}',['as'  =>'admin.product-cat.edit','uses' => 'ProductController@editProductCat'])->where('id','[0-9]+');
+    Route::post('product-cat/edit/{id}',['as' =>'admin.product-cat.update','uses' => 'ProductController@updateProductCat'])->where('id','[0-9]+');
+    Route::get('product-cat/delete/{id}',['as'  =>'admin.product-cat.delete','uses' => 'ProductController@deleteProductCat'])->where('id','[0-9]+');
+
     Route::get('products',['as'=>'admin.product','uses'=>'ProductController@productList']);
     Route::get('product/add',['as'=>'admin.product.add','uses'=>'ProductController@addProduct']);
 });

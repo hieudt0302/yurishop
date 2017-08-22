@@ -13,13 +13,11 @@ class PagesController extends Controller
     public function home(){
         return view('front.pages.home');
     }
-    public function validInput(Request $request){
-    	$this->validate($request,['product_url'=>'required']);
-    }
     public function order_list(){
         return view('front/pages/order_list');
     }
     public function product_info(Request $request){
+		
     	$start_time = microtime(TRUE);
 
     	$this->validate($request,['product_url'=>'required'],['required' => 'Hãy nhập link sản phẩm']);
@@ -42,6 +40,7 @@ class PagesController extends Controller
 		$skuMap = array();  // Mảng kết hợp : size + color + price + quantity
 		$description = array();
 		$shop_name = '';
+		$first = '';  // thứ tự xuất hiện của color và size (cái nào xuất hiện trước)
 
 		if(strpos($product_url,'.taobao.com')){  // nếu sp thuộc trang taobao.com
 			$page = 'taobao';
@@ -188,7 +187,6 @@ class PagesController extends Controller
 
 			$colors = '';
 			$sizes = '';
-			$first = '';  // thứ tự xuất hiện của color và size (cái nào xuất hiện trước)
 			if($html->find('.tm-sale-prop')){  // phải đảm bảo rằng chỉ có 2 class "tm-sale-prop"
 				if($html->find('.tm-sale-prop',0)->find('.tb-img')){
 					$colors = $html->find('.tm-sale-prop',0);
