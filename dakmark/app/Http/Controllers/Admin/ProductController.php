@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ProductCat;
+use App\Models\Seo;
 
 class ProductController extends Controller
 {
@@ -25,18 +26,27 @@ class ProductController extends Controller
 
     // Hàm ajax lấy slug theo tên
     public function generate_slug(Request $request){
-        $id = $this->input->post('system_id');
-        $system_id = isset($id) ? $id : '';
-        $name = $this->input->post('name');
-        $url = url_format($name);
+        $system_id = $request->system_id;
+        $system_id = isset($system_id) ? $system_id : '';
+        $name = $request->name;
+        $slug = url_format($name);
         $i=0;
-        $check_url=  $this->main_model->check_exists(array('seo_url'=>$url,'system_id != '=>$system_id),'seo');
-        while ($check_url){
+        $check_slug =  $this->check_slug_exist($slug, $system_id);
+        while ($check_slug){
             $i++;
-            $url.= '-'.$i;
-            $check_url=  $this->main_model->check_exists(array('seo_url'=>$url,'system_id != '=>$system_id),'seo');
+            $slug.= '-'.$i;
+            $check_slug =  $this->check_slug_exist($slug, $system_id);
         }
-        echo $url;
+
+        echo $slug;
+    }
+
+    // Kiểm tra slug đã tồn tại hay chưa
+    function check_slug_exist($slug, $system_id){
+        $query = Seo::where([['slug', '=', $slug],['system_id', '<>', $system_id]])->get();
+        if($query->count() > 0)
+            return TRUE;
+        return FALSE;
     }
    
 }
