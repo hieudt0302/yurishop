@@ -9,13 +9,6 @@
                     <h2 class="page-heading">
                         <span class="page-heading-title2">Danh sách bản tin</span>
                     </h2>
-                    @if($slug != 'tags')
-                    <div class="sortPagiBar clearfix">                        
-                        <div class="bottom-pagination">
-                            {{$blogs->render()}}
-                        </div>
-                    </div>
-                    @endif
                     <ul class="blog-posts">
                      @foreach($blogs as $row)
                         <li class="post-item">
@@ -28,7 +21,7 @@
                                     </div>
                                     <div class="col-sm-7">
                                         <div class="entry-ci">
-                                            <h3 class="entry-title"><a href="#">{{$row->title}}</a></h3>
+                                            <h3 class="entry-title"><a href="{{url('/blogs/'.$row->id)}}">{{$row->title}}</a></h3>
                                             <div class="entry-meta-data">
                                                 <span class="comment-count">
                                                     <i class="fa fa-comment-o"></i> 3
@@ -37,9 +30,6 @@
                                             </div>
                                             <div class="entry-excerpt">
                                                 Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend.
-                                            </div>
-                                            <div class="entry-more">
-                                                <a href="{{url('/blog/'.$row->id)}}">Đọc thêm</a>
                                             </div>
                                         </div>
                                     </div>

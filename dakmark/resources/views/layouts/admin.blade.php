@@ -11,15 +11,15 @@
      
     <meta name="description" content="@yield('description')">
  
-    <link href="{{url('/')}}/public/assets/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="{{url('/')}}/public/assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="{{url('/')}}/public/assets/css/bootstrap-datepicker.css" rel="stylesheet">
-    <link href="{{url('/')}}/public/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">  
+    <link href="{{url('/')}}/assets/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="{{url('/')}}/assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="{{url('/')}}/assets/css/bootstrap-datepicker.css" rel="stylesheet">
+    <link href="{{url('/')}}/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">  
     <!-- Morris Charts CSS -->
     <!-- <link href="{!! asset('assets/css/plugins/morris.css') !!}" rel="stylesheet"> -->
-    <link rel="stylesheet" href="{{url('/')}}/public/assets/css/morris.css">
-    <link rel="stylesheet" href="{{url('/')}}/public/assets/css/admin.css">
-    <link rel="stylesheet" href="{{url('/')}}/public/assets/css/custom.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/morris.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/admin.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/custom.css">
  
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,8 +28,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script src="{{url('/')}}/public/assets/js/jquery-1.12.4.js"></script>
-    <script src="{{url('/')}}/public/assets/js/bootstrap.min.js"></script>
+    <script src="{{url('/')}}/assets/js/jquery-1.12.4.js"></script>
+    <script src="{{url('/')}}/assets/js/bootstrap.min.js"></script>
 
     
     <script>
@@ -108,6 +108,9 @@
                         <a href="{{ url('/admin/orders') }}"><i class="fa fa-fw fa-edit"></i> Đơn Đặt Hàng</a>
                     </li>
                     <li>
+                        <a href="{{ url('/admin/blogs') }}"><i class="fa fa-fw fa-newspaper-o"></i> Bài viết</a>
+                    </li>
+                    <li>
                         <a href="{{ url('/admin/blank') }}"><i class="fa fa-fw fa-wrench"></i> Cài Đặt</a>
                     </li>
                 </ul>
@@ -125,9 +128,9 @@
     </div>
     <!-- /#wrapper -->
     <!-- Morris Charts JavaScript -->
-    <script src="{{url('/')}}/public/assets/js/plugins/morris/raphael.min.js"></script>
-    <script src="{{url('/')}}/public/assets/js/plugins/morris/morris.min.js"></script>
-    <script src="{{url('/')}}/public/assets/js/plugins/morris/morris-data.js"></script>
+    <script src="{{url('/')}}/assets/js/plugins/morris/raphael.min.js"></script>
+    <script src="{{url('/')}}/assets/js/plugins/morris/morris.min.js"></script>
+    <script src="{{url('/')}}/assets/js/plugins/morris/morris-data.js"></script>
      
    
 </body>

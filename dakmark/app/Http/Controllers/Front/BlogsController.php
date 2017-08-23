@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 
@@ -16,7 +17,7 @@ class BlogsController extends Controller
     {
         Log::info('reached blog index');
         $blogs = Blog::all();
-        return view('front.blogs.index')->with('blogs', $blogs)->paginate(10);
+        return view('front.blogs.index')->with('blogs', $blogs);
     }
     /**
      * Display the specified resource.

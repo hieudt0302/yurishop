@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-show
     <div class="columns-container">
         <div class="container" id="columns">
             <!-- row -->
