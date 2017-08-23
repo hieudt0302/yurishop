@@ -1,12 +1,13 @@
 <?php $__env->startSection('title', 'Danh mục sản phẩm'); ?>
 <?php $__env->startSection('description', 'Danh mục sản phẩm'); ?>
 <?php $__env->startSection('content'); ?>
+<header class="header">
+    <a href="<?php echo e(route('admin.product-cat.add')); ?>" class="btn btn-primary btn-sm pull-right" title="Thêm danh mục mới">
+        <i class="fa fa-plus"></i>
+        Thêm danh mục mới
+    </a>
+</header>
 <div class="container">
-    <div class="row">
-        <a href="<?php echo e(route('admin.product-cat.add')); ?>" class="btn btn-primary" title="Thêm danh mục mới">
-            <i class="fa fa-plus"></i>Thêm danh mục mới
-        </a>
-    </div>
     <div class="row">
         <div class="col-md-12">
             <table id="order-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -20,36 +21,27 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $__currentLoopData = $productCats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td>10-06-2017 10:00</td>
-                        <td>Donald Trump</td>
-                        <td><?php echo e(price_format(2000000,'VNĐ')); ?></td>
-                        <td>Hoàn thành</td>
-                        <td class="order-option">
-                            <a href="<?php echo e(route('admin.orders.details')); ?>" class="btn btn-default btn-xs" title="Xem chi tiết">
-                                <i class="fa fa-eye"></i>Xem chi tiết
+                        <td><?php echo e($pCat->name); ?></td>
+                        <td>
+                            <i class="fa <?php echo ($pCat->is_show==1) ? 'fa-check' : 'fa-times'; ?>"></i>
+                        </td>
+                        <td>
+                            <i class="fa <?php echo ($pCat->is_show_nav==1) ? 'fa-check' : 'fa-times'; ?>"></i>
+                        </td>
+                        <td><?php echo e($pCat->sort_order); ?></td>
+                        <td>
+                            <a href="<?php echo e(route('admin.product-cat.edit',$pCat->id)); ?>" class="btn btn-default btn-xs" title="Chỉnh sửa">
+                                <i class="fa fa-pencil"></i>Sửa 
                             </a>
-                            <a href="" class="btn btn-default btn-xs" data-toggle="ajaxModal" title="Hủy bỏ">
-                                <i class="fa fa-ban"></i>Hủy đơn hàng
+                            <a href="<?php echo e(route('admin.product-cat.delete',$pCat->id)); ?>" class="btn btn-default btn-xs" title="Xóa" 
+                                onclick="return confirm(\'Bạn muốn xóa danh mục này ?\')">
+                                <i class="fa fa-trash"></i>Xóa
                             </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>15-06-2017 8:00</td>
-                        <td>Tập Cận Bình</td>
-                        <td>2.300.000</td>
-                        <td>Đã hủy</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>10-07-2017 10:30</td>
-                        <td>Shinzo Abe</td>
-                        <td>3.000.000</td>
-                        <td>Chờ xử lý</td>
-                        <td></td>
-                    </tr>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>        
             </table>
         </div>

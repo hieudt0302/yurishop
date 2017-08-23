@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
- 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>@yield('title')</title>
      
     <meta name="description" content="@yield('description')">
@@ -28,6 +29,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<<<<<<< HEAD
     <script src="{{url('/')}}/assets/js/jquery-1.12.4.js"></script>
     <script src="{{url('/')}}/assets/js/bootstrap.min.js"></script>
 
@@ -37,6 +39,10 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+=======
+    <script src="{{url('/')}}/public/assets/js/jquery-1.12.4.js"></script>
+    <script src="{{url('/')}}/public/assets/js/bootstrap.min.js"></script>
+>>>>>>> 3425852b3e12566ea633bcafd90319db26655cf5
  
 </head>
  

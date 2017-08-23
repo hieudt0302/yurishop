@@ -37,6 +37,36 @@ class CartsController extends Controller
      */
     public function store(Request $request)
     {        
+        try
+        {
+            $url = $request->url;
+            $productName = $request->productName;
+            $image = $request->image;
+            $shop = $request->shop;
+            $color = $request->color;
+            $colorImg = $request->colorImage;
+            $sizes = $request->sizes;
+
+            foreach($sizes as $s){
+                $GUID = $this->getGUID();
+                Cart::add(['id' => $GUID , 'name' => $productName, 'qty' => $s['amount'],  'price' => $s['sizePrice'], 
+                'options' => [
+                    'size' => $s['sizeName'], 'color'=>$color,'colorimg'=> $colorImg, 'shop'=>$shop, 'url'=>$url,'image'=>$image
+                ]]);
+            }
+
+            session()->flash('success_message',  'URL:' . $url . 'PRODUCTNAME:' . $productName . 'IMAGE:' . $image . 'SHOP:' . $shop . 'COLOR:' . $color . 'COLORIMAGE:' . $colorImg);
+
+            return response()->json(['success' => true]);
+        }       
+        catch (\Exception $e)
+        {
+            session()->flash('success_message', $e->getMessage());
+            return response()->json(['success' => false]);
+        }
+
+       
+
         // $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
         //     return $cartItem->id === $request->id;
         // });
@@ -50,11 +80,10 @@ class CartsController extends Controller
         // $request->size, 
         // $request->color, 
         // $request->quantity, 
-        // $request->price); //guid
-
-        Cart::add(['id' => 'SameID123', 'name' => 'Product 1', 'qty' => 1, 'price' => 1500.25, 
-        'options' => ['size' => 'M', 'color'=>'Red', 'shop'=>'Shop 1', 'url'=>'#','image'=>'#']]);
-        return redirect('cart')->withSuccessMessage('Sản phẩm đã được thêm vào giỏ!');
+        // $request->price);
+        // Cart::add(['id' => 'SameID123', 'name' => 'Product 1', 'qty' => 1, 'price' => 1500.25, 
+        // 'options' => ['size' => 'M', 'color'=>'Red', 'shop'=>'Shop 1', 'url'=>'#','image'=>'#']]);
+        // return redirect('cart')->withSuccessMessage('Sản phẩm đã được thêm vào giỏ!');
     }
 
     /**
@@ -127,4 +156,22 @@ class CartsController extends Controller
          Cart::destroy();
          return redirect('cart')->withSuccessMessage('Giỏ hàng của bạn đã được xóa!');
      }
+
+     function getGUID(){
+        if (function_exists('com_create_guid')){
+            return com_create_guid();
+        }else{
+            mt_srand((double)microtime()*10000);//optional for php 4.2.0 and up.
+            $charid = strtoupper(md5(uniqid(rand(), true)));
+            $hyphen = chr(45);// "-"
+            $uuid = chr(123)// "{"
+                .substr($charid, 0, 8).$hyphen
+                .substr($charid, 8, 4).$hyphen
+                .substr($charid,12, 4).$hyphen
+                .substr($charid,16, 4).$hyphen
+                .substr($charid,20,12)
+                .chr(125);// "}"
+            return $uuid;
+        }
+    }
 }

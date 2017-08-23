@@ -32,12 +32,14 @@
             <p class="text-right">Trạng Thái:</p>
         </div>
         <div class="col-xs-3">
-            <p class="text-left">@if($order->status===1)
+            <p class="text-left">
+                @if($order->status===1)
                                 <span>Chờ xử lý</span> @elseif($order->status===2)
                                 <span>Đang xử lý</span> @elseif($order->status===3)
                                 <span>Hoàn thành</span> @elseif($order->status===4)
                                 <span>Hủy</span> @else
-                                <span>Không xác định!</span> @endif
+                                <span>Không xác định!</span> 
+                @endif
             </p>
         </div>
     </div>

@@ -1,13 +1,13 @@
-<div style="position:relative;width:0;height:0;overflow:hidden;"><img src="https://img.alicdn.com/bao/uploaded/i2/TB1nrrtQpXXXXbDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"><img src="https://img.alicdn.com/bao/uploaded/i2/TB1nrrtQpXXXXbDXVXXXXXXXXXX_!!0-item_pic.jpg_q30.jpg"></div><script id="tb-beacon-aplus" src="//g.alicdn.com/alilog/mlog/aplus_v2.js" exparams="category=item%5f50010850&amp;userid=&amp;at_isb=1&amp;b2c_brand=82169462&amp;b2c_auction=548001349200&amp;at_autype=4%5f62844901&amp;aplus&amp;at_alis=2%5f520408396&amp;&amp;yunid=&amp;&amp;trid=cb4569e515033037352366660e&amp;asid=AQAAAAA3mJpZzjLsOQAAAACRQNNp4LMOpQ=="></script><script type="text/javascript">
-window.TShop && TShop.setConfig && TShop.setConfig({token:'',renderTime:'1503303735',bucketId:''});
+<div style="position:relative;width:0;height:0;overflow:hidden;"><img src="https://img.alicdn.com/imgextra/i3/2237509307/TB2An.Sc8yN.eBjSZFkXXb8YFXa_!!2237509307.jpg_430x430q90.jpg"><img src="https://img.alicdn.com/imgextra/i3/2237509307/TB2An.Sc8yN.eBjSZFkXXb8YFXa_!!2237509307.jpg_q30.jpg"></div><script id="tb-beacon-aplus" src="//g.alicdn.com/alilog/mlog/aplus_v2.js" exparams="category=item%5f50012010&amp;userid=&amp;at_isb=1&amp;b2c_brand=104403047&amp;b2c_auction=535749186777&amp;at_autype=4%5f114111519&amp;aplus&amp;at_alis=2%5f2237509307&amp;&amp;yunid=&amp;&amp;trid=2f58878d15033888073081098e&amp;asid=AQAAAACH5JtZBfhEbQAAAADkw+LEWOxHYQ=="></script><script type="text/javascript">
+window.TShop && TShop.setConfig && TShop.setConfig({token:'',renderTime:'1503388807',bucketId:''});
 </script>
 <script>
-with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=item%5f50010850&userid=&at_isb=1&b2c_brand=82169462&b2c_auction=548001349200&at_autype=4%5f62844901&aplus&at_alis=2%5f520408396&&yunid=&&trid=cb4569e515033037352366660e&asid=AQAAAAA3mJpZzjLsOQAAAACRQNNp4LMOpQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=item%5f50012010&userid=&at_isb=1&b2c_brand=104403047&b2c_auction=535749186777&at_autype=4%5f114111519&aplus&at_alis=2%5f2237509307&&yunid=&&trid=2f58878d15033888073081098e&asid=AQAAAACH5JtZBfhEbQAAAADkw+LEWOxHYQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
 </script>
 <div id="J_SiteNav" class="site-nav lang-zh-CN site-nav-mobile">
 <div id="J_SiteNavBd" class="site-nav-bd">
 <ul id="J_SiteNavBdL" class="site-nav-bd-l"><li class="J_Menu menu area"><div class="menu-hd"><a href="javascript:;" target="_top" id="J_Nation"><span class="css_flag css_GLOBAL" data-nation="GLOBAL" data-unit="USD"><span class="country-text">全球</span></span></a><i><span></span></i></div><div class="menu-bd menu-list"><div class="menu-bd-panel"><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_XX" data-nation="GLOBAL" data-unit="USD"><span class="country-text">全球</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_CN" data-nation="CN" data-unit="CNY"><span class="country-text">中国大陆</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_TW" data-nation="TW" data-unit="TWD"><span class="country-text">台湾</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_HK" data-nation="HK" data-unit="HKD"><span class="country-text">香港</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_MO" data-nation="MO" data-unit="MOP"><span class="country-text">澳门</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_JP" data-nation="JP" data-unit="JPY"><span class="country-text">日本</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_KR" data-nation="KR" data-unit="KER"><span class="country-text">韩国</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_SG" data-nation="SG" data-unit="SGD"><span class="country-text">新加坡</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_MY" data-nation="MY" data-unit="MYR"><span class="country-text">马来西亚</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_US" data-nation="US" data-unit="USD"><span class="country-text">美国</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_CA" data-nation="CA" data-unit="CAD"><span class="country-text">加拿大</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_NZ" data-nation="NZ" data-unit="NZD"><span class="country-text">新西兰</span></span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-item"><span class="css_flag css_AU" data-nation="AU" data-unit="AUD"><span class="country-text">澳大利亚</span></span></a></div></div></li><li class="J_Menu menu lang" id="J_Site_Lang"><div class="menu-hd"><a href="javascript:;" target="_top" id=""><span class=""><span class="">语言</span></span></a><i><span></span></i></div><div class="menu-bd menu-list"><div class="menu-bd-panel"><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-lang"><span class="country-text notranslate" data-lang="zh-CN">简体中文</span></a><a rel="nofollow" href="javascript:void(0);" target="_self" class="choose-lang"><span class="country-text notranslate" data-lang="zh-TW">繁體中文</span></a><span id="J_Lang_Key" style="display:none;">宝贝</span><div class="google-translate"><div id="google_translate_element"></div></div></div></div></li></ul>
-<ul id="J_SiteNavBdR" class="site-nav-bd-r"><li class="J_MenuImpt menu menu-reg"><div id="J_MenuRegHd" class="menu-hd" data-spm="a1z6j.7397948.2014082604"><a href="//world.taobao.com/markets/all/sea/register" target="_top">注册</a></div></li><li class="site-nav-pipe"><span class="site-nav-pipe-line">|</span></li><li class="J_MenuImpt menu menu-login"><div id="J_MenuLoginHd" class="menu-hd" data-spm="a1z5j.7397947.2014082603"><a href="//world.taobao.com/markets/all/login?redirectURL=https%3A%2F%2Fworld.tmall.com%2Fitem%2F548001349200.htm%3Fspm%3Da230r.1.14.6.76bf523w1Oot2%26id%3D548001349200%26ad_id%3D%26am_id%3D%26cm_id%3D140105335569ed55e27b%26pm_id%3D%26abbucket%3D4" target="_top">登录</a></div></li><li id="J_MiniCart" class="J_Menu menu mini-cart" data-fn-name="fn-mini-cart" data-spm="a1z10j.7397952.2014082608"><div class="menu-hd"><a href="//world.taobao.com/cart/cart.htm" target="_top" id="mc-menu-hd"><span class="seahd-iconfont"></span><span>购物车</span><strong id="J_MiniCartNum" class="mini-cart-num">0</strong></a><i><span></span></i></div><div class="menu-bd menu-tbl"><div class="menu-bd-panel"></div></div></li><li id="J_Favorite" class="J_Menu menu favorite" data-spm="a1z11j.7397953.2015082601"><div class="menu-hd"><a href="//shoucang.taobao.com/shop_collect_list.htm" target="_top">收藏夹</a><i><span></span></i></div><div class="menu-bd menu-list"><div id="J_FavoriteBd" class="menu-bd-panel"><div class="menu-list-bd"><a href="//shoucang.taobao.com/item_collect.htm" target="_top"><i></i>收藏的宝贝</a><a href="//shoucang.taobao.com/shop_collect_list.htm" target="_top"><i></i>收藏的店铺</a></div></div></div></li><li id="J_DeliveryTrack" class="J_Menu menu delivery-track" data-fn-name="fn-delivery-track" data-spm="a1z9j.7397951.2014082607"><div class="menu-hd"><a href="//msg.taobao.com/message/list.htm?appId=1100111&amp;page=1" target="_top">物流追踪</a><i><span></span></i><span class="seahd-iconfont icon-notify"></span></div><div class="menu-bd menu-tbl"><div id="J_DeliveryTrackBd" class="menu-bd-panel"></div></div></li><li id="J_Orders" class="J_Menu menu orders" data-fn-name="fn-orders" data-spm="a1z8j.7397950.2014082606"><div class="menu-hd"><a href="//world.taobao.com/trade/itemlist/list_bought_items.htm" target="_top">订单管理</a><i><span></span></i><span class="seahd-iconfont icon-notify"></span></div><div class="menu-bd menu-tbl"><div id="J_OrdersBd" class="menu-bd-panel"></div></div></li><li id="J_HelpCenter" class="J_Menu menu help-center" data-spm="a1z11j.7397953.2014082609"><div class="menu-hd"><a href="//world.taobao.com/helper/" target="_top">帮助中心</a></div></li><li id="J_SiteMobile" class="J_Menu menu site-mobile" data-spm="a1z11j.7397953.2015081801"><div class="menu-hd"><a href="//mpage.taobao.com/hd/download.html" target="_top"><span class="seahd-iconfont"></span>手机APP</a><i><span></span></i></div><div class="menu-bd menu-list"><div id="J_SiteMobileBd" class="menu-bd-panel"><div class="menu-list-bd"><a href="//mpage.taobao.com/hd/download.html" target="_top"><span class="mobile-qr"><img src="//img.alicdn.com/tps/TB1fOxQPVXXXXXnXFXXXXXXXXXX-175-175.png" width="90" height="90"><span>点击或扫描下载手机淘宝</span></span></a></div></div></div></li></ul>
+<ul id="J_SiteNavBdR" class="site-nav-bd-r"><li class="J_MenuImpt menu menu-reg"><div id="J_MenuRegHd" class="menu-hd" data-spm="a1z6j.7397948.2014082604"><a href="//world.taobao.com/markets/all/sea/register" target="_top">注册</a></div></li><li class="site-nav-pipe"><span class="site-nav-pipe-line">|</span></li><li class="J_MenuImpt menu menu-login"><div id="J_MenuLoginHd" class="menu-hd" data-spm="a1z5j.7397947.2014082603"><a href="//world.taobao.com/markets/all/login?redirectURL=https%3A%2F%2Fworld.tmall.com%2Fitem%2F535749186777.htm%3Fspm%3Da230r.1.14.6.76bf523DgKiqe%26id%3D535749186777%26cm_id%3D140105335569ed55e27b%26abbucket%3D4" target="_top">登录</a></div></li><li id="J_MiniCart" class="J_Menu menu mini-cart" data-fn-name="fn-mini-cart" data-spm="a1z10j.7397952.2014082608"><div class="menu-hd"><a href="//world.taobao.com/cart/cart.htm" target="_top" id="mc-menu-hd"><span class="seahd-iconfont"></span><span>购物车</span><strong id="J_MiniCartNum" class="mini-cart-num">0</strong></a><i><span></span></i></div><div class="menu-bd menu-tbl"><div class="menu-bd-panel"></div></div></li><li id="J_Favorite" class="J_Menu menu favorite" data-spm="a1z11j.7397953.2015082601"><div class="menu-hd"><a href="//shoucang.taobao.com/shop_collect_list.htm" target="_top">收藏夹</a><i><span></span></i></div><div class="menu-bd menu-list"><div id="J_FavoriteBd" class="menu-bd-panel"><div class="menu-list-bd"><a href="//shoucang.taobao.com/item_collect.htm" target="_top"><i></i>收藏的宝贝</a><a href="//shoucang.taobao.com/shop_collect_list.htm" target="_top"><i></i>收藏的店铺</a></div></div></div></li><li id="J_DeliveryTrack" class="J_Menu menu delivery-track" data-fn-name="fn-delivery-track" data-spm="a1z9j.7397951.2014082607"><div class="menu-hd"><a href="//msg.taobao.com/message/list.htm?appId=1100111&amp;page=1" target="_top">物流追踪</a><i><span></span></i><span class="seahd-iconfont icon-notify"></span></div><div class="menu-bd menu-tbl"><div id="J_DeliveryTrackBd" class="menu-bd-panel"></div></div></li><li id="J_Orders" class="J_Menu menu orders" data-fn-name="fn-orders" data-spm="a1z8j.7397950.2014082606"><div class="menu-hd"><a href="//world.taobao.com/trade/itemlist/list_bought_items.htm" target="_top">订单管理</a><i><span></span></i><span class="seahd-iconfont icon-notify"></span></div><div class="menu-bd menu-tbl"><div id="J_OrdersBd" class="menu-bd-panel"></div></div></li><li id="J_HelpCenter" class="J_Menu menu help-center" data-spm="a1z11j.7397953.2014082609"><div class="menu-hd"><a href="//world.taobao.com/helper/" target="_top">帮助中心</a></div></li><li id="J_SiteMobile" class="J_Menu menu site-mobile" data-spm="a1z11j.7397953.2015081801"><div class="menu-hd"><a href="//mpage.taobao.com/hd/download.html" target="_top"><span class="seahd-iconfont"></span>手机APP</a><i><span></span></i></div><div class="menu-bd menu-list"><div id="J_SiteMobileBd" class="menu-bd-panel"><div class="menu-list-bd"><a href="//mpage.taobao.com/hd/download.html" target="_top"><span class="mobile-qr"><img src="//img.alicdn.com/tps/TB1fOxQPVXXXXXnXFXXXXXXXXXX-175-175.png" width="90" height="90"><span>点击或扫描下载手机淘宝</span></span></a></div></div></div></li></ul>
 </div>
 </div>
 <div class="top-banner-world" data-spm="267607">
@@ -25,34 +25,34 @@ with(document)with(body)with(insertBefore(createElement("script"),firstChild))se
 </div>
 <div id="J_HdShopInfo" class="hd-shop-info" style="display: block;">
 <div class="hd-shop-name">
-<a href="//mefound.tmall.com"><span class="sea-icon-tmall"></span>棉立方旗舰店</a>
+<a href="//weichunxb.tmall.com"><span class="sea-icon-tmall"></span>薇纯箱包旗舰店</a>
 <span class="flagship-icon"><span class="flagship-icon-font">品牌直销</span></span>
 </div>
 <div class="hd-shop-desc">
 <label>
 [
 <b>描述</b>
-<a href="//rate.taobao.com/user-rate-UMFIWMmN4vGkL.htm" target="_blank">
-<span class="equal">4.8</span>
-</a> |
-<b>物流</b>
-<a href="//rate.taobao.com/user-rate-UMFIWMmN4vGkL.htm" target="_blank">
+<a href="//rate.taobao.com/user-rate-UvCIGMG8WOFvWMWTT.htm" target="_blank">
 <span class="up">4.8</span>
 </a> |
+<b>物流</b>
+<a href="//rate.taobao.com/user-rate-UvCIGMG8WOFvWMWTT.htm" target="_blank">
+<span class="up">4.7</span>
+</a> |
 <b>服務</b>
-<a href="//rate.taobao.com/user-rate-UMFIWMmN4vGkL.htm" target="_blank">
+<a href="//rate.taobao.com/user-rate-UvCIGMG8WOFvWMWTT.htm" target="_blank">
 <span class="up">4.7</span>
 </a>
 ]
 </label>
-<span class="ww-light ww-large" data-nick="%E6%A3%89%E7%AB%8B%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97" data-tnick="" data-encode="true" data-display="inline"><a href="https://amos.alicdn.com/getcid.aw?v=3&amp;groupid=0&amp;s=1&amp;charset=utf-8&amp;uid=%E6%A3%89%E7%AB%8B%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97&amp;site=cntaobao&amp;groupid=0&amp;s=1&amp;fromid=cntaobao" target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。"><span>旺旺在线</span></a></span>
+<span class="ww-light ww-large" data-nick="%E8%96%87%E7%BA%AF%E7%AE%B1%E5%8C%85%E6%97%97%E8%88%B0%E5%BA%97" data-tnick="" data-encode="true" data-display="inline"><a href="https://amos.alicdn.com/getcid.aw?v=3&amp;groupid=0&amp;s=1&amp;charset=utf-8&amp;uid=%E8%96%87%E7%BA%AF%E7%AE%B1%E5%8C%85%E6%97%97%E8%88%B0%E5%BA%97&amp;site=cntaobao&amp;groupid=0&amp;s=1&amp;fromid=cntaobao" target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。"><span>旺旺在线</span></a></span>
 </div>
 <div class="hd-shop-popup">
 <div class="tb-info">
 <div class="tb-box-half tb-seller-info">
-<label><span>掌柜: </span>棉立方旗舰店</label>
+<label><span>掌柜: </span>薇纯箱包旗舰店</label>
 <p>
-<span class="ww-light ww-large" data-nick="%E6%A3%89%E7%AB%8B%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97" data-tnick="" data-encode="true" data-display="inline"><a href="https://amos.alicdn.com/getcid.aw?v=3&amp;groupid=0&amp;s=1&amp;charset=utf-8&amp;uid=%E6%A3%89%E7%AB%8B%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97&amp;site=cntaobao&amp;groupid=0&amp;s=1&amp;fromid=cntaobao" target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。"><span>旺旺在线</span></a></span>
+<span class="ww-light ww-large" data-nick="%E8%96%87%E7%BA%AF%E7%AE%B1%E5%8C%85%E6%97%97%E8%88%B0%E5%BA%97" data-tnick="" data-encode="true" data-display="inline"><a href="https://amos.alicdn.com/getcid.aw?v=3&amp;groupid=0&amp;s=1&amp;charset=utf-8&amp;uid=%E8%96%87%E7%BA%AF%E7%AE%B1%E5%8C%85%E6%97%97%E8%88%B0%E5%BA%97&amp;site=cntaobao&amp;groupid=0&amp;s=1&amp;fromid=cntaobao" target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。"><span>旺旺在线</span></a></span>
 </p>
 </div>
 <div class="tb-box-half">
@@ -62,57 +62,57 @@ with(document)with(body)with(insertBefore(createElement("script"),firstChild))se
 <span class="tab2">與同行業相比<span>
 </span></span>
 </dt>
-<dd class="tb-rank-state-equal">
+<dd class="tb-rank-state-up">
 <label>
 描述相符
-<a href="//rate.taobao.com/user-rate-UMFIWMmN4vGkL.htm" target="_blank">
+<a href="//rate.taobao.com/user-rate-UvCIGMG8WOFvWMWTT.htm" target="_blank">
 <b>4.8</b>
 </a>
 </label>
-<span class="equal">持平</span>
-<em>--------</em>
+<span class="up">高於</span>
+<em>12.82%</em>
 </dd>
 <dd class="tb-rank-state-up">
 <label>
 服務態度
-<a href="//rate.taobao.com/user-rate-UMFIWMmN4vGkL.htm" target="_blank">
+<a href="//rate.taobao.com/user-rate-UvCIGMG8WOFvWMWTT.htm" target="_blank">
 <b>4.7</b>
 </a>
 </label>
 <span class="shop.evaluateInfo[1].state">高於</span>
-<em>8.90%</em>
+<em>8.60%</em>
 </dd>
 <dd class="tb-rank-state-up tb-box-bottomline">
 <label>
 發貨速度
-<a href="//rate.taobao.com/user-rate-UMFIWMmN4vGkL.htm" target="_blank">
-<b>4.8</b>
+<a href="//rate.taobao.com/user-rate-UvCIGMG8WOFvWMWTT.htm" target="_blank">
+<b>4.7</b>
 </a>
 </label>
 <span class="shop.evaluateInfo[0].state">高於</span>
-<em>11.84%</em>
+<em>5.76%</em>
 </dd>
 </dl>
 <div class="tb-certificate">
 <p>
 公司名:
-杭州朗歆服饰有限公司
+保定优尚箱包制造有限公司
 </p>
 <p>
 所在地:
-浙江 杭州
+河北省 保定市
 </p>
 </div>
 </div>
 </div>
 <div class="tb-btn-group">
-<a class="btn btn-gray" href="//mefound.tmall.com"><em class="hdshop-iconfont"></em><span>进入店铺</span></a>
-<a id="xshop_collection_href" href="//favorite.taobao.com/popup/add_collection.htm?id=62844901&amp;itemid=62844901&amp;itemtype=0&amp;ownerid=92c6d489a1d1ec6eed94f621ab8f7946&amp;scjjc=2" mercury:params="id=62844901&amp;itemid=62844901&amp;itemtype=0&amp;ownerid=92c6d489a1d1ec6eed94f621ab8f7946" class="J_PopupTrigger xshop_sc J_TDialogTrigger J_TokenSign btn btn-orange" data-width="440" data-height="260" data-closebtn="true"><em class="hdshop-iconfont"></em>收藏店舖</a>
+<a class="btn btn-gray" href="//weichunxb.tmall.com"><em class="hdshop-iconfont"></em><span>进入店铺</span></a>
+<a id="xshop_collection_href" href="//favorite.taobao.com/popup/add_collection.htm?id=114111519&amp;itemid=114111519&amp;itemtype=0&amp;ownerid=45816aa5e42b5134be3476cc86fc7301&amp;scjjc=2" mercury:params="id=114111519&amp;itemid=114111519&amp;itemtype=0&amp;ownerid=45816aa5e42b5134be3476cc86fc7301" class="J_PopupTrigger xshop_sc J_TDialogTrigger J_TokenSign btn btn-orange" data-width="440" data-height="260" data-closebtn="true"><em class="hdshop-iconfont"></em>收藏店舖</a>
 </div>
 </div>
 </div>
 <div class="sea-header-search">
-<div class="hd-search" id="J_HdSearch" role="search"><div class="search-panel search-srp-panel"><form target="_top" action="//world.taobao.com/search/search.htm?_input_charset=utf-8&amp;" name="search" id="J_TSearchForm" class="search-panel-focused"><div class="search-button"><button class="btn-search" type="submit">搜全站</button><button id="J_SeaHdShopSearch" class="btn-search-shop" type="submit" data-action="//mefound.tmall.com/search.htm">搜本店</button></div><div class="search-panel-fields search-srp-fields search-common-panel"><div class="search-combobox" id="ks-component294"><div class="search-combobox-input-wrap"><input id="q" name="q" aria-label="请输入搜索文字" accesskey="s" autocomplete="off" aria-haspopup="true" aria-combobox="list" role="combobox" class="search-combobox-input" x-webkit-grammar="builtin:translate"></div></div></div><input type="hidden" name="navigator" value="all"><input type="hidden" name="_input_charset" value=""><input type="hidden" name="spm" value="a21bp.7806943.20151106.1"><!--[if lt IE 9]><s class="search-fix search-fix-panellt"></s><s class="search-fix search-fix-panellb"></s><![endif]--></form></div></div>
+<div class="hd-search" id="J_HdSearch" role="search"><div class="search-panel search-srp-panel"><form target="_top" action="//world.taobao.com/search/search.htm?_input_charset=utf-8&amp;" name="search" id="J_TSearchForm" class="search-panel-focused"><div class="search-button"><button class="btn-search" type="submit">搜全站</button><button id="J_SeaHdShopSearch" class="btn-search-shop" type="submit" data-action="//weichunxb.tmall.com/search.htm">搜本店</button></div><div class="search-panel-fields search-srp-fields search-common-panel"><div class="search-combobox" id="ks-component311"><div class="search-combobox-input-wrap"><input id="q" name="q" aria-label="请输入搜索文字" accesskey="s" autocomplete="off" aria-haspopup="true" aria-combobox="list" role="combobox" class="search-combobox-input" x-webkit-grammar="builtin:translate"></div></div></div><input type="hidden" name="navigator" value="all"><input type="hidden" name="_input_charset" value=""><input type="hidden" name="spm" value="a21bp.7806943.20151106.1"><!--[if lt IE 9]><s class="search-fix search-fix-panellt"></s><s class="search-fix search-fix-panellb"></s><![endif]--></form></div></div>
 </div>
 </div>
 </div>
@@ -122,7 +122,7 @@ with(document)with(body)with(insertBefore(createElement("script"),firstChild))se
     TB.Global.use('fn-suggest', function(G, Suggest) {
         Suggest.init({
           modName: 'srp', // hp通用模式、srp店铺模式
-          shopUrl: '//mefound.tmall.com/search.htm' // srp店铺模式需提供本店搜索地址
+          shopUrl: '//weichunxb.tmall.com/search.htm' // srp店铺模式需提供本店搜索地址
         });
     });
   </script>
@@ -131,157 +131,65 @@ with(document)with(body)with(insertBefore(createElement("script"),firstChild))se
 </div>
 <div id="page">
 <div id="content" data-cat="J_Cat" data-type="normal">
-<!--hdkey:new_p_lazy_sid62844901_pid1315137508,cacheAt:2017-08-21 14:20:35,ip:sitemisc010178197101.n.et2--><div class="tb-shop" id="hd"><div class="layout grid-m J_TLayout" data-widgetid="14586669235" data-componentid="23" data-prototypeid="23" data-id="14586669235" data-max="">
-        <div class="col-main">
-        <div class="main-wrap J_TRegion" data-modules="main" data-width="h990" data-max="">
-            <div class="J_TModule" data-widgetid="16775298163" id="shop16775298163" data-componentid="5001" data-spm="110.0.5001-16775298163" microscope-data="5001-16775298163" data-title="店铺招牌">    <div class="skin-box tb-module tshop-pbsm tshop-pbsm-shop-custom-banner" style="position: relative;">
-        <s class="skin-box-tp"><b></b></s>
-        <div class="skin-box-hd disappear">
-            <i class="hd-icon"></i>
-
-            <h3><span>店标</span></h3>
-
-            <div class="skin-box-act">
-                <a href="#" class="more">更多</a>
-            </div>
-        </div>
-        <div class="skin-box-bd">
-                                                                            <style>.grid-m .tshop-pbsm-shop-custom-banner .banner-box {
-                    background: none repeat scroll 0 0 transparent !important;
-                }
-
-                .tshop-pbsm-shop-custom-banner .banner-box {
-                    height: 150px !important;
-                }
-
-                .tshop-pbsm-shop-custom-banner {
-                    height: 150px !important;
-                }</style>
-            
-            <div>
-                                    <div class="banner-box"><div style="height:150px;width:990px;"> <div style="height:125px;width:990px;"> <div style="height:125px;width:100px;float:left;"> <a href="//favorite.taobao.com/popup/add_collection.htm?spm=a1z10.1-b-s.1997427721.7.bGV7Q9&amp;id=62844901&amp;itemid=62844901&amp;itemtype=0&amp;ownerid=92c6d489a1d1ec6eed94f621ab8f7946&amp;scjjc=2&amp;scene=taobao_shop" target="_blank"><img src="//gdp.alicdn.com/imgextra/i1/520408396/TB2hjmvlohnpuFjSZFEXXX0PFXa_!!520408396.jpg" width="100" height="125"></a> </div> <div style="height:125px;width:890px;float:left;"> <img src="//gdp.alicdn.com/imgextra/i4/520408396/TB29iqzaJ1HJuJjSZFkXXcC1XXa_!!520408396.jpg" width="890" height="125" usemap="#Mapdzj_0321" border="0"> <map name="Mapdzj_0321"><area coords="649,-16,770,255" href="//mefound.tmall.com/p/rd392097.htm?scene=taobao_shop" target="_blank" style="outline:none;"><area coords="527,-2,648,269" href="//mefound.tmall.com/p/rd445922.htm?scene=taobao_shop" target="_blank" style="outline:none;"><area coords="773,-16,894,255" href="//taoquan.taobao.com/coupon/unify_apply.htm?sellerId=520408396&amp;activityId=817358fe865f41f7a7501bda0d4b68f7&amp;scene=taobao_shop" target="_blank" style="outline:none;"><area coords="527,-2,648,269" href="//taoquan.taobao.com/coupon/unify_apply.htm?sellerId=520408396&amp;activityId=1df89ca1d09543e59a16e8e922bfbdc1&amp;scene=taobao_shop" target="_blank" style="outline:none;"></map> </div> </div> <div style="height:25px;width:990px;line-height:25px;"> <a href="//mefound.tmall.com/?scene=taobao_shop" target="_blank"> <div style="height:25px;width:68px;float:left;color:#555555;font-size:13px;text-decoration:none;text-align:center;"> 首页 </div> </a> <a href="//mefound.tmall.com/category.htm?spm=a1z10.1-b-s.w5001-14586669236.3.0yLodi&amp;search=y&amp;scene=taobao_shop" target="_blank"> <div style="height:25px;width:100px;float:left;color:#555555;font-size:13px;text-align:center;"> 所有宝贝 </div> </a> <a href="//mefound.tmall.com/category-1327159043.htm?spm=a1z10.5-b-s.w4011-14586669281.3.2ac7922brIasSj&amp;search=y&amp;scene=taobao_shop#TmshopSrchNav" target="_blank"> <div style="height:25px;width:90px;float:left;color:#000;font-size:13px;text-align:center;"> 秋新品 </div> </a> <a href="//mefound.tmall.com/category-1203938018.htm?spm=a1z10.1-b-s.w5001-16775298163.5.168658b7aSzpF&amp;search=y&amp;scene=taobao_shop#TmshopSrchNav" target="_blank"> <div style="height:25px;width:90px;float:left;color:#000;font-size:13px;text-align:center;"> 夏清仓 </div> </a> <a href="//mefound.tmall.com/category-1111187565.htm?spm=a1z10.3-b-s.w5001-14586669236.9.0DtZ8q&amp;tsearch=y&amp;scene=taobao_shop#TmshopSrchNav" target="_blank"> <div style="height:25px;width:68px;float:left;color:#555555;font-size:13px;text-align:center;"> T恤 </div> </a> <a href="//mefound.tmall.com/category-1212964406.htm?spm=a1z10.3-b-s.w5001-14586669236.8.NlhAXf&amp;tsearch=y&amp;scene=taobao_shop#TmshopSrchNav" target="_blank"> <div style="height:25px;width:90px;float:left;color:#555555;font-size:13px;text-align:center;"> 连衣裙 </div> </a> <a href="//mefound.tmall.com/category-1111187367.htm?spm=a1z10.1-b-s.w5001-14586669236.7.kWAkPj&amp;search=y&amp;scene=taobao_shop#TmshopSrchNav" target="_blank"> <div style="height:25px;width:68px;float:left;color:#555555;font-size:13px;text-align:center;"> 衬衫 </div> </a> <a href="//mefound.tmall.com/category-1117522109.htm?spm=a1z10.5-b-s.w5001-14586669236.10.poJ4p3&amp;tsearch=y&amp;scene=taobao_shop#TmshopSrchNav" target="_blank"> <div style="height:25px;width:68px;float:left;color:#555555;font-size:13px;text-align:center;"> 卫衣 </div> </a> <a href="//mefound.tmall.com/category-1124758585.htm?spm=a1z10.3-b-s.w4011-14586669285.34.a97a906W8i5gG&amp;search=y&amp;scene=taobao_shop#TmshopSrchNav" target="_blank"> <div style="height:25px;width:100px;float:left;color:#555555;font-size:13px;text-align:center;"> 毛衣 </div> </a> <a href="//mefound.tmall.com/category-1117521474.htm?spm=a1z10.5-b-s.w5001-14586669236.12.gPFUSp&amp;search=y&amp;scene=taobao_shop#TmshopSrchNav" target="_blank"> <div style="height:25px;width:68px;float:left;color:#555555;font-size:13px;text-align:center;"> 风衣 </div> </a> <a href="//mefound.tmall.com/category-1181060867.htm?spm=a1z10.5-b-s.w5001-14586669236.11.Fnogrn&amp;tsearch=y&amp;scene=taobao_shop#TmshopSrchNav" target="_blank"> <div style="height:25px;width:90px;float:left;color:#555555;font-size:13px;text-align:center;"> 短外套 </div> </a> <a href="//mefound.tmall.com/category-427848382.htm?spm=a1z10.3-b-s.w5001-14586669236.14.5U5S1U&amp;tsearch=y&amp;scene=taobao_shop#TmshopSrchNav" target="_blank"> <div style="height:25px;width:90px;float:left;color:#555555;font-size:13px;text-align:center;"> 休闲裤 </div> </a> </div> </div></div>
-                            </div>
-                    </div>
-        <s class="skin-box-bt"><b></b></s>
-                    
-        
-        
-
-    </div>
-</div>
-<div class="J_TModule" data-widgetid="14586669237" id="shop14586669237" data-componentid="5002" data-spm="110.0.5002-14586669237" microscope-data="5002-14586669237" data-title="导航"><!-- navigatorForCharge,${renderForDetailLeft}, ${showForceShow} dcPageId: -->
-<!--hasDcOnNav :  , hasDcPage :  , isMQQ:${isMQQ}, pageType:2 -->
-<div class="skin-box tb-module tshop-pbsm tshop-pbsm-shop-nav-ch " style="display: block; visibility: visible;">
-    <s class="skin-box-tp"><b></b></s>
-
-    <div class="skin-box-bd">
-                    <div class="all-cats popup-container">
-                <div class="all-cats-trigger popup-trigger">
-                    <a class="link " href="//mefound.tmall.com/search.htm?search=y">
-                     <span class="title">
-                                                      本店所有商品
-                                              </span>
-                        <i class="popup-icon"></i>
-                    </a>
-                </div>
-                
-            </div>
-                <ul class="menu-list">
-                        			                             				                            <li class="menu" data-page-id="1315137507">
-                            <a class="link" href="//mefound.tmall.com/index.htm" rel="nofollow"><span class="title">首页</span></a>   <!--444 1315137507   0 444-->
-                        </li>
-					                    
-                    <!-- isShowHuodongNavTab:  -->
-                    
-                
-                                             </ul>
-    </div>
-    <s class="skin-box-bt"><b></b></s>
-            
-    </div>
-</div>
-
-        </div>
-    </div>
-</div> </div>
-<div id="detail"><div id="J_DetailMeta" class="tm-detail-meta tm-clear" role="form">
+<div id="J_DcHd" class="J_DcAsyn tb-shop" style="display: none;"></div>
+<div id="detail"><div id="J_bannerNav"><div class="bannerNav"><div class="imgwarp"><img src="//gtms03.alicdn.com/tps/i3/TB1hdPRIXXXXXbaXpXXnyjjJVXX-990-60.jpg" width="990" height="60"><a href="#" class="closeBanner"></a></div></div></div><div id="J_DetailMeta" class="tm-detail-meta tm-clear" role="form">
 <div class="tm-clear">
 <div class="tb-property">
 <div class="tb-wrap">
 <div class="tb-detail-hd">
 <h1 data-spm="1000983">
-短袖连衣裙女中长裙棉立方2017夏装新款女装韩版绣花裙子纯棉女裙
+薇纯2017新款托特包女包简约帆布包单肩大包大容量手提包斜挎包包
 </h1>
-<p class="newp">
-绣花修身
+<p>
 </p>
 <div class="tb-detail-sellpoint"></div></div>
 <div class="tm-fcs-panel">
-<div class="tm-coupon-panel"><img height="16" src="//img.alicdn.com/tps/TB1okcBKVXXXXbBXVXXXXXXXXXX-116-32.png">全天猫实物商品通用 <a id="J_guaGuaKaPc" target="_blank">去刮券</a></div><dl class="tm-price-panel" id="J_StrPriceModBox">
+<div class="tm-coupon-panel"><img height="16" src="//img.alicdn.com/tps/TB1okcBKVXXXXbBXVXXXXXXXXXX-116-32.png">全天猫实物商品通用 <a id="J_guaGuaKaPc" target="_blank">去刮券</a></div><dl class="tm-price-panel tm-price-cur" id="J_StrPriceModBox">
 <dt class="tb-metatit">价格</dt>
-<dd><em class="tm-yen">¥</em> <span class="tm-price">198.00</span></dd>
-</dl><dl class="tm-promo-panel tm-promo-cur" id="J_PromoPrice" data-label="促销价"><dt class="tb-metatit">促销价</dt><dd><div class="tm-promo-price">              <em class="tm-yen">¥</em> <span class="tm-price">109.00</span>                                               <em class="tm-promo-type "><s></s>夏装新款</em>                               &nbsp;&nbsp;                                 </div> <p>   </p></dd></dl>
+<dd><em class="tm-yen">¥</em> <span class="tm-price">49.90</span><div class="staticPromoTip">
+					<!--rullBanner ids:$ids true-->
+
+			</div></dd>
+</dl><dl class="tm-promo-panel" id="J_PromoPrice" data-label="促销价" style="display: none;"><dt class="tb-metatit">促销价</dt><dd></dd></dl>
 <script type="data/tpl" id="J_PromoHintText">
 					<!--rullBanner ids:$ids true-->
 
 			</script>
 
-<dl class="tm-shopPromo-panel"><div class="tm-shopPromotion-title tm-gold "><dt class="tb-metatit">本店活动</dt><dd>满1件,包邮</dd><a class="more">更多优惠<s></s></a></div><div class="tm-floater-Box  hidden"><div class="floater fold">     <div class="hd">         <em class="title ">本店活动</em>         清仓包邮                               到2017-08-31 23:00:00结束                  <a class="more unmore">收起<s></s></a>         <a class="more">更多优惠<s></s></a>              </div>     <ul class="bd">                  <li class="noCoupon" data-index="0">             <p>                                      满<em>1</em>件                                                                                        ,包邮                                                                                                                                                                                                      </p>                      </li>              </ul>     <div class="ft">         <span class="title">不包邮地区：</span>台湾;香港;澳门;海外;新疆;西藏              </div> </div></div></dl></div>
+<dl class="tm-shopPromo-panel"></dl></div>
 <div class="tb-meta">
 <dl class="tm-delivery-panel" id="J_RSPostageCont"><dt class="tb-metatit">运费</dt><dd>
-<div class="tb-postAge"><span class="tb-deliveryAdd" id="J_deliveryAdd">浙江杭州</span>至
+<div class="tb-postAge"><span class="tb-deliveryAdd" id="J_deliveryAdd">河北保定</span>至
 <span id="J_AddrSelectTrigger" class="mui_addr_tri"><span role="button" tabindex="0" aria-haspopup="true" data-code="330100" class="mui_addr_tri_1">杭州<i class="mui_addr_icon"></i></span></span>
-<div id="J_PostageToggleCont" class="tb-postAge-info"><p>               <span>快递: 6.00 EMS: 29.00 </span>      </p></div>
+<div id="J_PostageToggleCont" class="tb-postAge-info"><p>               <span>快递: 0.00 </span>      </p></div>
 </div>
 </dd></dl>
 </div>
 <ul class="tm-ind-panel">
-<li class="tm-ind-item tm-ind-sellCount " data-label="月销量"><div class="tm-indcon"><span class="tm-label">月销量</span><span class="tm-count">754</span></div></li>
-<li class="tm-ind-item tm-ind-reviewCount canClick tm-line3" id="J_ItemRates"><div class="tm-indcon"><span class="tm-label">累计评价</span><span class="tm-count">1517</span></div></li>
-<li class="tm-ind-item tm-ind-emPointCount" data-spm="1000988"><div class="tm-indcon"><a href="//vip.tmall.com/vip/index.htm" target="_blank"><span class="tm-label">送天猫积分</span><span class="tm-count">54</span></a></div></li>
+<li class="tm-ind-item tm-ind-sellCount " data-label="月销量"><div class="tm-indcon"><span class="tm-label">月销量</span><span class="tm-count">9951</span></div></li>
+<li class="tm-ind-item tm-ind-reviewCount canClick tm-line3" id="J_ItemRates"><div class="tm-indcon"><span class="tm-label">累计评价</span><span class="tm-count">17874</span></div></li>
+<li class="tm-ind-item tm-ind-emPointCount" data-spm="1000988"><div class="tm-indcon"><a href="//vip.tmall.com/vip/index.htm" target="_blank"><span class="tm-label">送天猫积分</span><span class="tm-count">24</span></a></div></li>
 </ul>
 <div class="tb-key">
 <div class="tb-skin">
 <div class="tb-sku">
-<dl class="tb-prop tm-sale-prop tm-clear ">
-<dt class="tb-metatit">尺码</dt>
-<dd>
-<ul data-property="尺码" class="tm-clear J_TSaleProp     ">
-<li data-value="20509:28314">
-<a href="#" role="button" tabindex="0">
-<span>S</span>
-</a>
-</li>
-<li data-value="20509:28315">
-<a href="#" role="button" tabindex="0">
-<span>M</span>
-</a>
-</li>
-<li data-value="20509:28316">
-<a href="#" role="button" tabindex="0">
-<span>L</span>
-</a>
-</li>
-<li data-value="20509:28317">
-<a href="#" role="button" tabindex="0">
-<span>XL</span>
-</a>
-</li>
-</ul>
-</dd>
-</dl>
 <dl class="tb-prop tm-sale-prop tm-clear tm-img-prop ">
 <dt class="tb-metatit">颜色分类</dt>
 <dd>
 <ul data-property="颜色分类" class="tm-clear J_TSaleProp tb-img     ">
-<li data-value="1627207:26163614" title="天青">
-<a href="#" style="background:url(//img.alicdn.com/bao/uploaded/i4/520408396/TB2MA1HkrFlpuFjy0FgXXbRBVXa_!!520408396.jpg_40x40q90.jpg) center no-repeat;" role="button" tabindex="0">
-<span>天青</span>
+<li data-value="1627207:3232478" title="深灰色">
+<a href="#" style="background:url(//img.alicdn.com/bao/uploaded/i3/2237509307/TB2sePBtVXXXXb5XpXXXXXXXXXX_!!2237509307.jpg_40x40q90.jpg) center no-repeat;" role="button" tabindex="0">
+<span>深灰色</span>
 </a>
 </li>
-<li data-value="1627207:3626821" title="军绿">
-<a href="#" style="background:url(//img.alicdn.com/bao/uploaded/i4/520408396/TB2O9lZmAqvpuFjSZFhXXaOgXXa_!!520408396.jpg_40x40q90.jpg) center no-repeat;" role="button" tabindex="0">
-<span>军绿</span>
+<li data-value="1627207:28322" title="米色">
+<a href="#" style="background:url(//img.alicdn.com/bao/uploaded/i4/2237509307/TB2724kuXXXXXaNXXXXXXXXXXXX_!!2237509307.jpg_40x40q90.jpg) center no-repeat;" role="button" tabindex="0">
+<span>米色</span>
+</a>
+</li>
+<li data-value="1627207:28341" title="黑色">
+<a href="#" style="background:url(//img.alicdn.com/bao/uploaded/i1/2237509307/TB2J518a4vzQeBjSZFqXXXN5VXa_!!2237509307.jpg_40x40q90.jpg) center no-repeat;" role="button" tabindex="0">
+<span>黑色</span>
 </a>
 </li>
 </ul>
@@ -298,7 +206,7 @@ with(document)with(body)with(insertBefore(createElement("script"),firstChild))se
 <span class="mui-amount-unit">件</span>
 </span>
 
-<em id="J_EmStock" class="tb-hidden" style="display: inline;">库存171件</em>
+<em id="J_EmStock" class="tb-hidden" style="display: inline;">库存6205件</em>
 <span id="J_StockTips">
 </span>
 </dd>
@@ -327,53 +235,53 @@ with(document)with(body)with(insertBefore(createElement("script"),firstChild))se
 </div>
 <div data-spm="1997427645" class="tb-gallery"> <div class="tb-booth">
 <a href="javascript:void(0);">
-<span class="zoomIcon">󰄬</span><img id="J_ImgBooth" alt="短袖连衣裙女中长裙棉立方2017夏装新款女装韩版绣花裙子纯棉女裙" src="https://img.alicdn.com/bao/uploaded/i2/TB1nrrtQpXXXXbDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg" data-haszoom="700">
+<span class="zoomIcon">󰄬</span><img id="J_ImgBooth" alt="薇纯2017新款托特包女包简约帆布包单肩大包大容量手提包斜挎包包" src="https://img.alicdn.com/imgextra/i3/2237509307/TB2An.Sc8yN.eBjSZFkXXb8YFXa_!!2237509307.jpg_430x430q90.jpg" data-haszoom="700">
 </a>
 </div>
 <div class="tb-thumb-warp ">
 <a class="tb-thumb-left"><i></i></a>
 <div class="tb-thumb-content">
 <ul id="J_UlThumb" class="tb-thumb tm-clear">
+<li class="">
+<a href="#"><img src="//img.alicdn.com/bao/uploaded/i1/TB1QFiSLpXXXXcbXFXXXXXXXXXX_!!0-item_pic.jpg_60x60q90.jpg" alt="商品预览图"></a>
+</li>
 <li class="tb-selected">
-<a href="#"><img src="//img.alicdn.com/bao/uploaded/i2/TB1nrrtQpXXXXbDXVXXXXXXXXXX_!!0-item_pic.jpg_60x60q90.jpg" alt="商品预览图"></a>
+<a href="#"><img src="//img.alicdn.com/imgextra/i3/2237509307/TB2An.Sc8yN.eBjSZFkXXb8YFXa_!!2237509307.jpg_60x60q90.jpg" alt="商品预览图"></a>
 </li>
 <li class="">
-<a href="#"><img src="//img.alicdn.com/imgextra/i1/520408396/TB2HVWQAtRopuFjSZFtXXcanpXa_!!520408396.jpg_60x60q90.jpg" alt="商品预览图"></a>
+<a href="#"><img src="//img.alicdn.com/imgextra/i3/TB1eSM7LXXXXXbraXXXXXXXXXXX_!!0-item_pic.jpg_60x60q90.jpg" alt="商品预览图"></a>
 </li>
 <li class="">
-<a href="#"><img src="//img.alicdn.com/imgextra/i3/520408396/TB2o9xykmFjpuFjSszhXXaBuVXa_!!520408396.jpg_60x60q90.jpg" alt="商品预览图"></a>
+<a href="#"><img src="//img.alicdn.com/imgextra/i4/TB1zce_LpXXXXcJaXXXXXXXXXXX_!!0-item_pic.jpg_60x60q90.jpg" alt="商品预览图"></a>
 </li>
 <li class="">
-<a href="#"><img src="//img.alicdn.com/imgextra/i3/520408396/TB2Nbzll4BmpuFjSZFsXXcXpFXa_!!520408396.jpg_60x60q90.jpg" alt="商品预览图"></a>
-</li>
-<li class="">
-<a href="#"><img src="//img.alicdn.com/imgextra/i2/520408396/TB2Upo1j84lpuFjy1zjXXcAKpXa_!!520408396.jpg_60x60q90.jpg" alt="商品预览图"></a>
+<a href="#"><img src="//img.alicdn.com/imgextra/i1/2237509307/TB2vzzhXxvzQeBjSZFxXXXLBpXa_!!2237509307.jpg_60x60q90.jpg" alt="商品预览图"></a>
 </li>
 </ul>
 </div>
 <a class="tb-thumb-right"><i></i></a>
 </div>
 <p class="tm-action tm-clear">
-<span id="J_EditItem"><a href="//jubao.taobao.com/index.htm?itemId=548001349200&amp;spm=a1z6q.7847058" target="_blank">举报</a></span> <a id="J_IShare" class="iShare tm-event" href="#"><i></i>分享</a>
-<a id="J_AddFavorite" href="javascript:;" data-aldurl="//ald.taobao.com/recommend.htm?appId=03136&amp;itemId=548001349200 " class="favorite"><i></i><span>收藏商品</span></a>
+<span id="J_EditItem"><a href="//jubao.taobao.com/index.htm?itemId=535749186777&amp;spm=a1z6q.7847058" target="_blank">举报</a></span> <a id="J_IShare" class="iShare tm-event" href="#"><i></i>分享</a>
+<a id="J_AddFavorite" href="javascript:;" data-aldurl="//ald.taobao.com/recommend.htm?appId=03136&amp;itemId=535749186777 " class="favorite"><i></i><span>收藏商品</span></a>
 <script id="J_AddFavorite_Act" type="text/template">
 				<!--rullBanner ids:$ids true-->
 
 			</script>
-<span id="J_CollectCount">（17229人气）</span> </p></div>
+<span id="J_CollectCount">（113907人气）</span> </p></div>
 <form id="J_FrmBid" name="bidForm" action="" method="post">
-<input type="hidden" name="title" value="短袖连衣裙女中长裙棉立方2017夏装新款女装韩版绣花裙子纯棉女裙">
+<input type="hidden" name="title" value="薇纯2017新款托特包女包简约帆布包单肩大包大容量手提包斜挎包包">
 <input type="hidden" name="x_id" value="">
-<input type="hidden" name="seller_id" value="92c6d489a1d1ec6eed94f621ab8f7946">
-<input type="hidden" name="seller_nickname" value="棉立方旗舰店">
+<input type="hidden" name="seller_id" value="45816aa5e42b5134be3476cc86fc7301">
+<input type="hidden" name="seller_nickname" value="薇纯箱包旗舰店">
 <input type="hidden" name="who_pay_ship" value="卖家承担运费">
-<input type="hidden" name="photo_url" value="i2/TB1nrrtQpXXXXbDXVXXXXXXXXXX_!!0-item_pic.jpg"> <input type="hidden" name="region" value="浙江杭州"> <input type="hidden" name="auto_post" value="false">
+<input type="hidden" name="photo_url" value="i1/TB1QFiSLpXXXXcbXFXXXXXXXXXX_!!0-item_pic.jpg"> <input type="hidden" name="region" value="河北保定"> <input type="hidden" name="auto_post" value="false">
 <input type="hidden" name="etm" value="post">
 <input type="hidden" name="virtual" value="false">
-<input type="hidden" name="rootCatId" value="16">
+<input type="hidden" name="rootCatId" value="50006842">
 <input type="hidden" name="auto_post1" value="">
 <input type="hidden" id="buyer_from" name="buyer_from" value="">
-<input id="J_TokenField" type="hidden" value="e654503ae1683"></form>
+<input id="J_TokenField" type="hidden" value="331055e3ed73"></form>
 <script>
 var shopSearchStartTime = "2016-11-10 10:00:00";
 var shopSearchEndTime = "2016-11-12 10:00:00";
@@ -414,11 +322,11 @@ if(Math.ceil(Math.random()*1000)==1){KISSY.getScript('//g.tbcdn.cn/mm/doctor/1.2
         tradeType: 2 ,
         tradeDisableTypeEnum:""    }
 		},
-				"descAnchors":[{"anchorId":"desc-module-1","markId":"","moduleId":null,"moduleName":"自定义","type":"usr_mod"}]
+				"descAnchors":[]
 			});
 	
 	  TShop.Setup(
-	  	{"api":{"descUrl":"//dsc.taobaocdn.com/i3/541/000/548001349200/TB1CS8iSpXXXXXYXFXX8qtpFXlX.desc%7Cvar%5Edesc%3Bsign%5Ead944cab55fe841526e3083f7b78a5c2%3Blang%5Egbk%3Bt%5E1502158046","fetchDcUrl":"//hdc1.alicdn.com/asyn.htm?pageId=1315137508&userId=520408396","httpsDescUrl":"//desc.alicdn.com/i3/541/000/548001349200/TB1CS8iSpXXXXXYXFXX8qtpFXlX.desc%7Cvar%5Edesc%3Bsign%5Ead944cab55fe841526e3083f7b78a5c2%3Blang%5Egbk%3Bt%5E1502158046"},"apiAddCart":"//cart.taobao.com/add_cart_item.htm?item_id=548001349200","apiBeans":"//count.taobao.com/counter3?keys=SM_368_dsr-520408396,ICCP_1_548001349200","apiBidCount":"//tbskip.taobao.com/json/show_bid_count.htm?itemNumId=548001349200&old_quantity=1594&date=1503151266000","apiItemViews":"//count.taobao.com/counter2?keys=ICVT_7_548001349200&inc=ICVT_7_548001349200&sign=346994d2f6f41841a0b69fe7d836e14715d","cartEnable":true,"changeLocationApi":"//mdskip.taobao.com/core/changeLocation.htm?addressLevel=2&notAllowOriginPrice=false&isRegionLevel=false&service3C=false&isUseInventoryCenter=false&tgTag=false&household=false&isSecKill=false&itemId=548001349200&showShopProm=false&itemTags=587,907,1163,1478,1483,1675,1803,2049,2059,2443,2507,2635,3019,3851,3915,3974,4107,4166,4171,4363,4491,4550,4555,4614,4678,4811,5835,6145,6411,6603,7371,7947,11083,11339,11531,11595,12491,13707,13771,15554,15563,16321,16395,17739,21697,25282,27521,28353,28802,29697,29889,30337,30401,30593,30657,30849,30977,31489,33281,33345,34305,35713,36033,36161,36417,37569,39233,40897,46849,51329,51585,51841,51969,53569,57026,60418,62082,63042,64129,64194,67521,70401,70465,72386,73601,82306,101762,107458,116546,119426,151362,178754,189250,194626,202370,202434&sellerUserTag=303632416&cartEnable=true&isPurchaseMallPage=false&sellerUserTag4=576460894177887619&sellerUserTag3=144185556855718016&isAreaSell=false&sellerUserTag2=18020085113290752&offlineShop=false","cmCatId":"0","detail":{"addressLevel":2,"allowRate":true,"autoccUser":false,"canEditInItemDet":true,"cdn75":false,"defaultItemPrice":"198.00","double11StartTime":"","enableAliMedicalComponent":true,"globalSellItem":false,"goNewAuctionFlow":false,"is0YuanBuy":false,"isAliTelecomNew":false,"isAlicomMasterCard":false,"isAllowReport":true,"isAutoFinancing":false,"isAutoYushou":false,"isB2Byao":false,"isBundleItem":false,"isCarCascade":false,"isCarService":false,"isCarYuEBao":false,"isContractPhoneItem":false,"isCyclePurchase":false,"isDianQiMeiJia":false,"isDianZiMendian":false,"isDownShelf":false,"isEnableAppleSku":true,"isFullCarSell":false,"isH5NewLogin":true,"isHasPos":false,"isHasQualification":false,"isHiddenNonBuyprice":false,"isHiddenShopAction":false,"isHideAttentionBtn":false,"isHidePoi":false,"isHkDirectSale":false,"isHkItem":false,"isHkMilk":false,"isHkO2OItem":false,"isIFCShop":false,"isItemAllowSellerView":true,"isLadderGroupon":false,"isMainLiaoSku":false,"isMeilihui":false,"isMemberShopItem":false,"isMenDianInventroy":false,"isNABundleItem":false,"isNewAttraction":true,"isNewMedical":false,"isNextDayService":false,"isO2OStaging":false,"isOnePriceCar":false,"isOtcDrug":false,"isPreSellBrand":false,"isPrescriptionDrug":false,"isPurchaseMallVipBuyer":false,"isRegionLevel":false,"isSavingEnergy":false,"isShowContentModuleTitle":false,"isShowEcityBasicSign":false,"isShowEcityDesc":false,"isShowEcityVerticalSign":false,"isShowPreClosed":false,"isSkuColorShow":false,"isSkuMemorized":false,"isTeMai":false,"isTspace":false,"isVaccine":false,"isVitual3C":false,"isZhengChe":false,"loginBeforeCart":false,"mlhNewDesc":false,"pageType":"default","recommendBigMarkDownEndTime":"1477880000000","recommendBigMarkDownStartTime":"1478793600000","reviewListType":1,"show9sVideo":true,"showDiscountRecommend":false,"showFushiPoiInfo":false,"showSuperMarketBuy":false,"supermarketAndQianggou":false,"timeKillAuction":false,"tryReportDisable":false},"getProgressiveInfoApi":"//mdskip.taobao.com/core/getProgressiveInfo.do?platform_type=b2c&fromTryBeforeBuy=false&sellerId=520408396&platform=tmall&category=50010850&sellerPercent=3_100_1.60;6_0_4.50;9_0_6.00","idsMod":[],"initApi":"//mdskip.taobao.com/core/initItemDetail.htm?tmallBuySupport=true&cachedTimestamp=1503303735398&service3C=false&isSecKill=false&isPurchaseMallPage=false&sellerPreview=false&isAreaSell=false&queryMemberRight=true&isRegionLevel=false&itemId=548001349200&offlineShop=false&cartEnable=true&addressLevel=2&showShopProm=false&isApparel=true&isUseInventoryCenter=false&isForbidBuyItem=false&tryBeforeBuy=false&household=false","initCspuExtraApi":"//ext-mdskip.taobao.com/extension/initCspuExtra.htm","initExtensionApi":"//ext-mdskip.taobao.com/extension/initExtension.htm?spuId=843794209&sellerId=520408396&showShopProm=false&showSpuMaintainer=true&brand=Mefound%2F%C3%DE%C1%A2%B7%BD&categoryId=50010850&itemTags=587,907,1163,1478,1483,1675,1803,2049,2059,2443,2507,2635,3019,3851,3915,3974,4107,4166,4171,4363,4491,4550,4555,4614,4678,4811,5835,6145,6411,6603,7371,7947,11083,11339,11531,11595,12491,13707,13771,15554,15563,16321,16395,17739,21697,25282,27521,28353,28802,29697,29889,30337,30401,30593,30657,30849,30977,31489,33281,33345,34305,35713,36033,36161,36417,37569,39233,40897,46849,51329,51585,51841,51969,53569,57026,60418,62082,63042,64129,64194,67521,70401,70465,72386,73601,82306,101762,107458,116546,119426,151362,178754,189250,194626,202370,202434&showBreadCrumb=true","initExtraApi":"//ext-mdskip.taobao.com/extension/initExtra.htm","isAliTripHK":false,"isAreaSell":false,"isDoubleElevenItem":true,"isHouseholdService":false,"isMeiz":false,"isMultiPoint":false,"isOnlyInMobile":false,"isService":false,"isSevenDaysRefundment":false,"isShowSizeHelper":false,"isShowSizeRecommend":false,"isTmallComboSupport":false,"isTripUser":false,"isWTContract":false,"isWorldView":true,"itemDO":{"attachImgUrl":["//img.alicdn.com/imgextra/i3/520408396/TB2FtqAkxXkpuFjy0FiXXbUfFXa_!!520408396.jpg","//img.alicdn.com/imgextra/i2/520408396/TB2ncuqkChlpuFjSspkXXa1ApXa_!!520408396.jpg"],"auctionStatus":"0","auctionType":"b","brand":"Mefound/&#26825;&#31435;&#26041;","brandId":"82169462","brandSiteId":"0","brandSpecialSold":"false","categoryId":"50010850","cspuCategorySwitch":false,"encryptSellerId":"UMFIWMmN4vGkL","feature":"1","hasSku":true,"isBidden":false,"isCustomizedItem":false,"isDcAsyn":true,"isDefaultChooseTryBeforeBuy":false,"isElecCouponItem":false,"isEnterprisePath":false,"isInRepository":false,"isNewProGroup":false,"isOnline":true,"isSecondKillFromMobile":false,"isSecondKillFromPC":false,"isSecondKillFromPCAndWap":false,"isSupportTryBeforeBuy":false,"itemId":"548001349200","prov":"浙江","quantity":171,"reservePrice":"198.00","rootCatId":"16","sellProgressiveRate":"3_100_1.60;6_0_4.50;9_0_6.00","sellerNickName":"%E6%A3%89%E7%AB%8B%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97","showCompanyPurchase":false,"spuId":"843794209","title":"短袖连衣裙女中长裙棉立方2017夏装新款女装韩版绣花裙子纯棉女裙","userId":"520408396","validatorUrl":"//store.taobao.com/tadget/shop_stats.htm","weight":"0"},"newSelectCityApi":"//mdskip.taobao.com/json/detailSelectCity.do?isAreaSell=false&itemId=548001349200","propertyPics":{";1627207:26163614;":["//img.alicdn.com/bao/uploaded/i4/520408396/TB2MA1HkrFlpuFjy0FgXXbRBVXa_!!520408396.jpg"],";1627207:3626821;":["//img.alicdn.com/bao/uploaded/i4/520408396/TB2O9lZmAqvpuFjSZFhXXaOgXXa_!!520408396.jpg"],"default":["//img.alicdn.com/bao/uploaded/i2/TB1nrrtQpXXXXbDXVXXXXXXXXXX_!!0-item_pic.jpg","//img.alicdn.com/bao/uploaded/i1/520408396/TB2HVWQAtRopuFjSZFtXXcanpXa_!!520408396.jpg","//img.alicdn.com/bao/uploaded/i3/520408396/TB2o9xykmFjpuFjSszhXXaBuVXa_!!520408396.jpg","//img.alicdn.com/bao/uploaded/i3/520408396/TB2Nbzll4BmpuFjSZFsXXcXpFXa_!!520408396.jpg","//img.alicdn.com/bao/uploaded/i2/520408396/TB2Upo1j84lpuFjy1zjXXcAKpXa_!!520408396.jpg"]},"rateConfig":{"itemId":548001349200,"listType":1,"rateCloudDisable":false,"rateEnable":true,"rateNewChartDisable":false,"rateScoreCacheDisable":false,"rateScoreDisable":false,"rateSubjectDisable":false,"sellerId":520408396,"spuId":843794209,"tryReportDisable":false},"renderSystemServer":"//render.taobao.com","rstShopId":62844901,"selectCityApi":"//mdskip.taobao.com/core/selectCity.htm?isAreaSell=false&itemId=548001349200","selectRegionApi":"//mdskip.taobao.com/core/selectRegion.do?isAreaSell=false&itemId=548001349200","serviceIconList":[],"standingDate":0,"tag":{"isAsynDesc":true,"isBrandAttr":true,"isBrandSiteRightColumn":true,"isMedical":false,"isRightRecommend":true,"isShowEcityIcon":false,"isShowHouseIcon":false,"isShowMeiliXinde":false,"isShowTryReport":false,"isShowYuanchuanIcon":false},"tagsId":"587,907,1163,1478,1483,1675,1803,2049,2059,2443,2507,2635,3019,3851,3915,3974,4107,4166,4171,4363,4491,4550,4555,4614,4678,4811,5835,6145,6411,6603,7371,7947,11083,11339,11531,11595,12491,13707,13771,15554,15563,16321,16395,17739,21697,25282,27521,28353,28802,29697,29889,30337,30401,30593,30657,30849,30977,31489,33281,33345,34305,35713,36033,36161,36417,37569,39233,40897,46849,51329,51585,51841,51969,53569,57026,60418,62082,63042,64129,64194,67521,70401,70465,72386,73601,82306,101762,107458,116546,119426,151362,178754,189250,194626,202370,202434","tmallRateType":0,"tradeConfig":{"1":"//buy.taobao.com/auction/buy_now.jhtml","2":"//buy.tmall.com/order/confirm_order.htm","3":"//obuy.tmall.com/home/order/confirm_order.htm","4":"","7":"//world.taobao.com/buy/auction/buy_now.jhtml"},"tradeParams":{},"tradeType":7,"url":{"BIDRedirectionitemDomain":"//paimai.taobao.com","buyBase":"//buy.taobao.com/auction","detailServer":"//detail.taobao.com","extMdskip":"//ext-mdskip.taobao.com","mallList":"//list.tmall.com","mdskip":"//mdskip.taobao.com","rate":"//rate.tmall.com","tbskip":"//tbskip.taobao.com","tgDetailDomain":"//detail.ju.taobao.com","tgDomain":"//ju.taobao.com","topUploadServerBaseUrl":"//upload.taobao.com","tradeBaseUrl":"//trade.taobao.com/trade","tradeForOldTmallBuy":"//stay.buy.tmall.com/order/confirm_order.htm","xCrossServer":"//mdetail.tmall.com"},"valCartInfo":{"cartUrl":"//cart.taobao.com/my_cart.htm?from=bdetail","itemId":"548001349200","statsUrl":"//go.mmstat.com/1.gif?logtype=2&category=cart_{loc}_50010850"},"valItemInfo":{"defSelected":[],"salesProp":{},"skuList":[{"names":"S 天青 ","pvs":"20509:28314;1627207:26163614","skuId":"3486836534073"},{"names":"M 天青 ","pvs":"20509:28315;1627207:26163614","skuId":"3486836534074"},{"names":"L 天青 ","pvs":"20509:28316;1627207:26163614","skuId":"3486836534075"},{"names":"XL 天青 ","pvs":"20509:28317;1627207:26163614","skuId":"3486836534076"},{"names":"S 军绿 ","pvs":"20509:28314;1627207:3626821","skuId":"3486836534077"},{"names":"M 军绿 ","pvs":"20509:28315;1627207:3626821","skuId":"3486836534078"},{"names":"L 军绿 ","pvs":"20509:28316;1627207:3626821","skuId":"3486836534079"},{"names":"XL 军绿 ","pvs":"20509:28317;1627207:3626821","skuId":"3486836534080"}],"skuMap":{";20509:28314;1627207:26163614;":{"price":"198.00","priceCent":19800,"skuId":"3486836534073","stock":0},";20509:28314;1627207:3626821;":{"price":"198.00","priceCent":19800,"skuId":"3486836534077","stock":35},";20509:28315;1627207:26163614;":{"price":"198.00","priceCent":19800,"skuId":"3486836534074","stock":63},";20509:28315;1627207:3626821;":{"price":"198.00","priceCent":19800,"skuId":"3486836534078","stock":22},";20509:28316;1627207:26163614;":{"price":"198.00","priceCent":19800,"skuId":"3486836534075","stock":28},";20509:28316;1627207:3626821;":{"price":"198.00","priceCent":19800,"skuId":"3486836534079","stock":17},";20509:28317;1627207:26163614;":{"price":"198.00","priceCent":19800,"skuId":"3486836534076","stock":0},";20509:28317;1627207:3626821;":{"price":"198.00","priceCent":19800,"skuId":"3486836534080","stock":6}}},"valLoginIndicator":"//buy.taobao.com/auction/buy.htm?from=itemDetail&id=548001349200","valMode":128,"valPointRate":0.5,"valPointTimes":1,"valTimeLeft":452330}
+	  	{"api":{"descUrl":"//dsc.taobaocdn.com/i4/530/741/535749186777/TB1kZRQRFXXXXczapXX8qtpFXlX.desc%7Cvar%5Edesc%3Bsign%5Eacd1ccb3b0b216eb5c8579a9c80024b0%3Blang%5Egbk%3Bt%5E1501816613","fetchDcUrl":"//hdc1.alicdn.com/asyn.htm?pageId=937523888&userId=2237509307","httpsDescUrl":"//desc.alicdn.com/i4/530/741/535749186777/TB1kZRQRFXXXXczapXX8qtpFXlX.desc%7Cvar%5Edesc%3Bsign%5Eacd1ccb3b0b216eb5c8579a9c80024b0%3Blang%5Egbk%3Bt%5E1501816613"},"apiAddCart":"//cart.taobao.com/add_cart_item.htm?item_id=535749186777","apiBeans":"//count.taobao.com/counter3?keys=SM_368_dsr-2237509307,ICCP_1_535749186777","apiBidCount":"//tbskip.taobao.com/json/show_bid_count.htm?itemNumId=535749186777&old_quantity=56869&date=1503280800000","apiItemViews":"//count.taobao.com/counter2?keys=ICVT_7_535749186777&inc=ICVT_7_535749186777&sign=5930a713826daf1a619510ba20dd12e8ecb","cartEnable":true,"changeLocationApi":"//mdskip.taobao.com/core/changeLocation.htm?isAreaSell=false&isUseInventoryCenter=false&showShopProm=false&isRegionLevel=false&itemId=535749186777&tgTag=false&addressLevel=2&service3C=false&sellerUserTag4=1411&sellerUserTag3=144185556822163584&sellerUserTag=34672672&itemTags=587,843,907,1163,1478,1483,1803,2049,2059,2123,2187,2443,2507,2635,3915,3974,4166,4491,4550,4555,4811,5835,5895,6411,6603,7371,7947,10955,11083,11339,11531,11595,12491,13707,13771,16395,17739,25282,28353,28802,30273,36417,37569,40897,51329,51585,51969,53569,59010,62082,67521,70465,80386,82306,101762,107458,112386,113602,116546,150146,151362,166402&household=false&cartEnable=true&sellerUserTag2=18014535948435456&notAllowOriginPrice=false&isSecKill=false&offlineShop=false&isPurchaseMallPage=false","cmCatId":"0","detail":{"addressLevel":2,"allowRate":true,"autoccUser":false,"canEditInItemDet":true,"cdn75":false,"defaultItemPrice":"49.90","double11StartTime":"","enableAliMedicalComponent":true,"globalSellItem":false,"goNewAuctionFlow":false,"is0YuanBuy":false,"isAliTelecomNew":false,"isAlicomMasterCard":false,"isAllowReport":true,"isAutoFinancing":false,"isAutoYushou":false,"isB2Byao":false,"isBundleItem":false,"isCarCascade":false,"isCarService":false,"isCarYuEBao":false,"isContractPhoneItem":false,"isCyclePurchase":false,"isDianQiMeiJia":false,"isDianZiMendian":false,"isDownShelf":false,"isEnableAppleSku":true,"isFullCarSell":false,"isH5NewLogin":true,"isHasPos":false,"isHasQualification":false,"isHiddenNonBuyprice":false,"isHiddenShopAction":false,"isHideAttentionBtn":false,"isHidePoi":false,"isHkDirectSale":false,"isHkItem":false,"isHkMilk":false,"isHkO2OItem":false,"isIFCShop":false,"isItemAllowSellerView":true,"isLadderGroupon":false,"isMainLiaoSku":false,"isMeilihui":false,"isMemberShopItem":false,"isMenDianInventroy":false,"isNABundleItem":false,"isNewAttraction":false,"isNewMedical":false,"isNextDayService":false,"isO2OStaging":false,"isOnePriceCar":false,"isOtcDrug":false,"isPreSellBrand":false,"isPrescriptionDrug":false,"isPurchaseMallVipBuyer":false,"isRegionLevel":false,"isSavingEnergy":false,"isShowContentModuleTitle":false,"isShowEcityBasicSign":false,"isShowEcityDesc":false,"isShowEcityVerticalSign":false,"isShowPreClosed":false,"isSkuColorShow":false,"isSkuMemorized":false,"isTeMai":false,"isTspace":false,"isVaccine":false,"isVitual3C":false,"isZhengChe":false,"loginBeforeCart":false,"mlhNewDesc":false,"pageType":"default","recommendBigMarkDownEndTime":"1477880000000","recommendBigMarkDownStartTime":"1478793600000","reviewListType":1,"show9sVideo":true,"showDiscountRecommend":false,"showFushiPoiInfo":false,"showSuperMarketBuy":false,"supermarketAndQianggou":false,"timeKillAuction":false,"tryReportDisable":false},"getProgressiveInfoApi":"//mdskip.taobao.com/core/getProgressiveInfo.do?platform_type=b2c&fromTryBeforeBuy=false&sellerId=2237509307&platform=tmall&category=50012010&sellerPercent=3_100_1.60;6_0_4.50;9_0_6.00","idsMod":[],"initApi":"//mdskip.taobao.com/core/initItemDetail.htm?isPurchaseMallPage=false&service3C=false&tmallBuySupport=true&showShopProm=false&sellerPreview=false&isAreaSell=false&isSecKill=false&offlineShop=false&queryMemberRight=true&isForbidBuyItem=false&isUseInventoryCenter=false&isRegionLevel=false&cachedTimestamp=1503388807413&isApparel=false&addressLevel=2&household=false&itemId=535749186777&cartEnable=true&tryBeforeBuy=false","initCspuExtraApi":"//ext-mdskip.taobao.com/extension/initCspuExtra.htm","initExtensionApi":"//ext-mdskip.taobao.com/extension/initExtension.htm?sellerId=2237509307&showSpuMaintainer=true&brand=%DE%B1%B4%BF&spuId=687780434&showBreadCrumb=false&itemTags=587,843,907,1163,1478,1483,1803,2049,2059,2123,2187,2443,2507,2635,3915,3974,4166,4491,4550,4555,4811,5835,5895,6411,6603,7371,7947,10955,11083,11339,11531,11595,12491,13707,13771,16395,17739,25282,28353,28802,30273,36417,37569,40897,51329,51585,51969,53569,59010,62082,67521,70465,80386,82306,101762,107458,112386,113602,116546,150146,151362,166402&showShopProm=false&categoryId=50012010","initExtraApi":"//ext-mdskip.taobao.com/extension/initExtra.htm","isAliTripHK":false,"isAreaSell":false,"isDoubleElevenItem":true,"isHouseholdService":false,"isMeiz":false,"isMultiPoint":false,"isOnlyInMobile":false,"isService":false,"isSevenDaysRefundment":true,"isShowSizeHelper":false,"isShowSizeRecommend":false,"isTmallComboSupport":false,"isTripUser":false,"isWTContract":false,"isWorldView":true,"itemDO":{"attachImgUrl":["//img.alicdn.com/imgextra/i1/2237509307/TB28XD7sVXXXXb1XXXXXXXXXXXX_!!2237509307.jpg"],"auctionStatus":"0","auctionType":"b","brand":"&#34183;&#32431;","brandId":"104403047","brandSiteId":"0","brandSpecialSold":"false","categoryId":"50012010","cspuCategorySwitch":false,"encryptSellerId":"UvCIGMG8WOFvWMWTT","feature":"1","hasSku":true,"isBidden":false,"isCustomizedItem":false,"isDcAsyn":true,"isDefaultChooseTryBeforeBuy":false,"isElecCouponItem":false,"isEnterprisePath":false,"isInRepository":false,"isNewProGroup":false,"isOnline":true,"isSecondKillFromMobile":false,"isSecondKillFromPC":false,"isSecondKillFromPCAndWap":false,"isSupportTryBeforeBuy":false,"itemId":"535749186777","prov":"河北","quantity":6207,"reservePrice":"49.90","rootCatId":"50006842","sellProgressiveRate":"3_100_1.60;6_0_4.50;9_0_6.00","sellerNickName":"%E8%96%87%E7%BA%AF%E7%AE%B1%E5%8C%85%E6%97%97%E8%88%B0%E5%BA%97","showCompanyPurchase":false,"spuId":"687780434","title":"薇纯2017新款托特包女包简约帆布包单肩大包大容量手提包斜挎包包","userId":"2237509307","validatorUrl":"//store.taobao.com/tadget/shop_stats.htm","weight":"0"},"newSelectCityApi":"//mdskip.taobao.com/json/detailSelectCity.do?isAreaSell=false&itemId=535749186777","propertyPics":{";1627207:28322;":["//img.alicdn.com/bao/uploaded/i4/2237509307/TB2724kuXXXXXaNXXXXXXXXXXXX_!!2237509307.jpg"],";1627207:28341;":["//img.alicdn.com/bao/uploaded/i1/2237509307/TB2J518a4vzQeBjSZFqXXXN5VXa_!!2237509307.jpg"],";1627207:3232478;":["//img.alicdn.com/bao/uploaded/i3/2237509307/TB2sePBtVXXXXb5XpXXXXXXXXXX_!!2237509307.jpg"],"default":["//img.alicdn.com/bao/uploaded/i1/TB1QFiSLpXXXXcbXFXXXXXXXXXX_!!0-item_pic.jpg","//img.alicdn.com/bao/uploaded/i3/2237509307/TB2An.Sc8yN.eBjSZFkXXb8YFXa_!!2237509307.jpg","//img.alicdn.com/bao/uploaded/i3/TB1eSM7LXXXXXbraXXXXXXXXXXX_!!0-item_pic.jpg","//img.alicdn.com/bao/uploaded/i4/TB1zce_LpXXXXcJaXXXXXXXXXXX_!!0-item_pic.jpg","//img.alicdn.com/bao/uploaded/i1/2237509307/TB2vzzhXxvzQeBjSZFxXXXLBpXa_!!2237509307.jpg"]},"rateConfig":{"itemId":535749186777,"listType":1,"rateCloudDisable":false,"rateEnable":true,"rateNewChartDisable":false,"rateScoreCacheDisable":false,"rateScoreDisable":false,"rateSubjectDisable":false,"sellerId":2237509307,"spuId":687780434,"tryReportDisable":false},"renderSystemServer":"//render.taobao.com","rstShopId":114111519,"selectCityApi":"//mdskip.taobao.com/core/selectCity.htm?isAreaSell=false&itemId=535749186777","selectRegionApi":"//mdskip.taobao.com/core/selectRegion.do?isAreaSell=false&itemId=535749186777","serviceIconList":[],"standingDate":0,"tag":{"isAsynDesc":true,"isBrandAttr":true,"isBrandSiteRightColumn":true,"isMedical":false,"isRightRecommend":true,"isShowEcityIcon":false,"isShowHouseIcon":false,"isShowMeiliXinde":false,"isShowTryReport":false,"isShowYuanchuanIcon":false},"tagsId":"587,843,907,1163,1478,1483,1803,2049,2059,2123,2187,2443,2507,2635,3915,3974,4166,4491,4550,4555,4811,5835,5895,6411,6603,7371,7947,10955,11083,11339,11531,11595,12491,13707,13771,16395,17739,25282,28353,28802,30273,36417,37569,40897,51329,51585,51969,53569,59010,62082,67521,70465,80386,82306,101762,107458,112386,113602,116546,150146,151362,166402","tmallRateType":0,"tradeConfig":{"1":"//buy.taobao.com/auction/buy_now.jhtml","2":"//buy.tmall.com/order/confirm_order.htm","3":"//obuy.tmall.com/home/order/confirm_order.htm","4":"","7":"//world.taobao.com/buy/auction/buy_now.jhtml"},"tradeParams":{},"tradeType":7,"url":{"BIDRedirectionitemDomain":"//paimai.taobao.com","buyBase":"//buy.taobao.com/auction","detailServer":"//detail.taobao.com","extMdskip":"//ext-mdskip.taobao.com","mallList":"//list.tmall.com","mdskip":"//mdskip.taobao.com","rate":"//rate.tmall.com","tbskip":"//tbskip.taobao.com","tgDetailDomain":"//detail.ju.taobao.com","tgDomain":"//ju.taobao.com","topUploadServerBaseUrl":"//upload.taobao.com","tradeBaseUrl":"//trade.taobao.com/trade","tradeForOldTmallBuy":"//stay.buy.tmall.com/order/confirm_order.htm","xCrossServer":"//mdetail.tmall.com"},"valCartInfo":{"cartUrl":"//cart.taobao.com/my_cart.htm?from=bdetail","itemId":"535749186777","statsUrl":"//go.mmstat.com/1.gif?logtype=2&category=cart_{loc}_50012010"},"valItemInfo":{"defSelected":[],"salesProp":{},"skuList":[{"names":"深灰色 ","pvs":"1627207:3232478","skuId":"3196240891741"},{"names":"米色 ","pvs":"1627207:28322","skuId":"3196240891742"},{"names":"黑色 ","pvs":"1627207:28341","skuId":"3218266792529"}],"skuMap":{";1627207:28322;":{"price":"49.90","priceCent":4990,"skuId":"3196240891742","stock":2999},";1627207:28341;":{"price":"49.90","priceCent":4990,"skuId":"3218266792529","stock":1404},";1627207:3232478;":{"price":"49.90","priceCent":4990,"skuId":"3196240891741","stock":1804}}},"valLoginIndicator":"//buy.taobao.com/auction/buy.htm?from=itemDetail&id=535749186777","valMode":128,"valPointRate":0.5,"valPointTimes":1,"valTimeLeft":496792}
 	  );
 })();
 </script>
@@ -427,7 +335,7 @@ if(Math.ceil(Math.random()*1000)==1){KISSY.getScript('//g.tbcdn.cn/mm/doctor/1.2
 		<!--rullBanner ids:$ids true-->
 
 	</script>
-<div id="ald-skuRight" class="ald-skuRight ald ald-03054" data-spm="1998025129"></div></div>
+<div id="ald-skuRight" class="ald-skuRight ald ald-03054" data-spm="1998025129"><div class="ald-inner ">       <div class="ald-hd ">               <s></s><span>看了又看</span>       </div>      <div class="ald-carousel"><div class="wrapCon"><ul class="ald-switchable-content">        <li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯ulzzang包包女包2017夏季新款果冻包韩版手提大包单肩斜挎包" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=1&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=550232328737&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img src="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB1KFBGRVXXXXcBXFXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥79.00                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯托特包包2017新款夏季帆布包女包单肩包休闲手提包斜挎包大包" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=2&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=553748184286&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img src="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB1.LKdRVXXXXajapXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥59.90                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯包包2017新款简约帆布包女单肩包大包百搭大容量手提包斜挎包" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=3&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=555402799497&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img src="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB1o0arSpXXXXcAXVXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥59.00                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯包包秋季新款时尚大容量女包托特包韩版简约手提包单肩包大包" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=4&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=533199517291&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img data-ks-lazyload-custom="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB1ODc0KFXXXXaVXFXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥39.00                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯2017新款女包手提包韩版文艺帆布包女单肩包简约斜挎包大包包" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=5&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=554582182653&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img data-ks-lazyload-custom="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB17aOvSXXXXXccXFXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥69.00                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯包包2017新款女包文艺帆布包单肩包大包简约大容量手提购物袋" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=6&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=552898072846&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img data-ks-lazyload-custom="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB1VAJERVXXXXXhXFXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥39.90                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯包包女新款潮欧美简约大容量子母包单肩包女包托特大包斜挎包" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=7&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=537314925668&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img data-ks-lazyload-custom="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB1fneWIVXXXXavXXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥89.00                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯链条包包女2017新款夏季韩版文艺帆布包单肩包简约手提包大包" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=8&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=554823645078&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img data-ks-lazyload-custom="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB1g7iASXXXXXbPXFXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥49.90                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="大包包新款夏季托特女包韩版潮笑脸包帆布包女单肩包手提包购物袋" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=9&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=532802807366&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img data-ks-lazyload-custom="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB1CsK3KXXXXXXqXpXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥59.90                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯大包包2017新款夏网格镂空帆布单肩包女包大容量购物袋沙滩包" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=10&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=553523644167&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img data-ks-lazyload-custom="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB11.RuRVXXXXb.XVXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥39.90                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯包包2017新款笑脸帆布包女单肩包休闲大容量手提包斜挎大包袋" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=11&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=552836608452&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img data-ks-lazyload-custom="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB1sEiGRFXXXXcnXFXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥69.00                                                                        </p>                                                                                </div>               </li><li>         <div class="img">        <a class="ALDCLS-act" tabindex="-1" title="薇纯包包新款女包日韩斜挎包大包休闲帆布包女单肩包手提包托特包" href="//detail.tmall.com/item.htm?abtest=_AB-LR32-PR32&amp;pvid=b5888817-306d-4357-a0cf-f9bf4a2c8f94&amp;pos=12&amp;abbucket=_AB-M32_B11&amp;acm=03054.1003.1.1539344&amp;id=529021088494&amp;scm=1007.12144.81309.23864_0" target="_blank">        <img data-ks-lazyload-custom="//img-tmdetail.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/TB1xxp7MpXXXXXYXFXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg">        </a>                                                    <p class="look_price">¥39.90                                                                        </p>                                                                                </div>               </li>       </ul></div>       <ul class="ald-switchable-trigger">        <li class="ald-switchable-prev-btn">上一个</li>        <li class="ald-switchable-next-btn">下一个</li>       </ul>      </div></div></div></div>
 </div>
 <div id="J_ShopPromtion"></div>
 <div id="bd">
@@ -440,28 +348,31 @@ if(Math.ceil(Math.random()*1000)==1){KISSY.getScript('//g.tbcdn.cn/mm/doctor/1.2
 <div class="tm-clear tb-hidden tm_brandAttr" id="J_BrandAttr"></div>
 <p class="attr-list-hd tm-clear"><em>产品参数：</em></p>
 <ul id="J_AttrUL">
-<li title="&nbsp;X型">廓形:&nbsp;X型</li>
-<li title="&nbsp;棉100%">材质成分:&nbsp;棉100%</li>
+<li title="&nbsp;2016年秋季">上市时间:&nbsp;2016年秋季</li>
+<li title="&nbsp;大">大小:&nbsp;大</li>
+<li title="&nbsp;托特包">流行款式名称:&nbsp;托特包</li>
+<li title="&nbsp;青年">适用对象:&nbsp;青年</li>
 <li title="&nbsp;纯电商(只在线上销售)">销售渠道类型:&nbsp;纯电商(只在线上销售)</li>
-<li title="&nbsp;17BE374">货号:&nbsp;17BE374</li>
-<li title="&nbsp;通勤">风格:&nbsp;通勤</li>
-<li title="&nbsp;韩版">通勤:&nbsp;韩版</li>
-<li title="&nbsp;单件">组合形式:&nbsp;单件</li>
-<li title="&nbsp;中裙">裙长:&nbsp;中裙</li>
-<li title="&nbsp;其他/other">款式:&nbsp;其他/other</li>
-<li title="&nbsp;短袖">袖长:&nbsp;短袖</li>
-<li title="&nbsp;圆领">领型:&nbsp;圆领</li>
-<li title="&nbsp;包袖">袖型:&nbsp;包袖</li>
-<li title="&nbsp;中腰">腰型:&nbsp;中腰</li>
-<li title="&nbsp;套头">衣门襟:&nbsp;套头</li>
-<li title="&nbsp;公主裙">裙型:&nbsp;公主裙</li>
-<li title="&nbsp;大花">图案:&nbsp;大花</li>
-<li title="&nbsp;绣花&nbsp;系带&nbsp;拉链">流行元素/工艺:&nbsp;绣花&nbsp;系带&nbsp;拉链</li>
-<li id="J_attrBrandName" title="&nbsp;Mefound/棉立方">品牌:&nbsp;Mefound/棉立方</li>
-<li title="&nbsp;25-29周岁">适用年龄:&nbsp;25-29周岁</li>
-<li title="&nbsp;2017年夏季">年份季节:&nbsp;2017年夏季</li>
-<li title="&nbsp;天青&nbsp;军绿">颜色分类:&nbsp;天青&nbsp;军绿</li>
-<li title="&nbsp;S&nbsp;M&nbsp;L&nbsp;XL">尺码:&nbsp;S&nbsp;M&nbsp;L&nbsp;XL</li>
+<li title="&nbsp;单肩包">款式:&nbsp;单肩包</li>
+<li title="&nbsp;单肩斜挎手提">背包方式:&nbsp;单肩斜挎手提</li>
+<li title="&nbsp;帆布">质地:&nbsp;帆布</li>
+<li title="&nbsp;软把">提拎部件类型:&nbsp;软把</li>
+<li title="&nbsp;拉链">闭合方式:&nbsp;拉链</li>
+<li title="&nbsp;拉链暗袋&nbsp;手机袋&nbsp;证件袋">内部结构:&nbsp;拉链暗袋&nbsp;手机袋&nbsp;证件袋</li>
+<li title="&nbsp;撞色">流行元素:&nbsp;撞色</li>
+<li title="&nbsp;纯色">图案:&nbsp;纯色</li>
+<li title="&nbsp;深灰色&nbsp;米色&nbsp;黑色">颜色分类:&nbsp;深灰色&nbsp;米色&nbsp;黑色</li>
+<li title="&nbsp;无">有无夹层:&nbsp;无</li>
+<li title="&nbsp;软">箱包硬度:&nbsp;软</li>
+<li title="&nbsp;否">是否可折叠:&nbsp;否</li>
+<li title="&nbsp;全新">成色:&nbsp;全新</li>
+<li title="&nbsp;休闲">适用场景:&nbsp;休闲</li>
+<li id="J_attrBrandName" title="&nbsp;薇纯">品牌:&nbsp;薇纯</li>
+<li title="&nbsp;C01-009">货号:&nbsp;C01-009</li>
+<li title="&nbsp;日韩">风格:&nbsp;日韩</li>
+<li title="&nbsp;横款方形">形状:&nbsp;横款方形</li>
+<li title="&nbsp;单根">肩带样式:&nbsp;单根</li>
+<li title="&nbsp;桃皮绒">里料材质:&nbsp;桃皮绒</li>
 </ul>
 </div>
 </div>
@@ -481,7 +392,7 @@ if(Math.ceil(Math.random()*1000)==1){KISSY.getScript('//g.tbcdn.cn/mm/doctor/1.2
 </div>
 <div id="J_DcBottomRightWrap">
 <div id="J_DcBottomRight" class="J_DcAsyn tb-shop"></div>
-<div id="J_ZebraPriceDesc" class="j-mdv" mdv-cls="malldetail/view/zebraBlock" mdv-cfg="{zebraId:'pricedesc_pc',append:true,catId:50010850 }"></div>
+<div id="J_ZebraPriceDesc" class="j-mdv" mdv-cls="malldetail/view/zebraBlock" mdv-cfg="{zebraId:'pricedesc_pc',append:true,catId:50012010 }"></div>
 </div>
 <div id="J_Detail">
 <div id="J_Reviews" class="J_DetailSection">
@@ -489,11 +400,11 @@ if(Math.ceil(Math.random()*1000)==1){KISSY.getScript('//g.tbcdn.cn/mm/doctor/1.2
 </div>
 <div class="j-mdv" mdv-cls="malldetail/view/zebraBlock" mdv-cfg="{zebraId:'tmallapkratetab'}" id="J_TmallApkRateTab"></div>
 <div class="j-mdv" mdv-cls="malldetail/view/tmsBlock" style="display:none;" mdv-cfg="{tmsId:'tmallapk'}" id="J_TmallApkBuyerList"></div>
-<div id="J_SellerInfo" class="J_DetailSection tb-sellerinfo" data-url="//ext-mdskip.taobao.com/extension/seller_info.htm?user_num_id=520408396&amp;user_tag=303632416&amp;shop_start=1284962761000">
+<div id="J_SellerInfo" class="J_DetailSection tb-sellerinfo" data-url="//ext-mdskip.taobao.com/extension/seller_info.htm?user_num_id=2237509307&amp;user_tag=34672672&amp;shop_start=1412841154000">
 <h5 class="hd">店铺30天服务情况</h5>
 </div>
 <div id="J_TabRecommends" class="J_DetailSection">
-<h4 class="hd">看了又看</h4>
+<h4 class="hd">猜你喜欢</h4>
 </div>
 <div id="official-remind" class="j-mdv" mdv-cls="malldetail/view/zebraBlock" mdv-cfg="{zebraId:'official_remind'}"></div> </div>
 </div>
@@ -505,581 +416,7 @@ if(Math.ceil(Math.random()*1000)==1){KISSY.getScript('//g.tbcdn.cn/mm/doctor/1.2
 <div id="col-extra" class="col-extra tm-bd-side"></div></div>
 </div>
 <div id="J_DcFt" class="J_DcAsyn tb-shop"></div>
-<div class="tshop-pbsm-shop-nav-ch"><div class="skin-box-bd" style="width: 0px; height: 0px;"><div class="all-cats-popup tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px; z-index: 100000000;"><div class="popup-content">
-                    <div class="popup-inner">
-                                                                                                                                                                                                                            
-                        <ul class="J_TAllCatsTree cats-tree">
-                            <li class="cat fst-cat">
-                                <h4 class="cat-hd fst-cat-hd has-children">
-                                                                    <i class="cat-icon fst-cat-icon"></i>
-                                    <a href="//mefound.tmall.com/search.htm?search=y" class="cat-name fst-cat-name">所有宝贝</a>
-                                </h4>
-
-                                <div class="snd-pop tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px;"><div class="popup-content">
-                                    <div class="snd-pop-inner">
-                                        <ul class="fst-cat-bd">
-                                            <li class="cat snd-cat">
-                                                                                                    <h4 class="cat-hd snd-cat-hd">
-                                                        <i class="cat-icon snd-cat-icon"></i>
-                                                        <a href="//mefound.tmall.com/search.htm?search=y&amp;orderType=defaultSort" class="by-label by-sale snd-cat-name" rel="nofollow">按综合</a>
-                                                    </h4>
-                                                                                                <h4 class="cat-hd snd-cat-hd">
-                                                    <i class="cat-icon snd-cat-icon"></i>
-                                                    <a href="//mefound.tmall.com/search.htm?search=y&amp;orderType=hotsell_desc" class="by-label by-sale snd-cat-name" rel="nofollow">按销量</a>
-                                                </h4>
-                                                <h4 class="cat-hd snd-cat-hd">
-                                                    <i class="cat-icon snd-cat-icon"></i>
-                                                    <a href="//mefound.tmall.com/search.htm?search=y&amp;orderType=newOn_desc" class="by-label by-new snd-cat-name" rel="nofollow">按新品</a>
-                                                </h4>
-                                                <h4 class="cat-hd snd-cat-hd">
-                                                    <i class="cat-icon snd-cat-icon"></i>
-                                                    <a href="//mefound.tmall.com/search.htm?search=y&amp;orderType=price_asc" class="by-label by-price snd-cat-name" rel="nofollow">按价格</a>
-                                                </h4>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div></div>
-                            </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd has-children">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1327159043.htm?search=y&amp;catName=2017%C7%EF%D7%B0%C9%CF%D0%C2">2017秋装上新</a>
-                                                                        </h4>
-                                                                            <div class="snd-pop tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px;"><div class="popup-content">
-                                            <div class="snd-pop-inner">
-                                                <ul class="fst-cat-bd">
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1334739957.htm?search=y&amp;parentCatId=1327159043&amp;parentCatName=2017%C7%EF%D7%B0%C9%CF%D0%C2&amp;catName=8.17%C7%EF%D7%B0%C9%CF%D0%C2">
-                                                                    8.17秋装上新
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1333418855.htm?search=y&amp;parentCatId=1327159043&amp;parentCatName=2017%C7%EF%D7%B0%C9%CF%D0%C2&amp;catName=8.8%C7%EF%D7%B0%C9%CF%D0%C2">
-                                                                    8.8秋装上新
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1332226395.htm?search=y&amp;parentCatId=1327159043&amp;parentCatName=2017%C7%EF%D7%B0%C9%CF%D0%C2&amp;catName=8.1%C7%EF%D7%B0%C9%CF%D0%C2">
-                                                                    8.1秋装上新
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1330983295.htm?search=y&amp;parentCatId=1327159043&amp;parentCatName=2017%C7%EF%D7%B0%C9%CF%D0%C2&amp;catName=7.26%C7%EF%D7%B0%C9%CF%D0%C2">
-                                                                    7.26秋装上新
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1329826141.htm?search=y&amp;parentCatId=1327159043&amp;parentCatName=2017%C7%EF%D7%B0%C9%CF%D0%C2&amp;catName=7.19%C7%EF%D7%B0%C9%CF%D0%C2">
-                                                                    7.19秋装上新
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1328537881.htm?search=y&amp;parentCatId=1327159043&amp;parentCatName=2017%C7%EF%D7%B0%C9%CF%D0%C2&amp;catName=7.11%C7%EF%D7%B0%C9%CF%D0%C2">
-                                                                    7.11秋装上新
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1327159044.htm?search=y&amp;parentCatId=1327159043&amp;parentCatName=2017%C7%EF%D7%B0%C9%CF%D0%C2&amp;catName=7.4%BA%C5%C7%EF%D7%B0%CA%D7%B2%A8%C9%CF%D0%C2">
-                                                                    7.4号秋装首波上新
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                    </ul>
-                                            </div>
-                                        </div></div>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd has-children">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1300991590.htm?search=y&amp;catName=2017%CF%C4%D7%B0%D0%C2%BF%EE">2017夏装新款</a>
-                                                                        </h4>
-                                                                            <div class="snd-pop tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px;"><div class="popup-content">
-                                            <div class="snd-pop-inner">
-                                                <ul class="fst-cat-bd">
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1319713858.htm?search=y&amp;parentCatId=1300991590&amp;parentCatName=2017%CF%C4%D7%B0%D0%C2%BF%EE&amp;catName=2017%CF%C4%D0%C2%C6%B7">
-                                                                    2017夏新品
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                    </ul>
-                                            </div>
-                                        </div></div>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd has-children">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1284690319.htm?search=y&amp;catName=2017%B4%BA%D7%B0%D0%C2%BF%EE">2017春装新款</a>
-                                                                        </h4>
-                                                                            <div class="snd-pop tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px;"><div class="popup-content">
-                                            <div class="snd-pop-inner">
-                                                <ul class="fst-cat-bd">
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1297853333.htm?search=y&amp;parentCatId=1284690319&amp;parentCatName=2017%B4%BA%D7%B0%D0%C2%BF%EE&amp;catName=2017%B4%BA%D0%C2%C6%B7">
-                                                                    2017春新品
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                    </ul>
-                                            </div>
-                                        </div></div>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd has-children">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1111187367.htm?search=y&amp;catName=%B3%C4%C9%C0">衬衫</a>
-                                                                        </h4>
-                                                                            <div class="snd-pop tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px;"><div class="popup-content">
-                                            <div class="snd-pop-inner">
-                                                <ul class="fst-cat-bd">
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1111187368.htm?search=y&amp;parentCatId=1111187367&amp;parentCatName=%B3%C4%C9%C0&amp;catName=%B3%A4%D0%E4%B3%C4%C9%C0">
-                                                                    长袖衬衫
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1212962426.htm?search=y&amp;parentCatId=1111187367&amp;parentCatName=%B3%C4%C9%C0&amp;catName=%D0%E5%BB%A8%B3%C4%C9%C0">
-                                                                    绣花衬衫
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1212962427.htm?search=y&amp;parentCatId=1111187367&amp;parentCatName=%B3%C4%C9%C0&amp;catName=%B4%BF%C3%DE%B3%C4%C9%C0">
-                                                                    纯棉衬衫
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1111187369.htm?search=y&amp;parentCatId=1111187367&amp;parentCatName=%B3%C4%C9%C0&amp;catName=%B6%CC%D0%E4%B3%C4%C9%C0">
-                                                                    短袖衬衫
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1212962428.htm?search=y&amp;parentCatId=1111187367&amp;parentCatName=%B3%C4%C9%C0&amp;catName=%B8%F1%D7%D3%CC%F5%CE%C6%D3%A1%BB%A8%B3%C4%C9%C0">
-                                                                    格子条纹印花衬衫
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1214000052.htm?search=y&amp;parentCatId=1111187367&amp;parentCatName=%B3%C4%C9%C0&amp;catName=%B8%F6%D0%D4%C6%B4%BD%D3%B3%C4%C9%C0">
-                                                                    个性拼接衬衫
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1236778489.htm?search=y&amp;parentCatId=1111187367&amp;parentCatName=%B3%C4%C9%C0&amp;catName=%BF%ED%CB%C9%B3%C4%C9%C0">
-                                                                    宽松衬衫
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1236778490.htm?search=y&amp;parentCatId=1111187367&amp;parentCatName=%B3%C4%C9%C0&amp;catName=%D0%DE%C9%ED%B3%C4%C9%C0">
-                                                                    修身衬衫
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                    </ul>
-                                            </div>
-                                        </div></div>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd has-children">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1212964406.htm?search=y&amp;catName=%C1%AC%D2%C2%C8%B9">连衣裙</a>
-                                                                        </h4>
-                                                                            <div class="snd-pop tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px;"><div class="popup-content">
-                                            <div class="snd-pop-inner">
-                                                <ul class="fst-cat-bd">
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1212964379.htm?search=y&amp;parentCatId=1212964406&amp;parentCatName=%C1%AC%D2%C2%C8%B9&amp;catName=%B6%CC%D0%E4%C1%AC%D2%C2%C8%B9">
-                                                                    短袖连衣裙
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1212964380.htm?search=y&amp;parentCatId=1212964406&amp;parentCatName=%C1%AC%D2%C2%C8%B9&amp;catName=%B3%A4%D0%E4%C1%AC%D2%C2%C8%B9">
-                                                                    长袖连衣裙
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1212964407.htm?search=y&amp;parentCatId=1212964406&amp;parentCatName=%C1%AC%D2%C2%C8%B9&amp;catName=%D0%E5%BB%A8%EF%CE%BF%D5%C1%AC%D2%C2%C8%B9">
-                                                                    绣花镂空连衣裙
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1212964408.htm?search=y&amp;parentCatId=1212964406&amp;parentCatName=%C1%AC%D2%C2%C8%B9&amp;catName=%B4%BF%C3%DE%C1%AC%D2%C2%C8%B9">
-                                                                    纯棉连衣裙
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1212964409.htm?search=y&amp;parentCatId=1212964406&amp;parentCatName=%C1%AC%D2%C2%C8%B9&amp;catName=%C3%DE%C2%E9%C1%AC%D2%C2%C8%B9">
-                                                                    棉麻连衣裙
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1236778567.htm?search=y&amp;parentCatId=1212964406&amp;parentCatName=%C1%AC%D2%C2%C8%B9&amp;catName=%D3%A1%BB%A8%C6%B4%BD%D3%C1%AC%D2%C2%C8%B9">
-                                                                    印花拼接连衣裙
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1236778568.htm?search=y&amp;parentCatId=1212964406&amp;parentCatName=%C1%AC%D2%C2%C8%B9&amp;catName=%B3%C4%C9%C0%C1%AC%D2%C2%C8%B9">
-                                                                    衬衫连衣裙
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                    </ul>
-                                            </div>
-                                        </div></div>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1117522109.htm?search=y&amp;catName=%CE%C0%D2%C2">卫衣</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd has-children">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1111187565.htm?search=y&amp;catName=T%D0%F4">T恤</a>
-                                                                        </h4>
-                                                                            <div class="snd-pop tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px;"><div class="popup-content">
-                                            <div class="snd-pop-inner">
-                                                <ul class="fst-cat-bd">
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1111187567.htm?search=y&amp;parentCatId=1111187565&amp;parentCatName=T%D0%F4&amp;catName=%B6%CC%D0%E4T%D0%F4">
-                                                                    短袖T恤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1111187566.htm?search=y&amp;parentCatId=1111187565&amp;parentCatName=T%D0%F4&amp;catName=%B3%A4%D0%E4T%D0%F4">
-                                                                    长袖T恤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1212963109.htm?search=y&amp;parentCatId=1111187565&amp;parentCatName=T%D0%F4&amp;catName=%D0%E5%BB%A8%EF%CE%BF%D5T%D0%F4">
-                                                                    绣花镂空T恤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1212963110.htm?search=y&amp;parentCatId=1111187565&amp;parentCatName=T%D0%F4&amp;catName=%B4%BF%C3%DET%D0%F4">
-                                                                    纯棉T恤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1236639106.htm?search=y&amp;parentCatId=1111187565&amp;parentCatName=T%D0%F4&amp;catName=%D3%A1%BB%A8%C6%B4%BD%D3T%D0%F4">
-                                                                    印花拼接T恤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1236647474.htm?search=y&amp;parentCatId=1111187565&amp;parentCatName=T%D0%F4&amp;catName=%D0%DE%C9%ED%D0%CDT%D0%F4">
-                                                                    修身型T恤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1236647475.htm?search=y&amp;parentCatId=1111187565&amp;parentCatName=T%D0%F4&amp;catName=%BF%ED%CB%C9%D0%CDT%D0%F4">
-                                                                    宽松型T恤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1236756760.htm?search=y&amp;parentCatId=1111187565&amp;parentCatName=T%D0%F4&amp;catName=%B3%A3%B9%E6%D0%CDT%D0%F4">
-                                                                    常规型T恤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                    </ul>
-                                            </div>
-                                        </div></div>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1181060867.htm?search=y&amp;catName=%B6%CC%CD%E2%CC%D7">短外套</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1117521474.htm?search=y&amp;catName=%B7%E7%D2%C2%2F%CD%E2%CC%D7">风衣/外套</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1256559346.htm?search=y&amp;catName=%D0%A1%CE%F7%D7%B0">小西装</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1203938018.htm?search=y&amp;catName=%CF%C4%D7%B0%BE%E7%CD%B8">夏装剧透</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1260779784.htm?search=y&amp;catName=%CC%D7%D7%B0">套装</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd has-children">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-427848382.htm?search=y&amp;catName=%BF%E3%D7%B0">裤装</a>
-                                                                        </h4>
-                                                                            <div class="snd-pop tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px;"><div class="popup-content">
-                                            <div class="snd-pop-inner">
-                                                <ul class="fst-cat-bd">
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-427852816.htm?search=y&amp;parentCatId=427848382&amp;parentCatName=%BF%E3%D7%B0&amp;catName=%B4%F2%B5%D7%BF%E3">
-                                                                    打底裤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-427852815.htm?search=y&amp;parentCatId=427848382&amp;parentCatName=%BF%E3%D7%B0&amp;catName=%D0%DD%CF%D0%BF%E3">
-                                                                    休闲裤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-427852814.htm?search=y&amp;parentCatId=427848382&amp;parentCatName=%BF%E3%D7%B0&amp;catName=%C5%A3%D7%D0%BF%E3">
-                                                                    牛仔裤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-427852817.htm?search=y&amp;parentCatId=427848382&amp;parentCatName=%BF%E3%D7%B0&amp;catName=%B6%CC%BF%E3%2F%C8%C8%BF%E3">
-                                                                    短裤/热裤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-517924256.htm?search=y&amp;parentCatId=427848382&amp;parentCatName=%BF%E3%D7%B0&amp;catName=%C6%DF%B7%D6%BF%E3">
-                                                                    七分裤
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                    </ul>
-                                            </div>
-                                        </div></div>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1111190056.htm?search=y&amp;catName=%B1%B3%D0%C4%2F%B5%F5%B4%F8">背心/吊带</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1128093625.htm?search=y&amp;catName=%C3%AB%C4%D8%CD%E2%CC%D7">毛呢外套</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd has-children">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-427848381.htm?search=y&amp;catName=%C8%B9%D7%B0">裙装</a>
-                                                                        </h4>
-                                                                            <div class="snd-pop tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px;"><div class="popup-content">
-                                            <div class="snd-pop-inner">
-                                                <ul class="fst-cat-bd">
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-427852830.htm?search=y&amp;parentCatId=427848381&amp;parentCatName=%C8%B9%D7%B0&amp;catName=%B0%EB%C9%ED%C8%B9">
-                                                                    半身裙
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-427852832.htm?search=y&amp;parentCatId=427848381&amp;parentCatName=%C8%B9%D7%B0&amp;catName=%B3%A4%C8%B9">
-                                                                    长裙
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-427852833.htm?search=y&amp;parentCatId=427848381&amp;parentCatName=%C8%B9%D7%B0&amp;catName=%B6%CC%C8%B9">
-                                                                    短裙
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                    </ul>
-                                            </div>
-                                        </div></div>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1111190055.htm?search=y&amp;catName=%D1%A9%B7%C4%C9%C0%2F%C0%D9%CB%BF%C9%C0">雪纺衫/蕾丝衫</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1111190054.htm?search=y&amp;catName=%D5%EB%D6%AF%C9%C0%2F%BF%AA%C9%C0">针织衫/开衫</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1194746142.htm?search=y&amp;catName=%CD%E2%CC%D7">外套</a>
-                                                                        </h4>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd has-children">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1124758585.htm?search=y&amp;catName=%C3%AB%D2%C2">毛衣</a>
-                                                                        </h4>
-                                                                            <div class="snd-pop tb-shop-popup-content" style="position: absolute; top: -99999px; left: -99999px;"><div class="popup-content">
-                                            <div class="snd-pop-inner">
-                                                <ul class="fst-cat-bd">
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1159650801.htm?search=y&amp;parentCatId=1124758585&amp;parentCatName=%C3%AB%D2%C2&amp;catName=%CC%D7%CD%B7%C3%AB%D2%C2">
-                                                                    套头毛衣
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                            <li class="cat snd-cat">
-                                                            <h4 class="cat-hd snd-cat-hd">
-                                                                <i class="cat-icon snd-cat-icon"></i>
-                                                                <a class="cat-name snd-cat-name" href="//mefound.tmall.com/category-1159650802.htm?search=y&amp;parentCatId=1124758585&amp;parentCatName=%C3%AB%D2%C2&amp;catName=%BF%AA%C9%C0%C3%AB%D2%C2">
-                                                                    开衫毛衣
-                                                                </a>
-                                                            </h4>
-                                                        </li>
-                                                                                                    </ul>
-                                            </div>
-                                        </div></div>
-                                                                    </li>
-                                                            <li class="cat fst-cat">
-                                    <h4 class="cat-hd fst-cat-hd ">
-                                    
-                                        <i class="cat-icon fst-cat-icon  active-trigger"></i>
-                                        <a class="cat-name fst-cat-name" href="//mefound.tmall.com/category-1324172556.htm?search=y&amp;catName=2017%C7%EF%D7%B0%D4%A4%C0%C0">2017秋装预览</a>
-                                                                        </h4>
-                                                                    </li>
-                                                    </ul>
-                    </div>
-                </div></div></div></div></div>
+</div>
 </div>
 <div data-spm="1998132244" id="J_lidi">
 </div>
@@ -1401,7 +738,7 @@ if(Math.ceil(Math.random()*1000)==1){KISSY.getScript('//g.tbcdn.cn/mm/doctor/1.2
 
 
 </script>
-<div id="LineZing" pagetype="2" shopid="62844901" tmplid="" itemid="548001349200"></div>
+<div id="LineZing" pagetype="2" shopid="114111519" tmplid="" itemid="535749186777"></div>
 <script>
 KISSY.ready(function(S){
     var Win = window;
@@ -1438,7 +775,7 @@ KISSY.ready(function(S){
         }catch(err){}
     });
 });
-</script><iframe src="https://g.alicdn.com/alilog/aplus_cplugin/0.1.2/ls.html?_a_ig_p_url=https%3A%2F%2Fworld.tmall.com%2Fitem%2F548001349200.htm%3Fspm%3Da230r.1.14.6.76bf523w1Oot2%26id%3D548001349200%26cm_id%3D140105335569ed55e27b%26abbucket%3D4" id="_a_log_lsparams" style="width: 0px; height: 0px; display: none;" data-spm-act-id="a312a.7700718.0.i1.7a6c4833EdOfMY"></iframe>
+</script>
 <script>
 KISSY.config({
     modules: {
@@ -1464,4 +801,4 @@ KISSY.config({
 <script type="text/javascript">(function(e){if(!e["_med"])e["_med"]={};var t=e["_med"];t.cookie=function(e,t,a){if(t!==undefined){a=a||{};if(typeof a.expires==="number"){var o=a.expires,l=a.expires=new Date;l.setTime(+l+o*864e5)}return document.cookie=[e,"=",String(t),a.expires?"; expires="+a.expires.toUTCString():"",a.path?"; path="+a.path:"",a.domain?"; domain="+a.domain:"",a.secure?"; secure":""].join("")}var r=e?undefined:{};var i=document.cookie?document.cookie.split("; "):[];for(var n=0,s=i.length;n<s;n++){var b=i[n].split("=");var d=b.shift();var p=b.join("=");if(e&&e===d){r=p;break}if(!e&&p!==undefined){r[d]=p}}return r};var a=document;var o=e.devicePixelRatio||1,l=a.documentElement.clientWidth,r=a.documentElement.clientHeight,i,n,s,b=/initial-scale=([\d\.]+?),/i,d,p;if(a.querySelector){p=a.querySelector('meta[name="viewport"]');if(p){d=b.exec(p.content+",");if(d){s=parseFloat(d[1],10)}}}if(s){l=l*s;r=r*s}if(screen){if(Math.abs(screen.width-l*o)<.2*screen.width){l=screen.width/o;r=screen.height/o;i=screen.width;n=screen.height}else{l=screen.width;r=screen.height;i=screen.width*o;n=screen.height*o}}else{i=l*o;n=r*o}var m="createTouch"in a&&"ontouchstart"in e?1:0;var c=["dw:"+l,"dh:"+r,"pw:"+i,"ph:"+n,"ist:"+m].join("&");t.cookie("_med",c,{expires:3650})})(window);
 </script>
 
-<div class="tm-tip tm-tip-arrow tm-tip-arrow-top"><div class="ks-popup-content">复制成功</div></div><div id="copyLinkDlg" style="display:none" class="popup"><div class="tm-copylink ks-popup-content"><div class="tm-copylink-title"><span class="tm-copylink-tianmao">天貓分享</span>&nbsp;|&nbsp;鏈接<span class="tm-copylink-close iconfont"></span></div><div class="tm-copylink-content"><div class="tm-copylink-label">分享鏈接：</div><input value="我蛮喜欢这个哦~https://world.tmall.com/item/548001349200.htm?spm=a230r.1.14.6.76bf523w1Oot2&amp;id=548001349200&amp;cm_id=140105335569ed55e27b&amp;abbucket=4" class="tm-copylink-link"><div class="tm-copylink-remind">你的浏覽器不支持自動複制功能，您可以使用ctrl+c鍵，進行手動複制！</div></div></div></div><div id="#copylinkPopupHook" style="display: none"></div>
+<iframe src="https://g.alicdn.com/alilog/aplus_cplugin/0.1.2/ls.html?_a_ig_p_url=https%3A%2F%2Fworld.tmall.com%2Fitem%2F535749186777.htm%3Fspm%3Da230r.1.14.6.76bf523DgKiqe%26id%3D535749186777%26cm_id%3D140105335569ed55e27b%26abbucket%3D4" id="_a_log_lsparams" style="width: 0px; height: 0px; display: none;" data-spm-act-id="a312a.7700718.0.i1.7a6c4833Ken0bb"></iframe><div class="tm-tip tm-tip-arrow tm-tip-arrow-top"><div class="ks-popup-content">复制成功</div></div><div id="copyLinkDlg" style="display:none" class="popup"><div class="tm-copylink ks-popup-content"><div class="tm-copylink-title"><span class="tm-copylink-tianmao">天貓分享</span>&nbsp;|&nbsp;鏈接<span class="tm-copylink-close iconfont"></span></div><div class="tm-copylink-content"><div class="tm-copylink-label">分享鏈接：</div><input value="我蛮喜欢这个哦~https://world.tmall.com/item/535749186777.htm?spm=a230r.1.14.6.76bf523DgKiqe&amp;id=535749186777&amp;cm_id=140105335569ed55e27b&amp;abbucket=4" class="tm-copylink-link"><div class="tm-copylink-remind">你的浏覽器不支持自動複制功能，您可以使用ctrl+c鍵，進行手動複制！</div></div></div></div><div id="#copylinkPopupHook" style="display: none"></div><table id="J_CommonBottomBar" style=""><tbody><tr><td order="0"></td><td order="50"><div class="tm_cmbar_clearfix tm_cmbar tm-mCart tm-mcCounterDown" id="TMinaCart"><div class="tm-mcRoot"><div class="tm-mcListBox"><div class="tm-mcListInner"><div class="tm-mcList"></div></div><div class="tm-mcFloat"></div><div class="tm-mcMask"></div></div><div class="tm-mcGenius"></div><div class="tm-mcGrace"></div><div class="tm-mcApart"></div><div class="tm-mcHandler" data-tmc="toggleFold"><h3><span class="tm-e1">购物车</span><span class="tm-e2">已选</span><strong class="tm-mcCartNumTotal">0</strong><strong class="tm-mcCheckedNum">0</strong><span class="tm-e2">件</span></h3></div></div></div></td></tr></tbody></table>

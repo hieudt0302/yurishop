@@ -8,6 +8,16 @@
 
         @include('notifications.status_message') 
 		@include('notifications.errors_message')
+        @if (session()->has('success_message'))
+            <div class="alert alert-success">
+                {{ session()->get('success_message') }}
+            </div>
+        @endif
+        @if (session()->has('error_message'))
+            <div class="alert alert-danger">
+                {{ session()->get('error_message') }}
+            </div>
+        @endif
     </div>
     <br> 
     @if (sizeof(Cart::content()) > 0)
@@ -28,8 +38,8 @@
                 @foreach (Cart::content() as $item)
                 <tr>
                     <td>
-                        <a href="{{ $item->url }}" target="_blank">
-                            <img src="{{ $item->image }}" alt="" class="img-rounded img-inside">
+                        <a href="{{ $item->options->url }}" target="_blank">
+                            <img src="{{ $item->options->image }}" alt="" class="img-rounded img-inside">
                         </a>
                     </td>
                     <td>{{ $item->name }}</td>
@@ -103,7 +113,6 @@
     <div class="row">
         <h3>@lang('shoppings.cart_noitems')</h3>
         <div>
-            <!-- <a href="{{ url('/cart') }}" class="btn btn-primary btn-lg"><i class="fa fa-product-hunt" aria-hidden="true"></i> Thêm Sản Phẩm Khác</a> -->
             {!! Form::open(['method' => 'POST','route' => ['front.carts.store'],'style'=>'display:inline']) !!} {{Form::button('
                 <span class="glyphicon glyphicon-education"></span> ADD DEMO ITEM', array('type' => 'submit', 'class' => 'btn btn-warning'))}} {!! Form::close() !!}
         </div>
@@ -135,6 +144,9 @@
                     },
                     success: function(data) {
                         window.location.href = '{{ url('/cart') }}';
+                    },
+                    error:function(){
+                        alert('error');
                     }
                 });
                 //end update cart
@@ -158,6 +170,9 @@
                     },
                     success: function(data) {
                         window.location.href = '{{ url('/cart') }}';
+                    },
+                    error:function(){
+                        alert('error');
                     }
                 });
                 //end update cart
@@ -177,6 +192,9 @@
                 },
                 success: function(data) {
                     window.location.href = '{{ url('/cart ') }}';
+                },
+                error:function(){
+                    alert('error');
                 }
             });
         });

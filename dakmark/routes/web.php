@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,22 +9,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 /* Added by Thang LD */
 Route::get('/', 'Front\PagesController@home');
 Route::post('/thong-tin-san-pham', 'Front\PagesController@product_info');
 Route::post('/get-prop', 'Front\PagesController@get_prop');
 Route::get('/danh-sach-don-hang',  ['uses'=>'Front\PagesController@order_list','middleware' => 'auth']);
 /*  --- */
-
 Route::get('/', ['as' => 'front.home',   'uses' => 'Front\PagesController@home']);
-
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
-
     //admin area
     Route::get('/', ['as' => 'admin.dashboard', 'uses' => 'PagesController@getDashboard']);
     Route::get('/blank', ['as' => 'admin.blank', 'uses' => 'PagesController@getBlank']);
-
     //role area
     Route::get('roles',['as'=>'admin.roles.index','uses'=>'RolesController@index','middleware' => ['permission:role-list']]);
     Route::get('roles/create',['as'=>'admin.roles.create','uses'=>'RolesController@create','middleware' => ['permission:role-create']]);
@@ -34,7 +28,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('roles/{id}/edit',['as'=>'admin.roles.edit','uses'=>'RolesController@edit','middleware' => ['permission:role-edit']]);
     Route::patch('roles/{id}',['as'=>'admin.roles.update','uses'=>'RolesController@update','middleware' => ['permission:role-edit']]);
     Route::delete('roles/{id}',['as'=>'admin.roles.destroy','uses'=>'RolesController@destroy','middleware' => ['permission:role-delete']]);
-
     //user area
     Route::get('users',['as'=>'admin.users.index','uses'=>'UsersController@index','middleware' => ['permission:user-list']]);
     Route::get('users/create',['as'=>'admin.users.create','uses'=>'UsersController@create','middleware' => ['permission:user-create']]);
@@ -43,7 +36,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('users/{id}/edit',['as'=>'admin.users.edit','uses'=>'UsersController@edit','middleware' => ['permission:user-edit']]);
     Route::patch('users/{id}',['as'=>'admin.users.update','uses'=>'UsersController@update','middleware' => ['permission:user-edit']]);
     Route::delete('users/{id}',['as'=>'admin.users.destroy','uses'=>'UsersController@destroy','middleware' => ['permission:user-delete']]);
-
      //rate area
     Route::get('rates',['as'=>'admin.rates.index','uses'=>'RatesController@index','middleware' => ['permission:rate-list']]);
     Route::get('rates/create',['as'=>'admin.rates.create','uses'=>'RatesController@create','middleware' => ['permission:rate-create']]);
@@ -52,7 +44,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('rates/{id}/edit',['as'=>'admin.rates.edit','uses'=>'RatesController@edit','middleware' => ['permission:rate-edit']]);
     Route::patch('rates/{id}',['as'=>'admin.rates.update','uses'=>'RatesController@update','middleware' => ['permission:rate-edit']]);
     Route::delete('rates/{id}',['as'=>'admin.rates.destroy','uses'=>'RatesController@destroy','middleware' => ['permission:rate-delete']]);
-
     //Orders
     Route::get('orders',['as'=>'admin.orders.index','uses'=>'OrdersController@index','middleware' => ['permission:order-list']]);
     Route::get('orders/create',['as'=>'admin.orders.create','uses'=>'OrdersController@create','middleware' => ['permission:order-create']]);
@@ -62,7 +53,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::patch('orders/{id}',['as'=>'admin.orders.update','uses'=>'OrdersController@update','middleware' => ['permission:order-edit']]);
     Route::delete('orders/{id}',['as'=>'admin.orders.destroy','uses'=>'OrdersController@destroy','middleware' => ['permission:order-delete']]);
     Route::post('orders',['as'=>'admin.orders.find','uses'=>'OrdersController@find','middleware' => ['permission:order-list']]);
-
+    //Order-Sub
+    Route::patch('orders/ajust/quantity/item/{id}',['as'=>'admin.orders.ajustquantity','uses'=>'OrdersController@ajustquantity','middleware' => ['permission:order-edit']]);
+    Route::patch('orders/send/ordershop/{id}',['as'=>'admin.orders.sendshop','uses'=>'OrdersController@sendshop','middleware' => ['permission:order-edit']]);
     //OrderShops
     Route::get('ordershops',['as'=>'admin.ordershops.index','uses'=>'OrderShopsController@index','middleware' => ['permission:order-list']]);
     Route::get('ordershops/create',['as'=>'admin.ordershops.create','uses'=>'OrderShopsController@create','middleware' => ['permission:order-create']]);
@@ -72,15 +65,19 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::patch('ordershops/{id}',['as'=>'admin.ordershops.update','uses'=>'OrderShopsController@update','middleware' => ['permission:order-edit']]);
     Route::delete('ordershops/{id}',['as'=>'admin.ordershops.destroy','uses'=>'OrderShopsController@destroy','middleware' => ['permission:order-delete']]);
     Route::post('ordershops',['as'=>'admin.ordershops.find','uses'=>'OrderShopsController@find','middleware' => ['permission:order-list']]);
-
+    
     //order area - added by Thang LD
     Route::get('orders',['as'=>'admin.orders','uses'=>'OrderController@index']);
     Route::get('orders/details',['as'=>'admin.orders.details','uses'=>'OrderController@view_detail']);
-
     Route::get('product-cat',['as'=>'admin.product-cat','uses'=>'ProductController@productCatList']);
     Route::get('product-cat/add',['as'=>'admin.product-cat.add','uses'=>'ProductController@addProductCat']);
+    Route::post('product-cat/add',['as'=>'admin.product-cat.insert','uses'=>'ProductController@insertProductCat']);
+    Route::get('product-cat/edit/{id}',['as'  =>'admin.product-cat.edit','uses' => 'ProductController@editProductCat'])->where('id','[0-9]+');
+    Route::post('product-cat/edit/{id}',['as' =>'admin.product-cat.update','uses' => 'ProductController@updateProductCat'])->where('id','[0-9]+');
+    Route::get('product-cat/delete/{id}',['as'  =>'admin.product-cat.delete','uses' => 'ProductController@deleteProductCat'])->where('id','[0-9]+');
     Route::get('products',['as'=>'admin.product','uses'=>'ProductController@productList']);
     Route::get('product/add',['as'=>'admin.product.add','uses'=>'ProductController@addProduct']);
+    Route::post('generate-slug',['as'=>'admin.generate-slug','uses'=>'ProductController@generate_slug']);
 
     //Blogs
     Route::get('blogs',['as'=>'admin.blogs.index','uses'=>'BlogsController@index']);
@@ -90,24 +87,18 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('blogs/create',['as'=>'admin.blogs.store','uses'=>'BlogsController@store']);
     Route::patch('blogs/{id}',['as'=>'admin.blogs.update','uses'=>'BlogsController@update']);
     Route::delete('blogs/{id}',['as'=>'admin.blogs.destroy','uses'=>'BlogsController@destroy']);
-
 });
-
-
 Auth::routes();
  
 // registration activation routes
 Route::get('activation/key/{activation_key}', ['as' => 'activation_key', 'uses' => 'Auth\ActivationKeyController@activateKey']);
 Route::get('activation/resend', ['as' =>  'activation_key_resend', 'uses' => 'Auth\ActivationKeyController@showKeyResendForm']);
 Route::post('activation/resend', ['as' =>  'activation_key_resend.post', 'uses' => 'Auth\ActivationKeyController@resendKey']);
-
 // forgot_username
 Route::get('username/reminder', ['as' =>  'username_reminder', 'uses' => 'Auth\ForgotUsernameController@showForgotUsernameForm']);
 Route::post('username/reminder', ['as' =>  'username_reminder.post', 'uses' => 'Auth\ForgotUsernameController@sendUserameReminder']);
-
 // Products - old
 // Route::resource('products', 'Front\ProductController', ['only' => ['index', 'show']]);
-
 // Shoppings - old
 // Route::resource('cart', 'Front\CartController');
 // Route::delete('emptyCart', 'Front\CartController@emptyCart');
@@ -115,13 +106,9 @@ Route::post('username/reminder', ['as' =>  'username_reminder.post', 'uses' => '
 // Route::resource('wishlist', 'Front\WishlistController');
 // Route::delete('emptyWishlist', 'Front\WishlistController@emptyWishlist');
 // Route::post('switchToCart/{id}', 'Front\WishlistController@switchToCart');
-
-
 //Profiles
 Route::get('profile', ['as'=>'front.profiles.index','uses'=>'Front\ProfileController@index','middleware' => 'auth']);
 Route::patch('profile', ['as'=>'front.profiles.update','uses'=>'Front\ProfileController@update','middleware' => 'auth']);
-
-
 //Address
 Route::get('profile/address',['as'=>'front.profiles.address','uses'=>'Front\ProfileController@address','middleware' => 'auth']);
 Route::get('profile/address/create',['as'=>'front.profiles.createaddress','uses'=>'Front\ProfileController@createaddress','middleware' => 'auth']);
@@ -130,8 +117,6 @@ Route::get('profile/address/{id}',['as'=>'front.profiles.showaddress','uses'=>'F
 Route::get('profile/address/{id}/edit',['as'=>'front.profiles.editaddress','uses'=>'Front\ProfileController@editaddress','middleware' => 'auth']);
 Route::patch('profile/address/{id}',['as'=>'front.profiles.updateaddress','uses'=>'Front\ProfileController@updateaddress','middleware' => 'auth']);
 Route::delete('profile/address/{id}',['as'=>'front.profiles.destroyaddress','uses'=>'Front\ProfileController@destroyaddress','middleware' => 'auth']);
-
-
 //Orders
 Route::get('order',['as'=>'front.orders.index','uses'=>'Front\OrdersController@index','middleware' => 'auth']);
 Route::get('order/create',['as'=>'front.orders.create','uses'=>'Front\OrdersController@create','middleware' => 'auth']);
@@ -141,10 +126,8 @@ Route::get('order/{id}/edit',['as'=>'front.orders.edit','uses'=>'Front\OrdersCon
 Route::patch('order/{id}',['as'=>'front.orders.update','uses'=>'Front\OrdersController@update','middleware' => 'auth']);
 Route::delete('order/{id}',['as'=>'front.orders.destroy','uses'=>'Front\OrdersController@destroy','middleware' => 'auth']);
 Route::post('order',['as'=>'front.orders.find','uses'=>'Front\OrdersController@find','middleware' => 'auth']);
-
 //Order-Sub
 Route::delete('order/itemdestroy/{id}', ['as'=>'front.orders.itemdestroy','uses'=>'Front\OrdersController@itemdestroy','middleware' => 'auth']);
-
 //Cart
 Route::get('cart',['as'=>'front.carts.index','uses'=>'Front\CartsController@index']);
 Route::get('cart/create',['as'=>'front.carts.create','uses'=>'Front\CartsController@create']);
@@ -153,10 +136,8 @@ Route::get('cart/{id}',['as'=>'front.carts.show','uses'=>'Front\CartsController@
 Route::get('cart/{id}/edit',['as'=>'front.carts.edit','uses'=>'Front\CartsController@edit']);
 Route::patch('cart/{id}',['as'=>'front.carts.update','uses'=>'Front\CartsController@update']);
 Route::delete('cart/{id}',['as'=>'front.carts.destroy','uses'=>'Front\CartsController@destroy']);
-
 //Cart-Sub
 Route::delete('emptyCart', 'Front\CartsController@emptyCart');
-
 //Blogs
 Route::get('blogs',['as'=>'front.blogs.index','uses'=>'Front\BlogsController@index']);
 Route::get('blogs/{id}',['as'=>'front.blogs.show','uses'=>'Front\BlogsController@show']);

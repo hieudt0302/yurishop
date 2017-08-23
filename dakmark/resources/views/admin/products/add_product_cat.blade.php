@@ -3,76 +3,136 @@
 @section('title', 'Danh mục sản phẩm')
 @section('description', 'Danh mục sản phẩm')
 @section('content')
-<div class="container">
-    <div class="row">
-        <a href="{{ route('admin.product-cat.add') }}" class="btn btn-primary" title="Thêm danh mục mới">
-            <i class="fa fa-plus"></i>Thêm danh mục mới
-        </a>
+<header class="header">
+    <a href="{{ route('admin.product-cat') }}" class="btn btn-primary btn-sm pull-right" title="Quay lại">Quay lại danh sách</a>
+</header>
+<div class="container-fluid">
+    <div class="block-header">
+        <h2>Thêm danh mục sản phẩm</h2>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <table id="order-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                <thead>
+    </br>
+    <div class="row clearfix" >
+        <section class="panel panel-default">
+            {!! Form::open(array('route' => 'admin.product-cat.insert','method'=>'POST', 'enctype' => 'multipart/form-data')) !!}
+                <table class="table table-responsive">
                     <tr>
-                        <th>Tên danh mục</th>
-                        <th>Hiển thị</th>
-                        <th>Hiển thị trên menu</th>
-                        <th>Sắp xếp</th>
-                        <th>Tùy chọn</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>10-06-2017 10:00</td>
-                        <td>Donald Trump</td>
-                        <td>{{price_format(2000000,'VNĐ')}}</td>
-                        <td>Hoàn thành</td>
-                        <td class="order-option">
-                            <a href="{{ route('admin.orders.details') }}" class="btn btn-default btn-xs" title="Xem chi tiết">
-                                <i class="fa fa-eye"></i>Xem chi tiết
-                            </a>
-                            <a href="" class="btn btn-default btn-xs" data-toggle="ajaxModal" title="Hủy bỏ">
-                                <i class="fa fa-ban"></i>Hủy đơn hàng
-                            </a>
+                        <td>
+                            Tên danh mục
+                            <span class="text-danger">*</span>
+                        </td>
+                        <td>
+                            <input type="text" id="name" class="form-control" name="name" value="{!! old('name') !!}" />
                         </td>
                     </tr>
                     <tr>
-                        <td>2</td>
-                        <td>15-06-2017 8:00</td>
-                        <td>Tập Cận Bình</td>
-                        <td>2.300.000</td>
-                        <td>Đã hủy</td>
-                        <td></td>
+                        <td>
+                            Slug
+                            <span class="text-danger">*</span>
+                        </td>
+                        <td>
+                            <input type="text" id="slug" class="form-control" name="slug" value="{!! old('slug') !!}" />
+                        </td>
+                        <td style="padding-left:10px">
+                            <button type="button" id="generate-slug" class="btn btn-warning">Tạo slug</button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>3</td>
-                        <td>10-07-2017 10:30</td>
-                        <td>Shinzo Abe</td>
-                        <td>3.000.000</td>
-                        <td>Chờ xử lý</td>
-                        <td></td>
+                        <td>
+                            Tiêu đề (SEO)
+                            <span class="text-danger">*</span>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="seo_title" value="{!! old('seo_title') !!}" />
+                        </td>
                     </tr>
-                </tbody>        
-            </table>
-        </div>
+                    <tr>
+                        <td>Menu cha</td>
+                        <td>
+                            <select name="parent_id" class="form-control">
+                                <option value="0" selected ></option>
+                                @foreach($productCats as $pCat)
+                                <option value="{{ $pCat->id }}">{{ $pCat->name }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sắp xếp</td>
+                        <td>
+                            <input type="text" class="form-control" name="sort_order" value="{!! old('sort_order') !!}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cho phép hiển thị</td>
+                        <td>
+                            <select name="is_show" class="form-control">
+                                <option value="1" selected >Có</option>
+                                <option value="0">Không</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hiển thị trên menu</td>
+                        <td>
+                            <select name="is_show_nav" class="form-control">
+                                <option value="1" >Có</option>
+                                <option value="0" selected>Không</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td>Từ khóa (SEO)</td>
+                        <td>
+                            <input type="text" class="form-control" name="keyword" value="{!! old('keyword') !!}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mô tả (SEO)</td>
+                        <td>
+                            <textarea class="form-control" name="description">{!! old('description') !!}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hình đại diện</td>
+                        <td>
+                            <input type="file" name="file"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type="submit" class="btn btn-info" style="margin-left: 15px; margin-top: 10px">Thêm</button></td>
+                    </tr>
+                </table>
+            </form>
+        </section>
     </div>
 </div>
-<script src="{{url('/')}}/public/assets/js/jquery.dataTables.min.js"></script>
-<script src="{{url('/')}}/public/assets/js/dataTables.bootstrap.min.js"></script>
-<script src="{{url('/')}}/public/assets/js/bootstrap-datepicker.js"></script>
-<script>
+        
+<script type="text/javascript">
     $(document).ready(function(){
-        $('#begin-date, #end-date').datepicker({
-            autoclose: true,
-            todayHighlight:true,
-            orientation:'bottom',
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
-        $('#order-table').DataTable({ 
-            "lengthChange": false,
-            "filter": false
+        $("#generate-slug").click(function(){
+            var name = $("#name").val();
+            $.ajax({
+                type: "POST",
+                url: "{{url('/admin/generate-slug')}}" ,
+                data: {
+                    name: name,
+                },
+                success: function(res){
+                    $('#slug').val(res);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
         });
     });
-</script>   
+</script>
 
 @endsection
 

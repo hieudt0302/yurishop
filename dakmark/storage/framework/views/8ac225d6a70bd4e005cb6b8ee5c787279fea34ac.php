@@ -36,7 +36,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
             <div class="panel panel-green">
                 <div class="panel-heading">
                     <div class="row">
@@ -58,7 +58,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
             <div class="panel panel-yellow">
                 <div class="panel-heading">
                     <div class="row">
@@ -80,7 +80,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
             <div class="panel panel-red">
                 <div class="panel-heading">
                     <div class="row">
@@ -104,144 +104,132 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-lg-4 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-shopping-cart fa-fw"></i>Đơn hàng mới nhất</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Thời gian</th>
+                                    <th>Khách hàng</th>
+                                    <th>Tình trạng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10-08-2017 10:00</td>
+                                    <td>John Lee</td>
+                                    <td>Chờ xác nhận</td>
+                                </tr>
+                                <tr>
+                                    <td>10-08-2017 10:00</td>
+                                    <td>John Lee</td>
+                                    <td>Chờ xác nhận</td>
+                                </tr>
+                                <tr>
+                                    <td>10-08-2017 10:00</td>
+                                    <td>John Lee</td>
+                                    <td>Chờ xác nhận</td>
+                                </tr>
+                                <tr>
+                                    <td>10-08-2017 10:00</td>
+                                    <td>John Lee</td>
+                                    <td>Chờ xác nhận</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right">
+                        <a href="<?php echo e(url('/admin/blank')); ?>">Xem tất cả<i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-user fa-fw"></i>Khách hàng mới nhất</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Khách hàng</th>
+                                    <th>Thời gian</th>
+                                    <th>Tình trạng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="">David Hill</a></td>
+                                    <td>10-08-2017 10:00</td>
+                                    <td>Chưa kích hoạt</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">John Lee</a></td>
+                                    <td>10-08-2017 10:00</td>
+                                    <td>Đã kích hoạt</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">John Lee</a></td>
+                                    <td>10-08-2017 10:00</td>
+                                    <td>Đã kích hoạt</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="">John Lee</a></td>
+                                    <td>10-08-2017 10:00</td>
+                                    <td>Đã kích hoạt</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right">
+                        <a href="<?php echo e(url('/admin/blank')); ?>">Xem tất cả<i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                                <div class="text-right">
-                                    <a href="<?php echo e(url('/admin/blank')); ?>">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                    <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i>Hoạt động mới nhất</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
+                            <span class="badge">just now</span>
+                            <i class="fa fa-fw fa-calendar"></i> Calendar updated
+                        </a>
+                        <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
+                            <span class="badge">4 minutes ago</span>
+                            <i class="fa fa-fw fa-comment"></i> Commented on a post
+                        </a>
+                        <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
+                            <span class="badge">23 minutes ago</span>
+                            <i class="fa fa-fw fa-truck"></i> Order 392 shipped
+                        </a>
+                        <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
+                            <span class="badge">46 minutes ago</span>
+                            <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
+                        </a>
+                        <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
+                            <span class="badge">1 hour ago</span>
+                            <i class="fa fa-fw fa-user"></i> A new user has been added
+                        </a>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
-                                        <span class="badge">just now</span>
-                                        <i class="fa fa-fw fa-calendar"></i> Calendar updated
-                                    </a>
-                                    <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
-                                        <span class="badge">4 minutes ago</span>
-                                        <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                    </a>
-                                    <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
-                                        <span class="badge">23 minutes ago</span>
-                                        <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-                                    </a>
-                                    <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
-                                        <span class="badge">46 minutes ago</span>
-                                        <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
-                                    </a>
-                                    <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
-                                        <span class="badge">1 hour ago</span>
-                                        <i class="fa fa-fw fa-user"></i> A new user has been added
-                                    </a>
-                                    <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
-                                        <span class="badge">2 hours ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
-                                    </a>
-                                    <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
-                                        <span class="badge">yesterday</span>
-                                        <i class="fa fa-fw fa-globe"></i> Saved the world
-                                    </a>
-                                    <a href="<?php echo e(url('/admin/blank')); ?>" class="list-group-item">
-                                        <span class="badge">two days ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
-                                    </a>
-                                </div>
-                                <div class="text-right">
-                                    <a href="<?php echo e(url('/admin/blank')); ?>">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Order #</th>
-                                                <th>Order Date</th>
-                                                <th>Order Time</th>
-                                                <th>Amount (USD)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3325</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:20 PM</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3324</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:03 PM</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3323</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:00 PM</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3322</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:49 PM</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3321</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:23 PM</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3320</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:15 PM</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3319</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:13 PM</td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="text-right">
-                                    <a href="<?php echo e(url('/admin/blank')); ?>">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="text-right">
+                        <a href="<?php echo e(url('/admin/blank')); ?>">Xem tất cả <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- /.row -->
-
             </div>
-            <!-- /.container-fluid -->
+        </div>
+    </div>
+</div>
              
 <?php $__env->stopSection(); ?>
 

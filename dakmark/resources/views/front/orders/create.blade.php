@@ -111,9 +111,6 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <!-- <button id="send-order" type="submit" class="btn-lg btn-primary">
-                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  
-                    </button> -->
                     <form action="{{ url('/order/create') }}" method="POST">
                         {!! csrf_field() !!}
                         <input type="hidden" id="use_bookaddress" name="use_bookaddress" value="true">
@@ -139,15 +136,14 @@
 <br> @endsection @section('scripts')
 <script>
     $(document).ready(function() {
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
         $("#changeaddress").click(function() {
             $('#bookaddress').attr("disabled", $(this).is(":checked"));
-            
             $(".collapse").collapse('toggle');
             if($(this).is(":checked")){
                 $('#use_bookaddress').val('false');

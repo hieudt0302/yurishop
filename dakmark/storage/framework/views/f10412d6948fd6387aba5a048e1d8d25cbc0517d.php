@@ -16,7 +16,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <!-- Bootstrap -->
     <link href="<?php echo e(url('/')); ?>/public/assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -29,6 +29,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
     <link href="<?php echo e(url('/')); ?>/public/assets/css/adminlte/skins/skin-blue.min.css" rel="stylesheet">
+
+    <!-- Custom  -->
+    <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/spinner.css">
+    <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/image.css">
+    <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/plugins/iCheck/all.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -407,18 +412,21 @@ desired effect
     <!-- AdminLTE App -->
     <script src="<?php echo e(url('/')); ?>/public/assets/js/adminlte/adminlte.min.js"></script>
 
-    <?php echo $__env->yieldContent('scripts'); ?>
+    <!-- iCheck -->
+    <script src="<?php echo e(url('/')); ?>/public/assets/plugins/iCheck/icheck.min.js"></script>
+
+
     <!-- Sefl Script -->
     <script>
-        // $(document).ready(function () {
-        //     $("#dasboard").click(function () {
-        //         $("#order").removeClass("active");
-
-        //         // $("#dasboard").addClass("active"); 
-        //         $(this).addClass("active");
-        //     });
-        // });
+    (function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    })();
     </script>
+    <?php echo $__env->yieldContent('scripts'); ?>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->

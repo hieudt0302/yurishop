@@ -3,6 +3,8 @@
 <div class="container">
     <div class="row">
         <h1>Danh Sách Đơn Hàng</h1>
+        <?php echo $__env->make('notifications.status_message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> 
+        <?php echo $__env->make('notifications.errors_message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     </div>
     <div class="row">
 

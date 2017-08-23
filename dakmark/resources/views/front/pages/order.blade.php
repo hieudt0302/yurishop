@@ -32,7 +32,7 @@
     <input type="hidden" name="skuMap" value="{{serialize($skuMap)}}">
 	<input type="hidden" name="first" value="{{$first}}">
     <div class="col-md-4 product-img">
-        <img class="img-responsive" src="{{$image}}" alt="Hình sản phẩm" />
+        <img class="img-responsive image" src="{{$image}}" alt="Hình sản phẩm" />
     </div>
     <div class="col-md-8">
         <div class="product-name">
@@ -57,8 +57,9 @@
             <div class="col-md-2 detail-label">Màu sắc</div>
             <div class="col-md-10">
                 <ul class='color'>
-                @foreach ($colors as $c)
-                    <li data-value="{{ $c['colorId'] }}" class="single-color">
+                @foreach ($colors as $key => $c)
+                    <li class="single-color {!! $key==0 ? 'li-selected' : '' !!}"
+                        data-value="{{ $c['colorId'] }}" data-title="{{ $c['colorName'] }}">
                         <a href="javascript:;" title="{{ $c['colorName'] }}">
                             <img src="{{ $c['colorImg'] }}" alt="{{ $c['colorName'] }}">
                         </a>
@@ -151,7 +152,21 @@
             </div>
         </div>
         <div>
-            <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+            <button class="btn btn-primary add-shoopingcart">Thêm vào giỏ hàng</button>
+            <!-- <form action="{{ url('/cart/create') }}" method="POST">
+                        {!! csrf_field() !!}
+                        <input type="hidden" id="productname" name="productname" value="true">
+                        <input type="hidden" id="quantity" name="quantity" value="0">
+                        <input type="hidden" id="unitprice" name="shipaddress">
+                        <input type="hidden" id="color" name="color">
+                        <input type="hidden" id="colorimage" name="colorimage">
+                        <input type="hidden" id="size" name="size">
+                        <input type="hidden" id="url" name="url">
+                        <input type="hidden" id="image" name="image">
+                         <button type="submit" class="btn-lg btn-primary">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Thêm vào giỏ hàng
+                        </button>
+                    </form> -->
         </div>
     </div>
 </div>
@@ -169,6 +184,13 @@
 </div>
 <script>
     $(document).ready(function(){
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         $(".quantity").each(function(index){
             if($(this).html()==0){
                 //console.log(name + " = 0");
@@ -185,9 +207,11 @@
                 type: "POST",
                 dataType: "json",
                 url: "{{url('/get-prop')}}" ,
+                /*
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
+                */
                 data: {
                     sizes: $("input[name='sizes']").val(),
                     skuMap: $("input[name='skuMap']").val(),
@@ -240,6 +264,44 @@
             if(valueCurrent > minValue) {
                 $(".btn-number[data-field='"+name+"']").removeAttr('disabled')
             } 
+        });
+
+        $('.add-shoopingcart').click(function() {
+
+            var sizes = new Array();
+            $(".size").each(function(index){
+                var sizeName = $(".size-name").eq(index).text();
+                var sizePrice = $(".size-price").eq(index).html();
+                var amount = $(".input-number").eq(index).val();
+                sizes.push({"sizeName":sizeName, "sizePrice":sizePrice, "amount":amount});
+            });
+            var link = $(".input-link").val();
+            var name = $(".product-name").html();
+            var shop = $(".shop-name").html();
+            var image = $(".image").attr("src");
+            var color = $(".li-selected").attr("data-title");
+            var colorImg = $(".li-selected img").attr("src");
+
+            $.ajax({
+                type: "POST",
+                url: '{{ url("/cart/create") }}',
+                data: {
+                    'productName': name,
+                    'image': image,
+                    'url': link,
+                    'color': color,
+                    'colorImage': colorImg,
+                    'shop': shop,
+                    'sizes': sizes,
+                },
+                success: function(data) {
+                
+                    window.location.href= '{{ url('/cart ') }}';
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
         });
     });
 </script>   

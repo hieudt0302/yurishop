@@ -8,6 +8,18 @@
 
         <?php echo $__env->make('notifications.status_message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> 
 		<?php echo $__env->make('notifications.errors_message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php if(session()->has('success_message')): ?>
+            <div class="alert alert-success">
+                <?php echo e(session()->get('success_message')); ?>
+
+            </div>
+        <?php endif; ?>
+        <?php if(session()->has('error_message')): ?>
+            <div class="alert alert-danger">
+                <?php echo e(session()->get('error_message')); ?>
+
+            </div>
+        <?php endif; ?>
     </div>
     <br> 
     <?php if(sizeof(Cart::content()) > 0): ?>
@@ -28,8 +40,8 @@
                 <?php $__currentLoopData = Cart::content(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
                     <td>
-                        <a href="<?php echo e($item->url); ?>" target="_blank">
-                            <img src="<?php echo e($item->image); ?>" alt="" class="img-rounded img-inside">
+                        <a href="<?php echo e($item->options->url); ?>" target="_blank">
+                            <img src="<?php echo e($item->options->image); ?>" alt="" class="img-rounded img-inside">
                         </a>
                     </td>
                     <td><?php echo e($item->name); ?></td>
@@ -105,7 +117,6 @@
     <div class="row">
         <h3><?php echo app('translator')->getFromJson('shoppings.cart_noitems'); ?></h3>
         <div>
-            <!-- <a href="<?php echo e(url('/cart')); ?>" class="btn btn-primary btn-lg"><i class="fa fa-product-hunt" aria-hidden="true"></i> Thêm Sản Phẩm Khác</a> -->
             <?php echo Form::open(['method' => 'POST','route' => ['front.carts.store'],'style'=>'display:inline']); ?> <?php echo e(Form::button('
                 <span class="glyphicon glyphicon-education"></span> ADD DEMO ITEM', array('type' => 'submit', 'class' => 'btn btn-warning'))); ?> <?php echo Form::close(); ?>
 
@@ -138,6 +149,9 @@
                     },
                     success: function(data) {
                         window.location.href = '<?php echo e(url('/cart')); ?>';
+                    },
+                    error:function(){
+                        alert('error');
                     }
                 });
                 //end update cart
@@ -161,6 +175,9 @@
                     },
                     success: function(data) {
                         window.location.href = '<?php echo e(url('/cart')); ?>';
+                    },
+                    error:function(){
+                        alert('error');
                     }
                 });
                 //end update cart
@@ -180,6 +197,9 @@
                 },
                 success: function(data) {
                     window.location.href = '<?php echo e(url('/cart ')); ?>';
+                },
+                error:function(){
+                    alert('error');
                 }
             });
         });

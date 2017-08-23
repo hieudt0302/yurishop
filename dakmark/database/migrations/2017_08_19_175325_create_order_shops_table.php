@@ -18,10 +18,10 @@ class CreateOrderShopsTable extends Migration
              $table->decimal('freight1', 12, 2);    				
             $table->decimal('freight2', 12, 2);
             $table->decimal('totalamount', 10, 2);
-            $table->string('landingcode');
+            $table->string('landingcode')->nullable();
             $table->tinyInteger('status');
             $table->dateTime('orderdate');
-            $table->dateTime('shippeddate');
+            $table->dateTime('shippeddate')->nullable();
             $table->string('note')->nullable(); 
             
             $table->integer('shop_id')->unsigned();		
