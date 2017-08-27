@@ -49,13 +49,20 @@
               </div>
 
               <div class="control-group">
+                {!! Form::label('intro','Giới thiệu:',array('class' => 'control-lable')) !!}
+                <div class="controls">
+                  {!! Form::textarea('intro',null,array('class' => 'form-control', 'placeholder'=>'intro'))!!}</br>
+                </div>
+              </div>               
+
+              <div class="control-group">
                 {!! Form::label('content','Nội dung:',array('class' => 'control-lable')) !!}
                 <div class="controls">
                   {!! Form::textarea('content',null,array('class' => 'form-control', 'placeholder'=>'content', 'id' => 'summernote'))!!}</br>
                 </div>
               </div>         
 
-              {!! Form::submit('Thêm mới')!!}
+              {!! Form::submit('Lưu thay đổi')!!}
             {!! Form::close() !!}
           </div>
         </div>

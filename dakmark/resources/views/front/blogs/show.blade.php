@@ -6,13 +6,14 @@
             <div class="row">
                 <!-- Center colunm-->
                 <div class="center_column col-xs-12 col-sm-9" id="center_column">
-                <article class="entry-detail">
+                <article class="entry-detail col-md-12">
                     <div class="entry-photo">
                         
                     </div>
-                    {!!$blog->title!!}
+                    <h3>{!!$blog->title!!}</h3>
                     <div class="content-text clearfix">
-                        {!!$blog->content!!}
+                        <p>{!!$blog->intro!!}</p>
+                        <p>{!!$blog->content!!}</p>
                     </div>
                 </article>
                 </div>

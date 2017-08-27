@@ -28,7 +28,7 @@
                             <div class="col-md-5">
                                 <h3>{{$row->title}}</h3>
                                 <span class="date"><i class="fa fa-calendar"></i> {{$row->updated_at}}</span>
-                                <p>{!!$row->content!!}</p>
+                                <p>{!!$row->intro!!}</p>
                                 <a class="btn btn-primary" href="{{url('/blogs/'.$row->id)}}">Xem Bài <span class="glyphicon glyphicon-chevron-right"></span></a>
                             </div>
                         </div>
