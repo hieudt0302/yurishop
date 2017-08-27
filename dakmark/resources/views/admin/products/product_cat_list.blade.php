@@ -4,7 +4,7 @@
 @section('description', 'Danh mục sản phẩm')
 @section('content')
 <header class="header">
-    <a href="{{ route('admin.product-cat.add') }}" class="btn btn-primary btn-sm pull-right" title="Thêm danh mục mới">
+    <a href="{{ route('admin.product-cat.add') }}" class="btn btn-primary btn-add" title="Thêm danh mục mới">
         <i class="fa fa-plus"></i>
         Thêm danh mục mới
     </a>
@@ -50,7 +50,7 @@
                                 <i class="fa fa-pencil"></i>Sửa 
                             </a>
                             <a href="{{ route('admin.product-cat.delete',$pCat->id) }}" class="btn btn-default btn-xs" title="Xóa" 
-                                onclick="return confirm(\'Bạn muốn xóa danh mục này ?\')">
+                                onclick="return confirm('Bạn muốn xóa danh mục này ?');">
                                 <i class="fa fa-trash"></i>Xóa
                             </a>
                         </td>
@@ -75,7 +75,7 @@
                                     <i class="fa fa-pencil"></i>Sửa 
                                 </a>
                                 <a href="{{ route('admin.product-cat.delete',$childCat->id) }}" class="btn btn-default btn-xs" title="Xóa" 
-                                   onclick="return confirm(\'Bạn muốn xóa danh mục này ?\')">
+                                   onclick="return confirm('Bạn muốn xóa danh mục này ?');">
                                     <i class="fa fa-trash"></i>Xóa
                                 </a>
                             </td>
@@ -84,7 +84,7 @@
                                     @foreach(App\Models\ProductCat::getChildCat($childCat->id) as $childCat2){ 
                             <tr>
                                 <td>
-                                    <i class="fa fa-minus-square-o">---</i>
+                                    <i class="fa fa-minus-square-o"></i>
                                     {{ $childCat2->name }}
                                 </td>
                                 <td>
@@ -99,7 +99,7 @@
                                         <i class="fa fa-pencil"></i>Sửa 
                                     </a>
                                     <a href="{{ route('admin.product-cat.delete',$childCat2->id) }}" class="btn btn-default btn-xs" title="Xóa" 
-                                       onclick="return confirm(\'Bạn muốn xóa danh mục này ?\')">
+                                       onclick="return confirm('Bạn muốn xóa danh mục này ?');">
                                         <i class="fa fa-trash"></i>Xóa
                                     </a>
                                 </td>
@@ -115,19 +115,6 @@
         </div>
     </div>
 </div>
-<script src="{{url('/')}}/public/assets/js/jquery.dataTables.min.js"></script>
-<script src="{{url('/')}}/public/assets/js/dataTables.bootstrap.min.js"></script>
-<script src="{{url('/')}}/public/assets/js/bootstrap-datepicker.js"></script>
-<script>
-    $(document).ready(function(){
-        $('#begin-date, #end-date').datepicker({
-            autoclose: true,
-            todayHighlight:true,
-            orientation:'bottom',
-        });
-
-    });
-</script>   
 
 @endsection
 

@@ -6,7 +6,7 @@
 </header>
 <div class="container-fluid">
     <div class="block-header">
-        <h2>Thêm danh mục sản phẩm</h2>
+        <h3>Thêm danh mục sản phẩm</h3>
     </div>
     </br>
     <div class="row clearfix" >

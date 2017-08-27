@@ -2,7 +2,7 @@
 <?php $__env->startSection('description', 'Danh mục sản phẩm'); ?>
 <?php $__env->startSection('content'); ?>
 <header class="header">
-    <a href="<?php echo e(route('admin.product-cat.add')); ?>" class="btn btn-primary btn-sm pull-right" title="Thêm danh mục mới">
+    <a href="<?php echo e(route('admin.product-cat.add')); ?>" class="btn btn-primary btn-add" title="Thêm danh mục mới">
         <i class="fa fa-plus"></i>
         Thêm danh mục mới
     </a>
@@ -50,7 +50,7 @@
                                 <i class="fa fa-pencil"></i>Sửa 
                             </a>
                             <a href="<?php echo e(route('admin.product-cat.delete',$pCat->id)); ?>" class="btn btn-default btn-xs" title="Xóa" 
-                                onclick="return confirm(\'Bạn muốn xóa danh mục này ?\')">
+                                onclick="return confirm('Bạn muốn xóa danh mục này ?');">
                                 <i class="fa fa-trash"></i>Xóa
                             </a>
                         </td>
@@ -76,7 +76,7 @@
                                     <i class="fa fa-pencil"></i>Sửa 
                                 </a>
                                 <a href="<?php echo e(route('admin.product-cat.delete',$childCat->id)); ?>" class="btn btn-default btn-xs" title="Xóa" 
-                                   onclick="return confirm(\'Bạn muốn xóa danh mục này ?\')">
+                                   onclick="return confirm('Bạn muốn xóa danh mục này ?');">
                                     <i class="fa fa-trash"></i>Xóa
                                 </a>
                             </td>
@@ -85,7 +85,7 @@
                                     <?php $__currentLoopData = App\Models\ProductCat::getChildCat($childCat->id); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $childCat2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>{ 
                             <tr>
                                 <td>
-                                    <i class="fa fa-minus-square-o">---</i>
+                                    <i class="fa fa-minus-square-o"></i>
                                     <?php echo e($childCat2->name); ?>
 
                                 </td>
@@ -101,7 +101,7 @@
                                         <i class="fa fa-pencil"></i>Sửa 
                                     </a>
                                     <a href="<?php echo e(route('admin.product-cat.delete',$childCat2->id)); ?>" class="btn btn-default btn-xs" title="Xóa" 
-                                       onclick="return confirm(\'Bạn muốn xóa danh mục này ?\')">
+                                       onclick="return confirm('Bạn muốn xóa danh mục này ?');">
                                         <i class="fa fa-trash"></i>Xóa
                                     </a>
                                 </td>
@@ -117,19 +117,6 @@
         </div>
     </div>
 </div>
-<script src="<?php echo e(url('/')); ?>/public/assets/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo e(url('/')); ?>/public/assets/js/dataTables.bootstrap.min.js"></script>
-<script src="<?php echo e(url('/')); ?>/public/assets/js/bootstrap-datepicker.js"></script>
-<script>
-    $(document).ready(function(){
-        $('#begin-date, #end-date').datepicker({
-            autoclose: true,
-            todayHighlight:true,
-            orientation:'bottom',
-        });
-
-    });
-</script>   
 
 <?php $__env->stopSection(); ?>
 

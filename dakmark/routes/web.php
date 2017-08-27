@@ -72,9 +72,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('product-cat/add',['as'=>'admin.product-cat.insert','uses'=>'ProductController@insertProductCat']);
     Route::get('product-cat/edit/{id}',['as'  =>'admin.product-cat.edit','uses' => 'ProductController@editProductCat']);
     Route::post('product-cat/edit/{id}',['as' =>'admin.product-cat.update','uses' => 'ProductController@updateProductCat']);
-    Route::get('product-cat/delete/{id}',['as'  =>'admin.product-cat.delete','uses' => 'ProductController@deleteProductCat'])->where('id','[0-9]+');
-    Route::get('products',['as'=>'admin.product','uses'=>'ProductController@productList']);
+    Route::get('product-cat/delete/{id}',['as'  =>'admin.product-cat.delete','uses' => 'ProductController@deleteProductCat']);
+    Route::get('product',['as'=>'admin.product','uses'=>'ProductController@productList']);
     Route::get('product/add',['as'=>'admin.product.add','uses'=>'ProductController@addProduct']);
+    Route::post('product/add',['as'=>'admin.product.insert','uses'=>'ProductController@insertProduct']);
+    Route::get('product/edit/{id}',['as'  =>'admin.product.edit','uses' => 'ProductController@editProduct']);
+    Route::post('product/edit/{id}',['as' =>'admin.product.update','uses' => 'ProductController@updateProduct']);
+    Route::get('product/delete/{id}',['as'  =>'admin.product.delete','uses' => 'ProductController@deleteProduct']);
     Route::post('generate-slug',['as'=>'admin.generate-slug','uses'=>'ProductController@generate_slug']);
 
     //Blogs
