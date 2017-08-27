@@ -305,5 +305,18 @@ ul.alert-dropdown {
     width: 100%;
 }
 
+.fa-check{
+    color: green;
+}
+.fa-times{
+    color: red;
+}
+.header .btn-add{
+    float : right;
+    margin-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+}
 
 /* End - Added by Thang LD */

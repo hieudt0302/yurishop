@@ -4,24 +4,38 @@
 @section('description', 'Danh mục sản phẩm')
 @section('content')
 <header class="header">
-    <a href="{{ route('admin.product-cat') }}" class="btn btn-primary btn-sm pull-right" title="Quay lại">Quay lại danh sách</a>
+    <a href="{{ route('admin.product-cat') }}" class="btn btn-primary btn-sm pull-right" title="Danh sách danh mục">Quay lại danh sách</a>
 </header>
 <div class="container-fluid">
     <div class="block-header">
-        <h2>Thêm danh mục sản phẩm</h2>
+        <h3>Thêm danh mục sản phẩm</h3>
     </div>
     </br>
     <div class="row clearfix" >
         <section class="panel panel-default">
-            {!! Form::open(array('route' => 'admin.product-cat.insert','method'=>'POST', 'enctype' => 'multipart/form-data')) !!}
+            {!! Form::open(array('route' => 'admin.product-cat.insert', 'files'=>'true')) !!}
+                @if(count($errors))
+                <div class="alert alert-danger">
+                    <strong>Chú ý !</strong> Đã xảy ra một số lỗi !
+                </div>
+                @endif
                 <table class="table table-responsive">
                     <tr>
                         <td>
-                            Tên danh mục
+                            Tên danh mục - Tiếng Việt
                             <span class="text-danger">*</span>
                         </td>
                         <td>
                             <input type="text" id="name" class="form-control" name="name" value="{!! old('name') !!}" />
+                            <span class="text-danger">{{ $errors->first('name') }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Tên danh mục - Tiếng Anh
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="en_name" value="{!! old('en_name') !!}" />
                         </td>
                     </tr>
                     <tr>
@@ -31,6 +45,7 @@
                         </td>
                         <td>
                             <input type="text" id="slug" class="form-control" name="slug" value="{!! old('slug') !!}" />
+                            <span class="text-danger">{{ $errors->first('slug') }}</span>
                         </td>
                         <td style="padding-left:10px">
                             <button type="button" id="generate-slug" class="btn btn-warning">Tạo slug</button>
@@ -38,11 +53,20 @@
                     </tr>
                     <tr>
                         <td>
-                            Tiêu đề (SEO)
+                            Tiêu đề (SEO) - Tiếng Việt
                             <span class="text-danger">*</span>
                         </td>
                         <td>
                             <input type="text" class="form-control" name="seo_title" value="{!! old('seo_title') !!}" />
+                            <span class="text-danger">{{ $errors->first('seo_title') }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Tiêu đề (SEO) - Tiếng Anh
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="en_seo_title" value="{!! old('en_seo_title') !!}" />
                         </td>
                     </tr>
                     <tr>
@@ -95,7 +119,7 @@
                     <tr>
                         <td>Hình đại diện</td>
                         <td>
-                            <input type="file" name="file"/>
+                            <input type="file" name="icon"/>
                         </td>
                     </tr>
                     <tr>

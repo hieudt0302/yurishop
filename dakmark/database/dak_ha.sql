@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 22, 2017 lúc 06:07 PM
+-- Thời gian đã tạo: Th8 27, 2017 lúc 04:23 PM
 -- Phiên bản máy phục vụ: 10.1.25-MariaDB
 -- Phiên bản PHP: 7.1.7
 
@@ -120,6 +120,22 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2017_08_10_094616_create_order_details_table', 1),
 (12, '2017_08_10_094626_create_order_shops_table', 1),
 (13, '2017_08_16_032933_create_cart_table', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `navigator`
+--
+
+CREATE TABLE `navigator` (
+  `id` int(10) NOT NULL,
+  `system_id` varchar(20) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `parent_id` int(10) NOT NULL DEFAULT '0',
+  `sort_order` int(5) NOT NULL DEFAULT '1',
+  `is_show` tinyint(1) NOT NULL DEFAULT '1',
+  `type` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -322,39 +338,33 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 CREATE TABLE `products` (
   `id` int(10) UNSIGNED NOT NULL,
   `system_id` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_code` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `en_name` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cat_id` int(10) NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `default_price` decimal(20,0) NOT NULL,
-  `promote_price` decimal(20,0) NOT NULL,
-  `promote_start` int(20) NOT NULL,
-  `promote_end` int(20) NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `en_description` text COLLATE utf8mb4_unicode_ci,
+  `default_price` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `promote_price` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `promote_begin` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `promote_end` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `thumb` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
-  `is_new` tinyint(1) NOT NULL,
-  `is_hot` tinyint(1) NOT NULL,
-  `is_sell` tinyint(1) NOT NULL,
+  `is_new` tinyint(1) NOT NULL DEFAULT '0',
+  `is_hot` tinyint(1) NOT NULL DEFAULT '0',
   `is_promote` tinyint(1) NOT NULL DEFAULT '0',
-  `views` int(10) NOT NULL,
-  `rates` int(2) NOT NULL,
-  `create_time` int(20) DEFAULT NULL,
-  `modify_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `views` int(10) NOT NULL DEFAULT '0',
+  `rates` float NOT NULL DEFAULT '0',
+  `create_time` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `system_id`, `product_code`, `name`, `cat_id`, `description`, `default_price`, `promote_price`, `promote_start`, `promote_end`, `thumb`, `is_show`, `is_new`, `is_hot`, `is_sell`, `is_promote`, `views`, `rates`, `create_time`, `modify_time`) VALUES
-(1, '', '', 'Playstation 4', 0, 'description goes here', '400', '0', 0, 0, 'ps4.jpg', 1, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(2, '', '', 'Xbox One', 0, 'description goes here', '450', '0', 0, 0, 'xbox-one.jpg', 1, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(3, '', '', 'Apple Macbook Pro', 0, 'description goes here', '2300', '0', 0, 0, 'macbook-pro.jpg', 1, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(4, '', '', 'Apple iPad Retina', 0, 'description goes here', '800', '0', 0, 0, 'ipad-retina.jpg', 1, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(5, '', '', 'Acoustic Guitar', 0, 'description goes here', '700', '0', 0, 0, 'acoustic.jpg', 1, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(6, '', '', 'Electric Guitar', 0, 'description goes here', '900', '0', 0, 0, 'electric.jpg', 1, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(7, '', '', 'Headphones', 0, 'description goes here', '100', '0', 0, 0, 'headphones.jpg', 1, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(8, '', '', 'Speakers', 0, 'description goes here', '500', '0', 0, 0, 'speakers.jpg', 1, 0, 0, 0, 0, 0, 0, NULL, NULL);
+INSERT INTO `products` (`id`, `system_id`, `product_code`, `name`, `en_name`, `cat_id`, `description`, `en_description`, `default_price`, `promote_price`, `promote_begin`, `promote_end`, `thumb`, `is_show`, `is_new`, `is_hot`, `is_promote`, `views`, `rates`, `create_time`, `last_update`) VALUES
+(9, 'PRD1', NULL, 'Cà phê phin 1', NULL, 9, NULL, NULL, '120000', '', NULL, NULL, 'thac-dray-sap.jpg', 1, 1, 0, 0, 0, 0, '2017-08-27 11:03:27', '2017-08-27 11:03:27');
 
 -- --------------------------------------------------------
 
@@ -366,14 +376,20 @@ CREATE TABLE `product_cat` (
   `id` int(10) NOT NULL,
   `system_id` varchar(20) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `en_name` varchar(50) DEFAULT NULL,
   `parent_id` int(10) NOT NULL DEFAULT '0',
-  `icon` varchar(50) NOT NULL,
-  `sort_order` tinyint(5) NOT NULL,
+  `icon` varchar(50) DEFAULT NULL,
+  `sort_order` tinyint(5) NOT NULL DEFAULT '1',
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
-  `is_show_nav` tinyint(1) NOT NULL DEFAULT '0',
-  `create_time` int(20) NOT NULL,
-  `modify_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `is_show_nav` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `product_cat`
+--
+
+INSERT INTO `product_cat` (`id`, `system_id`, `name`, `en_name`, `parent_id`, `icon`, `sort_order`, `is_show`, `is_show_nav`) VALUES
+(9, 'PCAT1', 'Cà phê', 'Coffee', 0, '', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -455,13 +471,21 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 CREATE TABLE `seo` (
   `id` int(10) NOT NULL,
   `system_id` varchar(20) NOT NULL,
-  `name` varchar(100) NOT NULL,
   `slug` varchar(100) NOT NULL,
   `seo_title` varchar(100) NOT NULL,
-  `keyword` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `en_seo_title` varchar(100) DEFAULT NULL,
+  `keyword` varchar(100) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `type` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `seo`
+--
+
+INSERT INTO `seo` (`id`, `system_id`, `slug`, `seo_title`, `en_seo_title`, `keyword`, `description`, `type`) VALUES
+(3, 'PCAT1', 'ca-phe', 'Cà phê', 'Coffee', 'cà phê,', 'Cà phê nguyên chất', 1),
+(6, 'PRD1', 'ca-phe-phin-1', 'Cà phê phin 1', NULL, NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -555,6 +579,12 @@ ALTER TABLE `carts`
 -- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `navigator`
+--
+ALTER TABLE `navigator`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -691,6 +721,11 @@ ALTER TABLE `carts`
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
+-- AUTO_INCREMENT cho bảng `navigator`
+--
+ALTER TABLE `navigator`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT cho bảng `orderdetails`
 --
 ALTER TABLE `orderdetails`
@@ -719,12 +754,12 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT cho bảng `product_cat`
 --
 ALTER TABLE `product_cat`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT cho bảng `rates`
 --
@@ -739,7 +774,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `seo`
 --
 ALTER TABLE `seo`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT cho bảng `shops`
 --

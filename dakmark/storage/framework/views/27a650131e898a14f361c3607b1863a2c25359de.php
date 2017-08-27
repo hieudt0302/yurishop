@@ -103,6 +103,9 @@
                         <a href="<?php echo e(url('/admin/orders')); ?>"><i class="fa fa-fw fa-edit"></i> Đơn Đặt Hàng</a>
                     </li>
                     <li>
+                        <a href="<?php echo e(url('/admin/blogs')); ?>"><i class="fa fa-fw fa-newspaper-o"></i> Bài viết</a>
+                    </li>
+                    <li>
                         <a href="<?php echo e(url('/admin/blank')); ?>"><i class="fa fa-fw fa-wrench"></i> Cài Đặt</a>
                     </li>
                 </ul>
