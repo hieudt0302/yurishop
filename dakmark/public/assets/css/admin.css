@@ -305,5 +305,11 @@ ul.alert-dropdown {
     width: 100%;
 }
 
+.fa-check{
+    color: green;
+}
+.fa-times{
+    color: red;
+}
 
 /* End - Added by Thang LD */

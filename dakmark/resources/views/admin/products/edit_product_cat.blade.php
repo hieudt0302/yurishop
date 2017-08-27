@@ -8,17 +8,18 @@
 </header>
 <div class="container-fluid">
     <div class="block-header">
-        <h2>Thêm danh mục sản phẩm</h2>
+        <h3>Chỉnh sửa danh mục sản phẩm</h3>
     </div>
     </br>
     <div class="row clearfix" >
         <section class="panel panel-default">
-            {!! Form::open(array('route' => 'admin.product-cat.insert', 'files'=>'true')) !!}
+            {!! Form::open(array('route' => ['admin.product-cat.update', $productCatDetail->id], 'files'=>'true')) !!}
                 @if(count($errors))
                 <div class="alert alert-danger">
                     <strong>Chú ý !</strong> Đã xảy ra một số lỗi !
                 </div>
                 @endif
+                <input type="hidden" id="system-id" name="system_id" value="{{ $productCatDetail->system_id }}" />
                 <table class="table table-responsive">
                     <tr>
                         <td>
@@ -26,7 +27,7 @@
                             <span class="text-danger">*</span>
                         </td>
                         <td>
-                            <input type="text" id="name" class="form-control" name="name" value="{!! old('name') !!}" />
+                            <input type="text" id="name" class="form-control" name="name" value="{{ $productCatDetail->name }}" />
                             <span class="text-danger">{{ $errors->first('name') }}</span>
                         </td>
                     </tr>
@@ -35,7 +36,7 @@
                             Tên danh mục - Tiếng Anh
                         </td>
                         <td>
-                            <input type="text" class="form-control" name="en_name" value="{!! old('en_name') !!}" />
+                            <input type="text" class="form-control" name="en_name" value="{{ $productCatDetail->en_name }}" />
                         </td>
                     </tr>
                     <tr>
@@ -44,7 +45,7 @@
                             <span class="text-danger">*</span>
                         </td>
                         <td>
-                            <input type="text" id="slug" class="form-control" name="slug" value="{!! old('slug') !!}" />
+                            <input type="text" id="slug" class="form-control" name="slug" value="{{ $productCatSeo->slug }}" />
                             <span class="text-danger">{{ $errors->first('slug') }}</span>
                         </td>
                         <td style="padding-left:10px">
@@ -57,7 +58,7 @@
                             <span class="text-danger">*</span>
                         </td>
                         <td>
-                            <input type="text" class="form-control" name="seo_title" value="{!! old('seo_title') !!}" />
+                            <input type="text" class="form-control" name="seo_title" value="{{ $productCatSeo->seo_title }}" />
                             <span class="text-danger">{{ $errors->first('seo_title') }}</span>
                         </td>
                     </tr>
@@ -66,16 +67,16 @@
                             Tiêu đề (SEO) - Tiếng Anh
                         </td>
                         <td>
-                            <input type="text" class="form-control" name="en_seo_title" value="{!! old('en_seo_title') !!}" />
+                            <input type="text" class="form-control" name="en_seo_title" value="{{ $productCatSeo->en_seo_title }}" />
                         </td>
                     </tr>
                     <tr>
                         <td>Menu cha</td>
                         <td>
                             <select name="parent_id" class="form-control">
-                                <option value="0" selected ></option>
-                                @foreach($productCats as $pCat)
-                                <option value="{{ $pCat->id }}">{{ $pCat->name }}</option>
+                                <option value="0" {!! $productCatDetail->parent_id ==0 ? 'selected' : '' !!}></option>
+                                @foreach($productCatList as $pCat)
+                                <option value="{{ $pCat->id }}" {!! $productCatDetail->parent_id == $pCat->id ? 'selected' : '' !!}>{{ $pCat->name }}</option>
                                 @endforeach
                             </select>
                         </td>
@@ -83,15 +84,15 @@
                     <tr>
                         <td>Sắp xếp</td>
                         <td>
-                            <input type="text" class="form-control" name="sort_order" value="{!! old('sort_order') !!}" />
+                            <input type="text" class="form-control" name="sort_order" value="{{ $productCatDetail->sort_order }}" />
                         </td>
                     </tr>
                     <tr>
                         <td>Cho phép hiển thị</td>
                         <td>
                             <select name="is_show" class="form-control">
-                                <option value="1" selected >Có</option>
-                                <option value="0">Không</option>
+                                <option value="1" {!! $productCatDetail->is_show == 1 ? 'selected' : '' !!} >Có</option>
+                                <option value="0" {!! $productCatDetail->is_show == 0 ? 'selected' : '' !!}>Không</option>
                             </select>
                         </td>
                     </tr>
@@ -99,21 +100,21 @@
                         <td>Hiển thị trên menu</td>
                         <td>
                             <select name="is_show_nav" class="form-control">
-                                <option value="1" >Có</option>
-                                <option value="0" selected>Không</option>
+                                <option value="1" {!! $productCatDetail->is_show_nav == 1 ? 'selected' : '' !!}>Có</option>
+                                <option value="0" {!! $productCatDetail->is_show_nav == 0 ? 'selected' : '' !!}>Không</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                        <td>Từ khóa (SEO)</td>
                         <td>
-                            <input type="text" class="form-control" name="keyword" value="{!! old('keyword') !!}" />
+                            <input type="text" class="form-control" name="keyword" value="{{ $productCatSeo->keyword }}" />
                         </td>
                     </tr>
                     <tr>
                         <td>Mô tả (SEO)</td>
                         <td>
-                            <textarea class="form-control" name="description">{!! old('description') !!}</textarea>
+                            <textarea class="form-control" name="description">{{ $productCatSeo->description }}</textarea>
                         </td>
                     </tr>
                     <tr>
@@ -124,7 +125,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button type="submit" class="btn btn-info" style="margin-left: 15px; margin-top: 10px">Thêm</button></td>
+                        <td><button type="submit" class="btn btn-info" style="margin-left: 15px; margin-top: 10px">Lưu thay đổi</button></td>
                     </tr>
                 </table>
             </form>
