@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 22, 2017 lúc 06:07 PM
+-- Thời gian đã tạo: Th8 27, 2017 lúc 05:31 AM
 -- Phiên bản máy phục vụ: 10.1.25-MariaDB
 -- Phiên bản PHP: 7.1.7
 
@@ -120,6 +120,29 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2017_08_10_094616_create_order_details_table', 1),
 (12, '2017_08_10_094626_create_order_shops_table', 1),
 (13, '2017_08_16_032933_create_cart_table', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `navigator`
+--
+
+CREATE TABLE `navigator` (
+  `id` int(10) NOT NULL,
+  `system_id` varchar(20) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `parent_id` int(10) NOT NULL DEFAULT '0',
+  `sort_order` int(5) NOT NULL DEFAULT '1',
+  `is_show` tinyint(1) NOT NULL DEFAULT '1',
+  `type` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `navigator`
+--
+
+INSERT INTO `navigator` (`id`, `system_id`, `name`, `parent_id`, `sort_order`, `is_show`, `type`) VALUES
+(1, 'PCAT10', 'Dụng cụ pha cà phê', 0, 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -366,14 +389,22 @@ CREATE TABLE `product_cat` (
   `id` int(10) NOT NULL,
   `system_id` varchar(20) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `en_name` varchar(50) DEFAULT NULL,
   `parent_id` int(10) NOT NULL DEFAULT '0',
-  `icon` varchar(50) NOT NULL,
-  `sort_order` tinyint(5) NOT NULL,
+  `icon` varchar(50) DEFAULT NULL,
+  `sort_order` tinyint(5) NOT NULL DEFAULT '1',
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
-  `is_show_nav` tinyint(1) NOT NULL DEFAULT '0',
-  `create_time` int(20) NOT NULL,
-  `modify_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `is_show_nav` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `product_cat`
+--
+
+INSERT INTO `product_cat` (`id`, `system_id`, `name`, `en_name`, `parent_id`, `icon`, `sort_order`, `is_show`, `is_show_nav`) VALUES
+(9, 'PCAT1', 'Cà phê', 'Coffee', 0, '', 1, 1, 0),
+(10, 'PCAT10', 'Dụng cụ pha cà phê', NULL, 0, '', 2, 1, 1),
+(11, 'PCAT11', 'Capucchino', 'Capucchino', 9, '', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -455,13 +486,22 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 CREATE TABLE `seo` (
   `id` int(10) NOT NULL,
   `system_id` varchar(20) NOT NULL,
-  `name` varchar(100) NOT NULL,
   `slug` varchar(100) NOT NULL,
   `seo_title` varchar(100) NOT NULL,
-  `keyword` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `en_seo_title` varchar(100) DEFAULT NULL,
+  `keyword` varchar(100) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `type` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `seo`
+--
+
+INSERT INTO `seo` (`id`, `system_id`, `slug`, `seo_title`, `en_seo_title`, `keyword`, `description`, `type`) VALUES
+(3, 'PCAT1', 'ca-phe', 'Cà phê', 'Coffee', 'cà phê,', 'Cà phê nguyên chất', 1),
+(4, 'PCAT10', 'dung-cu-pha-ca-phe', 'Dụng cụ pha cà phê', 'Coffee instruments', NULL, NULL, 1),
+(5, 'PCAT11', 'capucchino', 'Capucchino', NULL, 'cà phê Ý, Capucchino', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -555,6 +595,12 @@ ALTER TABLE `carts`
 -- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `navigator`
+--
+ALTER TABLE `navigator`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -691,6 +737,11 @@ ALTER TABLE `carts`
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
+-- AUTO_INCREMENT cho bảng `navigator`
+--
+ALTER TABLE `navigator`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT cho bảng `orderdetails`
 --
 ALTER TABLE `orderdetails`
@@ -724,7 +775,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT cho bảng `product_cat`
 --
 ALTER TABLE `product_cat`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT cho bảng `rates`
 --
@@ -739,7 +790,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `seo`
 --
 ALTER TABLE `seo`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT cho bảng `shops`
 --
