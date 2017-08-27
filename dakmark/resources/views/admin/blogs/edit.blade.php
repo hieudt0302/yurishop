@@ -26,36 +26,19 @@
               @endif
           <div class="widget-content nopadding">
             {!! Form::model($blog,[ 'method' => 'PATCH', 'route' => ['admin.blogs.update', $blog->id] ]) !!}
-              <div class="control-group">              
-                {!! Form::label('title','Tiêu đề:',array('class' => 'control-lable')) !!}
-                <div class="controls">
-                  {!! Form::text('title') !!} <br />
-                </div>
-              </div>
+              {!! Form::label('title','Tiêu đề:') !!}
+              {!! Form::text('title') !!} <br />
+           
+              {!! Form::label('img','Link ảnh:') !!}
+              {!! Form::text('img') !!} </br>
 
-              <div class="control-group">           
-                {!! Form::label('img','Hình ảnh:',array('class' => 'control-lable')) !!}
-                <div class="controls">
-                  <img src="{{url('public/uploads/blogs/'.$blog->img)}}" alt="hình ảnh" width="100" height="100">
-                  {!! Form::file('img', array('class' => 'image')) !!} </br>
-                </div>
-              </div>
+              {!! Form::label('status','Trạng thái:') !!}
+              {!! Form::text('status') !!} </br>
 
-              <div class="control-group">
-                {!! Form::label('status','Trạng thái:',array('class' => 'control-lable')) !!}
-                <div class="controls">
-                  {!! Form::text('status') !!} </br>
-                </div>
-              </div>
-
-              <div class="control-group">
-                {!! Form::label('content','Nội dung:',array('class' => 'control-lable')) !!}
-                <div class="controls">
-                  {!! Form::textarea('content',null,array('class' => 'form-control', 'placeholder'=>'content', 'id' => 'summernote'))!!}</br>
-                </div>
-              </div>         
-
-              {!! Form::submit('Thêm mới')!!}
+              {!! Form::label('content','Nội dung:') !!}
+              {!! Form::textarea('content') !!} </br>
+           
+              {!! Form::submit('Cap Nhat')!!}
             {!! Form::close() !!}
           </div>
         </div>

@@ -65,22 +65,18 @@ class BlogsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img' => 'required',
             'status' => 'required',
             'content' => 'required',
         ]);
 
         $blog = new Blog();
         $blog->title = $request->input('title');
+        $blog->img = $request->input('img');
         $blog->status = $request->input('status');
         $blog->content = $request->input('content');
         $blog->view_count = 0;
-        $blog->slug = 'none';    
-        // upload images
-        $f = $request->file('img')->getClientOriginalName();
-        $filename = time().'_'.$f;
-        $blog->img = $filename;        
-        $request->file('img')->move('public/uploads/blogs/',$filename);   
+        $blog->slug = 'none';       
         $blog->save();
         return redirect()->route('admin.blogs.index')
                         ->with('success','Blog created successfully');
@@ -100,8 +96,8 @@ class BlogsController extends Controller
                         ->with('success','Blog deleted successfully');
     }
 
-    public function search(request $request) {
-        $key = $request->key;
+    public function search(request $rq) {
+        $key = $rq->key;
         $blogs = Blog::where('title', 'LIKE', '%'.$key.'%')->Orderby('title','ASC')->take(20)->get();
         return view ('admin.blogs.index',['blogs'=>$blogs,'type'=>'search','key'=>$key]);    
     }
