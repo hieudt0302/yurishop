@@ -95,6 +95,9 @@
                     </li>
                     @endpermission
                     <li>
+                        <a href="{{ url('/admin/navigator') }}"><i class="fa fa-fw fa-bars"></i>Menu</a>
+                    </li>
+                    <li>
                         <a href="{{ url('/admin/product-cat') }}"><i class="fa fa-fw fa-folder"></i> Danh mục sản phẩm</a>
                     </li>
                     <li>

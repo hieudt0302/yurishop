@@ -1,0 +1,210 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use App\Models\Navigator;
+use DB;
+
+class NavigatorController extends Controller
+{
+   	public function navigatorList(){
+        $navigators = Navigator::where("parent_id",0)->orderBy('sort_order', 'asc')->get();
+        return view('admin.navigator.navigator_list')->with(["navigators" => $navigators]);
+    }
+    public function addNavigator(){
+        $navigators =  Navigator::where("type",1)->orderBy('sort_order', 'asc')->get();  // lấy danh sách menu được tạo trực tiếp
+        $system_cats = Navigator::where("type",1)->orWhere('type',3)->get(); // lấy tất cả danh mục sản phẩm và danh mục blogs
+        return view('admin.navigator.add_navigator')->with(["navigators" => $navigators, "system_cats" => $system_cats]);
+    } 
+    public function insertNavigator(Request $request){
+        $this->validate($request,['name' => 'required',
+                                  'slug' => 'required|unique:seo',
+                                  'seo_title' => 'required'
+                                ]);
+        $max_id = $this->get_max_id('product_cat');
+        $system_id = 'PCAT'.$max_id;
+        $icon = '' ;
+        $icon_file = $request->file('icon');
+        if($icon_file != NULL){
+            $path = './public/assets/img/product_cat/';
+            if(!is_dir($path)){
+                mkdir($path, 0777, true);
+            }   
+            $icon = $this->upload_file($request->name, $icon_file, $path);
+        }
+
+        // Insert data vào bảng product_cat
+        $productCat = new ProductCat;
+        $productCat->name = $request->name;
+        $productCat->en_name = $request->en_name;
+        $productCat->system_id = $system_id;
+        $productCat->parent_id = $request->parent_id;
+        $productCat->icon = $icon;
+        $productCat->sort_order = $request->sort_order;
+        $productCat->is_show = $request->is_show;
+        $productCat->is_show_nav = $request->is_show_nav;
+        $productCat->save();
+
+        // Insert data vào bảng seo
+        $seo = new Seo;
+        $seo->system_id = $system_id;
+        $seo->slug = $request->slug;
+        $seo->seo_title = $request->seo_title;
+        $seo->en_seo_title = $request->en_seo_title;
+        $seo->keyword = $request->keyword;
+        $seo->description = $request->description;
+        $seo->type = 1;  // Danh mục sản phẩm : type = 1
+        $seo->save();
+
+        // Insert data vào bảng navigator (menu)
+        if($request->is_show_nav==1){
+            $navigator = new Navigator;
+            $navigator->system_id = $system_id;
+            $navigator->name = $request->name;
+            $navigator->type = 2;   // Menu được tạo gián tiếp (qua danh mục sản phẩm hoặc danh mục bào viết ) : type = 2
+            $navigator->save();
+        }
+
+        session()->flash('success_message', "Thêm danh mục thành công !");
+        return redirect()->route('admin.product-cat');
+    }  
+    public function editNavigator($nav_id)
+    {
+        $productCatList = ProductCat::where('parent_id',0)->orderBy('sort_order', 'asc')->get();
+        $productCatDetail = ProductCat::where('id',$cat_id)->first();
+        $productCatSeo = Seo::where('system_id',$productCatDetail->system_id)->first();
+        return view('admin.products.edit_product_cat')->with(["productCatList" => $productCatList, 
+                                                              "productCatDetail" => $productCatDetail, 
+                                                              "productCatSeo" => $productCatSeo]); 
+    }
+    public function updateNavigator($nav_id, Request $request)
+    {
+        $productCat = ProductCat::find($cat_id);
+        $this->validate($request,['name' => 'required',
+                                  'slug' => 'required',
+                                  'seo_title' => 'required'
+                                ]);
+        $icon = '' ;
+        $icon_file = $request->file('icon');
+        if($icon_file != NULL){
+            $path = './public/assets/img/product_cat/';
+            if(!is_dir($path)){
+                mkdir($path, 0777, true);
+            }   
+            $icon = $this->upload_file($request->name, $icon_file, $path);
+        }
+
+        
+
+        // Update data bảng product_cat
+        $productCat->name = $request->name;
+        $productCat->en_name = $request->en_name;
+        $productCat->parent_id = $request->parent_id;
+        $productCat->icon = $icon;
+        $productCat->sort_order = $request->sort_order;
+        $productCat->is_show = $request->is_show;
+        $productCat->is_show_nav = $request->is_show_nav;
+        $productCat->save();
+
+        // Update data bảng seo
+        $seo = Seo::where('system_id',$productCat->system_id)->first();
+        $seo->slug = $request->slug;
+        $seo->seo_title = $request->seo_title;
+        $seo->en_seo_title = $request->en_seo_title;
+        $seo->keyword = $request->keyword;
+        $seo->description = $request->description;
+        $seo->save();
+
+        if($productCat->is_show_nav != $request->is_show_nav){
+            if($request->is_show_nav==1){  // Insert data vào bảng navigator (menu)
+                $navigator = new Navigator;
+                $navigator->system_id = $productCat->system_id;
+                $navigator->name = $request->name;
+                $navigator->type = 2;   // Menu được tạo gián tiếp (qua danh mục sản phẩm hoặc danh mục bào viết ) : type = 2
+                $navigator->save();
+            }
+            else{  // Xóa menu
+                $navigator = Navigator::where('system_id',$productCat->system_id)->first();
+                $navigator->delete();
+            }
+        }
+
+        session()->flash('success_message', "Cập nhật thành công !");
+        return redirect()->route('admin.product-cat'); 
+    }
+    public function deleteNavigator($cat_id){
+        $productCat = ProductCat::find($cat_id);
+        if($productCat->icon != ''){
+            $icon_file = './public/assets/img/product_cat/'.$productCat->icon;
+            if(file_exists($icon_file))
+                unlink($icon_file);
+        }
+        if($productCat->is_show_nav==1){
+            $navigator = Navigator::where('system_id',$productCat->system_id)->first();
+            $navigator->delete();
+        }
+        $seo = Seo::where('system_id',$productCat->system_id)->first();
+        $seo->delete();
+        $productCat->delete();
+
+        session()->flash('success_message', "Xóa danh mục thành công !");
+        return redirect()->route('admin.product-cat'); 
+    }
+
+    // Hàm ajax lấy slug theo tên
+    public function generate_slug(Request $request){
+        $system_id = $request->system_id;
+        $system_id = isset($system_id) ? $system_id : '';
+        $name = $request->name;
+        $slug = url_format($name);
+        $i=0;
+        $check_slug =  $this->check_slug_exist($slug, $system_id);
+        while ($check_slug){
+            $i++;
+            $slug.= '-'.$i;
+            $check_slug =  $this->check_slug_exist($slug, $system_id);
+        }
+
+        echo $slug;
+    }
+
+    // Kiểm tra slug đã tồn tại hay chưa
+    function check_slug_exist($slug, $system_id){
+        $slugCount = DB::table('seo')->where([['slug', '=', $slug],['system_id', '<>', $system_id]])->count(); 
+        if($slugCount > 0)
+            return TRUE;
+        return FALSE;
+    }
+
+    //Lấy id lớn nhất trong table
+    function get_max_id($table){
+        $max_id = DB::table($table)->max('id');
+        if($max_id != NULL)
+            return $max_id + 1;
+        else
+            return 1;
+    }
+
+    // Upload 1 file
+    function upload_file($object_name, $file, $path){
+        $ext = $file->getClientOriginalExtension();
+        $org_name = url_format($object_name);   // Định dạng lại phần tên gốc (remove utf8)
+        $file_name = $org_name.".".$ext;
+        $i=0;
+        $check_file = file_exists($path.$file_name); // Kiểm tra file đã tồn tại trong thư mục hay chưa
+        while ($check_file){  // Nếu đã tồn tại thì thêm số đếm vào sau tên file
+            $i++;
+            $tmp_org_name = $org_name.'-'.$i;
+            $file_name = $tmp_org_name.".".$ext;
+            $check_file = file_exists($path.$file_name);
+        }
+      
+        if($file->move($path,$file_name))
+            return $file_name;
+        else
+            return '';
+    }
+}

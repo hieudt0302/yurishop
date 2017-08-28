@@ -1,8 +1,14 @@
-<div class="top-header" id="topHead">
+<div class="top-header" id="topHead" style="position:absolute; height: 100px;">
     <div class="row top-header-container">
         <div class="container">
-            <a href="<?php echo e(url('/')); ?>" class="logo-top"></a>
-            <div class="cart-block">                                
+            <a href="<?php echo e(url('/')); ?>" class="logo-top"><img alt="" src="<?php echo e(url('assets/img/logo-dark-mark-200.png')); ?>" /></a>
+            <div class="cart-block">
+                <span class="language-label">
+                    <a href="<?php echo e(url('/')); ?>" >
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        VN
+                    </a>
+                </span>                                 
                 <span class="order-label">
                         <a href="<?php echo e(url('/cart')); ?>" >
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
