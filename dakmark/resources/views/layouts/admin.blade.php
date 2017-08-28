@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{url('/')}}/public/assets/css/morris.css">
     <link rel="stylesheet" href="{{url('/')}}/public/assets/css/admin.css">
     <link rel="stylesheet" href="{{url('/')}}/public/assets/css/custom.css">
+    <link rel="stylesheet" href="{{url('/')}}/public/assets/css/summernote.css">
  
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,6 +32,7 @@
 
     <script src="{{url('/')}}/public/assets/js/jquery-1.12.4.js"></script>
     <script src="{{url('/')}}/public/assets/js/bootstrap.min.js"></script>
+    <script src="{{url('/')}}/public/assets/js/summernote.js"></script>    
  
 </head>
  
@@ -126,6 +128,12 @@
     <script src="{{url('/')}}/public/assets/js/plugins/morris/morris.min.js"></script>
     <script src="{{url('/')}}/public/assets/js/plugins/morris/morris-data.js"></script>
      
-   
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#summernote').summernote({
+              height:300,
+            });
+        });
+    </script>
 </body>
 </html>
