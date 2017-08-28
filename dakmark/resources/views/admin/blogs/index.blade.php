@@ -2,7 +2,6 @@
 @section('content')
 <div id="content">
   <div class="container-fluid">
-    <hr>
     <div class="row-fluid">
       <div class="span12">
         <div class="widget-box">
@@ -22,18 +21,21 @@
                 </div>
             @endif
           <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
-            <h5>Danh sách Blogs </h5> 
-                  <a href="{{url('admin/blogs/create-form')}}" class="btn btn-success" title="new">Thêm bài viết</a>
+            <h5>Danh sách bài viết </h5> 
+            <hr>
             <!--start-top-serch-->
-            <div id="search">
+            <div id="search" class="float-left">
               <form action="{{url('/admin/blogs/search')}}" method="POST" accept-charset="utf-8">
                 <input type="hidden" name="_token" value="{{ csrf_token()  }}">
-                <input type="text" name="key" placeholder="Nhập từ khóa..." style="min-width: 250px;" />
-                <button type="submit" class="tip-bottom" title="Tìm kiếm"><i class="fa fa-search"></i></button>
+                <input type="text" name="key" placeholder="Nhập từ khóa để tìm kiếm..." class="form-control form-rounded" style="min-width: 250px;" />
               </form>
+            </div>
+            <div class="float-right">
+              <a href="{{url('admin/blogs/create-form')}}" class="btn btn-success" title="new">Thêm bài viết</a>
             </div>
             <!--close-top-serch-->
           </div>
+          </br><hr>
           @if($type !='search')
           <div class="pagination alternate pull-right" style="margin-top: -10px; margin-bottom: 5px; margin-right: 10px;">
               {{$blogs->render()}}
@@ -48,7 +50,7 @@
                 <tr>
                   <th style="text-align: center; width: 40px;" >ID</th>                  
                   <th>Hình ảnh</th>
-                  <th>Tiêu dề bản tin</th>
+                  <th>Tiêu dề bài viết</th>
                   <th>Trạng thái</th>                                                
                   <th>Ngày viết</th>
                   <th>Thao tác</th>

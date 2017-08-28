@@ -186,12 +186,19 @@
     border-color: #d9d9d9 transparent
 }
 
+.top-header .top-header-container .language-label {
+    float: left;
+    position: relative;
+    padding-right: 10px;    
+}
+
 .top-header .top-header-container .order-label {
     float: left;
     position: relative;
     padding-right: 10px;
 }
 
+.top-header .language-label a,
 .top-header .order-label a,
 .top-header .list-label a {
     line-height: 25px;

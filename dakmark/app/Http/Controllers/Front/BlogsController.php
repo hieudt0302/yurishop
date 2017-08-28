@@ -16,8 +16,8 @@ class BlogsController extends Controller
     public function index()
     {
         Log::info('reached blog index');
-        $blogs = Blog::all();
-        return view('front.blogs.index')->with('blogs', $blogs);
+        $blogs = Blog::orderBy('id','DESC')->paginate(10);
+        return view('front.blogs.index')->with(['blogs'=> $blogs, 'type' => 'none']);
     }
     /**
      * Display the specified resource.
@@ -30,5 +30,11 @@ class BlogsController extends Controller
         Log::info('reached blog show');
         $blog = Blog::where('id',$id)->first();
         return view('front.blogs.show')->with(['blog' => $blog]);
+    }
+
+    public function search(request $rq) {
+        $key = $rq->key;
+        $blogs = Blog::where('title', 'LIKE', '%'.$key.'%')->Orderby('title','ASC')->take(20)->get();
+        return view ('front.blogs.index',['blogs'=>$blogs,'type'=>'search','key'=>$key]);    
     }
 }

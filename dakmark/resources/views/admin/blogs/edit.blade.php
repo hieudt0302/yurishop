@@ -2,13 +2,13 @@
 @section('content')
 <div id="content">
   <div class="container-fluid">
-    <hr>
     <div class="row-fluid">
       <div class="span12">
           <div class="widget-box">
           <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
             <h5>Chỉnh sửa bài viết</h5>
           </div>
+          <hr>
           @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>
@@ -44,7 +44,7 @@
               <div class="control-group">
                 {!! Form::label('status','Trạng thái:',array('class' => 'control-lable')) !!}
                 <div class="controls">
-                  {!! Form::text('status') !!} </br>
+                  {!! Form::select('status', array('0' => 'Tạm ẩn', '1' => 'Hiển thị'), 'status') !!} </br>
                 </div>
               </div>
 

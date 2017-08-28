@@ -80,7 +80,7 @@ Nét xưa giữa phố thị xô bồ
 Ông Hòa ngày ngày vẫn đảm nhiệm việc rang, xay cà phê, một trong những công đoạn cực kỳ quan trọng cần bí quyết gia truyền để ly cà phê trứng ngon, khác biệt. Vợ ông Hòa vẫn là người pha chế cà phê trứng ngon nhất nhà.
 
 Ông Hòa có hai người con gái đều làm các công việc khác nhau, không liên quan đến cà phê. Hiện tại, các con chỉ phụ giúp bố mẹ phần nào. Còn lại, việc tìm ra ai là người kế nghiệp của cà phê Giảng nơi con phố này cũng là một câu hỏi khó. Người đàn ông với nụ cười hiền hậu trầm ngâm: “Làm cà phê cần vận dụng tay chân nhiều hơn, phải thức khuya dậy sớm, tỉ mẩn và cẩn trọng. Dù sao, tôi mong các con rể và con gái của tôi sẽ có lúc suy nghĩ lại”.',
-                    'status' => '2',
+                    'status' => '1',
                     'view_count' => 2,
                     'created_at' => '2017-06-21 06:11:46',
                     'updated_at' => '2017-06-22 06:11:46',
