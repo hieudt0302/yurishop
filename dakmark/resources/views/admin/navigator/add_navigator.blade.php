@@ -25,7 +25,7 @@
                         <td>
                             <select name="system" id="system-cat" class="form-control"
                                     onchange="return get_system_cat(this.value)">
-                                <option value="" selected></option>
+                                <option value="0" selected>---</option>
                                 @foreach($system_cats as $s)
                                 <option value="{{ $s->system_id }}" >{{ $s->name }}</option>
                                 @endforeach
@@ -34,7 +34,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Tên danh mục - Tiếng Việt
+                            Tên menu - Tiếng Việt
                             <span class="text-danger">*</span>
                         </td>
                         <td>
@@ -44,7 +44,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Tên danh mục - Tiếng Anh
+                            Tên menu - Tiếng Anh
                         </td>
                         <td>
                             <input type="text" class="form-control" name="en_name" value="{!! old('en_name') !!}" />
@@ -86,8 +86,8 @@
                         <td>
                             <select name="parent_id" class="form-control">
                                 <option value="0" selected ></option>
-                                @foreach($productCats as $pCat)
-                                <option value="{{ $pCat->id }}">{{ $pCat->name }}</option>
+                                @foreach($navigators as $nav)
+                                <option value="{{ $nav->id }}">{{ $nav->name }}</option>
                                 @endforeach
                             </select>
                         </td>
@@ -102,17 +102,8 @@
                         <td>Cho phép hiển thị</td>
                         <td>
                             <select name="is_show" class="form-control">
-                                <option value="1" selected >Có</option>
                                 <option value="0">Không</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Hiển thị trên menu</td>
-                        <td>
-                            <select name="is_show_nav" class="form-control">
-                                <option value="1" >Có</option>
-                                <option value="0" selected>Không</option>
+                                <option value="1" selected >Có</option>
                             </select>
                         </td>
                     </tr>
@@ -129,12 +120,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Hình đại diện</td>
-                        <td>
-                            <input type="file" name="icon"/>
-                        </td>
-                    </tr>
-                    <tr>
                         <td></td>
                         <td><button type="submit" class="btn btn-info" style="margin-left: 15px; margin-top: 10px">Thêm</button></td>
                     </tr>
@@ -145,12 +130,28 @@
 </div>
         
 <script type="text/javascript">
-    $(document).ready(function(){
-        $.ajaxSetup({
+     $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
+    });
+    function get_system_cat(system_id) {
+        $.ajax({
+            type: "POST",
+            url: "{{url('/admin/get-system-cat')}}" + "/" + system_id,
+            dataType: 'json',
+            success: function(response){
+                $("input[name='name']").val(response.name);
+                $("input[name='en_name']").val(response.en_name);
+                $("input[name='slug']").val(response.slug);
+                $("input[name='seo_title']").val(response.seo_title);
+                $("input[name='en_seo_title']").val(response.en_seo_title);
+                $("input[name='keyword']").val(response.keyword);
+                $("input[name='description']").html(response.description);
+            }
         });
+    }
+    $(document).ready(function(){
         $("#generate-slug").click(function(){
             var name = $("#name").val();
             $.ajax({

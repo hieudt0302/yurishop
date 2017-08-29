@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 27, 2017 lúc 04:23 PM
+-- Thời gian đã tạo: Th8 29, 2017 lúc 05:15 PM
 -- Phiên bản máy phục vụ: 10.1.25-MariaDB
 -- Phiên bản PHP: 7.1.7
 
@@ -131,11 +131,19 @@ CREATE TABLE `navigator` (
   `id` int(10) NOT NULL,
   `system_id` varchar(20) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `en_name` varchar(50) DEFAULT NULL,
   `parent_id` int(10) NOT NULL DEFAULT '0',
-  `sort_order` int(5) NOT NULL DEFAULT '1',
+  `sort_order` int(5) DEFAULT '1',
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `type` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `navigator`
+--
+
+INSERT INTO `navigator` (`id`, `system_id`, `name`, `en_name`, `parent_id`, `sort_order`, `is_show`, `type`) VALUES
+(1, 'NAV1', 'Giới thiệu', 'Introduce', 0, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -364,7 +372,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `system_id`, `product_code`, `name`, `en_name`, `cat_id`, `description`, `en_description`, `default_price`, `promote_price`, `promote_begin`, `promote_end`, `thumb`, `is_show`, `is_new`, `is_hot`, `is_promote`, `views`, `rates`, `create_time`, `last_update`) VALUES
-(9, 'PRD1', NULL, 'Cà phê phin 1', NULL, 9, NULL, NULL, '120000', '', NULL, NULL, 'thac-dray-sap.jpg', 1, 1, 0, 0, 0, 0, '2017-08-27 11:03:27', '2017-08-27 11:03:27');
+(9, 'PRD1', NULL, 'Cà phê phin 1', NULL, 9, '<p>rdtjrdjrjrjrjj<img alt=\"\" src=\"/public/assets/ckfinder/userfiles/images/slide-8.jpg\" style=\"height:909px; width:1600px\" /></p>', NULL, '120000', '', NULL, NULL, 'thac-dray-sap.jpg', 1, 1, 0, 0, 0, 0, '2017-08-27 11:03:27', '2017-08-27 11:03:27');
 
 -- --------------------------------------------------------
 
@@ -389,7 +397,7 @@ CREATE TABLE `product_cat` (
 --
 
 INSERT INTO `product_cat` (`id`, `system_id`, `name`, `en_name`, `parent_id`, `icon`, `sort_order`, `is_show`, `is_show_nav`) VALUES
-(9, 'PCAT1', 'Cà phê', 'Coffee', 0, '', 1, 1, 0);
+(9, 'PCAT1', 'Cà phê', 'Coffee', 0, '', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -471,21 +479,23 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 CREATE TABLE `seo` (
   `id` int(10) NOT NULL,
   `system_id` varchar(20) NOT NULL,
+  `name` varchar(200) NOT NULL,
   `slug` varchar(100) NOT NULL,
   `seo_title` varchar(100) NOT NULL,
   `en_seo_title` varchar(100) DEFAULT NULL,
   `keyword` varchar(100) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `type` tinyint(1) NOT NULL
+  `type` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `seo`
 --
 
-INSERT INTO `seo` (`id`, `system_id`, `slug`, `seo_title`, `en_seo_title`, `keyword`, `description`, `type`) VALUES
-(3, 'PCAT1', 'ca-phe', 'Cà phê', 'Coffee', 'cà phê,', 'Cà phê nguyên chất', 1),
-(6, 'PRD1', 'ca-phe-phin-1', 'Cà phê phin 1', NULL, NULL, NULL, 2);
+INSERT INTO `seo` (`id`, `system_id`, `name`, `slug`, `seo_title`, `en_seo_title`, `keyword`, `description`, `type`) VALUES
+(3, 'PCAT1', 'Cà phê', 'ca-phe', 'Cà phê', 'Coffee', 'cà phê,', 'Cà phê nguyên chất', 'PCAT'),
+(6, 'PRD1', 'Cà phê phin 1', 'ca-phe-phin-1', 'Cà phê phin 1', NULL, NULL, NULL, 'PRODUCT'),
+(8, 'NAV1', 'Giới thiệu', 'gioi-thieu', 'Giới thiệu', NULL, NULL, NULL, 'NAVIGATOR');
 
 -- --------------------------------------------------------
 
@@ -724,7 +734,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `navigator`
 --
 ALTER TABLE `navigator`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT cho bảng `orderdetails`
 --
@@ -754,7 +764,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT cho bảng `product_cat`
 --
@@ -774,7 +784,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `seo`
 --
 ALTER TABLE `seo`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT cho bảng `shops`
 --

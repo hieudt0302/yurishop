@@ -51,7 +51,7 @@
                         </td>
                     </tr>
                         @if(App\Models\Navigator::hasChildNav($nav->id))
-                            @foreach(App\Models\Navigator::getChildNav($nav->id) as $childNav){ 
+                            @foreach(App\Models\Navigator::getChildNav($nav->id) as $childNav)
                         <tr>
                             <td><i class="fa fa-minus-square-o" style="padding-left: 7px; padding-right: 5px"></i>{{ $childNav->name }}</td>
                             <td>{{ $childNav->sort_order }}</td>

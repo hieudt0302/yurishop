@@ -53,12 +53,13 @@ class ProductController extends Controller
         // Insert data vào bảng seo
         $seo = new Seo;
         $seo->system_id = $system_id;
+        $seo->name = $request->name;
         $seo->slug = $request->slug;
         $seo->seo_title = $request->seo_title;
         $seo->en_seo_title = $request->en_seo_title;
         $seo->keyword = $request->keyword;
         $seo->description = $request->description;
-        $seo->type = 1;  // Danh mục sản phẩm : type = 1
+        $seo->type = "PCAT";
         $seo->save();
 
         // Insert data vào bảng navigator (menu)
@@ -66,7 +67,8 @@ class ProductController extends Controller
             $navigator = new Navigator;
             $navigator->system_id = $system_id;
             $navigator->name = $request->name;
-            $navigator->type = 2;   // Menu được tạo gián tiếp (qua danh mục sản phẩm hoặc danh mục bào viết ) : type = 2
+            $navigator->en_name = $request->en_name;
+            $navigator->type = 2;   // Menu được tạo gián tiếp (qua danh mục sản phẩm hoặc danh mục bài viết ) : type = 2
             $navigator->save();
         }
 
@@ -86,7 +88,7 @@ class ProductController extends Controller
     {
         $productCat = ProductCat::find($cat_id);
         $this->validate($request,['name' => 'required',
-                                  'slug' => 'required',
+                                  'slug' => 'required',  // thiếu check_exist
                                   'seo_title' => 'required'
                                 ]);
         $icon = '' ;
@@ -113,6 +115,7 @@ class ProductController extends Controller
 
         // Update data bảng seo
         $seo = Seo::where('system_id',$productCat->system_id)->first();
+        $seo->name = $request->name;
         $seo->slug = $request->slug;
         $seo->seo_title = $request->seo_title;
         $seo->en_seo_title = $request->en_seo_title;
@@ -125,6 +128,7 @@ class ProductController extends Controller
                 $navigator = new Navigator;
                 $navigator->system_id = $productCat->system_id;
                 $navigator->name = $request->name;
+                $navigator->en_name = $request->en_name;
                 $navigator->type = 2;   // Menu được tạo gián tiếp (qua danh mục sản phẩm hoặc danh mục bào viết ) : type = 2
                 $navigator->save();
             }
@@ -208,12 +212,13 @@ class ProductController extends Controller
         // Insert data vào bảng seo
         $seo = new Seo;
         $seo->system_id = $system_id;
+        $seo->name = $request->name;
         $seo->slug = $request->slug;
         $seo->seo_title = $request->seo_title;
         $seo->en_seo_title = $request->en_seo_title;
         $seo->keyword = $request->keyword;
         $seo->description = $request->seo_description;
-        $seo->type = 2;  // Sản phẩm : type = 2
+        $seo->type = "PRODUCT";  
         $seo->save();
 
         session()->flash('success_message', "Thêm sản phẩm thành công !");
@@ -232,8 +237,9 @@ class ProductController extends Controller
     {
         $product = Product::find($product_id);
         $this->validate($request,['name' => 'required',
-                                  'slug' => 'required',
+                                  'slug' => 'required',  // thiếu check_exist
                                   'seo_title' => 'required'
+                                  // còn thiếu cat_id, thumb, promote_end
                                 ]);
         $thumb = '' ;
         $thumb_file = $request->file('thumb');
@@ -268,6 +274,7 @@ class ProductController extends Controller
 
         // Update data bảng seo
         $seo = Seo::where('system_id',$product->system_id)->first();
+        $seo->name = $request->name;
         $seo->slug = $request->slug;
         $seo->seo_title = $request->seo_title;
         $seo->en_seo_title = $request->en_seo_title;

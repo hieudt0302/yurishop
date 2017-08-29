@@ -88,6 +88,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('navigator/delete/{id}',['as'  =>'admin.navigator.delete','uses' => 'NavigatorController@deleteNavigator']);
     
     Route::post('generate-slug',['as'=>'admin.generate-slug','uses'=>'ProductController@generate_slug']);
+    Route::post('get-system-cat/{system_id}',['as'=>'admin.get-system-cat','uses'=>'NavigatorController@get_system_cat']);
 
     //Blogs
     Route::get('blogs',['as'=>'admin.blogs.index','uses'=>'BlogsController@index']);

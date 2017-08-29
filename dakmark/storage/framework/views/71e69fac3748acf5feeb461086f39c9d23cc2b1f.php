@@ -69,7 +69,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Menu cha</td>
+                        <td>Danh mục cha</td>
                         <td>
                             <select name="parent_id" class="form-control">
                                 <option value="0" selected ></option>
