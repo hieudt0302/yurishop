@@ -21,17 +21,17 @@
                 </div>
             @endif
           <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
-            <h5>Danh sách bài viết </h5> 
+            <h5>@lang('blog.blog-list')</h5> 
             <hr>
             <!--start-top-serch-->
             <div id="search" class="float-left">
               <form action="{{url('/admin/blogs/search')}}" method="POST" accept-charset="utf-8">
                 <input type="hidden" name="_token" value="{{ csrf_token()  }}">
-                <input type="text" name="key" placeholder="Nhập từ khóa để tìm kiếm..." class="form-control form-rounded" style="min-width: 250px;" />
+                <input type="text" name="key" placeholder="@lang('blog.searchbox-placeholder')" class="form-control form-rounded" style="min-width: 250px;" />
               </form>
             </div>
             <div class="float-right">
-              <a href="{{url('admin/blogs/create-form')}}" class="btn btn-success" title="new">Thêm bài viết</a>
+              <a href="{{url('admin/blogs/create-form')}}" class="btn btn-success" title="new">@lang('common.add')</a>
             </div>
             <!--close-top-serch-->
           </div>
@@ -43,17 +43,17 @@
           @endif
           <div class="widget-content nopadding">
             @if($type =='search')
-              <h4 style="padding-left: 15px"> kết quả tìm kiếm 20 bản tin hàng đầu với từ khóa : <span style="color: red; font-weight: bold;"> {{$key}}</span> </h4>
+              <h4 style="padding-left: 15px"> @lang('search-message') <span style="color: red; font-weight: bold;"> {{$key}}</span> </h4>
             @endif
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
                   <th style="text-align: center; width: 40px;" >ID</th>                  
-                  <th>Hình ảnh</th>
-                  <th>Tiêu dề bài viết</th>
-                  <th>Trạng thái</th>                                                
-                  <th>Ngày viết</th>
-                  <th>Thao tác</th>
+                  <th>@lang('blog.image')</th>
+                  <th>@lang('blog.title')</th>
+                  <th>@lang('blog.status')</th>                                                
+                  <th>@lang('common.created-at')</th>
+                  <th>@lang('common.action')</th>
                 </tr>
               </thead>
               <tbody>
@@ -73,7 +73,7 @@
                     </td>                    
                     <td style="width:120px; "> {{ $row->created_at}}</td>
                     <td style="width:120px; text-align: center;  ">
-                      <a href="{{url('admin/blogs/'.$row->id.'/edit')}}" title="Sửa"><strong class="btn btn-info">Sửa</strong></a>
+                      <a href="{{url('admin/blogs/'.$row->id.'/edit')}}" title="Sửa"><strong class="btn btn-info">@lang('common.edit')</strong></a>
                       {!! Form::open(['method' => 'DELETE','route' => ['admin.blogs.destroy', $row->id],'style'=>'display:inline']) !!}
                       {!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!}
                       {!! Form::close() !!}

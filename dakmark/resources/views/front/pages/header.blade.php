@@ -1,25 +1,27 @@
 <div class="top-header" id="topHead" style="position:absolute; height: 100px;">
+    <div class="language-bar">
+        <div class="float-right">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{URL::asset('')}}language/vi">Tiếng Việt</a></li>
+                <li><a href="{{URL::asset('')}}language/en">Tiếng Anh</a></li>
+            </ul>
+        </div>          
+    </div>
     <div class="row top-header-container">
         <div class="container">
             <a href="{{url('/')}}" class="logo-top"><img alt="" src="{{url('assets/img/logo-dark-mark-200.png')}}" /></a>
-            <div class="cart-block">
-                <span class="language-label">
-                    <a href="{{ url('/') }}" >
-                        <i class="fa fa-globe" aria-hidden="true"></i>
-                        VN
-                    </a>
-                </span>                                 
+            <div class="cart-block">                               
                 <span class="order-label">
                         <a href="{{ url('/cart') }}" >
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            Giỏ hàng ({{ Cart::instance('default')->count(false) }})
+                            @lang('shoppings.cart') ({{ Cart::instance('default')->count(false) }})
                         </a>
                 </span> 
                 @if (!Auth::guest())
                 <span class="list-label">
                         <a href="{{ url('/order') }}">
                             <i class="fa fa-list-alt" aria-hidden="true"></i>
-                            Danh sách đơn hàng
+                            @lang('shoppings.order-list')
                         </a>
                 </span> 
                 @endif
@@ -30,7 +32,7 @@
             <div class="user-block">
                 @if (Auth::guest())
                 <a href="{{ url('/register') }}" id="link-modal-sign-up" data-reveal-id="modal-signup" class="modal-signup nb-signup">      
-						Đăng ký
+						@lang('auth.register')
                     </a> |
                 <a href="{{ url('/login') }}" id="link-modal-login" data-reveal-id="modal-signup2" class="modal-signup2 nb-signup">
                         @lang('auth.login')

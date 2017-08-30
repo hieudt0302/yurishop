@@ -3,4 +3,6 @@
 return [
     'cart_noitems' => 'Bạn không có sản phẩm nào trong giỏ hàng!',
     'continue_shopping' => 'Tra sản phẩm khác',
+	'order-list' => 'Danh sách đơn hàng',
+	'cart' => 'Giỏ hàng',	    
 ];

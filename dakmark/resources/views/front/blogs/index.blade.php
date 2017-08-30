@@ -10,7 +10,7 @@
                         <div id="search" class="float-right">
                           <form action="{{url('/blogs/search')}}" method="POST" accept-charset="utf-8">
                             <input type="hidden" name="_token" value="{{ csrf_token()  }}">
-                            <input type="text" name="key" placeholder="Nhập từ khóa để tìm..." style="min-width: 250px;" class="form-control form-rounded" style="width:200px;" />
+                            <input type="text" name="key" placeholder="{{ trans('blog.searchbox-placeholder') }}" style="min-width: 250px;" class="form-control form-rounded" style="width:200px;" />
                           </form>
                         </div>
                     </div>
@@ -32,10 +32,10 @@
                                 </a>
                             </div>
                             <div class="col-md-9">
-                                <h3>{{$row->title}}</h3>
+                                <h3>{{$row->title}}</h3>{{$loc}}
                                 <span class="date"><i class="fa fa-calendar"></i> {{$row->updated_at}}</span>
                                 <p>{!!$row->intro!!}</p>
-                                <a class="btn btn-primary float-right" href="{{url('/blogs/'.$row->id)}}">Chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <a class="btn btn-primary float-right" href="{{url('/blogs/'.$row->id)}}">{{ trans('blog.read-more') }} <span class="glyphicon glyphicon-chevron-right"></span></a>
                             </div>
                         </div>
                         <hr>

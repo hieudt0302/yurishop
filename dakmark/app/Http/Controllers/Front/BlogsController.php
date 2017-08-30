@@ -15,9 +15,10 @@ class BlogsController extends Controller
      */
     public function index()
     {
+        $locale =  \App::getLocale();
         Log::info('reached blog index');
         $blogs = Blog::orderBy('id','DESC')->paginate(10);
-        return view('front.blogs.index')->with(['blogs'=> $blogs, 'type' => 'none']);
+        return view('front.blogs.index')->with(['blogs'=> $blogs, 'type' => 'none', 'loc' => $locale]);
     }
     /**
      * Display the specified resource.

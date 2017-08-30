@@ -36,4 +36,6 @@ return [
     'placeholder_confirmpassword' => 'Xác nhận lại mật khẩu',
     'recaptcha' =>'?hl=vi',
     'backhome' => 'Trở Về Trang Chủ',
+     'alert_username' => 'Yêu cầu nhập tên tài khoản',
+     'alert_password' => 'Yêu cầu nhập mật khẩu',         
 ];
