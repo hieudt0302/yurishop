@@ -25,6 +25,7 @@ return [
     'resendactivationcode' => 'Gửi Lại Mã Kích Hoạt',
 
     'register' => 'Đăng Ký',
+    'logout' => 'Đăng xuất',
     'register_label' => 'Vui lòng đăng ký theo mẫu dưới đây',
     'signup' => 'Đăng Ký',
     'placeholder_username' => 'Tên tài khoản',
@@ -36,6 +37,5 @@ return [
     'placeholder_confirmpassword' => 'Xác nhận lại mật khẩu',
     'recaptcha' =>'?hl=vi',
     'backhome' => 'Trở Về Trang Chủ',
-     'alert_username' => 'Yêu cầu nhập tên tài khoản',
-     'alert_password' => 'Yêu cầu nhập mật khẩu',         
+     'alert_required_input' => 'Trường yêu cầu nhập thông tin',       
 ];

@@ -1,65 +1,107 @@
-<div class="top-header" id="topHead" style="position:absolute; height: 100px;">
-    <div class="language-bar">
-        <div class="float-right">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{URL::asset('')}}language/vi">Tiếng Việt</a></li>
-                <li><a href="{{URL::asset('')}}language/en">Tiếng Anh</a></li>
-            </ul>
-        </div>          
-    </div>
-    <div class="row top-header-container">
-        <div class="container">
-            <a href="{{url('/')}}" class="logo-top"><img alt="" src="{{url('assets/img/logo-dark-mark-200.png')}}" /></a>
-            <div class="cart-block">                               
-                <span class="order-label">
-                        <a href="{{ url('/cart') }}" >
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            @lang('shoppings.cart') ({{ Cart::instance('default')->count(false) }})
-                        </a>
-                </span> 
-                @if (!Auth::guest())
-                <span class="list-label">
-                        <a href="{{ url('/order') }}">
-                            <i class="fa fa-list-alt" aria-hidden="true"></i>
-                            @lang('shoppings.order-list')
-                        </a>
-                </span> 
-                @endif
-                <a href="javascript:;" title="Thông báo">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="user-block">
-                @if (Auth::guest())
-                <a href="{{ url('/register') }}" id="link-modal-sign-up" data-reveal-id="modal-signup" class="modal-signup nb-signup">      
-						@lang('auth.register')
-                    </a> |
-                <a href="{{ url('/login') }}" id="link-modal-login" data-reveal-id="modal-signup2" class="modal-signup2 nb-signup">
-                        @lang('auth.login')
-            </a> @else
-                <div>
-                    <li class="dropdown hide-point">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->last_name }} {{ Auth::user()->first_name }}<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="{{ url('/profile') }}"><i class="fa fa-fw fa-user"></i> Tài Khoản</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="{{ url('/logout') }}" onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                                <i class="fa fa-fw fa-power-off"></i> Thoát
-                            </a>
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+    <!--header-->
+        <div class="header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="top-right">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> {{ app()->getLocale() }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                <li><a href="{{URL::asset('')}}language/vi"><img src="{{url('assets/img/flags/vn.png')}}" alt="img"> Tiếng Việt</a></li>
+                                <li><a href="{{URL::asset('')}}language/en"><img src="{{url('assets/img/flags/en.png')}}" alt="img"> English</a></li>
+                            </ul>
+                        </li>                        
+                    @if (Auth::guest())
+                        <li>
+                            <a href="{{ url('/login') }}" id="link-modal-login" data-reveal-id="modal-signup2" class="modal-signup2 nb-signup">
+                                    <i class="fa fa-fw fa-sign-in"></i> @lang('auth.login')
+                            </a> 
+                        </li>
+                        <li>
+                            <a href="{{ url('/register') }}" id="link-modal-sign-up" data-reveal-id="modal-signup" class="modal-signup nb-signup">      
+                                    <i class="fa fa-fw fa-user-plus"></i> @lang('auth.register')
+                            </a> 
+                        </li>
+                        @else
+                        <li class="dropdown hide-point">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->last_name }} {{ Auth::user()->first_name }}<b class="caret"></b></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li >
+                                    <a tabindex="-1" href="{{ url('/order') }}"><i class="fa fa-fw fa-list-alt" ></i> @lang('shoppings.order-history')</a>
+                                </li>                          
+                                <li>
+                                    <a tabindex="-1" href="{{ url('/profile') }}"><i class="fa fa-fw fa-user"></i> @lang('common.profile')</a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="{{ url('/logout') }}" onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    <i class="fa fa-fw fa-power-off"></i> @lang('auth.logout')
+                                </a>
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        @endif                        
+                    </ul>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-                @endif
+            </div>
+            <div class="heder-bottom">
+                <div class="container">
+                    <div class="logo-nav">
+                        <div class="logo-nav-left">
+                            <a href="{{url('/')}}" class="logo-top"><img alt="" src="{{url('assets/img/logo-dark-mark-200.png')}}" /></a>
+                        </div>
+                        <div class="logo-nav-left1">
+                            <nav class="navbar navbar-default">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header nav_2">
+                                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div> 
+                            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="{{ url('/') }}" class="act">Home</a></li>   
+                                    <li><a href="{{ url('/about-us') }}">@lang('header.about-us')</a></li>
+                                    <li><a href="{{ url('/cert') }}">@lang('header.cert')</a></li>
+                                    <li><a href="{{ url('/shop') }}">@lang('header.shop')</a></li>
+                                    <li><a href="{{ url('/blogs') }}">@lang('header.blog')</a></li>                                    
+                                    <li><a href="{{ url('/contact') }}">@lang('header.contact')</a></li>
+                                </ul>
+                            </div>
+                            </nav>
+                        </div>
+                        <div class="logo-nav-right">
+                            <div id="cd-search" class="cd-search">
+                                <form action="#" method="post">
+                                    <input name="Search" type="search" placeholder="Search...">
+                                </form>
+                            </div>  
+                        </div>
+                        <div class="header-right2">
+                            <div class="cart box_1">
+                                <p>
+                                    {{ Cart::instance('default')->count(false) }} @lang('shoppings.items')
+                                    <a href="{{ url('/cart') }}" >
+                                        <span class="fa-stack fa-lg">
+                                          <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true" style='color:white;'></i>
+                                          <i class="fa fa-shopping-cart fa-stack-1x" aria-hidden="true" style='color:white;'></i>
+                                        </span>                                        
+                                    </a>
+                                </p>
+                                <div class="clearfix"> </div>
+                            </div>  
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-</div>
+        <!--header-->

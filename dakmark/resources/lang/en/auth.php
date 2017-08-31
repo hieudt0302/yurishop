@@ -23,6 +23,7 @@ return [
     'forgotusername' => 'Forgot username?',
     'createaccount' => 'Create Account',
     'resendactivationcode' => 'Resend activation code',
+    'logout' => 'Log out',
 
     'register' => 'Register',
     'register_label' => 'Please register with below form',

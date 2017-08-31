@@ -32,7 +32,7 @@
                                 </a>
                             </div>
                             <div class="col-md-9">
-                                <h3>{{$row->title}}</h3>{{$loc}}
+                                <h3>{{$row->title}}</h3>
                                 <span class="date"><i class="fa fa-calendar"></i> {{$row->updated_at}}</span>
                                 <p>{!!$row->intro!!}</p>
                                 <a class="btn btn-primary float-right" href="{{url('/blogs/'.$row->id)}}">{{ trans('blog.read-more') }} <span class="glyphicon glyphicon-chevron-right"></span></a>

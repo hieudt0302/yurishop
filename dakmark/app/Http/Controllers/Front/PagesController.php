@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Front;
 
 header('Content-Type: text/html; charset=utf-8');
-include 'public/assets/simple_html_dom/simple_html_dom.php';
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
