@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <h1 style="color:#d9534f;">
-            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> @lang('shoppings.cart')
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Giỏ Hàng
         </h1>
 
         @include('notifications.status_message') 

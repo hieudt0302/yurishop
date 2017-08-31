@@ -2,7 +2,7 @@
 <br>
 <div class="container">
     <div class="row">
-        <h1>@lang('shoppings.order-list')</h1>
+        <h1>Danh Sách Đơn Hàng</h1>
         @include('notifications.status_message') 
         @include('notifications.errors_message')
     </div>
@@ -10,22 +10,22 @@
 
         {!! Form::open(array('route' => 'front.orders.find','method'=>'POST', 'class'=>'form-inline')) !!}
         <div class="form-group">
-            <label for="fromDate">@lang('common.from-date')</label> {!! Form::text('fromDate', null, array('class' => 'form-control', 'id'=>'fromDate'))
+            <label for="fromDate">Từ Ngày</label> {!! Form::text('fromDate', null, array('class' => 'form-control', 'id'=>'fromDate'))
             !!}
         </div>
         <span style="margin-left:20px"></span>
         <div class="form-group">
-            <label for="toDate">@lang('common.to-date')</label> {!! Form::text('toDate', null, array('class' => 'form-control', 'id'=>'toDate'))
+            <label for="toDate">Đến Ngày</label> {!! Form::text('toDate', null, array('class' => 'form-control', 'id'=>'toDate'))
             !!}
         </div>
         <span style="margin-left:20px"></span>
         <div class="form-group">
-            <label for="status">@lang('common.status')</label> {!! Form::select('status', array(0=>'Tất Cả', 1 => 'Chờ xử lý', 2 => 'Đang
+            <label for="status">Trạng Thái</label> {!! Form::select('status', array(0=>'Tất Cả', 1 => 'Chờ xử lý', 2 => 'Đang
             xử lý', 3 => 'Hoàn Thành', 4 => 'Hủy'), 0, array('name' => 'status','type'=>'text', 'class'=>'form-control'))
             !!}
         </div>
         <span style="margin-left:20px"></span>
-        <button type="submit" class="btn btn-info">@lang('common.search')</button> {!! Form::close() !!}
+        <button type="submit" class="btn btn-info">Tìm Kiếm</button> {!! Form::close() !!}
     </div>
     <br>
     <div class="row">
@@ -34,10 +34,10 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>@lang('shoppings.order-date')</th>
-                        <th>@lang('shoppings.order-total-price')</th>
-                        <th>@lang('common.status')</th>
-                        <th>@lang('common.note')</th>
+                        <th>Thời gian đặt hàng</th>
+                        <th>Tổng giá trị đơn hàng</th>
+                        <th>Tình trạng</th>
+                        <th>Tùy chọn</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,18 +48,18 @@
                         <td>{{ $order->totalamount }} Tệ</td>
                         <td>
                             @if($order->status===1)
-                            <span>@lang('shoppings.order-stat-wait')</span> @elseif($order->status===2)
-                            <span>@lang('shoppings.order-stat-processing')</span> @elseif($order->status===3)
-                            <span>@lang('shoppings.order-stat-done')</span> @elseif($order->status===4)
-                            <span>@lang('shoppings.order-stat-cancel')</span> @else
-                            <span>@lang('shoppings.order-stat-unclear')</span> @endif
+                            <span>Chờ xử lý</span> @elseif($order->status===2)
+                            <span>Đang xử lý</span> @elseif($order->status===3)
+                            <span>Hoàn thành</span> @elseif($order->status===4)
+                            <span>Hủy</span> @else
+                            <span>Không xác định!</span> @endif
                         </td>
                         <td class="order-option">
                             <a href="{{ route('front.orders.show', $order->id) }}" class="btn btn-info btn-xs" title="Xem chi tiết">
-                                <i class="fa fa-eye"></i> @lang('common.more-details')
+                                <i class="fa fa-eye"></i> Xem chi tiết
                         </a> @if($order->status===1)
                             <a href="" class="btn btn-danger btn-xs" data-toggle="ajaxModal" title="Hủy bỏ">
-                                <i class="fa fa-ban"></i> @lang('common.cancel')
+                                <i class="fa fa-ban"></i> Hủy đơn hàng
                         </a> @endif
                         </td>
                     </tr>

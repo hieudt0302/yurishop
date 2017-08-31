@@ -68,7 +68,7 @@ class ProductController extends Controller
             $navigator->system_id = $system_id;
             $navigator->name = $request->name;
             $navigator->en_name = $request->en_name;
-            $navigator->type = 2;   // Menu được tạo gián tiếp (qua danh mục sản phẩm hoặc danh mục bài viết ) : type = 2
+            $navigator->type = 'PCAT'; 
             $navigator->save();
         }
 
@@ -101,18 +101,6 @@ class ProductController extends Controller
             $icon = $this->upload_file($request->name, $icon_file, $path);
         }
 
-        
-
-        // Update data bảng product_cat
-        $productCat->name = $request->name;
-        $productCat->en_name = $request->en_name;
-        $productCat->parent_id = $request->parent_id;
-        $productCat->icon = $icon;
-        $productCat->sort_order = $request->sort_order;
-        $productCat->is_show = $request->is_show;
-        $productCat->is_show_nav = $request->is_show_nav;
-        $productCat->save();
-
         // Update data bảng seo
         $seo = Seo::where('system_id',$productCat->system_id)->first();
         $seo->name = $request->name;
@@ -129,7 +117,7 @@ class ProductController extends Controller
                 $navigator->system_id = $productCat->system_id;
                 $navigator->name = $request->name;
                 $navigator->en_name = $request->en_name;
-                $navigator->type = 2;   // Menu được tạo gián tiếp (qua danh mục sản phẩm hoặc danh mục bào viết ) : type = 2
+                $navigator->type = 'PCAT';  
                 $navigator->save();
             }
             else{  // Xóa menu
@@ -137,6 +125,16 @@ class ProductController extends Controller
                 $navigator->delete();
             }
         }
+
+        // Update data bảng product_cat
+        $productCat->name = $request->name;
+        $productCat->en_name = $request->en_name;
+        $productCat->parent_id = $request->parent_id;
+        $productCat->icon = $icon;
+        $productCat->sort_order = $request->sort_order;
+        $productCat->is_show = $request->is_show;
+        $productCat->is_show_nav = $request->is_show_nav;
+        $productCat->save();
 
         session()->flash('success_message', "Cập nhật thành công !");
         return redirect()->route('admin.product-cat'); 
@@ -233,8 +231,7 @@ class ProductController extends Controller
                                                           "productDetail" => $productDetail, 
                                                           "productSeo" => $productSeo]); 
     }
-    public function updateProduct($product_id, Request $request)
-    {
+    public function updateProduct($product_id, Request $request){
         $product = Product::find($product_id);
         $this->validate($request,['name' => 'required',
                                   'slug' => 'required',  // thiếu check_exist
@@ -254,7 +251,17 @@ class ProductController extends Controller
         $default_price = str_replace(",", "", $request->default_price);  
         $promote_price = str_replace(",", "",  $request->promote_price);  
 
-        // Update data bảng product
+        // Update data bảng seo
+        $seo = Seo::where('system_id',$product->system_id)->first();
+        $seo->name = $request->name;
+        $seo->slug = $request->slug;
+        $seo->seo_title = $request->seo_title;
+        $seo->en_seo_title = $request->en_seo_title;
+        $seo->keyword = $request->keyword;
+        $seo->description = $request->seo_description;
+        $seo->save();
+
+         // Update data bảng product
         $product->product_code = $request->product_code;
         $product->name = $request->name;
         $product->en_name = $request->en_name;
@@ -271,16 +278,6 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->en_description = $request->en_description;
         $product->save();
-
-        // Update data bảng seo
-        $seo = Seo::where('system_id',$product->system_id)->first();
-        $seo->name = $request->name;
-        $seo->slug = $request->slug;
-        $seo->seo_title = $request->seo_title;
-        $seo->en_seo_title = $request->en_seo_title;
-        $seo->keyword = $request->keyword;
-        $seo->description = $request->seo_description;
-        $seo->save();
 
         session()->flash('success_message', "Cập nhật thành công !");
         return redirect()->route('admin.product'); 

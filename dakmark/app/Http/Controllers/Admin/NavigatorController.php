@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\Navigator;
 use App\Models\Seo;
+use App\Models\ProductCat;
+use App\Models\BlogCat;
 use DB;
 
 class NavigatorController extends Controller
@@ -22,7 +24,7 @@ class NavigatorController extends Controller
     } 
     public function insertNavigator(Request $request){
         $this->validate($request,['name' => 'required',
-                                  'slug' => 'required|unique:seo',
+                                  'slug' => 'required|unique:seo', // nếu tạo menu từ danh mục hệ thống thì unique ko đúng
                                   'seo_title' => 'required'
                                 ]);
         $max_id = $this->get_max_id('navigator');
@@ -93,9 +95,19 @@ class NavigatorController extends Controller
     }
     public function deleteNavigator($nav_id){
         $navigator = Navigator::find($nav_id);
-        if($navigator->type == 1){  // nếu menu được tạo trực tiếp thì xóa record seo tương ứng
+        if($navigator->type == 'NAV'){  // nếu menu được tạo trực tiếp thì xóa record seo tương ứng
             $seo = Seo::where('system_id',$navigator->system_id)->first();
             $seo->delete();
+        }
+        elseif($navigator->type == 'PCAT'){
+            $pCat = ProductCat::where('system_id',$navigator->system_id)->first();
+            $pCat->is_show_nav = 0;
+            $pCat->save();
+        }
+        elseif($navigator->type == 'BCAT'){
+            $bCat = BlogCat::where('system_id',$navigator->system_id)->first();
+            $bCat->is_show_nav = 0;
+            $bCat->save();
         }
         $navigator->delete();
 

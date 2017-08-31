@@ -90,7 +90,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('generate-slug',['as'=>'admin.generate-slug','uses'=>'ProductController@generate_slug']);
     Route::post('get-system-cat/{system_id}',['as'=>'admin.get-system-cat','uses'=>'NavigatorController@get_system_cat']);
 
-    //Blogs
+	//Blogs
+    /*
     Route::get('blogs',['as'=>'admin.blogs.index','uses'=>'BlogsController@index']);
     Route::post('blogs/search',['as'=>'admin.blogs.search','uses'=>'BlogsController@search']);
     Route::get('blogs/{id}/edit',['as'=>'admin.blogs.edit','uses'=>'BlogsController@edit']);
@@ -98,6 +99,20 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('blogs/create',['as'=>'admin.blogs.store','uses'=>'BlogsController@store']);
     Route::patch('blogs/{id}',['as'=>'admin.blogs.update','uses'=>'BlogsController@update']);
     Route::delete('blogs/{id}',['as'=>'admin.blogs.destroy','uses'=>'BlogsController@destroy']);
+	*/
+	    
+    Route::get('blog-cat',['as'=>'admin.blog-cat','uses'=>'BlogController@blogCatList']);
+    Route::get('blog-cat/add',['as'=>'admin.blog-cat.add','uses'=>'BlogController@addBlogCat']);
+    Route::post('blog-cat/add',['as'=>'admin.blog-cat.insert','uses'=>'BlogController@insertBlogCat']);
+    Route::get('blog-cat/edit/{id}',['as'  =>'admin.blog-cat.edit','uses' => 'BlogController@editBlogCat']);
+    Route::post('blog-cat/edit/{id}',['as' =>'admin.blog-cat.update','uses' => 'BlogController@updateBlogCat']);
+    Route::get('blog-cat/delete/{id}',['as'  =>'admin.blog-cat.delete','uses' => 'BlogController@deleteBlogCat']);
+    Route::get('blog',['as'=>'admin.blog','uses'=>'BlogController@blogList']);
+    Route::get('blog/add',['as'=>'admin.blog.add','uses'=>'BlogController@addBlog']);
+    Route::post('blog/add',['as'=>'admin.blog.insert','uses'=>'BlogController@insertBlog']);
+    Route::get('blog/edit/{id}',['as'  =>'admin.blog.edit','uses' => 'BlogController@editBlog']);
+    Route::post('blog/edit/{id}',['as' =>'admin.blog.update','uses' => 'BlogController@updateBlog']);
+    Route::get('blog/delete/{id}',['as'  =>'admin.blog.delete','uses' => 'BlogController@deleteBlog']);
 });
 Auth::routes();
  
@@ -153,9 +168,3 @@ Route::delete('emptyCart', 'Front\CartsController@emptyCart');
 Route::get('blogs',['as'=>'front.blogs.index','uses'=>'Front\BlogsController@index']);
 Route::get('blogs/{id}',['as'=>'front.blogs.show','uses'=>'Front\BlogsController@show']);
 Route::post('blogs/search',['as'=>'fron.blogs.search','uses'=>'Front\BlogsController@search']);
-
-Route::get('language/{locale}', function ($locale) {
-        Session::put('locale', $locale);
-        App::setLocale($locale);
-        return redirect()->back();
-});

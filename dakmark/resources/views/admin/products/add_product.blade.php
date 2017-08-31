@@ -24,7 +24,10 @@
                         <a href="#general" data-toggle="tab">Thông tin chung</a>
                     </li>
                     <li>
-                        <a href="#product-des" data-toggle="tab">Mô tả sản phẩm</a>
+                        <a href="#vi-description" data-toggle="tab">Mô tả sản phẩm - Tiếng Việt</a>
+                    </li>
+                    <li>
+                        <a href="#en-description" data-toggle="tab">Mô tả sản phẩm - Tiếng Anh</a>
                     </li>
                     <li>
                         <a href="#gallery" data-toggle="tab">Thư viện hình</a>
@@ -188,8 +191,11 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="tab-pane fade" id="product-des">
-                        <textarea class="form-control" id="description" name="description">{!! old('description') !!}</textarea>
+                    <div class="tab-pane fade" id="vi-description">
+                        <textarea class="form-control" id="vi-des" name="description">{!! old('description') !!}</textarea>
+                    </div>
+                    <div class="tab-pane fade" id="en-description">
+                        <textarea class="form-control" id="en-des" name="en_description">{!! old('en_description') !!}</textarea>
                     </div>
                     <div class="tab-pane fade" id="gallery">
                         <table class="table table-responsive" id="gallery-table">
@@ -301,12 +307,22 @@
     });
 
     $(function() {                                      
-        if(CKEDITOR.instances['description']) {                     
-            CKEDITOR.remove(CKEDITOR.instances['description']);
+        if(CKEDITOR.instances['vi-des']) {                     
+            CKEDITOR.remove(CKEDITOR.instances['vi-des']);
         }
         CKEDITOR.config.max_width = 1000;
                 CKEDITOR.config.height = 300;
-        CKEDITOR.replace('description',{
+        CKEDITOR.replace('vi-des',{
+            language:'vi'
+        });
+    })
+     $(function() {                                      
+        if(CKEDITOR.instances['en-des']) {                     
+            CKEDITOR.remove(CKEDITOR.instances['en-des']);
+        }
+        CKEDITOR.config.max_width = 1000;
+                CKEDITOR.config.height = 300;
+        CKEDITOR.replace('en-des',{
             language:'vi'
         });
     })

@@ -106,8 +106,11 @@
                     <li>
                         <a href="{{ url('/admin/orders') }}"><i class="fa fa-fw fa-edit"></i> Đơn Đặt Hàng</a>
                     </li>
+					<li>
+                        <a href="{{ url('/admin/blog-cat') }}"><i class="fa fa-fw fa-folder"></i> Danh mục blog</a>
+                    </li>
                     <li>
-                        <a href="{{ url('/admin/blogs') }}"><i class="fa fa-fw fa-newspaper-o"></i> Bài viết</a>
+                        <a href="{{ url('/admin/blog') }}"><i class="fa fa-fw fa-newspaper-o"></i> Blogs</a>
                     </li>
                     <li>
                         <a href="{{ url('/admin/blank') }}"><i class="fa fa-fw fa-wrench"></i> Cài Đặt</a>
