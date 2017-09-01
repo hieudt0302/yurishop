@@ -7,7 +7,7 @@ return [
     'qa' => 'Q&A',
     'purchase-flow' => 'Purchase flow',
     'returns' => 'Returns',
-    'my-accoutn' => 'MY ACCOUNT',
+    'my-account' => 'MY ACCOUNT',
     'sign-in' => 'Sign in',
     'view-cart' => 'View cart',
     'my-wishlist' => 'My wishlist',

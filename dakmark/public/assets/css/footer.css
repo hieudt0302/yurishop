@@ -41,5 +41,26 @@
 }
 
 #footer .copy-right a {
-    color: #FF0000;
+    color: #ffffff;
+}
+
+a.footer-link:link
+{
+   color: #ffffff;
+   text-decoration: none;
+}
+a.footer-link:visited
+{
+   color: #ffffff;
+   text-decoration: none;
+}
+a.footer-link:hover
+{
+   color: #ffffff;
+   text-decoration:underline;
+}
+a.footer-link:active
+{
+   color: #ffffff;
+   text-decoration: none;
 }

@@ -52,19 +52,19 @@ Cho tới năm 2013, chúng tôi đã xuất khẩu cà phê tới châu Âu (B�
             <div id="navigate-box" class="col-md-6"> 
                     <div class="col-md-6">
                         <div class="introduce-title">@lang('footer.customer-support')</div>
-                        <ul id = "introduce-service">
-                            <li><a href="#">@lang('footer.qa')</a></li>
-                            <li><a href="#">@lang('footer.purchase-flow')</a></li>
-                            <li><a href="#">@lang('footer.returns')</a></li>
+                        <ul id = "customer-support">
+                            <li><a class="footer-link" href="{{ url('/qa') }}">@lang('footer.qa')</a></li>
+                            <li><a class="footer-link" href="{{ url('/purchase-flow') }}">@lang('footer.purchase-flow')</a></li>
+                            <li><a class="footer-link" href="{{ url('/returns') }}">@lang('footer.returns')</a></li>
                         </ul>
                     </div>                        
                     <div class="col-md-6">
-                        <div class="introduce-title">@lang('footer.my-account')</div>
+                        <div class="my-account">@lang('footer.my-account')</div>
                         <ul id="introduce-company">
-                            <li><a href="#">@lang('footer.sign-in')</a></li>
-                            <li><a href="#">@lang('footer.view-cart')</a></li>
-                            <li><a href="#">@lang('footer.my-wishlist')</a></li>
-                            <li><a href="#">@lang('footer.order-history')</a></li>
+                            <li><a class="footer-link" href="{{ url('/login') }}">@lang('footer.sign-in')</a></li>
+                            <li><a class="footer-link" href="{{ url('/cart') }}">@lang('footer.view-cart')</a></li>
+                            <li><a class="footer-link" href="{{ url('/wishlist') }}">@lang('footer.my-wishlist')</a></li>
+                            <li><a class="footer-link" href="{{ url('/orders') }}">@lang('footer.order-history')</a></li>
                         </ul>
                     </div>                                  
             </div><!-- /#navigate-box -->                                            
