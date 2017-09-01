@@ -1,6 +1,13 @@
 <?php
 
 return [
-     'title' => 'Title',
-     'content' => 'Content',
+	 '' => '',
+	 'blog' => 'Bài viết',		 
+     'title' => 'Tiêu đề',
+     'content' => 'Nội dung',
+     'image' => 'Hình ảnh',
+     'status' => 'Trạng thái',
+     'searchbox-placeholder' => 'Nhập từ khóa để tìm',
+     'read-more' => 'Chi tiết',
+     'blog-list' => 'Danh sách bài viết',     
 ];
