@@ -168,3 +168,10 @@ Route::delete('emptyCart', 'Front\CartsController@emptyCart');
 Route::get('blogs',['as'=>'front.blogs.index','uses'=>'Front\BlogsController@index']);
 Route::get('blogs/{id}',['as'=>'front.blogs.show','uses'=>'Front\BlogsController@show']);
 Route::post('blogs/search',['as'=>'fron.blogs.search','uses'=>'Front\BlogsController@search']);
+
+//Multi-language
+Route::get('language/{locale}', function ($locale) {
+        Session::put('locale', $locale);
+        App::setLocale($locale);
+        return redirect()->back();
+});
