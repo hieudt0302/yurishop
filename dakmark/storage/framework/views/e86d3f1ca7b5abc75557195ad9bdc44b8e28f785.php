@@ -17,11 +17,11 @@
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/checkbox-radio.css">
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/header.css">
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/footer.css">
-		<link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/product-info.css">
+        <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/product-info.css">
         <!-- <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/custom.css"> -->
         <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/spinner.css">
-		<link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/auth.css" type="text/css" media="all">
-		
+        <link rel="stylesheet" href="<?php echo e(url('/')); ?>/public/assets/css/auth.css" type="text/css" media="all">
+        
         <script src="<?php echo e(url('/')); ?>/public/assets/js/jquery-1.12.4.js"></script>
         <script src="<?php echo e(url('/')); ?>/public/assets/js/bootstrap.min.js"></script>
         

@@ -89,7 +89,6 @@
                                 </td>
                                 <td>
                                     <select name="cat_id" class="form-control">
-                                        <option value="0" selected ></option>
                                         @foreach ($blogCats as $bCat)
                                         <option value="{{ $bCat->id }}">{{ $bCat->name }}</option>
                                         @endforeach

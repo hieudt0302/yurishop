@@ -99,6 +99,9 @@
                         <a href="<?php echo e(url('/admin/navigator')); ?>"><i class="fa fa-fw fa-bars"></i>Menu</a>
                     </li>
                     <li>
+                        <a href="<?php echo e(url('/admin/slider')); ?>"><i class="fa fa-fw fa-sliders"></i>Slider</a>
+                    </li>
+                    <li>
                         <a href="<?php echo e(url('/admin/product-cat')); ?>"><i class="fa fa-fw fa-folder"></i> Danh mục sản phẩm</a>
                     </li>
                     <li>
@@ -107,8 +110,11 @@
                     <li>
                         <a href="<?php echo e(url('/admin/orders')); ?>"><i class="fa fa-fw fa-edit"></i> Đơn Đặt Hàng</a>
                     </li>
+					<li>
+                        <a href="<?php echo e(url('/admin/blog-cat')); ?>"><i class="fa fa-fw fa-folder"></i> Danh mục blog</a>
+                    </li>
                     <li>
-                        <a href="<?php echo e(url('/admin/blogs')); ?>"><i class="fa fa-fw fa-newspaper-o"></i> Bài viết</a>
+                        <a href="<?php echo e(url('/admin/blog')); ?>"><i class="fa fa-fw fa-newspaper-o"></i> Blogs</a>
                     </li>
                     <li>
                         <a href="<?php echo e(url('/admin/blank')); ?>"><i class="fa fa-fw fa-wrench"></i> Cài Đặt</a>

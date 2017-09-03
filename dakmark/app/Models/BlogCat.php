@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Blog;
 
 class BlogCat extends Model
 {
     protected $table = 'blog_cat';
     public $timestamps = false;
-    
+
     public static function hasChildCat($cat_id){
     	$childCat = \DB::table('blog_cat')->where('parent_id', $cat_id)->count(); 
     	if($childCat > 0)

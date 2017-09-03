@@ -157,9 +157,14 @@ class BlogController extends Controller
         session()->flash('success_message', "Xóa danh mục thành công !");
         return redirect()->route('admin.blog-cat'); 
     }
-    public function blogList(){
+    public function blogList(Request $request){
         $blogs = Blog::orderBy('last_update', 'desc')->get();
-        return view('admin.blogs.blog_list')->with(["blogs" => $blogs]);
+        $blogCats = BlogCat::where('parent_id',0)->orderBy('sort_order', 'asc')->get();
+        $title = $request->input('title'); 
+        $cat_id = $request->input('cat_id');
+        return view('admin.blogs.blog_list',compact('blogs','title','cat_id','blogCats'))
+               ->with('i', ($request->input('page', 1) - 1) * 10);
+        //return view('admin.blogs.blog_list')->with(["blogs" => $blogs, "blogCats" => $blogCats]);
     }
     public function addBlog(){
         $blogCats = BlogCat::all();
@@ -278,6 +283,43 @@ class BlogController extends Controller
 
         session()->flash('success_message', "Xóa blog thành công !");
         return redirect()->route('admin.blog'); 
+    }
+
+    // Tìm kiếm blog
+    public function searchBlog(Request $request){
+        $title = $request->input('title'); 
+        $cat_id = $request->input('cat_id');
+        
+        if($title != ''){
+            $blogs = Blog::where("title", "LIKE", "%$title%")->paginate(10);   
+        }
+        elseif($cat_id != 0){
+            //$blogs = Blog::where("cat_id", $cat_id)->paginate(10); 
+            $blogs = $this->get_all_blog($cat_id);
+        }
+        else{
+             $blogs = Blog::orderBy('last_update','DESC')->paginate(10);
+        }
+        $blogCats = BlogCat::where('parent_id',0)->orderBy('sort_order', 'asc')->get();
+        return view('admin.blogs.blog_list',compact('blogs','title','cat_id','blogCats'))
+               ->with('i', ($request->input('page', 1) - 1) * 10);
+    }
+
+    // Lấy tất cả bà viết trong danh mục và danh mục con
+    public function get_all_blog($cat_id, $blogList = null){  
+        if($blogList === null) {
+            $blogList = collect();   
+        }
+        $blogs = Blog::where('cat_id',$cat_id)->get(); 
+        $blogList = $blogList->merge($blogs);
+        $blogCat = BlogCat::find($cat_id);
+        if(BlogCat::hasChildCat($cat_id)){
+            foreach (BlogCat::getChildCat($cat_id) as $childCat) {
+                $blogList = self::get_all_blog($childCat->id, $blogList);
+            }
+        }
+
+        return $blogList;
     }
 
     //Lấy id lớn nhất trong table

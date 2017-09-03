@@ -100,7 +100,6 @@
                                 </td>
                                 <td>
                                     <select name="cat_id" class="form-control">
-                                        <option value="0" selected ></option>
                                         @foreach ($productCats as $pCat)
                                         <option value="{{ $pCat->id }}">{{ $pCat->name }}</option>
                                         @endforeach

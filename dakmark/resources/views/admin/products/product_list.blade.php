@@ -23,6 +23,34 @@
                 {{ session()->get('error_message') }}
             </div>
         @endif
+        <div class="col-md-12" class="search-box">
+            {!! Form::open(array('route' => 'admin.product.search')) !!}
+                <div class="col-md-5">
+                    <span class="search-label">Tên sản phẩm</span>
+                    <input type="text" name="name" class="form-control search-input" placeholder="Nhập tên sản phẩm">
+                </div>
+                <div class="col-md-7">
+                    <span class="search-label">Danh mục</span>
+                    <select name="cat_id" class="form-control search-select">
+                        <option value="0" selected >Tất cả</option>
+                        @foreach ($productCats as $pCat)
+                        <option value="{{ $pCat->id }}">{{ $pCat->name }}</option>
+                            @if(App\Models\ProductCat::hasChildCat($pCat->id))
+                                @foreach(App\Models\ProductCat::getChildCat($pCat->id) as $childCat)
+                            <option value="{{ $childCat->id }}">---{{ $childCat->name }}</option>
+                                    @if(App\Models\ProductCat::hasChildCat($childCat->id))
+                                        @foreach(App\Models\ProductCat::getChildCat($childCat->id) as $childCat2)
+                                <option value="{{ $childCat2->id }}">---{{ $childCat2->name }}</option>
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </select>
+                    <button type="submit" class="btn btn-primary search-btn">Tìm kiếm</button>
+                </div>
+            {!! Form::close() !!}
+        </div>
         <div class="col-md-12">
             <table id="order-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
@@ -41,7 +69,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $count = 0; ?>
+                    <?php $count = 1; ?>
                     @foreach ($products as $p)
                     <tr>
                         <td>{{ $count++ }}</td>

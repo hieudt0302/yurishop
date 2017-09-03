@@ -9,7 +9,7 @@
         Thêm blog mới
     </a>
 </header>
-<div class="container">
+<div class="container blog-list">
     <div class="row">
         @include('notifications.status_message') 
         @include('notifications.errors_message')
@@ -23,6 +23,34 @@
                 {{ session()->get('error_message') }}
             </div>
         @endif
+        <div class="col-md-12" class="search-box">
+            {!! Form::open(array('route' => 'admin.blog.search')) !!}
+                <div class="col-md-5">
+                    <span class="search-label">Tiêu đề</span>
+                    <input type="text" name="title" class="form-control search-input" placeholder="Nhập tiêu đề bài viết">
+                </div>
+                <div class="col-md-7">
+                    <span class="search-label">Danh mục</span>
+                    <select name="cat_id" class="form-control search-select">
+                        <option value="0" selected >Tất cả</option>
+                        @foreach ($blogCats as $bCat)
+                        <option value="{{ $bCat->id }}">{{ $bCat->name }}</option>
+                            @if(App\Models\BlogCat::hasChildCat($bCat->id))
+                                @foreach(App\Models\BlogCat::getChildCat($bCat->id) as $childCat)
+                            <option value="{{ $childCat->id }}">---{{ $childCat->name }}</option>
+                                    @if(App\Models\BlogCat::hasChildCat($childCat->id))
+                                        @foreach(App\Models\BlogCat::getChildCat($childCat->id) as $childCat2)
+                                <option value="{{ $childCat2->id }}">---{{ $childCat2->name }}</option>
+                                        @endforeach
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </select>
+                    <button type="submit" class="btn btn-primary search-btn">Tìm kiếm</button>
+                </div>
+            {!! Form::close() !!}
+        </div>
         <div class="col-md-12">
             <table id="order-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
@@ -36,7 +64,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $count = 0; ?>
+                    <?php $count = 1; ?>
                     @foreach ($blogs as $b)
                     <tr>
                         <td>{{ $count++ }}</td>
