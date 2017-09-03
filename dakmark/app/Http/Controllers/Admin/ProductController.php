@@ -157,9 +157,14 @@ class ProductController extends Controller
         session()->flash('success_message', "Xóa danh mục thành công !");
         return redirect()->route('admin.product-cat'); 
     }
-    public function productList(){
+    public function productList(Request $request){
         $products = Product::orderBy('last_update', 'desc')->get();
-        return view('admin.products.product_list')->with(["products" => $products]);
+        $productCats = ProductCat::where('parent_id',0)->orderBy('sort_order', 'asc')->get();
+        $name = $request->input('name'); 
+        $cat_id = $request->input('cat_id');
+        return view('admin.products.product_list',compact('products','name','cat_id','productCats'))
+               ->with('i', ($request->input('page', 1) - 1) * 10);
+        //return view('admin.products.product_list')->with(["products" => $products]);
     }
     public function addProduct(){
         $productCats = ProductCat::all();
@@ -295,6 +300,43 @@ class ProductController extends Controller
 
         session()->flash('success_message', "Xóa sản phẩm thành công !");
         return redirect()->route('admin.product'); 
+    }
+
+    // Tìm kiếm blog
+    public function searchProduct(Request $request){
+        $name = $request->input('name'); 
+        $cat_id = $request->input('cat_id');
+        
+        if($name != ''){
+            $products = Product::where("name", "LIKE", "%$name%")->paginate(10);   
+        }
+        elseif($cat_id != 0){
+            //$products = Product::where("cat_id", $cat_id)->paginate(10); 
+            $products = $this->get_all_product($cat_id);
+        }
+        else{
+             $products = Product::orderBy('last_update','DESC')->paginate(10);
+        }
+        $productCats = ProductCat::where('parent_id',0)->orderBy('sort_order', 'asc')->get();
+        return view('admin.products.product_list',compact('products','name','cat_id','productCats'))
+               ->with('i', ($request->input('page', 1) - 1) * 10);
+    }
+
+    // Lấy tất cả sản phẩm trong danh mục và danh mục con
+    public function get_all_product($cat_id, $productList = null){  
+        if($productList === null) {
+            $productList = collect();   
+        }
+        $products = Product::where('cat_id',$cat_id)->get(); 
+        $productList = $productList->merge($products);
+        $productCat = ProductCat::find($cat_id);
+        if(ProductCat::hasChildCat($cat_id)){
+            foreach (ProductCat::getChildCat($cat_id) as $childCat) {
+                $productList = self::get_all_product($childCat->id, $productList);
+            }
+        }
+
+        return $productList;
     }
 
     // Hàm ajax lấy slug theo tên

@@ -318,5 +318,21 @@ ul.alert-dropdown {
     margin-bottom: 15px;
 
 }
+ .search-label{
+    width: 15%;
+    float: left;
+}
+ .search-input{
+    width: 85%;
+}
+ .search-select{
+    width: 50%;
+    float: left;
+    margin-right: 10px;
+    margin-left: -15px;
+}
+.table{
+    font-size: 13px;
+}
 
 /* End - Added by Thang LD */

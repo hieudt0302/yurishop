@@ -98,6 +98,9 @@
                         <a href="{{ url('/admin/navigator') }}"><i class="fa fa-fw fa-bars"></i>Menu</a>
                     </li>
                     <li>
+                        <a href="{{ url('/admin/slider') }}"><i class="fa fa-fw fa-sliders"></i>Slider</a>
+                    </li>
+                    <li>
                         <a href="{{ url('/admin/product-cat') }}"><i class="fa fa-fw fa-folder"></i> Danh mục sản phẩm</a>
                     </li>
                     <li>
@@ -106,7 +109,7 @@
                     <li>
                         <a href="{{ url('/admin/orders') }}"><i class="fa fa-fw fa-edit"></i> Đơn Đặt Hàng</a>
                     </li>
-                    <li>
+					<li>
                         <a href="{{ url('/admin/blog-cat') }}"><i class="fa fa-fw fa-folder"></i> Danh mục blog</a>
                     </li>
                     <li>
