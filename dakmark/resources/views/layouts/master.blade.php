@@ -24,7 +24,18 @@
         
         <script src="{{url('/')}}/public/assets/js/jquery-1.12.4.js"></script>
         <script src="{{url('/')}}/public/assets/js/bootstrap.min.js"></script>
-        
+        <script src="{{url('/')}}/public/assets/js/responsiveslides.min.js"></script>
+         <script>
+            $(function () {
+              $("#slider").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+              });
+            });
+         </script>        
 
     </head>
     <body>
