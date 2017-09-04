@@ -207,6 +207,8 @@ class ProductController extends Controller
         $product->is_new = $request->is_new;
         $product->is_promote = $request->is_promote;
         $product->thumb = $thumb;
+        $product->introduce = $request->introduce;
+        $product->en_introduce = $request->en_introduce;
         $product->description = $request->description;
         $product->en_description = $request->en_description;
         $product->create_time = date("Y-m-d H:i:s",time());
@@ -280,6 +282,8 @@ class ProductController extends Controller
         $product->is_new = $request->is_new;
         $product->is_promote = $request->is_promote;
         $product->thumb = $thumb != '' ? $thumb : $product->thumb;
+        $product->introduce = $request->introduce;
+        $product->en_introduce = $request->en_introduce;
         $product->description = $request->description;
         $product->en_description = $request->en_description;
         $product->save();

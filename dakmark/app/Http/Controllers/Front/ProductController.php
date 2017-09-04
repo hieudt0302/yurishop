@@ -14,12 +14,11 @@ class ProductController extends Controller
         return view('front.products.index')->with('products', $products);
     }
 
-    public function show($url){
+    public function show(Request $request, $slug){
         // $product = Product::where('slug', $slug)->firstOrFail();
         // $interested = Product::where('slug', '!=', $slug)->get()->random(4);
         // return view('front.products.show')->with(['product' => $product, 'interested' => $interested]);
 
-        $slug = substr($url, 0, strlen($url)-5);  // loai bo .html 
         $seo = Seo::where('slug',$slug)->first();
         $seo_title = $seo->seo_title;
         $keyword = $seo->keyword;
@@ -28,14 +27,15 @@ class ProductController extends Controller
             case 'PCAT' : // danh muc san pham 
                 $productCat = ProductCat::where('system_id',$seo->system_id)->first();
                 //$products = Product::where('cat_id',$productCat->id)->orderBy('last_update', 'desc')->paginate(10); // lấy tất cả sp trong danh mục
-                $products = $this->get_all_product($productCat->cat_id);
+                $products = $this->get_all_product($productCat->id);
                 return view('front.products.product_cat',compact('productCat','products','seo_title','keyword','description'))
                         ->with('i', ($request->input('page', 1) - 1) * 10);
                 break;
 
             case 'PRODUCT' : // san pham 
                 $product = Product::where('system_id',$seo->system_id)->first();
-                return view('fornt.products.product', compact('product','seo_title','keyword','description'));
+                $relate_products = $this->get_relate_products($product->id,10);
+                return view('front.products.product', compact('product','relate_products','seo_title','keyword','description'));
                 break;
         endswitch;
     }
@@ -55,5 +55,17 @@ class ProductController extends Controller
         }
 
         return $productList;
+    }
+
+    // Lấy sản phẩm cùng danh mục 
+    function get_relate_products($product_id, $limit) {
+        $product = Product::find($product_id);
+        $productList = Product::where('cat_id',$product->cat_id)
+                              ->where('is_show',1)
+                              ->where('id','<>',$product_id)
+                              ->orderBy('last_update', 'desc')
+                              ->limit($limit)
+                              ->get(); 
+        return $productList;                       
     }
 }

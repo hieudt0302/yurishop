@@ -69,12 +69,30 @@
                             </div> 
                             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="<?php echo e(url('/')); ?>" class="act">Home</a></li>   
-                                    <li><a href="<?php echo e(url('/about-us')); ?>"><?php echo app('translator')->getFromJson('header.about-us'); ?></a></li>
-                                    <li><a href="<?php echo e(url('/cert')); ?>"><?php echo app('translator')->getFromJson('header.cert'); ?></a></li>
-                                    <li><a href="<?php echo e(url('/shop')); ?>"><?php echo app('translator')->getFromJson('header.shop'); ?></a></li>
-                                    <li><a href="<?php echo e(url('/blogs')); ?>"><?php echo app('translator')->getFromJson('header.blog'); ?></a></li>                                    
-                                    <li><a href="<?php echo e(url('/contact')); ?>"><?php echo app('translator')->getFromJson('header.contact'); ?></a></li>
+                                    <li class="menu-item active"><a href="<?php echo e(url('/')); ?>" class="act">Home</a></li>   
+                                    <li class="menu-item"><a href="<?php echo e(url('/about-us')); ?>"><?php echo app('translator')->getFromJson('header.about-us'); ?></a></li>
+                                    <li class="menu-item"><a href="<?php echo e(url('/cert')); ?>"><?php echo app('translator')->getFromJson('header.cert'); ?></a></li>
+                                    <li class="menu-item">
+                                        <a href="#"><?php echo app('translator')->getFromJson('header.shop'); ?></a>
+                                        <?php 
+                                            $productCats = \DB::table('product_cat')->where('parent_id', 0)->orderBy('sort_order', 'asc')->get();
+                                        ?>
+                                        <?php if(!empty($productCats)): ?>
+                                        <ul class="sub-menu">
+                                            <?php $__currentLoopData = $productCats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <?php $pCatSeo = \DB::table('seo')->where('system_id', $pCat->system_id)->first(); ?>
+                                            <li>
+                                                <a href="<?php echo e(route('front.product.show',$pCatSeo->slug)); ?>" title="<?php echo e($pCat->name); ?>">
+                                                    <?php echo e($pCat->name); ?>
+
+                                                </a>
+                                            </li>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        </ul>
+                                        <?php endif; ?>
+                                    </li>
+                                    <li class="menu-item"><a href="<?php echo e(url('/blogs')); ?>"><?php echo app('translator')->getFromJson('header.blog'); ?></a></li>                                    
+                                    <li class="menu-item"><a href="<?php echo e(url('/contact')); ?>"><?php echo app('translator')->getFromJson('header.contact'); ?></a></li>
                                 </ul>
                             </div>
                             </nav>

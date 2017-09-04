@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 29, 2017 lúc 05:15 PM
+-- Thời gian đã tạo: Th9 04, 2017 lúc 06:03 PM
 -- Phiên bản máy phục vụ: 10.1.25-MariaDB
 -- Phiên bản PHP: 7.1.7
 
@@ -35,6 +35,66 @@ CREATE TABLE `activation_keys` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` int(10) NOT NULL,
+  `system_id` varchar(15) NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `en_title` varchar(200) DEFAULT NULL,
+  `cat_id` int(10) NOT NULL,
+  `introduce` text,
+  `en_introduce` text,
+  `content` text,
+  `en_content` text,
+  `thumb` varchar(100) DEFAULT NULL,
+  `sort_order` int(5) DEFAULT '10',
+  `is_show` tinyint(1) NOT NULL DEFAULT '1',
+  `create_time` varchar(20) NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `views` int(15) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `system_id`, `title`, `en_title`, `cat_id`, `introduce`, `en_introduce`, `content`, `en_content`, `thumb`, `sort_order`, `is_show`, `create_time`, `last_update`, `views`) VALUES
+(1, 'BLG1', 'Lợi ích của cà phê', NULL, 2, 'kgkghfnnfgn', '3464574736', '<p>sfhndsfwehrnfdb<img alt=\"\" src=\"/public/assets/ckfinder/userfiles/images/slide-8(1).jpg\" style=\"height:909px; width:1600px\" /></p>', '<p>647589698567547</p>\r\n\r\n<p><img alt=\"\" src=\"/public/assets/ckfinder/userfiles/images/thac-Dray-Sap(1).jpg\" style=\"height:1068px; width:1600px\" /></p>', 'loi-ich-cua-ca-phe.jpg', 10, 1, '2017-08-31 16:06:10', '2017-08-31 16:06:10', 0),
+(2, 'BLG2', 'blog test 1', NULL, 3, NULL, NULL, NULL, NULL, 'blog-test-1.jpg', 10, 1, '2017-09-02 06:07:22', '2017-09-02 06:07:22', 0),
+(4, 'BLG3', 'bloig test', NULL, 1, NULL, NULL, NULL, NULL, 'bloig-test.jpg', 10, 1, '2017-09-02 06:11:42', '2017-09-02 06:11:42', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `blog_cat`
+--
+
+CREATE TABLE `blog_cat` (
+  `id` int(10) NOT NULL,
+  `system_id` varchar(20) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `en_name` varchar(50) DEFAULT NULL,
+  `parent_id` int(10) DEFAULT NULL,
+  `icon` varchar(50) DEFAULT NULL,
+  `sort_order` int(5) DEFAULT '1',
+  `is_show` tinyint(1) NOT NULL DEFAULT '1',
+  `is_show_nav` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `blog_cat`
+--
+
+INSERT INTO `blog_cat` (`id`, `system_id`, `name`, `en_name`, `parent_id`, `icon`, `sort_order`, `is_show`, `is_show_nav`) VALUES
+(1, 'BCAT1', 'Thế giới cà phê', 'Coffee world', 0, '', NULL, 1, 1),
+(2, 'BCAT2', 'Cà phê và sức khỏe', NULL, 1, '', NULL, 1, 0),
+(3, 'BCAT3', 'Cà phê và Ẩm thực', NULL, 1, '', NULL, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -93,6 +153,20 @@ INSERT INTO `carts` (`id`, `productname`, `size`, `color`, `quantity`, `unitpric
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(10) NOT NULL,
+  `product_id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `content` text NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `migrations`
 --
 
@@ -135,7 +209,7 @@ CREATE TABLE `navigator` (
   `parent_id` int(10) NOT NULL DEFAULT '0',
   `sort_order` int(5) DEFAULT '1',
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
-  `type` tinyint(1) NOT NULL
+  `type` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -143,7 +217,9 @@ CREATE TABLE `navigator` (
 --
 
 INSERT INTO `navigator` (`id`, `system_id`, `name`, `en_name`, `parent_id`, `sort_order`, `is_show`, `type`) VALUES
-(1, 'NAV1', 'Giới thiệu', 'Introduce', 0, 1, 1, 1);
+(1, 'NAV1', 'Giới thiệu', 'Introduce', 0, 1, 1, 'NAV'),
+(2, 'BCAT1', 'Thế giới cà phê', 'Coffee world', 0, 1, 1, 'BCAT'),
+(6, 'PCAT10', 'Danh mục test', NULL, 0, 1, 1, 'PCAT');
 
 -- --------------------------------------------------------
 
@@ -350,6 +426,8 @@ CREATE TABLE `products` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `en_name` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cat_id` int(10) NOT NULL,
+  `introduce` text COLLATE utf8mb4_unicode_ci,
+  `en_introduce` text COLLATE utf8mb4_unicode_ci,
   `description` text COLLATE utf8mb4_unicode_ci,
   `en_description` text COLLATE utf8mb4_unicode_ci,
   `default_price` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT '0',
@@ -371,8 +449,18 @@ CREATE TABLE `products` (
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `system_id`, `product_code`, `name`, `en_name`, `cat_id`, `description`, `en_description`, `default_price`, `promote_price`, `promote_begin`, `promote_end`, `thumb`, `is_show`, `is_new`, `is_hot`, `is_promote`, `views`, `rates`, `create_time`, `last_update`) VALUES
-(9, 'PRD1', NULL, 'Cà phê phin 1', NULL, 9, '<p>rdtjrdjrjrjrjj<img alt=\"\" src=\"/public/assets/ckfinder/userfiles/images/slide-8.jpg\" style=\"height:909px; width:1600px\" /></p>', NULL, '120000', '', NULL, NULL, 'thac-dray-sap.jpg', 1, 1, 0, 0, 0, 0, '2017-08-27 11:03:27', '2017-08-27 11:03:27');
+INSERT INTO `products` (`id`, `system_id`, `product_code`, `name`, `en_name`, `cat_id`, `introduce`, `en_introduce`, `description`, `en_description`, `default_price`, `promote_price`, `promote_begin`, `promote_end`, `thumb`, `is_show`, `is_new`, `is_hot`, `is_promote`, `views`, `rates`, `create_time`, `last_update`) VALUES
+(9, 'PRD1', 'PRD12', 'Cà phê phin 1', NULL, 9, 'Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog', NULL, '<p>rdtjrdjrjrjrjj</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/public/assets/ckfinder/userfiles/images/slide-8.jpg\" style=\"height:909px; width:1600px\" /></p>', NULL, '120000', '99000', '09/01/2017', '09/30/2017', 'thac-dray-sap.jpg', 1, 1, 0, 1, 0, 0, '2017-08-27 11:03:27', '2017-08-27 11:03:27'),
+(10, 'PRD10', NULL, 'Cà phê phin 2', NULL, 9, 'Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog', NULL, '<p>c&agrave; ph&ecirc; phin&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/public/assets/ckfinder/userfiles/images/coffee.jpg\" style=\"height:183px; width:275px\" /></p>', NULL, '', '', NULL, NULL, 'ca-phe-phin-2.jpg', 1, 1, 0, 0, 0, 0, '2017-09-03 15:40:50', '2017-09-03 15:40:50'),
+(11, 'PRD11', NULL, 'Cà phê gói', NULL, 9, 'Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog', NULL, '<p><img alt=\"\" src=\"/public/assets/ckfinder/userfiles/images/coffee2.jpg\" style=\"height:400px; width:600px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>c&agrave; ph&ecirc; hương vị s&ocirc; c&ocirc; la</p>', NULL, '', '', NULL, NULL, 'ca-phe-goi.jpg', 1, 0, 0, 0, 0, 0, '2017-09-03 15:42:30', '2017-09-03 15:42:30'),
+(12, 'PRD12', NULL, 'Ly cà phê', NULL, 11, NULL, NULL, '<p><img alt=\"\" src=\"/public/assets/ckfinder/userfiles/images/coffee(1).jpg\" style=\"height:183px; width:275px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Ly c&agrave; ph&ecirc;&nbsp;</p>', NULL, '', '', NULL, NULL, 'ly-ca-phe.jpg', 1, 0, 0, 0, 0, 0, '2017-09-03 15:56:21', '2017-09-03 15:56:21'),
+(13, 'PRD13', NULL, 'Muỗng cà phê', NULL, 11, NULL, NULL, NULL, NULL, '', '', NULL, NULL, 'muong-ca-phe.jpg', 1, 0, 0, 0, 0, 0, '2017-09-03 15:56:54', '2017-09-03 15:56:54'),
+(14, 'PRD14', NULL, 'Máy pha cà phê', NULL, 11, 'Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog', NULL, NULL, NULL, '', '', NULL, NULL, 'may-pha-ca-phe.jpg', 1, 0, 0, 0, 0, 0, '2017-09-03 15:57:50', '2017-09-03 15:57:50'),
+(15, 'PRD15', 'PRD10', 'Cà phê hòa tan 1', NULL, 9, 'Được tuyển chọn từ những hạt cà phê tốt nhất trên vùng đất Buôn Mê Thuột trứ danh và xử lý bằng công nghệ hiện đại châu Âu kết hợp với kinh nghiệm dày dạn hơn 20 năm nghiên cứu của TNI… Chúng tôi trân trọng tạo nên sản phẩm cà phê hòa tan cao cấp KING COFFEE 3in1. Với vị đậm đà và hương cà phê nổi bật, KING COFFEE 3in1 sẽ đánh thức sự hứng khởi trong bạn, đem đến ngày làm việc thật tỉnh táo và thành công.', NULL, '<p><img alt=\"\" src=\"/public/assets/ckfinder/userfiles/images/5000060_-356595f12208.jpg\" style=\"height:460px; width:460px\" /></p>\r\n\r\n<p>1 sản phẩm của Dak ha</p>', NULL, '150000', '', NULL, NULL, 'ca-phe-hoa-tan-1.jpg', 1, 0, 0, 0, 0, 0, '2017-09-03 15:59:35', '2017-09-03 15:59:35'),
+(16, 'PRD16', 'PRD11', 'Cà phê hòa tan 2', NULL, 9, 'NESCAFE là một trong những thương hiệu cà phê hàng đầu trên toàn thế giới với lịch sử phát triên lâu đời. NESCAFE luôn nhận được sự tín nhiệm và tin yêu của người tiêu dùng trên toàn thế giới bởi chúng tôi cùng chia sẻ một tình yêu và niềm say mê cà phê để đem đến những ly cà phê thơm ngon cho bạn những giây phút thưởng thức cà phê tuyệt vời.', NULL, NULL, NULL, '90000', '', NULL, NULL, 'ca-phe-hoa-tan-2.jpg', 1, 0, 0, 0, 0, 0, '2017-09-03 16:01:43', '2017-09-03 16:01:43'),
+(17, 'PRD17', NULL, 'Cà phê Sài Gòn', NULL, 9, 'Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog', NULL, '<p><img alt=\"\" src=\"/public/assets/ckfinder/userfiles/images/travel_for_children__coffee__1.jpg\" style=\"height:465px; width:700px\" /></p>\r\n\r\n<p>&nbsp;</p>', NULL, '', '', NULL, NULL, 'ca-phe-sai-gon.jpg', 1, 0, 0, 0, 0, 0, '2017-09-03 16:02:39', '2017-09-03 16:02:39'),
+(18, 'PRD18', NULL, 'Cà phê sữa', NULL, 9, 'Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog', NULL, NULL, NULL, '', '', NULL, NULL, 'ca-phe-sua.jpg', 1, 0, 0, 0, 0, 0, '2017-09-03 16:04:15', '2017-09-03 16:04:15'),
+(19, 'PRD19', NULL, 'Cà phê Socola', NULL, 9, 'Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog Nội dung giới thiệu blog', NULL, NULL, NULL, '', '', NULL, NULL, 'ca-phe-socola.jpg', 1, 0, 0, 0, 0, 0, '2017-09-03 16:04:43', '2017-09-03 16:04:43');
 
 -- --------------------------------------------------------
 
@@ -385,9 +473,9 @@ CREATE TABLE `product_cat` (
   `system_id` varchar(20) NOT NULL,
   `name` varchar(50) NOT NULL,
   `en_name` varchar(50) DEFAULT NULL,
-  `parent_id` int(10) NOT NULL DEFAULT '0',
+  `parent_id` int(10) DEFAULT '0',
   `icon` varchar(50) DEFAULT NULL,
-  `sort_order` tinyint(5) NOT NULL DEFAULT '1',
+  `sort_order` tinyint(5) DEFAULT '1',
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `is_show_nav` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -397,7 +485,8 @@ CREATE TABLE `product_cat` (
 --
 
 INSERT INTO `product_cat` (`id`, `system_id`, `name`, `en_name`, `parent_id`, `icon`, `sort_order`, `is_show`, `is_show_nav`) VALUES
-(9, 'PCAT1', 'Cà phê', 'Coffee', 0, '', 1, 0, 0);
+(9, 'PCAT1', 'Cà phê', 'Coffee', 0, '', 1, 1, 0),
+(11, 'PCAT10', 'Dụng cụ pha cà phê', NULL, 0, '', 2, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -495,7 +584,24 @@ CREATE TABLE `seo` (
 INSERT INTO `seo` (`id`, `system_id`, `name`, `slug`, `seo_title`, `en_seo_title`, `keyword`, `description`, `type`) VALUES
 (3, 'PCAT1', 'Cà phê', 'ca-phe', 'Cà phê', 'Coffee', 'cà phê,', 'Cà phê nguyên chất', 'PCAT'),
 (6, 'PRD1', 'Cà phê phin 1', 'ca-phe-phin-1', 'Cà phê phin 1', NULL, NULL, NULL, 'PRODUCT'),
-(8, 'NAV1', 'Giới thiệu', 'gioi-thieu', 'Giới thiệu', NULL, NULL, NULL, 'NAVIGATOR');
+(8, 'NAV1', 'Giới thiệu', 'gioi-thieu', 'Giới thiệu', NULL, NULL, NULL, 'NAVIGATOR'),
+(9, 'BCAT1', 'Thế giới cà phê', 'the-gioi-ca-phe', 'Thế giới cà phê', NULL, NULL, NULL, 'BCAT'),
+(10, 'BCAT2', 'Cà phê và sức khỏe', 'ca-phe-va-suc-khoe', 'Cà phê và sức khỏe', NULL, NULL, NULL, 'BCAT'),
+(11, 'BCAT3', 'Cà phê và Ẩm thực', 'ca-phe-va-am-thuc', 'Cà phê và Ẩm thực', NULL, NULL, NULL, 'BCAT'),
+(16, 'BLG1', 'Lợi ích của cà phê', 'loi-ich-cua-ca-phe', 'Lợi ích của cà phê', NULL, NULL, NULL, 'BLOG'),
+(17, 'BLG2', 'blog test 1', 'blog-test-1', 'blog test 1', NULL, NULL, NULL, 'BLOG'),
+(19, 'BLG3', 'bloig test', 'bloig-test', 'blog test', NULL, NULL, NULL, 'BLOG'),
+(20, 'PRD10', 'Cà phê phin 2', 'ca-phe-phin-2', 'Cà phê phin 2', NULL, NULL, NULL, 'PRODUCT'),
+(21, 'PRD11', 'Cà phê gói', 'ca-phe-goi', 'Cà phê gói', NULL, NULL, NULL, 'PRODUCT'),
+(22, 'PCAT10', 'Dụng cụ pha cà phê', 'dung-cu-pha-ca-phe', 'Dụng cụ pha cà phê', NULL, NULL, NULL, 'PCAT'),
+(23, 'PRD12', 'Ly cà phê', 'ly-ca-phe', 'Ly cà phê', NULL, NULL, NULL, 'PRODUCT'),
+(24, 'PRD13', 'Muỗng cà phê', 'muong-ca-phe', 'Muỗng cà phê', NULL, NULL, NULL, 'PRODUCT'),
+(25, 'PRD14', 'Máy pha cà phê', 'may-pha-ca-phe', 'Máy pha cà phê', NULL, NULL, NULL, 'PRODUCT'),
+(26, 'PRD15', 'Cà phê hòa tan 1', 'ca-phe-hoa-tan-1', 'Cà phê hòa tan 1', NULL, NULL, NULL, 'PRODUCT'),
+(27, 'PRD16', 'Cà phê hòa tan 2', 'ca-phe-hoa-tan-2', 'Cà phê hòa tan 2', NULL, NULL, NULL, 'PRODUCT'),
+(28, 'PRD17', 'Cà phê Sài Gòn', 'ca-phe-sai-gon', 'Cà phê Sài Gòn', NULL, NULL, NULL, 'PRODUCT'),
+(29, 'PRD18', 'Cà phê sữa', 'ca-phe-sua', 'Cà phê sữa', NULL, NULL, NULL, 'PRODUCT'),
+(30, 'PRD19', 'Cà phê Socola', 'ca-phe-socola', 'Cà phê Socola', NULL, NULL, NULL, 'PRODUCT');
 
 -- --------------------------------------------------------
 
@@ -530,6 +636,31 @@ CREATE TABLE `shops` (
 
 INSERT INTO `shops` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'shop1', '2017-08-16 05:50:16', '2017-08-16 05:50:17');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `slider`
+--
+
+CREATE TABLE `slider` (
+  `id` int(10) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `en_title` varchar(100) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `en_description` varchar(255) DEFAULT NULL,
+  `url` varchar(200) DEFAULT NULL,
+  `sort_order` int(5) DEFAULT '1',
+  `image` varchar(150) NOT NULL,
+  `is_show` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `slider`
+--
+
+INSERT INTO `slider` (`id`, `title`, `en_title`, `description`, `en_description`, `url`, `sort_order`, `image`, `is_show`) VALUES
+(2, 'test', NULL, NULL, NULL, NULL, NULL, 'test.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -571,6 +702,18 @@ ALTER TABLE `activation_keys`
   ADD KEY `activation_keys_user_id_index` (`user_id`);
 
 --
+-- Chỉ mục cho bảng `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `blog_cat`
+--
+ALTER TABLE `blog_cat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `bookaddress`
 --
 ALTER TABLE `bookaddress`
@@ -584,6 +727,12 @@ ALTER TABLE `carts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `carts_shop_id_foreign` (`shop_id`),
   ADD KEY `carts_user_id_foreign` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `migrations`
@@ -700,6 +849,12 @@ ALTER TABLE `shops`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -716,6 +871,16 @@ ALTER TABLE `users`
 ALTER TABLE `activation_keys`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT cho bảng `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT cho bảng `blog_cat`
+--
+ALTER TABLE `blog_cat`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT cho bảng `bookaddress`
 --
 ALTER TABLE `bookaddress`
@@ -726,6 +891,11 @@ ALTER TABLE `bookaddress`
 ALTER TABLE `carts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT cho bảng `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
@@ -734,7 +904,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `navigator`
 --
 ALTER TABLE `navigator`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT cho bảng `orderdetails`
 --
@@ -764,12 +934,12 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT cho bảng `product_cat`
 --
 ALTER TABLE `product_cat`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT cho bảng `rates`
 --
@@ -784,12 +954,17 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT cho bảng `seo`
 --
 ALTER TABLE `seo`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT cho bảng `shops`
 --
 ALTER TABLE `shops`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT cho bảng `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT cho bảng `users`
 --

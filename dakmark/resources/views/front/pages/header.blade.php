@@ -68,12 +68,29 @@
                             </div> 
                             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="{{ url('/') }}" class="act">Home</a></li>   
-                                    <li><a href="{{ url('/about-us') }}">@lang('header.about-us')</a></li>
-                                    <li><a href="{{ url('/cert') }}">@lang('header.cert')</a></li>
-                                    <li><a href="{{ url('/shop') }}">@lang('header.shop')</a></li>
-                                    <li><a href="{{ url('/blogs') }}">@lang('header.blog')</a></li>                                    
-                                    <li><a href="{{ url('/contact') }}">@lang('header.contact')</a></li>
+                                    <li class="menu-item active"><a href="{{ url('/') }}" class="act">Home</a></li>   
+                                    <li class="menu-item"><a href="{{ url('/about-us') }}">@lang('header.about-us')</a></li>
+                                    <li class="menu-item"><a href="{{ url('/cert') }}">@lang('header.cert')</a></li>
+                                    <li class="menu-item">
+                                        <a href="#">@lang('header.shop')</a>
+                                        <?php 
+                                            $productCats = \DB::table('product_cat')->where('parent_id', 0)->orderBy('sort_order', 'asc')->get();
+                                        ?>
+                                        @if(!empty($productCats))
+                                        <ul class="sub-menu">
+                                            @foreach ($productCats as $pCat)
+                                            <?php $pCatSeo = \DB::table('seo')->where('system_id', $pCat->system_id)->first(); ?>
+                                            <li>
+                                                <a href="{{ route('front.product.show',$pCatSeo->slug) }}" title="{{ $pCat->name }}">
+                                                    {{ $pCat->name }}
+                                                </a>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                        @endif
+                                    </li>
+                                    <li class="menu-item"><a href="{{ url('/blogs') }}">@lang('header.blog')</a></li>                                    
+                                    <li class="menu-item"><a href="{{ url('/contact') }}">@lang('header.contact')</a></li>
                                 </ul>
                             </div>
                             </nav>

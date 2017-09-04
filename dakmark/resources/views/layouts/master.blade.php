@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/header.css">
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/footer.css">
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/product-info.css">
+        <link rel="stylesheet" href="{{url('/')}}/public/assets/css/product.css">
         <!-- <link rel="stylesheet" href="{{url('/')}}/public/assets/css/custom.css"> -->
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/spinner.css">
         <link rel="stylesheet" href="{{url('/')}}/public/assets/css/auth.css" type="text/css" media="all">
