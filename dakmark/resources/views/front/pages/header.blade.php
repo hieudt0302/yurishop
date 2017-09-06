@@ -7,8 +7,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> {{ app()->getLocale() }} <b class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                <li><a href="{{URL::asset('')}}language/vi"><img src="{{url('assets/img/flags/vn.png')}}" alt="img"> Tiếng Việt</a></li>
-                                <li><a href="{{URL::asset('')}}language/en"><img src="{{url('assets/img/flags/en.png')}}" alt="img"> English</a></li>
+                                <li><a href="{{URL::asset('')}}language/vi" style="color:#000;"><img src="{{url('public/assets/img/flags/vn.png')}}" alt="img"> Tiếng Việt</a></li>
+                                <li><a href="{{URL::asset('')}}language/en" style="color:#000;"><img src="{{url('public/assets/img/flags/en.png')}}" alt="img"> English</a></li>
                             </ul>
                         </li>                        
                     @if (Auth::guest())
@@ -53,7 +53,7 @@
                 <div class="container">
                     <div class="logo-nav">
                         <div class="logo-nav-left">
-                            <a href="{{url('/')}}" class="logo-top"><img alt="" src="{{url('assets/img/logo-dark-mark-200.png')}}" /></a>
+                            <a href="{{url('/')}}" class="logo-top"><img alt="" src="{{url('public/assets/img/logo-dark-mark-200.png')}}" /></a>
                         </div>
                         <div class="logo-nav-left1">
                             <nav class="navbar navbar-default">
@@ -68,7 +68,7 @@
                             </div> 
                             <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                                 <ul class="nav navbar-nav">
-                                    <li class="menu-item active"><a href="{{ url('/') }}" class="act">Home</a></li>   
+                                    <li class="menu-item"><a href="{{ url('/') }}" class="act">@lang('header.home')</a></li>   
                                     <li class="menu-item"><a href="{{ url('/about-us') }}">@lang('header.about-us')</a></li>
                                     <li class="menu-item"><a href="{{ url('/cert') }}">@lang('header.cert')</a></li>
                                     <li class="menu-item">
@@ -108,8 +108,8 @@
                                     {{ Cart::instance('default')->count(false) }} @lang('shoppings.items')
                                     <a href="{{ url('/cart') }}" >
                                         <span class="fa-stack fa-lg">
-                                          <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true" style='color:white;'></i>
-                                          <i class="fa fa-shopping-cart fa-stack-1x" aria-hidden="true" style='color:white;'></i>
+                                          <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true" style='color:#000;'></i>
+                                          <i class="fa fa-shopping-cart fa-stack-1x" aria-hidden="true" style='color:#000;'></i>
                                         </span>                                        
                                     </a>
                                 </p>

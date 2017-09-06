@@ -14,11 +14,11 @@ return [
     */
 
     '' => '',
-    'home' => 'Home',
-    'about-us' => 'About us',
-    'cert' => 'Certificates',
-    'shop' => 'Online shopping',
-    'blog' => 'Blog',
-    'contact' => 'Contact us',    
+    'home' => 'HOME',
+    'about-us' => 'ABOUT',
+    'cert' => 'CERTIFICATES',
+    'shop' => 'SHOP',
+    'blog' => 'BLOG',
+    'contact' => 'CONTACT',    
 
 ];

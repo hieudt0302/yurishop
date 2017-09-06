@@ -16,7 +16,7 @@ return [
 	 'to-date' => 'Đến ngày', 
 	 'status' => 'Trạng thái',
 	 'note' => 'Ghi chú',
-	 'more-detals' => 'Xem chi tiết',
+	 'more-details' => 'Xem chi tiết',
      'search' => 'Tìm kiếm',
      'profile' => 'Thông tin cá nhân',     	 	 	 	      
 ];
