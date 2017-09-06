@@ -177,7 +177,6 @@ ul.multi-column-dropdown h6 {
 }
 .nav > li > a:hover, .nav > li > a:focus {
     background: none;
-    color:#fff !important;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color: #fff;
@@ -1379,9 +1378,7 @@ h3.tittle1 {
     }
 }
 /*-- //treeview --*/
-.price,.cat-img,.brand-w3l {
-    margin-top: 2em;
-}
+
 .price h3,.top-rates h3,.brand-w3l h3{
     text-align: center;
     font-size: 2em;
@@ -1609,9 +1606,7 @@ section#tables  p {
     border: none;
     text-shadow: none;
 }
-.nav-tabs {
-    margin-bottom: 3em;
-}
+
 .alert {
     font-size: 0.85em;
 }
@@ -1805,9 +1800,6 @@ span.price-in1 {
     display: block;
     margin-bottom: 0.5em;
 }
-.nav-tabs {
-    border-bottom: 1px solid #fff;
-}
 .left-tab > li > a {
     margin-right: 2px;
     line-height: 1.42857143;
@@ -1826,8 +1818,7 @@ span.price-in1 {
     border-bottom-color: none !important;
 }
 .nav > li > a:hover, .nav > li > a:focus {
-    background: #AF1D0D   ;
-    color: #fff !important;
+    background: #DDDDDD;
 }
 .product-w3agile {
     margin-top: 4em;
@@ -2991,9 +2982,6 @@ p.price {
     width: 100%;
     margin-top:2em;
 }
-.nav-tabs {
-    margin-bottom: 1em;
-}
 p.quote {
     margin: 1em 0em;
 }
@@ -3424,4 +3412,12 @@ h3.tittle1, h3.tittle {
 
 li.hide-point {
     list-style-type: none;
+}
+
+/* Added by ThangLD */ 
+.header ul.sub-menu{
+    display: none;
+}
+.header li.menu-item:hover ul.sub-menu{
+    display: block;
 }

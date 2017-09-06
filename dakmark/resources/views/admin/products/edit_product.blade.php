@@ -178,6 +178,18 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>Giới thiệu - Tiếng Việt</td>
+                                <td>
+                                    <textarea class="form-control" name="introduce">{{ $productDetail->introduce }}</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Giới thiệu - Tiếng Anh</td>
+                                <td>
+                                    <textarea class="form-control" name="en_introduce">{{ $productDetail->en_introduce }}</textarea>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Từ khóa (SEO)</td>
                                 <td>
                                     <input type="text" class="form-control" name="keyword" value="{{ $productSeo->keyword }}" />
