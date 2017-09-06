@@ -1,34 +1,9 @@
 
 
 @extends('layouts.master')
-@section('title','Đặt hàng')
+@section('title','Cà phê Đak Hà - Trang chủ')
 @section('content')
 
-<div class="order-info-address">
-    <div class="address">
-        <span>Địa chỉ nhận hàng: </span>Thang Le Duc, SĐT: 0935334983, 
-         ----       
-        <a class="edit-info-address" href="javascript:;" data-reveal-id="edit-info-address" id="edit-order-address">Sửa địa chỉ nhận hàng</a>
-    </div>
-<<<<<<< HEAD
-</div>
-<div class="order-float-bar-block" id="order-bar">
-    <div class="tab-btn block-get-info" data-tab="tab-product-info">
-        {!! Form::open(['url' => '/thong-tin-san-pham']) !!}
-            <input type="text" class="input-link" id="product-link" name="product_url" autofocus="true">
-            <button class="btn-get-info" type="submit">Lấy thông tin sản phẩm</button>
-            <input type="hidden" id="link-hidden" value="">
-        {!! Form::close() !!}
-        @if (count($errors) > 0)
-        <div class="input-error">
-            @foreach ($errors->all() as $error)
-            <div>{{ $error }}</div>
-            @endforeach
-        </div>
-        @endif
-    </div>
-</div>  
-=======
     <link  href="{{url('/')}}/public/assets/css/coreSlider.css" rel="stylesheet" type="text/css">
     <script src="{{url('/')}}/public/assets/js/coreSlider.js"></script>
     <script>
@@ -162,7 +137,6 @@
     <!--our-blogs-->  
 </div>
 <!--content-->
->>>>>>> ed63d0d9775cc6bfdf66b67c572266a0eb71414e
 
 <script>
     $(document).ready(function(){

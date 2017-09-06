@@ -3438,9 +3438,6 @@ li.hide-point {
     display: none;
 }
 .header li.menu-item:hover ul.sub-menu{
-<<<<<<< HEAD
-    display: block;
-=======
     display: inline;
 }
 
@@ -3465,5 +3462,4 @@ div.grid-img-blog {
 div.grid-img-blog img {
   min-width: 100%;
   min-height: 100%;
->>>>>>> ed63d0d9775cc6bfdf66b67c572266a0eb71414e
 }
