@@ -6,11 +6,17 @@ header('Content-Type: text/html; charset=utf-8');
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\Blog;
 
 class PagesController extends Controller
 {
     public function home(){
-        return view('front.pages.home');
+        //$new_products = Product::orderBy('create_time','DESC'); 
+        $new_products = Product::all()->take(4);
+        $best_sellers = Product::all()->take(4);
+        $new_blogs = Blog::all()->take(3);
+        return view('front.pages.home')->with(['new_products' => $new_products,'best_sellers' => $best_sellers,'new_blogs' => $new_blogs]);
     }
     public function order_list(){
         return view('front/pages/order_list');

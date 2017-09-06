@@ -14,11 +14,11 @@ return [
     */
 
     '' => '',
-    'home' => 'Trang chủ',
-    'about-us' => 'Giới thiệu',
-    'cert' => 'Chứng chỉ',
-    'shop' => 'Cửa hàng online',
-    'blog' => 'Bài viết',
-    'contact' => 'Liên hệ',  
+    'home' => 'TRANG CHỦ',
+    'about-us' => 'GIỚI THIỆU',
+    'cert' => 'CHỨNG CHỈ',
+    'shop' => 'MUA HÀNG',
+    'blog' => 'BÀI VIẾT',
+    'contact' => 'LIÊN HỆ',  
 
 ];

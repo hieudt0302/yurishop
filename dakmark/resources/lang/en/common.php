@@ -17,7 +17,7 @@ return [
 	 'to-date' => 'To', 
 	 'status' => 'Status',
 	 'note' => 'Note',
-	 'more-detals' => 'More details',
+	 'more-details' => 'More details',
      'search' => 'Search',
      'profile' => 'Profile',     	 
 ];
