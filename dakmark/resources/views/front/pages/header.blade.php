@@ -81,7 +81,7 @@
                                             @foreach ($productCats as $pCat)
                                             <?php $pCatSeo = \DB::table('seo')->where('system_id', $pCat->system_id)->first(); ?>
                                             <li>
-                                                <a href="{{ route('front.product.show',$pCatSeo->slug) }}" title="{{ $pCat->name }}">
+                                                <a href="{{ route('front.item.show',$pCatSeo->slug) }}" title="{{ $pCat->name }}">
                                                     {{ $pCat->name }}
                                                 </a>
                                             </li>
@@ -89,7 +89,24 @@
                                         </ul>
                                         @endif
                                     </li>
-                                    <li class="menu-item"><a href="{{ url('/blogs') }}">@lang('header.blog')</a></li>                                    
+                                    <li class="menu-item">
+                                        <a href="#">@lang('header.blog')</a>
+                                        <?php 
+                                            $blogCats = \DB::table('blog_cat')->where('parent_id', 0)->orderBy('sort_order', 'asc')->get();
+                                        ?>
+                                        @if(!empty($blogCats))
+                                        <ul class="sub-menu">
+                                            @foreach ($blogCats as $bCat)
+                                            <?php $bCatSeo = \DB::table('seo')->where('system_id', $bCat->system_id)->first(); ?>
+                                            <li>
+                                                <a href="{{ route('front.item.show',$bCatSeo->slug) }}" title="{{ $bCat->name }}">
+                                                    {{ $bCat->name }}
+                                                </a>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                        @endif
+                                    </li>                               
                                     <li class="menu-item"><a href="{{ url('/contact') }}">@lang('header.contact')</a></li>
                                 </ul>
                             </div>

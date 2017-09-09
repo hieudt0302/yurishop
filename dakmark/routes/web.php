@@ -11,8 +11,6 @@
 */
 /* Added by Thang LD */
 Route::get('/', 'Front\PagesController@home');
-Route::post('/thong-tin-san-pham', 'Front\PagesController@product_info');
-Route::post('/get-prop', 'Front\PagesController@get_prop');
 Route::get('/danh-sach-don-hang',  ['uses'=>'Front\PagesController@order_list','middleware' => 'auth']);
 /*  --- */
 Route::get('/', ['as' => 'front.home',   'uses' => 'Front\PagesController@home']);
@@ -166,10 +164,12 @@ Route::patch('cart/{id}',['as'=>'front.carts.update','uses'=>'Front\CartsControl
 Route::delete('cart/{id}',['as'=>'front.carts.destroy','uses'=>'Front\CartsController@destroy']);
 //Cart-Sub
 Route::delete('emptyCart', 'Front\CartsController@emptyCart');
+/*
 //Blogs
 Route::get('blogs',['as'=>'front.blogs.index','uses'=>'Front\BlogsController@index']);
 Route::get('blogs/{id}',['as'=>'front.blogs.show','uses'=>'Front\BlogsController@show']);
 Route::post('blogs/search',['as'=>'fron.blogs.search','uses'=>'Front\BlogsController@search']);
+*/
 
 //Multi-language
 Route::get('language/{locale}', function ($locale) {
@@ -179,4 +179,4 @@ Route::get('language/{locale}', function ($locale) {
 });
 
 // Products 
-Route::get('/{slug}.html',['as'=>'front.product.show','uses'=>'Front\ProductController@show']);
+Route::get('/{slug}.html',['as'=>'front.item.show','uses'=>'Front\PagesController@show']);

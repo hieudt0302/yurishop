@@ -23,7 +23,7 @@ class ProductController extends Controller
     } 
     public function insertProductCat(Request $request){
         $this->validate($request,['name' => 'required',
-                                  'slug' => 'required|unique:seo',
+                                  'slug' => 'required|unique:seo,slug',
                                   'seo_title' => 'required'
                                 ]);
         $max_id = $this->get_max_id('product_cat');
@@ -88,7 +88,10 @@ class ProductController extends Controller
     {
         $productCat = ProductCat::find($cat_id);
         $this->validate($request,['name' => 'required',
-                                  'slug' => 'required',  // thiếu check_exist
+                                  'slug' => [
+                                                'required',
+                                                Rule::unique('seo','slug')->ignore($productCat->system_id,'system_id'),
+                                            ],
                                   'seo_title' => 'required'
                                 ]);
         $icon = '' ;
@@ -172,7 +175,7 @@ class ProductController extends Controller
     } 
     public function insertProduct(Request $request){
         $this->validate($request,['name' => 'required',
-                                  'slug' => 'required|unique:seo',
+                                  'slug' => 'required|unique:seo,slug',
                                   'seo_title' => 'required',
                                   // còn thiếu cat_id, thumb, promote_end
                                 ]);
@@ -241,7 +244,10 @@ class ProductController extends Controller
     public function updateProduct($product_id, Request $request){
         $product = Product::find($product_id);
         $this->validate($request,['name' => 'required',
-                                  'slug' => 'required',  // thiếu check_exist
+                                  'slug' => [
+                                                'required',
+                                                Rule::unique('seo','slug')->ignore($product->system_id,'system_id'),
+                                            ],
                                   'seo_title' => 'required'
                                   // còn thiếu cat_id, thumb, promote_end
                                 ]);

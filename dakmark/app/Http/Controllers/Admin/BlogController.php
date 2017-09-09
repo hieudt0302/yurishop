@@ -23,7 +23,7 @@ class BlogController extends Controller
     } 
     public function insertBlogCat(Request $request){
         $this->validate($request,['name' => 'required',
-                                  'slug' => 'required|unique:seo',
+                                  'slug' => 'required|unique:seo,slug',
                                   'seo_title' => 'required'
                                 ]);
         $max_id = $this->get_max_id('blog_cat');
@@ -88,7 +88,10 @@ class BlogController extends Controller
     {
         $blogCat = BlogCat::find($cat_id);
         $this->validate($request,['name' => 'required',
-                                  'slug' => 'required',  // thiếu check_exist
+                                  'slug' => [
+                                                'required',
+                                                Rule::unique('seo','slug')->ignore($blogCat->system_id,'system_id'),
+                                            ],
                                   'seo_title' => 'required'
                                 ]);
         $icon = '' ;
@@ -172,7 +175,7 @@ class BlogController extends Controller
     } 
     public function insertBlog(Request $request){
         $this->validate($request,['title' => 'required',
-                                  'slug' => 'required|unique:seo',
+                                  'slug' => 'required|unique:seo,slug',
                                   'seo_title' => 'required',
                                   // còn thiếu cat_id, thumb, promote_end
                                 ]);
@@ -231,7 +234,10 @@ class BlogController extends Controller
     {
         $blog = Blog::find($blog_id);
         $this->validate($request,['title' => 'required',
-                                  'slug' => 'required',  // thiếu check_exist
+                                  'slug' => [
+                                                'required',
+                                                Rule::unique('seo','slug')->ignore($blog->system_id,'system_id'),
+                                            ],
                                   'seo_title' => 'required'
                                   // còn thiếu cat_id, thumb, promote_end
                                 ]);
