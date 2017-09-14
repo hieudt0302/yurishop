@@ -16,12 +16,19 @@
 	display: block;
 }
 .blog-cat .blog-single {
+    width: 32.9%;
+    margin-right: 5px;
     height: 100px;
     border: #ddd 1px solid;
     margin-top: 10px;
     padding: 5px;
 }
 .blog-cat .blog-thumb{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.blog-cat .blog-single img{
+    padding-top: 5px;
     max-width: 100%;
     max-height: 100px;
 }

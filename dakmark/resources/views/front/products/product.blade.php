@@ -4,14 +4,14 @@
    
 <div class="container product">
     <div class="col-md-9 product-wrapper">
-        <div class="add-cart-msg" style="display: none;">Sản phẩm đã được thêm vào giỏ hàng</div>
         <div class="row main-info">
             <input type="hidden" class="product-id" value="{{ $product->id }}">
+            <input type="hidden" class="shop-price" value="{!! $product->promote_price != 0 ? $product->promote_price : $product->default_price !!}">
             <div class="col-md-4">
-                <img class="img-responsive" alt="{{ $product->name }}" src="{{ asset('public/assets/img/product/' . $product->thumb) }}" />
+                <img class="img-responsive product-img" alt="{{ $product->name }}" src="{{ asset('public/assets/img/product/' . $product->thumb) }}" />
             </div>
             <div class="col-md-8">
-                <h3 class="product-name">{{ $product->name }} </h3>
+                <h3 class="product-name cur-product-name">{{ $product->name }} </h3>
                 <div>
                     <span class="product-label">Mã sản phẩm : </span><span class="product-code">{{ $product->product_code }}</span>
                 </div>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="price">
                     <span class="product-label">Giá sản phẩm : </span>
-                   @if($product->is_promote == 1)
+                   @if($product->promote_price != 0)
                     <span class="cur-price">{!! price_format($product->promote_price,'VNĐ') !!}</span>
                     <span class="org-price"><del>{!! price_format($product->default_price,'VNĐ') !!}</del></span>
                     @else
@@ -44,6 +44,8 @@
                     </span>
                     <button class="btn btn-primary add-cart"><i class="fa fa-cart-plus"></i>Thêm vào giỏ hàng</button>
                 </div>
+                <div class="add-cart-note" style="display: none">Hãy chọn số lương sản phẩm</div>
+                <div class="add-cart-res" style="display: none;">Sản phẩm đã được thêm vào giỏ hàng</div>
             </div>
         </div>
         <div class="row extend-info">
@@ -54,7 +56,7 @@
             </ul>
             <div class="tab-content">
                 <div id="description" class="tab-pane fade in active"> 
-                    <?php  echo $product->description ?>
+                    {!! $product->description !!}
                 </div>  
                 <div id="comment" class="tab-pane fade">
                     <?php echo View::make('front.products.social_network_plugin') ?>
@@ -91,11 +93,11 @@
         @foreach ($relate_products as $rProduct)
             <?php $pSeo = \DB::table('seo')->where('system_id',$rProduct->system_id)->first(); ?>
             <li>
-                <a href="{{ route('front.product.show',$pSeo->slug) }}" title="{{ $rProduct->name }}">
+                <a href="{{ route('front.item.show',$pSeo->slug) }}" title="{{ $rProduct->name }}">
                     <img class="img-responsive product-thumb" src="{{ asset('public/assets/img/product/' . $rProduct->thumb) }}" alt="{{ $rProduct->name }}" />
                 </a>
                 <div class="product-info">
-                    <a href="{{ route('front.product.show',$pSeo->slug) }}" title="{{ $rProduct->name }}">
+                    <a href="{{ route('front.item.show',$pSeo->slug) }}" title="{{ $rProduct->name }}">
                         <span class="product-name">{{ $rProduct->name }}</span>
                     </a>
                     <div class="product-carousel-price">
@@ -158,21 +160,35 @@
 
         $('.add-cart').click(function() {
             var product_id = $(".product-id").val();
+            var product_name = $(".cur-product-name").text();
+            var price = $(".shop-price").val();
+            var product_img = $(".product-img").attr('src');
             var amount = $(".input-number").val();
-            $.ajax({
-                type: "POST",
-                url: "{{ url('/them-vao-gio-hang') }}",
-                data: {
-                    'product_id': product_id,
-                    'amount': amount,
-                },
-                success: function(data) {
-                    $(".add-cart-msg").show();
-                },
-                error: function (data) {
-                    alert(data);
-                }
-            });
+            if(amount > 0){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ url('/them-vao-gio-hang') }}",
+                    data: {
+                        'product_id': product_id,
+                        'product_name': product_name,
+                        'product_img': product_img,
+                        'price': price,
+                        'amount': amount,
+                    },
+                    success: function(res) {
+                        $(".add-cart-note").hide();
+                        $(".add-cart-res").show();
+                        $('.cart-item-count').html(res['itemNum']);              
+                    },
+                    error: function (data) {
+                        console.log("có lỗi : "+data);
+                    }
+                });
+            }
+            else{
+                $(".add-cart-res").hide();
+                $(".add-cart-note").show();
+            }      
         });
     });
 </script>   

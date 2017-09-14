@@ -1,46 +1,146 @@
-<?php $__env->startSection('title','Đặt hàng'); ?>
+<?php $__env->startSection('title','Cà phê Đak Hà - Trang chủ'); ?>
 <?php $__env->startSection('content'); ?>
 
-<div class="order-info-address">
-    <div class="address">
-        <span>Địa chỉ nhận hàng: </span>Thang Le Duc, SĐT: 0935334983, 
-         ----       
-        <a class="edit-info-address" href="javascript:;" data-reveal-id="edit-info-address" id="edit-order-address">Sửa địa chỉ nhận hàng</a>
-    </div>
-</div>
-<div class="order-float-bar-block" id="order-bar">
-    <div class="tab-btn block-get-info" data-tab="tab-product-info">
-        <?php echo Form::open(['url' => '/thong-tin-san-pham']); ?>
+    <link  href="<?php echo e(url('/')); ?>/public/assets/css/coreSlider.css" rel="stylesheet" type="text/css">
+    <script src="<?php echo e(url('/')); ?>/public/assets/js/coreSlider.js"></script>
+    <script>
+    $('#example1').coreSlider({
+      pauseOnHover: false,
+      interval: 3000,
+      controlNavEnabled: true
+    });
 
-            <input type="text" class="input-link" id="product-link" name="product_url" autofocus="true">
-            <button class="btn-get-info" type="submit">Lấy thông tin sản phẩm</button>
-            <input type="hidden" id="link-hidden" value="">
-        <?php echo Form::close(); ?>
+    </script>
 
-        <?php if(count($errors) > 0): ?>
-        <div class="input-error">
-            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div><?php echo e($error); ?></div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </div>
-        <?php endif; ?>
-    </div>
 </div>  
+<!--banner-->
 
-<!--
-<div id="loading" style="display: none">
-    <img src="<?php echo e(url('/')); ?>/public/assets/img/loading.gif" alt="Loading..." />
-</div>
--->
+    <!--content-->
+<div class="content">
+     <!--new-arrivals-->
+        <div class="new-arrivals-w3agile">
+            <div class="container">
+                <h2 class="tittle"><?php echo app('translator')->getFromJson('home.new-products'); ?></h2>
+                <div class="arrivals-grids equalheight">
+                    <?php $__currentLoopData = $new_products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-md-3 arrival-grid simpleCart_shelfItem columns">
+                        <div class="grid-arr">
+                            <div  class="grid-arrival">
+                                <figure>        
+                                    <a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
+                                        <div class="grid-img">
+                                            <img  src="<?php echo e(asset('public/assets/img/product/' . $product->thumb)); ?>" class="img-responsive"  alt="">
+                                        </div>          
+                                    </a>        
+                                </figure>   
+                            </div>
+                            <div class="block">
+                                <div class="starbox small ghosting"> </div>
+                            </div>
+                            <div class="women">
+                                <h6><a href="single.html"><?php echo e($product->name); ?></a></h6>
+                                <div class="price">
+                                   <?php if($product->is_promote == 1): ?>
+                                    <p ><del><?php echo price_format($product->default_price,'VNĐ'); ?></del>
+                                    <em class="item_price"><?php echo price_format($product->promote_price,'VNĐ'); ?></em></p>
+                                    <?php else: ?>
+                                   <span class="cur-price"><?php echo price_format($product->default_price,'VNĐ'); ?></span>
+                                    <?php endif; ?>
+                                </div>
+                                <a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    <!--new-arrivals-->
+    <!--best-sellers-->
+        <div class="best-sellers-w3agile">
+            <div class="container">
+                <h2 class="tittle"><?php echo app('translator')->getFromJson('home.best-sellers'); ?></h2>
+                <div class="arrivals-grids">
+                    <?php $__currentLoopData = $best_sellers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-md-3 arrival-grid simpleCart_shelfItem">
+                        <div class="grid-arr">
+                            <div  class="grid-arrival">
+                                <figure>        
+                                    <a href="" class="product-url">
+                                        <div class="grid-img">
+                                            <img  src="<?php echo e(asset('public/assets/img/product/' . $product->thumb)); ?>" class="img-responsive"  alt="">
+                                        </div>          
+                                    </a>        
+                                </figure>   
+                            </div>
+                            <div class="block">
+                                <div class="starbox small ghosting"> </div>
+                            </div>
+                            <div class="women">
+                                <h6><a href="single.html"><?php echo e($product->name); ?></a></h6>
+                             <div class="price">
+                                   <?php if($product->is_promote == 1): ?>
+                                    <p ><del><?php echo price_format($product->default_price,'VNĐ'); ?></del>
+                                    <em class="item_price"><?php echo price_format($product->promote_price,'VNĐ'); ?></em></p>
+                                    <?php else: ?>
+                                   <span class="cur-price"><?php echo price_format($product->default_price,'VNĐ'); ?></span>
+                                    <?php endif; ?>
+                                </div>
+                                <a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    <!--best-sellers-->
+    <!--our-blogs-->
+        <div class="our-blogs-w3agile">
+            <div class="container">
+                <h2 class="tittle"><?php echo app('translator')->getFromJson('home.our-blogs'); ?></h2>
+                <div class="arrivals-grids">
+                    <?php $__currentLoopData = $new_blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-md-4 arrival-grid simpleCart_shelfItem">
+                        <div class="grid-arr">
+                            <div  class="grid-arrival">
+                                <figure>        
+                                    <a href="" class="product-url">
+                                        <div class="grid-img-blog">
+                                            <img  src="<?php echo e(asset('public/assets/img/blog/' . $blog->thumb)); ?>" class="img-responsive"  alt="">
+                                        </div>          
+                                    </a>        
+                                </figure>   
+                            </div>
+                            <div class="block">
+                                <div class="starbox small ghosting"> </div>
+                            </div>
+                            <div class="women">
+                                <h6><a href="single.html"><?php echo e($blog->title); ?></a></h6>
+                                 <div class="price">
+                                    <?php echo e(str_limit($blog->introduce, $limit = 120, $end = '...')); ?>
 
-<div id="null-shop" class="null-shop">
-    Chưa có sản phẩm nào trong đơn hàng
+                                </div>
+                                <a href="#" data-text="View more" class="my-cart-b item_add"><?php echo app('translator')->getFromJson('common.more-details'); ?></a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    <!--our-blogs-->  
 </div>
+<!--content-->
+
 <script>
     $(document).ready(function(){
 
     });
-</script>   
+</script>    
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

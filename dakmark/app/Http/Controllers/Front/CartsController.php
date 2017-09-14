@@ -24,9 +24,8 @@ class CartsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(Request $request){
+
     }
 
     /**
@@ -35,55 +34,47 @@ class CartsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {        
-        try
-        {
-            $url = $request->url;
-            $productName = $request->productName;
-            $image = $request->image;
-            $shop = $request->shop;
-            $color = $request->color;
-            $colorImg = $request->colorImage;
-            $sizes = $request->sizes;
-
-            foreach($sizes as $s){
-                $GUID = $this->getGUID();
-                Cart::add(['id' => $GUID , 'name' => $productName, 'qty' => $s['amount'],  'price' => $s['sizePrice'], 
-                'options' => [
-                    'size' => $s['sizeName'], 'color'=>$color,'colorimg'=> $colorImg, 'shop'=>$shop, 'url'=>$url,'image'=>$image
-                ]]);
-            }
-
-            session()->flash('success_message',  'URL:' . $url . 'PRODUCTNAME:' . $productName . 'IMAGE:' . $image . 'SHOP:' . $shop . 'COLOR:' . $color . 'COLORIMAGE:' . $colorImg);
-
-            return response()->json(['success' => true]);
-        }       
-        catch (\Exception $e)
-        {
-            session()->flash('success_message', $e->getMessage());
-            return response()->json(['success' => false]);
+    public function store(Request $request){        
+        $product_id = $request->product_id;
+        $product_name = $request->product_name;
+        $price = $request->price;
+        $image = $request->product_img;
+        $amount = $request->amount;
+        /*
+        $product_stored = $request->session()->get('product_stored');
+        if(!isset($product_stored)){  // nếu giỏ hàng chưa có sản phẩm nào
+            $product_stored = array();  // tạo mới giỏ hàng
+            $product_stored[] = array('product_id' => $product_id, 'amount' => $amount);
+            $request->session()->put('product_stored', $product_stored);  // lưu giỏ hàng vào session
         }
+        else{  // nếu giỏ hàng đã có sản phẩm
+            $hasId = 0;  // kiểm tra xem sản phẩm này đã có trong giỏ hàng hay chưa
+            $k = null;
+            foreach ($product_stored as $key => $value) {
+                if($product_id==$value['product_id']){
+                    $hasId = 1;
+                    $k = $key;
+                    break;
+                }
+            }
+            if($hasId==0){  // nếu sản phẩm này chưa có trong giỏ hàng
+                $product_stored[] = array('product_id' => $product_id, 'amount' => $amount);
+                $request->session()->put('product_stored', $product_stored);
+            }
+            else{ // nếu sản phẩm này đã có trong giỏ hàng
+                $product_stored[$k]['amount'] += $amount;  // cập nhật số lượng sản phẩm
+                $request->session()->put('product_stored', $product_stored);
+            }
+        }
+        echo count($product_stored);
+        */
 
-       
-
-        // $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-        //     return $cartItem->id === $request->id;
-        // });
-
-        // if (!$duplicates->isEmpty()) {
-        //     return redirect('cart')->withSuccessMessage('Sản phẩm đã có trong giỏ!');
-        // }
-
-        // Cart::add($request->id, 
-        // $request->name,
-        // $request->size, 
-        // $request->color, 
-        // $request->quantity, 
-        // $request->price);
-        // Cart::add(['id' => 'SameID123', 'name' => 'Product 1', 'qty' => 1, 'price' => 1500.25, 
-        // 'options' => ['size' => 'M', 'color'=>'Red', 'shop'=>'Shop 1', 'url'=>'#','image'=>'#']]);
-        // return redirect('cart')->withSuccessMessage('Sản phẩm đã được thêm vào giỏ!');
+        Cart::add(['id' => $product_id, 'name' => $product_name, 'qty' => $amount,  'price' => $price,
+                   'options' => [ 'image'=>$image]
+        ]);
+        $itemNum = Cart::instance('default')->count(false);
+        //session()->flash('success_message', 'Đã thêm sản phẩm vào giỏ hàng!');
+        return response()->json(['success' => true, 'itemNum'=> $itemNum]);
     }
 
     /**

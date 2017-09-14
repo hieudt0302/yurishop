@@ -2,22 +2,23 @@
 <hr>
 <div class="container">
     <div class="row">
-        <h1 style="color:#d9534f;">
+        <h3 style="color:#d9534f; margin-bottom: 20px">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Giỏ Hàng
-        </h1>
-
-        @include('notifications.status_message') 
-		@include('notifications.errors_message')
-        @if (session()->has('success_message'))
-            <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div>
-        @endif
-        @if (session()->has('error_message'))
-            <div class="alert alert-danger">
-                {{ session()->get('error_message') }}
-            </div>
-        @endif
+        </h3>
+        <div class="message">
+            @include('notifications.status_message') 
+            @include('notifications.errors_message')
+            @if (session()->has('success_message'))
+                <div class="alert alert-success">
+                    {{ session()->get('success_message') }}
+                </div>
+            @endif
+            @if (session()->has('error_message'))
+                <div class="alert alert-danger">
+                    {{ session()->get('error_message') }}
+                </div>
+            @endif
+        </div>
     </div>
     <br> 
     @if (sizeof(Cart::content()) > 0)
@@ -27,8 +28,6 @@
                 <tr>
                     <th>Hình Ảnh</th>
                     <th>Tên Sản Phẩm</th>
-                    <th>Màu</th>
-                    <th>Size</th>
                     <th>Số Lượng</th>
                     <th>Giá Tiền</th>
                     <th></th>
@@ -43,8 +42,6 @@
                         </a>
                     </td>
                     <td>{{ $item->name }}</td>
-                    <td>{{$item->options->color}}</td>
-                    <td>{{$item->options->size}}</td>
                     <td>
                         <div class="input-group spinner" style="width: 120px">
                             <input type="text" class="form-control quantity" data-id="{{ $item->rowId }}" value="{{$item->qty}}" min="0" max="100000">
@@ -54,7 +51,7 @@
                             </div>
                         </div>
                     </td>
-                    <td>{{$item->subtotal }}</td>
+                    <td>{!! price_format($item->subtotal, 'VNĐ') !!}</td>
                     <td>
                         <form action="{{ url('cart', [$item->rowId]) }}" method="POST" class="side-by-side">
                             {!! csrf_field() !!}
@@ -74,29 +71,19 @@
     </div>
     <br>
     <div class="row">
-        <div class="col-xs-6 text-left">
-            <button type="submit" class="btn btn-info">
-                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Xem Thêm 
-                    </button>
-        </div>
-        <div class="col-xs-6 text-right">
+        <div class="col-md-6">
             <form action="{{ url('/emptyCart') }}" method="POST">
                     {!! csrf_field() !!}
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="submit" class="btn btn-danger btn" value="Xóa Hết Giỏ Hàng">
             </form>
         </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-xs-6"></div>
-        <div class="col-xs-6 bs-example bs-cart">
+        <div class="col-md-6 bs-example bs-cart">
             <form class="form-horizontal">
                 <div class="form-group">
                     <label for="total" class="col-sm-8 control-label text-right">TỔNG SỐ TIỀN</label>
                     <div class="col-sm-4 text-right">
-                        <label for="total" class="control-label">{{ Cart::total() }} Tệ</label>
+                        <label for="total" class="control-label">{{ Cart::total() }} VNĐ</label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -108,15 +95,12 @@
         </div>
     </div>
     @else 
-  
-    @endif
     <div class="row">
-        <h3>@lang('shoppings.cart_noitems')</h3>
-        <div>
-            {!! Form::open(['method' => 'POST','route' => ['front.carts.store'],'style'=>'display:inline']) !!} {{Form::button('
-                <span class="glyphicon glyphicon-education"></span> ADD DEMO ITEM', array('type' => 'submit', 'class' => 'btn btn-warning'))}} {!! Form::close() !!}
+        <div class="col-md-12">
+            <h3 style="color: #d9534f;">@lang('shoppings.cart_noitems')</h3>
         </div>
     </div>
+    @endif
 </div>
 <br> @endsection @section('scripts')
 <!-- <script src="{{url('/')}}/public/assets/js/spinner.js"></script> -->

@@ -122,8 +122,9 @@
                         <div class="header-right2">
                             <div class="cart box_1">
                                 <p>
-                                    {{ Cart::instance('default')->count(false) }} @lang('shoppings.items')
-                                    <a href="{{ url('/cart') }}" >
+                                    <span class="cart-item-count">{{ Cart::instance('default')->count(false) }} </span>
+                                    @lang('shoppings.items')
+                                    <a href="{{ url('/cart') }}">
                                         <span class="fa-stack fa-lg">
                                           <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true" style='color:#000;'></i>
                                           <i class="fa fa-shopping-cart fa-stack-1x" aria-hidden="true" style='color:#000;'></i>

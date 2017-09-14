@@ -24,10 +24,6 @@ class PagesController extends Controller
     }
 
     public function show(Request $request, $slug){
-        // $product = Product::where('slug', $slug)->firstOrFail();
-        // $interested = Product::where('slug', '!=', $slug)->get()->random(4);
-        // return view('front.products.show')->with(['product' => $product, 'interested' => $interested]);
-
         $seo = Seo::where('slug',$slug)->first();
         $seo_title = $seo->seo_title;
         $keyword = $seo->keyword;
@@ -144,5 +140,10 @@ class PagesController extends Controller
             	\DB::table($item_table)->where('system_id', $system_id)->increment('views',1);
             }              
         }
+    }
+
+    // Thêm sản phẩm vào giỏ hàng
+    public function addCart(Request $request){
+        
     }
 }

@@ -11,9 +11,9 @@
             @foreach($blogs as $blog)
             <?php $blogSeo = \DB::table('seo')->where('system_id', $blog->system_id)->first(); ?>
             <div class="col-md-4 col-sm-6 col-xs-12 blog-single">
-                <div class="col-md-4">
+                <div class="col-md-4 blog-thumb">
                     <a href="{{ route('front.item.show',$blogSeo->slug) }}" title="{{ $blog->title }}" class="blog-url">
-                        <img class="blog-thumb" src="{{ asset('public/assets/img/blog/' . $blog->thumb) }}" alt="{{ $blog->title }}" />
+                        <img src="{{ asset('public/assets/img/blog/' . $blog->thumb) }}" alt="{{ $blog->title }}" />
                         @if($blog->introduce != '')
                         <div class="blog-intro">
                             {{ truncate($blog->introduce,300) }}
@@ -21,7 +21,7 @@
                         @endif
                     </a>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-8 blog-detail">
                     <a href="{{ route('front.item.show',$blogSeo->slug) }}" title="{{ $blog->title }}">
                         <span class="blog-title">{{ $blog->title }}</span>
                     </a>

@@ -156,7 +156,7 @@ Route::post('order',['as'=>'front.orders.find','uses'=>'Front\OrdersController@f
 Route::delete('order/itemdestroy/{id}', ['as'=>'front.orders.itemdestroy','uses'=>'Front\OrdersController@itemdestroy','middleware' => 'auth']);
 //Cart
 Route::get('cart',['as'=>'front.carts.index','uses'=>'Front\CartsController@index']);
-Route::get('/them-vao-gio-hang',['as'=>'front.carts.create','uses'=>'Front\CartsController@create']);
+Route::post('/them-vao-gio-hang',['as'=>'front.carts.create','uses'=>'Front\CartsController@store']);
 Route::post('cart/create',['as'=>'front.carts.store','uses'=>'Front\CartsController@store']);
 Route::get('cart/{id}',['as'=>'front.carts.show','uses'=>'Front\CartsController@show']);
 Route::get('cart/{id}/edit',['as'=>'front.carts.edit','uses'=>'Front\CartsController@edit']);

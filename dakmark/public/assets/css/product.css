@@ -1,3 +1,6 @@
+ul{
+  list-style: none;
+}
 
 .product-cat{
 	padding-top: 20px;
@@ -100,11 +103,28 @@
 }
 .product .input-number{
 	width: 80px;
-    margin-left: -4px;
-    margin-right: -4px;
+    margin-left: -5px;
+    margin-right: -6px;
     display: inline;
     border-radius: 0;
     text-align: center;
+}
+.product .add-cart-res{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.product .add-cart-note{
+    color: #fff;
+    background-color: #FF3300;
+    padding: 5px 5px;
+    margin-top: 10px;
 }
 .product .rate{
 	padding-bottom: 10px;
@@ -127,6 +147,7 @@
 	max-width: 80%;
 	height: auto !important;
 }
+
 .product .subject{
 	font-size: 16px;
     font-weight: bold;

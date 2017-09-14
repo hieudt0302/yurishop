@@ -11,7 +11,7 @@
             @foreach($products as $product)
             <?php $productSeo = \DB::table('seo')->where('system_id', $product->system_id)->first(); ?>
             <div class="col-md-3 col-sm-4 col-xs-6 product-single">
-                <a href="{{ route('front.product.show',$productSeo->slug) }}" class="product-url">
+                <a href="{{ route('front.item.show',$productSeo->slug) }}" class="product-url">
                     <img class="product-thumb" src="{{ asset('public/assets/img/product/' . $product->thumb) }}" alt="{{ $product->name }}" />
                     <span class="product-name">{{ $product->name }}</span>
                     @if($product->introduce != '')
