@@ -2,12 +2,14 @@
 <br>
 <div class="container">
     <div class="row">
-        <h1>Danh Sách Đơn Hàng</h1>
+        <h3 class="page-name">
+            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+            Danh Sách Đơn Hàng
+        </h3>
         @include('notifications.status_message') 
         @include('notifications.errors_message')
     </div>
     <div class="row">
-
         {!! Form::open(array('route' => 'front.orders.find','method'=>'POST', 'class'=>'form-inline')) !!}
         <div class="form-group">
             <label for="fromDate">Từ Ngày</label> {!! Form::text('fromDate', null, array('class' => 'form-control', 'id'=>'fromDate'))
@@ -20,8 +22,11 @@
         </div>
         <span style="margin-left:20px"></span>
         <div class="form-group">
-            <label for="status">Trạng Thái</label> {!! Form::select('status', array(0=>'Tất Cả', 1 => 'Chờ xử lý', 2 => 'Đang
-            xử lý', 3 => 'Hoàn Thành', 4 => 'Hủy'), 0, array('name' => 'status','type'=>'text', 'class'=>'form-control'))
+            <label for="status">Trạng Thái</label> 
+            {!! Form::select('status', 
+                            array(0=>'Tất Cả', 1 => 'Chờ xử lý', 2 => 'Đangxử lý', 3 => 'Hoàn Thành',  4 => 'Hủy'), 
+                            0, 
+                            array('name' => 'status','type'=>'text', 'class'=>'form-control'))
             !!}
         </div>
         <span style="margin-left:20px"></span>
@@ -45,7 +50,7 @@
                     <tr>
                         <td>{{ ++$i }}</td>
                         <td>{{ $order->created_at }}</td>
-                        <td>{{ $order->totalamount }} Tệ</td>
+                        <td>{!! price_format($order->totalamount, 'VNĐ') !!}</td>
                         <td>
                             @if($order->status===1)
                             <span>Chờ xử lý</span> @elseif($order->status===2)
@@ -66,8 +71,9 @@
                     @endforeach
                 </tbody>
             </table>
-            @if(!empty($fromDate) || !empty($toDate) || !empty($status)) {!! $orders->appends(['from' => $fromDate ])->appends(['to'
-            => $toDate ])->appends(['status' => $status])->render() !!} @else {!! $orders->render() !!} @endif
+            @if(!empty($fromDate) || !empty($toDate) || !empty($status)) 
+            {!! $orders->appends(['from' => $fromDate ])->appends(['to'=> $toDate ])->appends(['status' => $status])->render() !!} 
+            @else {!! $orders->render() !!} @endif
         </div>
     </div>
 </div>

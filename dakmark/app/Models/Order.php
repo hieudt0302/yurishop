@@ -45,10 +45,10 @@ class Order extends Model
         return DB::table('orders')->where('status','2')->count(); // Đang chờ xử lý => Work
      }
 
-      public function getTotalOrderPrice() {
-        $totalOrderPrice = $this->totalamount + $this->freight1 + $this->freight2 + $this->service;
-        return number_format($totalOrderPrice, 2, ',', '.');
-      }
+    public function getTotalOrderPrice() {
+        $totalOrderPrice = $this->totalamount + $this->ship_fee;
+        return $totalOrderPrice;
+    }
 
       public function getTotalFinalPrice() {
         return $this->buyDetails()->sum(DB::raw('deposit'));

@@ -2,7 +2,7 @@
 <hr>
 <div class="container">
     <div class="row">
-        <h3 style="color:#d9534f; margin-bottom: 20px">
+        <h3 class="page-name">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Giỏ Hàng
         </h3>
         <div class="message">
@@ -41,7 +41,11 @@
                             <img src="{{ $item->options->image }}" alt="" class="img-rounded img-inside">
                         </a>
                     </td>
-                    <td>{{ $item->name }}</td>
+                    <td>
+                        <a href="{{ $item->options->url }}" target="_blank">
+                             {{ $item->name }}
+                        </a>
+                    </td>
                     <td>
                         <div class="input-group spinner" style="width: 120px">
                             <input type="text" class="form-control quantity" data-id="{{ $item->rowId }}" value="{{$item->qty}}" min="0" max="100000">

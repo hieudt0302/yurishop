@@ -132,16 +132,14 @@ class ProfileController extends Controller
         $address->first_name = $request->input('first_name');
         $address->last_name = $request->input('last_name');
         $address->phone = $request->input('phone');
-		$address->fax = $request->input('fax');
 		$address->address = $request->input('address');
 		$address->city = $request->input('city');
-		$address->zipcode = $request->input('zipcode');
-		$address->company = $request->input('company');
+		$address->district = $request->input('district');
         $address->user_id = Auth::user()->id;
         $address->save();
 
         return redirect()->route('front.profiles.address')
-                        ->with('success','Thêm địa chỉ mới thành công!');
+                        ->with('success','Thêm địa chỉ thành công!');
     }
     /**
      * Display the specified resource.

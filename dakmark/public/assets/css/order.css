@@ -309,3 +309,13 @@
     border-top-right-radius: 0;
   }
 }
+
+.page-name{
+    color:#d9534f; 
+    margin-bottom: 20px;
+}
+.box-name{
+    padding-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+}

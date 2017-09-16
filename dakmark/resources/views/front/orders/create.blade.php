@@ -2,16 +2,15 @@
 <br>
 <div class="container">
     <div class="row">
-        <h1 style="color:#d9534f;">
+        <h3 class="page-name">
             <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Đặt Hàng
-        </h1>
-        <h4>Điền vào các mục dưới đây để hoàn thành đơn đặt hàng của bạn !</h4>
+        </h3>
         @include('notifications.status_message') 
 		@include('notifications.errors_message')
     </div>
-    <br>
     <div class="row">
-        <div class="col-xs-4">
+        <div class="col-md-4">
+            <h4 class="box-name">Địa chỉ nhận hàng</h4>
             <div class="bs-example bs-order-ship">
                 <form>
                     <div class="form-group">
@@ -54,80 +53,62 @@
                 </form>
             </div>
         </div>
-        <div class="col-xs-8">
+        <div class="col-md-8">
+            <h4 class="box-name">Chi tiết đơn hàng</h4>
             <div class="bs-example bs-order-check">
-                <div class="row">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="text-left">Tên Sản Phẩm</th>
-                                <th class="text-right">Kích Cỡ</th>
-                                <th class="text-right">Màu</th>
-                                <th class="text-right">Số Lượng</th>
-                                <th class="text-right last">Thành Tiền</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (Cart::content() as $item)
-                            <tr>
-                                <td class="text-left">{{ $item->name }}</td>
-                                <td>{{$item->options->color}}</td>
-                                <td>{{$item->options->size}}</td>
-                                <td class="text-right">{{ $item->qty }}</td>
-                                <td class="text-right last" style="color:#bf9a61">{{ $item->subtotal }}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                        <tfoot>
-
-                            <tr>
-                                <td style="" class="text-right" colspan="4">
-                                    Thành tiền </td>
-                                <td style="color:#bf9a61" class="text-right last">
-                                    <span class="price">{{ Cart::total() }}&nbsp;tệ</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="" class="text-right" colspan="4">
-                                    <strong>Tổng Số Tiền (tạm tính)</strong>
-                                </td>
-                                <td style="" class="text-right last">
-                                    <strong><span class="price">49.000&nbsp;VNĐ</span></strong>
-                                </td>
-                            </tr>
-
-                        </tfoot>
-                    </table>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="form-group">
-                            <label for="note">Ghi Chú</label>
-                            <input id="note" type="text" class="form-control" placeholder="Ghi chú khác...">
-                        </div>
-                    </div>
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Tên Sản Phẩm</th>
+                            <th class="text-right">Số Lượng</th>
+                            <th class="text-right last">Thành Tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Cart::content() as $item)
+                        <tr>
+                            <td class="text-left">{{ $item->name }}</td>
+                            <td class="text-right">{{ $item->qty }}</td>
+                            <td class="text-right last" style="color:#AA0000">{!! price_format($item->subtotal,'VNĐ') !!}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td style="" class="text-right" colspan="4">
+                                <strong>Tổng Tiền</strong>
+                            </td>
+                            <td style="" class="text-right last">
+                                <strong><span class="price">{!! price_format(Cart::total(2, '.', ''), 'VNĐ') !!}</span></strong>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="order-note">
+                <div class="form-group">
+                    <label for="note">Ghi Chú</label>
+                    <textarea id="note" class="form-control"></textarea>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <form action="{{ url('/order/create') }}" method="POST">
-                        {!! csrf_field() !!}
-                        <input type="hidden" id="use_bookaddress" name="use_bookaddress" value="true">
-                        <input type="hidden" id="bookaddress_id" name="bookaddress_id" value="0">
-                        <input type="hidden" id="shipaddress" name="shipaddress">
-                        <input type="hidden" id="shipdistrict" name="shipdistrict">
-                        <input type="hidden" id="shipcity" name="shipcity">
-                        <input type="hidden" id="shipphone" name="shipphone">
-                        <input type="hidden" id="ordernote" name="ordernote">
-                         <button type="submit" class="btn-lg btn-primary">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Gửi Đơn Hàng
-                        </button>
-                    </form>
-                    <h6 style="color:#d9534f;">
-                        Lưu ý: Chúng tôi sẽ kiểm tra đơn hàng và liên hệ để xác nhận với bạn!
-                    </h6>
-                </div>
+            <div>
+                <form action="{{ url('/order/create') }}" method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" id="use_bookaddress" name="use_bookaddress" value="true">
+                    <input type="hidden" id="bookaddress_id" name="bookaddress_id" value="0">
+                    <input type="hidden" id="shipaddress" name="shipaddress">
+                    <input type="hidden" id="shipdistrict" name="shipdistrict">
+                    <input type="hidden" id="shipcity" name="shipcity">
+                    <input type="hidden" id="shipphone" name="shipphone">
+                    <input type="hidden" id="ordernote" name="ordernote">
+                     <button type="submit" class="btn-lg btn-primary">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Gửi Đơn Hàng
+                    </button>
+                </form>
+                <h6 style="color:#d9534f;">
+                    Lưu ý: Chúng tôi sẽ kiểm tra đơn hàng và liên hệ để xác nhận với bạn!
+                </h6>
             </div>
 
         </div>

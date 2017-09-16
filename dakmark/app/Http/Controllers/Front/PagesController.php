@@ -39,8 +39,9 @@ class PagesController extends Controller
 
             case 'PRODUCT' : // san pham 
                 $product = Product::where('system_id',$seo->system_id)->first();
+                $product_url = $_SERVER['REQUEST_URI'];
                 $relate_products = $this->get_relate_products($product->id,10);
-                return view('front.products.product', compact('product','relate_products','seo_title','keyword','description'));
+                return view('front.products.product', compact('product','product_url','relate_products','seo_title','keyword','description'));
                 break;
 
             case 'BCAT' : // danh mục log

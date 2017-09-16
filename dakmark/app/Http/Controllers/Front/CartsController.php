@@ -37,6 +37,7 @@ class CartsController extends Controller
     public function store(Request $request){        
         $product_id = $request->product_id;
         $product_name = $request->product_name;
+        $product_url = $request->product_url;
         $price = $request->price;
         $image = $request->product_img;
         $amount = $request->amount;
@@ -70,7 +71,7 @@ class CartsController extends Controller
         */
 
         Cart::add(['id' => $product_id, 'name' => $product_name, 'qty' => $amount,  'price' => $price,
-                   'options' => [ 'image'=>$image]
+                   'options' => [ 'image' => $image, 'url' => $product_url]
         ]);
         $itemNum = Cart::instance('default')->count(false);
         //session()->flash('success_message', 'Đã thêm sản phẩm vào giỏ hàng!');

@@ -49,20 +49,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('orders/{id}',['as'=>'admin.orders.show','uses'=>'OrdersController@show', 'middleware' => ['permission:order-show']]);
     Route::get('orders/{id}/edit',['as'=>'admin.orders.edit','uses'=>'OrdersController@edit','middleware' => ['permission:order-edit']]);
     Route::patch('orders/{id}',['as'=>'admin.orders.update','uses'=>'OrdersController@update','middleware' => ['permission:order-edit']]);
-    Route::delete('orders/{id}',['as'=>'admin.orders.destroy','uses'=>'OrdersController@destroy','middleware' => ['permission:order-delete']]);
+    Route::post('orders/{id}',['as'=>'admin.orders.destroy','uses'=>'OrdersController@destroy','middleware' => ['permission:order-delete']]);
     Route::post('orders',['as'=>'admin.orders.find','uses'=>'OrdersController@find','middleware' => ['permission:order-list']]);
     //Order-Sub
     Route::patch('orders/ajust/quantity/item/{id}',['as'=>'admin.orders.ajustquantity','uses'=>'OrdersController@ajustquantity','middleware' => ['permission:order-edit']]);
     Route::patch('orders/send/ordershop/{id}',['as'=>'admin.orders.sendshop','uses'=>'OrdersController@sendshop','middleware' => ['permission:order-edit']]);
-    //OrderShops
-    Route::get('ordershops',['as'=>'admin.ordershops.index','uses'=>'OrderShopsController@index','middleware' => ['permission:order-list']]);
-    Route::get('ordershops/create',['as'=>'admin.ordershops.create','uses'=>'OrderShopsController@create','middleware' => ['permission:order-create']]);
-    Route::post('ordershops/create',['as'=>'admin.ordershops.store','uses'=>'OrderShopsController@store','middleware' => ['permission:order-create']]);
-    Route::get('ordershops/{id}',['as'=>'admin.ordershops.show','uses'=>'OrderShopsController@show', 'middleware' => ['permission:order-show']]);
-    Route::get('ordershops/{id}/edit',['as'=>'admin.ordershops.edit','uses'=>'OrderShopsController@edit','middleware' => ['permission:order-edit']]);
-    Route::patch('ordershops/{id}',['as'=>'admin.ordershops.update','uses'=>'OrderShopsController@update','middleware' => ['permission:order-edit']]);
-    Route::delete('ordershops/{id}',['as'=>'admin.ordershops.destroy','uses'=>'OrderShopsController@destroy','middleware' => ['permission:order-delete']]);
-    Route::post('ordershops',['as'=>'admin.ordershops.find','uses'=>'OrderShopsController@find','middleware' => ['permission:order-list']]);
     
     //Products - added by Thang LD
     Route::get('product-cat',['as'=>'admin.product-cat','uses'=>'ProductController@productCatList']);

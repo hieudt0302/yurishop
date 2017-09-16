@@ -135,8 +135,6 @@ class OrdersController extends Controller
         //Choose address
         if ($use_bookaddress === 'true')
         {
-           
-
             $bookaddress = BookAddress::where('id', $bookaddress_id)->first();
             if(!$bookaddress)
             {
@@ -159,14 +157,6 @@ class OrdersController extends Controller
             $shipdcity = $request->input('shipcity');
             $shipphone = $request->input('shipphone');
         }
-       
-        echo "<script>console.log( 'Debug Objects: " . $use_bookaddress . "' );</script>";
-        echo "<script>console.log( 'Debug Objects: " . $bookaddress_id . "' );</script>";
-        echo "<script>console.log( 'Debug Objects: " . $shipaddress . "' );</script>";
-        echo "<script>console.log( 'Debug Objects: " . $shipdistrict . "' );</script>";
-        echo "<script>console.log( 'Debug Objects: " . $shipdcity . "' );</script>";
-        echo "<script>console.log( 'Debug Objects: " . $shipphone . "' );</script>";
-        echo "<script>console.log( 'Debug Objects: " . $note . "' );</script>";
 
 
         // create an order
@@ -175,9 +165,7 @@ class OrdersController extends Controller
     
         DB::beginTransaction();
         try
-        {
-            echo "<script>console.log( 'Return TOTAL AMOUNT: " . Cart::total() . "' );</script>";
-            
+        { 
             // Make order
             $order_id = DB::table('orders')->insertGetId([
                 'totalamount' => Cart::total(2,'.',''),
@@ -188,57 +176,33 @@ class OrdersController extends Controller
                 'shipphone' => $shipphone,
                 'note' => $note,
                 'user_id' => $user_id , 
-                'usercreated' => $user_id , 
-                'userupdated' =>  $user_id , 
+                'created_by' => $user_id , 
+                'updated_by' =>  $user_id , 
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
 
             ]);
-           
-
-            echo "<script>console.log( 'Return Order ID: " . $order_id . "' );</script>";
 
             // Make orderdetails
             // get item from session cart
             foreach (Cart::content() as $item)
-            {
-                $shop = DB::table('shops')->where('name', $item->options->shop)->first();
-                echo "<script>console.log( 'Return SHOP NAME: " . $item->options->shop . "' );</script>";
-                
-                if(empty($shop))
-                {
-                    //TODO: insert new shop
-                    $shop_id= DB::table('shops')->insertGetId(
-                        ['name' => $item->options->shop]
-                    );
-                }
-                else
-                {
-                    $shop_id = $shop->id;
-                }
-
-                echo "<script>console.log( 'Return Shop ID: " . $shop_id . "' );</script>";
-
+            {               
                 DB::table('orderdetails')->insert([
                     'productname' => $item->name,
-                    'size'=> $item->options->size,
-                    'color'=>$item->options->color,
+                    'product_url' => $item->options->url,
                     'quantity'=>$item->qty,
                     'unitprice'=>$item->price,
                     'total'=> $item->subtotal,
                     'image'=>$item->options->image,
-                    'url'=>$item->options->url,
                     'order_id'=> $order_id,
-                    'shop_id' => $shop_id,
-                    'usercreated' => $user_id , 
-                    'userupdated' =>  $user_id ,    
+                    'created_by' => $user_id , 
+                    'updated_by' =>  $user_id ,    
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ]);
             }
 
             DB::commit();
-            echo "<script>console.log( 'Return Commit!' );</script>";
         }       
         catch (\Exception $e)
         {
@@ -256,8 +220,8 @@ class OrdersController extends Controller
 
         //return order list
         return redirect()->route('front.orders.index')
-        ->with('message','Bạn đã gửi tạo mới đơn hàng thành công!')
-        ->with('status', 'success');
+                         ->with('message','Bạn đã đặt hàng thành công!')
+                         ->with('status', 'success');
     }
 
     /**
@@ -268,13 +232,8 @@ class OrdersController extends Controller
      */
     public function show($id)
     {
-        $order = Order::where('id',$id)
-        ->where('user_id',Auth::user()->id)
-        ->first();
-
+        $order = Order::where('id',$id)->where('user_id',Auth::user()->id)->first();
         $orderdetails = OrderDetail::where('order_id',$order->id)->get();
-       
-
         return view('front.orders.show',compact('order','orderdetails'));
     }
 

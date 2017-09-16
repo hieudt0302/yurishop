@@ -24,11 +24,6 @@ class OrdersController extends Controller
           $fromDate = $request->input('from');         
           $toDate = $request->input('to');
           $status = $request->get('status');
-          
-          echo "<script>console.log( 'Debug Objects: " . $customer . "' );</script>";
-          echo "<script>console.log( 'Debug Objects: " . $fromDate . "' );</script>";
-        echo "<script>console.log( 'Debug Objects: " . $toDate . "' );</script>";
-        echo "<script>console.log( 'Debug Objects: " . $status . "' );</script>";
  
           if(empty($status) || (int)$status===0)
           {
@@ -110,9 +105,7 @@ class OrdersController extends Controller
     public function show($id)
     {
         $order = Order::where('id',$id)->first();
-
         $orderdetails = OrderDetail::where('order_id', $order->id)->get();
-
         return view('admin.orders.show',compact('order','orderdetails'));
     }
 
@@ -278,11 +271,8 @@ class OrdersController extends Controller
     public function destroy($id)
     {
         $order =  Order::find($id);
-        
         $order->status = 4;
-
         $order->save();
-
         return redirect()->route('admin.orders.index')
                         ->with('message','Bạn vừa hủy một đơn hàng!')
                         ->with('status', 'success');

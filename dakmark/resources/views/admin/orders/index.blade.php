@@ -105,7 +105,7 @@ that needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hà
                                     <a type="button" class="btn btn-danger" data-order-id="{{$order->id}}" data-toggle="modal" data-target="#modal-delete-order">
                                     Hủy đơn hàng
                                     </a> 
-                                    @endif
+                                @endif
                             </td>
                         </tr>
                         @endforeach
@@ -132,9 +132,9 @@ that needs to be implemented') @section('pageheader', 'Người Dùng Đặt Hà
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
-                <form name="form-order-delete"  method="POST">
+                <form name="form-order-delete" method="post">
                     {!! csrf_field() !!}
-                    <input type="hidden" name="_method" value="DELETE">
+                    <!-- <input type="hidden" name="_method" value="DELETE"> -->
                     <input type="submit" class="btn btn-outline" value="Hủy Đơn Hàng">
                 </form>
             </div>

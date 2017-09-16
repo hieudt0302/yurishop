@@ -6,6 +6,7 @@
     <div class="col-md-9 product-wrapper">
         <div class="row main-info">
             <input type="hidden" class="product-id" value="{{ $product->id }}">
+            <input type="hidden" class="product-url" value="{{ $product_url }}">
             <input type="hidden" class="shop-price" value="{!! $product->promote_price != 0 ? $product->promote_price : $product->default_price !!}">
             <div class="col-md-4">
                 <img class="img-responsive product-img" alt="{{ $product->name }}" src="{{ asset('public/assets/img/product/' . $product->thumb) }}" />
@@ -160,6 +161,7 @@
 
         $('.add-cart').click(function() {
             var product_id = $(".product-id").val();
+            var product_url = $(".product-url").val();
             var product_name = $(".cur-product-name").text();
             var price = $(".shop-price").val();
             var product_img = $(".product-img").attr('src');
@@ -171,6 +173,7 @@
                     data: {
                         'product_id': product_id,
                         'product_name': product_name,
+                        'product_url': product_url,
                         'product_img': product_img,
                         'price': price,
                         'amount': amount,

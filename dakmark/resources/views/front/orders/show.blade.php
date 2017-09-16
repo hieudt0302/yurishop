@@ -2,7 +2,9 @@
 <br>
 <div class="container">
     <div class="row">
-        <h1>Chi Tiết Đơn Hàng</h1>
+        <h3 class="page-name">
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Chi tiết Đơn hàng
+        </h3>
         @include('notifications.status_message') 
 		@include('notifications.errors_message')
     </div>
@@ -57,41 +59,24 @@
             @foreach ($orderdetails as $key => $item)
             <div class="row">
                 <div class="col-xs-2">
-                    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWRlNTI1Y2Y5NiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZGU1MjVjZjk2Ij48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
-                        alt="default" class="img-rounded img-inside">
+                    <a href="{{$item->product_url}}" target="_blank">
+                        <img src="{{ $item->image }}" alt="default" class="img-rounded img-inside">
+                    </a>
                 </div>
                 <div class="col-xs-8">
                    <div class="row">
-                        <div class="col-xs-12 text-left">
-                            <p>{{ $item->productname }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-3 text-left">
-                            <p>Đơn Giá:</p>
+                        <div class="col-xs-4 text-left">
+                            <a href="{{$item->product_url}}" target="_blank">
+                                {{ $item->productname }}
+                            </a>
                         </div>
                         <div class="col-xs-4 text-left">
-                            <p>{{ $item->unitprice }}</p>
+                            <p>Đơn Giá</p>
+                            <p>{!! price_format($item->unitprice, 'VNĐ') !!}</p>
                         </div>
-                        <div class="col-xs-3">
-                            <p>Kích Cỡ:</p>
-                        </div>
-                        <div class="col-xs-1">
-                            <p>{{ $item->size }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-xs-3 text-left">
-                            <p>Số Lượng:</p>
-                        </div>
-                        <div class="col-xs-4 text-left">
+                            <p>Số Lượng</p>
                             <p>{{ $item->quantity }}</p>
-                        </div>
-                        <div class="col-xs-3">
-                            <p>Màu Sắc:</p>
-                        </div>
-                        <div class="col-xs-1">
-                            <p>{{ $item->color }}</p>
                         </div>
                     </div>
                 </div>
@@ -105,66 +90,33 @@
                 </div>
                 @endif
             </div>
-            <hr>
             @endforeach
         </div>
         <div class="col-xs-4">
             <div class="row">
                 <div class="col-xs-6">
-                    <p>Tổng giá hàng:</p>
+                    <p>Tổng giá sản phẩm:</p>
                 </div>
                 <div class="col-xs-6 text-left">
-                    <p>{{ $order->totalamount }} Tệ</p>
+                    <p>{!! price_format($order->totalamount, 'VNĐ') !!} </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <p>Phí vận chuyển 1:</p>
+                    <p>Phí vận chuyển:</p>
                 </div>
                 <div class="col-xs-6 text-left">
-                    <p>Đang cập nhật</p>
+                    <p>{!! price_format($order->ship_fee, 'VNĐ') !!} </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-6">
-                    <p>Phí vận chuyển 2:</p>
-                </div>
-                <div class="col-xs-6 text-left">
-                    <p>Đang cập nhật</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-6">
-                    <p>Phí dịch vụ:</p>
-                </div>
-                <div class="col-xs-6 text-left">
-                    <p>50,000 vnđ</p>
-                </div>
-            </div>
+          
             <hr>
             <div class="row">
                 <div class="col-xs-6">
                     <p>Tổng đơn hàng:</p>
                 </div>
                 <div class="col-xs-6 text-left">
-                    <p>{{ $order->getTotalOrderPrice() }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-6">
-                    <p>Đặt cọc:</p>
-                </div>
-                <div class="col-xs-6 text-left">
-                    <p>5,000,000.00 vnđ</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-xs-6">
-                    <p>Còn lại:</p>
-                </div>
-                <div class="col-xs-6 text-left">
-                    <p>10,000,000 vnđ</p>
+                    <p>{!! price_format($order->getTotalOrderPrice(), 'VNĐ') !!}</p>
                 </div>
             </div>
         </div>
