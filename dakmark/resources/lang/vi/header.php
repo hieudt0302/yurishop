@@ -19,6 +19,8 @@ return [
     'cert' => 'CHỨNG CHỈ',
     'shop' => 'MUA HÀNG',
     'blog' => 'BÀI VIẾT',
-    'contact' => 'LIÊN HỆ',  
+    'contact' => 'LIÊN HỆ',
+    'search' => 'TÌM KIẾM',
+    'cart' => 'GIỎ HÀNG',        
 
 ];

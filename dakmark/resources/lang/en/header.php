@@ -19,6 +19,8 @@ return [
     'cert' => 'CERTIFICATES',
     'shop' => 'SHOP',
     'blog' => 'BLOG',
-    'contact' => 'CONTACT',    
+    'contact' => 'CONTACT',
+    'search' => 'SEARCH',
+    'cart' => 'CART',    
 
 ];

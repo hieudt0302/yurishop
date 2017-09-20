@@ -3,10 +3,11 @@
 return [
     '' => '',
     'follow-us' => 'Follow Us',
-    'customer-support' => 'CUSTOMER SUPPORT',
-    'qa' => 'Q&A',
+    'customer-support' => 'HOW CAN WE HELP?',
+    'faq' => 'Frequently asked questions',
     'purchase-flow' => 'Purchase flow',
     'returns' => 'Returns',
+    'showroom-locations' => 'Showroom locations',    
     'my-account' => 'MY ACCOUNT',
     'sign-in' => 'Sign in',
     'view-cart' => 'View cart',
