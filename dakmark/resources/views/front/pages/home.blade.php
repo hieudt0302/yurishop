@@ -8,7 +8,7 @@
             <div class="home-section fullwidth-slider bg-dark">
                 
                 <!-- Slide Item -->
-                <section class="page-section bg-scroll bg-dark bg-dark-alfa-50" data-background="images/fashion/section-bg-2.jpg">
+                <section class="page-section bg-scroll bg-dark bg-dark-alfa-50" style="background-image:url('{{ asset('public/assets/rhythm/images/foods/trungthu.jpg') }}');">
                     <div class="relative container">
                         
                         <!-- Hero Content -->
@@ -20,7 +20,7 @@
                                         
                                         <div class="row">
                                             <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-                                                <a href="shop-columns-2col.html"><img src="images/fashion/summer.png" style="" alt="" /></a>
+                                                <a href="shop-columns-2col.html"><img src="{{ asset('public/assets/rhythm/images/fashion/summer.png')}}" style="" alt="" /></a>
                                             </div>
                                         </div>
                                         
@@ -38,7 +38,7 @@
                 <!-- End Slide Item -->
                 
                 <!-- Slide Item -->
-                <section class="page-section bg-scroll bg-dark bg-dark-alfa-50" data-background="images/fashion/section-bg-3.jpg">
+                <section class="page-section bg-scroll bg-dark bg-dark-alfa-50" style="background-image:url('{{ asset('public/assets/rhythm/images/foods/caphe.jpg') }}');">
                     <div class="relative container">
                         
                         <!-- Hero Content -->
@@ -50,7 +50,7 @@
                                         
                                         <div class="row">
                                             <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-                                                <a href="shop-columns-2col.html"><img src="images/fashion/autumn.png" style="" alt="" /></a>
+                                                <a href="shop-columns-2col.html"><img src="{{ asset('public/assets/rhythm/images/fashion/autumn.png')}}" style="" alt="" /></a>
                                             </div>
                                         </div>
                                         
@@ -68,7 +68,7 @@
                 <!-- End Slide Item -->
                 
                 <!-- Slide Item -->
-                <section class="page-section bg-scroll bg-dark bg-dark-alfa-50" data-background="images/fashion/section-bg-1.jpg">
+                <section class="page-section bg-scroll bg-dark bg-dark-alfa-50" style="background-image:url('{{ asset('public/assets/rhythm/images/foods/keomut.jpg') }}');">
                     <div class="relative container">
                         
                         <!-- Hero Content -->
@@ -80,7 +80,7 @@
                                         
                                         <div class="row">
                                             <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-                                                <a href="shop-columns-2col.html"><img src="images/fashion/spring.png" style="" alt="" /></a>
+                                                <a href="shop-columns-2col.html"><img src="{{ asset('public/assets/rhythm/images/fashion/spring.png')}}" style="" alt="" /></a>
                                             </div>
                                         </div>
                                         
@@ -98,48 +98,7 @@
                 <!-- End Slide Item -->
             
             </div>
-            <!-- End Fullwidth Slider -->
-            
-            
-            <!-- Section -->
-            <section class="page-section bg-dark pt-10 pb-0">
-                <div class="relative">
-                    
-                    <!-- Grid -->
-                    <ul class="works-grid work-grid-gut work-grid-3 clearfix font-alt hover-white hide-titles" id="work-grid">
-                        
-                        <!-- Item -->
-                        <li class="work-item">
-                            <div class="post-prev-img mb-0">
-                                <a href="shop-columns-2col.html" class="work-ext-link"><img src="images/fashion/image-1.jpg" alt="" /></a>
-                            </div>
-                        </li>
-                        <!-- End Item -->
-                        
-                        <!-- Item -->
-                        <li class="work-item">
-                            <div class="post-prev-img mb-0">
-                                <a href="shop-columns-2col.html" class="work-ext-link"><img src="images/fashion/image-2.jpg" alt="" /></a>
-                            </div>
-                        </li>
-                        <!-- End Item -->
-                        
-                        <!-- Item -->
-                        <li class="work-item">
-                            <div class="post-prev-img mb-0">
-                                <a href="shop-columns-2col.html" class="work-ext-link"><img src="images/fashion/image-3.jpg" alt="" /></a>
-                            </div>
-                        </li>
-                        <!-- End Item -->
-                        
-                    </ul>
-                    <!-- End Grid -->
-                    
-                </div>
-            </section>
-            <!-- End Section -->
-            
-            
+            <!-- End Fullwidth Slider -->    
             
             <!-- Section -->
             <section class="page-section">
@@ -150,173 +109,40 @@
                     </h2>
                     
                     <div class="row multi-columns-row">
+                        @foreach($new_products as $product)
                         <!-- Shop Item -->
                         <div class="col-md-3 col-lg-3 mb-40">
                             
                             <div class="post-prev-img">
                                 
-                                <a href="shop-single.html"><img src="images/shop/shop-prev-1.jpg" alt="" /></a>
+                                <a href="shop-single.html"><img src="{{ asset('public/assets/img/product/' . $product->thumb) }}" alt="" /></a>
                                 
+                                @if($product->is_promote == 1)
                                 <div class="intro-label">
                                     <span class="label label-danger bg-red">Sale</span>
                                 </div>
+                                @endif 
                                 
                             </div>
                             
                             <div class="post-prev-title font-alt align-center">
-                                <a href="shop-single.html">G-Star Polo Applique Jersey</a>
+                                <a href="shop-single.html">{{ $product->name }}</a>
                             </div>
     
                             <div class="post-prev-text align-center mb-0">
-                                <del>$150.00</del>
+                                @if($product->is_promote == 1)
+                                <del>{!! price_format($product->default_price,'VNĐ') !!}</del>
                                 &nbsp;
-                                <strong>$94.75</strong>
+                                <strong>{!! price_format($product->promote_price,'VNĐ') !!}</strong>
+                                @else
+                                <strong>{!! price_format($product->default_price,'VNĐ') !!}</strong>
+                                @endif                                
                             </div>
-
-                            
+                              
                         </div>
                         <!-- End Shop Item -->
+                        @endforeach
                         
-                        <!-- Shop Item -->
-                        <div class="col-md-3 col-lg-3 mb-40">
-                            
-                            <div class="post-prev-img">
-                                <a href="shop-single.html"><img src="images/shop/shop-prev-2.jpg" alt="" /></a>
-                            </div>
-                            
-                            <div class="post-prev-title font-alt align-center">
-                                <a href="shop-single.html">Only & Sons Pique Polo Shirt</a>
-                            </div>
-    
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$28.99</strong>
-                            </div>
-
-                            
-                        </div>
-                        <!-- End Shop Item -->
-                        
-                        <!-- Shop Item -->
-                        <div class="col-md-3 col-lg-3 mb-40">
-                            
-                            <div class="post-prev-img">
-                                <a href="shop-single.html"><img src="images/shop/shop-prev-3.jpg" alt="" /></a>
-                            </div>
-                            
-                            <div class="post-prev-title font-alt align-center">
-                                <a href="shop-single.html">Longline Long Sleeve T-shirt</a>
-                            </div>
-    
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$39.99</strong>
-                            </div>
-
-                            
-                        </div>
-                        <!-- End Shop Item -->
-                        
-                        <!-- Shop Item -->
-                        <div class="col-md-3 col-lg-3 mb-40">
-                            
-                            <div class="post-prev-img">
-                                <a href="shop-single.html"><img src="images/shop/shop-prev-4.jpg" alt="" /></a>
-                            </div>
-                            
-                            <div class="post-prev-title font-alt align-center">
-                                <a href="shop-single.html">Polo Shirt With Floral Sleeves</a>
-                            </div>
-    
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$85.99</strong>
-                            </div>
-
-                            
-                        </div>
-                        <!-- End Shop Item -->
-                        
-                        <!-- Shop Item -->
-                        <div class="col-md-3 col-lg-3 mb-40">
-                            
-                            <div class="post-prev-img">
-                                
-                                <a href="shop-single.html"><img src="images/shop/shop-prev-5.jpg" alt="" /></a>
-                                
-                                <div class="intro-label">
-                                    <span class="label label-danger bg-red">Sale</span>
-                                </div>
-                                
-                            </div>
-                            
-                            <div class="post-prev-title font-alt align-center">
-                                <a href="shop-single.html">G-Star Polo Applique Jersey</a>
-                            </div>
-    
-                            <div class="post-prev-text align-center mb-0">
-                                <del>$150.00</del>
-                                &nbsp;
-                                <strong>$94.75</strong>
-                            </div>
-
-                            
-                        </div>
-                        <!-- End Shop Item -->
-                        
-                        <!-- Shop Item -->
-                        <div class="col-md-3 col-lg-3 mb-40">
-                            
-                            <div class="post-prev-img">
-                                <a href="shop-single.html"><img src="images/shop/shop-prev-6.jpg" alt="" /></a>
-                            </div>
-                            
-                            <div class="post-prev-title font-alt align-center">
-                                <a href="shop-single.html">Only & Sons Pique Polo Shirt</a>
-                            </div>
-    
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$28.99</strong>
-                            </div>
-
-                            
-                        </div>
-                        <!-- End Shop Item -->
-                        
-                        <!-- Shop Item -->
-                        <div class="col-md-3 col-lg-3 mb-40">
-                            
-                            <div class="post-prev-img">
-                                <a href="shop-single.html"><img src="images/shop/shop-prev-7.jpg" alt="" /></a>
-                            </div>
-                            
-                            <div class="post-prev-title font-alt align-center">
-                                <a href="shop-single.html">Longline Long Sleeve T-shirt</a>
-                            </div>
-    
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$39.99</strong>
-                            </div>
-
-                            
-                        </div>
-                        <!-- End Shop Item -->
-                        
-                        <!-- Shop Item -->
-                        <div class="col-md-3 col-lg-3 mb-40">
-                            
-                            <div class="post-prev-img">
-                                <a href="shop-single.html"><img src="images/shop/shop-prev-8.jpg" alt="" /></a>
-                            </div>
-                            
-                            <div class="post-prev-title font-alt align-center">
-                                <a href="shop-single.html">Polo Shirt With Floral Sleeves</a>
-                            </div>
-    
-                            <div class="post-prev-text align-center mb-0">
-                                <strong>$85.99</strong>
-                            </div>
-
-                            
-                        </div>
-                        <!-- End Shop Item -->
                     </div>
                     
                     <div class="mt-20 align-center">
@@ -333,13 +159,14 @@
                 <div class="container relative">
                     
                     <h2 class="section-title font-alt mb-70 mb-sm-40">
-                        Looking for something awesome?
+                        Bạn đang tìm đặc sản hấp dẫn nhất của từng miền?
                     </h2>
                     
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <div class="section-text align-center mb-70 mb-xs-40">
-                                Curabitur eu adipiscing lacus, a iaculis diam. Nullam placerat blandit auctor. Nulla accumsan ipsum et nibh rhoncus, eget tempus sapien ultricies. Donec mollis lorem vehicula.
+                                Tố tụng tìm luật sư, tìm kiếm lên Google, trời mưa mang ô dù, cần đặn sản "chất" của 3 miền thì đến với chúng tôi.
+                                Không có một cơ hỏi nhỏ nhoi cho lựa chọn sai. Mở quà ra là bạn bè biết bạn đi đâu, đưa vào miệng là bạn bè bạn cảm nhận dạt dào vùng đất bạn đã đến.
                             </div>
                         </div>
                     </div>
@@ -350,7 +177,7 @@
                         <div class="col-sm-4 mb-20 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s">
                             
                             <div class="post-prev-img">
-                                <a href="#"><img src="images/fashion/image-4.jpg" alt="" /></a>
+                                <a href="#"><img src="{{ asset('public/assets/rhythm/images/foods/mienbac.jpg')}}" alt="" /></a>
                             </div>
                             
                         </div>
@@ -360,7 +187,7 @@
                         <div class="col-sm-4 mb-20 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
                             
                             <div class="post-prev-img">
-                                <a href="#"><img src="images/fashion/image-5.jpg" alt="" /></a>
+                                <a href="#"><img src="{{ asset('public/assets/rhythm/images/foods/mientrung.jpg')}}" alt="" /></a>
                             </div>
                             
                         </div>
@@ -370,7 +197,7 @@
                         <div class="col-sm-4 mb-20 wow fadeIn" data-wow-delay="0.3s" data-wow-duration="2s">
                             
                             <div class="post-prev-img">
-                                <a href="#"><img src="images/fashion/image-6.jpg" alt="" /></a>
+                                <a href="#"><img src="{{ asset('public/assets/rhythm/images/foods/miennam.jpg')}}" alt="" /></a>
                             </div>
                             
                         </div>
@@ -413,7 +240,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-1.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-1.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Shirt With Argyle Print</a>
                                                 <div>
@@ -435,7 +262,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-2.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-2.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Slim Fit Pique Badge Logo</a>
                                                 <div>
@@ -462,7 +289,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-3.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-3.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Esprit Pique Polo Shirt</a>
                                                 <div>
@@ -481,7 +308,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-4.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-4.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Shirt With Argyle Print</a>
                                                 <div>
@@ -508,7 +335,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-2.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-2.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Slim Fit Pique Badge Logo</a>
                                                 <div>
@@ -527,7 +354,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-5.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-5.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Shirt With Argyle Print</a>
                                                 <div>
@@ -561,7 +388,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-2.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-2.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Slim Fit Pique Badge Logo</a>
                                                 <div>
@@ -580,7 +407,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-5.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-5.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Shirt With Argyle Print</a>
                                                 <div>
@@ -607,7 +434,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-1.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-1.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Shirt With Argyle Print</a>
                                                 <div>
@@ -629,7 +456,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-2.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-2.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Slim Fit Pique Badge Logo</a>
                                                 <div>
@@ -656,7 +483,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-3.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-3.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Esprit Pique Polo Shirt</a>
                                                 <div>
@@ -675,7 +502,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-4.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-4.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Shirt With Argyle Print</a>
                                                 <div>
@@ -710,7 +537,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-1.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-1.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Shirt With Argyle Print</a>
                                                 <div>
@@ -732,7 +559,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-2.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-2.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Slim Fit Pique Badge Logo</a>
                                                 <div>
@@ -760,7 +587,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-2.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-2.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Slim Fit Pique Badge Logo</a>
                                                 <div>
@@ -779,7 +606,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-5.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-5.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Shirt With Argyle Print</a>
                                                 <div>
@@ -806,7 +633,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-3.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-3.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Esprit Pique Polo Shirt</a>
                                                 <div>
@@ -825,7 +652,7 @@
                                         
                                         <!-- Preview item -->
                                         <li class="clearfix">
-                                            <a href=""><img src="images/shop/previews/shop-prev-4.jpg" alt="" class="widget-posts-img" /></a>
+                                            <a href=""><img src="{{ asset('public/assets/rhythm/images/shop/previews/shop-prev-4.jpg')}}" alt="" class="widget-posts-img" /></a>
                                             <div class="widget-posts-descr">
                                                 <a href="#" title="">Polo Shirt With Argyle Print</a>
                                                 <div>
@@ -872,10 +699,10 @@
                         <div class="col-sm-3">
                             <div class="alt-features-item align-center">
                                 <div class="alt-features-descr align-left">
-                                    <h4 class="mt-0 font-alt">How we work?</h4>
-                                    Lorem ipsum dolor sit amet, c-r adipiscing elit. 
-                                    In maximus ligula semper metus pellentesque mattis. 
-                                    Maecenas  volutpat, diam enim.
+                                    <h4 class="mt-0 font-alt">Phương châm của chúng tôi?</h4>
+                                    Hoạt động trong lĩnh vực thực phẩm nhiều năm,
+                                    chúng tôi luôn theo đuổi triêt lý chiều chuộng vị giác khách hàng. 
+                                    Chỉ cần bạn bước 1 bước về phía chúng tôi, 999 bước còn lại chúng tôi sẽ bước.
                                 </div>
                             </div>
                         </div>
@@ -887,7 +714,8 @@
                                 <div class="alt-features-icon">
                                     <span class="icon-chat"></span>
                                 </div>
-                                <h3 class="alt-features-title font-alt">Support 24/7</h3>
+                                <h3 class="alt-features-title font-alt">Hỗ trợ 24/7</h3>
+                                <p>Luôn luôn lắng nghe.</p>
                             </div>
                         </div>
                         <!-- End Features Item -->
@@ -898,7 +726,8 @@
                                 <div class="alt-features-icon">
                                     <span class="icon-wallet"></span>
                                 </div>
-                                <h3 class="alt-features-title font-alt">100% Money Back</h3>
+                                <h3 class="alt-features-title font-alt">100% hoàn tiền</h3>
+                                <p>Nếu bạn thấy chất lượng không như chúng tôi giới thiệu.</p>
                             </div>
                         </div>
                         <!-- End Features Item -->
@@ -909,7 +738,8 @@
                                 <div class="alt-features-icon">
                                     <span class="icon-hotairballoon"></span>
                                 </div>
-                                <h3 class="alt-features-title font-alt">Worldwide Shipping</h3>
+                                <h3 class="alt-features-title font-alt">Ship hàng toàn quốc</h3>
+                                <p>Đem cả 3 miền về ngôi nhà bạn.</p>
                             </div>
                         </div>
                         <!-- End Features Item -->

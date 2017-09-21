@@ -14,8 +14,8 @@ class PagesController extends Controller
 {
     public function home(){
         //$new_products = Product::orderBy('create_time','DESC'); 
-        $new_products = Product::all()->take(4);
-        $best_sellers = Product::all()->take(4);
+        $new_products = Product::all()->take(8);
+        $best_sellers = Product::all()->take(8);
         $new_blogs = Blog::all()->take(3);
         return view('front.pages.home')->with(['new_products' => $new_products,'best_sellers' => $best_sellers,'new_blogs' => $new_blogs]);
     }
