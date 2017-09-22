@@ -1,12 +1,12 @@
     <!--header-->
 <!-- Navigation panel -->
-            <nav class="main-nav dark transparent stick-fixed">
+            <nav class="main-nav js-stick">
                 <div class="full-wrapper relative clearfix">
                     
                     <!-- Logo ( * your text or image into link tag *) -->
                     <div class="nav-logo-wrap local-scroll">
                         <a href="mp-index.html" class="logo">
-                            <img src="images/logo-white.png" alt="" />
+                            <img src="{{url('public/assets/img/logo-dark-mark-200.png')}}" alt="" />
                         </a>
                     </div>
                     
@@ -20,13 +20,13 @@
                             
                             <!-- Item With Sub -->
                             <li>
-                                <a href="#" class="mn-has-sub active">@lang('header.home')</a>
+                                <a href="{{ url('/') }}" class="mn-has-sub active">@lang('header.home')</a>
                             </li>
                             <!-- End Item With Sub -->
                             
                             <!-- Item With Sub -->
                             <li>
-                                <a href="#" class="mn-has-sub">@lang('header.about-us')</a>
+                                <a href="{{ url('/about-us') }}" class="mn-has-sub">@lang('header.about-us')</a>
                             </li>
                             <!-- End Item With Sub -->
                             
@@ -113,10 +113,41 @@
                             
                             <!-- Cart -->
                             <li>
-                                <a href="#" class="active"><i class="fa fa-shopping-cart"></i> @lang('header.cart') ( {{ Cart::instance('default')->count(false) }} )</a>
+                                <a href="{{ url('/cart') }}" class="active"><i class="fa fa-shopping-cart"></i> @lang('header.cart') ( {{ Cart::instance('default')->count(false) }} )</a>
                             </li>
                             <!-- End Cart -->
                             
+                          <!-- Item With Sub -->
+                            <li>
+                                @if (Auth::guest())
+                                <a href="#" class="mn-has-sub"><i class="fa fa-user"></i>@lang('header.account') <i class="fa fa-angle-down"></i></a>
+                                <!-- Sub -->
+                                <ul class="mn-sub">                                 
+                                    <li>
+                                        <a href="{{ url('/login') }}">@lang('auth.login')</a> 
+                                    </li>                                    
+                                    <li>
+                                        <a href="{{ url('/register') }}">@lang('auth.register')</a> 
+                                    </li>
+                                </ul>
+                                <!-- End Sub -->
+                                @else
+                                <a href="#" class="mn-has-sub"><i class="fa fa-user"></i>{{ Auth::user()->first_name }}<i class="fa fa-angle-down"></i></a>
+                                <!-- Sub -->
+                                <ul class="mn-sub">                                 
+                                    <li>
+                                        <a href="{{ url('/order') }}">@lang('shoppings.order-history')</a> 
+                                    </li>                                    
+                                    <li>
+                                        <a href="{{ url('/profile') }}">@lang('common.profile')</a> 
+                                    </li>
+                                </ul>
+                                <!-- End Sub -->
+                                @endif
+
+                            </li>
+                            <!-- End Item With Sub -->
+
                             <!-- Languages -->
                             <li>
                                 <a href="#" class="mn-has-sub"><i class="fa fa-globe"></i> {{ app()->getLocale() }} <i class="fa fa-angle-down"></i></a>

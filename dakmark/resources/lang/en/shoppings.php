@@ -13,5 +13,11 @@ return [
 	 'order-stat-done' => 'Deliveried',
 	 'order-stat-cancel' => 'Cancelled',
 	 'order-stat-unclear' => 'Unclear',
-	 'items' => 'Item(s)',	 	 	 
+	 'items' => 'Item(s)',
+	 'add-cart' => 'Add to cart',	
+	 'filter' => 'Filter',
+	 'filter-price' => 'Filter by price',
+	 'related-products' => 'Related products',
+	 'product-details' => 'Product details',	 
+	  	 	  	  	 	 	 
 ];

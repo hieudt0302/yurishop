@@ -19,5 +19,6 @@ return [
 	 'note' => 'Note',
 	 'more-details' => 'More details',
      'search' => 'Search',
-     'profile' => 'Profile',     	 
+     'profile' => 'Profile',
+     'see-more' => 'See more',     	 
 ];

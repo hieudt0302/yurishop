@@ -11,6 +11,9 @@
 */
 /* Added by Thang LD */
 Route::get('/', 'Front\PagesController@home');
+Route::get('/about-us', 'Front\PagesController@about');
+
+
 Route::get('/danh-sach-don-hang',  ['uses'=>'Front\PagesController@order_list','middleware' => 'auth']);
 /*  --- */
 Route::get('/', ['as' => 'front.home',   'uses' => 'Front\PagesController@home']);

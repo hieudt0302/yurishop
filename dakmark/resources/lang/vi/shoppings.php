@@ -11,6 +11,11 @@ return [
 	'order-stat-processing' => 'Đang xử lý',
 	'order-stat-done' => 'Hoàn tất',
 	'order-stat-cancel' => 'Hủy',
-	'order-stat-unclear' => 'Không xác định',
-	'items' => 'Sản phẩm',			    
+	'order-stat-unclear' => 'Không xác định',	
+	'items' => 'Sản phẩm',
+	'add-cart' => 'Thêm vào giở hàng',
+	 'filter' => 'Lọc',
+	 'filter-price' => 'Lọc theo giá',	
+	 'related-products' => 'Sản phẩm liên quan',
+	 'product-details' => 'Chi tiết sản phẩm',	  	 					    
 ];

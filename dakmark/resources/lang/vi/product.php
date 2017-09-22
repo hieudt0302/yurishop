@@ -1,6 +1,7 @@
 <?php
 
 return [
-     'product' => 'Product',
-     'price' => 'Price',
+     'product' => 'Sản phẩm',
+     'price' => 'Giá',
+     'sale' => 'Giảm giá', 
 ];

@@ -22,5 +22,5 @@ return [
     'contact' => 'LIÊN HỆ',
     'search' => 'TÌM KIẾM',
     'cart' => 'GIỎ HÀNG',        
-
+    'account' => 'TÀI KHOẢN',
 ];

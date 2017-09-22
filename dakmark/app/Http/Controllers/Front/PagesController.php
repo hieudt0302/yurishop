@@ -19,6 +19,11 @@ class PagesController extends Controller
         $new_blogs = Blog::all()->take(3);
         return view('front.pages.home')->with(['new_products' => $new_products,'best_sellers' => $best_sellers,'new_blogs' => $new_blogs]);
     }
+
+    public function about(){
+        return view('front/pages/about');
+    }
+
     public function order_list(){
         return view('front/pages/order_list');
     }
@@ -40,7 +45,7 @@ class PagesController extends Controller
             case 'PRODUCT' : // san pham 
                 $product = Product::where('system_id',$seo->system_id)->first();
                 $product_url = $_SERVER['REQUEST_URI'];
-                $relate_products = $this->get_relate_products($product->id,10);
+                $relate_products = $this->get_relate_products($product->id,4);
                 return view('front.products.product', compact('product','product_url','relate_products','seo_title','keyword','description'));
                 break;
 

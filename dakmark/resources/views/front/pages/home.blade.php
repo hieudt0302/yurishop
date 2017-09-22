@@ -17,15 +17,7 @@
                                 
                                 <div class="row">
                                     <div class="col-md-8 col-md-offset-2">
-                                        
-                                        <div class="row">
-                                            <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-                                                <a href="shop-columns-2col.html"><img src="{{ asset('public/assets/rhythm/images/fashion/summer.png')}}" style="" alt="" /></a>
-                                            </div>
-                                        </div>
-                                        
-                                        <h1 class="hs-line-6 no-transp font-alt">Collection 2016 <a href="shop-columns-2col.html" class="btn btn-mod btn-w btn-round" style="margin-top:-3px;">Shop Now</a></h1>
-                                            
+                                        <h1 class="hs-line-6 no-transp font-alt">Quăng đi gánh lo mâm cỗ trung thu <a href="shop-columns-2col.html" class="btn btn-mod btn-w btn-round" style="margin-top:-3px;">Shop Now</a></h1>   
                                     </div>
                                 </div>
                                 
@@ -47,14 +39,8 @@
                                 
                                 <div class="row">
                                     <div class="col-md-8 col-md-offset-2">
-                                        
-                                        <div class="row">
-                                            <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-                                                <a href="shop-columns-2col.html"><img src="{{ asset('public/assets/rhythm/images/fashion/autumn.png')}}" style="" alt="" /></a>
-                                            </div>
-                                        </div>
-                                        
-                                        <h1 class="hs-line-6 no-transp font-alt">Collection 2016 <a href="shop-columns-2col.html" class="btn btn-mod btn-w btn-round" style="margin-top:-3px;">Shop Now</a></h1>
+
+                                        <h1 class="hs-line-6 no-transp font-alt">Cà phê "thuần cà phê"" <a href="shop-columns-2col.html" class="btn btn-mod btn-w btn-round" style="margin-top:-3px;">Shop Now</a></h1>
                                             
                                     </div>
                                 </div>
@@ -77,14 +63,8 @@
                                 
                                 <div class="row">
                                     <div class="col-md-8 col-md-offset-2">
-                                        
-                                        <div class="row">
-                                            <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-                                                <a href="shop-columns-2col.html"><img src="{{ asset('public/assets/rhythm/images/fashion/spring.png')}}" style="" alt="" /></a>
-                                            </div>
-                                        </div>
-                                        
-                                        <h1 class="hs-line-6 no-transp font-alt">Collection 2016 <a href="shop-columns-2col.html" class="btn btn-mod btn-w btn-round" style="margin-top:-3px;">Shop Now</a></h1>
+
+                                        <h1 class="hs-line-6 no-transp font-alt">Đặc sản 3 miền <a href="shop-columns-2col.html" class="btn btn-mod btn-w btn-round" style="margin-top:-3px;">Shop Now</a></h1>
                                             
                                    </div>
                                 </div>
@@ -105,7 +85,7 @@
                 <div class="container relative">
                     
                     <h2 class="section-title font-alt mb-70 mb-sm-40">
-                        New Products
+                        @lang('home.new-products')
                     </h2>
                     
                     <div class="row multi-columns-row">
@@ -119,7 +99,7 @@
                                 
                                 @if($product->is_promote == 1)
                                 <div class="intro-label">
-                                    <span class="label label-danger bg-red">Sale</span>
+                                    <span class="label label-danger bg-red">@lang('product.sale')</span>
                                 </div>
                                 @endif 
                                 
@@ -146,7 +126,7 @@
                     </div>
                     
                     <div class="mt-20 align-center">
-                        <a href="" class="btn btn-mod btn-round btn-medium">See More Products</a>
+                        <a href="" class="btn btn-mod btn-round btn-medium">@lang('common.see-more')</a>
                     </div>
                 
                 </div>

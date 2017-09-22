@@ -18,5 +18,6 @@ return [
 	 'note' => 'Ghi chú',
 	 'more-details' => 'Xem chi tiết',
      'search' => 'Tìm kiếm',
-     'profile' => 'Thông tin cá nhân',     	 	 	 	      
+     'profile' => 'Thông tin cá nhân',
+     'see-more' => 'Xem thêm',            	 	 	 	      
 ];
