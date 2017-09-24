@@ -171,6 +171,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Propaganistas\LaravelPhone\PhoneServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -235,6 +236,7 @@ return [
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Order'=> App\Models\Order::class,
         'OrderShop'=> App\Models\OrderShop::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

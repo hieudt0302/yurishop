@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Seo;
 use App\Models\Navigator;
 use DB;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -184,10 +185,13 @@ class ProductController extends Controller
         $thumb = '' ;
         $thumb_file = $request->file('thumb');
         if($thumb_file != NULL){
+            $path = './public/assets/img/product/thumbnail/';
+            $img = Image::make($thumb_file->getRealPath());
+            $img->resize(100, 100, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($path.'/'.$thumb_file->getClientOriginalName());            
+
             $path = './public/assets/img/product/';
-            if(!is_dir($path)){
-                mkdir($path, 0777, true);
-            }   
             $thumb = $this->upload_file($request->name, $thumb_file, $path);
         }
 
