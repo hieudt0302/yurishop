@@ -316,7 +316,7 @@ class ProductController extends Controller
         return redirect()->route('admin.product'); 
     }
 
-    // Tìm kiếm blog
+    // Tìm kiếm sản phẩm
     public function searchProduct(Request $request){
         $name = $request->input('name'); 
         $cat_id = $request->input('cat_id');

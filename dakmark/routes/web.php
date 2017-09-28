@@ -172,5 +172,6 @@ Route::get('language/{locale}', function ($locale) {
         return redirect()->back();
 });
 
-// Products 
+// Pages 
 Route::get('/{slug}.html',['as'=>'front.item.show','uses'=>'Front\PagesController@show']);
+Route::post('/search',['as'=>'front.item.search','uses'=>'Front\PagesController@search']);
