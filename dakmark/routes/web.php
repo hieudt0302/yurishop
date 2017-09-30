@@ -174,4 +174,4 @@ Route::get('language/{locale}', function ($locale) {
 
 // Pages 
 Route::get('/{slug}.html',['as'=>'front.item.show','uses'=>'Front\PagesController@show']);
-Route::post('/search',['as'=>'front.item.search','uses'=>'Front\PagesController@search']);
+Route::any('/search',['as'=>'front.item.search','uses'=>'Front\PagesController@search']);

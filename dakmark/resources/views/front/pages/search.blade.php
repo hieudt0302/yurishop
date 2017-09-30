@@ -14,15 +14,33 @@
                 <a href="{{ route('front.item.show',$productSeo->slug) }}" class="product-url">
                     <img class="product-thumb" src="{{ asset('public/assets/img/product/' . $product->thumb) }}" alt="{{ $product->name }}" />
                     <span class="product-name">{{ $product->name }}</span>
-                    @if($product->introduce != '')
+                    
                     <div class="product-info">
-                        <p>{{ $product->introduce }}</p>
+                        <div class="price">
+                            <span class="product-label">Giá : </span>
+                            @if($product->promote_price != 0)
+                            <span class="cur-price">{!! price_format($product->promote_price,'VNĐ') !!}</span>
+                            <span class="org-price"><del>{!! price_format($product->default_price,'VNĐ') !!}</del></span>
+                            @else
+                            <span class="cur-price">{!! price_format($product->default_price,'VNĐ') !!}</span>
+                            @endif
+                        </div>
+                        <div class="rating">
+                            <span class="product-label">Bình chọn : </span>
+                            <span>
+                                @for($i=0; $i<5; $i++)
+                                <i class="fa fa-star" style="color: yellow"></i>    
+                                @endfor
+                            </span>
+                        </div>
+                        <p>{!! truncate($product->introduce, 300) !!}</p>
                     </div>
-                    @endif
+                    
                 </a>
             </div>
             @endforeach
         </div>
+        <div class="pagination">{!! $products->appends(request()->input())->render() !!}</div>
         @else
         <div class="col-md-12 null">Không có sản phẩm nào</div>
         @endif
@@ -46,6 +64,7 @@
             </div>
             @endforeach
         </div>
+        <div class="pagination">{!! $blogs->appends(request()->input())->render() !!}</div>
         @else
         <div class="col-md-12 null">Không có bài viết nào</div>
         @endif

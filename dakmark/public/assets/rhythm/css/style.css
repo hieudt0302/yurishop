@@ -6440,6 +6440,10 @@ section:hover .small-item-carousel .owl-next{
 .search .keyword{
   color: #880000;
 }
+.search .pagination{
+  float: right;
+  margin: 0;
+}
 .search .search-subject {
     border-bottom: #0B610B 2px solid;
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F3F3F3), to(#DFDFDF));
@@ -6480,11 +6484,11 @@ section:hover .small-item-carousel .owl-next{
     height: 220px;
     background-color: #8B5A2B;
     color: #fff;
-    text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 10px 10px;
     bottom: 20%;
     left: 10%;
+    text-align: justify;
 
     /* Position the tooltip */
     position: absolute;
@@ -6492,4 +6496,15 @@ section:hover .small-item-carousel .owl-next{
 }
 .search .product-url:hover .product-info, .search .blog-url:hover .blog-info{
     visibility: visible;
+}
+.search .cur-price{
+  color: #66FFFF;
+}
+.search .org-price{
+    font-style: italic;
+    padding-left: 10px;
+    color: #D8DDB2;
+}
+.search .rating{
+  padding-bottom: 5px;
 }

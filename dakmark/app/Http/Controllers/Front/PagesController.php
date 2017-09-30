@@ -72,10 +72,11 @@ class PagesController extends Controller
         $this->validate($request,['keyword' => 'required']);
         $keyword = $request->input('keyword'); 
         
-        $products = Product::where("name", "LIKE", "%$keyword%")->paginate(10);   
-        $blogs = Blog::where("title", "LIKE", "%$keyword%")->paginate(10);   
+        $products = Product::where("name", "LIKE", "%$keyword%")->paginate(12);   
+        $blogs = Blog::where("title", "LIKE", "%$keyword%")->paginate(12);   
 
-        return view('front.pages.search',compact('keyword','products','blogs','cat_id','productCats'));
+        return view('front.pages.search',compact('keyword','products','blogs'))
+               ->with('i', ($request->input('page', 1) - 1) * 12);
     }
 
 
