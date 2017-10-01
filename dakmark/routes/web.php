@@ -107,6 +107,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
 
     Route::post('generate-slug',['as'=>'admin.generate-slug','uses'=>'ProductController@generate_slug']);
     Route::post('get-system-cat/{system_id}',['as'=>'admin.get-system-cat','uses'=>'NavigatorController@get_system_cat']);
+
+    // FAQs
+    Route::get('faq',['as'=>'admin.faq','uses'=>'FAQController@faqList']);
+    Route::get('faq/add',['as'=>'admin.faq.add','uses'=>'FAQController@addFAQ']);
+    Route::post('faq/add',['as'=>'admin.faq.insert','uses'=>'FAQController@insertFAQ']);
+    Route::get('faq/edit/{id}',['as'  =>'admin.faq.edit','uses' => 'FAQController@editFAQ']);
+    Route::post('faq/edit/{id}',['as' =>'admin.faq.update','uses' => 'FAQController@updateFAQ']);
+    Route::get('faq/delete/{id}',['as'  =>'admin.faq.delete','uses' => 'FAQController@deleteFAQ']);
 });
 Auth::routes();
  

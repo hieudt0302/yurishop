@@ -57,7 +57,7 @@
                     <span class="blog-title">{{ $blog->title }}</span>
                     @if($blog->introduce != '')
                     <div class="blog-info">
-                        <p>{{ $blog->introduce }}</p>
+                        <p>{!! truncate($blog->introduce, 300) !!}</p>
                     </div>
                     @endif
                 </a>

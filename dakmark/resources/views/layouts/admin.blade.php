@@ -116,6 +116,9 @@
                         <a href="{{ url('/admin/blog') }}"><i class="fa fa-fw fa-newspaper-o"></i> Blogs</a>
                     </li>
                     <li>
+                        <a href="{{ url('/admin/faq') }}"><i class="fa fa-fw fa-question-circle-o"></i> FAQ</a>
+                    </li>
+                    <li>
                         <a href="{{ url('/admin/blank') }}"><i class="fa fa-fw fa-wrench"></i> Cài Đặt</a>
                     </li>
                 </ul>
