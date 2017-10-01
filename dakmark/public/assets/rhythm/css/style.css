@@ -6508,3 +6508,32 @@ section:hover .small-item-carousel .owl-next{
 .search .rating{
   padding-bottom: 5px;
 }
+.contact{
+  background-color: #D6DAC7;
+}
+.contact .contact-box{
+  padding: 25px 20px 20px 10px; 
+  max-height:600px;
+}
+.contact .contact-title{
+  text-align: center;
+  color:#993300; 
+  text-transform:uppercase;
+  padding-bottom: 20px;
+  font-weight: 600;
+}
+.contact .info-list{
+  list-style: none;
+}
+.contact .info-list li{
+  padding-bottom: 10px;
+}
+.contact .info-list .fa{
+  font-size: 20px;
+  padding-right: 10px;
+  color: #993300;
+  width: 30px;
+}
+.contact .form-box button{
+  margin-left: 110px;
+}

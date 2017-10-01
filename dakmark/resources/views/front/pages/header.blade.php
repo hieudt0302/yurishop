@@ -35,7 +35,7 @@
                                 <a href="#" class="mn-has-sub">@lang('header.blog') <i class="fa fa-angle-down"></i></a>
 
                                <?php 
-                                    $blogCats = \DB::table('blog_cat')->where('parent_id', 0)->orderBy('sort_order', 'asc')->get();
+                                    $blogCats = \DB::table('blog_cat')->where('parent_id', 0)->where('is_show',1)->orderBy('sort_order', 'asc')->get();
                                 ?>
                                 @if(!empty($blogCats))                                
                                 <!-- Sub -->
@@ -80,6 +80,12 @@
                                 <!-- End Sub -->
                                 @endif
 
+                            </li>
+                            <!-- End Item With Sub -->
+
+                            <!-- Item With Sub -->
+                            <li>
+                                <a href="{{ url('/contact') }}" class="mn-has-sub">@lang('header.contact')</a>
                             </li>
                             <!-- End Item With Sub -->
                             

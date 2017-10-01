@@ -49,10 +49,12 @@
                             <a href="{{ route('admin.blog-cat.edit',$bCat->id) }}" class="btn btn-default btn-xs" title="Chỉnh sửa">
                                 <i class="fa fa-pencil"></i>Sửa 
                             </a>
+                            @if($bCat->system_id != 'INFOCAT')
                             <a href="{{ route('admin.blog-cat.delete',$bCat->id) }}" class="btn btn-default btn-xs" title="Xóa" 
                                 onclick="return confirm('Bạn muốn xóa danh mục này ?');">
                                 <i class="fa fa-trash"></i>Xóa
                             </a>
+                            @endif
                         </td>
                     </tr>
                    
@@ -74,10 +76,12 @@
                                 <a href="{{ route('admin.blog-cat.edit',$childCat->id) }}" class="btn btn-default btn-xs" title="Chỉnh sửa">
                                     <i class="fa fa-pencil"></i>Sửa 
                                 </a>
+                                @if($childCat->system_id != 'INFOCAT')
                                 <a href="{{ route('admin.blog-cat.delete',$childCat->id) }}" class="btn btn-default btn-xs" title="Xóa" 
                                    onclick="return confirm('Bạn muốn xóa danh mục này ?');">
                                     <i class="fa fa-trash"></i>Xóa
                                 </a>
+                                @endif
                             </td>
                         </tr>
                                 @if(App\Models\BlogCat::hasChildCat($childCat->id))
@@ -98,10 +102,12 @@
                                     <a href="{{ route('admin.blog-cat.edit',$childCat2->id) }}" class="btn btn-default btn-xs" title="Chỉnh sửa">
                                         <i class="fa fa-pencil"></i>Sửa 
                                     </a>
+                                    @if($childCat2->system_id != 'INFOCAT')
                                     <a href="{{ route('admin.blog-cat.delete',$childCat2->id) }}" class="btn btn-default btn-xs" title="Xóa" 
                                        onclick="return confirm('Bạn muốn xóa danh mục này ?');">
                                         <i class="fa fa-trash"></i>Xóa
                                     </a>
+                                    @endif
                                 </td>
                             </tr>
                                     @endforeach

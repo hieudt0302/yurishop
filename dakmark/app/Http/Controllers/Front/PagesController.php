@@ -20,9 +20,9 @@ class PagesController extends Controller
         return view('front.pages.home')->with(['new_products' => $new_products,'best_sellers' => $best_sellers,'new_blogs' => $new_blogs]);
     }
 
-    public function about(){
-        return view('front/pages/about');
-    }
+    // public function about(){
+    //     return view('front/pages/about');
+    // }
 
     public function order_list(){
         return view('front/pages/order_list');
@@ -164,6 +164,34 @@ class PagesController extends Controller
 
     // Thêm sản phẩm vào giỏ hàng
     public function addCart(Request $request){
+        
+    }
+
+    // Lấy bài viết Giới thiệu, system_id = INFO1
+    public function about_us(Request $request){
+        $system_id = 'INFO1';
+        $seo = Seo::where('system_id', $system_id)->first();
+        return $this->show($request, $seo->slug);
+    }
+
+    // Lấy bài viết Hướng dẫn mua hàng, system_id = INFO2
+    public function purchase_flow(Request $request){
+        $system_id = 'INFO2';
+        $seo = Seo::where('system_id', $system_id)->first();
+        return $this->show($request, $seo->slug);
+    }
+
+    // Lấy bài viết Thủ tục trả hàng, system_id = INFO3
+    public function returns(Request $request){
+        $system_id = 'INFO3';
+        $seo = Seo::where('system_id', $system_id)->first();
+        return $this->show($request, $seo->slug);
+    }
+
+    public function contact(){
+        return view('front/pages/contact');
+    }
+    public function send_contact(Request $request){
         
     }
 }

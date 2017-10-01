@@ -80,10 +80,13 @@
                             <a href="{{ route('admin.blog.edit',$b->id) }}" class="btn btn-default btn-xs" title="Chỉnh sửa">
                                 <i class="fa fa-pencil"></i>Sửa 
                             </a>
+                            <?php $blogCat = App\Models\BlogCat::find($b->cat_id); ?>
+                            @if($blogCat->system_id != 'INFOCAT')
                             <a href="{{ route('admin.blog.delete',$b->id) }}" class="btn btn-default btn-xs" title="Xóa" 
                                 onclick="return confirm('Bạn muốn xóa blog này ?');">
                                 <i class="fa fa-trash"></i>Xóa
                             </a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach

@@ -61,7 +61,7 @@
                                             <a href="{{ url('/returns') }}">@lang('footer.returns') <i class="fa fa-angle-right right"></i></a>
                                         </li>
                                         <li>
-                                            <a href="{{ url('/faq') }}">@lang('footer.faq') <i class="fa fa-angle-right right"></i></a>
+                                            <a href="{{ url('/faqs') }}">@lang('footer.faq') <i class="fa fa-angle-right right"></i></a>
                                         </li>
                                         <li>
                                             <a href="{{ url('/returns') }}">@lang('footer.showroom-locations') <i class="fa fa-angle-right right"></i></a>

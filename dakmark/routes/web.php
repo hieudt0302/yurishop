@@ -183,3 +183,8 @@ Route::get('language/{locale}', function ($locale) {
 // Pages 
 Route::get('/{slug}.html',['as'=>'front.item.show','uses'=>'Front\PagesController@show']);
 Route::any('/search',['as'=>'front.item.search','uses'=>'Front\PagesController@search']);
+Route::get('/purchase-flow',['as'=>'front.purchase-flow','uses'=>'Front\PagesController@purchase_flow']);
+Route::get('/returns',['as'=>'front.returns','uses'=>'Front\PagesController@returns']);
+Route::get('/about-us',['as'=>'front.about-us','uses'=>'Front\PagesController@about_us']);
+Route::get('/contact',['as'=>'front.contact','uses'=>'Front\PagesController@contact']);
+Route::post('/contact',['as'=>'front.send-contact','uses'=>'Front\PagesController@send_contact']);
