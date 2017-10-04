@@ -37,10 +37,5 @@ return [
     'placeholder_confirmpassword' => 'Confirm password',
     'backhome' => 'Back to homepage',
     'recaptcha' =>'?hl=en',
-    'alert_required_input' => 'Field required input',
-    'client-feedback-success' => 'All inputs are OK.',    
-    'client-feedback-warning' => 'Opps! There were some problems.',
-    'client-feedback-warning-detailed' => 'You need to fulfill below requirements.',
-    'input-email-message' => 'Please input your registered email.', 
-    'reset-password-request' => 'Send request',         
+     'alert_required_input' => 'Field required input',      
 ];

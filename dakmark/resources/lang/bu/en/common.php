@@ -21,7 +21,4 @@ return [
      'search' => 'Search',
      'profile' => 'Profile',
      'see-more' => 'See more',     	 
-     'categories' => 'Categories',   
-     'search' => 'Search...',       	 
-
 ];

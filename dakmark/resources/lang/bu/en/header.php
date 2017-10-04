@@ -21,7 +21,6 @@ return [
     'blog' => 'BLOG',
     'contact' => 'CONTACT',
     'search' => 'SEARCH',
-    'cart' => 'CART',
-    'account' => 'ACCOUNT',           
+    'cart' => 'CART',    
 
 ];

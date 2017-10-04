@@ -5,7 +5,7 @@
                     
                     <!-- Logo ( * your text or image into link tag *) -->
                     <div class="nav-logo-wrap local-scroll">
-                        <a href="mp-index.html" class="logo">
+                        <a href="{{ url('/') }}" class="logo">
                             <img src="{{url('public/assets/img/logo-dark-mark-200.png')}}" alt="" />
                         </a>
                     </div>
@@ -119,7 +119,7 @@
                             
                             <!-- Cart -->
                             <li>
-                                <a href="{{ url('/cart') }}" class="active"><i class="fa fa-shopping-cart"></i> @lang('header.cart') ( {{ Cart::instance('default')->count(false) }} )</a>
+                                <a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart"></i> @lang('header.cart') ({{ Cart::instance('default')->count(false) }})</a>
                             </li>
                             <!-- End Cart -->
                             
@@ -147,6 +147,15 @@
                                     <li>
                                         <a href="{{ url('/profile') }}">@lang('common.profile')</a> 
                                     </li>
+                                    <li>
+                                        <a href="{{ url('/logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                            @lang('auth.logout')
+                                        </a>
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>                                    
                                 </ul>
                                 <!-- End Sub -->
                                 @endif

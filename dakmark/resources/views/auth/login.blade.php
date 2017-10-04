@@ -14,13 +14,13 @@ area') @section('content')
 		<p id="profile-name" class="profile-name-card"></p>
 		<form class="form-signin" method="POST" action="{{ url('/login') }}" data-parsley-validate="">
 			{{ csrf_field() }}
-			<input type="text" id="username" name="username" class="form-control" placeholder="Tên tài khoản" value="{{ old('username') }}"
-			    required autofocus data-parsley-required-message="Yêu cầu nhập tên tài khoản" data-parsley-trigger="change focusout" data-parsley-minlength="5"
+			<input type="text" id="username" name="username" class="form-control" placeholder="{{ __('auth.placeholder_username') }}" value="{{ old('username') }}"
+			    required autofocus data-parsley-required-message="{{ __('auth.alert_required_input') }}" data-parsley-trigger="change focusout" data-parsley-minlength="5"
 			    data-parsley-maxlength="20"> @if ($errors->has('username'))
 			<span class="help-block">
 						<strong>{{ $errors->first('username') }}</strong>
 					</span> @endif
-			<input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" required data-parsley-required-message="Yêu cầu nhập mật khẩu"
+			<input type="password" id="password" name="password" class="form-control" placeholder="{{ __('auth.placeholder_password') }}" required data-parsley-required-message="{{ __('auth.alert_required_input') }}"
 			    data-parsley-trigger="change focusout" data-parsley-minlength="5" data-parsley-maxlength="32"> @if ($errors->has('password'))
 			<span class="help-block">
 						<strong>{{ $errors->first('password') }}</strong>
@@ -33,12 +33,12 @@ area') @section('content')
 			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">@lang('auth.signin')</button>
 		</form>
 		<!-- /form -->
-		<a href="{{ url('/password/reset') }}" class="forgot-password">@lang('auth.forgotpassword')</a> hoặc <a href="{{ url('/username/reminder') }}"
+		<a href="{{ url('/password/reset') }}" class="forgot-password">@lang('auth.forgotpassword')</a> {{ __('common.or') }} <a href="{{ url('/username/reminder') }}"
 		    class="forgot-password">@lang('auth.forgotusername')</a>
 	</div>
 	<!-- /card-container -->
 	<div class="card-container text-center">
-		<a href="{{ url('/register') }}" class="new-account">@lang('auth.createaccount')</a> hoặc <a href="{{ url('/activation/resend') }}"
+		<a href="{{ url('/register') }}" class="new-account">@lang('auth.createaccount')</a> {{ __('common.or') }} <a href="{{ url('/activation/resend') }}"
 		    class="new-account">@lang('auth.resendactivationcode')</a>
 	</div>
 </div>

@@ -55,6 +55,9 @@
                                 <div class="widget-body">
                                     <ul class="clearlist widget-menu">
                                         <li>
+                                            <a href="{{ url('/faqs') }}">@lang('footer.faqs') <i class="fa fa-angle-right right"></i></a>
+                                        </li>                                        
+                                        <li>
                                             <a href="{{ url('/purchase-flow') }}">@lang('footer.purchase-flow') <i class="fa fa-angle-right right"></i></a>
                                         </li>
                                         <li>
@@ -64,7 +67,7 @@
                                             <a href="{{ url('/faqs') }}">@lang('footer.faq') <i class="fa fa-angle-right right"></i></a>
                                         </li>
                                         <li>
-                                            <a href="{{ url('/returns') }}">@lang('footer.showroom-locations') <i class="fa fa-angle-right right"></i></a>
+                                            <a href="{{ url('/showrooms') }}">@lang('footer.showroom-locations') <i class="fa fa-angle-right right"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -80,9 +83,19 @@
                                 <h5 class="widget-title font-alt">@lang('footer.my-account')</h5>
                                 
                                 <div class="widget-body">
+                                    @if (Auth::guest())
                                     <ul class="clearlist widget-menu">
                                         <li>
                                             <a href="{{ url('/login') }}">@lang('footer.sign-in') <i class="fa fa-angle-right right"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('/register') }}">@lang('auth.register') <i class="fa fa-angle-right right"></i></a>
+                                        </li>
+                                    </ul>
+                                    @else                                    
+                                    <ul class="clearlist widget-menu">
+                                        <li>
+                                            <a href="{{ url('/logout') }}">@lang('footer.log-out') <i class="fa fa-angle-right right"></i></a>
                                         </li>
                                         <li>
                                             <a href="{{ url('/cart') }}">@lang('footer.view-cart') <i class="fa fa-angle-right right"></i></a>
@@ -94,6 +107,7 @@
                                             <a href="{{ url('/orders') }}">@lang('footer.order-history') <i class="fa fa-angle-right right"></i></a>
                                         </li>
                                     </ul>
+                                    @endif
                                 </div>
                                 
                             </div>                          

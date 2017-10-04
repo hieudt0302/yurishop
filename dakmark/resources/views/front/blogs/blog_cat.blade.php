@@ -96,7 +96,7 @@
                                 <button class="search-button animate" type="submit" title="Start Search">
                                     <i class="fa fa-search"></i>
                                 </button>
-                                <input type="text" class="form-control search-field" placeholder="Search...">
+                                <input type="text" class="form-control search-field" placeholder="{{ __('common.search') }}">
                             </div>
                         </form>
                     </div>
@@ -105,40 +105,30 @@
                     <!-- Widget -->
                     <div class="widget">
                         
-                        <h5 class="widget-title font-alt">Categories</h5>
+                        <h5 class="widget-title font-alt">@lang('common.categories')</h5>
                         
                         <div class="widget-body">
                             <ul class="clearlist widget-menu">
-                                <li>
-                                    <a href="#" title="">Branding</a>
-                                    <small>
-                                        - 7
-                                    </small>
-                                </li>
-                                <li>
-                                    <a href="#" title="">Design</a>
-                                    <small>
-                                        - 15
-                                    </small>
-                                </li>
-                                <li>
-                                    <a href="#" title="">Development</a>
-                                    <small>
-                                        - 3
-                                    </small>
-                                </li>
-                                <li>
-                                    <a href="#" title="">Photography</a>
-                                    <small>
-                                        - 5
-                                    </small>
-                                </li>
-                                <li>
-                                    <a href="#" title="">Other</a>
-                                    <small>
-                                        - 1
-                                    </small>
-                                </li>
+                               <?php 
+                                    $blogCats = \DB::table('blog_cat')->where('parent_id', 0)->where('is_show',1)->orderBy('sort_order', 'asc')->get();
+                                ?>
+                                @if(!empty($blogCats))                                
+                                <!-- Sub -->
+                                    
+                                    @foreach ($blogCats as $bCat)
+                                    <?php $bCatSeo = \DB::table('seo')->where('system_id', $bCat->system_id)->first(); ?>                                    
+                                    <li>
+                                        <a href="{{ route('front.item.show',$bCatSeo->slug) }}" title="{{ $bCat->name }}">
+                                            {{ $bCat->name }}
+                                        </a> 
+                                        <small>
+                                            - 5
+                                        </small>                                        
+                                    </li>
+                                    @endforeach
+                                    
+                                <!-- End Sub -->
+                                @endif
                             </ul>
                         </div>
                         
@@ -170,27 +160,6 @@
                     </div>
                     <!-- End Widget -->
                     
-                    <!-- Widget -->
-                    <div class="widget">
-                        
-                        <h5 class="widget-title font-alt">Archive</h5>
-                        
-                        <div class="widget-body">
-                            <ul class="clearlist widget-menu">
-                                <li>
-                                    <a href="#" title="">February 2014</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">January 2014</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">December 2013</a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                    <!-- End Widget -->
                     
                 </div>
                 <!-- End Sidebar -->

@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Header Language Lines
+    | Pagination Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used by the paginator library to build
@@ -13,15 +13,7 @@ return [
     |
     */
 
-    '' => '',
-    'home' => 'HOME',
-    'about-us' => 'ABOUT',
-    'cert' => 'CERTIFICATES',
-    'shop' => 'SHOP',
-    'blog' => 'BLOG',
-    'contact' => 'CONTACT',
-    'search' => 'SEARCH',
-    'cart' => 'CART',
-    'account' => 'ACCOUNT',           
+    'previous' => '&laquo; Previous',
+    'next' => 'Next &raquo;',
 
 ];

@@ -17,7 +17,7 @@
                                 
                                 <div class="row">
                                     <div class="col-md-8 col-md-offset-2">
-                                        <h1 class="hs-line-6 no-transp font-alt">Quăng đi gánh lo mâm cỗ trung thu <a href="shop-columns-2col.html" class="btn btn-mod btn-w btn-round" style="margin-top:-3px;">Shop Now</a></h1>   
+                                        <h1 class="hs-line-6 no-transp font-alt">Quăng đi gánh lo mâm cỗ trung thu <a href="shop-columns-2col.html" class="btn btn-mod btn-w btn-round" style="margin-top:-3px;">@lang('common.see-more')</a></h1>   
                                     </div>
                                 </div>
                                 

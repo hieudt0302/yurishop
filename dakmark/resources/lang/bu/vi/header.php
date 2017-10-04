@@ -14,14 +14,13 @@ return [
     */
 
     '' => '',
-    'home' => 'HOME',
-    'about-us' => 'ABOUT',
-    'cert' => 'CERTIFICATES',
-    'shop' => 'SHOP',
-    'blog' => 'BLOG',
-    'contact' => 'CONTACT',
-    'search' => 'SEARCH',
-    'cart' => 'CART',
-    'account' => 'ACCOUNT',           
-
+    'home' => 'TRANG CHỦ',
+    'about-us' => 'GIỚI THIỆU',
+    'cert' => 'CHỨNG CHỈ',
+    'shop' => 'MUA HÀNG',
+    'blog' => 'BÀI VIẾT',
+    'contact' => 'LIÊN HỆ',
+    'search' => 'TÌM KIẾM',
+    'cart' => 'GIỎ HÀNG',        
+    'account' => 'TÀI KHOẢN',
 ];

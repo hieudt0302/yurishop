@@ -12,6 +12,7 @@
 /* Added by Thang LD */
 Route::get('/', 'Front\PagesController@home');
 Route::get('/about-us', 'Front\PagesController@about');
+Route::get('/faqs', 'Front\FaqController@index');
 
 
 Route::get('/danh-sach-don-hang',  ['uses'=>'Front\PagesController@order_list','middleware' => 'auth']);
@@ -108,13 +109,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('generate-slug',['as'=>'admin.generate-slug','uses'=>'ProductController@generate_slug']);
     Route::post('get-system-cat/{system_id}',['as'=>'admin.get-system-cat','uses'=>'NavigatorController@get_system_cat']);
 
-    // FAQs
-    Route::get('faq',['as'=>'admin.faq','uses'=>'FAQController@faqList']);
-    Route::get('faq/add',['as'=>'admin.faq.add','uses'=>'FAQController@addFAQ']);
-    Route::post('faq/add',['as'=>'admin.faq.insert','uses'=>'FAQController@insertFAQ']);
-    Route::get('faq/edit/{id}',['as'  =>'admin.faq.edit','uses' => 'FAQController@editFAQ']);
-    Route::post('faq/edit/{id}',['as' =>'admin.faq.update','uses' => 'FAQController@updateFAQ']);
-    Route::get('faq/delete/{id}',['as'  =>'admin.faq.delete','uses' => 'FAQController@deleteFAQ']);
+    //FAQs
+    Route::get('faqs',['as'=>'admin.faqs.index','uses'=>'FaqController@index']);
+    Route::get('faqs/create',['as'=>'admin.faqs.create','uses'=>'FaqController@create']);
+    Route::post('faqs/create',['as'=>'admin.faqs.store','uses'=>'FaqController@store']);
+    Route::get('faqs/{id}',['as'  =>'admin.faqs.show','uses' => 'FaqController@show']);
+    Route::get('faqs/{id}/edit',['as'  =>'admin.faqs.edit','uses' => 'FaqController@edit']);
+    Route::patch('faqs/{id}',['as'  =>'admin.faqs.update','uses' => 'FaqController@update']);    
+    Route::delete('faqs/{id}',['as'  =>'admin.faqs.destroy','uses' => 'FaqController@destroy']); 
 });
 Auth::routes();
  

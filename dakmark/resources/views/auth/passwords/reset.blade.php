@@ -4,8 +4,8 @@
 <br>
 <div class="container">
 	<div class="card-container text-center">
-		<div class="title">Đổi Mật Khẩu</div>
-		<div class="subtitle">Vui lòng thay thế bằng mật khẩu mới của bạn</div>
+		<div class="title">{{ __('auth.reset-password') }}</div>
+		<div class="subtitle">{{ __('auth.reset-password-message') }}</div>
 		@if (session('status'))
 		<div class="alert alert-success">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> {{ session('status') }}
@@ -24,29 +24,29 @@
 			{{ csrf_field() }}
 			<input type="hidden" name="token" value="{{ $token }}">
 			<input type="email" id="email" name="email" class="form-control" placeholder="Email" value="{{ $email or old('email') }}"
-			    required autofocus data-parsley-required-message="Yêu cầu nhập địa chỉ email" data-parsley-trigger="change focusout" data-parsley-type="email">			@if ($errors->has('email'))
+			    required autofocus data-parsley-required-message="{{ __('auth.alert_required_input') }}" data-parsley-trigger="change focusout" data-parsley-type="email">			@if ($errors->has('email'))
 			<span class="help-block">
 						<strong>{{ $errors->first('email') }}</strong>
 					</span> @endif
-			<input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" required data-parsley-required-message="Yêu cầu nhập mật khẩu"
+			<input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" required data-parsley-required-message="{{ __('auth.alert_required_input') }}"
 			    data-parsley-trigger="change focusout" data-parsley-minlength="6" data-parsley-maxlength="32"> @if ($errors->has('password'))
 			<span class="help-block">
 						<strong>{{ $errors->first('password') }}</strong>
 					</span> @endif
-			<input type="password" id="password-confirm" name="password_confirmation" class="form-control" placeholder="Xác nhận mật khẩu"
-			    required data-parsley-required-message="Yêu cầu xác nhận mật khẩu" data-parsley-trigger="change focusout" data-parsley-minlength="6"
+			<input type="password" id="password-confirm" name="password_confirmation" class="form-control" placeholder="{{ __('auth.password') }}"
+			    required data-parsley-required-message="{{ __('auth.alert_required_input') }}" data-parsley-trigger="change focusout" data-parsley-minlength="6"
 			    data-parsley-maxlength="32" data-parsley-equalto="#password" data-parsley-equalto-message="Mật khẩu xác nhận không phù hợp">			@if ($errors->has('password_confirmation'))
 			<span class="help-block">
 						<strong>{{ $errors->first('password_confirmation') }}</strong>
 					</span> @endif
-			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Đổi Mật Khẩu</button>
+			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">{{ __('auth.reset-password') }}</button>
 		</form>
 		<!-- /form -->
 		<a href="{{ url('/username/reminder') }}" class="forgot-password">@lang('auth.forgotusername')</a>
 	</div>
 	<!-- /card-container -->
 	<div class="card-container text-center">
-		<a href="{{ url('/register') }}" class="new-account">@lang('auth.createaccount')</a> hoặc <a href="{{ url('/login') }}"
+		<a href="{{ url('/register') }}" class="new-account">@lang('auth.createaccount')</a> {{ __('common.or') }} <a href="{{ url('/login') }}"
 		    class="new-account">@lang('auth.login')</a>
 	</div>
 

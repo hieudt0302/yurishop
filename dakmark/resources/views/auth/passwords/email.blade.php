@@ -5,8 +5,8 @@
 <br>
 <div class="container">
 	<div class="card-container text-center">
-		<div class="title">Quên Mật Khẩu</div>
-		<div class="subtitle">Vui lòng cung cấp địa chỉ email của bạn</div>
+		<div class="title">{{ __('auth.forgotpassword') }}</div>
+		<div class="subtitle">{{ __('auth.input-email-message') }}</div>
 		@if (session('status'))
 		<div class="alert alert-success">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> {{ session('status') }}
@@ -36,7 +36,7 @@
 	</div>
 	<!-- /card-container -->
 	<div class="card-container text-center">
-		<a href="{{ url('/register') }}" class="new-account">@lang('auth.createaccount')</a> hoặc <a href="{{ url('/login') }}" class="new-account">@lang('auth.login')</a>
+		<a href="{{ url('/register') }}" class="new-account">@lang('auth.createaccount')</a> {{ __('common.or') }} <a href="{{ url('/login') }}" class="new-account">@lang('auth.login')</a>
 	</div>
 
 </div>

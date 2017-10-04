@@ -13,5 +13,4 @@ return [
     'view-cart' => 'View cart',
     'my-wishlist' => 'My wishlist',
     'order-history' => 'Order history',
-    'faqs' => 'FAQs',    
 ];

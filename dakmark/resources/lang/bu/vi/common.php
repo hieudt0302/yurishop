@@ -19,7 +19,5 @@ return [
 	 'more-details' => 'Xem chi tiết',
      'search' => 'Tìm kiếm',
      'profile' => 'Thông tin cá nhân',
-     'see-more' => 'Xem thêm',
-     'categories' => 'Danh mục',
-     'search' => 'Tìm kiếm...',                      	 	 	 	      
+     'see-more' => 'Xem thêm',            	 	 	 	      
 ];
