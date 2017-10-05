@@ -185,14 +185,13 @@ class ProductController extends Controller
         $thumb = '' ;
         $thumb_file = $request->file('thumb');
         if($thumb_file != NULL){
-            $path = './public/assets/img/product/thumbnail/';
+            $path = './public/assets/img/product/thumbnail';
             $img = Image::make($thumb_file->getRealPath());
-            $img->resize(100, 100, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($path.'/'.$thumb_file->getClientOriginalName());            
+            $img->fit(100, 100)->save($path.'/'.$thumb_file->getClientOriginalName());            
 
-            $path = './public/assets/img/product/';
-            $thumb = $this->upload_file($request->name, $thumb_file, $path);
+            $path = './public/assets/img/product';
+            $img->fit(370, 472)->save($path.'/'.$thumb_file->getClientOriginalName());  
+            $thumb = $thumb_file->getClientOriginalName();
         }
 
         $default_price = str_replace(",", "", $request->default_price);  
@@ -258,11 +257,13 @@ class ProductController extends Controller
         $thumb = '' ;
         $thumb_file = $request->file('thumb');
         if($thumb_file != NULL){
-            $path = './public/assets/img/product/';
-            if(!is_dir($path)){
-                mkdir($path, 0777, true);
-            }   
-            $thumb = $this->upload_file($request->name, $thumb_file, $path);
+            $path = './public/assets/img/product/thumbnail';
+            $img = Image::make($thumb_file->getRealPath());
+            $img->fit(100, 100)->save($path.'/'.$thumb_file->getClientOriginalName());            
+
+            $path = './public/assets/img/product';
+            $img->fit(370, 472)->save($path.'/'.$thumb_file->getClientOriginalName());  
+            $thumb = $thumb_file->getClientOriginalName();
         }
 
         $default_price = str_replace(",", "", $request->default_price);  

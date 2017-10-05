@@ -184,11 +184,10 @@ class BlogController extends Controller
         $thumb = '' ;
         $thumb_file = $request->file('thumb');
         if($thumb_file != NULL){
-            $path = './public/assets/img/blog/';
-            if(!is_dir($path)){
-                mkdir($path, 0777, true);
-            }   
-            $thumb = $this->upload_file($request->title, $thumb_file, $path);
+            $path = './public/assets/img/blog';
+            $img = Image::make($thumb_file->getRealPath());
+            $img->fit(370, 200)->save($path.'/'.$thumb_file->getClientOriginalName());            
+            $thumb = $thumb_file->getClientOriginalName();
         }
 
         // Insert data vào bảng blog
@@ -244,11 +243,10 @@ class BlogController extends Controller
         $thumb = '' ;
         $thumb_file = $request->file('thumb');
         if($thumb_file != NULL){
-            $path = './public/assets/img/blog/';
-            if(!is_dir($path)){
-                mkdir($path, 0777, true);
-            }   
-            $thumb = $this->upload_file($request->title, $thumb_file, $path);
+            $path = './public/assets/img/blog';
+            $img = Image::make($thumb_file->getRealPath());
+            $img->fit(370, 200)->save($path.'/'.$thumb_file->getClientOriginalName());            
+            $thumb = $thumb_file->getClientOriginalName();
         }
 
         // Update data bảng seo
