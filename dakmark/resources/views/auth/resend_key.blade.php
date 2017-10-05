@@ -21,7 +21,7 @@
 						<strong>{{ $errors->first('email') }}</strong>
 					</span> @endif
 
-			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Gửi Lại Mã Kích Hoạt</button>
+			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">{{ __('auth.resendactivationcode') }}</button>
 		</form>
 		<!-- /form -->
 		<a href="{{ url('/password/reset') }}" class="forgot-password">@lang('auth.forgotpassword')</a> hoặc <a href="{{ url('/username/reminder') }}"

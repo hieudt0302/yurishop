@@ -169,9 +169,10 @@ class PagesController extends Controller
 
     // Lấy bài viết Giới thiệu, system_id = INFO1
     public function about_us(Request $request){
-        $system_id = 'INFO1';
-        $seo = Seo::where('system_id', $system_id)->first();
-        return $this->show($request, $seo->slug);
+        //$system_id = 'INFO1';
+        //$seo = Seo::where('system_id', $system_id)->first();
+        //return $this->show($request, $seo->slug);
+        return view('front/pages/about');        
     }
 
     // Lấy bài viết Hướng dẫn mua hàng, system_id = INFO2

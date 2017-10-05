@@ -42,5 +42,7 @@ return [
     'client-feedback-warning' => 'Opps! There were some problems.',
     'client-feedback-warning-detailed' => 'You need to fulfill below requirements.',
     'input-email-message' => 'Please input your registered email.', 
-    'reset-password-request' => 'Send request',         
+    'reset-password-request' => 'Send request',
+    'username-remind' => 'Remind username',      
+    'username-remind-request' => 'Send request',                 
 ];

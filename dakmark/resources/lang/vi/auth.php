@@ -41,5 +41,7 @@ return [
     'client-feedback-warning' => 'Xin lỗi, có một vài vấn đề!',
     'client-feedback-warning-detailed' => 'Bạn cần hoàn thành các yêu cầu dưới đây.',
     'input-email-message' => 'Vui lòng cung cấp địa chỉ email của bạn',  
-    'reset-password-request' => 'Yêu cầu đổi mật khẩu',                     
+    'reset-password-request' => 'Yêu cầu đổi mật khẩu',
+    'username-remind' => 'Nhắc tên tài khoản',      
+    'username-remind-request' => 'Yêu cầu nhắc tên tài khoản',                         
 ];

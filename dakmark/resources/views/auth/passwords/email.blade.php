@@ -24,12 +24,12 @@
 		<form class="form-signin" method="POST" action="{{ url('/password/email') }}" data-parsley-validate="">
 			{{ csrf_field() }}
 			<input type="email" id="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required
-			    autofocus data-parsley-required-message="Yêu cầu nhập địa chỉ email" data-parsley-trigger="change focusout" data-parsley-type="email">			@if ($errors->has('email'))
+			    autofocus data-parsley-required-message="{{ __('auth.alert_required_input') }}" data-parsley-trigger="change focusout" data-parsley-type="email">			@if ($errors->has('email'))
 			<span class="help-block">
 						<strong>{{ $errors->first('email') }}</strong>
 					</span> @endif
 
-			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Yêu Cầu Đổi Mật Khẩu</button>
+			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">{{ __('auth.reset-password-request') }}</button>
 		</form>
 		<!-- /form -->
 		<a href="{{ url('/username/reminder') }}" class="forgot-password">@lang('auth.forgotusername')</a>

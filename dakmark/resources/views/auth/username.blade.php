@@ -4,8 +4,8 @@
 <br>
 <div class="container">
 	<div class="card-container text-center">
-		<div class="title">Nhắc Tên Tài Khoản</div>
-		<div class="subtitle">Vui lòng cung cấp địa chỉ email của bạn</div>
+		<div class="title">@lang('auth.username-remind')</div>
+		<div class="subtitle">@lang('auth.input-email-message')</div>
 		@include('notifications.status_message') 
 		@include('notifications.errors_message')
 	</div>
@@ -24,14 +24,14 @@
 					</span> 
 					@endif
 
-			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Yêu Cầu Nhắc Tên Tài Khoản</button>
+			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">@lang('auth.username-remind-request')</button>
 		</form>
 		<!-- /form -->
 		<a href="{{ url('/password/reset') }}" class="forgot-password">@lang('auth.forgotpassword')</a>
 	</div>
 	<!-- /card-container -->
 	<div class="card-container text-center">
-		<a href="{{ url('/register') }}" class="new-account">@lang('auth.createaccount')</a> hoặc <a href="{{ url('/login') }}" class="new-account">@lang('auth.login')</a>
+		<a href="{{ url('/register') }}" class="new-account">@lang('auth.createaccount')</a> @lang('common.or') <a href="{{ url('/login') }}" class="new-account">@lang('auth.login')</a>
 	</div>
 
 </div>

@@ -10,9 +10,9 @@
             <div class="row">
                 
                 <div class="col-md-8">
-                    <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">About Us</h1>
+                    <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Dakmark Foods</h1>
                     <div class="hs-line-4 font-alt">
-                        Extraordinary art team &&nbsp;creative minimalism lovers
+                        Quality foods quality life
                     </div>
                 </div>
                 
@@ -35,25 +35,10 @@
             
             <div class="section-text mb-50 mb-sm-20">
                 <div class="row">
-                
-                    <div class="col-md-4">
-                        <blockquote>
-                            <p>
-                            Design is&nbsp;not making beauty, beauty emerges from selection, affinities, integration, love.
-                            </p>
-                            <footer>
-                                Louis Kahn
-                            </footer>
-                        </blockquote>
-                    </div>
-                    
-                    <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In maximus ligula semper metus pellentesque mattis. Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor consectetur fermentum nibh volutpat, accumsan purus. 
-                    </div>
-                    
-                    <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                        Etiam sit amet fringilla lacus. Pellentesque suscipit ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero. Donec vel ultricies purus. Nam dictum sem, eu aliquam.
-                    </div>
+                Công ty TNHH MTV Cà phê Nguyên Huy Hùng được thành lập vào năm 2005. Chúng tôi đã có 10 năm kinh nghiệm sản xuất, cung ứng và xuất khẩu cà phê. Năm 2009, chúng tôi đã đạt chứng nhận Fairtrade (FLO ID: 21968) và là một trong hai nhà xuất khẩu được chứng nhận Fairtrade đầu tiên ở Việt Nam – quốc gia đứng thứ hai thế giới về sản lượng cà phê.
+
+Cho tới năm 2013, chúng tôi đã xuất khẩu cà phê tới châu Âu (Bỉ, Thụy Sĩ, Pháp, Tây Ban Nha), Mỹ và một số nước khác. Tổng sản lượng xuất khẩu là hơn 30.000 tấn.
+
                     
                 </div>
             </div>
@@ -189,157 +174,6 @@
         </div>
     </section>
     <!-- End About Section -->
-    
-    
-    <!-- Testimonials Section -->
-    <section class="page-section bg-dark bg-dark-alfa-90 fullwidth-slider" data-background="images/full-width-images/section-bg-3.jpg">
-        
-        <!-- Slide Item -->
-        <div>
-            <div class="container relative">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 align-center">
-                        <!-- Section Icon -->
-                        <div class="section-icon">
-                            <span class="icon-quote"></span>
-                        </div>
-                        <!-- Section Title --><h3 class="small-title font-alt">What people say?</h3>
-                        <blockquote class="testimonial white">
-                            <p>
-                                Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue,
-                                risus utaliquam dapibus. Thanks!
-                            </p>
-                            <footer class="testimonial-author">
-                                John Doe, doodle inc.
-                            </footer>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Slide Item -->
-        
-        <!-- Slide Item -->
-        <div>
-            <div class="container relative">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 align-center">
-                        <!-- Section Icon -->
-                        <div class="section-icon">
-                            <span class="icon-quote"></span>
-                        </div>
-                        <!-- Section Title --><h3 class="small-title font-alt">What people say?</h3>
-                        <blockquote class="testimonial white">
-                            <p>
-                                Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue,
-                                risus utaliquam dapibus. Thanks!
-                            </p>
-                            <footer class="testimonial-author">
-                                John Doe, doodle inc.
-                            </footer>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Slide Item -->
-        
-        <!-- Slide Item -->
-        <div>
-            <div class="container relative">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2 align-center">
-                        <!-- Section Icon -->
-                        <div class="section-icon">
-                            <span class="icon-quote"></span>
-                        </div>
-                        <!-- Section Title -->
-                        <h3 class="small-title font-alt">What people say?</h3>
-                        <blockquote class="testimonial white">
-                            <p>
-                                Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue,
-                                risus utaliquam dapibus. Thanks!
-                            </p>
-                            <footer class="testimonial-author">
-                                John Doe, doodle inc.
-                            </footer>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Slide Item -->
-        
-    </section>
-    <!-- End Testimonials Section -->
-    
-    
-    <!-- Logotypes Section -->
-    <section class="small-section pt-20 pb-20">
-        <div class="container relative">
-            
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    
-                    <div class="small-item-carousel black owl-carousel mb-0 animate-init" data-anim-type="fade-in-right-large" data-anim-delay="100">
-                        
-                        <!-- Logo Item -->
-                        <div class="logo-item">
-                            <img src="images/clients-logos/client-1.png" width="67" height="67" alt="" />
-                        </div>
-                        <!-- End Logo Item -->
-                        
-                        <!-- Logo Item -->
-                        <div class="logo-item">
-                            <img src="images/clients-logos/client-2.png" width="67" height="67" alt="" />
-                        </div>
-                        <!-- End Logo Item -->
-                        
-                        <!-- Logo Item -->
-                        <div class="logo-item">
-                            <img src="images/clients-logos/client-3.png" width="67" height="67" alt="" />
-                        </div>
-                        <!-- End Logo Item -->
-                        
-                        <!-- Logo Item -->
-                        <div class="logo-item">
-                            <img src="images/clients-logos/client-4.png" width="67" height="67" alt="" />
-                        </div>
-                        <!-- End Logo Item -->
-                        
-                        <!-- Logo Item -->
-                        <div class="logo-item">
-                            <img src="images/clients-logos/client-5.png" width="67" height="67" alt="" />
-                        </div>
-                        <!-- End Logo Item -->
-                        
-                        <!-- Logo Item -->
-                        <div class="logo-item">
-                            <img src="images/clients-logos/client-6.png" width="67" height="67" alt="" />
-                        </div>
-                        <!-- End Logo Item -->
-                        
-                        <!-- Logo Item -->
-                        <div class="logo-item">
-                            <img src="images/clients-logos/client-1.png" width="67" height="67" alt="" />
-                        </div>
-                        <!-- End Logo Item -->
-                        
-                        <!-- Logo Item -->
-                        <div class="logo-item">
-                            <img src="images/clients-logos/client-2.png" width="67" height="67" alt="" />
-                        </div>
-                        <!-- End Logo Item -->
-                        
-                    </div>
-                        
-                 </div>
-             </div>
-            
-         </div>
-    </section>
-    <!-- End Logotypes -->
-    
     
     <!-- Divider -->
     <hr class="mt-0 mb-0 "/>

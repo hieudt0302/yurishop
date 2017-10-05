@@ -28,7 +28,7 @@
 			<span class="help-block">
 						<strong>{{ $errors->first('email') }}</strong>
 					</span> @endif
-			<input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" required data-parsley-required-message="{{ __('auth.alert_required_input') }}"
+			<input type="password" id="password" name="password" class="form-control" placeholder="{{ __('auth.password') }}" required data-parsley-required-message="{{ __('auth.alert_required_input') }}"
 			    data-parsley-trigger="change focusout" data-parsley-minlength="6" data-parsley-maxlength="32"> @if ($errors->has('password'))
 			<span class="help-block">
 						<strong>{{ $errors->first('password') }}</strong>
