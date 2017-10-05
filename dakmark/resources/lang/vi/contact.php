@@ -12,14 +12,14 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-	
+
+    'contact' => 'Liên hệ',	
 	'headquarter' => 'Trụ sở chính',
     'address' => 'Địa chỉ',
     'phone' => 'Điện thoại',
     'email' => 'Email',
-    'fax' => 'Fax',
-	'review' => 'Ý kiến khách hàng',
+	'message' => 'Nội dung tin nhắn',
 	'name' => 'Tên',
-	'content' => 'Nội dung',
-	'send' => 'Gửi',
+	'submit' => 'Gửi',
+    'required-message' => ' Cần điền tất cả nội dung trên',        
 ];

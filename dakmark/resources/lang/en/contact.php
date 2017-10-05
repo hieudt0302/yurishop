@@ -13,13 +13,14 @@ return [
     |
     */
 	
-	'headquarter' => 'Headquarters',
+    'contact' => 'Contact',     
+	'headquarter' => 'Headquarter',
     'address' => 'Address',
     'phone' => 'Phone',
     'email' => 'Email',
-    'fax' => 'Fax',
-	'review' => 'Review',
+	'message' => 'Message',
 	'name' => 'Name',
-	'content' => 'Content',
-	'send' => 'Send',
+	'submit' => 'Summit message',
+    'required-message' => ' All the fields are required',    
+
 ];

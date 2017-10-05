@@ -95,7 +95,7 @@
                                     @else                                    
                                     <ul class="clearlist widget-menu">
                                         <li>
-                                            <a href="{{ url('/logout') }}">@lang('footer.log-out') <i class="fa fa-angle-right right"></i></a>
+                                            <a href="{{ url('/logout') }}">@lang('auth.logout') <i class="fa fa-angle-right right"></i></a>
                                         </li>
                                         <li>
                                             <a href="{{ url('/cart') }}">@lang('footer.view-cart') <i class="fa fa-angle-right right"></i></a>
