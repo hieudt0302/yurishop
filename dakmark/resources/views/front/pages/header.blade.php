@@ -20,7 +20,7 @@
                             
                             <!-- Item With Sub -->
                             <li>
-                                <a href="{{ url('/') }}" class="mn-has-sub active">@lang('header.home')</a>
+                                <a href="{{ url('/') }}" class="mn-has-sub">@lang('header.home')</a>
                             </li>
                             <!-- End Item With Sub -->
                             

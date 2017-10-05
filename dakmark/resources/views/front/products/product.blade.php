@@ -16,7 +16,7 @@
                 
                 <div class="col-md-4 mt-30">
                     <div class="mod-breadcrumbs font-alt align-right">
-                        <a href="#">Home</a>&nbsp;/&nbsp;<a href="#">Shop</a>
+                        <a href="#">@lang('header.home')</a>&nbsp;/&nbsp;<a href="#">@lang('header.shop')</a>
                     </div>
                     
                 </div>

@@ -3,6 +3,7 @@
 return [
      'common' => 'Chung',
      'navigate' => 'Điều hướng',
+	 'view' => 'Xem',        
 	 'add' => 'Thêm',
 	 'edit' => 'Sửa',
 	 'delete' => 'Xóa',
@@ -10,6 +11,7 @@ return [
 	 'cancel' => 'Hủy',	 
 	 'or' => 'Hoặc',
 	 'search-message' => 'Kết quả tìm kiếm cho từ khóa: ',
+	 'no-result' => 'Không tìm thấy dữ liệu',	 
 	 'created-at' => 'Ngày tạo',
 	 'action' => 'Thao tác',	 
 	 'from-date' => 'Từ ngày',

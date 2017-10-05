@@ -9,7 +9,7 @@
             <div class="row">
                 
                 <div class="col-md-8">
-                    <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Blog</h1>
+                    <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">@lang('header.blog')</h1>
                     <div class="hs-line-4 font-alt black">
                         We share our best ideas in our blog
                     </div>
@@ -17,7 +17,7 @@
                 
                 <div class="col-md-4 mt-30">
                     <div class="mod-breadcrumbs font-alt align-right">
-                        <a href="#">Home</a>&nbsp;/&nbsp;<a href="#">Blog</a>
+                        <a href="#">@lang('header.home')</a>&nbsp;/&nbsp;<a href="#">@lang('header.blog')</a>
                     </div>
                     
                 </div>

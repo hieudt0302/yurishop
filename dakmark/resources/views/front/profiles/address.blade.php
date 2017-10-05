@@ -31,9 +31,9 @@
 				<table class="table table-bordered">
 					<tr>
 						<th>#</th>
-						<th>Địa Chỉ</th>
-						<th>Điện Thoại</th>
-						<th width="280px">Action</th>
+						<th>@lang('profile.address')</th>
+						<th>@lang('profile.phone')</th>
+						<th width="280px">@lang('profile.action')</th>
 					</tr>
 					@foreach ($address as $key => $add)
 					<tr>
@@ -41,8 +41,9 @@
 						<td>{{ $add->address }}, {{ $add->city }}</td>
 						<td>{{ $add->phone }}</td>
 						<td>
-							<a class="btn btn-info" href="{{ route('front.profiles.showaddress',$add->id) }}">Xem</a>
-							<a class="btn btn-primary" href="{{ route('front.profiles.editaddress',$add->id) }}">Sửa</a> {!! Form::open(['method' =>
+							<a class="btn btn-info" href="{{ route('front.profiles.showaddress',$add->id) }}">@lang('common.view') </a>
+							<a class="btn btn-primary" href="{{ route('front.profiles.editaddress',$add->id) }}">@lang('common.edit')</a> 
+							{!! Form::open(['method' =>
 							'DELETE','route' => ['front.profiles.destroyaddress', $add->id],'style'=>'display:inline']) !!} {!! Form::submit('Delete',
 							['class' => 'btn btn-danger']) !!} {!! Form::close() !!}
 						</td>
@@ -52,7 +53,7 @@
 			</div>
 			<div class="row">
 				<div class="pull-right">
-	            	<a class="btn btn-success" href="{{ route('front.profiles.createaddress') }}">Thêm Địa Chỉ</a>
+	            	<a class="btn btn-success" href="{{ route('front.profiles.createaddress') }}">@lang('profile.add-address')</a>
 	       		</div>
 			</div>
 		</div>
