@@ -1,15 +1,16 @@
 @extends('layouts.master')
 @section('title','Xác Nhận Đơn Hàng - Pokofarms')
-@section('header') @parent
+@section('header')
+@parent
 <!-- OVERRIDER MASTER CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{ asset('css/theme.css') }}"> 
-@endsection 
+<link rel="stylesheet" href="{{ asset('css/custom-order.css') }}">
+@stop
+
 
 @section('content')
 <div id="content-wrapper">
     <section id="content" class="container mt-3">
-        <div class="costeps row no-gutters">
+        <div class="costeps row row-hardcode no-gutters">
             <div class="col-2 costep visited" data-step="cart">
                 <a class="costep-link" href="{{url('/cart')}}">
                     <i class="costep-icon"></i>
@@ -47,7 +48,7 @@
                 </a>
             </div>
         </div>
-        <div id="content-body" class="row mt-4">
+        <div id="content-body" class="row row-hardcode mt-4">
             <div id="content-center" class="col-lg-12">
                 <div class="page checkout-completed-page">
                     <div class="heading mt-3">

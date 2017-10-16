@@ -1,15 +1,16 @@
 @extends('layouts.master')
 @section('title','Chi Tiết Đơn Hàng - Pokofarms')
-@section('header') @parent
+@section('header')
+@parent
 <!-- OVERRIDER MASTER CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{ asset('css/theme.css') }}"> 
-@endsection 
+<link rel="stylesheet" href="{{ asset('css/custom-order.css') }}">
+@stop
+
 
 @section('content')
 <div id="content-wrapper">
     <section id="content" class="container mt-3">
-        <div id="content-body" class="row mt-4">
+        <div id="content-body" class="row row-hardcode mt-4">
             <div id="content-center" class="col-lg-12">
                 <div class="page page-order-details">
                     <div class="clearfix mb-3">
@@ -33,7 +34,7 @@
                         </div>
                     </div>
                     <div class="page-body">
-                        <div class="row mb-3">
+                        <div class="row row-hardcode mb-3">
                             <div class="col-6 col-sm-auto pb-3">
                                 <h5 class="text-muted">Order Date</h5>
                                 <div>{{date("Y-m-d", strtotime($order->order_start_date))}}</div>
@@ -52,9 +53,9 @@
                             </div>
                         </div>
                         <div class="card card-block order-details-box">
-                            <div class="row">
+                            <div class="row row-hardcode">
                                 <div class="col-md-8">
-                                    <div class="row">
+                                    <div class="row row-hardcode">
                                         <div class="col mb-4 mb-lg-0 billinginfo">
                                             <h5>Billing Address</h5>
                                             <div class="mb-2">
@@ -120,7 +121,7 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <div class="row">
+                                    <div class="row row-hardcode">
                                         <div class="col">
                                             <h5>Shipping Method</h5>
                                             <p>Abholung</p>
@@ -157,7 +158,7 @@
                                     @foreach($order->orderdetails as $orderdetail)
                                     <div class="cart-row">
                                         <div class="cart-col cart-col-main">
-                                            <div class="row sm-gutters">
+                                            <div class="row row-hardcode sm-gutters">
                                                 <div class="col cart-item-img">
                                                     <img class="img-fluid" alt="Picture of Product" src="{{asset('/#')}}"
                                                         title="Show details for product">
@@ -186,7 +187,7 @@
                             </div>
 
                             <div class="cart-footer rounded-bottom">
-                                <div class="row">
+                                <div class="row row-hardcode">
                                     <div class="col-md-6">
                                     </div>
                                     <div class="col-md-6">
@@ -217,7 +218,7 @@
 
 
 
-                        <div class="cart-actions row sm-gutters mb-2 justify-content-lg-end">
+                        <div class="cart-actions row row-hardcode sm-gutters mb-2 justify-content-lg-end">
 
                             <div class="col-12 mt-2 col-sm-6 mt-sm-0 col-lg-3">
                                 <a class="btn btn-primary btn-block" href="{{url('/Order/ReOrder')}}/{{$order->id}}" rel="nofollow">

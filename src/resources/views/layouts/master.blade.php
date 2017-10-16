@@ -33,7 +33,23 @@
 	<!-- CSS files -->
     <link rel="stylesheet" href="{{asset('frontend/css/plugins.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
+	<!-- <link rel="stylesheet" href="{{asset('frontend/css/animate.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/bootstrap-dropdownhover.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/hover-min.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/ionicons.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/lightbox.min.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/nivo-lightbox.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/normalize.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/organie.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/owl.theme.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/owl.transitions.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/pushy.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/revicons.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/settings.css')}}"> -->
 	@yield('header')
+	
 </head>
 <body>
 

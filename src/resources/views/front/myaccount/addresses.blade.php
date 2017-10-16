@@ -1,19 +1,19 @@
 @extends('layouts.master')
 @section('title','Danh Sách Đơn Hàng - Pokofarms')
-@section('header') @parent
+@section('header')
+@parent
 <!-- OVERRIDER MASTER CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{ asset('css/theme.css') }}"> 
-@endsection 
+<link rel="stylesheet" href="{{ asset('css/custom-order.css') }}">
+@stop
 
 @section('content')
 <div id="content-wrapper">
     <section id="content" class="container mt-3">
-        <div id="content-body" class="row mt-4">
+        <div id="content-body" class="row row-hardcode mt-4">
             <div id="content-center" class="col-lg-12">
                 <div class="page page-myaccount page-myaccount-addresses">
                     <div class="page-body">
-                        <div class="row">
+                        <div class="row row-hardcode">
                             <div class="col-md-4 col-lg-3">
                                 @include('front.myaccount.myaccount_sidebar')
                             </div>

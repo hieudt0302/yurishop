@@ -1,15 +1,16 @@
 @extends('layouts.master') 
 @section('title','Địa Chỉ Nhận Hàng - Giỏ Hàng') 
-@section('header') @parent
+
+@section('header')
+@parent
 <!-- OVERRIDER MASTER CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{ asset('css/theme.css') }}"> 
-@endsection 
+<link rel="stylesheet" href="{{ asset('css/custom-order.css') }}">
+@stop
 
 @section('content')
 <div id="content-wrapper">
     <section id="content" class="container mt-3">
-        <div class="costeps row no-gutters">
+        <div class="costeps row row-hardcode no-gutters">
             <div class="col-2 costep visited" data-step="cart">
                 <a class="costep-link" href="/frontend/en/cart">
                     <i class="costep-icon"></i>
@@ -48,7 +49,7 @@
             </div>
 		</div>
 		
-        <div id="content-body" class="row mt-4">
+        <div id="content-body" class="row row-hardcode mt-4">
             <div id="content-center" class="col-lg-12">
                 <div class="page billing-address-page">
                     <div class="page-title">
@@ -114,7 +115,7 @@
 
                                         <div class="form-horizontal">
 
-                                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="NewAddress_Company">Company</label>
+                                            <div class="form-group row row-hardcode"><label class="col-sm-3 col-form-label" for="NewAddress_Company">Company</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-control" id="NewAddress_Company" name="NewAddress.Company" placeholder="Optional" type="text" value="">
                                                     <span class="field-validation-valid" data-valmsg-for="NewAddress.Company" data-valmsg-replace="true"></span>
@@ -124,37 +125,37 @@
                                             <div>
                                                 <hr>
                                             </div>
-                                            <div class="form-group row"><label class="col-sm-3 col-form-label required" for="NewAddress_FirstName" aria-required="true">First name</label>
+                                            <div class="form-group row row-hardcode"><label class="col-sm-3 col-form-label required" for="NewAddress_FirstName" aria-required="true">First name</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-control" data-val="true" data-val-required="First name is required." id="NewAddress_FirstName" name="NewAddress.FirstName" type="text" value="">
                                                     <span class="field-validation-valid" data-valmsg-for="NewAddress.FirstName" data-valmsg-replace="true"></span>
                                                 </div>
                                             </div>
-                                            <div class="form-group row"><label class="col-sm-3 col-form-label required" for="NewAddress_LastName" aria-required="true">Last name</label>
+                                            <div class="form-group row row-hardcode"><label class="col-sm-3 col-form-label required" for="NewAddress_LastName" aria-required="true">Last name</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-control" data-val="true" data-val-required="Last name is required." id="NewAddress_LastName" name="NewAddress.LastName" type="text" value="">
                                                     <span class="field-validation-valid" data-valmsg-for="NewAddress.LastName" data-valmsg-replace="true"></span>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row"><label class="col-sm-3 col-form-label required" for="NewAddress_Address1" aria-required="true">Address 1</label>
+                                            <div class="form-group row row-hardcode"><label class="col-sm-3 col-form-label required" for="NewAddress_Address1" aria-required="true">Address 1</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-control" data-val="true" data-val-required="Street address is required" id="NewAddress_Address1" name="NewAddress.Address1" type="text" value="">
                                                     <span class="field-validation-valid" data-valmsg-for="NewAddress.Address1" data-valmsg-replace="true"></span>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="NewAddress_Address2">Address 2</label>
+                                            <div class="form-group row row-hardcode"><label class="col-sm-3 col-form-label" for="NewAddress_Address2">Address 2</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-control" id="NewAddress_Address2" name="NewAddress.Address2" placeholder="Optional" type="text" value="">
                                                     <span class="field-validation-valid" data-valmsg-for="NewAddress.Address2" data-valmsg-replace="true"></span>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            <div class="form-group row row-hardcode">
                                                 <label class="col-sm-3 col-form-label required" for="NewAddress_City" aria-required="true">City</label>
                                                 <div class="col-sm-9">
-                                                    <div class="row sm-gutters d-flex">
+                                                    <div class="row row-hardcode sm-gutters d-flex">
                                                         <div class="col">
                                                             <input class="form-control" data-val="true" data-val-required="City is required" id="NewAddress_City" name="NewAddress.City" placeholder="" type="text" value="">
                                                         </div>
@@ -170,7 +171,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            <div class="form-group row row-hardcode">
                                                 <label class="col-sm-3 col-form-label required" for="NewAddress_CountryId" aria-required="true">Country</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control select2-hidden-accessible" data-val="true" data-val-number="The field 'Country' must be a number." data-val-required="Country is required." id="NewAddress_CountryId" name="NewAddress.CountryId" tabindex="-1" aria-hidden="true"><option value="0">Select country</option>
@@ -183,7 +184,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            <div class="form-group row row-hardcode">
                                                 <label class="col-sm-3 col-form-label" for="NewAddress_StateProvinceId">State / province</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control select2-hidden-accessible" data-val="true" data-val-number="The field 'State / province' must be a number." id="NewAddress_StateProvinceId" name="NewAddress.StateProvinceId" tabindex="-1" aria-hidden="true"><option value="0">Other (Non US)</option>
@@ -199,7 +200,7 @@
                                                 <hr>
                                             </div>
 
-                                            <div class="form-group row"><label class="col-sm-3 col-form-label required" for="NewAddress_Email" aria-required="true">Email</label>
+                                            <div class="form-group row row-hardcode"><label class="col-sm-3 col-form-label required" for="NewAddress_Email" aria-required="true">Email</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-control" data-val="true" data-val-email="Wrong email" data-val-required="Email is required." id="NewAddress_Email" name="NewAddress.Email" type="email" value="">
                                                     <span class="field-validation-valid" data-valmsg-for="NewAddress.Email" data-valmsg-replace="true"></span>
@@ -208,21 +209,21 @@
 
 
 
-                                            <div class="form-group row"><label class="col-sm-3 col-form-label required" for="NewAddress_PhoneNumber" aria-required="true">Phone number</label>
+                                            <div class="form-group row row-hardcode"><label class="col-sm-3 col-form-label required" for="NewAddress_PhoneNumber" aria-required="true">Phone number</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-control" data-val="true" data-val-required="Phone is required" id="NewAddress_PhoneNumber" name="NewAddress.PhoneNumber" type="tel" value="">
                                                     <span class="field-validation-valid" data-valmsg-for="NewAddress.PhoneNumber" data-valmsg-replace="true"></span>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row"><label class="col-sm-3 col-form-label" for="NewAddress_FaxNumber">Fax number</label>
+                                            <div class="form-group row row-hardcode"><label class="col-sm-3 col-form-label" for="NewAddress_FaxNumber">Fax number</label>
                                                 <div class="col-sm-9">
                                                     <input class="form-control" id="NewAddress_FaxNumber" name="NewAddress.FaxNumber" placeholder="Optional" type="tel" value="">
                                                     <span class="field-validation-valid" data-valmsg-for="NewAddress.FaxNumber" data-valmsg-replace="true"></span>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            <div class="form-group row row-hardcode">
                                                 <div class="offset-sm-3 col-sm-9 text-muted address-required-hint">
                                                     * Input elements with asterisk are required and have to be filled out.
                                                 </div>

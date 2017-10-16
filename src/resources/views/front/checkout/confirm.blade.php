@@ -1,15 +1,16 @@
 @extends('layouts.master')
 @section('title','Xác Nhận Đơn Hàng - Pokofarms')
-@section('header') @parent
+@section('header')
+@parent
 <!-- OVERRIDER MASTER CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{ asset('css/theme.css') }}"> 
-@endsection 
+<link rel="stylesheet" href="{{ asset('css/custom-order.css') }}">
+@stop
+
 
 @section('content')
 <div id="content-wrapper">
     <section id="content" class="container mt-3">
-        <div class="costeps row no-gutters">
+        <div class="costeps row row-hardcode no-gutters">
             <div class="col-2 costep visited" data-step="cart">
                 <a class="costep-link" href="/frontend/en/cart">
                     <i class="costep-icon"></i>
@@ -47,7 +48,7 @@
                 </a>
             </div>
         </div>
-        <div id="content-body" class="row mt-4">
+        <div id="content-body" class="row row-hardcode mt-4">
             <div id="content-center" class="col-lg-12">
                 <div class="page checkout-confirm-page">
                     <div class="page-title">
@@ -81,11 +82,11 @@
                         <div class="order-summary-body mb-4">
                             <div class="order-summary-content">
                                 <div class="card card-block order-review-data-box mb-3">
-                                    <div class="row">
+                                    <div class="row row-hardcode">
                                         <div class="col-md-8">
-                                            <div class="row">
+                                            <div class="row row-hardcode">
                                                 <div class="col mb-4 mb-lg-0 billinginfo">
-                                                    <div class="row sm-gutters">
+                                                    <div class="row row-hardcode sm-gutters">
                                                         <div class="col">
                                                             <div class="heading">
                                                                 <h5 class="heading-title font-weight-medium">Billing Address</h5>
@@ -123,7 +124,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col mb-4 mb-lg-0 shippinginfo">
-                                                    <div class="row sm-gutters">
+                                                    <div class="row row-hardcode sm-gutters">
                                                         <div class="col">
                                                             <div class="heading">
                                                                 <h5 class="heading-title font-weight-medium">Shipping Address</h5>
@@ -163,9 +164,9 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="row">
+                                            <div class="row row-hardcode">
                                                 <div class="col">
-                                                    <div class="row sm-gutters">
+                                                    <div class="row row-hardcode sm-gutters">
                                                         <div class="col">
                                                             <div class="heading">
                                                                 <h5 class="heading-title font-weight-medium">Shipping Method</h5>
@@ -176,7 +177,7 @@
                                                         </div>
                                                     </div>
                                                     <p>Pickup</p>
-                                                    <div class="row sm-gutters">
+                                                    <div class="row row-hardcode sm-gutters">
                                                         <div class="col">
                                                             <div class="heading">
                                                                 <h5 class="heading-title font-weight-medium">Payment Method</h5>
@@ -205,7 +206,7 @@
                                     <div class="card">
                                         <div id="cart-items" class="cart mb-0">
                                             <div class="cart-head">
-                                                <div class="cart-row">
+                                                <div class="cart-row row row-hardcode">
                                                     <div class="cart-col cart-col-main">
                                                         Product(s)
                                                     </div>
@@ -224,7 +225,7 @@
                                                 @foreach(Cart::content() as $row)
                                                 <div class="cart-row">
                                                     <div class="cart-col cart-col-main">
-                                                        <div class="row sm-gutters">
+                                                        <div class="row row-hardcode sm-gutters">
                                                             <div class="col cart-item-img">
                                                                 <img class="img-fluid" alt="Picture of Item" src="{{asset('images/default-image-250.png')}}"
                                                                     title="Show details for Herren T-Shirt">
@@ -259,7 +260,7 @@
                                             </div>
                                         </div>
                                         <div class="cart-footer rounded-bottom">
-                                            <div class="row">
+                                            <div class="row row-hardcode">
                                                 <div class="col-md-6">
                                                 </div>
                                                 <div class="col-md-6">
@@ -304,7 +305,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="cart-buttons my-4 row">
+                        <div class="cart-buttons my-4 row row-hardcode">
                             <div class="col-sm-6 col-lg-4 order-last order-sm-first mt-3 mt-sm-0">
                                 <a class="btn btn-secondary btn-lg btn-block" href="{{url('/Checkout/PaymentMethod')}}">
                                     <i class="fa fa-angle-left mr-3"></i>

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title',$product->name)
 @section('header')
-    <!-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> -->
+
 @endsection
 @section('content')
 <div class="hero">
