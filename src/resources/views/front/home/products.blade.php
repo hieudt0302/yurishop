@@ -3,8 +3,8 @@
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="heading-sec">
-					<h2>@lang('product.product')</h2>
-				</div>
+					<h1>@lang('product.product')</h1>
+				</div>				
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<ul class="menu-filter">

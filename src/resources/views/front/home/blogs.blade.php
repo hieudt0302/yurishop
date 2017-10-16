@@ -1,18 +1,19 @@
 <div class="blog">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="col-md-12">
 				<div class="heading-sec">
-					<h2>@lang('home.activity')</h2>
+					<h1>@lang('home.farm-activities')</h1>
+					<h4>-@lang('home.farm-activities-message')-</h4>
 				</div>
 			</div>
-		</div>
+		</div>		
 		<div class="row">
 			@foreach ($new_blogs as $blog)
-			<div class="col-md-6 col-sm-6 col-xs-12">
+			<div class="col-md-4 col-sm-4 col-xs-4">
 				<div class="blog-it-left">
 					<a href="{{url('/posts')}}/{{$blog->slug}}">
-						<img class="blog-img" src="{{asset('frontend/images/uploads/blog-it1.png')}}" alt="">
+						<img class="blog-img" src="{{ asset('images/blog/' . $blog->img) }}" alt="">
 					</a>
 					<div class="blog-ct-left">
 						<div class="date">
