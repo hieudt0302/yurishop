@@ -28,7 +28,8 @@ class HomeController extends Controller
         $new_products = DB::table('products')->where('created_at', '>=', Carbon::now()->subWeeks(1))->get();
         $new_products = Product::orderBy('updated_at', 'desc')->limit(8)->get();
         $new_blogs = Post::orderBy('updated_at', 'desc')->limit(3)->get();
-        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'new_products', 'new_blogs'));
+        $sliders = Slider::where('is_show',1)->get();        
+        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'new_products', 'new_blogs','sliders'));
 
     }
 

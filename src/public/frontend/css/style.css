@@ -5860,7 +5860,7 @@ section {
 .flower-services .heading-sec {
   text-align: center;
   margin-bottom: 15px;
-  background: url('../images/uploads/heading-bg.png') no-repeat;
+/*  background: url('../images/uploads/heading-bg.png') no-repeat;*/
   background-position: center;
   background-size: 15%;
   padding-top: 50px;
