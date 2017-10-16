@@ -3,12 +3,12 @@
 return [
     '' => '',
     'follow-us' => 'Follow Us',
-    'customer-support' => 'HOW CAN WE HELP?',
+    'customer-support' => 'How Can We Help?',
     'faq' => 'Frequently asked questions',
     'purchase-flow' => 'Purchase flow',
     'returns' => 'Returns',
     'showroom-locations' => 'Showroom locations',    
-    'my-account' => 'MY ACCOUNT',
+    'my-account' => 'My Account',
     'sign-in' => 'Sign in',
     'view-cart' => 'View cart',
     'my-wishlist' => 'My wishlist',
@@ -16,4 +16,5 @@ return [
     'faqs' => 'FAQs',
     'newsletter-message' => 'Stay informed with Darmark Foods',
     'subscribe' => 'Subscribe',          
+    'about-us' => 'About',          
 ];

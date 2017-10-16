@@ -10,8 +10,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="heading-sec">
-                        <h1>Pokofarms products </h1>
-                        <h4>-The bests for you-</h4>
+                        <h1>Pokofarms </h1>
+                        <h4>-Sharing from nature-</h4>
                         <div class="ab-intro">
                             <p>We are <span>Online Market</span> of organic fruits, vegetables, juices and dried fruits. Visit our site for a complete list of 
                             exclusive we are stocking.</p>
