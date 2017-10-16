@@ -1,405 +1,284 @@
 @extends('layouts.master')
 @section('title',$product->name)
 @section('header')
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> -->
 @endsection
 @section('content')
-
-<!-- Head Section -->
-<section class="small-section bg-gray-lighter pt-30 pb-30">
-    <div class="relative container align-left">
+<div class="hero">
+    <div class="container">
         <div class="row">
-            
-            <div class="col-md-8">
-                <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">@lang('shoppings.product-details')</h1>
-            </div>
-            
-            <div class="col-md-4 mt-30">
-                <div class="mod-breadcrumbs font-alt align-right">
-                    <a href="#">@lang('header.home')</a>&nbsp;/&nbsp;<a href="#">@lang('header.shop')</a>
-                </div>
-                
+            <div class="col-md-12">
+                <h1>Product detail</h1>
+                <ul class="breadcumb">
+                    <li><a href="#">Home</a></li>
+                    <li><span>/</span><a href="#">Shop grid</a></li>
+                    <li><span>/</span>Product detail</li>
+                </ul>
             </div>
         </div>
-        
     </div>
+</div>
+
+<section class="productdetail blogsingle shoplist">
+	<div class="container">
+		<div class="row">
+			<div class="pro-detail-infor list-item">
+				<div class="col-md-4 col-sm-4 col-xs-12">
+					<div class="pro-img">
+						<img src="{{asset('frontend/images/uploads/p2.png')}}" alt="">
+					</div>
+					<div class="more-img">
+						<a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a>
+						<img class="sub-img img1" src="{{asset('frontend/images/uploads/p2.png')}}" alt="">
+						<img class="sub-img" src="{{asset('frontend/images/uploads/subimg2.png')}}" alt="">
+						<img class="sub-img" src="{{asset('frontend/images/uploads/subimg3.png')}}" alt="">
+						<a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a>
+					</div>
+				</div>
+				<div class="col-md-8 col-sm-8 col-xs-12">
+					<div class="pro-list-it it">
+						<span class="hot">hot</span>
+						<h4 class="hd-after"><a href="#">Organic Sweetcorn</a></h4>
+						<span class="right">
+							<span class="star-rate small">
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+						 	</span><br>
+						 	<span class="rv">(Based on 03 reviews)</span>
+						</span>
+						<span class="price2">$12.00</span><span class="sub">$ 6.00</span>
+						<p class="para">Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? Uterque enim summo bono fruitur, id est voluptate barbarorum pedibu biit, tot maria tranbarbarorum pedibu smiearia trana.</p>
+						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
+						<div class="right-it">
+								 <form class="quantity" method="post" action="#">
+								      <div class="numbers-row">
+								        <input type="text" name="french-hens" id="french-hens" value="3">
+								      </div>
+							    </form>
+								<div class="drop">
+									<select>
+										<option value="">1 kg</option>
+										<option value="">Other</option>
+									</select>
+								</div>
+								<span class="check">
+									<i class="fa fa-check-circle" aria-hidden="true"></i>In stock
+								</span>	
+						</div>
+						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
+						<div class="pro-description"> 
+							<p>sku<span>A937-C</span></p>
+							<p>Categories<span>Fruits</span></p>
+							<p>Expire date<span>01/11/2015</span></p>
+							<p>Tags<span>Fruit, corn, organic</span></p>
+						</div>
+						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">
+						<a class="readmore" href="#">Add to cart</a>
+						<a class="wishlist" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+					</div>	
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="tabs  blogsingle-content">
+					<span class="tab-links">
+						<li class="active"><a href="#tab1">Description</a></li>
+						<li><a href="#tab2">Additional info</a></li>
+						<li><a href="#tab3">Reviews <span>(03)</span></a></li>
+					</span>
+					<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4" width="100">
+				    <div class="tab-content">
+				        <div id="tab1" class="tab active comment list-item">
+				            <h2 class="cmt-heading">Customer Reviews<span>(03)</span></h2>
+				            <div class="cmt-it pro-list-it ">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
+									</div>
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<div class="cmt-content">
+											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
+											<span class="right">
+												<span class="star-rate small">
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star-o" aria-hidden="true"></i>
+											 	</span>
+											</span>
+											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
+											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
+										</div>	
+									</div>
+								</div>
+							</div>
+							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
+							<div class="cmt-it pro-list-it ">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
+									</div>
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<div class="cmt-content">
+											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
+											<span class="right">
+												<span class="star-rate small">
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star-o" aria-hidden="true"></i>
+											 	</span>
+											</span>
+											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
+											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
+										</div>	
+									</div>
+								</div>
+							</div>
+							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
+				        </div>
+				        <div id="tab2" class="tab comment list-item">
+				           <h2 class="cmt-heading">Customer Reviews<span>(03)</span></h2>
+				            <div class="cmt-it pro-list-it ">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
+									</div>
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<div class="cmt-content">
+											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
+											<span class="right">
+												<span class="star-rate small">
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star-o" aria-hidden="true"></i>
+											 	</span>
+											</span>
+											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
+											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
+										</div>	
+									</div>
+								</div>
+							</div>
+							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
+				        </div>
+				        <div id="tab3" class="tab comment list-item">
+				        	<h2 class="cmt-heading">Customer Reviews<span>(03)</span></h2>
+				            <div class="cmt-it pro-list-it ">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
+									</div>
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<div class="cmt-content">
+											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
+											<span class="right">
+												<span class="star-rate small">
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star-o" aria-hidden="true"></i>
+											 	</span>
+											</span>
+											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
+											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
+										</div>	
+									</div>
+								</div>
+							</div>
+							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
+							<div class="cmt-it pro-list-it ">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
+									</div>
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<div class="cmt-content">
+											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
+											<span class="right">
+												<span class="star-rate small">
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star-o" aria-hidden="true"></i>
+											 	</span>
+											</span>
+											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
+											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
+										</div>	
+									</div>
+								</div>
+							</div>
+							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
+							<div class="cmt-it pro-list-it ">
+								<div class="row">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
+									</div>
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<div class="cmt-content">
+											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
+											<span class="right">
+												<span class="star-rate small">
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star-o" aria-hidden="true"></i>
+											 	</span>
+											</span>
+											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
+											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
+										</div>	
+									</div>
+								</div>
+							</div>
+							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
+			       	 	</div>
+				    </div>
+				    <!-- comment form -->
+					<form action="#" class="post-cmt">
+						<label>Add a Review</label>
+							<div class="row">
+								<div class="col-md-4 col-sm-4 col-xs-12">
+									<input class="name" type="text" placeholder="Lee Bui">
+								</div>
+								<div class="col-md-4 col-sm-4 col-xs-12">
+									<input class="email" type="text" placeholder="E-mail*">
+								</div>
+								<div class="col-md-4 col-sm-4 col-xs-12">
+									<input class="website" type="text" placeholder="Website">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<input  class="comt" type="textarea" placeholder="Comment*">
+								</div>
+							</div>
+							<input class="submit" type="submit" value="post comment">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
-<!-- End Head Section -->
 
-
-<!-- Section -->
-<section class="page-section">
-    <div class="container relative">
-        <!-- Product Content -->
-        <div class="row mb-60 mb-xs-30">
-            
-            <!-- Product Images -->
-            <div class="col-md-4 mb-md-30">
-                
-                <div class="post-prev-img">
-                    <a href="{{asset('images/caphe.jpg')}}" class="lightbox-gallery-3 mfp-image"><img class="product-main-img" src="{{asset('images/caphe.jpg')}}" alt="" /></a>
-                    @if(!empty($product->special_price_start_date) && $product->special_price_start_date  <= $product->special_price_end_date )
-                    <div class="intro-label">
-                        <span class="label label-danger bg-red">Sale</span>
-                    </div>
-                    @endif
-                </div>
-                
-                <div class="row">
-                    
-                    <div class="col-xs-3 post-prev-img">
-                        <a href="{{asset('images/shop/shop-prev-2.jpg')}}" class="lightbox-gallery-3 mfp-image"><img src="{{asset('images/shop/shop-prev-2.jpg')}}" alt="" /></a>
-                    </div>
-                    
-                    <div class="col-xs-3 post-prev-img">
-                        <a href="{{asset('images/shop/shop-prev-3.jpg')}}" class="lightbox-gallery-3 mfp-image"><img src="{{asset('images/shop/shop-prev-3.jpg')}}" alt="" /></a>
-                    </div>
-                    
-                    <div class="col-xs-3 post-prev-img">
-                        <a href="{{asset('images/shop/shop-prev-4.jpg')}}" class="lightbox-gallery-3 mfp-image"><img src="{{asset('images/shop/shop-prev-4.jpg')}}" alt="" /></a>
-                    </div>
-                    
-                </div>
-                
-            </div>
-            <!-- End Product Images -->
-            
-            <!-- Product Description -->
-            <div class="col-sm-8 col-md-5 mb-xs-40">
-                
-                <h3 class="mt-0">{{$product->name??'Name not found'}}</h3>
-                
-                <hr class="mt-0 mb-30"/>
-                
-                <div class="row">
-                    <div class="col-xs-6 lead mt-0 mb-20">
-                        @if(!empty($product->special_price_start_date) && $product->special_price_start_date  <= $product->special_price_end_date )
-                            <del class="section-text">{{$product->price}}</del> &nbsp;
-                            <strong>{{$product->special_price}}</strong>
-                        @else
-                        @if($product->old_price > 0)
-                            <del class="section-text">{{$product->old_price}}</del> &nbsp;
-                            @endif
-                            <strong>{{$product->price}}</strong>
-                        @endif
-                    </div>
-                    <div class="col-xs-6 align-right section-text">
-
-                        @if($starAvg>=1)
-                        <i class="fa fa-star"></i>
-                        @else
-                        <i class="fa fa-star-o"></i>
-                        @endif
-                        @if($starAvg>=2)
-                        <i class="fa fa-star"></i>
-                        @else
-                        <i class="fa fa-star-o"></i>
-                        @endif
-                        @if($starAvg>=3)
-                        <i class="fa fa-star"></i>
-                        @else
-                        <i class="fa fa-star-o"></i>
-                        @endif
-                        @if($starAvg>=4)
-                        <i class="fa fa-star"></i>
-                        @else
-                        <i class="fa fa-star-o"></i>
-                        @endif
-                        @if($starAvg>=5)
-                        <i class="fa fa-star"></i>
-                        @else
-                        <i class="fa fa-star-o"></i>
-                        @endif
-                        &nbsp;({{count($product->comments)}} reviews)
-                    </div>
-                </div>
-                
-                <hr class="mt-0 mb-30"/> 
-                
-                <div class="section-text mb-30">
-                    {{$product->translation->summary}}
-                </div>
-                
-                <hr class="mt-0 mb-30"/> 
-                
-                <div class="mb-30">
-                    <!-- <form method="post" action class="form"> -->
-                    <div class="form">
-                        <input name="quantity" type="number" class="input-lg round" min="1" max="1000000" value="1" />
-                        <button  class="btn btn-mod btn-large btn-round add-shoopingcart">Add to Cart</button> 
-                    </div>
-                       
-                    <!-- </form> -->
-                </div>
-                
-                <hr class="mt-0 mb-30"/> 
-                
-                <div class="section-text small">
-                    <div>SKU: {{$product->sku??'-----'}}</div>
-                    @if(!empty($product->category))
-                    <div>Category:
-                        <a href="{{url('category')}}/{{$product->category->slug}}"> {{$product->category->name}}</a>
-                    </div>
-                    @endif
-                    <div>Tags: 
-                        @foreach ($product->tags as $tag)
-                        <a href="{{url('tag')}}/{{$tag->slug}}">{{$tag->name}}</a>, 
-                        @endforeach
-                    </div>
-                </div>
-                
-            </div>
-            <!-- End Product Description -->
-            
-            <!-- Features -->
-            <div class="col-sm-4 col-md-3 mb-xs-40">
-                
-                <!-- Features Item -->
-                <div class="alt-service-wrap">
-                    <div class="alt-service-item">
-                        <div class="alt-service-icon">
-                            <i class="fa fa-paper-plane-o"></i>
-                        </div>
-                        <h3 class="alt-services-title font-alt">Free Shipping</h3>
-                        Vivamus neque orci, ultricies blandit ultricies vel, semper..
-                    </div>
-                </div>
-                <!-- End Features Item -->
-                
-                <!-- Features Item -->
-                <div class="alt-service-wrap">
-                    <div class="alt-service-item">
-                        <div class="alt-service-icon">
-                            <i class="fa fa-clock-o"></i>
-                        </div>
-                        <h3 class="alt-services-title font-alt">14 days moneyback</h3>
-                        Vivamus neque orci, ultricies blandit ultricies vel, semper..
-                    </div>
-                </div>
-                <!-- End Features Item -->
-                
-                <!-- Features Item -->
-                <div class="alt-service-wrap">
-                    <div class="alt-service-item">
-                        <div class="alt-service-icon">
-                            <i class="fa fa-gift"></i>
-                        </div>
-                        <h3 class="alt-services-title font-alt">100% Original</h3>
-                        Vivamus neque orci, ultricies blandit ultricies vel, semper..
-                    </div>
-                </div>
-                <!-- End Features Item -->
-                    
-                    
-                
-            </div>
-            <!-- End Features -->
-            
-        </div>
-        <!-- End Product Content -->
-        
-        
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs tpl-tabs animate">
-            <li class="active">
-                <a href="#one" data-toggle="tab">Description</a>
-            </li>
-            <li>
-                <a href="#two" data-toggle="tab">Specs</a>
-            </li>
-            <li>
-                <a href="#three" data-toggle="tab">Reviews ({{count($product->comments)}})</a>
-            </li>
-        </ul>
-        <!-- End Nav tabs -->
-        
-        <!-- Tab panes -->
-        <div class="tab-content tpl-tabs-cont">
-            <div class="tab-pane fade in active" id="one">
-                {{$product->translation->description}}
-            </div>
-            <div class="tab-pane fade" id="two">
-                
-                {{$product->translation->specs}}
-                
-            </div>
-            <div class="tab-pane fade" id="three">
-                    <div class="mb-60 mb-xs-30">
-                        <ul class="media-list text comment-list clearlist">
-                            @foreach($product->comments as  $review)
-                            <!-- Comment Item -->
-                            <li class="media comment-item">
-                                <a class="pull-left" href="#"><img class="media-object comment-avatar" src="{{asset('images/user-avatar.png')}}" alt=""></a>
-                                <div class="media-body">
-                                    <div class="comment-item-data">
-                                        <div class="comment-author">
-                                            <a href="#">{{$review->name}}</a>
-                                        </div>
-                                        {{$review->created_at}}<span class="separator">&mdash;</span>
-                                        
-                                        <span>
-                                            @if($review->rate>=1)
-                                            <i class="fa fa-star"></i>
-                                            @else
-                                            <i class="fa fa-star-o"></i>
-                                            @endif
-                                            @if($review->rate>=2)
-                                            <i class="fa fa-star"></i>
-                                            @else
-                                            <i class="fa fa-star-o"></i>
-                                            @endif
-                                            @if($review->rate>=3)
-                                            <i class="fa fa-star"></i>
-                                            @else
-                                            <i class="fa fa-star-o"></i>
-                                            @endif
-                                            @if($review->rate>=4)
-                                            <i class="fa fa-star"></i>
-                                            @else
-                                            <i class="fa fa-star-o"></i>
-                                            @endif
-                                            @if($review->rate>=5)
-                                            <i class="fa fa-star"></i>
-                                            @else
-                                            <i class="fa fa-star-o"></i>
-                                            @endif
-                                            
-                                        </span>
-                                        
-                                    </div>
-                                    <p>
-                                    {{$review->comment}}
-                                    </p>
-                                </div>
-                            </li>
-                            <!-- End Comment Item -->
-                            @endforeach
-                        </ul>
-                    </div>
-                    
-                    <!-- Add Review -->
-                    <div>
-                        
-                        <h4 class="blog-page-title font-alt">Add Review</h4>
-                        
-                        <!-- Form -->
-                        <form method="post" action="{{url('/products')}}/{{$product->id}}/review" id="form" role="form" class="form">
-                            {{ csrf_field() }}
-                            <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
-                            @guest
-                            <div class="row mb-20 mb-md-10">                                
-                                <div class="col-md-6 mb-md-10">
-                                    <!-- Name -->
-                                    <input type="text" name="name" id="name" class="input-md form-control" placeholder="Name *" maxlength="100" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <!-- Email -->
-                                    <input type="email" name="email" id="email" class="input-md form-control" placeholder="Email *" maxlength="100" required>
-                                </div>                                
-                            </div>
-                            @else
-                            <input type="hidden" id="reviewer_id" name="reviewer_id" value="{{Auth::user()->id}}">
-                            <input type="hidden" id="name" name="name" value="{{Auth::user()->last_name}} {{Auth::user()->first_name}}">
-                            <input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
-                            @endguest
-                            <div class="mb-20 mb-md-10">
-                                <!-- Rating -->
-                                <select name="rate" class="input-md round form-control">
-                                    <option value="0">-- Select one --</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                            
-                            <!-- Comment -->
-                            <div class="mb-30 mb-md-10">
-                                <textarea name="comment" id="text" class="input-md form-control" rows="6" placeholder="Comment" maxlength="400"></textarea>
-                            </div>
-                            
-                            <!-- Send Button -->
-                            <button type="submit" class="btn btn-mod btn-medium btn-round">
-                                Send Review
-                            </button>
-                            
-                        </form>
-                        <!-- End Form -->
-                        
-                    </div>
-                    <!-- End Add Review -->
-                    
-            </div>
-        </div>
-        <!-- End Tab panes -->
-    
-    </div>
-</section>
-<!-- End Section -->
-
-
-<!-- Divider -->
-<hr class="mt-0 mb-0 "/>
-<!-- End Divider -->
-
-
-<!-- Related Products -->
-@if(count($relatedProducts) > 0)
-<section class="page-section">
-    <div class="container relative">
-        
-        <h2 class="section-title font-alt mb-70 mb-sm-40">
-            @lang('shoppings.related-products')
-        </h2>
-        
-        <!-- Products Grid -->
-                <div class="row multi-columns-row">
-                    <!-- Shop Item -->
-                    @foreach(@relatedProducts as $item)
-                    <div class="col-md-3 col-lg-3 mb-60 mb-xs-40">
-                        
-                        <div class="post-prev-img">
-                            
-                            <a href="shop-single.html"><img src="{{asset('images/shop/shop-prev-1.jpg')}}" alt="" /></a>
-                            
-                            <div class="intro-label">
-                                <span class="label label-danger bg-red">Sale</span>
-                            </div>
-                            
-                        </div>
-                        
-                        <div class="post-prev-title font-alt align-center">
-                            <a href="shop-single.html">G-Star Polo Applique Jersey</a>
-                        </div>
-
-                        <div class="post-prev-text align-center">
-                            <del>$150.00</del>
-                            &nbsp;
-                            <strong>$94.75</strong>
-                        </div>
-                        
-                        <div class="post-prev-more align-center">
-                            <a href="#" class="btn btn-mod btn-gray btn-round"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                        </div>
-                        
-                    </div>
-                    @endforeach
-                    <!-- End Shop Item -->
-                    
-                   
-        </div>
-        <!-- End Products Grid -->
-        
-    </div>
-</section>
-@endif
-<!-- End Related Products -->
 
 @endsection
 
 @section('scripts')
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
 
 <script>

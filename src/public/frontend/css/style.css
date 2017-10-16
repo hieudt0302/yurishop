@@ -7827,7 +7827,7 @@ img.div-line2 {
   position: relative;
 }
 .productdetail .right-it form.quantity .numbers-row .inc.button {
-  background: url('../frontend/frontend/images/uploadsplus.png') no-repeat;
+  background: url('../images/uploads/plus.png') no-repeat;
   width: 29px;
   height: 29px;
   text-indent: -9999px;
@@ -7837,7 +7837,7 @@ img.div-line2 {
   right: 5px;
 }
 .productdetail .right-it form.quantity .numbers-row .dec.button {
-  background: url('../frontend/frontend/images/uploadsminus.png') no-repeat;
+  background: url('../images/uploads/minus.png') no-repeat;
   width: 29px;
   height: 29px;
   text-indent: -9999px;
