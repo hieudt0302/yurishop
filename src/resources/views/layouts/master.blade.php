@@ -64,7 +64,7 @@
 	<div id="page" class="allpage">
 
 	    <!-- Header -->
-	    @include('layouts.header')
+	    @include('layouts.nav')
 	    <!-- End Header -->
 		
 		<!-- Main Content -->

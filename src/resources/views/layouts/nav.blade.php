@@ -68,6 +68,36 @@
                              @lang('header.contact')
                              </a>
                          </li>
+                         <li class="dropdown first">
+                            @guest
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                @lang('header.account')<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <!-- Sub -->
+                            <ul class="dropdown-menu level1">    
+                                <li><a href="{{ url('/login') }}"><i class="ion-ios-minus-empty"></i>@lang('auth.login')</a></li>
+                                <li><a href="{{ url('/register') }}"><i class="ion-ios-minus-empty"></i>@lang('auth.register')</a></li>                          
+                            </ul>
+                            <!-- End Sub -->
+                            @else
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                            {{ Auth::user()->last_name }} {{ Auth::user()->firs_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>My Account</a></li>
+                                <li><a href="{{ url('/wishlish') }}"><i class="ion-ios-minus-empty"></i>Wishlist</a></li>
+                                <li><a href="{{ url('/cart') }}"><i class="ion-ios-minus-empty"></i>Shopping Cart</a></li>
+                                <li class="it-last">
+                                    <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                        <i class="ion-ios-minus-empty"></i>Logout
+                                    </a>
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                            @endguest
+                        </li>
                      </ul>
                  </div>
              </div>
