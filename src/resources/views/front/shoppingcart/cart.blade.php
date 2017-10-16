@@ -1,11 +1,13 @@
 @extends('layouts.master')
 @section('title','Pokofarms - Giỏ Hàng')
 @section('header')
+
 @parent
     <!-- OVERRIDER MASTER CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="{{ asset('css/custom-order.css') }}"> -->
 @endsection
+
 @section('content')
 <div id="content-wrapper">
     <section id="content" class="container mt-3">
@@ -254,7 +256,7 @@
 @section('scripts')
 <!-- <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>  -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> 
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>  -->
 <script type="text/javascript" src="{{ asset('js/viewport.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/eventbroker.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/underscore.js') }}"></script> 

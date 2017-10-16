@@ -35,7 +35,6 @@
 	@yield('header')
 </head>
 <body>
-	
 
 	<div id="sideNav2" class="sidenav">
 	  <p class="cart-product">No products in the cart</p>
