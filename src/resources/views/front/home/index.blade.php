@@ -17,7 +17,7 @@
                             data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6=""
                             data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="frontend/images/uploads/slider-home-01-slide-01-background.jpg" alt="" data-bgposition="center bottom" data-bgfit="cover"
+                            <img src="frontend/frontend/images/uploadsslider-home-01-slide-01-background.jpg" alt="" data-bgposition="center bottom" data-bgfit="cover"
                                 data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
 
@@ -27,7 +27,7 @@
                                 data-height="none" data-whitespace="nowrap" data-type="image" data-responsive_offset="on" data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
                                 data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
                                 data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 5;">
-                                <img src="frontend/images/uploads/slider-home-01-slide-01-object-01.png" alt="" data-ww="['905','605','471','286']" data-hh="['824','588','438','307']"
+                                <img src="frontend/frontend/images/uploadsslider-home-01-slide-01-object-01.png" alt="" data-ww="['905','605','471','286']" data-hh="['824','588','438','307']"
                                     width="930" height="876" data-no-retina> </div>
 
                             <!-- LAYER NR. 2 -->
@@ -76,7 +76,7 @@
                             data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6=""
                             data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="frontend/images/uploads/slider-home-01-slide-01-background.jpg" alt="" data-bgposition="center bottom" data-bgfit="cover"
+                            <img src="frontend/frontend/images/uploadsslider-home-01-slide-01-background.jpg" alt="" data-bgposition="center bottom" data-bgfit="cover"
                                 data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
 
@@ -118,7 +118,7 @@
                                 data-height="none" data-whitespace="nowrap" data-type="image" data-responsive_offset="on" data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
                                 data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
                                 data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 15;">
-                                <img src="frontend/images/uploads/slider-home-01-slide-02-object-01.png" alt="" data-ww="['995px','605','471','286']" data-hh="['859px','588','438','307']"
+                                <img src="frontend/frontend/images/uploadsslider-home-01-slide-02-object-01.png" alt="" data-ww="['995px','605','471','286']" data-hh="['859px','588','438','307']"
                                     width="995" height="859" data-no-retina> </div>
 
                             <!-- LAYER NR. 12 -->
@@ -127,7 +127,7 @@
                                 data-height="none" data-whitespace="nowrap" data-type="image" data-responsive_offset="on" data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
                                 data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
                                 data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 16;">
-                                <img src="frontend/images/uploads/slider-home-01-slide-02-object-02.png" alt="" data-ww="['140px','140px','140px','140px']" data-hh="['140px','140px','140px','140px']"
+                                <img src="frontend/frontend/images/uploadsslider-home-01-slide-02-object-02.png" alt="" data-ww="['140px','140px','140px','140px']" data-hh="['140px','140px','140px','140px']"
                                     width="140" height="140" data-no-retina> </div>
 
                             <!-- LAYER NR. 13 -->
@@ -144,7 +144,7 @@
                             data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6=""
                             data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="frontend/images/uploads/slider-home-01-slide-03-bg.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
+                            <img src="frontend/frontend/images/uploadsslider-home-01-slide-03-bg.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
                                 class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
 
@@ -154,7 +154,7 @@
                                 data-height="none" data-whitespace="nowrap" data-type="image" data-responsive_offset="on" data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
                                 data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
                                 data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 18;">
-                                <img src="frontend/images/uploads/slider-home-01-slide-03-object-01.png" alt="" data-ww="['1255px','1255px','1255px','1255px']" data-hh="['696px','696px','696px','696px']"
+                                <img src="frontend/frontend/images/uploadsslider-home-01-slide-03-object-01.png" alt="" data-ww="['1255px','1255px','1255px','1255px']" data-hh="['696px','696px','696px','696px']"
                                     width="1255" height="696" data-no-retina> </div>
 
                             <!-- LAYER NR. 15 -->
@@ -163,7 +163,7 @@
                                 data-height="none" data-whitespace="nowrap" data-type="image" data-responsive_offset="on" data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":500,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
                                 data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
                                 data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 19;">
-                                <img src="frontend/images/uploads/slider-home-01-slide-03-object-02.png" alt="" data-ww="['612px','412','338px','223']" data-hh="['654px','535','394px','215']"
+                                <img src="frontend/frontend/images/uploadsslider-home-01-slide-03-object-02.png" alt="" data-ww="['612px','412','338px','223']" data-hh="['654px','535','394px','215']"
                                     width="612" height="654" data-no-retina> </div>
 
                             <!-- LAYER NR. 16 -->

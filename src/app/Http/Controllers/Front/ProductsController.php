@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Comment;
 use Validator;
 use \Cart as Cart;
 use DB;
@@ -20,12 +21,9 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = DB::table('products')
-        ->where('published',1)
-        ->whereNull('deleted_at')
-        ->paginate(10);
-
-        return View('front/products/index',compact('products'));
+        $tags = Tag::has('products')->get();
+        $products = Product::where('published',1)->paginate(10);
+        return View('front/products/index',compact('products','tags'));
     }
   
     /**

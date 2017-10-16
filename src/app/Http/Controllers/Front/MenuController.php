@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Comment;
 
 class MenuController extends Controller
 {
