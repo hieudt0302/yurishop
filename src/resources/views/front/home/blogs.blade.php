@@ -12,7 +12,7 @@
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="blog-it-left">
 					<a href="{{url('/posts')}}/{{$blog->slug}}">
-						<img class="blog-img" src="images/uploads/blog-it1.png" alt="">
+						<img class="blog-img" src="{{asset('frontend/images/uploads/blog-it1.png')}}" alt="">
 					</a>
 					<div class="blog-ct-left">
 						<div class="date">
