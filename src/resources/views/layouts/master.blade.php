@@ -15,6 +15,7 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="profile" href="#">
 	<!-- <link rel="shortcut icon" href="images/favicon.ico"> -->
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:bold,black,regular">
@@ -60,7 +61,7 @@
     <!-- End Mobile Menu -->
 
     <!-- Main Page -->
-	<div id="page" class="allpage">
+	<div id="page2" class="allpage">
 		@yield('top')
 
 		<!-- Navigation panel -->

@@ -75,7 +75,7 @@
 						<div class="right-it">
 								 <form class="quantity" method="post" action="#">
 								      <div class="numbers-row">
-								        <input type="text" name="french-hens" id="french-hens" value="3">
+								        <input type="text" name="quantity" id="french-hens" value="3">
 								      </div>
 							    </form>
 								<div class="drop">
