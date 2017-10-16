@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\ProductTranslation;
 use App\Models\Language;
 use App\Models\Comment;
+use App\Models\Media;
 use Validator;
 use Intervention\Image\Facades\Image;
 use DB;
@@ -58,12 +59,23 @@ class ProductsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'slug' => 'required|string|min:1',
+            'slug' => 'required|string|min:5|unique:products',
+            'old_price' => 'numeric|min:0',
+            'price' => 'numeric|min:0',
+            'special_price' => 'numeric|min:0'
+        ],
+        [
+            'name.required' => 'Không được để trống tên sản phẩm.',
+            'slug.required' => 'Không được để trống hoặc có khoảng trắng trong chuỗi slug.',
+            'slug.min' => 'Độ dài tối thiểu của slug là 5.',
+            'old_price.numeric' => 'Giá trị nhập của [Giá Tiền Cũ]  phải là chữ số, không âm.',
+            'price.numeric' => 'Giá trị nhập của [Giá Tiền]  phải là chữ số, không âm.',
+            'special_price.numeric' => 'Giá trị nhập của [Giá Tiền Đặc Biệt]  phải là chữ số, không âm.',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
-            ->with('danger_message', 'ERROR-INPUT: Code EI1002')
+            ->withErrors($validator)
             ->withInput();
         }
 
@@ -287,23 +299,121 @@ class ProductsController extends Controller
         ->withInput();
     }
     
-    public function upload(){
-        if(Input::hasFile('file')){
-            $file = Input::file('file');
-            $file->move('uploads/images', $file->getClientOriginalName());
+    public function updateTranslation(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+        ]);
 
+        if ($validator->fails()) {
             return response()->json([
-                'message' => 'Đã upload ảnh của sản phẩm',
+                'message' => 'ERROR-INPUT: Code EI1001',
+                'status' => 'error'
+            ]);
+        }
+
+        $translation = ProductTranslation::where('language_id',$request->language_id)
+        ->where('product_id',$id)->withoutGlobalScopes()
+        ->first();
+
+        if(!empty($translation))
+        {
+            $translation->name = $request->name;
+            $translation->summary = $request->summary;
+            $translation->description = $request->description;
+            $translation->specs = $request->specs;
+            $translation->save();
+        }else{
+            $translation = new  ProductTranslation();
+            $translation ->name = $request->name;
+            $translation ->summary = $request->summary;
+            $translation ->description = $request->description;
+            $translation ->specs = $request->specs;
+            $translation->product_id = $id;
+            $translation->language_id =  $request->language_id;
+            $translation->save();
+        }
+
+        return response()->json([
+            'message' => 'Cập nhật nội dung  thành công.',
+            'status' => 'success',
+            'type' => 'update'
+        ]);
+    }
+
+    public function fetchTranslation($id, $code)
+    {
+        $translation = ProductTranslation::where('language_id',$code)
+        ->where('product_id',$id)->withoutGlobalScopes()
+        ->first();
+
+        $id = 0;
+        $name = "";
+        $summary = "";
+        $description = "";
+        $specs = "";
+
+        if(!empty($translation))
+        {
+            $id =  $translation->id;
+            $name =  $translation ->name;
+            $summary =  $translation ->summary;
+            $description =  $translation ->description;
+            $specs =  $translation ->specs;
+        }
+        return response()->json([
+            'message' => 'OK',
+            'id' => $id,
+            'name'=> $name,
+            'summary' =>$summary,
+            'description' =>$description,
+            'specs' => $specs
+        ]);
+    }
+
+    public function uploadImage(Request $request, $id)
+    {
+
+
+        $validator = Validator::make($request->all(),
+        [
+            'image_upload' => 'image',
+        ],
+        [
+            'image_upload.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
+        ]);
+
+        if ($validator->fails()){
+            return response()->json([
+                'message' => 'FAILED',
+                'status' => 'error',
+            ]);
+        }
+         
+        if (request()->hasFile('image_upload')) {
+            $path = $request->file('image_upload')->store('images');
+            $product = Product::find($id);
+
+            $images =  new Media();
+            $images->source = $path;
+            $images->thumb = $path; ///TODO: Make a thumb here
+            $images->type = 1; // is image 
+            $images->save();
+
+            $product->medias()->attach($images->id, ['order'=>1]);
+            
+            return response()->json([
+                'message' => 'OK',
                 'status' => 'success',
-                'src' => 'uploads/images/' . $file->getClientOriginalName()
+                'path' => $path
             ]);
         }
 
         return response()->json([
-            'message' => 'ERROR: EU1001',
-            'status' => 'danger',
-            'src' => ''
+            'message' => 'Không tìm thấy file.',
+            'status' => 'error',
         ]);
+                    
     }
 
     /**

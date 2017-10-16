@@ -15,6 +15,12 @@
         <li><a href="#">Sản Phẩm</a></li>
         <li class="active">Thêm Mới</li>
       </ol>
+    <div class="row">
+        <div class="col-xs-12">
+        @include('notifications.status_message') 
+        @include('notifications.errors_message') 
+        </div>
+    </div>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -25,8 +31,8 @@
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#info" data-toggle="tab">Product Info</a></li>
-                        <li><a href="#content" data-toggle="tab">Content</a></li>
-                        <li><a href="#pictures" data-toggle="tab">Pictures</a></li>
+                        <!-- <li><a href="#content" data-toggle="tab">Content</a></li> -->
+                        <!-- <li><a href="#pictures" data-toggle="tab">Pictures</a></li> -->
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
@@ -101,7 +107,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
-                                                        <input  id="old_price" name="old_price" type="text" value="0.0000" class="form-control" >
+                                                        <input  id="old_price" name="old_price" type="text" placeholder="0.0000" class="form-control" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,7 +119,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
-                                                        <input  id="price" name="price" type="text" value="0.0000" class="form-control" >
+                                                        <input  id="price" name="price" type="text" placeholder="0.0000" class="form-control" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -126,7 +132,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
-                                                        <input  id="special_price" name="special_price" type="text" value="0.0000" class="form-control" >
+                                                        <input  id="special_price" name="special_price" type="text" placeholder="0.0000" class="form-control" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -232,7 +238,7 @@
                             </form>
                         </div>
                         <!-- CONTENT TAB -->
-                        <div class="tab-pane" id="content">
+                        <!-- <div class="tab-pane" id="content">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
@@ -295,9 +301,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- PRICTURES TAB -->
-                        <div class="tab-pane" id="pictures">
+                        <!-- <div class="tab-pane" id="pictures">
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div id="productpictures-grid" >
@@ -363,7 +369,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

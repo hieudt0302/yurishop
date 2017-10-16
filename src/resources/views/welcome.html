@@ -1,14 +1,4 @@
-<div class="pull-right">
-    <a href="{{('/admin/products/create')}}" class="btn bg-blue">
-        <i class="fa fa-plus-square"></i>
-        Add new
-    </a>
-    <button type="submit" name="download-catalog-pdf" class="btn bg-purple">
-        <i class="fa fa-file-pdf-o"></i>
-        Export
-    </button>
-    <button type="button" id="delete-selected" class="btn bg-red">
-        <i class="fa fa-trash-o"></i>
-        Delete (selected)
-    </button>
-</div>
+$('form').submit(function(e) { // capture submit e.preventDefault(); var fd = new FormData(this); // XXX: Neex AJAX2 // You could show a loading image for example... $.ajax({ url: $(this).attr('action'), xhr: function() { // custom xhr (is the best) var
+xhr = new XMLHttpRequest(); var total = 0; // Get the total size of files $.each(document.getElementById('files').files, function(i, file) { total += file.size; }); // Called when upload progress changes. xhr2 xhr.upload.addEventListener("progress", function(evt)
+{ // show progress like example var loaded = (evt.loaded / total).toFixed(2)*100; // percent $('#progress_image_upload').text('Uploading... ' + loaded + '%' ); }, false); return xhr; }, type: 'post', processData: false, contentType: false, data: fd, success:
+function(data) { // do something... alert('uploaded'); } }); });

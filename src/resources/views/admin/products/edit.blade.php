@@ -15,8 +15,12 @@
         <li><a href="#">Sản Phẩm</a></li>
         <li class="active">Cập Nhật</li>
       </ol>
-      @include('notifications.status_message') 
-    @include('notifications.errors_message')    
+      <div class="row">
+        <div class="col-xs-12">
+        @include('notifications.status_message') 
+        @include('notifications.errors_message') 
+        </div>
+        </div> 
 </section>
 <!-- Main content -->
 <section class="content">
@@ -239,6 +243,7 @@
                         <!-- CONTENT TAB -->
                         <div class="tab-pane" id="content">
                             <div class="panel-group">
+                                <!-- Language Select -->
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="form-group">
@@ -246,7 +251,7 @@
                                                 <div class="label-wrapper"><label class="control-label" for="name" title="">Translate</label><div class="ico-help" title="The language of the content."><i class="fa fa-question-circle"></i></div></div>
                                             </div>
                                             <div class="col-md-4">
-                                                <select name="language_id" class="form-control">
+                                                <select id="language-select" name="language_id" class="form-control">
                                                     @foreach($languages as  $language)
                                                     <option value="{{$language->id}}">{{$language->name}}</option>
                                                     @endforeach
@@ -255,49 +260,61 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Translate Content -->
                                 <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="name_translate" title="">Product Name</label><div class="ico-help" title="The name of the product."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-required">
-                                                    <input class="form-control text-box single-line valid" id="name_translate" name="name_translate" type="text" value="">
-                                                    <div class="input-group-btn">
-                                                        <span class="required">*</span>
+                                    <form id="update-content-translation" method="POST">
+                                        {{ csrf_field()}}
+                                        <input type="hidden" id="language_id_translate" name="language_id_translate">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="name_translate" title="">Product Name</label><div class="ico-help" title="The name of the product."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-required">
+                                                        <input class="form-control text-box single-line valid" id="name_translate" name="name_translate" type="text" value="">
+                                                        <div class="input-group-btn">
+                                                            <span class="required">*</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="summary_translate" title="">Summary</label>
+                                                    <div class="ico-help" title="The summary of the product."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control" id="summary_translate" name="summary_translate" rows="3"  placeholder=""></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="description_translate" title="">Description</label>
+                                                    <div class="ico-help" title="The description of the product."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control" id="description_translate" name="description_translate" rows="3"  placeholder=""></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="specs_translate" title="">Specs</label>
+                                                    <div class="ico-help" title="The specs of the product."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control" id="specs_translate" name="specs_translate" rows="3"  placeholder=""></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button type="submit" class="btn btn-primary">Cập Nhật</button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="summary_translate" title="">Summary</label>
-                                                <div class="ico-help" title="The summary of the product."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <textarea class="form-control" name="summary_translate" rows="3"  placeholder=""></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="description_translate" title="">Description</label>
-                                                <div class="ico-help" title="The description of the product."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <textarea class="form-control" name="description_translate" rows="3"  placeholder=""></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="specs_translate" title="">Specs</label>
-                                                <div class="ico-help" title="The specs of the product."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <textarea class="form-control" name="specs_translate" rows="3"  placeholder=""></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -333,39 +350,44 @@
                             </div>
                             <div class="panel-group">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                    Add a new picture
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="product_image_upload" title="">Upload Image</label>
-                                                <div class="ico-help" title="Upload image for product."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <input type="file">
-                                            </div>
+                                    <form id="form-upload-image" action="{{url('/admin/products')}}/{{$product->id}}/image/upload" method="post" enctype="multipart/form-data">
+                                    {!! method_field('patch') !!} 
+                                    {{ csrf_field()}}
+                                        <div class="panel-heading">
+                                        Add a new picture
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="display_order" title="">Display Order</label>
-                                                    <div class="ico-help" title="Display order of image."><i class="fa fa-question-circle"></i></div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="product_image_upload" title="">Upload Image</label>
+                                                    <div class="ico-help" title="Upload image for product."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="file" id="image_upload" name="image_upload">
+                                                    <p id='image_upload_progress'></p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group bootstrap-touchspin">
-                                                    <input  id="display_order" name="display_order" type="text" value="0" class="form-control" >
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="display_order" title="">Display Order</label>
+                                                        <div class="ico-help" title="Display order of image."><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group bootstrap-touchspin">
+                                                        <input  id="display_order" name="display_order" type="text" value="0" class="form-control" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <button type="submmit" class="btn btn-primary add-product-image">Add Product Image</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <button type="button" class="btn btn-primary">Add Product Image</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -402,6 +424,86 @@
     // CKEDITOR.replace('content-editor');
     //bootstrap WYSIHTML5 - text editor
     // $('.textarea').wysihtml5()
-  })
+    
+
+    // TAB: CONTENT
+    $('#language-select').on('change', function() {
+        var code_id = this.value;
+        $('#language_id_translate').val(code_id);
+        $.ajax({
+            type: "GET",
+            url: '{{url("/admin/products")}}/{{$product->id}}/'+ code_id +'/fetch',
+            date:{
+                '_token': '{{csrf_token()}}'
+            },
+            success:function(response){
+               $('#name_translate').val(response['name']);
+               $('#summary_translate').val(response['summary']);
+               $('#description_translate').val(response['description']);
+               $('#specs_translate').val(response['specs']);
+            },
+            error:function(response){
+            }
+        });
+    })
+
+    $('#update-content-translation' ).on( 'submit', function(e) {
+        e.preventDefault();
+        var language_id = $(this).find('input[name=language_id_translate]').val();
+        var name = $(this).find('input[name=name_translate]').val();
+        var summary = $(this).find('textarea[name=summary_translate]').val();
+        var description = $(this).find('textarea[name=description_translate]').val();
+        var specs = $(this).find('textarea[name=specs_translate]').val();
+
+        $.ajax({
+            type: "PATCH",
+            url: '{{url("/admin/products")}}/{{$product->id}}/translation',
+            data:{
+                'language_id':language_id,
+                'name': name,
+                'summary': summary,
+                'description': description,
+                'specs': specs
+            },
+            success:function(response){
+                alert(response['message']);
+            },
+            error:function(response){
+                alert(response['message']);
+            }
+        });
+    });
+
+    $( '#form-upload-image' ).on( 'submit', function(e) {
+        var file_data = $('#image_upload').prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        // $('#img1').html('<img src="{{asset('images/loader.gif')}}" style="padding-top: 40%"/>');
+        $.ajax({
+            data: form_data,
+            type: 'PATCH',
+            contentType: false,       // The content type used when sending data to the server.
+            cache: false,             // To unable request pages to be cached
+            processData: false,
+            success: function (response) {
+                // alert(response['path']);
+                // if (data.fail) {
+                //     $('#img1').html('<img width="100%" height="100%" src="{{asset('images/default.jpg')}}"/>');
+                //     alert(data.errors['file']);
+                // }
+                // else {
+                //     filename = data;
+                //     $('#img1').html('<img width="100%" height="100%" src="{{asset('uploads')}}/' + data + '"/>');
+                // }
+            },
+            error: function (xhr, status, error) {
+                // alert(xhr.responseText);
+                // $('#img1').html('<img width="100%" height="100%" src="{{asset('images/default.jpg')}}"/>');
+            }
+        });
+    });
+
+    //https://laracast.blogspot.com/2016/06/laravel-upload-image-file-with-ajax.html
+
 </script>
 @endsection

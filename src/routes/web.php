@@ -235,9 +235,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     //
     Route::get('products/{id}/edit',['as'=>'admin.products.edit','uses'=>'ProductsController@edit','middleware' => ['role:admin|manager']]);
     Route::patch('products/{id}',['as'=>'admin.products.update','uses'=>'ProductsController@update','middleware' => ['role:admin|manager']]);
+    Route::patch('products/{id}/translation',['as'=>'admin.products.updateTranslation','uses'=>'ProductsController@updateTranslation','middleware' => ['role:admin|manager']]);
+    Route::get('products/{id}/{code}/fetch',['as'=>'admin.products.fetchTranslation','uses'=>'ProductsController@fetchTranslation','middleware' => ['role:admin|manager']]);
     
     Route::delete('products/{id}',['as'=>'admin.products.destroy','uses'=>'ProductsController@destroy','middleware' => ['role:admin|manager']]);
-    Route::post('products/images/upload',['as'=>'admin.products.upload','uses'=>'ProductsController@upload','middleware' => ['role:admin|manager']]);
+    Route::patch('products/{id}/image/upload',['as'=>'admin.products.uploadImage','uses'=>'ProductsController@uploadImage','middleware' => ['role:admin|manager']]);
     
    //Order
     Route::get('orders',['as'=>'admin.orders.index','uses'=>'OrdersController@index','middleware' => ['role:admin|manager']]);

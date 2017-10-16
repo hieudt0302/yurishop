@@ -75,4 +75,10 @@ class Product extends Model
         /* It hack a bit of translations above */
         return $this->hasOne('App\Models\ProductTranslation'); //hack relationship
     }
+
+    public function medias()
+    {
+       return $this->belongsToMany('App\Models\Media', 'product_media')
+                        ->withPivot('order');
+    }
 }

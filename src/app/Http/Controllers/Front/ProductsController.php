@@ -60,9 +60,8 @@ class ProductsController extends Controller
             return abort(404);
         $starAvg = $product->comments->avg('rate');
 
-        $relatedProducts = $product->category->products
-        ->where('category_id',$product->category_id)
-        ->whereNotIn('id',$product->id);
+        $relatedProducts = Product::where('category_id',$product->category_id??0)
+        ->whereNotIn('id',$product->id)->get();
 
         return View('front.products.show', compact('product','starAvg','relatedProducts'));
     }
