@@ -10,6 +10,6 @@ return [
     'farm-activities' => 'Hoạt động cộng đồng',
     'farm-activities-message' => 'Thay đổi message sau',
     'about-us' => 'Về chúng tôi',
-    'product-origin' => 'Nguồn gốc sẳn phẩm',    
+    'product-origin' => 'Nguồn gốc sản phẩm',    
     'product-quality' => 'Chất lượng sản phẩm',      	      
 ];

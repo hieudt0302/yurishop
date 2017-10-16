@@ -8,6 +8,7 @@ return [
     'add-address' => 'Thêm địa chỉ',      
     'orders' => 'Đơn đặt hàng',
     'account' => 'Tài khoản',
+    'name' => 'Tên',      
     'first-name' => 'Tên',
     'last-name' => 'Họ',
     'phone' => 'Điện thoại',

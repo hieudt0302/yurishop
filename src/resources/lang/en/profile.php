@@ -8,6 +8,7 @@ return [
     'add-address' => 'Add a new address',       
     'orders' => 'Orders',
     'account' => 'Account',
+    'name' => 'Name',      
     'first-name' => 'First name',
     'last-name' => 'Last name',
     'phone' => 'Phone',

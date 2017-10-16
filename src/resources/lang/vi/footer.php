@@ -13,7 +13,7 @@ return [
     'my-wishlist' => 'Danh sách muốn mua',
     'order-history' => 'Lịch sử mua hàng',
     'faqs' => 'Câu hỏi thường gặp',        
-    'newsletter-message' => 'Đămg kí nhận tin từ Darmark Foods',
+    'newsletter-message' => 'Đăng kí nhận tin từ Pokofarms',
     'subscribe' => 'Đăng ký',
     'about-us' => 'Liên Hệ',    
 ];
