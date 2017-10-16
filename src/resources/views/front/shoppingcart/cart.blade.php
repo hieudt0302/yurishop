@@ -65,7 +65,7 @@
                                     <div class="card">
                                         <div id="cart-items" class="cart mb-0 cart-editable">
                                             <div class="cart-head">
-                                                <div class="cart-row row row-hardcode">
+                                                <div class="cart-row">
                                                     <div class="cart-col cart-col-main">
                                                         @lang('shoppings.products')
                                                     </div>
@@ -82,7 +82,7 @@
                                             </div>
                                             <div class="cart-body">
                                                 @foreach(Cart::content() as $row)
-                                                <div id="{{$row->rowId}}" class="cart-row row row-hardcode">
+                                                <div id="{{$row->rowId}}" class="cart-row">
                                                     <div class="cart-col cart-col-main">
                                                         <div class="row row-hardcode sm-gutters">
                                                             <div class="col cart-item-img">

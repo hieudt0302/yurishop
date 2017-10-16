@@ -206,7 +206,7 @@
                                     <div class="card">
                                         <div id="cart-items" class="cart mb-0">
                                             <div class="cart-head">
-                                                <div class="cart-row row row-hardcode">
+                                                <div class="cart-row">
                                                     <div class="cart-col cart-col-main">
                                                         Product(s)
                                                     </div>
