@@ -26,5 +26,6 @@ return [
     'search' => 'SEARCH',
     'cart' => 'CART',
     'account' => 'ACCOUNT',           
-
+    'activity' => 'activities',
+     'promotion' => 'promotion',
 ];

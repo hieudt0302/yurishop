@@ -22,9 +22,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $about_us = $this->getInfoPageTranslation('about-us');
+        // $product_origin = $this->getInfoPageTranslation('product-origin');
+        // $product_quality = $this->getInfoPageTranslation('product-quality');
         $new_products = DB::table('products')->where('created_at', '>=', Carbon::now()->subWeeks(1))->get();
-        $sliders = Slider::where('is_show',1)->get();
-        return View("front/home/index",compact('new_products','sliders'));
+        $new_products = Product::orderBy('updated_at', 'desc')->limit(8)->get();
+        $new_blogs = Post::orderBy('updated_at', 'desc')->limit(3)->get();
+        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'new_products', 'new_blogs'));
+
     }
 
     public function about()
@@ -48,6 +53,18 @@ class HomeController extends Controller
     public function showrooms()
     {
         $info_page_translation = $this->getInfoPageTranslation('showrooms');
+        return View("front.home.infopage",compact('info_page_translation'));
+    }
+    
+    public function product_origin()
+    {
+        $info_page_translation = $this->getInfoPageTranslation('product-origin');
+        return View("front.home.infopage",compact('info_page_translation'));
+    }
+
+    public function product_quality()
+    {
+        $info_page_translation = $this->getInfoPageTranslation('product-quality');
         return View("front.home.infopage",compact('info_page_translation'));
     }   
 
