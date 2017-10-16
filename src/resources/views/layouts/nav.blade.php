@@ -40,10 +40,15 @@
                                 <a href="#page-top"></a>
                             </li>
                             <li class="dropdown first">
-                                <a class="btn btn-default lv1">
+                                <a href="{{ url('/')}}" class="btn btn-default lv1">
                                 @lang('header.home')
                                 </a>
                             </li>
+                            <li class="dropdown first">
+                                <a href="{{ url('/about')}}" class="btn btn-default lv1">
+                                @lang('header.about-us')
+                                </a>
+                            </li>                            
 
                             @foreach($menus as $key => $menu)
                             <li class="dropdown first">
@@ -81,7 +86,7 @@
                                 <!-- End Sub -->
                                 @else
                                 <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                {{ Auth::user()->last_name }} {{ Auth::user()->first_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ Auth::user()->last_name }} {{ Auth::user()->first_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu level1">
                                     <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>My Account</a></li>
@@ -98,20 +103,43 @@
                                 </ul>
                                 @endguest
                             </li>
+
+                            <li class="dropdown first">
+                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ app()->getLocale() }}
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="dropdown-menu level1">
+                                    <li>
+                                        <a href="{{URL::asset('')}}language/vi">>
+                                            <i class="ion-ios-minus-empty"></i>
+                                            Tiếng Việt
+                                        </a>                                        
+                                    </li>
+                                    <li>
+                                        <a href="{{URL::asset('')}}language/en">>
+                                            <i class="ion-ios-minus-empty"></i>
+                                            English
+                                        </a>                                        
+                                    </li> 
+                                    <li>
+                                        <a href="#">>
+                                            <i class="ion-ios-minus-empty"></i>
+                                            中文
+                                        </a>                                        
+                                    </li>                                                                                                          
+                                </ul>
+                            </li>                            
                         </ul>
+
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-2 col-xs-12">
-                    <div class="right-menu">
+                    <div class="right-menu">                      
                         <button class="search-top-bt">
-                            <i class="ion-ios-search" data-toggle="tooltip" data-placement="top" title="Search"></i>
+                            <i class="ion-ios-search" data-toggle="tooltip" data-placement="top" title="{{ __('common.search') }}"></i>
                         </button>
-                        <button class="opennav2">
-                            <i class="ion-ios-cart-outline shopping-cart-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Add to cart"></i>
-                        </button>
-                        <button class="menu-btn">
-                            <i class="ion-navicon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Open Sidebar"></i>
-                        </button>
+                        <a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart" aria-hidden="true" data-toggle="tooltip" title="{{ Cart::instance('default')->count(false) }}"></i></a>
                     </div>
                 </div>
                 <!-- /.navbar-collapse -->

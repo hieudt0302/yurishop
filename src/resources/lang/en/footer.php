@@ -14,7 +14,7 @@ return [
     'my-wishlist' => 'My wishlist',
     'order-history' => 'Order history',
     'faqs' => 'FAQs',
-    'newsletter-message' => 'Stay informed with Darmark Foods',
+    'newsletter-message' => 'Stay informed with Pokofarms',
     'subscribe' => 'Subscribe',          
     'about-us' => 'About',          
 ];

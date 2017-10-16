@@ -33,7 +33,7 @@ class SliderController extends Controller
         $image = '';
         $img_file = $request->file('image');
         if($img_file != NULL){
-            $path = 'storage/app/public/images/slider';
+            $path = './images/slider';
             if(!is_dir($path)){
                 mkdir($path, 0777, true);
             }
@@ -83,7 +83,7 @@ class SliderController extends Controller
         $image = '';
         $img_file = $request->file('image');
         if($img_file != NULL){
-            $path = 'storage/app/public/images/slider';
+            $path = './images/slider';
             if(!is_dir($path)){
                 mkdir($path, 0777, true);
             }
