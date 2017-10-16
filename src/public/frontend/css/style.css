@@ -4746,7 +4746,7 @@ section {
 }
 .hero {
   padding: 150px 0 150px 0;
-  background: url('../images/uploads/blog-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/blog-bg.png') no-repeat;
   background-position: center;
   text-align: center;
   background-size: cover;
@@ -4782,7 +4782,7 @@ section {
   margin: 0 15px 0 15px;
 }
 .flowerhero {
-  background: url('../images/uploads/flowerab-hero.png') no-repeat;
+  background: url('../frontend/images/uploads/flowerab-hero.png') no-repeat;
 }
 .bloglistpost-v1 .blogpost-v1 .blog-it img.post-img,
 .bloglistpost-v2 .blogpost-v1 .blog-it img.post-img {
@@ -4869,7 +4869,7 @@ section {
 .bloglistpost-v1 .blogpost-v1 .blog-it.quote,
 .bloglistpost-v2 .blogpost-v1 .blog-it.quote {
   margin-bottom: 50px;
-  background: url('../images/uploads/quote-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/quote-bg.png') no-repeat;
   padding: 65px 0 40px 0;
 }
 .bloglistpost-v1 .blogpost-v1 .blog-it.quote p,
@@ -5107,7 +5107,7 @@ section {
 .blog .blogpost-v2-quote {
   margin-bottom: 50px;
   margin-top: 50px;
-  background: url('../images/uploads/quote-bg2.png') no-repeat;
+  background: url('../frontend/images/uploads/quote-bg2.png') no-repeat;
   padding: 85px 0 40px 0;
 }
 .bloglistpost-v2 .blogpost-v2-quote p,
@@ -5181,7 +5181,7 @@ section {
 .subscribe,
 .subscribev3 {
   padding: 90px 0;
-  background: url('../images/uploads/sub-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/sub-bg.png') no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -5263,7 +5263,7 @@ section {
   background: none;
 }
 .subscribev3 .sub-content {
-  background: url('../images/uploads/sub-bg3.png') no-repeat;
+  background: url('../frontend/images/uploads/sub-bg3.png') no-repeat;
   background-position: center bottom;
   background-size: cover;
   padding: 80px 270px 80px 270px;
@@ -5670,19 +5670,19 @@ section {
   text-decoration: none;
 }
 .aboutv2 .color1 {
-  background: url('../images/uploads/ab-bg1.png') no-repeat;
+  background: url('../frontend/images/uploads/ab-bg1.png') no-repeat;
 }
 .aboutv2 .color2 {
-  background: url('../images/uploads/ab-bg2.png') no-repeat;
+  background: url('../frontend/images/uploads/ab-bg2.png') no-repeat;
 }
 .aboutv2 .color3 {
-  background: url('../images/uploads/ab-bg3.png') no-repeat;
+  background: url('../frontend/images/uploads/ab-bg3.png') no-repeat;
 }
 .aboutv2 .color4 {
-  background: url('../images/uploads/ab-bg4.png') no-repeat;
+  background: url('../frontend/images/uploads/ab-bg4.png') no-repeat;
 }
 .aboutv2 .color5 {
-  background: url('../images/uploads/ab-bg5.png') no-repeat;
+  background: url('../frontend/images/uploads/ab-bg5.png') no-repeat;
 }
 .aboutv2 .ab-icon {
   text-align: center;
@@ -5740,7 +5740,7 @@ section {
 }
 #deal {
   padding-bottom: 130px;
-  background: url('../images/uploads/deal-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/deal-bg.png') no-repeat;
   background-position: center;
   background-size: cover;
   background-color: #fafafa;
@@ -5860,7 +5860,7 @@ section {
 .flower-services .heading-sec {
   text-align: center;
   margin-bottom: 15px;
-  background: url('../images/uploads/heading-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/heading-bg.png') no-repeat;
   background-position: center;
   background-size: 15%;
   padding-top: 50px;
@@ -6303,7 +6303,7 @@ section {
   right: 0;
 }
 #process {
-  background: url('../images/uploads/process-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/process-bg.png') no-repeat;
   background-color: #ffffff;
   background-position: center;
   background-size: cover;
@@ -6376,7 +6376,7 @@ section {
 #process .step1-icon:before {
   margin-left: 45px;
   margin-top: 120px;
-  background: url('../images/uploads/pc-bg1.png') no-repeat;
+  background: url('../frontend/images/uploads/pc-bg1.png') no-repeat;
 }
 #process .step1-icon i {
   margin-left: 60px;
@@ -6385,7 +6385,7 @@ section {
 #process .step2-icon:before {
   margin-left: 60px;
   margin-top: -80px;
-  background: url('../images/uploads/pc-bg2.png') no-repeat;
+  background: url('../frontend/images/uploads/pc-bg2.png') no-repeat;
 }
 #process .step2-icon i {
   margin-left: 75px;
@@ -6394,7 +6394,7 @@ section {
 #process .step3-icon:before {
   margin-left: 95px;
   margin-top: -80px;
-  background: url('../images/uploads/pc-bg3.png') no-repeat;
+  background: url('../frontend/images/uploads/pc-bg3.png') no-repeat;
 }
 #process .step3-icon i {
   margin-left: 110px;
@@ -6403,7 +6403,7 @@ section {
 #process .step4-icon:before {
   margin-left: 65px;
   margin-top: 155px;
-  background: url('../images/uploads/pc-bg4.png') no-repeat;
+  background: url('../frontend/images/uploads/pc-bg4.png') no-repeat;
 }
 #process .step4-icon i {
   margin-left: 80px;
@@ -6756,7 +6756,7 @@ section {
   padding: 0;
 }
 #adsv2 .ads-left {
-  background: url('../images/uploads/ads-bg1.jpg') no-repeat;
+  background: url('../frontend/images/uploads/ads-bg1.jpg') no-repeat;
   background-size: contain;
   background-position: left center;
   height: 400px;
@@ -6818,7 +6818,7 @@ section {
 }
 #adsv2 .ads-right {
   margin-left: -15px;
-  background: url('../images/uploads/ads-bg2.jpg') no-repeat;
+  background: url('../frontend/images/uploads/ads-bg2.jpg') no-repeat;
   background-size: contain;
   background-position: left center;
   height: 400px;
@@ -6938,7 +6938,7 @@ section {
   width: 310px;
   height: 310px;
   text-align: center;
-  background-image: url('../images/uploads/heading-bg3.png');
+  background-image: url('../frontend/images/uploads/heading-bg3.png');
   background-repeat: no-repeat;
   background-position: center center;
   margin: 0;
@@ -7122,7 +7122,7 @@ img.div-line2 {
 .history {
   padding-top: 55px;
   padding-bottom: 150px;
-  background: url('../images/uploads/ab-bgv4.jpg');
+  background: url('../frontend/images/uploads/ab-bgv4.jpg');
   background-position: 0 0;
   background-repeat: no-repeat;
 }
@@ -7154,7 +7154,7 @@ img.div-line2 {
   margin-bottom: 10px;
 }
 .history-content .heading-sec {
-  background: url('../images/uploads/heading-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/heading-bg.png') no-repeat;
   text-align: center;
   background-position: center;
   background-size: 40%;
@@ -7238,7 +7238,7 @@ img.div-line2 {
 }
 .dealv4 .deal-ct {
   padding-top: 200px;
-  background: url('../images/uploads/deal-bg4.png');
+  background: url('../frontend/images/uploads/deal-bg4.png');
   background-position: center;
   background-size: cover;
   margin-top: -200px;
@@ -7249,7 +7249,7 @@ img.div-line2 {
 #aboutv1 {
   padding-top: 120px;
   padding-bottom: 120px;
-  background-image: url('../images/uploads/aboutv1-bg.jpg');
+  background-image: url('../frontend/images/uploads/aboutv1-bg.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -7279,7 +7279,7 @@ img.div-line2 {
   padding-top: 55px;
   padding-bottom: 30px;
   width: 100%;
-  background: url('../images/uploads/quote-bgv1.png') no-repeat;
+  background: url('../frontend/images/uploads/quote-bgv1.png') no-repeat;
   background-position: center;
 }
 #aboutv1 .ab-right .quote p {
@@ -7429,7 +7429,7 @@ img.div-line2 {
 }
 #aboutpagev2 .ab-right .quote {
   padding: 60px 30px;
-  background: url('../images/uploads/quoteit-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/quoteit-bg.png') no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -7827,7 +7827,7 @@ img.div-line2 {
   position: relative;
 }
 .productdetail .right-it form.quantity .numbers-row .inc.button {
-  background: url('../images/uploads/plus.png') no-repeat;
+  background: url('../frontend/images/uploads/plus.png') no-repeat;
   width: 29px;
   height: 29px;
   text-indent: -9999px;
@@ -7837,7 +7837,7 @@ img.div-line2 {
   right: 5px;
 }
 .productdetail .right-it form.quantity .numbers-row .dec.button {
-  background: url('../images/uploads/minus.png') no-repeat;
+  background: url('../frontend/images/uploads/minus.png') no-repeat;
   width: 29px;
   height: 29px;
   text-indent: -9999px;
@@ -8396,7 +8396,7 @@ img.div-line2 {
   padding-left: 70px;
 }
 .contactv2 .ct-v2-hd {
-  background: url('../images/uploads/heading-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/heading-bg.png') no-repeat;
   background-position: left;
   background-size: 25%;
   padding-top: 50px;
@@ -8422,7 +8422,7 @@ img.div-line2 {
   padding-right: 100px;
 }
 .contact-top {
-  background: url('../images/uploads/ct-bg.jpg');
+  background: url('../frontend/images/uploads/ct-bg.jpg');
   background-position: center ;
   background-repeat: no-repeat;
   background-size: cover ;
@@ -8430,7 +8430,7 @@ img.div-line2 {
 }
 .error {
   background-color: #ffffff;
-  background: url('../images/uploads/error-bg.jpg');
+  background: url('../frontend/images/uploads/error-bg.jpg');
   background-position: center;
   background-size: cover;
   text-align: center;
@@ -8457,13 +8457,13 @@ img.div-line2 {
 }
 .comingsoon {
   background-color: #ffffff;
-  background: url('../images/uploads/error-bg.jpg');
+  background: url('../frontend/images/uploads/error-bg.jpg');
   background-position: center;
   background-size: cover;
   text-align: center;
 }
 .comingsoon h1 {
-  background: url('../images/uploads/heading-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/heading-bg.png') no-repeat;
   background-position: center;
   background-size: 15%;
   padding-top: 50px;
@@ -8600,7 +8600,7 @@ img.div-line2 {
 }
 .flowerads {
   padding: 200px 0 200px 0;
-  background: url('../images/uploads/ads-bg3.png') no-repeat;
+  background: url('../frontend/images/uploads/ads-bg3.png') no-repeat;
   background-position: center;
   text-align: center;
 }
@@ -8765,7 +8765,7 @@ img.div-line2 {
   font-style: Italic;
 }
 .floweraboutv2 {
-  background: url('../images/uploads/flow-ab-bg2.png') no-repeat;
+  background: url('../frontend/images/uploads/flow-ab-bg2.png') no-repeat;
   background-position: center;
   background-size: cover;
   padding-top: 200px;
@@ -8837,7 +8837,7 @@ img.div-line2 {
 }
 .flowerarrival .arr-left {
   padding: 130px 0;
-  background: url('../images/uploads/arr-bg-1.png') no-repeat;
+  background: url('../frontend/images/uploads/arr-bg-1.png') no-repeat;
   text-align: center;
   margin-bottom: 50px;
 }
@@ -8994,7 +8994,7 @@ img.div-line2 {
   top: 150px;
 }
 .slogan {
-  background: url('../images/uploads/slogan-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/slogan-bg.png') no-repeat;
   text-align: center;
   background-size: 55%;
   background-position: center;
@@ -9098,7 +9098,7 @@ img.div-line2 {
   margin-top: -483px;
 }
 .floweradsv3 .ads-item-left {
-  background: url('../images/uploads/adsv3.png') no-repeat;
+  background: url('../frontend/images/uploads/adsv3.png') no-repeat;
   background-position: center;
   background-size: cover;
   padding-top: 120px;
@@ -9127,7 +9127,7 @@ img.div-line2 {
   text-transform: uppercase;
 }
 .floweradsv3 .ads-item-right {
-  background: url('../images/uploads/adsv32.png') no-repeat;
+  background: url('../frontend/images/uploads/adsv32.png') no-repeat;
   background-position: center;
   background-size: cover;
   padding-top: 90px;
@@ -9172,7 +9172,7 @@ img.div-line2 {
   background-color: #f49ac1;
 }
 .flowersubscribev3 {
-  background: url('../images/uploads/flow-sub-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/flow-sub-bg.png') no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -9187,7 +9187,7 @@ img.div-line2 {
   margin: 0;
   padding-right: 120px;
   text-align: left;
-  background: url('../images/uploads/heading-bg4.png') no-repeat;
+  background: url('../frontend/images/uploads/heading-bg4.png') no-repeat;
   padding-top: 60px;
 }
 .floweraboutv4 .ab-flow-r {
@@ -9330,7 +9330,7 @@ img.div-line2 {
   margin-left: 50px;
 }
 .floweradsv4 {
-  background: url('../images/uploads/adsv4-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/adsv4-bg.png') no-repeat;
   background-position: center;
   background-size: cover;
   padding-top: 80px;
@@ -9373,7 +9373,7 @@ img.div-line2 {
   font-weight: 600;
 }
 .aboutflowerab {
-  background: url('../images/uploads/abflowerab-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/abflowerab-bg.png') no-repeat;
   background-position: center;
   background-size: 100%;
   padding-bottom: 130px;
@@ -9396,7 +9396,7 @@ img.div-line2 {
   border: 1px solid #f49ac1;
 }
 .aboutflowerabv2 {
-  background: url('../images/uploads/ab-flowv2.png') no-repeat;
+  background: url('../frontend/images/uploads/ab-flowv2.png') no-repeat;
   padding-bottom: 60px;
 }
 .aboutflowerabv2 .ab-flow-r {
@@ -9426,7 +9426,7 @@ img.div-line2 {
 .cakeabout {
   padding-bottom: 100px;
   padding-top: 140px;
-  background: url('../images/uploads/cake-ab.png') no-repeat;
+  background: url('../frontend/images/uploads/cake-ab.png') no-repeat;
   background-position: top 270px left 660px;
 }
 .cakeabout img.img-r {
@@ -9508,7 +9508,7 @@ img.div-line2 {
   background-color: #f49ac1;
 }
 .cakeads {
-  background: url('../images/uploads/cakeads.png') no-repeat;
+  background: url('../frontend/images/uploads/cakeads.png') no-repeat;
 }
 .cakearrival .blog-it-left .cakeblog-ct .arr-date {
   text-align: center;
@@ -9556,10 +9556,10 @@ img.div-line2 {
   color: #f49ac1;
 }
 .cakeabouthero {
-  background: url('../images/uploads/abcake-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/abcake-bg.png') no-repeat;
 }
 .cakeaboutab {
-  background: url('../images/uploads/ab-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/ab-bg.png') no-repeat;
   background-position: top 300px center;
 }
 .cakeaboutab .item1 {
@@ -9654,7 +9654,7 @@ img.div-line2 {
   text-align: center;
 }
 .cakeinstagram .insta-content {
-  background: url('../images/uploads/insta-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/insta-bg.png') no-repeat;
   background-size: cover;
   background-position: center;
   padding: 165px 0;
@@ -9710,12 +9710,12 @@ img.div-line2 {
   transition: all 0.5s ease-out;
 }
 .plantsubscribe {
-  background: url('../images/uploads/plant-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/plant-bg.png') no-repeat;
   background-position: center;
   background-size: cover;
 }
 .planttestimonial {
-  background: url('../images/uploads/planttest.png') no-repeat;
+  background: url('../frontend/images/uploads/planttest.png') no-repeat;
   background-size: cover;
   padding: 50px;
 }
@@ -9798,7 +9798,7 @@ img.div-line2 {
 }
 .plantservice {
   padding-bottom: 90px;
-  background: url('../images/uploads/plantservice-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/plantservice-bg.png') no-repeat;
   background-position: center;
   margin-top: -300px;
 }
@@ -9844,7 +9844,7 @@ img.div-line2 {
   text-transform: uppercase;
 }
 .aboutplanthero {
-  background: url('../images/uploads/planthero.jpg') no-repeat;
+  background: url('../frontend/images/uploads/planthero.jpg') no-repeat;
 }
 .aboutplantintro {
   padding-top: 120px;
@@ -11555,7 +11555,7 @@ header .right-menu button.white i:hover {
   color: #696969;
   font-style: Italic;
   text-align: center;
-  background: url('../images/uploads/sidebar-bg.png') no-repeat;
+  background: url('../frontend/images/uploads/sidebar-bg.png') no-repeat;
   background-position: center;
   background-size: 40%;
   margin-left: 40px;

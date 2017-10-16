@@ -30,7 +30,7 @@
     <meta name="format-detection" content="telephone-no">
     <!-- CSS files -->
     <link rel="stylesheet" href="{{asset('frontend/css/plugins.css')}}">
-    <link rel="stylesheet" href="{{asset('frondend/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 
         @yield('header')
     </head>

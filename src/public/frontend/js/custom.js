@@ -925,7 +925,7 @@
 						      var marker = new google.maps.Marker({
 						        position: results[0].geometry.location,
 						        map: map,
-						        icon:  'images/uploads/location.png',
+						        icon:  'frontend/images/uploads/location.png',
 						        title: address
 						      });
 						      google.maps.event.addListener(marker, 'click', function() {
