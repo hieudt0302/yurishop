@@ -36,6 +36,7 @@
     </head>
     <body>
         <div id="page" class="allpage">
+            @yield('top')
             <!-- Navigation panel -->
             @include('layouts.nav')
             <!-- End Navigation panel -->
