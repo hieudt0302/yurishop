@@ -77,7 +77,7 @@
                          <i class="ion-ios-search" data-toggle="tooltip" data-placement="top" title="Search"></i>
                      </button>
                      <button class="opennav2">
-                         <i class="ion-ios-cart-outline" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Add to cart"></i>
+                         <i class="ion-ios-cart-outline shopping-cart-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Add to cart"></i>
                      </button>
                      <button class="menu-btn">
                          <i class="ion-navicon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Open Sidebar"></i>

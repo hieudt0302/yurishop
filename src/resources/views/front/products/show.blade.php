@@ -25,7 +25,7 @@
 			<div class="pro-detail-infor list-item">
 				<div class="col-md-4 col-sm-4 col-xs-12">
 					<div class="pro-img">
-						<img src="{{asset('frontend/images/uploads/p2.png')}}" alt="">
+						<img src="{{asset('frontend/images/uploads/p2.png')}}" alt="" class="product-main-img">
 					</div>
 					<div class="more-img">
 						<a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a>
@@ -38,19 +38,39 @@
 				<div class="col-md-8 col-sm-8 col-xs-12">
 					<div class="pro-list-it it">
 						<span class="hot">hot</span>
-						<h4 class="hd-after"><a href="#">Organic Sweetcorn</a></h4>
+						<h4 class="hd-after"><a href="#">{{$product->translation->name??$product->name}}</a></h4>
 						<span class="right">
 							<span class="star-rate small">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
+                                @if($starAvg>=1)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                @else
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                @endif
+                                @if($starAvg>=2)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                @else
+                                <i class="fa fa-star-o"></i>
+                                @endif
+                                @if($starAvg>=3)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                @else
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                @endif
+                                @if($starAvg>=4)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                @else
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                @endif
+                                @if($starAvg>=5)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                @else
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                @endif
 						 	</span><br>
-						 	<span class="rv">(Based on 03 reviews)</span>
+						 	<span class="rv">(Based on {{count($product->comments)}} reviews)</span>
 						</span>
-						<span class="price2">$12.00</span><span class="sub">$ 6.00</span>
-						<p class="para">Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? Uterque enim summo bono fruitur, id est voluptate barbarorum pedibu biit, tot maria tranbarbarorum pedibu smiearia trana.</p>
+						<span class="price2">{{$product->old_price}}</span><span class="sub">{{$product->price}}</span>
+						<p class="para">{{$product->translation->summary??''}}</p>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
 						<div class="right-it">
 								 <form class="quantity" method="post" action="#">
@@ -70,13 +90,17 @@
 						</div>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
 						<div class="pro-description"> 
-							<p>sku<span>A937-C</span></p>
-							<p>Categories<span>Fruits</span></p>
-							<p>Expire date<span>01/11/2015</span></p>
-							<p>Tags<span>Fruit, corn, organic</span></p>
+							<p>sku<span>{{$product->sku}}</span></p>
+							<p>Categories<span>{{$product->category->translation->name??''}}</span></p>
+							<!-- <p>Expire date<span>01/11/2015</span></p> -->
+							<p>Tags<span>
+                                    @foreach($product->tags as $tag)
+                                {{$tag->name}}, 
+                                @endforeach
+                                </span></p>
 						</div>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">
-						<a class="readmore" href="#">Add to cart</a>
+						<a class="readmore add-shoopingcart" href="javascript:void(0)">Add to cart</a>
 						<a class="wishlist" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
 					</div>	
 				</div>
@@ -88,170 +112,96 @@
 					<span class="tab-links">
 						<li class="active"><a href="#tab1">Description</a></li>
 						<li><a href="#tab2">Additional info</a></li>
-						<li><a href="#tab3">Reviews <span>(03)</span></a></li>
+						<li><a href="#tab3">Reviews <span>{{count($product->comments)}}</span></a></li>
 					</span>
 					<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4" width="100">
 				    <div class="tab-content">
 				        <div id="tab1" class="tab active comment list-item">
-				            <h2 class="cmt-heading">Customer Reviews<span>(03)</span></h2>
+				            <h2 class="cmt-heading">Desciption</span></h2>
 				            <div class="cmt-it pro-list-it ">
 								<div class="row">
-									<div class="col-md-2 col-sm-2 col-xs-2">
-										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+                                        {!!$product->translation->description??''!!}
 									</div>
-									<div class="col-md-10 col-sm-10 col-xs-10">
-										<div class="cmt-content">
-											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
-											<span class="right">
-												<span class="star-rate small">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star-o" aria-hidden="true"></i>
-											 	</span>
-											</span>
-											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
-											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
-										</div>	
-									</div>
+								
 								</div>
 							</div>
 							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
-							<div class="cmt-it pro-list-it ">
-								<div class="row">
-									<div class="col-md-2 col-sm-2 col-xs-2">
-										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
-									</div>
-									<div class="col-md-10 col-sm-10 col-xs-10">
-										<div class="cmt-content">
-											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
-											<span class="right">
-												<span class="star-rate small">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star-o" aria-hidden="true"></i>
-											 	</span>
-											</span>
-											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
-											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
-										</div>	
-									</div>
-								</div>
-							</div>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
+			
 				        </div>
 				        <div id="tab2" class="tab comment list-item">
-				           <h2 class="cmt-heading">Customer Reviews<span>(03)</span></h2>
+				           <h2 class="cmt-heading">Specs</span></h2>
 				            <div class="cmt-it pro-list-it ">
 								<div class="row">
-									<div class="col-md-2 col-sm-2 col-xs-2">
-										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
-									</div>
-									<div class="col-md-10 col-sm-10 col-xs-10">
-										<div class="cmt-content">
-											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
-											<span class="right">
-												<span class="star-rate small">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star-o" aria-hidden="true"></i>
-											 	</span>
-											</span>
-											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
-											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
-										</div>	
+									<div class="col-md-12 col-sm-12 col-xs-12">
+                                        <p>
+                                            {!!$product->translation->specs??''!!}
+                                        </p>
 									</div>
 								</div>
 							</div>
 							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
 				        </div>
 				        <div id="tab3" class="tab comment list-item">
-				        	<h2 class="cmt-heading">Customer Reviews<span>(03)</span></h2>
-				            <div class="cmt-it pro-list-it ">
+				        	<h2 class="cmt-heading">Customer Reviews<span>({{count($product->comments)}})</span></h2>
+                            @foreach($product->comments as  $review)
+                            <div class="cmt-it pro-list-it ">
 								<div class="row">
 									<div class="col-md-2 col-sm-2 col-xs-2">
 										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
 									</div>
 									<div class="col-md-10 col-sm-10 col-xs-10">
 										<div class="cmt-content">
-											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
+											<h4><a href="#">{{$review->name}}</a><span class="date">{{date('M d, Y',strtotime($review->created_at))}}</span></h4>
 											<span class="right">
 												<span class="star-rate small">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    @if($review->rate>=1)
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    @else
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    @endif
+                                                    @if($review->rate>=2)
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    @else
+                                                    <i class="fa fa-star-o"></i>
+                                                    @endif
+                                                    @if($review->rate>=3)
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    @else
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    @endif
+                                                    @if($review->rate>=4)
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    @else
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    @endif
+                                                    @if($review->rate>=5)
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    @else
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    @endif
 											 	</span>
 											</span>
-											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
+											<p>{{$review->comment}}</p>
 											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
 										</div>	
 									</div>
 								</div>
 							</div>
 							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
-							<div class="cmt-it pro-list-it ">
-								<div class="row">
-									<div class="col-md-2 col-sm-2 col-xs-2">
-										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
-									</div>
-									<div class="col-md-10 col-sm-10 col-xs-10">
-										<div class="cmt-content">
-											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
-											<span class="right">
-												<span class="star-rate small">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star-o" aria-hidden="true"></i>
-											 	</span>
-											</span>
-											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
-											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
-										</div>	
-									</div>
-								</div>
-							</div>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
-							<div class="cmt-it pro-list-it ">
-								<div class="row">
-									<div class="col-md-2 col-sm-2 col-xs-2">
-										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
-									</div>
-									<div class="col-md-10 col-sm-10 col-xs-10">
-										<div class="cmt-content">
-											<h4><a href="#">Jonathan Doe</a><span class="date">July 14th, 2016</span></h4>
-											<span class="right">
-												<span class="star-rate small">
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star" aria-hidden="true"></i>
-													<i class="fa fa-star-o" aria-hidden="true"></i>
-											 	</span>
-											</span>
-											<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepiu laritas est etiam pro</p>
-											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
-										</div>	
-									</div>
-								</div>
-							</div>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
+                            @endforeach
+                            
 			       	 	</div>
 				    </div>
 				    <!-- comment form -->
-					<form action="#" class="post-cmt">
-						<label>Add a Review</label>
+					<form method="post" action="{{url('/products')}}/{{$product->id}}/review"  class="post-cmt">
+                    {{ csrf_field() }}
+                    <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
+                        <label>Add a Review</label>
+                            @guest
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input class="name" type="text" placeholder="Lee Bui">
+									<input class="name" type="text" placeholder="Your Name">
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<input class="email" type="text" placeholder="E-mail*">
@@ -259,12 +209,29 @@
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<input class="website" type="text" placeholder="Website">
 								</div>
-							</div>
+                            </div>
+                            @else
+                            <input type="hidden" id="reviewer_id" name="reviewer_id" value="{{Auth::user()->id}}">
+                            <input type="hidden" id="name" name="name" value="{{Auth::user()->last_name}} {{Auth::user()->first_name}}">
+                            <input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
+                            <input type="hidden" id="website" name="website" value="">
+                            @endguest
 							<div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <!-- Rating -->
+                                    <select name="rate">
+                                        <option value="0">-- Select one Star--</option>
+                                        <option value="1">1 Star</option>
+                                        <option value="2">2 Star</option>
+                                        <option value="3">3 Star</option>
+                                        <option value="4">4 Star</option>
+                                        <option value="5">5 Star</option>
+                                    </select>
+                                </div>
 								<div class="col-md-12 col-sm-12 col-xs-12">
 									<input  class="comt" type="textarea" placeholder="Comment*">
 								</div>
-							</div>
+                            </div>
 							<input class="submit" type="submit" value="post comment">
 					</form>
 				</div>
