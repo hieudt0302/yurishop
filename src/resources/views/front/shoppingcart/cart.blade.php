@@ -271,7 +271,8 @@
 <script type="text/javascript" src="{{ asset('js/jquery.bootstrap-touchspin.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/offcanvas.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/offcanvas-cart.js') }}"></script> 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pnotify/3.2.1/pnotify.animate.js"></script> 
+<script type="text/javascript" src="{{ asset('dist/pnotify/pnotify.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('dist/pnotify/pnotify.animate.js') }}"></script> 
 
 <script type="text/javascript">
 $(document).ready(function(){   
