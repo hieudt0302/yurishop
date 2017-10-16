@@ -47,269 +47,34 @@
 						</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="products-it">
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-						<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p1.jpg" alt="">
-						<div class="pro-infor">
-							<h2>Juice (Mango)</h2>
-							<span class="pro-cost">$16.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-	            	</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-						<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p2.jpg" alt="">
-						<div class="pro-infor">
-							<h2>Organic Sweetcorn</h2>
-							<span class="pro-cost">$6.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p3.jpg" alt="">
-						<div class="pro-infor">
-							<p><span class="hot">hot</span></p>
-							<h2>Pomegranates</h2>
-							<span class="pro-cost">$32.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>	
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p4.jpg" alt="">
-						<div class="pro-infor">
-							<h2>Organic Vegetable</h2>
-							<span class="pro-cost">$16.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="products-it">
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p5.jpg" alt="">
-						<div class="pro-infor">
-							<h2>Organic Vegetable</h2>
-							<span class="pro-cost">$16.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>	
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p6.jpg" alt="">
-						<div class="pro-infor">
-							<p><span  class="new">new</span></p>
-							<h2>Pomegranates</h2>
-							<span class="pro-cost">$32.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>	
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p7.jpg" alt="">
-						<div class="pro-infor">
-							<p><span class="sale-pr">sale</span></p>
-							<h2>Zest Tea</h2>
-							<span class="pro-cost">$16.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p8.jpg" alt="">
-						<div class="pro-infor">
-							<h2>Hicaf Teas</h2>
-							<span class="pro-cost">$23.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>	
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="products-it">
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-						<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p1.jpg" alt="">
-						<div class="pro-infor">
-							<h2>Juice (Mango)</h2>
-							<span class="pro-cost">$16.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-	            	</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-						<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p2.jpg" alt="">
-						<div class="pro-infor">
-							<h2>Organic Sweetcorn</h2>
-							<span class="pro-cost">$6.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p3.jpg" alt="">
-						<div class="pro-infor">
-							<p><span class="hot">hot</span></p>
-							<h2>Pomegranates</h2>
-							<span class="pro-cost">$32.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>	
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p4.jpg" alt="">
-						<div class="pro-infor">
-							<h2>Organic Vegetable</h2>
-							<span class="pro-cost">$16.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="products-it">
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p5.jpg" alt="">
-						<div class="pro-infor">
-							<h2>Organic Vegetable</h2>
-							<span class="pro-cost">$16.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>	
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p6.jpg" alt="">
-						<div class="pro-infor">
-							<p><span  class="new">new</span></p>
-							<h2>Pomegranates</h2>
-							<span class="pro-cost">$32.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>	
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p7.jpg" alt="">
-						<div class="pro-infor">
-							<p><span class="sale-pr">sale</span></p>
-							<h2>Zest Tea</h2>
-							<span class="pro-cost">$16.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="pro-it">
-		        		<i class="fa fa-heart-o" aria-hidden="true"></i>
-						<img class="pro-img" src="frontend/images/uploads/p8.jpg" alt="">
-						<div class="pro-infor">
-							<h2>Hicaf Teas</h2>
-							<span class="pro-cost">$23.00</span>
-						</div>
-						<div class="hover-inner">	
-							<a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
-							<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-							<a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-		        	</div>	
-				</div>
-			</div>
-		</div>
+        </div>
+        @foreach($products as $key => $product)
+            @if($key == 0 || $key%4 === 0)
+            <div class="row">
+                <div class="products-it">
+            @endif                    
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="pro-it">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <img class="pro-img" src="frontend/images/uploads/p1.jpg" alt="">
+                            <div class="pro-infor">
+                                <h2>Juice (Mango)</h2>
+                                <span class="pro-cost">$16.00</span>
+                            </div>
+                            <div class="hover-inner">	
+                                <a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                <a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                <a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+            @if(($key > 0 && ($key+1) %4 === 0) || $key +1 ===count($products))
+                </div>
+            </div>
+            @endif
+        @endforeach
+		
+        
 		<div class="row">
 			<div class="blogpanigation">
 				<div class="col-md-12 col-sm-12 col-xs-12">

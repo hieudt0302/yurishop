@@ -15,13 +15,13 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         
-        if (Product::count() == 0) {
+         if (Product::count() == 0) {
             
             $user = User::where('username', 'admin')->firstOrFail();
 
             //10
             $product10 = Product::create([
-                'sku'  => 'SKU010',
+                'sku'  => 'SKU10',
                 'name' => 'Cà phê Socola',
                 'slug' => 'product-10',
                 'price'          => 1000,
@@ -29,6 +29,6 @@ class ProductsTableSeeder extends Seeder
                 'author_id' => $user->id
             ]);
                         
-        }
+         }
     }
 }
