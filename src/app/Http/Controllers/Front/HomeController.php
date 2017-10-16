@@ -25,11 +25,12 @@ class HomeController extends Controller
         // $about_us = $this->getInfoPageTranslation('about-us');
         // $product_origin = $this->getInfoPageTranslation('product-origin');
         // $product_quality = $this->getInfoPageTranslation('product-quality');
-        $new_products = DB::table('products')->where('created_at', '>=', Carbon::now()->subWeeks(1))->get();
-        $new_products = Product::orderBy('updated_at', 'desc')->limit(8)->get();
+        $new_products = Product::orderBy('created_at', 'desc')->limit(4)->get();
+        $best_sellers_products = Product::orderBy('created_at', 'desc')->limit(4)->get();
+        $sale_products = Product::orderBy('created_at', 'desc')->limit(4)->get();                
         $new_blogs = Post::orderBy('updated_at', 'desc')->limit(3)->get();
         $sliders = Slider::where('is_show',1)->get();        
-        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'new_products', 'new_blogs','sliders'));
+        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'new_products', 'best_sellers_products', 'sale_products', 'new_blogs','sliders'));
 
     }
 
