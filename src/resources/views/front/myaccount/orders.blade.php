@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Danh Sách Đơn Hàng - Cà Phê Đăk Hà')
+@section('title','Danh Sách Đơn Hàng - Pokofarms')
 @section('header') @parent
 <!-- OVERRIDER MASTER CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
