@@ -33,6 +33,7 @@ return [
 	 'subtotal' => 'Subtotal',
 	 'tax' => 'Tax',
 	 'checkout' => 'Checkout',
-	 'calculated-during-checkout' => 'Calculated during checkout', 	  	   	  	  	  	  	  	  	  	  	  	  	  	 	 
+	 'calculated-during-checkout' => 'Calculated during checkout', 	  	   	
+	 'shopping-cart' => 'Shopping Cart'  	  	  	  	  	  	  	  	  	  	  	 	 
 	  	 	  	  	 	 	 
 ];

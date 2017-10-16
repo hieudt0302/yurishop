@@ -254,8 +254,9 @@
 </div>
 @endsection
 @section('scripts')
+<!-- <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>  -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> 
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>  -->
 <script type="text/javascript" src="{{ asset('js/viewport.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/eventbroker.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/underscore.js') }}"></script> 
@@ -269,8 +270,11 @@
 <script type="text/javascript" src="{{ asset('js/jquery.bootstrap-touchspin.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/offcanvas.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/offcanvas-cart.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('dist/pnotify/pnotify.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('dist/pnotify/pnotify.animate.js') }}"></script> 
+
     <!-- Select2 -->
-	<script src="{{asset('adminlte/js/select2.full.min.js')}}"></script>
+	<script src="{{asset('js/select2.full.min.js')}}"></script>
 	<script type="text/javascript">
                                             $(function() {
                                                 $("#NewAddress_CountryId").change(function() {

@@ -81,7 +81,7 @@
                                 <!-- End Sub -->
                                 @else
                                 <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                {{ Auth::user()->last_name }} {{ Auth::user()->firs_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                {{ Auth::user()->last_name }} {{ Auth::user()->first_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu level1">
                                     <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>My Account</a></li>
