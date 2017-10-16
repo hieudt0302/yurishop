@@ -25,8 +25,8 @@
                              </div>
                          </div>
                          <div class="col-md-7">
-                             <a class="hd-logo" href="index.html">
-                                 <img class="logo" src="images/logo.png" alt="">
+                             <a class="hd-logo" href="{{url('/')}}">
+                                 <img class="logo" src="{{asset('frontend/images/logo.png')}}" alt="">
                              </a>
                          </div>
                      </div>
@@ -39,9 +39,6 @@
                          <li class="hidden">
                              <a href="#page-top"></a>
                          </li>
-                         <!-- <li class="dropdown">
-                         <a href="landing.html" class="btn btn-default dropdown-toggle lv1">Landing </a>
-                        </li>	 -->
                          <li class="dropdown first">
                              <a class="btn btn-default lv1">
                              @lang('header.home')
@@ -66,31 +63,10 @@
                              </ul>
                          </li>
                          @endforeach
-
-                         
                          <li class="dropdown first">
-                             <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                 contact
-                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
+                             <a href="{{ url('/contact')}}" class="btn btn-default lv1">
+                             @lang('header.contact')
                              </a>
-                             <ul class="dropdown-menu level1">
-                                 <li>
-                                     <a href="contactv1.html">
-                                         <i class="ion-ios-minus-empty"></i>Contact 01</a>
-                                 </li>
-                                 <li>
-                                     <a href="contactv2.html">
-                                         <i class="ion-ios-minus-empty"></i>Contact 02</a>
-                                 </li>
-                                 <li>
-                                     <a href="cakecontact.html">
-                                         <i class="ion-ios-minus-empty"></i>Cake Contact</a>
-                                 </li>
-                                 <li class="it-last">
-                                     <a href="contactplant.html">
-                                         <i class="ion-ios-minus-empty"></i>Plant Contact</a>
-                                 </li>
-                             </ul>
                          </li>
                      </ul>
                  </div>
