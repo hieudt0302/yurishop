@@ -44,7 +44,6 @@ class ProductsController extends Controller
         // $categories = Category::where('parent_id', $shopCategory->id)->get();
         // $language_list = Language::all();         
         // return View('admin.products.create', compact('categories','language_list'));
-
         $languages = Language::all(); ///TODO: make condition active
         return View('admin/products/create',compact('languages'));
     }
@@ -59,7 +58,7 @@ class ProductsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'slug' => 'required|string|min:5',
+            'slug' => 'required|string|min:1',
         ]);
 
         if ($validator->fails()) {
@@ -72,15 +71,19 @@ class ProductsController extends Controller
 
         $product->name = $request->name;
         $product->slug = $request->slug;
-        $product->author_id = Auth::user()->id;
-        $product->disable_buy_button = $request->disable_buy_button??0;
-        $product->disable_wishlist_button = $request->disable_wishlist_button??0;
-        $product->call_for_price = $request->call_for_price??0;
-        $product->sold_off = $request->sold_off??0;
         $product->published = $request->published??0;
         if (!empty($request->sku)) {
             $product->sku = $request->sku;
         }
+
+        $product->disable_buy_button = $request->disable_buy_button??0;
+        $product->disable_wishlist_button = $request->disable_wishlist_button??0;
+        $product->call_for_price = $request->call_for_price??0;
+        $product->sold_off = $request->sold_off??0;
+
+        
+        
+       
         if (!empty($request->old_price)) {
             $product->old_price = $request->old_price;
         }
@@ -112,30 +115,37 @@ class ProductsController extends Controller
         if (!empty($request->category_id)) {
             $product->category_id = $request->category_id;
         }        
+
+        $product->author_id = Auth::user()->id;
+
         $product->save();        
     
-        $language_list = Language::all();
-        foreach ($language_list as $language){ 
-            $product_translation = new ProductTranslation;
-            $product_translation->product_id = $product->id;
-            $product_translation->language_id = $language->id;
-            if (!empty( $request->input($language->id.'-name'))) {
-                $product_translation->name = $request->input($language->id.'-name');  
-            }
-            if (!empty( $request->input($language->id.'-summary'))) {
-                $product_translation->summary = $request->input($language->id.'-summary');  
-            } 
-            if (!empty( $request->input($language->id.'-specs'))) {
-                $product_translation->specs = $request->input($language->id.'-specs');  
-            } 
-            if (!empty( $request->input($language->id.'-description'))) {
-                $product_translation->description = $request->input($language->id.'-description');  
-            }                                                                                
-            $product_translation->save();
-        }         
+        // $language_list = Language::all();
+        // foreach ($language_list as $language){ 
+        //     $product_translation = new ProductTranslation;
+        //     $product_translation->product_id = $product->id;
+        //     $product_translation->language_id = $language->id;
+        //     if (!empty( $request->input($language->id.'-name'))) {
+        //         $product_translation->name = $request->input($language->id.'-name');  
+        //     }
+        //     if (!empty( $request->input($language->id.'-summary'))) {
+        //         $product_translation->summary = $request->input($language->id.'-summary');  
+        //     } 
+        //     if (!empty( $request->input($language->id.'-specs'))) {
+        //         $product_translation->specs = $request->input($language->id.'-specs');  
+        //     } 
+        //     if (!empty( $request->input($language->id.'-description'))) {
+        //         $product_translation->description = $request->input($language->id.'-description');  
+        //     }                                                                                
+        //     $product_translation->save();
+        // }         
         
-        return redirect()->back()
-        ->with('success_message', 'Sản phẩm mới đã được tạo');
+        // return redirect('admin/products/edit')
+        // ->with('success_message', 'Sản phẩm mới đã được tạo');
+
+        return redirect()->action(
+            'Admin\ProductsController@edit', ['id' => $product->id]
+        );
     }
 
     /**
@@ -180,7 +190,7 @@ class ProductsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'slug' => 'required|string|min:5',
+            'slug' => 'required|string|min:1',
             
         ]);
 
@@ -246,34 +256,35 @@ class ProductsController extends Controller
         $product->save();
 
 
-        $language_list = Language::all();
-        foreach ($language_list as $language){
-            $product_tran_id=$request->input($language->id.'-id');
-            $product_translation = ProductTranslation::find($product_tran_id);
-            if ($product_translation == null) {
-                $product_translation = new ProductTranslation;
-                $product_translation->product_id = $product->id;                
-                $product_translation->language_id = $language->id;                
-            }
-            if (!empty( $request->input($language->id.'-name'))) {
-                $product_translation->name = $request->input($language->id.'-name');  
-            }
-            if (!empty( $request->input($language->id.'-summary'))) {
-                $product_translation->summary = $request->input($language->id.'-summary');  
-            } 
-            if (!empty( $request->input($language->id.'-specs'))) {
-                $product_translation->specs = $request->input($language->id.'-specs');  
-            } 
-            if (!empty( $request->input($language->id.'-description'))) {
-                $product_translation->description = $request->input($language->id.'-description');  
-            }                                                                                
-            $product_translation->save();
-        }
+        // $language_list = Language::all();
+        // foreach ($language_list as $language){
+        //     $product_tran_id=$request->input($language->id.'-id');
+        //     $product_translation = ProductTranslation::find($product_tran_id);
+        //     if ($product_translation == null) {
+        //         $product_translation = new ProductTranslation;
+        //         $product_translation->product_id = $product->id;                
+        //         $product_translation->language_id = $language->id;                
+        //     }
+        //     if (!empty( $request->input($language->id.'-name'))) {
+        //         $product_translation->name = $request->input($language->id.'-name');  
+        //     }
+        //     if (!empty( $request->input($language->id.'-summary'))) {
+        //         $product_translation->summary = $request->input($language->id.'-summary');  
+        //     } 
+        //     if (!empty( $request->input($language->id.'-specs'))) {
+        //         $product_translation->specs = $request->input($language->id.'-specs');  
+        //     } 
+        //     if (!empty( $request->input($language->id.'-description'))) {
+        //         $product_translation->description = $request->input($language->id.'-description');  
+        //     }                                                                                
+        //     $product_translation->save();
+        // }
 
 
-        
         return redirect()->back()
-        ->with('success_message', 'Sản phẩm đã được cập nhật.');
+        ->with('message', 'Sản phẩm đã được cập nhật.')
+        ->with('status', 'success')
+        ->withInput();
     }
     
     public function upload(){

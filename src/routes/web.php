@@ -229,10 +229,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('products/reviews',['as'=>'admin.products.findreviews','uses'=>'ProductsController@findreviews','middleware' => ['role:admin|manager']]);
 
     Route::get('products/create',['as'=>'admin.products.create','uses'=>'ProductsController@create','middleware' => ['role:admin|manager']]);
-    //Route::post('products/create',['as'=>'admin.products.store','uses'=>'ProductsController@store','middleware' => ['role:admin|manager']]);
+    Route::post('products/create',['as'=>'admin.products.store','uses'=>'ProductsController@store','middleware' => ['role:admin|manager']]);
+    //
     Route::get('products/{id}/edit',['as'=>'admin.products.edit','uses'=>'ProductsController@edit','middleware' => ['role:admin|manager']]);
-    //Route::patch('products/{id}',['as'=>'admin.products.update','uses'=>'ProductsController@update','middleware' => ['role:admin|manager']]);
-     Route::delete('products/{id}',['as'=>'admin.products.destroy','uses'=>'ProductsController@destroy','middleware' => ['role:admin|manager']]);
+    Route::patch('products/{id}',['as'=>'admin.products.update','uses'=>'ProductsController@update','middleware' => ['role:admin|manager']]);
+    
+    Route::delete('products/{id}',['as'=>'admin.products.destroy','uses'=>'ProductsController@destroy','middleware' => ['role:admin|manager']]);
     Route::post('products/images/upload',['as'=>'admin.products.upload','uses'=>'ProductsController@upload','middleware' => ['role:admin|manager']]);
     
    //Order

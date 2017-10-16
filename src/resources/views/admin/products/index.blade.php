@@ -18,14 +18,14 @@
             <i class="fa fa-plus-square"></i>
             Add new
         </a>
-        <button type="submit" name="download-catalog-pdf" class="btn bg-purple">
+        <!-- <button type="submit" name="download-catalog-pdf" class="btn bg-purple">
             <i class="fa fa-file-pdf-o"></i>
             Export
         </button>
         <button type="button" id="delete-selected" class="btn bg-red">
             <i class="fa fa-trash-o"></i>
             Delete (selected)
-        </button>
+        </button> -->
     </div>
 </section>
 <!-- Main content -->

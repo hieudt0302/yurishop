@@ -31,195 +31,205 @@
                     <div class="tab-content">
                         <!-- INFO TAB -->
                         <div class="active tab-pane" id="info">
-                            <div class="panel-group">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        General Infomation
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="name" title="">Product name</label><div class="ico-help" title="The name of the product."><i class="fa fa-question-circle"></i></div></div>
+                            <form action="{{url('/admin/products/create')}}" method="post">
+                            {{ csrf_field()}}
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            General Infomation
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="name" title="">Product name</label><div class="ico-help" title="The name of the product."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-required">
+                                                        <input class="form-control text-box single-line valid" id="name" name="name" type="text">
+                                                        <div class="input-group-btn">
+                                                            <span class="required">*</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-required">
-                                                    <input class="form-control text-box single-line valid" id="name" name="name" type="text">
-                                                    <div class="input-group-btn">
-                                                        <span class="required">*</span>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="sku" title="">SKU</label>
+                                                        <div class="ico-help" title="Product stock keeping unit (SKU). Your internal unique identifier that can be used to track this product."><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input class="form-control text-box single-line valid" 
+                                                    name="sku" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="Published" title="">Published</label><div class="ico-help" title="Check to publish this product (visible in store). Uncheck to unpublish (product not available in store)."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            {{ Form::checkbox('published', 1 , true, array('class' => 'check-box')) }}
+                                                            Published
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="slug" title="">Slug</label>
+                                                        <div class="ico-help" title="Slug of product"><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input class="form-control text-box single-line valid"  id="slug" name="slug" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Price(s)
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="old_price" title="">Old Price</label>
+                                                        <div class="ico-help" title="Old price of product."><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group bootstrap-touchspin">
+                                                        <input  id="old_price" name="old_price" type="text" value="0.0000" class="form-control" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="price" title="">Price</label>
+                                                        <div class="ico-help" title="Price of product."><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group bootstrap-touchspin">
+                                                        <input  id="price" name="price" type="text" value="0.0000" class="form-control" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="special_price" title="">Special Price</label>
+                                                        <div class="ico-help" title="Special price of product."><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group bootstrap-touchspin">
+                                                        <input  id="special_price" name="special_price" type="text" value="0.0000" class="form-control" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="special_price_start_date" title="">Special Price Start Date</label>
+                                                        <div class="ico-help" title="Special start date of price of product."><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                                        <input type="text" name="special_price_start_date" class="form-control pull-right" id="special_price_start_date" data-date-start-date="0d">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="special_price_end_date" title="">Special Price Start Date</label>
+                                                        <div class="ico-help" title="Special end date of price of product."><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group date">
+                                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                                        <input type="text" name="special_price_end_date" class="form-control pull-right" id="special_price_end_date" data-date-start-date="+1d">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="sku" title="">SKU</label>
-                                                    <div class="ico-help" title="Product stock keeping unit (SKU). Your internal unique identifier that can be used to track this product."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <input class="form-control text-box single-line valid" 
-                                                name="sku" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="Published" title="">Published</label><div class="ico-help" title="Check to publish this product (visible in store). Uncheck to unpublish (product not available in store)."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        {{ Form::checkbox('published', 1 , true, array('class' => 'check-box')) }}
-                                                        Published
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="slug" title="">Slug</label>
-                                                    <div class="ico-help" title="Slug of product"><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <input class="form-control text-box single-line valid"  id="slug" name="slug" type="text">
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        Price(s)
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="old_price" title="">Old Price</label>
-                                                    <div class="ico-help" title="Old price of product."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group bootstrap-touchspin">
-                                                    <input  id="old_price" name="old_price" type="text" value="0.0000" class="form-control" >
-                                                </div>
-                                            </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Option(s)
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="price" title="">Price</label>
-                                                    <div class="ico-help" title="Price of product."><i class="fa fa-question-circle"></i></div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="disable_buy_button" title="">Disable Buy Button</label>
+                                                    <div class="ico-help" title="Check to disable buy button this product (customer cannot see the buy button in store). Uncheck to disable (customer see the buy button in store)."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            {{ Form::checkbox('disable_buy_button', 1 , false, array('class' => 'check-box')) }}
+                                                            Disable Buy Button
+                                                        </label>                                                
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group bootstrap-touchspin">
-                                                    <input  id="price" name="price" type="text" value="0.0000" class="form-control" >
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="disable_wishlist_button" title="">Disable Wishlist Button</label>
+                                                    <div class="ico-help" title="Check to disable wishlist button this product (customer cannot see the wishlist button in store). Uncheck to disable (customer see the wishlist button in store)."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            {{ Form::checkbox('disable_wishlist_button', 1 , false, array('class' => 'check-box')) }}
+                                                            Disable Wishlist Button
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <hr>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="special_price" title="">Special Price</label>
-                                                    <div class="ico-help" title="Special price of product."><i class="fa fa-question-circle"></i></div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="call_for_price" title="">Call For Price</label>
+                                                    <div class="ico-help" title="Check to call for price this product (Customer cannot see all price). Uncheck to call for price (Customer can see price)."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            {{ Form::checkbox('call_for_price', 1 , false, array('class' => 'check-box')) }}
+                                                            Call For Price
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group bootstrap-touchspin">
-                                                    <input  id="special_price" name="special_price" type="text" value="0.0000" class="form-control" >
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="sold_off" title="">Sold Off</label>
+                                                    <div class="ico-help" title="Check to sold off this product (Customer cannot buy more). Uncheck to sold off (Customer can buy more)."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            {{ Form::checkbox('sold_off', 1 , false, array('class' => 'check-box')) }}
+                                                            Sold Off
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="special_price_start_date" title="">Special Price Start Date</label>
-                                                    <div class="ico-help" title="Special start date of price of product."><i class="fa fa-question-circle"></i></div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group date">
-                                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                                    <input type="text" name="special_price_start_date" class="form-control pull-right" id="special_price_start_date" data-date-start-date="0d">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="special_price_end_date" title="">Special Price Start Date</label>
-                                                    <div class="ico-help" title="Special end date of price of product."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group date">
-                                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                                    <input type="text" name="special_price_end_date" class="form-control pull-right" id="special_price_end_date" data-date-start-date="+1d">
+                                                <div class="col-md-4">
+                                                    <button type="submit" class="btn btn-primary">Create New</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        Option(s)
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="disable_buy_button" title="">Disable Buy Button</label>
-                                                <div class="ico-help" title="Check to disable buy button this product (customer cannot see the buy button in store). Uncheck to disable (customer see the buy button in store)."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        {{ Form::checkbox('disable_buy_button', 1 , false, array('class' => 'check-box')) }}
-                                                        Disable Buy Button
-                                                    </label>                                                
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="disable_wishlist_button" title="">Disable Wishlist Button</label>
-                                                <div class="ico-help" title="Check to disable wishlist button this product (customer cannot see the wishlist button in store). Uncheck to disable (customer see the wishlist button in store)."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        {{ Form::checkbox('disable_wishlist_button', 1 , false, array('class' => 'check-box')) }}
-                                                        Disable Wishlist Button
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="call_for_price" title="">Call For Price</label>
-                                                <div class="ico-help" title="Check to call for price this product (Customer cannot see all price). Uncheck to call for price (Customer can see price)."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        {{ Form::checkbox('call_for_price', 1 , false, array('class' => 'check-box')) }}
-                                                        Call For Price
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="sold_off" title="">Sold Off</label>
-                                                <div class="ico-help" title="Check to sold off this product (Customer cannot buy more). Uncheck to sold off (Customer can buy more)."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        {{ Form::checkbox('sold_off', 1 , false, array('class' => 'check-box')) }}
-                                                        Sold Off
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         <!-- CONTENT TAB -->
                         <div class="tab-pane" id="content">
