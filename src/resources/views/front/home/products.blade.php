@@ -3,7 +3,8 @@
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="heading-sec">
-					<h1>@lang('product.product')</h1>
+					<h1>@lang('product.products')</h1>
+					<h4>-@lang('home.farm-activities-message')-</h4>					
 				</div>				
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
