@@ -13,37 +13,37 @@
             <div class="col-2 costep active" data-step="cart">
                 <a class="costep-link" href="{{url('/cart')}}">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Cart</span>
+                    <span class="costep-label">@lang('shoppings.cart')</span>
                 </a>
             </div>
             <div class="col-2 costep inactive" data-step="address">
                 <a class="costep-link" href="javascript:void(0)">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Address</span>
+                    <span class="costep-label">@lang('profile.address')</span>
                 </a>
             </div>
             <div class="col-2 costep inactive" data-step="shipping">
                 <a class="costep-link" href="javascript:void(0)">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Shipping</span>
+                    <span class="costep-label">@lang('shoppings.shipping')</span>
                 </a>
             </div>
             <div class="col-2 costep inactive" data-step="payment">
                 <a class="costep-link" href="javascript:void(0)">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Payment</span>
+                    <span class="costep-label">@lang('shoppings.payment')</span>
                 </a>
             </div>
             <div class="col-2 costep inactive" data-step="confirm">
                 <a class="costep-link" href="javascript:void(0)">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Confirm</span>
+                    <span class="costep-label">@lang('shoppings.confirm')</span>
                 </a>
             </div>
             <div class="col-2 costep inactive" data-step="complete">
                 <a class="costep-link" href="javascript:void(0)">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Complete</span>
+                    <span class="costep-label">@lang('shoppings.complete')</span>
                 </a>
             </div>
         </div>
@@ -52,7 +52,7 @@
             <div id="content-center" class="col-lg-12">
                 <div class="page shopping-cart-page">
                     <div class="page-title">
-                        <h1 class="h3">Shopping cart</h1>
+                        <h1 class="h3">@lang('shoppings.shopping-cart')</h1>
                     </div>
                     <div class="page-body">
                         <div class="order-summary-content">
@@ -64,16 +64,16 @@
                                         <div class="cart-head">
                                             <div class="cart-row">
                                                 <div class="cart-col cart-col-main">
-                                                    Product(s)
+                                                    @lang('shoppings.products')
                                                 </div>
                                                 <div class="cart-col cart-col-price">
-                                                    Price
+                                                    @lang('shoppings.price')
                                                 </div>
                                                 <div class="cart-col cart-col-qty">
-                                                    Qty.
+                                                    @lang('shoppings.qty')
                                                 </div>
                                                 <div class="cart-col cart-col-price cart-col-subtotal">
-                                                    Total
+                                                    @lang('shoppings.total')
                                                 </div>
                                             </div>
                                         </div>
@@ -147,7 +147,7 @@
                                             <div class="col-md-6">
                                                 <div class="cart-action cart-action-coupon">
                                                     <h5 class="cart-action-title collapsed" data-toggle="collapse" data-target="#cart-action-coupon-body" aria-controls="cart-action-coupon-body">
-                                                        I have a discount code
+                                                        @lang('shoppings.discount-code')
                                                     </h5>
                                                     <div class="cart-action-body collapse" id="cart-action-coupon-body">
                                                         <div class="coupon-code form-group">
@@ -156,7 +156,7 @@
                                                                 <span class="input-group-btn">
                                                                     <button type="submit" class="btn btn-primary apply-discount-coupon-code-button" title="Apply coupon" name="applydiscountcouponcode" value="applydiscountcouponcode">
                                                                         <i class="fa fa-check"></i>
-                                                                        <span>Apply coupon</span>
+                                                                        <span>@lang('shoppings.apply-coupon')</span>
                                                                     </button>
                                                                 </span>
                                                             </div>
@@ -165,7 +165,7 @@
                                                 </div>
                                                 <div class="cart-action cart-action-giftcard">
                                                     <h5 class="cart-action-title collapsed" data-toggle="collapse" data-target="#cart-action-giftcard-body" aria-controls="cart-action-giftcard-body">
-                                                        I have a gift card
+                                                        @lang('shoppings.have-gift-card')
                                                     </h5>
                                                     <div class="cart-action-body collapse" id="cart-action-giftcard-body">
                                                         <div class="coupon-code form-group">
@@ -174,7 +174,7 @@
                                                                 <span class="input-group-btn">
                                                                     <button type="submit" class="btn btn-primary apply-gift-card-coupon-code-button" name="applygiftcardcouponcode" value="applygiftcardcouponcode">
                                                                         <i class="fa fa-check"></i>
-                                                                        <span>Add gift card</span>
+                                                                        <span>@lang('shoppings.add-gift-card')</span>
                                                                     </button>
                                                                 </span>
                                                             </div>
@@ -188,25 +188,25 @@
                                                     <table class="cart-summary">
                                                         <tbody>
                                                             <tr class="cart-summary-subtotal">
-                                                                <td class="cart-summary-label">Subtotal:</td>
+                                                                <td class="cart-summary-label">@lang('shoppings.subtotal'):</td>
                                                                 <td class="cart-summary-value">{{Cart::subtotal()}}</td>
                                                             </tr>
                                                             <tr class="cart-summary-shipping">
                                                                 <td class="cart-summary-label">
-                                                                    <span class="text-nowrap">Shipping:</span>
+                                                                    <span class="text-nowrap">@lang('shoppings.shipping'):</span>
                                                                 </td>
                                                                 <td class="cart-summary-value">
-                                                                    <span class="text-muted text-wrap">Calculated during checkout</span>
+                                                                    <span class="text-muted text-wrap">@lang('shoppings.calculated-during-checkout')</span>
                                                                 </td>
                                                             </tr>
                                                             <tr class="cart-summary-tax">
-                                                                <td class="cart-summary-label">Tax:</td>
+                                                                <td class="cart-summary-label">@lang('shoppings.tax'):</td>
                                                                 <td class="cart-summary-value">{{Cart::tax()}}</td>
                                                             </tr>
                                                             <tr class="cart-summary-total">
-                                                                <td class="cart-summary-label">Total:</td>
+                                                                <td class="cart-summary-label">@lang('shoppings.total')l:</td>
                                                                 <td class="cart-summary-value">
-                                                                    <span class="text-muted fs-h6 font-weight-normal text-wrap">Calculated during checkout</span>
+                                                                    <span class="text-muted fs-h6 font-weight-normal text-wrap">@lang('shoppings.calculated-during-checkout')</span>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -222,7 +222,7 @@
                                     <div class="col-sm-6 col-lg-4 order-last order-sm-first mt-3 mt-sm-0">
                                         <button class="btn btn-secondary btn-block btn-lg btn-continue-shopping" type="submit" name="continueshopping" value="continueshopping">
                                             <i class="fa fa-angle-left mr-3"></i>
-                                            <span>Continue shopping</span>
+                                            <span>@lang('shoppings.continue-shopping')</span>
                                         </button>
                                     </div>
                                     <div class="col-sm-6 col-lg-4 ml-lg-auto">
@@ -230,7 +230,7 @@
                                             <div class="checkout-buttons">
                                                 <input type="submit" name="startcheckout" value="startcheckout" id="startcheckout" class="d-none">
                                                 <button type="button" id="checkout" name="checkout" class="btn btn-danger btn-lg btn-block btn-checkout" onclick="$('#startcheckout').trigger('click'); return false;">
-                                                    <span>Checkout</span>
+                                                    <span>@lang('shoppings.checkout')</span>
                                                     <i class="fa fa-angle-right ml-3"></i>
                                                 </button>
                                             </div>
@@ -240,7 +240,7 @@
                             </form>
                             @else
                             <div class="alert alert-warning fade show">
-                                Your Shopping Cart is empty!
+                                @lang('shoppings.cart-empty')
                             </div>
                             @endif
                         </div>

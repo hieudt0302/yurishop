@@ -2,8 +2,8 @@
 
 return [
 	 '' => '', 
-     'cart_noitems' => 'You have no items in your shopping cart!',
-     'continue_shopping' => 'Continute Shopping',
+     'cart-noitems' => 'You have no items in your shopping cart!',
+     'continue-shopping' => 'Continute Shopping',
 	 'order-history' => 'Order history',
 	 'cart' => 'Cart',      
 	 'order-date' => 'Order date',
@@ -18,6 +18,21 @@ return [
 	 'filter' => 'Filter',
 	 'filter-price' => 'Filter by price',
 	 'related-products' => 'Related products',
-	 'product-details' => 'Product details',	 
+	 'product-details' => 'Product details',
+	 'shipping' => 'Shipping',
+	 'payment' => 'Payment',
+	 'confirm' => 'Confirm',
+	 'complete' => 'Complete',
+	 'products' => 'Product(s)',
+	 'price' => 'Price',
+	 'qty' => 'Qty.',
+	 'total' => 'Total',
+	 'discount-code' => 'I have a discount code',
+	 'have-gift-card' => 'I have a gift card',
+	 'add-gift-card' => 'Add gift card',	 
+	 'subtotal' => 'Subtotal',
+	 'tax' => 'Tax',
+	 'checkout' => 'Checkout',
+	 'calculated-during-checkout' => 'Calculated during checkout', 	  	   	  	  	  	  	  	  	  	  	  	  	  	 	 
 	  	 	  	  	 	 	 
 ];

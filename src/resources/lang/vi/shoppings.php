@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'cart_noitems' => 'Bạn không có sản phẩm nào trong giỏ hàng!',
-    'continue_shopping' => 'Tra sản phẩm khác',
+    'cart-noitems' => 'Bạn không có sản phẩm nào trong giỏ hàng!',
+    'continue-shopping' => 'Tra sản phẩm khác',
 	'order-history' => 'Lịch sử đặt hàng',
 	'cart' => 'Giỏ hàng',
 	'order-date' => 'Ngày đặt hàng',
@@ -17,5 +17,20 @@ return [
 	'filter' => 'Lọc',
 	'filter-price' => 'Lọc theo giá',	
 	'related-products' => 'Sản phẩm liên quan',
-	'product-details' => 'Chi tiết sản phẩm',	  	 					    
+	'product-details' => 'Chi tiết sản phẩm',
+	'shipping' => 'Chuyển hàng',
+	'payment' => 'Thanh toán',
+	'confirm' => 'Xác nhận',
+	'complete' => 'Hoàn tất',
+	'products' => 'Sản phẩm',
+	'price' => 'Đơn giá',
+	'qty' => 'Số lượng',
+	'total' => 'Tổng',
+	'discount-code' => 'Tôi có mã giảm giá',
+	'have-gift-card' => 'Tôi có thẻ quà tặng',
+	'add-gift-card' => 'Thêm thẻ quà tặng',	 
+	'subtotal' => 'Tổng giá hàng',
+	'tax' => 'Thuế',
+	'checkout' => 'Mua',
+	'calculated-during-checkout' => 'Được tính trong quá trình thanh toán', 	  		  	 					    
 ];
