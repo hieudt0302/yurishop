@@ -19,13 +19,34 @@
 						<div class="date">
 							<span>{!! date('F jS, Y', strtotime($blog->updated_at)) !!}</span>
 						</div>
-						<h2><a href="{{url('/posts')}}/{{$blog->slug}}"> {{ $blog->title }} </a></h2>
-						<p> {{ $blog->excerpt }} </p>
-						<a class="readmore2" href="{{url('/posts')}}/{{$blog->slug}}">/ &nbsp; Read more</a>
+						<h2><a href="{{url('/posts')}}/{{$blog->slug}}"> {{ $blog->translation->title }} </a></h2>
+						<p> {{ $blog->translation->excerpt }} </p>
+						<a class="readmore2" href="{{url('/posts')}}/{{$blog->slug}}">/ &nbsp; @lang('common.more-details')</a>
 					</div>
 				</div>
 			</div>
 			@endforeach
+		</div>
+	</div>
+</div>
+<div class="subscribe">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-4 col-xs-12">
+				<div class="sub-heading">
+					<h1>@lang('footer.newsletter-message')</h1>
+				</div>
+			</div>
+			<div class="col-md-5 col-sm-5 col-xs-12">
+				<div class="form">
+					<input class="email" type="text" placeholder="{{ __('profile.email') }}">
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="sub-button">
+					<a href="#">@lang('footer.subscribe')</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

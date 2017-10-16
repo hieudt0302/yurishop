@@ -33,7 +33,7 @@ class SliderController extends Controller
         $image = '';
         $img_file = $request->file('image');
         if($img_file != NULL){
-            $path = './images/slider';
+            $path = 'storage/app/public/images/slider';
             if(!is_dir($path)){
                 mkdir($path, 0777, true);
             }
@@ -67,7 +67,7 @@ class SliderController extends Controller
     {
         $slider = Slider::find($id);
         $language_list = Language::all();
-        $slider_translations = SliderTranslation::where('slider_id',$id)->orderBy('language_id','asc')->get();
+        $slider_translations = $slider->translations()->get();
         return view('admin.sliders.edit',compact('slider','language_list','slider_translations'));   
     }
 
@@ -83,7 +83,7 @@ class SliderController extends Controller
         $image = '';
         $img_file = $request->file('image');
         if($img_file != NULL){
-            $path = './images/slider';
+            $path = 'storage/app/public/images/slider';
             if(!is_dir($path)){
                 mkdir($path, 0777, true);
             }
