@@ -28,7 +28,7 @@ return [
      'search' => 'Search',
 	 'home' => 'Home',
      'company-name' => ' Dakmark Foods Co.,Ltd',
-     'headquarter-address' => ' 123 Hung Vuong, Dakha, Kontum, Vietnam',   
+     'headquarter-address' => ' 123 Hung Vuong, Dakha, Kontum',   
      'poko-message' => 'We are <span>Online Market</span> of dried fruits, green coffee and agricultural products. Visit our site for a complete list of 
                     exclusive we are stocking.',         
 ];

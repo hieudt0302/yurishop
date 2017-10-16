@@ -3691,7 +3691,7 @@ button,
 input,
 select,
 textarea {
-  font-family: 'OpenSans', sans-serif;
+  font-family: 'OpenSans', 'Source Sans Pro', sans-serif;
   line-height: 1.5;
 }
 h1,
@@ -3700,7 +3700,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'OpenSans', sans-serif;
+  font-family: 'OpenSans', 'Source Sans Pro',sans-serif;
   font-weight: 700;
   clear: both;
   line-height: 1;
@@ -4017,7 +4017,7 @@ select {
   -webkit-border-radius: 0 !important;
 }
 a.readmore3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 900;
   color: #696969;
@@ -4033,7 +4033,7 @@ a.readmore3.pink:hover {
   margin-bottom: 25px;
 }
 .date span {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ababab;
   font-style: Italic;
@@ -4046,14 +4046,14 @@ a.readmore3.pink:hover {
   color: #696969;
 }
 h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
   font-style: Bold;
 }
 p {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #8e8e8e;
   font-weight: '';
@@ -4062,7 +4062,7 @@ p {
 }
 span.share {
   text-decoration: underline;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ababab;
   font-weight: 700;
@@ -4080,7 +4080,7 @@ span.share:hover a {
   color: #8eb35a;
 }
 span.sub {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 700;
   color: #696969;
@@ -4101,7 +4101,7 @@ span.sub {
 span.hot,
 span.sale-pr,
 span.new {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 12px;
   color: #ffffff;
   font-weight: 700;
@@ -4755,7 +4755,7 @@ section {
 .hero h1 {
   text-transform: uppercase;
   margin-bottom: 30px;
-  font-family: "Lato", serif;
+  font-family: "Lato",'Source Sans Pro', serif;
   font-size: 40px;
   color: #333333;
   font-weight: 900;
@@ -4766,7 +4766,7 @@ section {
 }
 .hero ul.breadcumb li {
   display: inline-block;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display",'Source Sans Pro', serif;
   font-size: 16px;
   font-weight: 600;
   color: #8eb35a;
@@ -4796,7 +4796,7 @@ section {
 }
 .bloglistpost-v1 .blogpost-v1 .blog-it .blog-it-content h2 a,
 .bloglistpost-v2 .blogpost-v1 .blog-it .blog-it-content h2 a {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 700;
@@ -4810,7 +4810,7 @@ section {
 }
 .bloglistpost-v1 .blogpost-v1 .blog-it .blog-it-content p,
 .bloglistpost-v2 .blogpost-v1 .blog-it .blog-it-content p {
-  font-family: "Lato", serif;
+  font-family: "Lato",'Source Sans Pro', serif;
   font-size: 15px;
   color: #8e8e8e;
   font-weight: 400;
@@ -4826,7 +4826,7 @@ section {
   background-color: #8eb35a;
   border: 1px solid #8eb35a;
   border-radius: 25px;
-  font-family: "Lato", serif;
+  font-family: "Lato",'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 700;
@@ -4839,7 +4839,7 @@ section {
   border: 1px solid #8eb35a;
   border-radius: 25px;
   background-color: #ffffff;
-  font-family: "Lato", serif;
+  font-family: "Lato",'Source Sans Pro', serif;
   font-size: 14px;
   color: #8eb35a;
   font-weight: 700;
@@ -4874,7 +4874,7 @@ section {
 }
 .bloglistpost-v1 .blogpost-v1 .blog-it.quote p,
 .bloglistpost-v2 .blogpost-v1 .blog-it.quote p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #8c8c8c;
   font-weight: 500;
@@ -4886,7 +4886,7 @@ section {
 .bloglistpost-v1 .blogpost-v1 .blog-it.quote h4,
 .bloglistpost-v2 .blogpost-v1 .blog-it.quote h4 {
   margin-left: 45px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #333333;
   font-weight: 700;
@@ -4897,7 +4897,7 @@ section {
 }
 .bloglistpost-v1 .blogpost-v1 .blog-it.quote p.author,
 .bloglistpost-v2 .blogpost-v1 .blog-it.quote p.author {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -4905,7 +4905,7 @@ section {
 }
 .bloglistpost-v1 .bg-sidebar h1,
 .bloglistpost-v2 .bg-sidebar h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 700;
@@ -4926,7 +4926,7 @@ section {
   -moz-border-radius: 5px;
   border-radius: 5px;
   padding: 20px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #c2c2c2;
   font-weight: '';
@@ -4952,7 +4952,7 @@ section {
 }
 .bloglistpost-v1 .bg-sidebar .categories ul li,
 .bloglistpost-v2 .bg-sidebar .categories ul li {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #8e8e8e;
   font-weight: '';
@@ -4986,7 +4986,7 @@ section {
 .bloglistpost-v2 .bg-sidebar .pp-posts .pp-post-it .pp-infor h5 a,
 .bloglistpost-v1 .bg-sidebar .pp-posts .pp-post-it .pp-infor h4 a,
 .bloglistpost-v2 .bg-sidebar .pp-posts .pp-post-it .pp-infor h4 a {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 16px;
   color: #333333;
   font-weight: 700;
@@ -5023,7 +5023,7 @@ section {
 .bloglistpost-v1 .bg-sidebar .searchbytag ul.tags li a,
 .bloglistpost-v2 .bg-sidebar .searchbytag ul.tags li a {
   padding: 10px 15px 10px 15px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #ababab;
   font-weight: '';
@@ -5056,7 +5056,7 @@ section {
 }
 .bloglistpost-v2 .blogpost-v2 .blog-it-content2 h2 a,
 .blog .blogpost-v2 .blog-it-content2 h2 a {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -5070,7 +5070,7 @@ section {
 }
 .bloglistpost-v2 .blogpost-v2 .blog-it-content2 p,
 .blog .blogpost-v2 .blog-it-content2 p {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #8e8e8e;
   font-weight: 400;
@@ -5080,7 +5080,7 @@ section {
 }
 .bloglistpost-v2 .blogpost-v2 .blog-it-content2 a.readmore2,
 .blog .blogpost-v2 .blog-it-content2 a.readmore2 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -5112,7 +5112,7 @@ section {
 }
 .bloglistpost-v2 .blogpost-v2-quote p,
 .blog .blogpost-v2-quote p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #8c8c8c;
   font-weight: 500;
@@ -5124,7 +5124,7 @@ section {
 .bloglistpost-v2 .blogpost-v2-quote h4,
 .blog .blogpost-v2-quote h4 {
   margin-left: 45px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #333333;
   font-weight: 700;
@@ -5135,7 +5135,7 @@ section {
 }
 .bloglistpost-v2 .blogpost-v2-quote p.author,
 .blog .blogpost-v2-quote p.author {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -5154,7 +5154,7 @@ section {
 }
 .blogpanigation ul li a {
   text-transform: uppercase;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 700;
   color: #696969;
@@ -5187,7 +5187,7 @@ section {
 }
 .subscribe .sub-heading h1,
 .subscribev3 .sub-heading h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 34px;
   color: #333333;
   font-weight: 700;
@@ -5203,7 +5203,7 @@ section {
 .subscribe .form input.email,
 .subscribev3 .form input.email {
   width: 100%;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ababab;
   font-weight: '';
@@ -5226,7 +5226,7 @@ section {
   background-color: #8eb35a;
   border: 1px solid #8eb35a;
   border-radius: 25px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 700;
@@ -5288,7 +5288,7 @@ section {
   border: 1px solid #8eb35a;
 }
 .blogsingle .blogsingle-content h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 34px;
   color: #333333;
   font-weight: 700;
@@ -5296,7 +5296,7 @@ section {
   margin-bottom: 60px;
 }
 .blogsingle .blogsingle-content p.quote {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #8c8c8c;
   font-weight: 500;
@@ -5310,7 +5310,7 @@ section {
   margin-bottom: 50px;
 }
 .blogsingle .blogsingle-content h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -5322,7 +5322,7 @@ section {
 }
 .blogsingle .blogsingle-content .tags {
   margin-bottom: 30px;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ababab;
   font-weight: '';
@@ -5340,7 +5340,7 @@ section {
   margin-top: 25px;
 }
 .blogsingle .blogsingle-content .author-post .author-infor h3 a {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #333333;
   font-weight: 700;
@@ -5372,7 +5372,7 @@ section {
   margin-bottom: 90px;
 }
 .blogsingle .blogsingle-content .panigation2 .prev a {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #ababab;
   font-weight: 700;
@@ -5388,7 +5388,7 @@ section {
   color: #696969;
 }
 .blogsingle .blogsingle-content .panigation2 .next a {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -5399,7 +5399,7 @@ section {
   color: #8eb35a;
 }
 .blogsingle .blogsingle-content .comment h2.cmt-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   font-weight: 900;
   color: #333333;
@@ -5413,7 +5413,7 @@ section {
 }
 .blogsingle .blogsingle-content .comment .cmt-it .cmt-content h4 {
   display: flex;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #333333;
   font-weight: 700;
@@ -5429,7 +5429,7 @@ section {
   text-decoration: none;
 }
 .blogsingle .blogsingle-content .comment .cmt-it .cmt-content h4 span {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ababab;
   font-weight: 500;
@@ -5440,7 +5440,7 @@ section {
   margin-bottom: 20px;
 }
 .blogsingle .blogsingle-content .comment .cmt-it .cmt-content a.reply {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ababab;
   font-weight: 700;
@@ -5465,7 +5465,7 @@ section {
 .blogsingle .blogsingle-content .comment a.loadmore {
   text-transform: uppercase;
   text-align: center;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 12px;
   color: #696969;
   font-weight: '';
@@ -5480,7 +5480,7 @@ section {
   margin-top: 85px;
 }
 .blogsingle .blogsingle-content form.post-cmt label {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -5509,7 +5509,7 @@ section {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #8e8e8e;
   font-weight: 400;
@@ -5525,7 +5525,7 @@ section {
   text-transform: uppercase;
   background-color: #8eb35a;
   border: 1px solid #8eb35a;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 700;
@@ -5574,7 +5574,7 @@ section {
 }
 .about .ab-intro p,
 .aboutv2 .ab-intro p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: '';
@@ -5600,7 +5600,7 @@ section {
 }
 .about .ab-item h2,
 .aboutv2 .ab-item h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 700;
@@ -5619,7 +5619,7 @@ section {
   border: 1px solid #8eb35a;
   border-radius: 25px;
   background-color: #ffffff;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #8eb35a;
   font-weight: 700;
@@ -5633,7 +5633,7 @@ section {
   background-color: #8eb35a;
   border: 1px solid #8eb35a;
   border-radius: 25px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 700;
@@ -5705,7 +5705,7 @@ section {
   text-align: center;
 }
 .aboutv2 .ab-content h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -5729,7 +5729,7 @@ section {
   transition: all 0.5s ease-out;
 }
 .aboutv2 .ab-content span {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 900;
   color: #696969;
@@ -5758,14 +5758,14 @@ section {
   margin-left: -60px;
 }
 #deal .deal-label h4 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 16px;
   color: #ffffff;
   font-weight: '';
   font-style: Italic;
 }
 #deal .deal-label span.lb-left {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-style: Italic;
   font-size: 40px;
   color: #ffffff;
@@ -5779,7 +5779,7 @@ section {
   margin-bottom: 20px;
 }
 #deal .deal-right .deal-heading .time span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-size: 48px;
   color: #8eb35a;
   padding: 0 15px 0 15px;
@@ -5790,7 +5790,7 @@ section {
   margin-top: 30px;
 }
 #deal .deal-right .deal-heading .time p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 16px;
   color: #696969;
   font-weight: '';
@@ -5806,7 +5806,7 @@ section {
   background-color: #8eb35a;
   border: 1px solid #8eb35a;
   border-radius: 25px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 700;
@@ -5823,7 +5823,7 @@ section {
   background-color: #ffffff;
 }
 .heading-sec h1 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 40px;
   color: #333333;
   font-weight: 900;
@@ -5833,7 +5833,7 @@ section {
   margin-top: 40px;
 }
 .heading-sec h4 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 16px;
   color: #8eb35a;
   font-weight: 400;
@@ -5879,7 +5879,7 @@ section {
   border: 1px solid #8eb35a;
   border-radius: 25px;
   background-color: #ffffff;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #8eb35a;
   font-weight: 700;
@@ -5896,7 +5896,7 @@ section {
   background-color: #8eb35a;
   border: 1px solid #8eb35a;
   border-radius: 25px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 700;
@@ -5997,7 +5997,7 @@ section {
   margin-bottom: 20px;
 }
 .products .products-it .pro-infor h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -6021,7 +6021,7 @@ section {
   transition: all 0.5s ease-out;
 }
 .products .products-it .pro-infor span.pro-cost {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 900;
   color: #696969;
@@ -6161,7 +6161,7 @@ section {
   margin-bottom: 20px;
 }
 .productsv4 .products-it .pro-infor h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -6185,7 +6185,7 @@ section {
   transition: all 0.5s ease-out;
 }
 .productsv4 .products-it .pro-infor span.pro-cost {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 900;
   color: #696969;
@@ -6268,13 +6268,13 @@ section {
   top: 30%;
 }
 .ads .ads-item .ads-text h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-size: 40px;
   color: #333333;
   font-weight: 900;
 }
 .ads .ads-item .ads-text span {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -6284,14 +6284,14 @@ section {
   margin-right: 30px;
 }
 .ads .ads-item .ads-text.right h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   text-transform: uppercase;
   font-size: 40px;
   color: #ffffff;
   font-weight: 900;
 }
 .ads .ads-item .ads-text.right span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-style: Italic;
   font-size: 16px;
   color: #ffffff;
@@ -6320,7 +6320,7 @@ section {
   text-align: center;
 }
 #process .process-step .step-ct span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -6417,7 +6417,7 @@ section {
   margin-bottom: 45px;
 }
 #testimonial h1.line {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 900;
@@ -6426,7 +6426,7 @@ section {
   margin-bottom: 55px;
 }
 #testimonial p.quote {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #8c8c8c;
   font-weight: 500;
@@ -6436,7 +6436,7 @@ section {
   padding-right: 250px;
 }
 #testimonial p.name {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #333333;
   font-weight: 700;
@@ -6444,7 +6444,7 @@ section {
   text-transform: uppercase;
 }
 #testimonial p.name span {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -6560,14 +6560,14 @@ section {
   margin-top: 20px;
 }
 .blog .blog-it-left .blog-ct-left h2 a {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 700;
   font-style: Bold;
 }
 .blog .blog-it-left .blog-ct-left p {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #8e8e8e;
   font-weight: 400;
@@ -6577,7 +6577,7 @@ section {
   padding-right: 30px;
 }
 .blog .blog-it-left .blog-ct-left a.readmore2 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -6666,7 +6666,7 @@ section {
   color: #8eb35a;
 }
 .blog .blog-it.quote p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   font-weight: 500;
   color: #737373;
@@ -6676,7 +6676,7 @@ section {
 }
 .blog .blog-it.quote h4 {
   margin-left: 30px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #8eb35a;
   font-weight: 700;
@@ -6686,7 +6686,7 @@ section {
   margin-top: 30px;
 }
 .blog .blog-it.quote p.author {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -6769,7 +6769,7 @@ section {
 }
 #adsv2 .ads-text h2 {
   letter-spacing: 0.3em;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 34px;
   color: #333333;
   font-weight: 400;
@@ -6785,7 +6785,7 @@ section {
   color: #ffffff;
   line-height: 1;
   font-size: 100px;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-weight: 900;
 }
 #adsv2 .ads-text h1.ad-r {
@@ -6795,7 +6795,7 @@ section {
   letter-spacing: 0.23em;
   text-transform: uppercase;
   margin-right: 8px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -6958,7 +6958,7 @@ img.div-line2 {
   position: relative;
 }
 #productratev3 .rate-it .rate-heading h1 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 900;
@@ -7189,7 +7189,7 @@ img.div-line2 {
   transition: all 0.5s ease-out;
 }
 #farm .farm-it .title {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-style: Bold;
@@ -7263,7 +7263,7 @@ img.div-line2 {
   margin-bottom: 120px;
 }
 #aboutv1 .ab-intro p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: '';
@@ -7283,7 +7283,7 @@ img.div-line2 {
   background-position: center;
 }
 #aboutv1 .ab-right .quote p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   font-weight: 500;
   color: #737373;
@@ -7292,7 +7292,7 @@ img.div-line2 {
 }
 #aboutv1 .ab-right .quote h4 {
   margin-left: 30px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #333333;
   font-weight: 700;
@@ -7301,7 +7301,7 @@ img.div-line2 {
   margin-bottom: 15px;
 }
 #aboutv1 .ab-right .quote p.author {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -7361,7 +7361,7 @@ img.div-line2 {
   transition: all 0.5s ease-out;
 }
 .farmers .farm-it h2 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -7420,7 +7420,7 @@ img.div-line2 {
 }
 #aboutpagev2 .heading-it {
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 34px;
   color: #333333;
   font-weight: 700;
@@ -7435,7 +7435,7 @@ img.div-line2 {
 }
 #aboutpagev2 .ab-right .quote p {
   margin-top: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #737373;
   font-weight: 400;
@@ -7464,7 +7464,7 @@ img.div-line2 {
   margin-bottom: 40px;
 }
 .shopgrid .left-it h5 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 700;
   color: #696969;
@@ -7481,7 +7481,7 @@ img.div-line2 {
   margin-top: 25px;
 }
 .shopgrid .right-it select {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 13px;
   color: #b0b0b0;
   font-weight: '';
@@ -7626,7 +7626,7 @@ img.div-line2 {
   background: #8eb35a !important;
 }
 .shoplist .range-select input[type="text"] {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 700;
   color: #696969;
@@ -7674,7 +7674,7 @@ img.div-line2 {
   color: #cbcac8 !important;
   margin-right: 10px;
   text-decoration: line-through;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 700;
   font-style: Italic;
@@ -7687,7 +7687,7 @@ img.div-line2 {
   padding: 15px 30px;
 }
 .shoplist .pro-list-it h4.hd-after a {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 700;
@@ -7716,7 +7716,7 @@ img.div-line2 {
   font-size: 12px !important;
 }
 .shoplist .pro-list-it span.right span.rv {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: '';
@@ -7728,7 +7728,7 @@ img.div-line2 {
   background-color: #8eb35a;
   border: 1px solid #8eb35a;
   border-radius: 25px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 700;
@@ -7741,7 +7741,7 @@ img.div-line2 {
   border: 1px solid #8eb35a;
   border-radius: 25px;
   background-color: #ffffff;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #8eb35a;
   font-weight: 700;
@@ -7848,7 +7848,7 @@ img.div-line2 {
 }
 .productdetail .right-it form.quantity input {
   text-align: center;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 13px;
   color: #b0b0b0;
   font-weight: '';
@@ -7857,7 +7857,7 @@ img.div-line2 {
   border: none !important;
 }
 .productdetail span.check {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #b0b0b0;
   font-weight: '';
@@ -7868,7 +7868,7 @@ img.div-line2 {
   color: #8eb35a;
 }
 .productdetail select {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 13px;
   color: #b0b0b0;
   font-weight: '';
@@ -7885,7 +7885,7 @@ img.div-line2 {
   margin-bottom: 20px;
 }
 .productdetail .pro-description p {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #696969;
   font-weight: 700;
@@ -7893,7 +7893,7 @@ img.div-line2 {
   text-transform: uppercase;
 }
 .productdetail .pro-description span {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #696969;
   font-weight: '';
@@ -7943,7 +7943,7 @@ img.div-line2 {
   padding: 0;
 }
 .productdetail .tabs .tab-links li a {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #ababab;
   font-style: Italic;
@@ -8026,7 +8026,7 @@ img.div-line2 {
   margin-bottom: 90px;
 }
 .checkout .bill h1.bill-heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 700;
@@ -8048,7 +8048,7 @@ img.div-line2 {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #8e8e8e;
   font-weight: 400;
@@ -8066,7 +8066,7 @@ img.div-line2 {
   -moz-border-radius: 5px;
   border-radius: 5px;
   margin-bottom: 30px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #8e8e8e;
   font-weight: 400;
@@ -8092,7 +8092,7 @@ img.div-line2 {
   width: 100%;
 }
 .checkout .order h1 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 900;
@@ -8123,7 +8123,7 @@ img.div-line2 {
 }
 .checkout .order label.circle {
   text-transform: capitalize;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   font-style: Italic;
   color: #696969;
@@ -8137,7 +8137,7 @@ img.div-line2 {
   background-color: #8eb35a;
   border: 1px solid #8eb35a;
   border-radius: 25px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 700;
@@ -8151,7 +8151,7 @@ img.div-line2 {
   border: 1px solid #8eb35a;
   border-radius: 25px;
   background-color: #ffffff;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #8eb35a;
   font-weight: 700;
@@ -8181,7 +8181,7 @@ img.div-line2 {
 }
 .checkbox-custom-label {
   position: relative;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 15px;
   color: #8e8e8e;
   font-weight: 400;
@@ -8258,7 +8258,7 @@ img.div-line2 {
   filter: alpha(opacity=0);
 }
 .gallery .gallery-it .hover-inner h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -8325,7 +8325,7 @@ img.div-line2 {
   padding-right: 100px;
 }
 .contact .contact-left h4 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 700;
   color: #333333;
@@ -8403,7 +8403,7 @@ img.div-line2 {
   padding-bottom: 30px;
 }
 .contactv2 .ct-v2-hd h1 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 40px;
   color: #333333;
   font-weight: 900;
@@ -8413,7 +8413,7 @@ img.div-line2 {
   margin-top: 30px;
 }
 .contactv2 h4 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 16px;
   color: #8eb35a;
   font-weight: 600;
@@ -8437,7 +8437,7 @@ img.div-line2 {
 }
 .error h1 {
   margin-top: 150px;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 56px;
   color: #333333;
   font-weight: 700;
@@ -8469,7 +8469,7 @@ img.div-line2 {
   padding-top: 50px;
   padding-bottom: 30px;
   margin-top: 150px;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 56px;
   color: #333333;
   font-weight: 700;
@@ -8482,7 +8482,7 @@ img.div-line2 {
   justify-content: center;
 }
 .comingsoon .time span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-size: 100px;
   color: #8eb35a;
   font-weight: 900;
@@ -8493,7 +8493,7 @@ img.div-line2 {
   margin-top: 75px;
 }
 .comingsoon .time p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #696969;
   font-weight: '';
@@ -8518,7 +8518,7 @@ img.div-line2 {
   border: 1px solid #8eb35a;
   border-radius: 25px;
   background-color: #ffffff;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #8eb35a;
   font-weight: 700;
@@ -8566,7 +8566,7 @@ img.div-line2 {
   transition: all 0.5s;
 }
 .comingsoon .infor-ct span.left {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   font-weight: 600;
   color: #696969;
@@ -8610,7 +8610,7 @@ img.div-line2 {
   letter-spacing: 0.2em;
 }
 .flowerads .fl-ads3-ct h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-style: Italic;
   font-size: 40px;
   color: #333333;
@@ -8623,7 +8623,7 @@ img.div-line2 {
   border: 1px solid #8eb35a;
   border-radius: 25px;
   background-color: #ffffff;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #8eb35a;
   font-weight: 700;
@@ -8638,7 +8638,7 @@ img.div-line2 {
   background-color: #8eb35a;
   border: 1px solid #8eb35a;
   border-radius: 25px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 700;
@@ -8684,7 +8684,7 @@ img.div-line2 {
   margin-bottom: 70px;
 }
 .flowerblog .blog-fl-title h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-style: Italic;
   font-size: 40px;
   color: #333333;
@@ -8748,7 +8748,7 @@ img.div-line2 {
   padding: 40px 0;
 }
 .flowerinstagram .insta-content h1 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #9a9a9a;
   font-weight: '';
@@ -8758,7 +8758,7 @@ img.div-line2 {
   margin-bottom: 15px;
 }
 .flowerinstagram .insta-content a {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   font-weight: 700;
   color: #ffffff;
@@ -8799,7 +8799,7 @@ img.div-line2 {
   letter-spacing: 0.2em;
 }
 .floweraboutv2 .fl-ads3-ct h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-style: Italic;
   font-size: 40px;
   color: #333333;
@@ -8812,7 +8812,7 @@ img.div-line2 {
   border: 1px solid #8eb35a;
   border-radius: 25px;
   background-color: #ffffff;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #8eb35a;
   font-weight: 700;
@@ -8842,7 +8842,7 @@ img.div-line2 {
   margin-bottom: 50px;
 }
 .flowerarrival .arr-left h2 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 900;
@@ -8853,14 +8853,14 @@ img.div-line2 {
 }
 .flowerarrival .arr-left h1 {
   margin-bottom: 30px;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 72px;
   color: #333333;
   font-weight: 700;
   font-style: Bold;
 }
 .flowerarrival .arr-left p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -8869,7 +8869,7 @@ img.div-line2 {
   margin-bottom: 150px;
 }
 .flowerarrival .arr-left a.shopbt {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #ffffff;
   font-weight: 700;
@@ -8883,7 +8883,7 @@ img.div-line2 {
   justify-content: center;
 }
 .flowerarrival .time span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-size: 48px;
   color: #333333;
   font-weight: 900;
@@ -8894,7 +8894,7 @@ img.div-line2 {
   margin-top: 25px;
 }
 .flowerarrival .time p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #f49ac1;
   font-weight: '';
@@ -8905,7 +8905,7 @@ img.div-line2 {
   margin-top: 100px;
 }
 .flowerarrival .arr-right .arr-hd h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-style: Italic;
   font-size: 40px;
   color: #333333;
@@ -8929,7 +8929,7 @@ img.div-line2 {
   margin-top: 0px;
 }
 .flowerarrival .arr-right .arr-slider .arr-it .arr-text h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 700;
@@ -8954,7 +8954,7 @@ img.div-line2 {
   transition: all 0.5s ease-out;
 }
 .flowerarrival .arr-right .arr-slider .arr-it .arr-text span {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #696969;
   font-weight: 700;
@@ -9002,7 +9002,7 @@ img.div-line2 {
   padding: 150px 0;
 }
 .slogan h2 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 900;
@@ -9011,7 +9011,7 @@ img.div-line2 {
   margin-bottom: 60px;
 }
 .slogan h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 80px;
   color: #333333;
   font-weight: 700;
@@ -9020,7 +9020,7 @@ img.div-line2 {
   margin-bottom: 60px;
 }
 .slogan p {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #696969;
   font-weight: 700;
@@ -9049,7 +9049,7 @@ img.div-line2 {
   overflow: hidden;
 }
 .flowercategories .fl-cate-ct h2.cate-title {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -9109,7 +9109,7 @@ img.div-line2 {
   margin-right: 70px;
 }
 .floweradsv3 .ads-item-left .ads-text h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 40px;
   color: #333333;
   font-weight: 900;
@@ -9118,7 +9118,7 @@ img.div-line2 {
   margin-bottom: 20px;
 }
 .floweradsv3 .ads-item-left .ads-text span {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 900;
@@ -9138,7 +9138,7 @@ img.div-line2 {
   margin-right: 70px;
 }
 .floweradsv3 .ads-item-right .ads-text h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 40px;
   color: #333333;
   font-weight: 900;
@@ -9147,7 +9147,7 @@ img.div-line2 {
   text-transform: uppercase;
 }
 .floweradsv3 .ads-item-right .ads-text span {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 900;
@@ -9200,7 +9200,7 @@ img.div-line2 {
   padding-right: 100px;
 }
 .floweraboutv4 .ab-flower-it h1 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 900;
@@ -9259,7 +9259,7 @@ img.div-line2 {
   top: -25px;
 }
 .flowerdealv4 .deal-left .flow-deal-ct h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Source Sans Pro', serif;
   font-size: 48px;
   color: #333333;
   letter-spacing: 0.2em;
@@ -9408,7 +9408,7 @@ img.div-line2 {
 }
 .aboutflowerabv2 .ab-flow-r .ab-introv2 h1 {
   text-align: left;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 120px;
   color: #333333;
   font-weight: 700;
@@ -9434,7 +9434,7 @@ img.div-line2 {
   margin-bottom: 120px;
 }
 .cakeabout p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 24px;
   color: #333333;
   font-weight: 400;
@@ -9455,7 +9455,7 @@ img.div-line2 {
 }
 .cakecategories .cake-heading h1 {
   margin-top: -40px;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 48px;
   color: #333333;
   font-weight: 400;
@@ -9488,7 +9488,7 @@ img.div-line2 {
   padding-bottom: 90px;
 }
 .cakearrival .heading-sec h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 48px;
   color: #333333;
   font-weight: 400;
@@ -9519,7 +9519,7 @@ img.div-line2 {
   margin-left: -10px;
 }
 .cakearrival .blog-it-left .cakeblog-ct .arr-date h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 34px;
   color: #f49ac1;
   font-weight: 700;
@@ -9542,7 +9542,7 @@ img.div-line2 {
   transition: all 0.5s ease-out;
 }
 .cakearrival .blog-it-left .cakeblog-ct .arr-date p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 16px;
   color: #333333;
   font-weight: 400;
@@ -9581,7 +9581,7 @@ img.div-line2 {
   margin-bottom: 95px;
 }
 .cakeaboutab .item1 .ab-right p.quote {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #696969;
   font-weight: 400;
@@ -9634,7 +9634,7 @@ img.div-line2 {
   margin-top: 70px;
 }
 .cakeaboutab .milestone h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 40px;
   color: #f49ac1;
   font-weight: 700;
@@ -9642,7 +9642,7 @@ img.div-line2 {
   margin-bottom: 25px;
 }
 .cakeaboutab .milestone span {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 600;
@@ -9695,7 +9695,7 @@ img.div-line2 {
   color: #333333;
 }
 .cakeinstagram a {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #f49ac1;
   font-weight: 400;
@@ -9738,7 +9738,7 @@ img.div-line2 {
 }
 .planttestimonial .plant-it span {
   text-transform: none;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 400;
@@ -9816,14 +9816,14 @@ img.div-line2 {
   padding: 100px 0;
 }
 .plantheading h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 120px;
   color: #8eb35a;
   font-weight: 600;
   font-style: Bold;
 }
 .plantheading span {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 72px;
   color: #333333;
   font-weight: 400;
@@ -9836,7 +9836,7 @@ img.div-line2 {
   margin-top: 35px;
 }
 .plantheading h2 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #333333;
   font-weight: 600;
@@ -9868,7 +9868,7 @@ img.div-line2 {
   transition: all 0.5s ease-out;
 }
 .aboutplantintro .ab-plant-left .team-it .hover-inner h2 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #696969;
   font-weight: 600;
@@ -9893,7 +9893,7 @@ img.div-line2 {
   transition: all 0.5s ease-out;
 }
 .aboutplantintro .ab-plant-left .team-it .hover-inner span {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 700;
@@ -9918,7 +9918,7 @@ img.div-line2 {
   background-color: #8eb35a;
 }
 .aboutplantintro .ab-plant-r h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 56px;
   color: #333333;
   font-weight: 700;
@@ -9934,7 +9934,7 @@ img.div-line2 {
   margin-left: 30px;
 }
 .aboutplantintro .ab-plant-r .it h2 {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 900;
@@ -10026,7 +10026,7 @@ img.div-line2 {
   padding: 20px 30px;
   text-decoration: none;
   position: relative;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 800;
@@ -11114,7 +11114,7 @@ header nav ul.hd-menu li.dropdown a {
   color: #696969;
   font-size: 14px;
   text-transform: uppercase;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-weight: 700;
   margin-right: 50px;
   padding: 40px 0 40px 0;
@@ -11160,7 +11160,7 @@ header nav ul.hd-menu ul.dropdown-menu.level1 {
   min-width: 220px;
 }
 header nav ul.hd-menu ul.dropdown-menu.level1 li a {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: 500;
@@ -11352,7 +11352,7 @@ header .right-menu button.white i:hover {
   margin-left: 0;
 }
 .ht-headerv4 .hd-if .hd-infor span {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 16px;
   font-weight: 700;
   color: #696969;
@@ -11443,7 +11443,7 @@ header .right-menu button.white i:hover {
 }
 .topsearch input[type="text"]::-webkit-input-placeholder {
   line-height: 40px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 16px;
   color: #ffffff;
   font-weight: '';
@@ -11551,7 +11551,7 @@ header .right-menu button.white i:hover {
   color: #f1f1f1;
 }
 .sidenav p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   color: #696969;
   font-style: Italic;
   text-align: center;
@@ -11582,7 +11582,7 @@ header .right-menu button.white i:hover {
 }
 .sidenav .menu .menu-right a,
 .sidenav .menu .menu-left a {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ababab;
   font-weight: 600;
@@ -11655,7 +11655,7 @@ header .right-menu button.white i:hover {
   border: 1px solid #8eb35a;
   border-radius: 25px;
   background-color: #ffffff;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #8eb35a;
   font-weight: 700;
@@ -11670,7 +11670,7 @@ header .right-menu button.white i:hover {
   background-color: #8eb35a;
   border: 1px solid #8eb35a;
   border-radius: 25px;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: 700;
@@ -11683,7 +11683,7 @@ header .right-menu button.white i:hover {
   position: relative;
 }
 .sidenav .search ::-webkit-input-placeholder {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   color: #e4e4e4;
   font-weight: 700;
   font-size: 24px;
@@ -12027,7 +12027,7 @@ footer.ht-footer {
   padding-bottom: 20px;
 }
 footer.ht-footer .ft-heading h6 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 18px;
   color: #333333;
   font-weight: 700;
@@ -12042,7 +12042,7 @@ footer.ht-footer ul li {
   margin-bottom: 15px;
 }
 footer.ht-footer ul li a {
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #696969;
   font-weight: '';
@@ -12132,7 +12132,7 @@ footer.ht-footer .photo-it .img-ft:hover .hover-inner-ft {
   transition: all 0.5s;
 }
 footer.ht-footer .ft-below-left p {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", 'Source Sans Pro', serif;
   font-size: 14px;
   color: #ababab;
   font-weight: '';
@@ -12151,7 +12151,7 @@ footer.ht-footer .ft-below-right {
 }
 footer.ht-footer .ft-below-right p a {
   text-transform: uppercase;
-  font-family: "Lato", serif;
+  font-family: "Lato", 'Source Sans Pro', serif;
   font-size: 12px;
   color: #696969;
   font-weight: 700;

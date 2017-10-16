@@ -78,7 +78,7 @@ class InfoPagesController extends Controller
     {
         $language_list = Language::all();
         $info_page = InfoPage::find($id);
-        $info_page_translations = InfoPageTranslation::where('info_page_id',$id)->orderBy('language_id','asc')->get();
+        $info_page_translations = $info_page->translations()->get();
         return view('admin.info-pages.show',compact('language_list','info_page','info_page_translations'));        
     }
 
@@ -92,7 +92,7 @@ class InfoPagesController extends Controller
     {
         $info_page = InfoPage::find($id);
         $language_list = Language::all();
-        $info_page_translations = InfoPageTranslation::where('info_page_id',$id)->orderBy('language_id','asc')->get();
+        $info_page_translations = $info_page->translations()->get();
         return view('admin.info-pages.edit',compact('info_page','language_list','info_page_translations'));                  
     }
 

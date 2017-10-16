@@ -91,7 +91,7 @@
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
 						<div class="pro-description"> 
 							<p>sku<span>{{$product->sku}}</span></p>
-							<p>Categories<span>{{$product->category->translation->name??''}}</span></p>
+							<p>@lang('common.categories')<span>{{$product->category->translation->name??''}}</span></p>
 							<!-- <p>Expire date<span>01/11/2015</span></p> -->
 							<p>Tags<span>
                                     @foreach($product->tags as $tag)
@@ -100,7 +100,7 @@
                                 </span></p>
 						</div>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">
-						<a class="readmore add-shoopingcart" href="javascript:void(0)">Add to cart</a>
+						<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
 						<a class="wishlist" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
 					</div>	
 				</div>
@@ -110,14 +110,14 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="tabs  blogsingle-content">
 					<span class="tab-links">
-						<li class="active"><a href="#tab1">Description</a></li>
-						<li><a href="#tab2">Additional info</a></li>
-						<li><a href="#tab3">Reviews <span>{{count($product->comments)}}</span></a></li>
+						<li class="active"><a href="#tab1">@lang('product.description')</a></li>
+						<li><a href="#tab2">@lang('product.add-info')</a></li>
+						<li><a href="#tab3">@lang('product.reviews') <span>({{count($product->comments)}})</span></a></li>
 					</span>
 					<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4" width="100">
 				    <div class="tab-content">
 				        <div id="tab1" class="tab active comment list-item">
-				            <h2 class="cmt-heading">Desciption</span></h2>
+				            <h2 class="cmt-heading">@lang('product.description')</span></h2>
 				            <div class="cmt-it pro-list-it ">
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-xs-12">
@@ -130,7 +130,7 @@
 			
 				        </div>
 				        <div id="tab2" class="tab comment list-item">
-				           <h2 class="cmt-heading">Specs</span></h2>
+				           <h2 class="cmt-heading">@lang('product.specs')</span></h2>
 				            <div class="cmt-it pro-list-it ">
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-xs-12">
@@ -143,7 +143,7 @@
 							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
 				        </div>
 				        <div id="tab3" class="tab comment list-item">
-				        	<h2 class="cmt-heading">Customer Reviews<span>({{count($product->comments)}})</span></h2>
+				        	<h2 class="cmt-heading">@lang('product.reviews')({{count($product->comments)}})</span></h2>
                             @foreach($product->comments as  $review)
                             <div class="cmt-it pro-list-it ">
 								<div class="row">
@@ -183,7 +183,7 @@
 											 	</span>
 											</span>
 											<p>{{$review->comment}}</p>
-											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Comment</a>
+											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>@lang('product.comment')</a>
 										</div>	
 									</div>
 								</div>
@@ -197,14 +197,14 @@
 					<form method="post" action="{{url('/products')}}/{{$product->id}}/review"  class="post-cmt">
                     {{ csrf_field() }}
                     <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
-                        <label>Add a Review</label>
+                        <label>@lang('product.add-review')</label>
                             @guest
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input class="name" type="text" placeholder="Your Name">
+									<input class="name" type="text" placeholder="{{ __('profile.name')}}">
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input class="email" type="text" placeholder="E-mail*">
+									<input class="email" type="text" placeholder="E-{{ __('profile.email')}}*">
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
 									<input class="website" type="text" placeholder="Website">
@@ -220,7 +220,7 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <!-- Rating -->
                                     <select name="rate">
-                                        <option value="0">-- Select one Star--</option>
+                                        <option value="0">-- @lang('product.select-one')--</option>
                                         <option value="1">1 Star</option>
                                         <option value="2">2 Star</option>
                                         <option value="3">3 Star</option>
@@ -229,10 +229,10 @@
                                     </select>
                                 </div>
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<input  class="comt" type="textarea" placeholder="Comment*">
+									<input  class="comt" type="textarea" placeholder="{{ __('product.comment')}}*">
 								</div>
                             </div>
-							<input class="submit" type="submit" value="post comment">
+							<input class="submit" type="submit" value="{{ __('product.send-review')}}">
 					</form>
 				</div>
 			</div>
