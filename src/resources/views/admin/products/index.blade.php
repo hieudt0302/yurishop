@@ -4,15 +4,29 @@
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
-    <h1>
+    <h1 class="pull-left">
     Sản Phẩm
         <small>Danh Sách</small>
     </h1>
-    <ol class="breadcrumb">
+    <!-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="#">Menu</a></li>
         <li class="active">Danh Sách</li>
-    </ol>
+    </ol> -->
+    <div class="pull-right">
+        <a href="{{('/admin/products/create')}}" class="btn bg-blue">
+            <i class="fa fa-plus-square"></i>
+            Add new
+        </a>
+        <button type="submit" name="download-catalog-pdf" class="btn bg-purple">
+            <i class="fa fa-file-pdf-o"></i>
+            Export
+        </button>
+        <button type="button" id="delete-selected" class="btn bg-red">
+            <i class="fa fa-trash-o"></i>
+            Delete (selected)
+        </button>
+    </div>
 </section>
 <!-- Main content -->
 <section class="content">
