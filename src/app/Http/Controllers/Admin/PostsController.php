@@ -57,7 +57,7 @@ class PostsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'slug' => 'required|string|min:5',
+            'slug' => 'required|string|min:1',
         ]);
 
         if ($validator->fails()) {
@@ -95,20 +95,23 @@ class PostsController extends Controller
 
             $post->save();            
 
-            $language_list = Language::all();
-            foreach ($language_list as $language){ 
-                $post_translation = new PostTranslation;
-                $post_translation->post_id = $post->id;
-                $post_translation->language_id = $language->id;
-                $post_translation->title = $request->input($language->id.'-title');            
-                $post_translation->content = $request->input($language->id.'-content');
-                $post_translation->excerpt = $request->input($language->id.'-excerpt');
-                $post_translation->description = $request->input($language->id.'-description');                                   
-                $post_translation->save();
-            }    
+            // $language_list = Language::all();
+            // foreach ($language_list as $language){ 
+            //     $post_translation = new PostTranslation;
+            //     $post_translation->post_id = $post->id;
+            //     $post_translation->language_id = $language->id;
+            //     $post_translation->title = $request->input($language->id.'-title');            
+            //     $post_translation->content = $request->input($language->id.'-content');
+            //     $post_translation->excerpt = $request->input($language->id.'-excerpt');
+            //     $post_translation->description = $request->input($language->id.'-description');                                   
+            //     $post_translation->save();
+            // }    
         
-        return redirect()->back()
-        ->with('success_message', 'Bài viết mới đã được tạo');
+        // return redirect()->back()
+        // ->with('success_message', 'Bài viết mới đã được tạo');
+        return redirect()->action(
+            'Admin\PostsController@edit', ['id' => $post->id]
+        );
         
     }
 
@@ -155,7 +158,7 @@ class PostsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'slug' => 'required|string|min:5',
+            'slug' => 'required|string|min:1',
         ]);
 
         if ($validator->fails()) {
@@ -196,24 +199,28 @@ class PostsController extends Controller
         $post->save();
 
 
-        $language_list = Language::all();
-        foreach ($language_list as $language){
-            $post_tran_id=$request->input($language->id.'-id');
-            $post_translation = PostTranslation::find($post_tran_id);
-            if ($post_translation == null) {
-                $post_translation = new PostTranslation;
-                $post_translation->post_id = $post->id;                
-                $post_translation->language_id = $language->id;                
-            }
-            $post_translation->title = $request->input($language->id.'-title');            
-            $post_translation->content = $request->input($language->id.'-content');
-            $post_translation->excerpt = $request->input($language->id.'-excerpt');
-            $post_translation->description = $request->input($language->id.'-description');                                   
-            $post_translation->save();
-        }
+        // $language_list = Language::all();
+        // foreach ($language_list as $language){
+        //     $post_tran_id=$request->input($language->id.'-id');
+        //     $post_translation = PostTranslation::find($post_tran_id);
+        //     if ($post_translation == null) {
+        //         $post_translation = new PostTranslation;
+        //         $post_translation->post_id = $post->id;                
+        //         $post_translation->language_id = $language->id;                
+        //     }
+        //     $post_translation->title = $request->input($language->id.'-title');            
+        //     $post_translation->content = $request->input($language->id.'-content');
+        //     $post_translation->excerpt = $request->input($language->id.'-excerpt');
+        //     $post_translation->description = $request->input($language->id.'-description');                                   
+        //     $post_translation->save();
+        // }
 
-        return redirect()->back()
-        ->with('success_message', 'Bài viết đã được cập nhật');
+    //     return redirect()->back()
+    //     ->with('success_message', 'Bài viết đã được cập nhật');
+            return redirect()->back()
+            ->with('message', 'Bài viết đã được cập nhật')
+            ->with('status', 'success')
+            ->withInput();
     }
 
     /**

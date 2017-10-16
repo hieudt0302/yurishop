@@ -31,62 +31,71 @@
                     <div class="tab-content">
                         <!-- INFO TAB -->
                         <div class="active tab-pane" id="info">
-                            <div class="panel-group">
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="title" title="">Title</label>
-                                                <div class="ico-help" title="The title of the post."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-required">
-                                                    <input class="form-control text-box single-line valid" id="title" name="title" type="text" value="">
-                                                    <div class="input-group-btn">
-                                                        <span class="required">*</span>
+                            <form action="{{url('/admin/posts/create')}}" method="post">
+                                {{ csrf_field()}}
+                                <div class="panel-group">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="title" title="">Title</label>
+                                                    <div class="ico-help" title="The title of the post."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-required">
+                                                        <input class="form-control text-box single-line valid" id="title" name="title" type="text" value="">
+                                                        <div class="input-group-btn">
+                                                            <span class="required">*</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                      
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="Published" title="">Published</label><div class="ico-help" title="Check to publish this post (visible in store). Uncheck to unpublish (post not available in store)."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        {{ Form::checkbox('published', 1 , true , array('class' => 'check-box')) }}
-                                                        Published
-                                                    </label>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="Published" title="">Published</label><div class="ico-help" title="Check to publish this post (visible in store). Uncheck to unpublish (post not available in store)."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            {{ Form::checkbox('published', 1 , true , array('class' => 'check-box')) }}
+                                                            Published
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="slug" title="">Slug</label>
-                                                    <div class="ico-help" title="Slug of post"><i class="fa fa-question-circle"></i></div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="slug" title="">Slug</label>
+                                                        <div class="ico-help" title="Slug of post"><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input class="form-control text-box single-line valid"  id="slug" name="slug" type="text">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <input class="form-control text-box single-line valid"  id="slug" name="slug" type="text"}">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="category" title="">Category</label><div class="ico-help" title="The category of the post."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select name="category_id" class="form-control">
+                                                        @foreach($categories as  $category)
+                                                        <option value="{{$category->id}}">{{$category->translation->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="category" title="">Translate</label><div class="ico-help" title="The category of the post."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <select name="category_id" class="form-control">
-                                                    @foreach($categories as  $category)
-                                                    <option value="{{$category->id}}">{{$category->translation->name}}</option>
-                                                    @endforeach
-                                                </select>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button type="submit" class="btn btn-primary">Create New</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <!-- CONTENT TAB -->
                         <div class="tab-pane" id="content">

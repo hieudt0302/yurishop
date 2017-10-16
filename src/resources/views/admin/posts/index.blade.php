@@ -5,14 +5,20 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Menu
+        Blog Posts
         <small>Danh Sách</small>
     </h1>
-    <ol class="breadcrumb">
+    <!-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="#">Menu</a></li>
         <li class="active">Danh Sách</li>
-    </ol>
+    </ol> -->
+    <div class="pull-right">
+        <a href="{{('/admin/posts/create')}}" class="btn bg-blue">
+            <i class="fa fa-plus-square"></i>
+            Add new
+        </a>
+    </div>
 </section>
 <!-- Main content -->
 <section class="content">
