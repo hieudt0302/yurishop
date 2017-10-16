@@ -223,6 +223,50 @@ class PostsController extends Controller
             ->withInput();
     }
 
+    public function updateTranslation(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'language_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->with('message', 'ERROR-INPUT: Code EI1001')
+            ->with('status', 'danger')
+            ->withInput();
+        }
+
+        $translation = PostTranslation::where('post_id', $id)
+        ->where('language_id', $request->language_id)
+        ->first();
+        if(!empty($translation)){
+            $translation->title = $request->title_translate??'';
+            $translation->excerpt = $request->excerpt_translate??'';
+            $translation->content = $request->content_translate??'';
+            $translation->description = $request->description_translate??'';
+            $translation->save();
+        }
+        else{
+
+            $postTranslation = new PostTranslation();
+            $postTranslation->title = $request->title_translate??'';
+            $postTranslation->excerpt = $request->excerpt_translate??'';
+            $postTranslation->content = $request->content_translate??'';
+            $postTranslation->description = $request->description_translate??'';
+            $postTranslation->language_id = $request->language_id;
+            $postTranslation->post_id = $id;
+
+            $postTranslation->save();
+
+        }
+        // var_dump($postTranslation); die();
+        
+        return redirect()->back()
+        ->with('message', 'Cập nhật nội dung mới thành công')
+        ->with('status', 'success')
+        ->withInput();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

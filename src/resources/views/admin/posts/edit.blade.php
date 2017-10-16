@@ -101,64 +101,75 @@
                         <!-- CONTENT TAB -->
                         <div class="tab-pane" id="content">
                             <div class="panel-group">
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="name" title="">Translate</label><div class="ico-help" title="The language of the content."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <select name="language_id" class="form-control">
-                                                    @foreach($languages as  $language)
-                                                    <option value="{{$language->id}}">{{$language->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="title_translate" title="">Title</label>
-                                                <div class="ico-help" title="The name of the post."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group input-group-required">
-                                                    <input class="form-control text-box single-line valid" id="title_translate" name="title_translate" type="text" value="">
+                                <form action="{{url('/admin/posts')}}/{{$post->id}}/translation" method="post">
+                                {!! method_field('patch') !!} 
+                                {{ csrf_field()}}
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="name" title="">Translate</label><div class="ico-help" title="The language of the content."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select name="language_id" class="form-control">
+                                                        @foreach($languages as  $language)
+                                                        <option value="{{$language->id}}">{{$language->name}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="excerpt_translate" title="">Excerpt</label>
-                                                <div class="ico-help" title="The excerpt of the post."><i class="fa fa-question-circle"></i></div></div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="title_translate" title="">Title</label>
+                                                    <div class="ico-help" title="The name of the post."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-group-required">
+                                                        <input class="form-control text-box single-line valid" id="title_translate" name="title_translate" type="text" value="">
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-8">
-                                                <textarea id="excerpt_translate" class="form-control" name="excerpt_translate" rows="3"  placeholder=""></textarea>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="excerpt_translate" title="">Excerpt</label>
+                                                    <div class="ico-help" title="The excerpt of the post."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <textarea id="excerpt_translate" class="form-control" name="excerpt_translate" rows="3"  placeholder=""></textarea>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="content_translate" title="">Specs</label>
-                                                <div class="ico-help" title="The content of the post."><i class="fa fa-question-circle"></i></div></div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="content_translate" title="">Content</label>
+                                                    <div class="ico-help" title="The content of the post."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <textarea id="content_translate" class="form-control" name="content_translate" rows="3"  placeholder=""></textarea>
+                                                </div>
                                             </div>
-                                            <div class="col-md-8">
-                                                <textarea id="content_translate" class="form-control" name="content_translate" rows="3"  placeholder=""></textarea>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="description_translate" title="">Description</label>
+                                                    <div class="ico-help" title="The description of the post."><i class="fa fa-question-circle"></i></div></div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <textarea id="description_translate" class="form-control" name="description_translate" rows="3"  placeholder=""></textarea>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="description_translate" title="">Description</label>
-                                                <div class="ico-help" title="The description of the post."><i class="fa fa-question-circle"></i></div></div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <textarea id="description_translate" class="form-control" name="description_translate" rows="3"  placeholder=""></textarea>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <!-- PRICTURES TAB -->

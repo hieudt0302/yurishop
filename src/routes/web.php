@@ -215,6 +215,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::patch('posts/{id}',['as'=>'admin.posts.update','uses'=>'PostsController@update','middleware' => ['role:admin|manager']]);
     Route::delete('posts/{id}',['as'=>'admin.posts.destroy','uses'=>'PostsController@destroy','middleware' => ['role:admin|manager']]);  
     //
+    Route::patch('posts/{id}/translation',['as'=>'admin.posts.update','uses'=>'PostsController@updateTranslation','middleware' => ['role:admin|manager']]);
+    //
     Route::get('posts/categories',['as'=>'admin.posts.categories','uses'=>'PostsController@categories','middleware' => ['role:admin|manager']]);
     Route::post('posts/categories',['as'=>'admin.posts.findcategories','uses'=>'PostsController@findcategories','middleware' => ['role:admin|manager']]);
     Route::get('posts/comments',['as'=>'admin.posts.comments','uses'=>'PostsController@comments','middleware' => ['role:admin|manager']]);
