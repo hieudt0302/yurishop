@@ -19,8 +19,8 @@
 						<div class="date">
 							<span>{!! date('F jS, Y', strtotime($blog->updated_at)) !!}</span>
 						</div>
-						<h2><a href="{{url('/posts')}}/{{$blog->slug}}"> {{ $blog->translation->title }} </a></h2>
-						<p> {{ $blog->translation->excerpt }} </p>
+						<h2><a href="{{url('/posts')}}/{{$blog->slug}}"> {{ $blog->translation->title??'' }} </a></h2>
+						<p> {{ $blog->translation->excerpt??'' }} </p>
 						<a class="readmore2" href="{{url('/posts')}}/{{$blog->slug}}">/ &nbsp; @lang('common.more-details')</a>
 					</div>
 				</div>
