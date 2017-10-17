@@ -11,7 +11,7 @@
         <div class="row">
             <nav id="mainNav" class="navbar navbar-default navbar-custom">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="col-md-2 col-sm-2 col-xs-12">
                     <div class="row">
                         <div class="main-logo">
                             <div class="col-md-5">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="col-md-7 col-sm-7 col-xs-12">
+                <div class="col-md-8 col-sm-8 col-xs-12">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav hd-menu">
                             <li class="hidden">
@@ -86,7 +86,7 @@
                                 <!-- End Sub -->
                                 @else
                                 <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ Auth::user()->last_name }} {{ Auth::user()->first_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ Auth::user()->last_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu level1">
                                     <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>My Account</a></li>
@@ -111,19 +111,19 @@
                                 </a>
                                 <ul class="dropdown-menu level1">
                                     <li>
-                                        <a href="{{URL::asset('')}}language/vi">>
+                                        <a href="{{URL::asset('')}}language/vi">
                                             <i class="ion-ios-minus-empty"></i>
                                             Tiếng Việt
                                         </a>                                        
                                     </li>
                                     <li>
-                                        <a href="{{URL::asset('')}}language/en">>
+                                        <a href="{{URL::asset('')}}language/en">
                                             <i class="ion-ios-minus-empty"></i>
                                             English
                                         </a>                                        
                                     </li> 
                                     <li>
-                                        <a href="#">>
+                                        <a href="#">
                                             <i class="ion-ios-minus-empty"></i>
                                             中文
                                         </a>                                        

@@ -145,17 +145,13 @@ class HomeController extends Controller
         $search_key = $request->input('key'); 
         
 
-        $products = Product::where('published',1)
-        ->whereNull('deleted_at')
-        ->where("name", "LIKE", "%$search_key%")
-        ->paginate(10);
+        $products = ProductTranslation::where("name", "LIKE", "%$search_key%")
+        ->paginate(10);             
 
-        $posts = Post::where('published',1)
-        ->whereNull('deleted_at')
-        ->where("title", "LIKE", "%$search_key%")
-        ->paginate(10);            
 
-        //TODO search multilang
+        $posts = PostTranslation::where("title", "LIKE", "%$search_key%")
+        ->paginate(10);             
+
 
         return view('front/home/search',compact('products','posts','search_key'));
     }      

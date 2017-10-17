@@ -22,5 +22,6 @@ return [
 	'name' => 'Name',
 	'submit' => 'Summit message',
     'required-message' => ' All the fields are required',    
-
+    'social' => 'Social',
+    'review' => 'Get in touch',
 ];

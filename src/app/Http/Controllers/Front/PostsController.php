@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\PostTranslation;
 use App\Models\Tag;
 use Validator;
 use DB;
@@ -101,12 +102,8 @@ class PostsController extends Controller
         $search_key = $request->input('key'); 
         
 
-        $posts = Post::where('published',1)
-        ->whereNull('deleted_at')
-        ->where("title", "LIKE", "%$search_key%")
+        $posts = PostTranslation::where("title", "LIKE", "%$search_key%")
         ->paginate(10);  
-
-        //TODO search multilang
 
         $tags = Tag::has('posts')->get();
         $comments = Tag::has('posts')->get();
