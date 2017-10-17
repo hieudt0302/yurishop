@@ -3,58 +3,43 @@
 @extends('layouts.master')
 @section('title','Dakmark Foods - FAQ')
 @section('header')
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">   
 @endsection
 @section('content')
 <!-- Head Section -->
-            <section class="small-section bg-dark-alfa-30 pt-30 pb-30" data-background="images/full-width-images/section-bg-6.jpg">
-                <div class="relative container align-left">
-                    
-                    <div class="row">
-                        
-                        <div class="col-md-8">
-                            <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">FAQ</h1>
-                        </div>
-                        
-                        <div class="col-md-4 mt-30">
-                            <div class="mod-breadcrumbs font-alt align-right">
-                                <a href="#">Home</a>&nbsp;/&nbsp;<span>FAQ</span>
+<div class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>@lang('common.faq')</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="bloglistpost-v1 bloglistpost-v2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="container">
+                    @foreach ($faqs as $faq)
+                        <div class="panel-group" id="accordion">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$faq->id}}">
+                                {{$faq->translation->question}}</a>
+                              </h4>
                             </div>
-                            
-                        </div>
-                    </div>
-                    
-                </div>
-            </section>
-            <!-- End Head Section -->
-            
-            
-            <!-- Section -->
-            <section class="page-section">
-                <div class="container relative">
-                    
-                    <div class="row section-text">
-                        <div class="col-md-8 col-md-offset-2">
-                            
-                            <!-- Accordion -->
-                            <dl class="accordion">
-
-                                @foreach ($faqs as $faq)
-                                <dt>
-                                    <a href="">{{$faq->question}}</a>
-                                </dt>
-                                <dd>
-                                    {{$faq->answer}}
-                                </dd>
-                                @endforeach
-
-                            </dl>
-                            <!-- End Accordion -->                           
-                            
-                        </div>
-                    </div>
-                    
-                </div>
-            </section>
-            <!-- End Section -->
+                            <div id="collapse-{{$faq->id}}" class="panel-collapse collapse">
+                              <div class="panel-body">{{$faq->translation->answer}}</div>
+                            </div>
+                          </div>
+                        </div>  
+                    @endforeach
+                </div>  
+            </div>            
+        </div>
+    </div>
+</section>
 @endsection
