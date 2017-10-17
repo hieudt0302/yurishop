@@ -374,33 +374,29 @@ class ProductsController extends Controller
 
     public function uploadImage(Request $request)
     {
-        if ($request->hasFile('image_upload')) {
-            $destinationPath = 'uploads/files'; // upload path
-            $extension = $request->file('image_upload')->getClientOriginalExtension(); // getting image extension
+        // if ($request->hasFile('image_upload')) {
+        //     $destinationPath = 'uploads/files'; // upload path
+        //     $extension = $request->file('image_upload')->getClientOriginalExtension(); // getting image extension
 
-            $tempName = $request->file("image_upload")->getClientOriginalName();
-            $fileName = uniqid("MW") . '.' . $extension; // renameing image
-            $request->file('image_upload')->move($destinationPath, $fileName); // uploading file to given path
-            // sending back with message
-            $imagepath = $destinationPath.'/'.$fileName;
-            return response()->json([
-                'message' => 'PASS',
-                'status' => 'success',
-            ]);
-        }
+        //     $tempName = $request->file("image_upload")->getClientOriginalName();
+        //     $fileName = uniqid("MW") . '.' . $extension; // renameing image
+        //     $request->file('image_upload')->move($destinationPath, $fileName); // uploading file to given path
+        //     //sending back with message
+        //     $imagepath = $destinationPath.'/'.$fileName;
+        //     return response()->json([
+        //         'message' => 'PASS',
+        //         'status' => 'success',
+        //     ]);
+        // }
 
-        var_dump($request->file('image_upload')) ;die();
-        return response()->json([
-            'message' =>  'FAILED',
-            'status' => 'error',
-        ]);
+      
 
         $validator = Validator::make($request->all(),
         [
-            'file' => 'image',
+            'image_upload' => 'image',
         ],
         [
-            'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
+            'image_upload.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
         ]);
 
         if ($validator->fails()){
@@ -410,9 +406,9 @@ class ProductsController extends Controller
             ]);
         }
          
-         if (request()->hasFile('file')) {
-            $path = $request->file('file')->store('images');
-            $product = Product::find($id);
+         if (request()->hasFile('image_upload')) {
+            $path = $request->file('image_upload')->store('images');
+            $product = Product::find(1);
 
             $images =  new Media();
             $images->source = $path;

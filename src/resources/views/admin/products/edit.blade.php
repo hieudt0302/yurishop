@@ -483,6 +483,7 @@
       event.preventDefault();
                 var form = document.forms.namedItem("form-upload-image");
                 var formData = new FormData(form);
+        $('#img1').html('<img src="{{asset("images/loader.gif")}}" style="padding-top: 40%"/>');
         $.ajax({
             type: 'POST',
             url: '{{url("/admin/products")}}/{{$product->id}}/image/upload',
@@ -491,11 +492,15 @@
             contentType: false,
             data:formData,
             success: function (response) {
-                alert(response['message']);
-               
+                if (response['status'] =='error') {
+                    $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image-250.png")}}"/>');
+                }
+                else {
+                    $('#img1').html('<img width="100%" height="100%" src="{{asset("storage/")}}/' + response['path'] + '"/>');
+                }
             },
             error: function (response) {
-                alert(response['message']);
+                $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image-250.png")}}"/>');
             }
         });
     });
