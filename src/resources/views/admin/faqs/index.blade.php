@@ -4,13 +4,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Menu
-        <small>Danh Sách</small>
+        Danh sách FAQ
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Menu</a></li>
-        <li class="active">Danh Sách</li>
+        <li><a href="#">FAQ</a></li>
+        <li class="active">Danh sách</li>
     </ol>
 </section>
 <!-- Main content -->
@@ -18,9 +17,6 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Danh Sách FAQ</h3>
-                </div>
 				@if ($message = Session::get('success'))
 					<div class="alert alert-success">
 						<p>{{ $message }}</p>

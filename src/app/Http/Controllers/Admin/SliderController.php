@@ -59,8 +59,8 @@ class SliderController extends Controller
             $slider_translation->save();
         }        
 
-        session()->flash('success_message', "Thêm slider thành công !");
-        return redirect()->route('admin.sliders.index');
+        session()->flash('success_message', "Thêm mới thành công !");
+        return redirect()->back();
     }
 
     public function edit($id)
@@ -99,22 +99,17 @@ class SliderController extends Controller
         $slider->is_show = $request->is_show;
         $slider->save();
 
-        $language_list = Language::all();
-        foreach ($language_list as $language){
-            $slider_tran_id=$request->input($language->id.'-id');
-            $slider_translation = SliderTranslation::find($slider_tran_id);
-            if ($slider_translation == null) {
-                $slider_translation = new SliderTranslation;
-                $slider_translation->slider_id = $slider->id;
-                $slider_translation->language_id = $language->id;                
+        $slider_translations = $slider->translations()->get();
+        foreach ($slider_translations as $slider_translation){
+            if (!empty($request->input($slider_translation->language_id.'-description'))) {
+                $slider_translation->description = $request->input($slider_translation->language_id.'-description');
+                $slider_translation->save();
             }
-            $slider_translation->description = $request->input($language->id.'-description');
-            $slider_translation->save();
         }        
 
 
         session()->flash('success_message', "Cập nhật thành công !");
-        return redirect()->route('admin.sliders.index'); 
+        return redirect()->back(); 
     }
     public function destroy($id){
         $slider = Slider::find($id);
@@ -125,7 +120,7 @@ class SliderController extends Controller
         }
         $slider->delete();
 
-        session()->flash('success_message', "Xóa slider thành công !");
+        session()->flash('success_message', "Xóa thành công !");
         return redirect()->route('admin.sliders.index'); 
     }
 }

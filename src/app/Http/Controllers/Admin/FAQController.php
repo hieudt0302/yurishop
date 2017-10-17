@@ -62,7 +62,7 @@ class FaqController extends Controller
             $faq_translation->save();
         }
         return redirect()->back()
-        ->with('success_message', 'FAQ mới đã được tạo.');
+        ->with('success_message', 'Thêm mới thành công.');
     }
 
     /**
@@ -109,21 +109,18 @@ class FaqController extends Controller
         $faq->is_show = $request->is_show??0;   
         $faq->save();
         // Update data bảng faq
-        $language_list = Language::all();
-        foreach ($language_list as $language){
-            $faq_tran_id=$request->input($language->id.'-id');
-            $faq_translation = FaqTranslation::find($faq_tran_id);
-            if ($faq_translation == null) {
-                $faq_translation = new FaqTranslation;
-                $faq_translation->faq_id = $faq->id;
-                $faq_translation->language_id = $language->id;                
+        $faq_translations = $faq->translations()->get(); 
+        foreach ($faq_translations as $faq_translation){
+            if (!empty($request->input($faq_translation->language_id.'-question'))) {
+                $faq_translation->question = $request->input($faq_translation->language_id.'-question');
             }
-            $faq_translation->question = $request->input($language->id.'-question');
-            $faq_translation->answer = $request->input($language->id.'-answer');
+            if (!empty($request->input($faq_translation->language_id.'-answer'))) {
+                $faq_translation->answer = $request->input($faq_translation->language_id.'-answer');
+            }
             $faq_translation->save();
         }
         return redirect()->back()
-        ->with('success_message', 'FAQ đã được cập nhật.');
+        ->with('success_message', 'Cập nhật thành công.');
     }
 
     /**
