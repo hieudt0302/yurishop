@@ -252,6 +252,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <select id="language-select" name="language_id" class="form-control">
+                                                    <option value="0">-----Chọn Ngôn Ngữ-----</option>
                                                     @foreach($languages as  $language)
                                                     <option value="{{$language->id}}">{{$language->name}}</option>
                                                     @endforeach
@@ -351,9 +352,9 @@
                             </div>
                             <div class="panel-group">
                                 <div class="panel panel-default">
-                                    <form id="form-upload-image" action="{{url('/admin/products')}}/{{$product->id}}/image/upload" method="post" enctype="multipart/form-data">
-                                    {!! method_field('patch') !!} 
-                                    {{ csrf_field()}}
+                                <!-- action="{{url('/admin/products')}}/{{$product->id}}/image/upload"  -->
+                                    <form id="form-upload-image" name="form-upload-image"  method="post" enctype="multipart/form-data"> 
+                                        {{ csrf_field()}}
                                         <div class="panel-heading">
                                         Add a new picture
                                         </div>
@@ -364,8 +365,10 @@
                                                     <div class="ico-help" title="Upload image for product."><i class="fa fa-question-circle"></i></div></div>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input type="file" id="image_upload" name="image_upload">
-                                                    <p id='image_upload_progress'></p>
+                                                    <input type="file" id="image_upload" name="image_upload" >
+                                                    <div style="width:200px;height: 200px;border: 1px solid whitesmoke;text-align: center" id="img1">
+                                                        <img width="100%" height="100%" src="{{asset('images/default-image-250.png')}}"/>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -384,7 +387,7 @@
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <button type="submmit" class="btn btn-primary add-product-image">Add Product Image</button>
+                                                    <button type="submit" class="btn btn-primary add-product-image">Add Product Image</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -434,7 +437,7 @@
             $.ajax({
                 type: "GET",
                 url: '{{url("/admin/products")}}/{{$product->id}}/'+ code_id +'/fetch',
-                date:{
+                data:{
                     '_token': '{{csrf_token()}}'
                 },
                 success:function(response){
@@ -444,6 +447,7 @@
                 $('#specs_translate').val(response['specs']);
                 },
                 error:function(response){
+                    alert('Không thể gửi yêu cầu về server');
                 }
             });
         })
@@ -476,35 +480,71 @@
         });
 
     $('#form-upload-image').on( 'submit', function(e) {
-    //https://laracast.blogspot.com/2016/06/laravel-upload-image-file-with-ajax.html
-        var file_data = $('#image_upload').prop('files')[0];
-        var form_data = new FormData();
-        form_data.append('file', file_data);
-        // $('#img1').html('<img src="{{asset('images/loader.gif')}}" style="padding-top: 40%"/>');
+      event.preventDefault();
+                var form = document.forms.namedItem("form-upload-image");
+                var formData = new FormData(form);
         $.ajax({
-            data: form_data,
-            type: 'PATCH',
-            contentType: false,       // The content type used when sending data to the server.
-            cache: false,             // To unable request pages to be cached
+            type: 'POST',
+            url: '{{url("/admin/products")}}/{{$product->id}}/image/upload',
+            dataType:'json',
             processData: false,
+            contentType: false,
+            data:formData,
             success: function (response) {
-                // alert(response['path']);
-                // if (data.fail) {
-                //     $('#img1').html('<img width="100%" height="100%" src="{{asset('images/default.jpg')}}"/>');
-                //     alert(data.errors['file']);
-                // }
-                // else {
-                //     filename = data;
-                //     $('#img1').html('<img width="100%" height="100%" src="{{asset('uploads')}}/' + data + '"/>');
-                // }
+                alert(response['message']);
+               
             },
-            error: function (xhr, status, error) {
-                // alert(xhr.responseText);
-                // $('#img1').html('<img width="100%" height="100%" src="{{asset('images/default.jpg')}}"/>');
+            error: function (response) {
+                alert(response['message']);
             }
         });
     });
+
+   
 });
 </script>
+<!-- <script>
+ var filename = '';
+    function changeProfile() {
+        $('#image_upload').click();
+    }
+    $('#image_upload').change(function () {
+        if ($(this).val() != '') {
+            upload();
 
+        }
+    });
+
+    function upload() {
+        var file_data = $('#image_upload').prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        form_data.append('order', 1);
+        
+        $('#img1').html('<img src="{{asset("images/loader.gif")}}" style="padding-top: 40%"/>');
+        $.ajax({
+            url: '{{url("/admin/products")}}/{{$product->id}}/image/upload', // point to server-side PHP script
+            data: form_data,
+            type: 'PATCH',
+            cache:  false,
+            dataType: 'json',
+            processData: false,
+            contentType: false, 
+            success: function (response) {
+                if (response['status'] =='error') {
+                    $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image-250.png")}}"/>');
+                    alert(response['message']);
+                }
+                else {
+                    alert(response['message']);
+                    $('#img1').html('<img width="100%" height="100%" src="{{asset('public/images')}}/' + response['path'] + '"/>');
+                }
+            },
+            error: function (response) {
+                alert(response['message']);
+                $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image-250.png")}}"/>');
+            }
+        });
+    }
+</script> -->
 @endsection

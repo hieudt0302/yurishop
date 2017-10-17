@@ -303,6 +303,7 @@ class ProductsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
+            'language_id' =>'required|numeric|min:1',
         ]);
 
         if ($validator->fails()) {
@@ -371,16 +372,35 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function uploadImage(Request $request, $id)
+    public function uploadImage(Request $request)
     {
+        if ($request->hasFile('image_upload')) {
+            $destinationPath = 'uploads/files'; // upload path
+            $extension = $request->file('image_upload')->getClientOriginalExtension(); // getting image extension
 
+            $tempName = $request->file("image_upload")->getClientOriginalName();
+            $fileName = uniqid("MW") . '.' . $extension; // renameing image
+            $request->file('image_upload')->move($destinationPath, $fileName); // uploading file to given path
+            // sending back with message
+            $imagepath = $destinationPath.'/'.$fileName;
+            return response()->json([
+                'message' => 'PASS',
+                'status' => 'success',
+            ]);
+        }
+
+        var_dump($request->file('image_upload')) ;die();
+        return response()->json([
+            'message' =>  'FAILED',
+            'status' => 'error',
+        ]);
 
         $validator = Validator::make($request->all(),
         [
-            'image_upload' => 'image',
+            'file' => 'image',
         ],
         [
-            'image_upload.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
+            'file.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
         ]);
 
         if ($validator->fails()){
@@ -390,8 +410,8 @@ class ProductsController extends Controller
             ]);
         }
          
-        if (request()->hasFile('image_upload')) {
-            $path = $request->file('image_upload')->store('images');
+         if (request()->hasFile('file')) {
+            $path = $request->file('file')->store('images');
             $product = Product::find($id);
 
             $images =  new Media();
@@ -410,7 +430,7 @@ class ProductsController extends Controller
         }
 
         return response()->json([
-            'message' => 'Không tìm thấy file.',
+            'message' =>  $request->file('file'),//'Không tìm thấy file.',
             'status' => 'error',
         ]);
                     
