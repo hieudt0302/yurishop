@@ -53,17 +53,14 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $product = Product::find($id);
+        $product = Product::where('slug',$slug)->firstOrFail();
         if(empty($product))
             return abort(404);
         $starAvg = $product->comments->avg('rate');
 
-        $relatedProducts = Product::where('category_id',$product->category_id??0)
-        ->whereNotIn('id',$product->id)->get();
-
-        return View('front.products.show', compact('product','starAvg','relatedProducts'));
+        return View('front.products.show', compact('product','starAvg'));
     }
 
     /**

@@ -21,5 +21,7 @@ return [
 	'message' => 'Nội dung tin nhắn',
 	'name' => 'Tên',
 	'submit' => 'Gửi',
-    'required-message' => ' Cần điền tất cả nội dung trên',        
+    'required-message' => ' Cần điền tất cả nội dung trên',
+    'social' => 'Mạng xã hội',    
+    'review' => 'Lời nhắn',            
 ];

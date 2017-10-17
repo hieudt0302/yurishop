@@ -62,7 +62,7 @@
                                 <span class="pro-cost">{{$product->price}}</span>
                             </div>
                             <div class="hover-inner">	
-                                <a class="search" href="#" data-toggle="tooltip" data-placement="top" title="Quick view"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                <a class="search" href="{{url('/products')}}/{{$product->slug}}" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-search" aria-hidden="true"></i></a>
                                 <a class="cart" href="{{url('/products')}}/{{$product->id}}" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                                 <a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
                             </div>

@@ -27,8 +27,34 @@
                     @if(!empty($search_key) && count($posts)==0)
                         @lang('common.zero-search-message')&nbsp;{{$search_key}}
                     @endif 
-                </div>                
+                </div>
 
+                @if(!empty($search_key) && count($posts)!=0)
+                    <!-- Post -->
+                    @foreach($posts as $post_tran)
+                    <div class="blogpost-v2">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="video2">
+                                    <img src="{{ asset('images/blog/' . $post_tran->post->img) }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="blog-it-content2">
+                                    <div class="date">
+                                        <span>@lang('blog.posted-by') {{$post_tran->post->author->last_name}} {{$post_tran->post->author->first_name}}, {{ date('d-m-Y', strtotime($post_tran->post->created_at)) }}</span>
+                                    </div>                                
+                                    <h2><a href="{{url('/')}}/posts/{{$post_tran->post->slug}}">{{$post_tran->title}}</a></h2>
+                                    <p>{{$post_tran->excerpt}} </p>
+                                    <a class="readmore2" href="{{url('/')}}/posts/{{$post_tran->post->slug}}">/ &nbsp; @lang('common.read-more')</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    @endforeach
+                    <!-- End Post -->
+                @else
                 <!-- Post -->
                 @foreach($posts as $post)
                 <div class="blogpost-v2">
@@ -36,7 +62,6 @@
                         <div class="col-md-5">
                             <div class="video2">
                                 <img src="{{ asset('images/blog/' . $post->img) }}" alt="">
-                                <a class="video-play2" href="{{url('/')}}/posts/{{$post->slug}}"><img  src="{{ asset('images/blog/' . $post->img) }}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -46,14 +71,15 @@
                                 </div>                                
                                 <h2><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->translation->title}}</a></h2>
                                 <p>{{$post->translation->excerpt}} </p>
-                                <a class="readmore2" href="{{url('/')}}/posts/{{$post->slug}}">/ &nbsp; Read more</a>
+                                <a class="readmore2" href="{{url('/')}}/posts/{{$post->slug}}">/ &nbsp; @lang('common.read-more')</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <hr>
                 @endforeach
-                <!-- End Post -->                
+                <!-- End Post -->
+                @endif                
                 
             </div>
             <div class="col-md-3 col-sm-4 col-xs-12">
@@ -76,6 +102,8 @@
                         {!! Form::close() !!}
 
                     </div>
+                    <br><br>
+
                     <div class="categories">
                         <h1 class="cate-heading">@lang('common.categories')</h1>
                         <ul>
@@ -103,8 +131,10 @@
                         </div>
                         @endforeach        
                     </div>
+                    <br><br>
+
                     <div class="searchbytag">
-                        <h1 class="cate-heading">Search by Tags</h1>
+                        <h1 class="cate-heading">Tags</h1>
                         <ul class="tags">
                             <li><a href="galleryv1.html">coffee</a></li>
                             <li><a href="galleryv1.html">che</a></li>
