@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\FaqTranslation;
+use App\Models\Faq;
 use App\Models\Language;
 
 class FaqController extends Controller
@@ -16,13 +16,7 @@ class FaqController extends Controller
      */
     public function index()
     {
-    	$language_id = 2; //make english as default alternative
-    	$locale = \App::getLocale(); 
-    	$language = Language::where('name',$locale)->first();
-    	if ($language != null){
-    		$language_id = $language->id; //make english as default alternative
-    	}
-        $faqs = FaqTranslation::where('language_id',$language_id)->orderBy('faq_id', 'desc')->get();
+        $faqs = Faq::where('is_show',true)->get();
         return view('front.faqs.index',compact('faqs'));
     }    
 }
