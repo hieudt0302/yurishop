@@ -155,7 +155,7 @@
                                                         <div class="cart-action-body collapse" id="cart-action-coupon-body">
                                                             <div class="coupon-code form-group">
                                                                 <div class="input-group">
-                                                                    <input name="discountcouponcode" type="text" class="form-control form-control-success discount-coupon-code" placeholder="Enter your coupon here">
+                                                                    <input name="discountcouponcode" type="text" class="form-control form-control-success discount-coupon-code" placeholder="{{ __('shoppings.enter-coupon')}}">
                                                                     <span class="input-group-btn">
                                                                         <button type="submit" class="btn btn-primary apply-discount-coupon-code-button" title="Apply coupon" name="applydiscountcouponcode" value="applydiscountcouponcode">
                                                                             <i class="fa fa-check"></i>
@@ -173,7 +173,7 @@
                                                         <div class="cart-action-body collapse" id="cart-action-giftcard-body">
                                                             <div class="coupon-code form-group">
                                                                 <div class="input-group">
-                                                                    <input name="giftcardcouponcode" type="text" class="form-control gift-card-coupon-code" placeholder="Enter gift card code">
+                                                                    <input name="giftcardcouponcode" type="text" class="form-control gift-card-coupon-code" placeholder="{{ __('shoppings.enter-gift-card')}}">
                                                                     <span class="input-group-btn">
                                                                         <button type="submit" class="btn btn-primary apply-gift-card-coupon-code-button" name="applygiftcardcouponcode" value="applygiftcardcouponcode">
                                                                             <i class="fa fa-check"></i>
@@ -207,7 +207,7 @@
                                                                     <td class="cart-summary-value">{{Cart::tax()}}</td>
                                                                 </tr>
                                                                 <tr class="cart-summary-total">
-                                                                    <td class="cart-summary-label">@lang('shoppings.total')l:</td>
+                                                                    <td class="cart-summary-label">@lang('shoppings.total'):</td>
                                                                     <td class="cart-summary-value">
                                                                         <span class="text-muted fs-h6 font-weight-normal text-wrap">@lang('shoppings.calculated-during-checkout')</span>
                                                                     </td>

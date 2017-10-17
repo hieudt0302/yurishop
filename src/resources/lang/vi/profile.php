@@ -17,5 +17,9 @@ return [
     'new-password' => 'Mật khẩu mới',
     'retype-password' => 'Xác nhận mật khẩu',
 	'save' => 'Lưu', 
-	'action' => 'Thao tác',  	         
+	'action' => 'Thao tác',
+    'city' => 'Thành phố',
+    'province' => 'Tỉnh',         	         
+    'company' => 'Công ty',
+    'zipcode' => 'Mã bưu điện',        
 ];

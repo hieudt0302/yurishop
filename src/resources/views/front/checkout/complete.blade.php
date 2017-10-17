@@ -14,37 +14,37 @@
             <div class="col-2 costep visited" data-step="cart">
                 <a class="costep-link" href="{{url('/cart')}}">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Cart</span>
+                    <span class="costep-label">@lang('shoppings.cart')</span>
                 </a>
             </div>
             <div class="col-2 costep visited" data-step="address">
                 <a class="costep-link" href="{{url('/Checkout/BillingAddress')}}">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Address</span>
+                    <span class="costep-label">@lang('profile.address')</span>
                 </a>
             </div>
             <div class="col-2 costep visited" data-step="shipping">
                 <a class="costep-link" href="{{url('/Checkout/ShippingMethod')}}">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Shipping</span>
+                    <span class="costep-label">@lang('shoppings.shipping')</span>
                 </a>
             </div>
             <div class="col-2 costep visited" data-step="payment">
                 <a class="costep-link" href="{{url('/Checkout/PaymentMethod')}}">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Payment</span>
+                    <span class="costep-label">@lang('shoppings.payment')</span>
                 </a>
             </div>
             <div class="col-2 costep visited" data-step="confirm">
                 <a class="costep-link" href="{{url('/Checkout/Confirm')}}">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Confirm</span>
+                    <span class="costep-label">@lang('shoppings.confirm')</span>
                 </a>
             </div>
             <div class="col-2 costep active" data-step="complete">
                 <a class="costep-link" href="javascript:void(0)">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Complete</span>
+                    <span class="costep-label">@lang('shoppings.complete')</span>
                 </a>
             </div>
         </div>
@@ -52,11 +52,11 @@
             <div id="content-center" class="col-lg-12">
                 <div class="page checkout-completed-page">
                     <div class="heading mt-3">
-                        <h1 class="heading-title font-weight-light">Your order has been received</h1>
+                        <h1 class="heading-title font-weight-light">@lang('checkout.order-received')</h1>
                     </div>
 
                     <h3 class="text-muted font-weight-light">
-                        Thank you for your purchase!
+                        @lang('checkout.thank')
                     </h3>
 
                     <div class="page-body checkout-data pt-4">
@@ -64,7 +64,7 @@
 
                             <div class="body fs-h5">
                                 <p>
-                                    Your order number: &nbsp;
+                                    @lang('checkout.order-number'): &nbsp;
                                     <a href="{{url('/Order/Details')}}/{{$order_id}}" rel="nofollow">
                                         <strong>{{$order_id}}</strong>
                                     </a>
@@ -72,10 +72,10 @@
                             </div>
                             <p class="pt-3 mb-5">
                                 <a href="{{url('/Order/Details')}}/{{$order_id}}" class="btn btn-warning" rel="nofollow">
-                                    <span>Order details</span>
+                                    <span>@lang('checkout.order-details')</span>
                                 </a>
                                 <a href="{{url('/')}}" class="btn btn-secondary order-completed-continue-button">
-                                    <span>Continue shopping</span>
+                                    <span>@lang('shopping.continue-rshopping')</span>
                                 </a>
                             </p>
                         </div>
