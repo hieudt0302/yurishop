@@ -263,8 +263,9 @@
                                 <!-- Translate Content -->
                                 <div class="panel panel-default">
                                     <form id="update-content-translation" method="POST">
+                                        {!! method_field('patch') !!} 
                                         {{ csrf_field()}}
-                                        <input type="hidden" id="language_id_translate" name="language_id_translate">
+                                        <input type="hidden" id="language_id_translate" name="language_id_translate" value="0">
                                         <div class="panel-body">
                                             <div class="form-group">
                                                 <div class="col-md-3">
@@ -401,80 +402,81 @@
 
 @section('scripts')
 <script>
-  $(function () {
-    $('#special_price_start_date, #special_price_end_date').datepicker({
-        format : 'yyyy-mm-dd',
-        autoclose : true,
-        clearBtn : true
-    })
+    $(function () {
+        $('#special_price_start_date, #special_price_end_date').datepicker({
+            format : 'yyyy-mm-dd',
+            autoclose : true,
+            clearBtn : true
+        })
    
 
-    $('#special_price_start_date').datepicker().on('changeDate', function(e) {
-       
-    });
+        $('#special_price_start_date').datepicker().on('changeDate', function(e) {
+        
+        });
 
-    $('#special_price_end_date').datepicker().on('changeDate', function(e) {
-      
-    });
+        $('#special_price_end_date').datepicker().on('changeDate', function(e) {
+        
+        });
 
-    $('.select2').select2();
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    // CKEDITOR.replace('excerpt-editor');
-    // CKEDITOR.replace('content-editor');
-    //bootstrap WYSIHTML5 - text editor
-    // $('.textarea').wysihtml5()
+        $('.select2').select2();
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        // CKEDITOR.replace('excerpt-editor');
+        // CKEDITOR.replace('content-editor');
+        //bootstrap WYSIHTML5 - text editor
+        // $('.textarea').wysihtml5()
     
 
     // TAB: CONTENT
-    $('#language-select').on('change', function() {
-        var code_id = this.value;
-        $('#language_id_translate').val(code_id);
-        $.ajax({
-            type: "GET",
-            url: '{{url("/admin/products")}}/{{$product->id}}/'+ code_id +'/fetch',
-            date:{
-                '_token': '{{csrf_token()}}'
-            },
-            success:function(response){
-               $('#name_translate').val(response['name']);
-               $('#summary_translate').val(response['summary']);
-               $('#description_translate').val(response['description']);
-               $('#specs_translate').val(response['specs']);
-            },
-            error:function(response){
-            }
+        $('#language-select').on('change', function() {
+            var code_id = this.value;
+            $('#language_id_translate').val(code_id);
+            $.ajax({
+                type: "GET",
+                url: '{{url("/admin/products")}}/{{$product->id}}/'+ code_id +'/fetch',
+                date:{
+                    '_token': '{{csrf_token()}}'
+                },
+                success:function(response){
+                $('#name_translate').val(response['name']);
+                $('#summary_translate').val(response['summary']);
+                $('#description_translate').val(response['description']);
+                $('#specs_translate').val(response['specs']);
+                },
+                error:function(response){
+                }
+            });
+        })
+
+        $('#update-content-translation' ).on( 'submit', function(e) {
+            e.preventDefault();
+            var language_id = $(this).find('input[name=language_id_translate]').val();
+            var name = $(this).find('input[name=name_translate]').val();
+            var summary = $(this).find('textarea[name=summary_translate]').val();
+            var description = $(this).find('textarea[name=description_translate]').val();
+            var specs = $(this).find('textarea[name=specs_translate]').val();
+
+            $.ajax({
+                type: "PATCH",
+                url: '{{url("/admin/products")}}/{{$product->id}}/translation',
+                data:{
+                    'language_id':language_id,
+                    'name': name,
+                    'summary': summary,
+                    'description': description,
+                    'specs': specs
+                },
+                success:function(response){
+                    alert(response['message']);
+                },
+                error:function(response){
+                    alert(response['message']);
+                }
+            });
         });
-    })
 
-    $('#update-content-translation' ).on( 'submit', function(e) {
-        e.preventDefault();
-        var language_id = $(this).find('input[name=language_id_translate]').val();
-        var name = $(this).find('input[name=name_translate]').val();
-        var summary = $(this).find('textarea[name=summary_translate]').val();
-        var description = $(this).find('textarea[name=description_translate]').val();
-        var specs = $(this).find('textarea[name=specs_translate]').val();
-
-        $.ajax({
-            type: "PATCH",
-            url: '{{url("/admin/products")}}/{{$product->id}}/translation',
-            data:{
-                'language_id':language_id,
-                'name': name,
-                'summary': summary,
-                'description': description,
-                'specs': specs
-            },
-            success:function(response){
-                alert(response['message']);
-            },
-            error:function(response){
-                alert(response['message']);
-            }
-        });
-    });
-
-    $( '#form-upload-image' ).on( 'submit', function(e) {
+    $('#form-upload-image').on( 'submit', function(e) {
+    //https://laracast.blogspot.com/2016/06/laravel-upload-image-file-with-ajax.html
         var file_data = $('#image_upload').prop('files')[0];
         var form_data = new FormData();
         form_data.append('file', file_data);
@@ -502,8 +504,7 @@
             }
         });
     });
-
-    //https://laracast.blogspot.com/2016/06/laravel-upload-image-file-with-ajax.html
-
+});
 </script>
+
 @endsection

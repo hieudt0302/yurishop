@@ -135,31 +135,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('users/{id}/edit',['as'=>'admin.users.edit','uses'=>'UsersController@edit','middleware' => ['permission:user-edit']]);
     Route::patch('users/{id}',['as'=>'admin.users.update','uses'=>'UsersController@update','middleware' => ['permission:user-edit']]);
     Route::delete('users/{id}',['as'=>'admin.users.destroy','uses'=>'UsersController@destroy','middleware' => ['permission:user-delete']]);
-    //Orders
-    // Route::get('orders',['as'=>'admin.orders.index','uses'=>'OrdersController@index','middleware' => ['permission:order-list']]);
-    // Route::get('orders/create',['as'=>'admin.orders.create','uses'=>'OrdersController@create','middleware' => ['permission:order-create']]);
-    // Route::post('orders/create',['as'=>'admin.orders.store','uses'=>'OrdersController@store','middleware' => ['permission:order-create']]);
-    // Route::get('orders/{id}',['as'=>'admin.orders.show','uses'=>'OrdersController@show', 'middleware' => ['permission:order-show']]);
-    // Route::get('orders/{id}/edit',['as'=>'admin.orders.edit','uses'=>'OrdersController@edit','middleware' => ['permission:order-edit']]);
-    // Route::patch('orders/{id}',['as'=>'admin.orders.update','uses'=>'OrdersController@update','middleware' => ['permission:order-edit']]);
-    // Route::post('orders/{id}',['as'=>'admin.orders.destroy','uses'=>'OrdersController@destroy','middleware' => ['permission:order-delete']]);
-    // Route::post('orders',['as'=>'admin.orders.find','uses'=>'OrdersController@find','middleware' => ['permission:order-list']]);
     
-    //Products - added by Thang LD
-    // Route::get('product-cat',['as'=>'admin.product-cat','uses'=>'ProductController@productCatList']);
-    // Route::get('product-cat/add',['as'=>'admin.product-cat.add','uses'=>'ProductController@addProductCat']);
-    // Route::post('product-cat/add',['as'=>'admin.product-cat.insert','uses'=>'ProductController@insertProductCat']);
-    // Route::get('product-cat/edit/{id}',['as'  =>'admin.product-cat.edit','uses' => 'ProductController@editProductCat']);
-    // Route::post('product-cat/edit/{id}',['as' =>'admin.product-cat.update','uses' => 'ProductController@updateProductCat']);
-    // Route::get('product-cat/delete/{id}',['as'  =>'admin.product-cat.delete','uses' => 'ProductController@deleteProductCat']);
-    // Route::get('product',['as'=>'admin.product','uses'=>'ProductController@productList']);
-    // Route::get('product/add',['as'=>'admin.product.add','uses'=>'ProductController@addProduct']);
-    // Route::post('product/add',['as'=>'admin.product.insert','uses'=>'ProductController@insertProduct']);
-    // Route::get('product/edit/{id}',['as'  =>'admin.product.edit','uses' => 'ProductController@editProduct']);
-    // Route::post('product/edit/{id}',['as' =>'admin.product.update','uses' => 'ProductController@updateProduct']);
-    // Route::get('product/delete/{id}',['as'  =>'admin.product.delete','uses' => 'ProductController@deleteProduct']);
-    // Route::post('product',['as'=>'admin.product.search','uses'=>'ProductController@searchProduct']);
-
     // Navigators
     Route::get('navigator',['as'=>'admin.navigator','uses'=>'NavigatorController@navigatorList']);
     Route::get('navigator/add',['as'=>'admin.navigator.add','uses'=>'NavigatorController@addNavigator']);
@@ -167,34 +143,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('navigator/edit/{id}',['as'  =>'admin.navigator.edit','uses' => 'NavigatorController@editNavigator']);
     Route::post('navigator/edit/{id}',['as' =>'admin.navigator.update','uses' => 'NavigatorController@updateNavigator']);
     Route::get('navigator/delete/{id}',['as'  =>'admin.navigator.delete','uses' => 'NavigatorController@deleteNavigator']);
-    
-     // Sliders
-    // Route::get('slider/dev',['as'=>'admin.slider','uses'=>'SliderController@sliderList']);
-    // Route::get('slider/add',['as'=>'admin.slider.add','uses'=>'SliderController@addSlider']);
-    // Route::post('slider/add',['as'=>'admin.slider.insert','uses'=>'SliderController@insertSlider']);
-    // Route::get('slider/edit/{id}',['as'  =>'admin.slider.edit','uses' => 'SliderController@editSlider']);
-    // Route::post('slider/edit/{id}',['as' =>'admin.slider.update','uses' => 'SliderController@updateSlider']);
-    // Route::get('slider/delete/{id}',['as'  =>'admin.slider.delete','uses' => 'SliderController@deleteSlider']);
-
-    // Blogs
-	
-    // Route::get('blog-cat',['as'=>'admin.blog-cat','uses'=>'BlogController@blogCatList']);
-    // Route::get('blog-cat/add',['as'=>'admin.blog-cat.add','uses'=>'BlogController@addBlogCat']);
-    // Route::post('blog-cat/add',['as'=>'admin.blog-cat.insert','uses'=>'BlogController@insertBlogCat']);
-    // Route::get('blog-cat/edit/{id}',['as'  =>'admin.blog-cat.edit','uses' => 'BlogController@editBlogCat']);
-    // Route::post('blog-cat/edit/{id}',['as' =>'admin.blog-cat.update','uses' => 'BlogController@updateBlogCat']);
-    // Route::get('blog-cat/delete/{id}',['as'  =>'admin.blog-cat.delete','uses' => 'BlogController@deleteBlogCat']);
-    // Route::get('blog',['as'=>'admin.blog','uses'=>'BlogController@blogList']);
-    // Route::get('blog/add',['as'=>'admin.blog.add','uses'=>'BlogController@addBlog']);
-    // Route::post('blog/add',['as'=>'admin.blog.insert','uses'=>'BlogController@insertBlog']);
-    // Route::get('blog/edit/{id}',['as'  =>'admin.blog.edit','uses' => 'BlogController@editBlog']);
-    // Route::post('blog/edit/{id}',['as' =>'admin.blog.update','uses' => 'BlogController@updateBlog']);
-    // Route::get('blog/delete/{id}',['as'  =>'admin.blog.delete','uses' => 'BlogController@deleteBlog']);
-    // Route::post('blog',['as'=>'admin.blog.search','uses'=>'BlogController@searchBlog']);
-
-    // Route::post('generate-slug',['as'=>'admin.generate-slug','uses'=>'ProductController@generate_slug']);
-    // Route::post('get-system-cat/{system_id}',['as'=>'admin.get-system-cat','uses'=>'NavigatorController@get_system_cat']);
-
+   
     //FAQs
     Route::get('faqs',['as'=>'admin.faqs.index','uses'=>'FaqController@index']);
     Route::get('faqs/create',['as'=>'admin.faqs.create','uses'=>'FaqController@create']);
@@ -229,7 +178,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('products/categories',['as'=>'admin.products.findcategories','uses'=>'ProductsController@findcategories','middleware' => ['role:admin|manager']]);
     Route::get('products/reviews',['as'=>'admin.products.reviews','uses'=>'ProductsController@reviews','middleware' => ['role:admin|manager']]);
     Route::post('products/reviews',['as'=>'admin.products.findreviews','uses'=>'ProductsController@findreviews','middleware' => ['role:admin|manager']]);
-
+    //
     Route::get('products/create',['as'=>'admin.products.create','uses'=>'ProductsController@create','middleware' => ['role:admin|manager']]);
     Route::post('products/create',['as'=>'admin.products.store','uses'=>'ProductsController@store','middleware' => ['role:admin|manager']]);
     //
@@ -237,7 +186,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::patch('products/{id}',['as'=>'admin.products.update','uses'=>'ProductsController@update','middleware' => ['role:admin|manager']]);
     Route::patch('products/{id}/translation',['as'=>'admin.products.updateTranslation','uses'=>'ProductsController@updateTranslation','middleware' => ['role:admin|manager']]);
     Route::get('products/{id}/{code}/fetch',['as'=>'admin.products.fetchTranslation','uses'=>'ProductsController@fetchTranslation','middleware' => ['role:admin|manager']]);
-    
+    //
     Route::delete('products/{id}',['as'=>'admin.products.destroy','uses'=>'ProductsController@destroy','middleware' => ['role:admin|manager']]);
     Route::patch('products/{id}/image/upload',['as'=>'admin.products.uploadImage','uses'=>'ProductsController@uploadImage','middleware' => ['role:admin|manager']]);
     
