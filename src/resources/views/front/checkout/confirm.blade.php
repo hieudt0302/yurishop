@@ -333,6 +333,7 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>  -->
 <script type="text/javascript" src="{{ asset('js/viewport.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('js/SmoothScroll.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/eventbroker.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/underscore.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/underscore.mixins.js') }}"></script> 
