@@ -374,59 +374,50 @@ class ProductsController extends Controller
 
     public function uploadImage(Request $request)
     {
-        // if ($request->hasFile('image_upload')) {
-        //     $destinationPath = 'uploads/files'; // upload path
-        //     $extension = $request->file('image_upload')->getClientOriginalExtension(); // getting image extension
-
-        //     $tempName = $request->file("image_upload")->getClientOriginalName();
-        //     $fileName = uniqid("MW") . '.' . $extension; // renameing image
-        //     $request->file('image_upload')->move($destinationPath, $fileName); // uploading file to given path
-        //     //sending back with message
-        //     $imagepath = $destinationPath.'/'.$fileName;
-        //     return response()->json([
-        //         'message' => 'PASS',
-        //         'status' => 'success',
-        //     ]);
-        // }
-
-      
-
         $validator = Validator::make($request->all(),
         [
+            'product_id'=> 'required|numeric|min:1',
+            'display_order'=> 'required|numeric|min:0',
             'image_upload' => 'image',
         ],
         [
+            'product_id' => 'Không lấy được thông tin sản phẩm. CodeI1002x1',
             'image_upload.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
         ]);
 
         if ($validator->fails()){
             return response()->json([
-                'message' => 'FAILED',
+                'message' => 'Bạn cần nhập đầy đủ thông tin',
                 'status' => 'error',
             ]);
         }
          
-         if (request()->hasFile('image_upload')) {
+        if (request()->hasFile('image_upload')) {
             $path = $request->file('image_upload')->store('images');
-            $product = Product::find(1);
-
+            $product = Product::find($request->product_id);
             $images =  new Media();
+            $images->name =  $request->name_image;
+            $images->description =$request->description_image;
             $images->source = $path;
             $images->thumb = $path; ///TODO: Make a thumb here
             $images->type = 1; // is image 
             $images->save();
 
-            $product->medias()->attach($images->id, ['order'=>1]);
+            $product->medias()->attach($images->id, ['order'=> $request->display_order]);
             
             return response()->json([
-                'message' => 'OK',
+                'message' => 'Uploaded',
                 'status' => 'success',
-                'path' => $path
+                'path' => $path,
+                'id' => $images->id,
+                'name' => $images->name,
+                'description' => $images->description,
+                'order' => $request->display_order
             ]);
         }
 
         return response()->json([
-            'message' =>  $request->file('file'),//'Không tìm thấy file.',
+            'message' =>  'Không tìm thấy file.',
             'status' => 'error',
         ]);
                     

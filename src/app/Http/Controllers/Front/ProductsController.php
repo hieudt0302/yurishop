@@ -59,7 +59,7 @@ class ProductsController extends Controller
         if(empty($product))
             return abort(404);
         $starAvg = $product->comments->avg('rate');
-
+      
         return View('front.products.show', compact('product','starAvg'));
     }
 

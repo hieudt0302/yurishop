@@ -24,16 +24,29 @@
 		<div class="row">
 			<div class="pro-detail-infor list-item">
 				<div class="col-md-4 col-sm-4 col-xs-12">
-					<div class="pro-img">
-						<img src="{{asset('frontend/images/uploads/p2.png')}}" alt="" class="product-main-img">
-					</div>
-					<div class="more-img">
-						<a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a>
-						<img class="sub-img img1" src="{{asset('frontend/images/uploads/p2.png')}}" alt="">
-						<img class="sub-img" src="{{asset('frontend/images/uploads/subimg2.png')}}" alt="">
-						<img class="sub-img" src="{{asset('frontend/images/uploads/subimg3.png')}}" alt="">
-						<a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a>
-					</div>
+					@foreach($product->medias as $key =>  $media)
+						@if($key === 0)
+						<div class="pro-img">
+							<img src="{{asset('/storage')}}/{{$media->source}}" alt="" class="product-main-img">
+						</div>
+						@else 
+							@if($key === 1)
+							<div class="more-img">
+								<a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a>
+							@endif 
+
+								@if($key === 1)
+								<img class="sub-img img1" src="{{asset('/storage')}}/{{$media->source}}" alt="">
+								@else
+								<img class="sub-img" src="{{asset('/storage')}}/{{$media->source}}" alt="">
+								@endif
+
+							@if($key + 1  == count($product->medias))
+								<a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a>
+							</div>
+							@endif
+						@endif
+					@endforeach
 				</div>
 				<div class="col-md-8 col-sm-8 col-xs-12">
 					<div class="pro-list-it it">
@@ -95,8 +108,8 @@
 							<!-- <p>Expire date<span>01/11/2015</span></p> -->
 							<p>Tags<span>
                                     @foreach($product->tags as $tag)
-                                {{$tag->name}}, 
-                                @endforeach
+                                		{{$tag->name}}, 
+                                		@endforeach
                                 </span></p>
 						</div>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">

@@ -139,7 +139,7 @@
                         <button class="search-top-bt">
                             <i class="ion-ios-search" data-toggle="tooltip" data-placement="top" title="{{ __('common.search') }}"></i>
                         </button>
-                        <a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart" aria-hidden="true" data-toggle="tooltip" title="{{ Cart::instance('default')->count(false) }}"></i></a>
+                        <a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart shopping-cart-icon" aria-hidden="true" data-toggle="tooltip" title="{{ Cart::instance('default')->count(false) }}"></i></a>
                     </div>
                 </div>
                 <!-- /.navbar-collapse -->

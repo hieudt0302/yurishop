@@ -81,4 +81,5 @@ class Product extends Model
        return $this->belongsToMany('App\Models\Media', 'product_media')
                         ->withPivot('order');
     }
+  
 }
