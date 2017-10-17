@@ -336,15 +336,17 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <a href="{{asset('images/shop/previews/shop-prev-1.jpg')}}" target="_blank"><img alt="81" src="{{asset('images/shop/previews/shop-prev-1.jpg')}}" width="150"></a>
-                                                    </td>
-                                                    <td>5</td>
-                                                    <td ></td>
-                                                    <td ></td>
-                                                    <td ><a  href="#"><span class="k-icon k-edit"></span>Edit</a><a href="#"><span ></span>Delete</a></td>
-                                                </tr>
+                                                @foreach($product->images as  $m)
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#"><img alt="File Not Found" src="{{asset('/storage')}}/{{$m->source}}" width="150"></a>
+                                                        </td>
+                                                        <td>{{$m->pivot->order}}</td>
+                                                        <td >{{$m->pivot->name}}</td>
+                                                        <td >{{$m->pivot->description}}</td>
+                                                        <td ><a  href="#"><span></span>Edit</a><a href="#"><span ></span>Delete</a></td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -355,6 +357,7 @@
                                 <!-- action="{{url('/admin/products')}}/{{$product->id}}/image/upload"  -->
                                     <form id="form-upload-image" name="form-upload-image"  method="post" enctype="multipart/form-data"> 
                                         {{ csrf_field()}}
+                                        <input type="hidden" name="product_id" value="{{$product->id}}">
                                         <div class="panel-heading">
                                         Add a new picture
                                         </div>
@@ -504,52 +507,6 @@
             }
         });
     });
-
-   
 });
 </script>
-<!-- <script>
- var filename = '';
-    function changeProfile() {
-        $('#image_upload').click();
-    }
-    $('#image_upload').change(function () {
-        if ($(this).val() != '') {
-            upload();
-
-        }
-    });
-
-    function upload() {
-        var file_data = $('#image_upload').prop('files')[0];
-        var form_data = new FormData();
-        form_data.append('file', file_data);
-        form_data.append('order', 1);
-        
-        $('#img1').html('<img src="{{asset("images/loader.gif")}}" style="padding-top: 40%"/>');
-        $.ajax({
-            url: '{{url("/admin/products")}}/{{$product->id}}/image/upload', // point to server-side PHP script
-            data: form_data,
-            type: 'PATCH',
-            cache:  false,
-            dataType: 'json',
-            processData: false,
-            contentType: false, 
-            success: function (response) {
-                if (response['status'] =='error') {
-                    $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image-250.png")}}"/>');
-                    alert(response['message']);
-                }
-                else {
-                    alert(response['message']);
-                    $('#img1').html('<img width="100%" height="100%" src="{{asset('public/images')}}/' + response['path'] + '"/>');
-                }
-            },
-            error: function (response) {
-                alert(response['message']);
-                $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image-250.png")}}"/>');
-            }
-        });
-    }
-</script> -->
 @endsection
