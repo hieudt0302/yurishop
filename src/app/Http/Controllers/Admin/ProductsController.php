@@ -395,8 +395,9 @@ class ProductsController extends Controller
         if (request()->hasFile('image_upload')) {
             $path = $request->file('image_upload')->store('images');
             $product = Product::find($request->product_id);
-
             $images =  new Media();
+            $images->name =  $request->name_image;
+            $images->description =$request->description_image;
             $images->source = $path;
             $images->thumb = $path; ///TODO: Make a thumb here
             $images->type = 1; // is image 

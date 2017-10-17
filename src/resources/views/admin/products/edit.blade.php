@@ -322,39 +322,8 @@
                         </div>
                         <!-- PRICTURES TAB -->
                         <div class="tab-pane" id="pictures">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div id="productpictures-grid" >
-                                        <table class="table table-bordered ">
-                                            <thead>
-                                                <tr>
-                                                    <th>Picture</th>
-                                                    <th>Display order</th>
-                                                    <th>Name</th>
-                                                    <th>Description</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($product->images as  $m)
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#"><img alt="File Not Found" src="{{asset('/storage')}}/{{$m->source}}" width="150"></a>
-                                                        </td>
-                                                        <td>{{$m->pivot->order}}</td>
-                                                        <td >{{$m->pivot->name}}</td>
-                                                        <td >{{$m->pivot->description}}</td>
-                                                        <td ><a  href="#"><span></span>Edit</a><a href="#"><span ></span>Delete</a></td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="panel-group">
                                 <div class="panel panel-default">
-                                <!-- action="{{url('/admin/products')}}/{{$product->id}}/image/upload"  -->
                                     <form id="form-upload-image" name="form-upload-image"  method="post" enctype="multipart/form-data"> 
                                         {{ csrf_field()}}
                                         <input type="hidden" name="product_id" value="{{$product->id}}">
@@ -388,6 +357,30 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="name_image" title="">Name</label>
+                                                        <div class="ico-help" title="Name of image."><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group bootstrap-touchspin">
+                                                        <input  id="name_image" name="name_image" type="text"  class="form-control" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div class="label-wrapper"><label class="control-label" for="description_image" title="">Description</label>
+                                                        <div class="ico-help" title="Description  of image."><i class="fa fa-question-circle"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group bootstrap-touchspin">
+                                                        <input  id="description_image" name="description_image" type="text" class="form-control" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-8">
                                                     <button type="submit" class="btn btn-primary add-product-image">Add Product Image</button>
@@ -395,6 +388,36 @@
                                             </div>
                                         </div>
                                     </form>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div id="productpictures-grid" >
+                                            <table id="medias-table" class="table table-bordered ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Picture</th>
+                                                        <th>Display order</th>
+                                                        <th>Name</th>
+                                                        <th>Description</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($product->medias as  $m)
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#"><img alt="File Not Found" src="{{asset('/storage')}}/{{$m->source}}" width="150"></a>
+                                                            </td>
+                                                            <td>{{$m->pivot->order}}</td>
+                                                            <td >{{$m->name}}</td>
+                                                            <td >{{$m->description}}</td>
+                                                            <td ><a href="#"><span></span>Edit</a><a href="#"><span ></span>Delete</a></td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -500,6 +523,17 @@
                 }
                 else {
                     $('#img1').html('<img width="100%" height="100%" src="{{asset("storage/")}}/' + response['path'] + '"/>');
+
+                    //add to table
+                    // $('#medias-table > tbody:first-child').append
+                    $("#medias-table").prepend(
+                        '<tr>'
+                            +'<td><a href="#"><img alt="File Not Found" src="{{asset("/storage")}}/'+response['path']+'"width="150"></a></td>'
+                            +'<td>'+response['order']+'</td>'
+                            +'<td>'+response['name']+'</td>'
+                            +'<td>'+response['description']+'</td>'
+                            +'<td><a href="#"><span></span>Edit</a><a href="#"><span ></span>Delete</a></td>'
+                        +'</tr>');
                 }
             },
             error: function (response) {
