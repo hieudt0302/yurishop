@@ -4,13 +4,16 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <h1>
-        Menu
-        <small>Chỉnh Sửa</small>
+        Chỉnh sửa Trang Thông Tin
+        <small>
+            <i class="fa fa-arrow-circle-left"></i>
+            <a href="{{url('/admin/info-pages')}}">Quay lại danh sách</a>
+        </small>   
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="#">Trang thông tin</a></li>
-        <li class="active">Tạo mới</li>
+        <li class="active">Chỉnh sửa</li>
       </ol>
 </section>
 <!-- Main content -->
@@ -18,9 +21,6 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Chỉnh sửa Trang Thông Tin</h3>
-                </div>
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <strong>Lỗi!</strong> Kiểm tra lại thông tin đã nhập.<br><br>

@@ -4,13 +4,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Menu
-        <small>Danh Sách</small>
+        Danh sách Trang Thông Tin
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Menu</a></li>
-        <li class="active">Danh Sách</li>
+        <li><a href="#">Trang thông tin</a></li>
+        <li class="active">Danh sách</li>
     </ol>
 </section>
 <!-- Main content -->
@@ -18,9 +17,6 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Danh Sách Trang Thông Tin</h3>
-                </div>
 				@if ($message = Session::get('success'))
 					<div class="alert alert-success">
 						<p>{{ $message }}</p>
@@ -31,6 +27,7 @@
 						<thead>
 							<tr>
 								<th>Tiêu đề</th>
+								<th>Slug</th>								
                                 <th></th>
                                 <th></th>
 							</tr>
@@ -39,6 +36,7 @@
 							@foreach ($info_pages as $info_page)
 							<tr>
 								<td>{{ $info_page->title }}</td>
+								<td>{{ $info_page->slug }}</td>
 								<td>
 									<a class="btn btn-primary btn-sm" href="{{ route('admin.info-pages.edit',$info_page->id) }}"><i class="fa fa-edit"></i></a> 
 								</td>
@@ -53,6 +51,7 @@
 						<tfoot>
 							<tr>
 								<th>Tiêu đề</th>
+								<th>Slug</th>									
                                 <th></th>
                                 <th></th>
 							</tr>							
