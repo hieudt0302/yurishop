@@ -4,13 +4,16 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <h1>
-        Menu
-        <small>Chỉnh Sửa</small>
+        Chỉnh sửa Slider
+        <small>
+            <i class="fa fa-arrow-circle-left"></i>
+            <a href="{{url('/admin/sliders')}}">Quay lại danh sách</a>
+        </small>   
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="#">Slider</a></li>
-        <li class="active">Chỉnh Sửa</li>
+        <li class="active">Chỉnh sửa</li>
       </ol>
 </section>
 <!-- Main content -->
@@ -18,9 +21,6 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Chỉnh Sửa Slider</h3>
-                </div>
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <strong>Lỗi!</strong> Kiểm tra lại thông tin đã nhập.<br><br>
@@ -104,7 +104,6 @@
 
                         @foreach ($slider_translations as $slider_tran)
                         <div class="tab-pane fade" id="{{$slider_tran->language_id}}-description">
-                            <input type="hidden" id="slider-translation-id" name="{{$slider_tran->language_id}}-id" value="{{ $slider_tran->id }}" />
                             <table class="table table-responsive">
                                 <tr>
                                     <td>Mô tả</td>

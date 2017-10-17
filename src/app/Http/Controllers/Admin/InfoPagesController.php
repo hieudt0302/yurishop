@@ -65,7 +65,7 @@ class InfoPagesController extends Controller
             $info_page_translation->save();
         }
         session()->flash('success_message', "Thêm mới thành công !");
-        return redirect()->route('admin.info-pages.index'); 
+        return redirect()->back(); 
     }
 
     /**
@@ -115,21 +115,19 @@ class InfoPagesController extends Controller
         $info_page->slug = $request->input("slug");
         $info_page->save();
 
-        $language_list = Language::all();
-        foreach ($language_list as $language){
-            $info_page_tran_id=$request->input($language->id.'-id');
-            $info_page_translation = InfoPageTranslation::find($info_page_tran_id);
-            if ($info_page_translation == null) {
-                $info_page_translation = new InfoPageTranslation;
-                $info_page_translation->info_page_id = $info_page->id;
-                $info_page_translation->language_id = $language->id;                
+        $info_page_translations = $info_page->translations()->get();
+        foreach ($info_page_translations as $info_page_translation){
+            if (!empty($request->input($info_page_translation->language_id.'-title'))) {
+                $info_page_translation->title = $request->input($info_page_translation->language_id.'-title');  
             }
-            $info_page_translation->title = $request->input($language->id.'-title');               
-            $info_page_translation->content = $request->input($language->id.'-content');
+            if (!empty($request->input($info_page_translation->language_id.'-content'))) {
+                $info_page_translation->content = $request->input($info_page_translation->language_id.'-content');  
+            }            
             $info_page_translation->save();
         }
+        
         session()->flash('success_message', "Cập nhật thành công !");
-        return redirect()->route('admin.info-pages.index'); 
+        return redirect()->back(); 
     }
 
     /**
