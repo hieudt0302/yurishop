@@ -187,6 +187,12 @@ class ProductsController extends Controller
         // return View('admin.products.edit', compact('product','product_translations','language_list', 'categories'));
 
         $product = Product::find($id);
+		if(empty($product))
+		{
+			return redirect()->back()
+            ->with('message', 'Không tìm thấy sản phẩm này!')
+            ->with('status', 'danger');
+		}
         $languages = Language::all(); ///TODO: make condition active
         return View('admin/products/edit',compact('product','languages'));
     }
@@ -451,7 +457,7 @@ class ProductsController extends Controller
 
     public function filter(Request $request)
     {
-        $query = DB::table('products')
+        $query = DB::table('products')->whereNull('deleted_at')
              ->leftJoin('product_media', 'products.id', '=', 'product_media.product_id')
              ->leftJoin('medias', 'product_media.media_id', '=', 'medias.id')
              ->select('products.id','products.name', 'products.sku', 'products.published', 'products.created_at', 'medias.source')

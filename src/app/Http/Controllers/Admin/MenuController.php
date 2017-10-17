@@ -19,7 +19,7 @@ class MenuController extends Controller
             ->whereNull('parent_id')
             ->get();
 
-        return View('admin.menu.index');
+        return View('admin.menu.index', compact('menus'));
     }
 
     /**

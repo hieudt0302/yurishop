@@ -25,28 +25,53 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                            <th>#</th>
+                            <td></td>
                             <th>Tên</th>
                             <th>Vị Trí</th>
                             <th>Hiển Thị</th>
-                            <th>Xuất Bản</th>
+                            <th>Khóa</th>
                             <th>Ngày Tạo</th>
-                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                      
+                    @foreach($menus as $key => $menu )
+                      <tr>
+                        <td>{{$key + 1}}</td>
+                        <td></td>
+                        <td>{{$menu->name}}</td>
+                        <td>{{$menu->order}}</td>
+                        <td>{{$menu->is_visible}}</td>
+                        <td>{{$menu->enabled}}</td>
+                        <td>{{$menu->created_at}}</td>
+                        <td></td>
+                      </tr>
+                        @foreach($menu->GetMenuSubLevel1() as $i => $sub )
+                        <tr>
+                          <td></td>
+                          <td>{{$i + 1}}</td>
+                          <td>>> {{$sub->name}}</td>
+                          <td>{{$sub->order}}</td>
+                          <td>{{$sub->is_visible}}</td>
+                          <td>{{$sub->enabled}}</td>
+                          <td>{{$sub->created_at}}</td>
+                          <td></td>
+                        </tr>
+                        @endforeach
+                      @endforeach
                     </tbody>
                     <tfoot>
-                        <tr>
-                            <th>Ảnh</th>
-                            <th>Tên</th>
-                            <th>SKU</th>
-                            <th>Xuất Bản(s)</th>
-                            <th>Ngày Tạo</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
+                      <tr>
+                          <th>#</th>
+                          <th>Tên</th>
+                          <th>Vị Trí</th>
+                          <th>Hiển Thị</th>
+                          <th>Khóa</th>
+                          <th>Ngày Tạo</th>
+                          <th></th>
+                          <th></th>
+                      </tr>
                     </tfoot>
                 </table>
             </div>
