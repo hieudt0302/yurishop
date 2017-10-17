@@ -17,6 +17,10 @@ return [
     'new-password' => 'New password',
     'retype-password' => 'Retype password',    
 	'save' => 'Save',
-	'action' => 'Action',  	
+	'action' => 'Action',
+    'city' => 'City',
+    'province' => 'Province',        
+    'company' => 'Company',
+    'zipcode' => 'Zip/Portal code',    
 
 ];

@@ -13,37 +13,37 @@
             <div class="col-2 costep visited" data-step="cart">
                 <a class="costep-link" href="{{url('/cart')}}">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Cart</span>
+                    <span class="costep-label">@lang('shoppings.cart')</span>
                 </a>
             </div>
             <div class="col-2 costep visited" data-step="address">
                 <a class="costep-link" href="{{url('/Checkout/BillingAddress')}}">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Address</span>
+                    <span class="costep-label">@lang('profile.address')</span>
                 </a>
             </div>
             <div class="col-2 costep active" data-step="shipping">
                 <a class="costep-link" href="{{url('/Checkout/ShippingMethod')}}">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Shipping</span>
+                    <span class="costep-label">@lang('shoppings.shipping')</span>
                 </a>
             </div>
             <div class="col-2 costep inactive" data-step="payment">
                 <a class="costep-link" href="javascript:void(0)">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Payment</span>
+                    <span class="costep-label">@lang('shoppings.payment')</span>
                 </a>
             </div>
             <div class="col-2 costep inactive" data-step="confirm">
                 <a class="costep-link" href="javascript:void(0)">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Confirm</span>
+                    <span class="costep-label">@lang('shoppings.confirm')</span>
                 </a>
             </div>
             <div class="col-2 costep inactive" data-step="complete">
                 <a class="costep-link" href="javascript:void(0)">
                     <i class="costep-icon"></i>
-                    <span class="costep-label">Complete</span>
+                    <span class="costep-label">@lang('shoppings.complete')</span>
                 </a>
             </div>
         </div>
@@ -51,7 +51,7 @@
             <div id="content-center" class="col-lg-12">
                 <div class="page shipping-method-page">
                     <div class="page-title">
-                        <h1 class="h3">Select shipping method</h1>
+                        <h1 class="h3">@lang('checkout.select-shipping-method')</h1>
                     </div>
                     <div class="page-body checkout-data">
                         <form action="{{url('/Checkout/ShippingMethod/Next')}}" method="POST">
@@ -62,12 +62,12 @@
                                         <div class="form-check opt-control option-name radio">
                                             <label class="form-check-label">
                                                 <input id="shippingoption_0" type="radio" name="shippingoption" class="opt-radio form-check-input" checked="checked" value="1">
-                                                <span class="opt-name">Pickup</span>
+                                                <span class="opt-name">@lang('checkout.pickup')</span>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="opt-info text-muted shipping-option-description">
-                                        Get your order directly from us.
+                                        @lang('checkout.pickup-message')
                                     </div>
                                 </li>
                                 <li class="list-group-item opt-list-item shipping-option-item">
@@ -75,12 +75,12 @@
                                         <div class="form-check opt-control option-name radio">
                                             <label class="form-check-label">
                                                 <input id="shippingoption_1" type="radio" name="shippingoption" class="opt-radio form-check-input" value="2">
-                                                <span class="opt-name">Shipping</span>
+                                                <span class="opt-name">@lang('checkout.shipping')</span>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="opt-info text-muted shipping-option-description">
-                                        Your order will be sent to you by our shipping partners.
+                                        @lang('checkout.shipping-message')
                                     </div>
                                 </li>
                                 <li class="list-group-item opt-list-item shipping-option-item">
@@ -88,7 +88,7 @@
                                         <div class="form-check opt-control option-name radio">
                                             <label class="form-check-label">
                                                 <input id="shippingoption_2" type="radio" name="shippingoption" class="opt-radio form-check-input" value="3">
-                                                <span class="opt-name">Delivery from Vietnam by courier</span>
+                                                <span class="opt-name">@lang('checkout.courier')Delivery from Vietnam by courier</span>
                                             </label>
                                         </div>
                                         <div class="opt-fee shipping-fee text-danger">
@@ -96,31 +96,19 @@
                                         </div>
                                     </div>
                                     <div class="opt-info text-muted shipping-option-description">
-                                    The dispatch will be initiated by us in your order. For orders below $300, we charge a surcharge of $30.</div>
-                                </li>
-                                <li class="list-group-item opt-list-item shipping-option-item">
-                                    <div class="opt-data">
-                                        <div class="form-check opt-control option-name radio">
-                                            <label class="form-check-label">
-                                                <input id="shippingoption_3" type="radio" name="shippingoption" class="opt-radio form-check-input" value="4">
-                                                <span class="opt-name">Self Pickup</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="opt-info text-muted shipping-option-description">
-                                        Collection from stock in Vietnam. 5% Discount</div>
+                                    @lang('checkout.courier-message')</div>
                                 </li>
                             </ul>
                             <div class="buttons">
                                 <a class="btn btn-secondary btn-lg" href="{{url('/Checkout/ShippingAddress')}}">
                                     <i class="fa fa-angle-left"></i>
-                                    <span>Back</span>
+                                    <span>@lang('checkout.back')</span>
                                 </a>
 
                                 <input type="submit" name="nextstep" id="nextstep" class="d-none">
 
                                 <button class="btn btn-warning btn-lg shipping-method-next-step-button" onclick="$('#nextstep').trigger('click');return false;">
-                                    <span>Next</span>
+                                    <span>@lang('checkout.next')</span>
                                     <i class="fa fa-angle-right"></i>
                                 </button>
                             </div>

@@ -32,5 +32,8 @@ return [
 	'subtotal' => 'Tổng giá hàng',
 	'tax' => 'Thuế',
 	'checkout' => 'Mua',
-	'calculated-during-checkout' => 'Được tính trong quá trình thanh toán', 	  		  	 					    
+	'calculated-during-checkout' => 'Được tính trong quá trình thanh toán', 
+	'apply-coupon' => 'Sử dụng coupon',
+	'enter-coupon' => 'Nhập coupon',
+	'enter-gift-cart' => 'Nhập mã thẻ quà tặng',	  			  		  	 					    
 ];

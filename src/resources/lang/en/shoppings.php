@@ -34,6 +34,9 @@ return [
 	 'tax' => 'Tax',
 	 'checkout' => 'Checkout',
 	 'calculated-during-checkout' => 'Calculated during checkout', 	  	   	
-	 'shopping-cart' => 'Shopping Cart'  	  	  	  	  	  	  	  	  	  	  	 	 
+	 'shopping-cart' => 'Shopping Cart',
+	 'apply-coupon' => 'Apply coupon',
+	 'enter-coupon' => 'Enter your coupon here',
+	 'enter-gift-cart' => 'Enter your gift card code',	  	  	   	  	  	  	  	  	  	  	  	  	  	 	 
 	  	 	  	  	 	 	 
 ];
