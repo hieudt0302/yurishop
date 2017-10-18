@@ -128,30 +128,7 @@ class ProductsController extends Controller
 
         $product->author_id = Auth::user()->id;
 
-        $product->save();        
-    
-        // $language_list = Language::all();
-        // foreach ($language_list as $language){ 
-        //     $product_translation = new ProductTranslation;
-        //     $product_translation->product_id = $product->id;
-        //     $product_translation->language_id = $language->id;
-        //     if (!empty( $request->input($language->id.'-name'))) {
-        //         $product_translation->name = $request->input($language->id.'-name');  
-        //     }
-        //     if (!empty( $request->input($language->id.'-summary'))) {
-        //         $product_translation->summary = $request->input($language->id.'-summary');  
-        //     } 
-        //     if (!empty( $request->input($language->id.'-specs'))) {
-        //         $product_translation->specs = $request->input($language->id.'-specs');  
-        //     } 
-        //     if (!empty( $request->input($language->id.'-description'))) {
-        //         $product_translation->description = $request->input($language->id.'-description');  
-        //     }                                                                                
-        //     $product_translation->save();
-        // }         
-        
-        // return redirect('admin/products/edit')
-        // ->with('success_message', 'Sản phẩm mới đã được tạo');
+        $product->save();  
 
         return redirect()->action(
             'Admin\ProductsController@edit', ['id' => $product->id]
@@ -178,6 +155,7 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $shopCategory = Category::where('slug', 'products')->firstOrFail();
+        
         $categories = Category::where('parent_id', $shopCategory->id)->get();
         $product = Product::find($id);
 		if(empty($product))
@@ -261,36 +239,9 @@ class ProductsController extends Controller
         $product->disable_wishlist_button = $request->disable_wishlist_button??0;
         $product->call_for_price = $request->call_for_price??0;
         $product->sold_off = $request->sold_off??0;
-
         $product->published = $request->published??0;
 
         $product->save();
-
-
-        // $language_list = Language::all();
-        // foreach ($language_list as $language){
-        //     $product_tran_id=$request->input($language->id.'-id');
-        //     $product_translation = ProductTranslation::find($product_tran_id);
-        //     if ($product_translation == null) {
-        //         $product_translation = new ProductTranslation;
-        //         $product_translation->product_id = $product->id;                
-        //         $product_translation->language_id = $language->id;                
-        //     }
-        //     if (!empty( $request->input($language->id.'-name'))) {
-        //         $product_translation->name = $request->input($language->id.'-name');  
-        //     }
-        //     if (!empty( $request->input($language->id.'-summary'))) {
-        //         $product_translation->summary = $request->input($language->id.'-summary');  
-        //     } 
-        //     if (!empty( $request->input($language->id.'-specs'))) {
-        //         $product_translation->specs = $request->input($language->id.'-specs');  
-        //     } 
-        //     if (!empty( $request->input($language->id.'-description'))) {
-        //         $product_translation->description = $request->input($language->id.'-description');  
-        //     }                                                                                
-        //     $product_translation->save();
-        // }
-
 
         return redirect()->back()
         ->with('message', 'Sản phẩm đã được cập nhật.')

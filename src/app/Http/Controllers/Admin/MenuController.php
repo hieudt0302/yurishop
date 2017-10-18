@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\CategoryTranslation;
+use App\Models\Language;
 use Validator;
 
 class MenuController extends Controller
@@ -99,7 +101,8 @@ class MenuController extends Controller
     public function edit($id)
     {
         $menu = Category::find($id);
-        return View('admin/menu/edit', compact('menu'));
+        $languages = Language::all(); ///TODO: make condition active
+        return View('admin/menu/edit', compact('menu','languages'));
     }
 
     /**
@@ -146,6 +149,69 @@ class MenuController extends Controller
         ->with('message', 'Menu đã được cập nhật.')
         ->with('status', 'success')
         ->withInput();
+    }
+
+    public function updateTranslation(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'language_id' =>'required|numeric|min:1',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'ERROR-INPUT: Code EI1001',
+                'status' => 'error'
+            ]);
+        }
+
+        $translation = CategoryTranslation::where('language_id',$request->language_id)
+        ->where('category_id',$id)->withoutGlobalScopes()
+        ->first();
+
+        if(!empty($translation))
+        {
+            $translation->name = $request->name;
+            $translation->description = $request->description;
+            $translation->save();
+        }else{
+            $translation = new  ProductTranslation();
+            $translation ->name = $request->name;
+            $translation ->description = $request->description;
+            $translation->category_id = $id;
+            $translation->language_id =  $request->language_id;
+            $translation->save();
+        }
+
+        return response()->json([
+            'message' => 'Cập nhật nội dung  thành công.',
+            'status' => 'success',
+            'type' => 'update'
+        ]);
+    }
+
+    public function fetchTranslation($id, $code)
+    {
+        $translation = CategoryTranslation::where('language_id',$code)
+        ->where('category_id',$id)->withoutGlobalScopes()
+        ->first();
+
+        $id = 0;
+        $name = "";
+        $description = "";
+
+        if(!empty($translation))
+        {
+            $id =  $translation->id;
+            $name =  $translation ->name;
+            $description =  $translation ->description;
+        }
+        return response()->json([
+            'message' => 'OK',
+            'id' => $id,
+            'name'=> $name,
+            'description' =>$description,
+        ]);
     }
 
     /**
