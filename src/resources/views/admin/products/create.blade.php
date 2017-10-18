@@ -7,7 +7,7 @@
       Thêm Mới Sản Phẩm
         <small>
             <i class="fa fa-arrow-circle-left"></i>
-            <a href="{{url('/admin/products')}}">back to product list</a>
+            <a href="{{url('/admin/products')}}">Quay lại danh sách</a>
         </small>
       </h1>
       <ol class="breadcrumb">
@@ -30,7 +30,7 @@
             <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">Product Info</a></li>
+                        <li class="active"><a href="#info" data-toggle="tab">Thông tin sản phẩm</a></li>
                         <!-- <li><a href="#content" data-toggle="tab">Content</a></li> -->
                         <!-- <li><a href="#pictures" data-toggle="tab">Pictures</a></li> -->
                     </ul>
@@ -42,11 +42,11 @@
                                 <div class="panel-group">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            General Infomation
+                                            Thông tin chung
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="name" title="">Product name</label>                                                    
+                                                <label class="col-md-3 control-label" for="name" title="">Tên sản phẩm</label>                                                    
                                                 <div class="col-md-4">
                                                     <div class="input-group">
                                                         <input class="form-control text-box single-line valid" id="name" name="name" type="text">
@@ -68,7 +68,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('published', 1 , true, array('class' => 'check-box')) }}
-                                                            Published
+                                                            Xuất bản
                                                         </label>
                                                     </div>
                                                 </div>
@@ -80,7 +80,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="category" title="">Category</label>
+                                                <label class="col-md-3 control-label" for="category" title="">Danh mục</label>
                                                 <div class="col-md-4">
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
@@ -93,11 +93,11 @@
                                     </div>
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Price(s)
+                                            Giá
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="old_price" title="">Old Price</label>
+                                                <label class="col-md-3 control-label" for="old_price" title="">Giá cũ</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="old_price" name="old_price" type="text" placeholder="0.0000" class="form-control" >
@@ -105,7 +105,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="price" title="">Price</label>
+                                                <label class="col-md-3 control-label" for="price" title="">Giá</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="price" name="price" type="text" placeholder="0.0000" class="form-control" >
@@ -114,7 +114,7 @@
                                             </div>
                                             <hr>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="special_price" title="">Special Price</label>
+                                                <label class="col-md-3 control-label" for="special_price" title="">Giá đặc biệt</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="special_price" name="special_price" type="text" placeholder="0.0000" class="form-control" >
@@ -122,7 +122,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="label-wrapper"><label class="col-md-3 control-label" for="special_price_start_date" title="">Special Price Start Date</label>
+                                                <div class="label-wrapper"><label class="col-md-3 control-label" for="special_price_start_date" title="">Ngày bắt đầu giá đặc biệt</label>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="input-group date">
@@ -132,7 +132,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="special_price_end_date" title="">Special Price Start Date</label>
+                                                <label class="col-md-3 control-label" for="special_price_end_date" title="">Ngày kết thúc giá đặc biệt</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group date">
                                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
@@ -144,7 +144,7 @@
                                     </div>
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Option(s)
+                                            Lựa chọn khác
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
@@ -152,7 +152,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('disable_buy_button', 1 , false, array('class' => 'check-box')) }}
-                                                            Disable Buy Button
+                                                            Vô hiệu nút mua
                                                         </label>                                                
                                                     </div>
                                                 </div>
@@ -162,7 +162,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('disable_wishlist_button', 1 , false, array('class' => 'check-box')) }}
-                                                            Disable Wishlist Button
+                                                            Vô hiệu nút thích
                                                         </label>
                                                     </div>
                                                 </div>
@@ -172,7 +172,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('call_for_price', 1 , false, array('class' => 'check-box')) }}
-                                                            Call For Price
+                                                            Gọi để biết giá
                                                         </label>
                                                     </div>
                                                 </div>
@@ -182,7 +182,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('sold_off', 1 , false, array('class' => 'check-box')) }}
-                                                            Sold Off
+                                                            Hết hàng
                                                         </label>
                                                     </div>
                                                 </div>
@@ -191,7 +191,7 @@
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <button type="submit" class="btn btn-primary">Create New</button>
+                                                    <button type="submit" class="btn btn-primary">Thêm mới</button>
                                                 </div>
                                             </div>
                                         </div>

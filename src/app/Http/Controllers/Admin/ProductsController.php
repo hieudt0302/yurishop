@@ -484,7 +484,8 @@ class ProductsController extends Controller
         ///TODO: Get sub category. Not yet!
 
         $products = $query->paginate(21);
-        $categories = Category::all();
+        $shopCategory = Category::where('slug', 'products')->firstOrFail();
+        $categories = Category::where('parent_id', $shopCategory->id)->get();
         
         return View('admin.products.index', compact('products','categories'))
       ->with('i', ($request->input('page', 1) - 1) * 21);
