@@ -3,9 +3,9 @@
     <header class="ht-header" id="hd-fixed">
         <div class="row">
             <div class="topsearch">
-                <form action="GET">
-                    <input type="text" class="search-top" placeholder="What are you looking for ?">
-                </form>
+                {!! Form::open(array('url' => '/search')) !!}
+                    <input type="text" class="search-top" name="keyword" placeholder="@lang('header.enter-keyword')">
+                {!! Form::close() !!}
             </div>
         </div>
         <div class="row">

@@ -11,6 +11,7 @@ return [
 	 'update' => 'Update',
 	 'cancel' => 'Cancel',
 	 'or' => 'Or',
+	 'search-results' => 'Search results',	 
 	 'search-message' => 'Search results for keyword: ',
 	 'zero-search-message' => 'Found nothing for keyword: ',	 
 	 'no-result' => 'No result',	 	
