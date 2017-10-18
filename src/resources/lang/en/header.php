@@ -25,7 +25,7 @@ return [
     'contact' => 'CONTACT',
     'search' => 'SEARCH',
     'cart' => 'CART',
-    'account' => 'ACCOUNT',           
-    'activity' => 'activities',
-     'promotion' => 'promotion',
+    'account' => 'ACCOUNT',          
+     'promotion' => 'PROMOTION',
+    'enter-keyword' => 'Enter keyword',      
 ];

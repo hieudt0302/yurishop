@@ -3,14 +3,15 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-    <h1>
+    <h1 class="pull-left">
         Danh sách Trang Thông Tin
     </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Trang thông tin</a></li>
-        <li class="active">Danh sách</li>
-    </ol>
+      <div class="pull-right">
+        <a href="{{('/admin/info-pages/create')}}" class="btn bg-blue">
+            <i class="fa fa-plus-square"></i>
+            Thêm mới
+        </a>
+      </div>
 </section>
 <!-- Main content -->
 <section class="content">

@@ -25,4 +25,6 @@ return [
     'search' => 'TÌM KIẾM',
     'cart' => 'GIỎ HÀNG',        
     'account' => 'TÀI KHOẢN',
+    'promotion' => 'KHUYẾN MẠI',    
+    'enter-keyword' => 'Nhập từ khoá',    
 ];
