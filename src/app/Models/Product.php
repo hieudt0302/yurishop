@@ -10,14 +10,6 @@ class Product extends Model
     use SoftDeletes;
 
     /**
-     * Get the reviews for the product.
-     */
-    // public function reviews()
-    // {
-    //     return $this->hasMany('App\Models\Review');
-    // }
-
-    /**
      * Get the category that owns the product.
      */
      public function category()
@@ -80,6 +72,11 @@ class Product extends Model
     {
        return $this->belongsToMany('App\Models\Media', 'product_media')
                         ->withPivot('order');
+    }
+
+    public function GetMediaByOrderAsc()
+    {
+       return $this->medias->sortBy('order')->first(); //sortByDesc()
     }
   
 }

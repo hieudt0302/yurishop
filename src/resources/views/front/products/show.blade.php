@@ -35,10 +35,14 @@
 								<a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a>
 							@endif 
 
-								@if($key === 1)
-								<img class="sub-img img1" src="{{asset('/storage')}}/{{$media->source}}" alt="">
+								@if($key < 4)
+									@if($key === 1)
+									<img class="sub-img img1" src="{{asset('/storage')}}/{{$media->source}}" alt="">
+									@else
+									<img class="sub-img" src="{{asset('/storage')}}/{{$media->source}}" alt="">
+									@endif
 								@else
-								<img class="sub-img" src="{{asset('/storage')}}/{{$media->source}}" alt="">
+									@break
 								@endif
 
 							@if($key + 1  == count($product->medias))
@@ -91,12 +95,12 @@
 								        <input type="text" name="quantity" id="french-hens" value="3">
 								      </div>
 							    </form>
-								<div class="drop">
+								<!-- <div class="drop">
 									<select>
 										<option value="">1 kg</option>
 										<option value="">Other</option>
 									</select>
-								</div>
+								</div> -->
 								<span class="check">
 									<i class="fa fa-check-circle" aria-hidden="true"></i>In stock
 								</span>	

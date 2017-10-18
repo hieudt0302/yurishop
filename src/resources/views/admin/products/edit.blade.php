@@ -284,7 +284,7 @@
                                                 <div class="col-md-8">
                                                     <input type="file" id="image_upload" name="image_upload" >
                                                     <div style="width:200px;height: 200px;border: 1px solid whitesmoke;text-align: center" id="img1">
-                                                        <img width="100%" height="100%" src="{{asset('images/default-image-250.png')}}"/>
+                                                        <img width="100%" height="100%" src="{{asset('images/default-image.png')}}"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -452,7 +452,7 @@
             data:formData,
             success: function (response) {
                 if (response['status'] =='error') {
-                    $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image-250.png")}}"/>');
+                    $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image.png")}}"/>');
                 }
                 else {
                     $('#img1').html('<img width="100%" height="100%" src="{{asset("storage/")}}/' + response['path'] + '"/>');
@@ -470,7 +470,7 @@
                 }
             },
             error: function (response) {
-                $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image-250.png")}}"/>');
+                $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image.png")}}"/>');
             }
         });
     });

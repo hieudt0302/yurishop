@@ -224,7 +224,7 @@
                                                     <div class="cart-col cart-col-main">
                                                         <div class="row row-hardcode sm-gutters">
                                                             <div class="col cart-item-img">
-                                                                <img class="img-fluid" alt="Picture of Item" src="{{asset('images/default-image-250.png')}}"
+                                                                <img class="img-fluid" alt="Picture of Item" src="{{asset('images/default-image.png')}}"
                                                                     title="Show details for Herren T-Shirt">
                                                             </div>
                                                             <div class="col">
