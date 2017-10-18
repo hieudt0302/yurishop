@@ -79,6 +79,16 @@
                                                     <input class="form-control text-box single-line valid"  id="slug" name="slug" type="text">
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="category" title="">Category</label>
+                                                <div class="col-md-4">
+                                                    <select name="category_id" class="form-control">
+                                                        @foreach($categories as  $category)
+                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>                                            
                                         </div>
                                     </div>
                                     <div class="panel panel-default">
