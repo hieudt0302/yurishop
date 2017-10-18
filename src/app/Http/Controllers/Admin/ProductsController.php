@@ -41,12 +41,10 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        // $shopCategory = Category::where('slug', 'products')->firstOrFail();
-        // $categories = Category::where('parent_id', $shopCategory->id)->get();
-        // $language_list = Language::all();         
-        // return View('admin.products.create', compact('categories','language_list'));
         $languages = Language::all(); ///TODO: make condition active
-        return View('admin/products/create',compact('languages'));
+        $shopCategory = Category::where('slug', 'products')->firstOrFail();
+        $categories = Category::where('parent_id', $shopCategory->id)->get();        
+        return View('admin/products/create',compact('languages','categories'));
     }
 
     /**
@@ -179,13 +177,8 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        // $shopCategory = Category::where('slug', 'products')->firstOrFail();
-        // $categories = Category::where('parent_id', $shopCategory->id)->get();
-        // $product = Product::where('id', $id)->firstOrFail();
-        // $language_list = Language::all();
-        // $product_translations = $product->translations()->get();        
-        // return View('admin.products.edit', compact('product','product_translations','language_list', 'categories'));
-
+        $shopCategory = Category::where('slug', 'products')->firstOrFail();
+        $categories = Category::where('parent_id', $shopCategory->id)->get();
         $product = Product::find($id);
 		if(empty($product))
 		{
@@ -194,7 +187,7 @@ class ProductsController extends Controller
             ->with('status', 'danger');
 		}
         $languages = Language::all(); ///TODO: make condition active
-        return View('admin/products/edit',compact('product','languages'));
+        return View('admin/products/edit',compact('product','languages','categories'));
     }
 
     /**
