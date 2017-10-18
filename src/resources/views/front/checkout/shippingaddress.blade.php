@@ -110,7 +110,7 @@
                             <div class="enter-address">
                                 <form action="{{url('/Checkout/ShippingAddress/CreateNew')}}" method="POST" novalidate="novalidate">
                                     {{ csrf_field() }}
-                                    <!-- Common Form -->
+                                    <!-- Common Form Create New Address -->
                                     @include('front.checkout.createaddressform')
 
                                     <div class="buttons">

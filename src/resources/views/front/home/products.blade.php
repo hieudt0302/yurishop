@@ -19,7 +19,7 @@
 			<div class="products-it grid">
 			@foreach($new_products as $product)
 				<div class="pro-it new col-md-3 col-sm-6 col-xs-12">
-					<img class="pro-img" src="{{ asset('frontend/images/uploads/p1.jpg') }}" alt="">
+					<img class="pro-img" src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="">
 					<div class="pro-infor">
 						<h2><a href="{{url('/products')}}/{{$product->id}}">{{$product->name}}</a></h2>
 						<span class="pro-cost">
