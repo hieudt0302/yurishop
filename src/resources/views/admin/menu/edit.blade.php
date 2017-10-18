@@ -142,7 +142,7 @@
                                         <input type="hidden" id="language_id_translate" name="language_id_translate" value="0">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="name_translate" title="">Tên sản phẩm</label>
+                                                <label class="col-md-3 control-label" for="name_translate" title="">Tên Menu</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group input-group-required">
                                                         <input class="form-control" id="name_translate" name="name_translate" type="text" value="">
