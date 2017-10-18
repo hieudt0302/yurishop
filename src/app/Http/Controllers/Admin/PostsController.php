@@ -13,6 +13,7 @@ use Validator;
 use App\Models\Comment;
 
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -33,17 +34,10 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        // $blogCategory = Category::where('slug','posts')->firstOrFail();
-        // $categories = Category::where('parent_id',$blogCategory->id)->get();
-        // $language_list = Language::all();    
-
-        // return View('admin.posts.create',compact('categories','language_list'));
-
-
-      
-        $languages = Language::all();   
-        $categories = Category::all();     
+    {      
+        $languages = Language::all();
+        $blogCategory = Category::where('slug','posts')->firstOrFail();
+        $categories = Category::where('parent_id',$blogCategory->id)->get();              
         return View('admin.posts.create',compact('languages','categories'));
     }
 
@@ -75,23 +69,18 @@ class PostsController extends Controller
             $post->author_id = Auth::user()->id;
             $post->published = $request->published??0;
 
-            $img_name = '' ;
-            $img_file = $request->file('img');
-            if($img_file != NULL){
-                $path = './images/blog';
-                if(!is_dir($path)){
-                    mkdir($path, 0777, true);
-                }                                   
-                $img = Image::make($img_file->getRealPath());
-                $img->fit(1140, 642)->save($path.'/'.$img_file->getClientOriginalName()); 
-                $path = './images/blog/preview';
-                if(!is_dir($path)){
-                    mkdir($path, 0777, true);
-                }
-                $img->fit(70, 70)->save($path.'/'.$img_file->getClientOriginalName());                                            
-                $img_name = $img_file->getClientOriginalName();
+            $post->img = '' ;
+            if (request()->hasFile('img')) {
+                $image = $request->file('img');
+                $img_path = $image->storeAs('images/blog',$image->getClientOriginalName());                              
+                $img = Image::make(Storage::get($img_path))->fit(370, 230)->encode();
+                Storage::put($img_path, $img);                     
+                $post->img = $image->getClientOriginalName();
+
+                $img_path = $image->storeAs('images/blog/preview',$image->getClientOriginalName());                              
+                $img = Image::make(Storage::get($img_path))->fit(80, 100)->encode();
+                Storage::put($img_path, $img);                         
             }
-            $post->img = $img_name;
 
             $post->save();            
 
@@ -134,16 +123,15 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        // $blogCategory = Category::where('slug','posts')->firstOrFail();
-        // $categories = Category::where('parent_id',$blogCategory->id)->get();
         // $post = Post::where('id',$id)->firstOrFail();
         // $language_list = Language::all();
         // $post_translations = $post->translations()->get();       
         // return View('admin.posts.edit',compact('post','post_translations','language_list','categories'));
 
         $post = Post::find($id);
-        $languages = Language::all();   
-        $categories = Category::all();     
+        $languages = Language::all();
+        $blogCategory = Category::where('slug','posts')->firstOrFail();
+        $categories = Category::where('parent_id',$blogCategory->id)->get();               
         return View('admin.posts.edit',compact('post','languages','categories'));
     }
 
@@ -178,23 +166,17 @@ class PostsController extends Controller
         $post->author_id = Auth::user()->id;
         $post->published = $request->published??0;
         
-        $img_name = '' ;
-        $img_file = $request->file('img');
-        if($img_file != NULL){
-            $path = './images/blog';
-            if(!is_dir($path)){
-                mkdir($path, 0777, true);
-            }               
-            $img = Image::make($img_file->getRealPath());
-            $img->fit(1140, 642)->save($path.'/'.$img_file->getClientOriginalName());
-            $path = './images/blog/preview';
-            if(!is_dir($path)){
-                mkdir($path, 0777, true);
-            }
-            $img->fit(70, 70)->save($path.'/'.$img_file->getClientOriginalName());                         
-            $img_name = $img_file->getClientOriginalName();
+        if (request()->hasFile('img')) {
+            $image = $request->file('img');
+            $img_path = $image->storeAs('images/blog',$image->getClientOriginalName());                              
+            $img = Image::make(Storage::get($img_path))->fit(370, 230)->encode();
+            Storage::put($img_path, $img);                     
+            $post->img = $image->getClientOriginalName();
+
+            $img_path = $image->storeAs('images/blog/preview',$image->getClientOriginalName());                              
+            $img = Image::make(Storage::get($img_path))->fit(80, 100)->encode();
+            Storage::put($img_path, $img);                         
         }
-        $post->img = $img_name;
 
         $post->save();
 
@@ -237,7 +219,7 @@ class PostsController extends Controller
         }
 
         $translation = PostTranslation::where('post_id', $id)
-        ->where('language_id', $request->language_id)
+        ->where('language_id', $request->language_id)->withoutGlobalScopes()
         ->first();
         if(!empty($translation)){
             $translation->title = $request->title_translate??'';
@@ -266,6 +248,36 @@ class PostsController extends Controller
         ->with('status', 'success')
         ->withInput();
     }
+
+    public function fetchTranslation($id, $code)
+    {
+        $translation = PostTranslation::where('language_id',$code)
+        ->where('post_id',$id)->withoutGlobalScopes()
+        ->first();
+
+        $id = 0;
+        $title = "";
+        $content = "";
+        $description = "";
+        $excerpt = "";
+
+        if(!empty($translation))
+        {
+            $id =  $translation->id;
+            $title =  $translation ->title;
+            $content =  $translation ->content;
+            $description =  $translation ->description;
+            $excerpt =  $translation ->excerpt;
+        }
+        return response()->json([
+            'message' => 'OK',
+            'id' => $id,
+            'title'=> $title,
+            'content' =>$content,
+            'description' =>$description,
+            'excerpt' => $excerpt
+        ]);
+    }    
 
     /**
      * Remove the specified resource from storage.

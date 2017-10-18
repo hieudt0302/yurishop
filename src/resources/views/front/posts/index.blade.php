@@ -32,11 +32,12 @@
                 @if(!empty($search_key) && count($posts)!=0)
                     <!-- Post -->
                     @foreach($posts as $post_tran)
+                    @if($post_tran->post->published==1)
                     <div class="blogpost-v2">
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="video2">
-                                    <img src="{{ asset('images/blog/' . $post_tran->post->img) }}" alt="">
+                                    <img src="{{asset('/storage/images/blog/')}}/{{$post_tran->post->img}}" alt="">
                                 </div>
                             </div>
                             <div class="col-md-7">
@@ -52,6 +53,7 @@
                         </div>
                     </div>
                     <hr>
+                    @endif
                     @endforeach
                     <!-- End Post -->
                 @else
@@ -61,7 +63,7 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="video2">
-                                <img src="{{ asset('images/blog/' . $post->img) }}" alt="">
+                                <img src="{{asset('/storage/images/blog/')}}/{{$post->img}}" alt="">
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -121,7 +123,7 @@
                         <h1 class="cate-heading">@lang('blog.last-posts')</h1>
                         @foreach($lastPosts as $post)                        
                         <div class="pp-post-it">
-                            <img src="{{ asset('images/blog/preview/' . $post->img) }}" alt="post1">
+                            <img src="{{asset('/storage/images/blog/preview/')}}/{{$post->img}}" alt="post1">
                             <div class="pp-infor">
                                 <div class="date">
                                     <span>@lang('blog.posted-by') {{$post->author->last_name}} {{$post->author->first_name}} {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
