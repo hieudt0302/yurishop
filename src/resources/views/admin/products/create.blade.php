@@ -57,9 +57,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="">
-                                                    <label class="col-md-3 control-label" for="sku" title="">SKU</label>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="sku" title="">SKU</label>
                                                 <div class="col-md-4">
                                                     <input class="form-control text-box single-line valid" 
                                                     name="sku" type="text">

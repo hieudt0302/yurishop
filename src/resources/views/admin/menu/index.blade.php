@@ -3,15 +3,16 @@
 
 @section('content')
 <section class="content-header">
-      <h1>
+      <h1 class="pull-left">
         Menu
         <small>Danh Sách</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Menu</a></li>
-        <li class="active">Danh Sách</li>
-      </ol>
+      <div class="pull-right">
+        <a href="{{('/admin/menu/create')}}" class="btn bg-blue">
+            <i class="fa fa-plus-square"></i>
+            Add new
+        </a>
+      </div>
 </section>
 
 <section class="content">
@@ -25,52 +26,88 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <td></td>
+                            <th colspan="2">#</th>
                             <th>Tên</th>
                             <th>Vị Trí</th>
                             <th>Hiển Thị</th>
                             <th>Khóa</th>
                             <th>Ngày Tạo</th>
-                            <th></th>
+                            <th colspan="2"></th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($menus as $key => $menu )
                       <tr>
-                        <td>{{$key + 1}}.</td>
-                        <td></td>
+                        <td colspan="2">{{$key + 1}}.</td>
                         <td>{{$menu->name}}</td>
                         <td>{{$menu->order}}</td>
-                        <td>{{$menu->is_visible}}</td>
-                        <td>{{$menu->enabled}}</td>
+                        <td>
+                            @if($menu->is_visible) 
+                            <i class="fa fa-check true-icon"></i>
+                            @else 
+                            <i class="fa fa-check false-icon"></i>
+                            @endif
+                        </td>
+                        <td>
+                            @if($menu->enabled) 
+                            <i class="fa fa-check true-icon"></i>
+                            @else 
+                            <i class="fa fa-check false-icon"></i>
+                            @endif
+                        </td>
                         <td>{{$menu->created_at}}</td>
-                        <td></td>
+                        <td>
+                           <a class="btn btn-primary btn-sm" href="{{url('/')}}/admin/menu/{{$menu->id}}/edit"> <i class="fa fa-edit"></i></a>
+                        </td>
+                        <td>
+                              {!! Form::open(['method' => 'DELETE','route' => ['admin.menu.destroy', $menu->id],'style'=>'display:inline']) !!}
+                              {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit','class' => 'btn btn-warning btn-sm'] )  }}
+                              {!! Form::close() !!}  
+                        </td>
                       </tr>
                         @foreach($menu->GetMenuSubLevel1() as $i => $sub )
                         <tr>
                           <td></td>
-                          <td>{{$i + 1}}.</td>
-                          <td>>> {{$sub->name}}</td>
+                          <td>{{$key+1}}.{{$i + 1}}.</td>
+                          <td>{{$sub->name}}</td>
                           <td>{{$sub->order}}</td>
-                          <td>{{$sub->is_visible}}</td>
-                          <td>{{$sub->enabled}}</td>
+                          <td>
+                            @if($sub->is_visible) 
+                            <i class="fa fa-check true-icon"></i>
+                            @else 
+                            <i class="fa fa-check false-icon"></i>
+                            @endif
+                          </td>
+                          <td>
+                            @if($sub->enabled) 
+                            <i class="fa fa-check true-icon"></i>
+                            @else 
+                            <i class="fa fa-check false-icon"></i>
+                            @endif
+                          </td>
                           <td>{{$sub->created_at}}</td>
-                          <td></td>
+                          <td>
+                            <a class="btn btn-primary btn-sm" href="{{url('/')}}/admin/menu/{{$sub->id}}/edit"> <i class="fa fa-edit"></i></a>
+
+                          </td>
+                          <td>
+                              {!! Form::open(['method' => 'DELETE','route' => ['admin.menu.destroy', $sub->id],'style'=>'display:inline']) !!}
+                              {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit','class' => 'btn btn-warning btn-sm'] )  }}
+                              {!! Form::close() !!}  
+                          </td>
                         </tr>
                         @endforeach
                       @endforeach
                     </tbody>
                     <tfoot>
                       <tr>
-                          <th>#</th>
+                          <th colspan="2">#</th>
                           <th>Tên</th>
                           <th>Vị Trí</th>
                           <th>Hiển Thị</th>
                           <th>Khóa</th>
                           <th>Ngày Tạo</th>
-                          <th></th>
-                          <th></th>
+                          <th colspan="2"></th>
                       </tr>
                     </tfoot>
                 </table>

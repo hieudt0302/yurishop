@@ -159,7 +159,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
 
     //Menu
     Route::get('menu',['as'=>'admin.menu.index','uses'=>'MenuController@index', 'middleware'=> ['role:admin|manager']]);
-
+    Route::get('menu/create',['as'=>'admin.menu.create','uses'=>'MenuController@create','middleware' => ['role:admin|manager']]);
+    Route::post('menu/create',['as'=>'admin.menu.store','uses'=>'MenuController@store','middleware' => ['role:admin|manager']]);
+    Route::get('menu/{id}/edit',['as'=>'admin.menu.edit','uses'=>'MenuController@edit','middleware' => ['role:admin|manager']]);
+    Route::patch('menu/{id}',['as'=>'admin.menu.update','uses'=>'MenuController@update','middleware' => ['role:admin|manager']]);
+    Route::delete('menu/{id}',['as'=>'admin.menu.destroy','uses'=>'MenuController@destroy','middleware' => ['role:admin|manager']]);  
+    Route::delete('menu/{id}',['as'  =>'admin.menu.destroy','uses' => 'MenuController@destroy']); 
     //Blog
     Route::get('posts',['as'=>'admin.posts.index','uses'=>'PostsController@index','middleware' => ['role:admin|manager']]);
     Route::get('posts/create',['as'=>'admin.posts.create','uses'=>'PostsController@create','middleware' => ['role:admin|manager']]);
