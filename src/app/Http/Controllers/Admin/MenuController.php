@@ -175,7 +175,7 @@ class MenuController extends Controller
             $translation->description = $request->description;
             $translation->save();
         }else{
-            $translation = new  ProductTranslation();
+            $translation = new  CategoryTranslation();
             $translation ->name = $request->name;
             $translation ->description = $request->description;
             $translation->category_id = $id;
