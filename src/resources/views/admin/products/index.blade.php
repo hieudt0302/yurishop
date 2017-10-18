@@ -77,12 +77,15 @@
                              </select>
                             </div>
                         </div>
-                        
-                        
+                      
                         <div class="form-group">
-                            <label for="show_sub_categories" class="col-sm-2 control-label">Show Sub Categories</label>
-                            <div class="col-sm-4">
-                                <input type="checkbox" name="show_sub_categories" id="show_sub_categories" >
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" name="show_sub_categories" id="show_sub_categories" >
+                                        Include Sub Categories
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>

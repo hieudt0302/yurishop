@@ -48,12 +48,7 @@
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper">
-                                                        <label class="control-label" for="name" title="">Product name</label>
-                                                        <!-- <div class="ico-help" title="The name of the product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                               <label class="col-md-3 control-label" for="name" title="">Product name</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group input-group-required">
                                                         <input class="form-control text-box single-line valid" id="name" name="name" type="text" value="{{$product->name}}">
@@ -64,11 +59,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="sku" title="">SKU</label>
-                                                        <!-- <div class="ico-help" title="Product stock keeping unit (SKU). Your internal unique identifier that can be used to track this product."><i class="fa fa-question-circle"></i></div>  -->
-                                                    </div>
-                                                </div>
+                                               <label class="col-md-3 control-label" for="sku" title="">SKU</label>
                                                 <div class="col-md-4">
                                                     <input class="form-control text-box single-line valid" 
                                                     name="sku" type="text" 
@@ -76,12 +67,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="Published" title="">Published</label>
-                                                    <!-- <div class="ico-help" title="Check to publish this product (visible in store). Uncheck to unpublish (product not available in store)."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-md-offset-3">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('published', 1 , $product->published ? true : false, array('class' => 'check-box')) }}
@@ -91,11 +77,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="slug" title="">Slug</label>
-                                                        <!-- <div class="ico-help" title="Slug of product"><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="slug" title="">Slug</label>
                                                 <div class="col-md-4">
                                                     <input class="form-control text-box single-line valid"  id="slug" name="slug" type="text" value="{{$product->slug}}">
                                                 </div>
@@ -108,11 +90,7 @@
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="old_price" title="">Old Price</label>
-                                                        <!-- <div class="ico-help" title="Old price of product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="old_price" title="">Old Price</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="old_price" name="old_price" type="text" value="{{$product->old_price}}" class="form-control" >
@@ -120,11 +98,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="price" title="">Price</label>
-                                                        <!-- <div class="ico-help" title="Price of product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="price" title="">Price</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="price" name="price" type="text" value="{{$product->price}}" class="form-control" >
@@ -133,11 +107,7 @@
                                             </div>
                                             <hr>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="special_price" title="">Special Price</label>
-                                                        <!-- <div class="ico-help" title="Special price of product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="special_price" title="">Special Price</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="special_price" name="special_price" type="text" value="{{$product->special_price}}" class="form-control" >
@@ -145,11 +115,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="special_price_start_date" title="">Special Price Start Date</label>
-                                                        <!-- <div class="ico-help" title="Special start date of price of product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="special_price_start_date" title="">Special Price Start Date</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group date">
                                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
@@ -158,11 +124,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="special_price_end_date" title="">Special Price Start Date</label>
-                                                        <!-- <div class="ico-help" title="Special end date of price of product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="special_price_end_date" title="">Special Price Start Date</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group date">
                                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
@@ -178,12 +140,7 @@
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="disable_buy_button" title="">Disable Buy Button</label>
-                                                    <!-- <div class="ico-help" title="Check to disable buy button this product (customer cannot see the buy button in store). Uncheck to disable (customer see the buy button in store)."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-md-offset-3">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('disable_buy_button', 1 , $product->disable_buy_button ? true : false, array('class' => 'check-box')) }}
@@ -193,12 +150,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="disable_wishlist_button" title="">Disable Wishlist Button</label>
-                                                    <!-- <div class="ico-help" title="Check to disable wishlist button this product (customer cannot see the wishlist button in store). Uncheck to disable (customer see the wishlist button in store)."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-md-offset-3">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('disable_wishlist_button', 1 , $product->disable_wishlist_button ? true : false, array('class' => 'check-box')) }}
@@ -208,12 +160,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="call_for_price" title="">Call For Price</label>
-                                                    <!-- <div class="ico-help" title="Check to call for price this product (Customer cannot see all price). Uncheck to call for price (Customer can see price)."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-md-offset-3">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('call_for_price', 1 , $product->call_for_price ? true : false, array('class' => 'check-box')) }}
@@ -223,12 +170,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="sold_off" title="">Sold Off</label>
-                                                    <!-- <div class="ico-help" title="Check to sold off this product (Customer cannot buy more). Uncheck to sold off (Customer can buy more)."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-md-offset-3">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('sold_off', 1 , $product->sold_off ? true : false, array('class' => 'check-box')) }}
@@ -256,11 +198,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="name" title="">Translate</label>
-                                                <!-- <div class="ico-help" title="The language of the content."><i class="fa fa-question-circle"></i></div> -->
-                                                </div>
-                                            </div>
+                                            <label class="col-md-3 control-label" for="name" title="">Translate</label>
                                             <div class="col-md-4">
                                                 <select id="language-select" name="language_id" class="form-control">
                                                     <option value="0">-----Chọn Ngôn Ngữ-----</option>
@@ -280,11 +218,7 @@
                                         <input type="hidden" id="language_id_translate" name="language_id_translate" value="0">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="name_translate" title="">Product Name</label>
-                                                    <!-- <div class="ico-help" title="The name of the product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="name_translate" title="">Product Name</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group input-group-required">
                                                         <input class="form-control text-box single-line valid" id="name_translate" name="name_translate" type="text" value="">
@@ -295,31 +229,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="summary_translate" title="">Summary</label>
-                                                    <!-- <div class="ico-help" title="The summary of the product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="summary_translate" title="">Summary</label>
                                                 <div class="col-md-8">
                                                     <textarea class="form-control" id="summary_translate" name="summary_translate" rows="3"  placeholder=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="description_translate" title="">Description</label>
-                                                    <!-- <div class="ico-help" title="The description of the product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="description_translate" title="">Description</label>
                                                 <div class="col-md-8">
                                                     <textarea class="form-control" id="description_translate" name="description_translate" rows="3"  placeholder=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="specs_translate" title="">Specs</label>
-                                                    <!-- <div class="ico-help" title="The specs of the product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="specs_translate" title="">Specs</label>
                                                 <div class="col-md-8">
                                                     <textarea class="form-control" id="specs_translate" name="specs_translate" rows="3"  placeholder=""></textarea>
                                                 </div>
@@ -348,11 +270,7 @@
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="product_image_upload" title="">Upload Image</label>
-                                                    <!-- <div class="ico-help" title="Upload image for product."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="product_image_upload" title="">Upload Image</label>
                                                 <div class="col-md-8">
                                                     <input type="file" id="image_upload" name="image_upload" >
                                                     <div style="width:200px;height: 200px;border: 1px solid whitesmoke;text-align: center" id="img1">
@@ -361,11 +279,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="display_order" title="">Display Order</label>
-                                                        <!-- <div class="ico-help" title="Display order of image."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="display_order" title="">Display Order</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="display_order" name="display_order" type="text" value="0" class="form-control" >
@@ -373,11 +287,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="name_image" title="">Name</label>
-                                                        <!-- <div class="ico-help" title="Name of image."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="name_image" title="">Name</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="name_image" name="name_image" type="text"  class="form-control" >
@@ -385,11 +295,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="description_image" title="">Description</label>
-                                                        <!-- <div class="ico-help" title="Description  of image."><i class="fa fa-question-circle"></i></div> -->
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="description_image" title="">Description</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="description_image" name="description_image" type="text" class="form-control" >

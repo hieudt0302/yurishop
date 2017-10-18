@@ -38,7 +38,7 @@
                     <tbody>
                     @foreach($menus as $key => $menu )
                       <tr>
-                        <td>{{$key + 1}}</td>
+                        <td>{{$key + 1}}.</td>
                         <td></td>
                         <td>{{$menu->name}}</td>
                         <td>{{$menu->order}}</td>
@@ -50,7 +50,7 @@
                         @foreach($menu->GetMenuSubLevel1() as $i => $sub )
                         <tr>
                           <td></td>
-                          <td>{{$i + 1}}</td>
+                          <td>{{$i + 1}}.</td>
                           <td>>> {{$sub->name}}</td>
                           <td>{{$sub->order}}</td>
                           <td>{{$sub->is_visible}}</td>
