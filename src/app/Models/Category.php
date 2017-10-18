@@ -35,6 +35,11 @@ class Category extends Model
          return $this->hasMany('App\Models\Product');
      }
 
+     public function publishedProducts()
+     {
+         return $this->products()->where('published','=', 1);
+     }       
+
      public function productsCount()
      {
        return $this->hasOne('App\Models\Product')
@@ -62,6 +67,11 @@ class Category extends Model
      {
          return $this->hasMany('App\Models\Post');
      }
+
+     public function publishedPosts()
+     {
+         return $this->posts()->where('published','=', 1);
+     }     
 
      public function postsCount()
      {

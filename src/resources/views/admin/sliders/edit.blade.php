@@ -106,8 +106,7 @@
                         <div class="tab-pane fade" id="{{$slider_tran->language_id}}-description">
                             <table class="table table-responsive">
                                 <tr>
-                                    <td>Mô tả</td>
-                                    <span class="text-danger">*</span>                    
+                                    <td>Mô tả</td>                 
                                     <td>
                                         <textarea class="form-control" name="{{$slider_tran->language_id}}-description">{{ $slider_tran->description }}</textarea>                 
                                     </td>
