@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use DB;
 use Carbon\Carbon;
 use App\Models\Post;
+use App\Models\PostTranslation;
 use App\Models\Product;
+use App\Models\ProductTranslation;
 use App\Models\Slider;
 use App\Models\InfoPage;
 use App\Models\InfoPageTranslation;
@@ -146,11 +148,11 @@ class HomeController extends Controller
         
 
         $products = ProductTranslation::where("name", "LIKE", "%$search_key%")
-        ->paginate(10);             
+        ->paginate(12);             
 
 
         $posts = PostTranslation::where("title", "LIKE", "%$search_key%")
-        ->paginate(10);             
+        ->paginate(4);             
 
 
         return view('front/home/search',compact('products','posts','search_key'));

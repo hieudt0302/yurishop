@@ -10,7 +10,7 @@
 					<!-- LAYERS -->
 
 					<!-- LAYER NR. 1 -->
-					<div class="tp-caption   tp-resizeme" 
+					<div class="tgặpaption   tp-resizeme" 
 						 id="slide-10-layer-1" 
 						 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
 						 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 

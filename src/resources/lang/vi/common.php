@@ -10,6 +10,7 @@ return [
 	 'update' => 'Cập nhật',
 	 'cancel' => 'Hủy',	 
 	 'or' => 'Hoặc',
+	 'search-results' => 'Kết quả tìm kiếm ',		 
 	 'search-message' => 'Kết quả tìm kiếm cho từ khóa: ',
 	 'zero-search-message' => 'Không có kết quả tìm kiếm cho từ khóa: ',	 
 	 'no-result' => 'Không tìm thấy dữ liệu',	 

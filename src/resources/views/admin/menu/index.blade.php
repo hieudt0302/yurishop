@@ -10,7 +10,7 @@
       <div class="pull-right">
         <a href="{{('/admin/menu/create')}}" class="btn bg-blue">
             <i class="fa fa-plus-square"></i>
-            Add new
+            Thêm mới
         </a>
       </div>
 </section>

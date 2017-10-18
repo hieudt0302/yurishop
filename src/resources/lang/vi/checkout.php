@@ -2,9 +2,9 @@
 
 return [
 	'' => '',
-    'billing-address' => 'Địa chỉ hóa đơn',
-    'select-billing-address' => 'Chọn địa chỉ hóa đơn',
-    'bill-this-address' => 'Dùng địa chỉ này cho hóa đơn',
+    'billing-address' => 'Địa chỉ thanh toán',
+    'select-billing-address' => 'Chọn địa chỉ thanh toán',
+    'bill-this-address' => 'Dùng địa chỉ này cho thanh toán',
     'optional' => 'Tùy chọn',
     'or-enter' => 'Hoặc nhập',
     'enter' => 'Nhập',
