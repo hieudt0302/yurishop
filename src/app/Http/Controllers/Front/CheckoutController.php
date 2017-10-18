@@ -45,35 +45,15 @@ class CheckoutController extends Controller
     {
         ///TODO: Working on it...
        
-            $validator = Validator::make($request->all(), [
-                'contact' => 'required',
-                'phone' => 'required',
-                'address' => 'required',
-            ]);
-    
-            if ($validator->fails()) {
-                return redirect()->back()
-                ->with('message', 'ERROR-INPUT: Code EI1003')
-                ->with('status', 'danger')
-                ->withInput();
-            }
+        $validator = Validator::make($request->all(), [
+            // 'first_name' => 'required',
+            // 'phone' => 'required',
+            // 'address1' => 'required',
+        ]);
 
-            $address_id = DB::table('book_addresses')->insertGetId([
-                'contact'=>  $request->contact??'',
-                'address' =>$request->address??'',
-                'district' => $request->district??'',
-                'city' => $request->city??'',
-                'country' =>$request->country??'',
-                'zipcode' => $request->zipcode??'',
-                'phone' => $request->phone??'',
-                'fax' => $request->fax??'',
-                'email' => $request->email??'',
-                'user_id' => Auth::user()->id,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
+           
 
-            session(['BillingAddressId' => $address_id]);
+        session(['BillingAddressId' =>  $this->CreateNewAddress($request)]);
 
         return redirect()->action('Front\CheckoutController@ShippingAddress');
     }
@@ -95,9 +75,9 @@ class CheckoutController extends Controller
     {
         ///TODO: Working on it...
             $validator = Validator::make($request->all(), [
-                'contact' => 'required',
+                'first_name' => 'required',
                 'phone' => 'required',
-                'address' => 'required',
+                'address1' => 'required',
             ]);
     
             if ($validator->fails()) {
@@ -107,24 +87,9 @@ class CheckoutController extends Controller
                 ->withInput();
             }
 
-            $address_id = DB::table('book_addresses')->insertGetId([
-                'company'=>  $request->contact??'',
-                'first_name'=>  $request->contact??'',
-                'last_name'=>  $request->contact??'',
-                'address' =>$request->address??'',
-                'district' => $request->district??'',
-                'city' => $request->city??'',
-                'country' =>$request->country??'',
-                'zipcode' => $request->zipcode??'',
-                'phone' => $request->phone??'',
-                'fax' => $request->fax??'',
-                'email' => $request->email??'',
-                'user_id' => Auth::user()->id,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
+           
 
-            session(['ShippingAddressId' => $address_id]);
+        session(['ShippingAddressId' => $this->CreateNewAddress($request)]);
 
         return redirect()->action('Front\CheckoutController@ShippingMethod');
     }
@@ -278,5 +243,30 @@ class CheckoutController extends Controller
     public function CompleteNext(Request $request)
     {
         
+    }
+
+    /*Extensions*/
+    public  function CreateNewAddress(Request $request)
+    {
+        $address_id = DB::table('book_addresses')->insertGetId([
+            'company'=>  $request->company??'',
+            'first_name'=>  $request->first_name??'',
+            'last_name'=>  $request->last_name??'',
+            'address1' =>$request->address??'',
+            'address2' =>$request->address??'',
+            'district' => $request->district??'',
+            'city' => $request->city??'',
+            'state_province' =>$request->state_province??'',
+            'country' =>$request->country??'',
+            'zipcode' => $request->zipcode??'',
+            'phone' => $request->phone??'',
+            'fax' => $request->fax??'',
+            'email' => $request->email??'',
+            'user_id' => Auth::user()->id,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        return $address_id;
     }
 }
