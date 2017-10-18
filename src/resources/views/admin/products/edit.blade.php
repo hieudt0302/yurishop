@@ -7,7 +7,7 @@
       Sản Phẩm
         <small>
             <i class="fa fa-arrow-circle-left"></i>
-            <a href="{{url('/admin/products')}}">back to product list</a>
+            <a href="{{url('/admin/products')}}">Quay lại danh sách</a>
         </small>
       </h1>
       <ol class="breadcrumb">
@@ -30,9 +30,9 @@
             <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">Product Info</a></li>
-                        <li><a href="#content" data-toggle="tab">Content</a></li>
-                        <li><a href="#pictures" data-toggle="tab">Pictures</a></li>
+                        <li class="active"><a href="#info" data-toggle="tab">Thông tin sản phẩm</a></li>
+                        <li><a href="#content" data-toggle="tab">Nội dung</a></li>
+                        <li><a href="#pictures" data-toggle="tab">Ảnh sản phẩm</a></li>
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
@@ -44,11 +44,11 @@
                                 <div class="panel-group">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            General Infomation
+                                            Thông tin chung
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                               <label class="col-md-3 control-label" for="name" title="">Product name</label>
+                                               <label class="col-md-3 control-label" for="name" title="">Tên sản phẩm</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group input-group-required">
                                                         <input class="form-control text-box single-line valid" id="name" name="name" type="text" value="{{$product->name}}">
@@ -71,7 +71,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('published', 1 , $product->published ? true : false, array('class' => 'check-box')) }}
-                                                            Published
+                                                            Xuất bản
                                                         </label>
                                                     </div>
                                                 </div>
@@ -83,7 +83,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="category" title="">Category</label>
+                                                <label class="col-md-3 control-label" for="category" title="">Danh mục</label>
                                                 <div class="col-md-4">
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
@@ -96,11 +96,11 @@
                                     </div>
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Price(s)
+                                            Giá
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="old_price" title="">Old Price</label>
+                                                <label class="col-md-3 control-label" for="old_price" title="">Giá cũ</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="old_price" name="old_price" type="text" value="{{$product->old_price}}" class="form-control" >
@@ -108,7 +108,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="price" title="">Price</label>
+                                                <label class="col-md-3 control-label" for="price" title="">Giá</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="price" name="price" type="text" value="{{$product->price}}" class="form-control" >
@@ -117,7 +117,7 @@
                                             </div>
                                             <hr>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="special_price" title="">Special Price</label>
+                                                <label class="col-md-3 control-label" for="special_price" title="">Giá đặc biệt</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="special_price" name="special_price" type="text" value="{{$product->special_price}}" class="form-control" >
@@ -125,7 +125,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="special_price_start_date" title="">Special Price Start Date</label>
+                                                <label class="col-md-3 control-label" for="special_price_start_date" title="">Ngày bắt đầu giá đặc biệt</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group date">
                                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
@@ -134,7 +134,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="special_price_end_date" title="">Special Price Start Date</label>
+                                                <label class="col-md-3 control-label" for="special_price_end_date" title="">Ngày kết thúc giá đặc biệt</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group date">
                                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
@@ -146,7 +146,7 @@
                                     </div>
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Option(s)
+                                            Lựa chọn khác
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
@@ -154,7 +154,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('disable_buy_button', 1 , $product->disable_buy_button ? true : false, array('class' => 'check-box')) }}
-                                                            Disable Buy Button
+                                                            Vô hiệu nút mua
                                                         </label>                                                
                                                     </div>
                                                 </div>
@@ -164,7 +164,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('disable_wishlist_button', 1 , $product->disable_wishlist_button ? true : false, array('class' => 'check-box')) }}
-                                                            Disable Wishlist Button
+                                                            Vô hiệu nút thích
                                                         </label>
                                                     </div>
                                                 </div>
@@ -174,7 +174,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('call_for_price', 1 , $product->call_for_price ? true : false, array('class' => 'check-box')) }}
-                                                            Call For Price
+                                                            Gọi để biết giá
                                                         </label>
                                                     </div>
                                                 </div>
@@ -184,7 +184,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('sold_off', 1 , $product->sold_off ? true : false, array('class' => 'check-box')) }}
-                                                            Sold Off
+                                                            Hết hàng
                                                         </label>
                                                     </div>
                                                 </div>
@@ -208,7 +208,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="name" title="">Translate</label>
+                                            <label class="col-md-3 control-label" for="name" title="">Ngôn ngữ</label>
                                             <div class="col-md-4">
                                                 <select id="language-select" name="language_id" class="form-control">
                                                     <option value="0">-----Chọn Ngôn Ngữ-----</option>
@@ -228,7 +228,7 @@
                                         <input type="hidden" id="language_id_translate" name="language_id_translate" value="0">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="name_translate" title="">Product Name</label>
+                                                <label class="col-md-3 control-label" for="name_translate" title="">Tên sản phẩm</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group input-group-required">
                                                         <input class="form-control text-box single-line valid" id="name_translate" name="name_translate" type="text" value="">
@@ -239,19 +239,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="summary_translate" title="">Summary</label>
+                                                <label class="col-md-3 control-label" for="summary_translate" title="">Giới thiệu</label>
                                                 <div class="col-md-8">
                                                     <textarea class="form-control" id="summary_translate" name="summary_translate" rows="3"  placeholder=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="description_translate" title="">Description</label>
+                                                <label class="col-md-3 control-label" for="description_translate" title="">Mô tả</label>
                                                 <div class="col-md-8">
                                                     <textarea class="form-control" id="description_translate" name="description_translate" rows="3"  placeholder=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="specs_translate" title="">Specs</label>
+                                                <label class="col-md-3 control-label" for="specs_translate" title="">Thông số</label>
                                                 <div class="col-md-8">
                                                     <textarea class="form-control" id="specs_translate" name="specs_translate" rows="3"  placeholder=""></textarea>
                                                 </div>
@@ -276,11 +276,11 @@
                                         {{ csrf_field()}}
                                         <input type="hidden" name="product_id" value="{{$product->id}}">
                                         <div class="panel-heading">
-                                        Add a new picture
+                                        Thêm ảnh mới
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="product_image_upload" title="">Upload Image</label>
+                                                <label class="col-md-3 control-label" for="product_image_upload" title="">Upload ảnh</label>
                                                 <div class="col-md-8">
                                                     <input type="file" id="image_upload" name="image_upload" >
                                                     <div style="width:200px;height: 200px;border: 1px solid whitesmoke;text-align: center" id="img1">
@@ -289,7 +289,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="display_order" title="">Display Order</label>
+                                                <label class="col-md-3 control-label" for="display_order" title="">Thứ tự hiển thị</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="display_order" name="display_order" type="text" value="0" class="form-control" >
@@ -297,7 +297,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="name_image" title="">Name</label>
+                                                <label class="col-md-3 control-label" for="name_image" title="">Tên</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="name_image" name="name_image" type="text"  class="form-control" >
@@ -305,7 +305,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="description_image" title="">Description</label>
+                                                <label class="col-md-3 control-label" for="description_image" title="">Mô tả</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input  id="description_image" name="description_image" type="text" class="form-control" >
@@ -316,7 +316,7 @@
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <button type="submit" class="btn btn-primary add-product-image">Add Product Image</button>
+                                                    <button type="submit" class="btn btn-primary add-product-image">Thêm ảnh sản phẩm</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -328,10 +328,10 @@
                                             <table id="medias-table" class="table table-bordered ">
                                                 <thead>
                                                     <tr>
-                                                        <th>Picture</th>
-                                                        <th>Display order</th>
-                                                        <th>Name</th>
-                                                        <th>Description</th>
+                                                        <th>Ảnh</th>
+                                                        <th>Thứ tự hiển thị</th>
+                                                        <th>Tên</th>
+                                                        <th>Mô tả</th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
@@ -344,7 +344,7 @@
                                                             <td>{{$m->pivot->order}}</td>
                                                             <td >{{$m->name}}</td>
                                                             <td >{{$m->description}}</td>
-                                                            <td ><a href="#"><span></span>Edit</a><a href="#"><span ></span>Delete</a></td>
+                                                            <td ><a href="#"><span></span>Edit</a><a href="#"><span ></span>Xóa</a></td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>

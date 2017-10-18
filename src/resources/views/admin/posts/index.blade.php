@@ -5,7 +5,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Blog Posts
+        Bài viết
         <small>Danh Sách</small>
     </h1>
     <!-- <ol class="breadcrumb">
@@ -16,7 +16,7 @@
     <div class="pull-right">
         <a href="{{('/admin/posts/create')}}" class="btn bg-blue">
             <i class="fa fa-plus-square"></i>
-            Add new
+            Thêm mới
         </a>
     </div>
 </section>
