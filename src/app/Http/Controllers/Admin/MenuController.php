@@ -155,7 +155,7 @@ class MenuController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name_translate' => 'required',
-            'language_id' =>'required|numeric|min:1',
+            'language_id_translate' =>'required|numeric|min:1',
         ]);
 
         if ($validator->fails()) {
@@ -165,7 +165,7 @@ class MenuController extends Controller
             ]);
         }
 
-        $translation = CategoryTranslation::where('language_id',$request->language_id)
+        $translation = CategoryTranslation::where('language_id',$request->language_id_translate)
         ->where('category_id',$id)->withoutGlobalScopes()
         ->first();
 
@@ -179,7 +179,7 @@ class MenuController extends Controller
             $translation ->name = $request->name_translate;
             $translation ->description = $request->description_translate;
             $translation->category_id = $id;
-            $translation->language_id =  $request->language_id;
+            $translation->language_id =  $request->language_id_translate;
             $translation->save();
         }
 
