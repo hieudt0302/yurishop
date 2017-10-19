@@ -40,10 +40,7 @@
 									@else
 									<img class="sub-img" src="{{asset('/storage')}}/{{$media->source}}" alt="">
 									@endif
-								@else
-									@break
 								@endif
-
 							@if($key + 1  == count($product->medias))
 								<a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a>
 							</div>
