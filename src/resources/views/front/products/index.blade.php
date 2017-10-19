@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="left-it">
-					<h5>Showing <span class="sub">{{($results->currentPage()- 1) * 21 + 1}}-{{$results->count()/$results->total() * $results->currentPage() }} of {{$results->count()}}</span> </h5>
+					<h5>Showing <span class="sub">{{($results->currentPage()- 1) * 21 + 1}}-{{$results->total() * $results->currentPage() }} of {{$results->count()}}</span> </h5>
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
