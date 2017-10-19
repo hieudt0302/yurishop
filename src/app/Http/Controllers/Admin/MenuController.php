@@ -70,7 +70,7 @@ class MenuController extends Controller
         $menu->enabled = $request->enabled??0;
         $menu->is_visible = $request->is_visible??0;
         $menu->is_menu_avaiable = true;
-
+        $menu->parent_id = $request->parent_id > 0?$request->parent_id:null;
      
         if (is_numeric($request->parent) && (int)$request->parent >0 ) {
             $menu->parent_id = $request->parent_id;
@@ -138,7 +138,7 @@ class MenuController extends Controller
         $menu->enabled = $request->enabled??0;
         $menu->is_visible = $request->is_visible??0;
         $menu->is_menu_avaiable = true;
-
+        $menu->parent_id = $request->parent_id > 0?$request->parent_id:null;
      
         if (is_numeric($request->parent) && (int)$request->parent >0 ) {
             $menu->parent_id = $request->parent_id;
@@ -196,7 +196,7 @@ class MenuController extends Controller
         ->where('category_id',$id)->withoutGlobalScopes()
         ->first();
 
-        $id = 0;
+      
         $name = "";
         $description = "";
 
