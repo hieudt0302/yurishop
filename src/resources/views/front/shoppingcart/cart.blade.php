@@ -155,7 +155,7 @@
                                                                 <div class="input-group">
                                                                     <input name="discountcouponcode" type="text" class="form-control form-control-success discount-coupon-code" placeholder="{{ __('shoppings.enter-coupon')}}">
                                                                     <span class="input-group-btn">
-                                                                        <button type="submit" class="btn btn-primary apply-discount-coupon-code-button" title="Apply coupon" name="applydiscountcouponcode" value="applydiscountcouponcode">
+                                                                        <button type="button" class="btn btn-primary apply-discount-coupon-code-button" title="Apply coupon" name="applydiscountcouponcode" value="applydiscountcouponcode">
                                                                             <i class="fa fa-check"></i>
                                                                             <span>@lang('shoppings.apply-coupon')</span>
                                                                         </button>
@@ -173,7 +173,7 @@
                                                                 <div class="input-group">
                                                                     <input name="giftcardcouponcode" type="text" class="form-control gift-card-coupon-code" placeholder="{{ __('shoppings.enter-gift-card')}}">
                                                                     <span class="input-group-btn">
-                                                                        <button type="submit" class="btn btn-primary apply-gift-card-coupon-code-button" name="applygiftcardcouponcode" value="applygiftcardcouponcode">
+                                                                        <button type="button" class="btn btn-primary apply-gift-card-coupon-code-button" name="applygiftcardcouponcode" value="applygiftcardcouponcode">
                                                                             <i class="fa fa-check"></i>
                                                                             <span>@lang('shoppings.add-gift-card')</span>
                                                                         </button>

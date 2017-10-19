@@ -31,6 +31,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#info" data-toggle="tab">Menu</a></li>
                         <li><a href="#content" data-toggle="tab">Translation</a></li>
+                        
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
@@ -67,8 +68,8 @@
                                                 <div class="col-md-4">
                                                     <select name="parent_id" class="form-control">
                                                         <option value="0">-----Không Chọn-----</option>
-                                                        @foreach($menus as  $menu)
-                                                        <option value="{{$menu->id}}">{{$menu->name}}</option>
+                                                        @foreach($menus as  $m)
+                                                        <option value="{{$m->id}}">{{$m->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -116,6 +117,7 @@
                             </form>
                         </div>
                          <!-- CONTENT TAB -->
+                        
                          <div class="tab-pane" id="content">
                             <div class="panel-group">
                                 <!-- Language Select -->
