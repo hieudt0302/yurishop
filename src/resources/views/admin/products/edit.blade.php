@@ -345,7 +345,7 @@
                                                             <td>{{$m->pivot->order}}</td>
                                                             <td >{{$m->name}}</td>
                                                             <td >{{$m->description}}</td>
-                                                            <td ><a href="#"><span></span>Edit</a><a href="#"><span ></span>Xóa</a></td>
+                                                            <td ><a class="ajax-action-link" data-href="{{url('/products/images')}}/{{$m->id}}"  href="#"><span ></span>Xóa</a></td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -466,7 +466,7 @@
                             +'<td>'+response['order']+'</td>'
                             +'<td>'+response['name']+'</td>'
                             +'<td>'+response['description']+'</td>'
-                            +'<td><a href="#"><span></span>Edit</a><a href="#"><span ></span>Delete</a></td>'
+                            +'<td ><a class="ajax-action-link" data-href="{{url("/products/images")}}/'+response['order']+'"  href="#"><span ></span>Xóa</a></td>'
                         +'</tr>');
                 }
             },
@@ -474,6 +474,25 @@
                 $('#img1').html('<img width="100%" height="100%" src="{{asset("images/default-image.png")}}"/>');
             }
         });
+    });
+
+    /* DELETE IMAGE */
+    $('.ajax-action-link').on("click",  function (e) {
+        e.preventDefault();
+        var token = '{{csrf_token()}}';
+        var link = $(this);
+        $.ajax({
+            cache: false,
+            url: link.data("href"),
+            type: 'DELETE',
+            data: { _token :token},
+            success: function (response) {
+                if (response['status'] =='success') {
+
+                }
+            }
+        });
+        return false;
     });
 });
 </script>

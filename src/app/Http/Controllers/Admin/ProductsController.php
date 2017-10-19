@@ -14,6 +14,7 @@ use App\Models\Comment;
 use App\Models\Media;
 use Validator;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 use DB;
 
 class ProductsController extends Controller
@@ -386,7 +387,27 @@ class ProductsController extends Controller
         session()->flash('success_message', "Xóa thành công!");        
         return redirect()->route('admin.products.index'); 
     }
-
+    
+    public function destroyImage($id)
+    {
+        DB::beginTransaction();
+        try{
+            $media = Media::find($id);
+            Storage::delete( $media->source, $media->thumb);
+            $media->delete();
+            DB::rollBack();
+        }catch(\Exception $e){
+            DB::rollBack();
+            return response()->json([
+                'message' =>  'Không thể Xóa!',
+                'status' => 'error',
+            ]);
+        }
+        return response()->json([
+            'message' =>  'Xóa thành công!',
+            'status' => 'success',
+        ]);
+    }
     public function categories(Request $request)
     {
         $categories = Category::all();

@@ -10,6 +10,7 @@ return [
 	 'delete' => 'Delete',
 	 'update' => 'Update',
 	 'cancel' => 'Cancel',
+	 'save'=>'Save',
 	 'or' => 'Or',
 	 'search-results' => 'Search results',	 
 	 'search-message' => 'Search results for keyword: ',

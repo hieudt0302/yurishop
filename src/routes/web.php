@@ -204,6 +204,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     //
     Route::delete('products/{id}',['as'=>'admin.products.destroy','uses'=>'ProductsController@destroy','middleware' => ['role:admin|manager']]);
     Route::post('products/{id}/image/upload',['as'=>'admin.products.uploadImage','uses'=>'ProductsController@uploadImage','middleware' => ['role:admin|manager']]);
+    Route::delete('products/images/{id}',['as'=>'admin.products.destroyImage','uses'=>'ProductsController@destroyImage','middleware' => ['role:admin|manager']]);
     
    //Order
     Route::get('orders',['as'=>'admin.orders.index','uses'=>'OrdersController@index','middleware' => ['role:admin|manager']]);
