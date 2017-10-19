@@ -154,8 +154,8 @@ class MenuController extends Controller
     public function updateTranslation(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name_translate' => 'required',
-            'language_id_translate' =>'required|numeric|min:1',
+            'name' => 'required',
+            'language_id' =>'required|numeric|min:1',
         ]);
 
         if ($validator->fails()) {
@@ -165,21 +165,21 @@ class MenuController extends Controller
             ]);
         }
 
-        $translation = CategoryTranslation::where('language_id',$request->language_id_translate)
+        $translation = CategoryTranslation::where('language_id',$request->language_id)
         ->where('category_id',$id)->withoutGlobalScopes()
         ->first();
 
         if(!empty($translation))
         {
-            $translation->name = $request->name_translate;
-            $translation->description = $request->description_translate;
+            $translation->name = $request->name;
+            $translation->description = $request->description;
             $translation->save();
         }else{
             $translation = new  CategoryTranslation();
-            $translation ->name = $request->name_translate;
-            $translation ->description = $request->description_translate;
+            $translation ->name = $request->name;
+            $translation ->description = $request->description;
             $translation->category_id = $id;
-            $translation->language_id =  $request->language_id_translate;
+            $translation->language_id =  $request->language_id;
             $translation->save();
         }
 
