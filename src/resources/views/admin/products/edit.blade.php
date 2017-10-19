@@ -345,7 +345,7 @@
                                                             <td>{{$m->pivot->order}}</td>
                                                             <td >{{$m->name}}</td>
                                                             <td >{{$m->description}}</td>
-                                                            <td ><a class="btn btn-danger ajax-action-link" data-href="{{url('/admin/products/images')}}/{{$m->id}}" data-id="{{$m->id}}" href="#"><span ></span>Xóa</a></td>
+                                                            <td ><button class="btn btn-danger ajax-action-link" data-href="{{url('/admin/products/images')}}/{{$m->id}}" data-id="{{$m->id}}"><span ></span>Xóa</button></td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -466,7 +466,7 @@
                             +'<td>'+response['order']+'</td>'
                             +'<td>'+response['name']+'</td>'
                             +'<td>'+response['description']+'</td>'
-                            +'<td ><a class="btn btn-danger ajax-action-link" data-href="{{url("/admin/products/images")}}/'+response['id']+'" data-id="'+response['id']+'"  href="#" ><span ></span>Xóa</a></td>'
+                            +'<td ><button class="btn btn-danger ajax-action-link" data-href="{{url("/admin/products/images")}}/'+response['id']+'" data-id="'+response['id']+'" ><span ></span>Xóa</button></td>'
                         +'</tr>');
                 }
             },
@@ -477,9 +477,9 @@
     });
 
     /* DELETE IMAGE */
-    $("#table-row").on("click", ".ajax-action-link", function () {
-                //$(this).closest('tr').remove();
-    });
+    // $("#table-row").on("click", ".ajax-action-link", function () {
+    //             //$(this).closest('tr').remove();
+    // });
     $('.ajax-action-link').on("click",  function (e) {
         e.preventDefault();
         var token = '{{csrf_token()}}';
@@ -493,7 +493,7 @@
             data: { _token :token},
             success: function (response) {
                 if (response['status'] =='success') {
-                    $('[id="table-row-'+id+'"]').remove();
+                    $('#table-row-'+id+'').remove();
                 }
             }
         });
