@@ -22,8 +22,8 @@ class ProductsController extends Controller
     public function index()
     {
         $tags = Tag::has('products')->get();
-        $products = Product::where('published',1)->paginate(10);
-        return View('front/products/index',compact('products','tags'));
+        $results = Product::where('published',1)->paginate(10);
+        return View('front/products/index',compact('results','tags'));
     }
   
     /**
