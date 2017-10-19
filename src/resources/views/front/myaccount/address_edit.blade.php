@@ -19,12 +19,12 @@
                             </div>
                             <div class="col-md-8 col-lg-9">
                             <div class="page-title pt-4 pt-md-0">
-                                <h1 class="h3">Edit address</h1>
+                                <h1 class="h3">@lang('account.edit-address')</h1>
                             </div>
                             <form action="/frontend/en/Customer/AddressEdit/12896" method="post" novalidate="novalidate">
                                 <input data-val="true" data-val-number="The field 'ID' must be a number." data-val-required="'Id' must not be empty." id="Address_Id" name="Address.Id" type="hidden" value="12896">
                                 <div class="form-horizontal">
-                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label" for="Address_Company">Company</label>
+                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label" for="Address_Company">@lang('profile.company')</label>
                                         <div class="col-lg-9">
                                             <input class="form-control" id="Address_Company" name="Address.Company" placeholder="Optional" type="text" value="jj">
                                             <span class="field-validation-valid" data-valmsg-for="Address.Company" data-valmsg-replace="true"></span>
@@ -33,39 +33,39 @@
                                     <div>
                                         <hr>
                                     </div>
-                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Address_FirstName" aria-required="true">First name</label>
+                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Address_FirstName" aria-required="true">@lang('profile.first-name')</label>
                                         <div class="col-lg-9">
                                             <input class="form-control" data-val="true" data-val-required="First name is required." id="Address_FirstName" name="Address.FirstName" type="text" value="dasd">
                                             <span class="field-validation-valid" data-valmsg-for="Address.FirstName" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Address_LastName" aria-required="true">Last name</label>
+                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Address_LastName" aria-required="true">@lang('profile.last-name')</label>
                                         <div class="col-lg-9">
                                             <input class="form-control" data-val="true" data-val-required="Last name is required." id="Address_LastName" name="Address.LastName" type="text" value="asdasd">
                                             <span class="field-validation-valid" data-valmsg-for="Address.LastName" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Address_Address1" aria-required="true">Address 1</label>
+                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Address_Address1" aria-required="true">@lang('profile.address') 1</label>
                                         <div class="col-lg-9">
                                             <input class="form-control" data-val="true" data-val-required="Street address is required" id="Address_Address1" name="Address.Address1" type="text" value="asdasd">
                                             <span class="field-validation-valid" data-valmsg-for="Address.Address1" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label" for="Address_Address2">Address 2</label>
+                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label" for="Address_Address2">@lang('profile.address') 2</label>
                                         <div class="col-lg-9">
                                             <input class="form-control" id="Address_Address2" name="Address.Address2" placeholder="Optional" type="text" value="asdasd">
                                             <span class="field-validation-valid" data-valmsg-for="Address.Address2" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
                                     <div class="form-group row row-hardcode">
-                                        <label class="col-lg-3 col-form-label required" for="Address_City" aria-required="true">City</label>
+                                        <label class="col-lg-3 col-form-label required" for="Address_City" aria-required="true">@lang('profile.city')</label>
                                         <div class="col-lg-9">
                                             <div class="row row-hardcode sm-gutters d-flex">
                                                 <div class="col">
                                                     <input class="form-control" data-val="true" data-val-required="City is required" id="Address_City" name="Address.City" placeholder="" type="text" value="dasd">
                                                 </div>
                                                 <div class="col col-auto">
-                                                    <label class="text-right col-form-label required" for="Address_ZipPostalCode" aria-required="true">Zip / postal code</label>
+                                                    <label class="text-right col-form-label required" for="Address_ZipPostalCode" aria-required="true">@lang('profile.zipcode')</label>
                                                 </div>
                                                 <div class="col col-auto">
                                                     <input class="form-control" data-val="true" data-val-required="Zip / postal code is required" id="Address_ZipPostalCode" name="Address.ZipPostalCode" placeholder="" style="width: 6rem" type="text" value="31232132">
@@ -77,9 +77,9 @@
                                     </div>
 
                                     <div class="form-group row row-hardcode">
-                                        <label class="col-lg-3 col-form-label required" for="Address_CountryId" aria-required="true">Country</label>
+                                        <label class="col-lg-3 col-form-label required" for="Address_CountryId" aria-required="true">@lang('profile.country')</label>
                                         <div class="col-lg-9">
-                                            <select class="form-control select2-hidden-accessible" data-val="true" data-val-number="The field 'Country' must be a number." data-val-required="Country is required." id="Address_CountryId" name="Address.CountryId" tabindex="-1" aria-hidden="true"><option value="0">Select country</option>
+                                            <select class="form-control select2-hidden-accessible" data-val="true" data-val-number="The field 'Country' must be a number." data-val-required="Country is required." id="Address_CountryId" name="Address.CountryId" tabindex="-1" aria-hidden="true"><option value="0">@lang('profile.select-country')</option>
                                                 <option selected="selected" value="1">Deutschland</option>
                                             </select><span class="select2 select2-container select2-container--bootstrap" dir="ltr"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-Address_CountryId-container"><span class="select2-selection__rendered" id="select2-Address_CountryId-container" title="Deutschland">Deutschland</span>
                                             <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row row-hardcode">
-                                        <label class="col-lg-3 col-form-label" for="Address_StateProvinceId">State / province</label>
+                                        <label class="col-lg-3 col-form-label" for="Address_StateProvinceId">@lang('profile.province')</label>
                                         <div class="col-lg-9">
                                             <select class="form-control select2-hidden-accessible" data-val="true" data-val-number="The field 'State / province' must be a number." id="Address_StateProvinceId" name="Address.StateProvinceId" tabindex="-1" aria-hidden="true"><option selected="selected" value="1">Baden-Württemberg</option>
                                                 <option value="2">Bayern</option>
@@ -117,20 +117,20 @@
                                     <div>
                                         <hr>
                                     </div>
-                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Address_Email" aria-required="true">Email</label>
+                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Address_Email" aria-required="true">@lang('profile.email')</label>
                                         <div class="col-lg-9">
                                             <input class="form-control" data-val="true" data-val-email="Wrong email" data-val-required="Email is required." id="Address_Email" name="Address.Email" type="email" value="sadad@dadasd.com">
                                             <span class="field-validation-valid" data-valmsg-for="Address.Email" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Address_PhoneNumber" aria-required="true">Phone number</label>
+                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Address_PhoneNumber" aria-required="true">@lang('profile.phone')</label>
                                         <div class="col-lg-9">
                                             <input class="form-control" data-val="true" data-val-required="Phone is required" id="Address_PhoneNumber" name="Address.PhoneNumber" type="tel" value="123456789">
                                             <span class="field-validation-valid" data-valmsg-for="Address.PhoneNumber" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
 
-                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label" for="Address_FaxNumber">Fax number</label>
+                                    <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label" for="Address_FaxNumber">@lang('profile.fax')</label>
                                         <div class="col-lg-9">
                                             <input class="form-control" id="Address_FaxNumber" name="Address.FaxNumber" placeholder="Optional" type="tel" value="">
                                             <span class="field-validation-valid" data-valmsg-for="Address.FaxNumber" data-valmsg-replace="true"></span>
@@ -139,7 +139,7 @@
 
                                     <div class="form-group row row-hardcode">
                                         <div class="offset-lg-3 col-lg-9 text-muted address-required-hint">
-                                            * Input elements with asterisk are required and have to be filled out.
+                                            @lang('checkout.required-message')
                                         </div>
                                     </div>
 
@@ -148,7 +148,7 @@
                                     <div class="col">
                                         <button type="submit" class="btn btn-primary btn-lg save-address-button">
                                             <i class="fa fa-check"></i>
-                                            <span>Save</span>
+                                            <span>@lang('common.save')</span>
                                         </button>
                                     </div>
                                 </div>

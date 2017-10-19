@@ -89,12 +89,12 @@
                                 <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ Auth::user()->last_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu level1">
-                                    <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>My Account</a></li>
-                                    <li><a href="{{ url('/wishlish') }}"><i class="ion-ios-minus-empty"></i>Wishlist</a></li>
-                                    <li><a href="{{ url('/cart') }}"><i class="ion-ios-minus-empty"></i>Shopping Cart</a></li>
+                                    <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>@lang('account.my-account')</a></li>
+                                    <li><a href="{{ url('/wishlish') }}"><i class="ion-ios-minus-empty"></i>@lang('account.wishlist')</a></li>
+                                    <li><a href="{{ url('/cart') }}"><i class="ion-ios-minus-empty"></i>@lang('shoppings.cart')</a></li>
                                     <li class="it-last">
                                         <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                            <i class="ion-ios-minus-empty"></i>Logout
+                                            <i class="ion-ios-minus-empty"></i>@lang('auth.logout')
                                         </a>
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}

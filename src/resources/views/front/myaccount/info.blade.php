@@ -20,44 +20,44 @@
                             </div>
                             <div class="col-md-8 col-lg-9">
                                 <div class="page-title pt-4 pt-md-0">
-                                    <h1 class="h3">Customer info</h1>
+                                    <h1 class="h3">@lang('account.customer-info')</h1>
                                 </div>
                                 <form action="{{url('Account/Info/Update')}}" class="form-horizontal" method="post" novalidate="novalidate">
                                 {{ csrf_field() }}
                                     <fieldset class="content-group">
-                                        <legend><span>Your Personal Details</span></legend>
+                                        <legend><span>@lang('account.personal-details')</span></legend>
                                         <div class="form-group row row-hardcode">
-                                            <label class="col-lg-3 col-form-label">Gender</label>
+                                            <label class="col-lg-3 col-form-label">@lang('account.gender')</label>
                                             <div class="col-lg-9">
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
                                                         <input  class="form-check-input" id="gender-male" name="gender" type="radio" value="M">
-                                                    <span>Male</span>
+                                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;@lang('account.male')</span>
                                                 </label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" id="gender-female" name="gender" type="radio" value="F">
-                                                        <span>Female</span>
+                                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;@lang('account.female')</span>
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="FirstName" aria-required="true">First name</label>
+                                        <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="FirstName" aria-required="true">@lang('profile.first-name')</label>
                                             <div class="col-lg-9">
                                                 <input class="form-control" data-val="true" data-val-required="First name is required." id="FirstName" name="first_name" type="text" value="{{Auth::user()->first_name}}">
                                                 <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
                                             </div>
                                         </div>
 
-                                        <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="LastName" aria-required="true">Last name</label>
+                                        <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="LastName" aria-required="true">@lang('profile.last-name')</label>
                                             <div class="col-lg-9">
                                                 <input class="form-control" data-val="true" data-val-required="Last name is required." id="LastName" name="last_name" type="text" value="{{Auth::user()->last_name}}">
                                                 <span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
                                             </div>
                                         </div>
                                         <div class="form-group row row-hardcode">
-                                            <label class="col-lg-3 col-form-label" for="DateOfBirthDay">Date of birth</label>
+                                            <label class="col-lg-3 col-form-label" for="DateOfBirthDay">@lang('account.birthday')</label>
                                             <div class="col-lg-9">
                                                 <div class="row row-hardcode xs-gutters">
                                                     <div class="col"><select class="date-part form-control noskin" data-native-menu="false" data-select-min-results-for-search="100" name="DateOfBirthDay"><option value="">Day</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11" selected="selected">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select></div>
@@ -89,26 +89,7 @@
                                         </div>
                                     </fieldset>
                                     <fieldset class="content-group">
-                                        <legend><span>Company Details</span></legend>
-                                        <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label" for="Company">Company Name</label>
-                                            <div class="col-lg-9">
-                                                <input class="form-control" id="Company" name="company" placeholder="Optional" type="text" value="{{Auth::user()->company}}">
-                                                <span class="field-validation-valid" data-valmsg-for="Company" data-valmsg-replace="true"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row row-hardcode">
-                                            <label class="col-lg-3 col-form-label" for="VatNumber">VAT Number</label>
-                                            <div class="col-lg-9">
-                                                <div class="input-group">
-                                                    <input class="form-control" id="VatNumber" name="vat" placeholder="Optional" type="text" value="{{Auth::user()->vat}}">
-                                                    <span class="input-group-addon" id="basic-addon2">Empty</span>
-                                                </div>
-                                                <div class="form-text text-muted vat-note">NOTE: Enter VAT number with country code (e.g. VN 111 111 11)</div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset class="content-group">
-                                        <legend><span>Options</span></legend>
+                                        <legend><span>@lang('checkout.optional')</span></legend>
                                         <div class="form-group row row-hardcode">
                                             <div class="col-lg-9">
                                                 <div class="form-check">
@@ -125,7 +106,7 @@
                                         <div class="col">
                                             <button type="submit" name="save-info-button" class="btn btn-primary btn-lg save-customer-info-button">
                                                 <i class="fa fa-check"></i>
-                                                <span>Save</span>
+                                                <span>@lang('common.update')</span>
                                             </button>
                                         </div>
                                     </div>

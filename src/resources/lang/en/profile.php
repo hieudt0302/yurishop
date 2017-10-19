@@ -21,6 +21,8 @@ return [
     'city' => 'City',
     'province' => 'Province',        
     'company' => 'Company',
+    'country' => 'Country',
+    'fax' => 'Fax',       
     'zipcode' => 'Zip/Portal code',    
 
 ];
