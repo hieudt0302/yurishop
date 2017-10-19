@@ -154,7 +154,7 @@ class MenuController extends Controller
     public function updateTranslation(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'name_translate' => 'required',
             'language_id' =>'required|numeric|min:1',
         ]);
 
@@ -171,13 +171,13 @@ class MenuController extends Controller
 
         if(!empty($translation))
         {
-            $translation->name = $request->name;
-            $translation->description = $request->description;
+            $translation->name = $request->name_translate;
+            $translation->description = $request->description_translate;
             $translation->save();
         }else{
             $translation = new  CategoryTranslation();
-            $translation ->name = $request->name;
-            $translation ->description = $request->description;
+            $translation ->name = $request->name_translate;
+            $translation ->description = $request->description_translate;
             $translation->category_id = $id;
             $translation->language_id =  $request->language_id;
             $translation->save();
