@@ -53,7 +53,7 @@
                             @foreach($menus as $key => $menu)
                             <li class="dropdown first">
                                 <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                {{$menu->translation->name}}
+                                {{$menu->translation->name??$menu->name}}
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu level1">
@@ -61,7 +61,7 @@
                                     <li>
                                         <a href="{{url('/menu')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
                                             <i class="ion-ios-minus-empty"></i>
-                                            {{$sub->translation->name}}
+                                            {{$sub->translation->name??$sub->name}}
                                         </a>
                                     </li>
                                     @endforeach

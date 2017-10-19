@@ -35,5 +35,6 @@ return [
 	'calculated-during-checkout' => 'Được tính trong quá trình thanh toán', 
 	'apply-coupon' => 'Sử dụng coupon',
 	'enter-coupon' => 'Nhập coupon',
-	'enter-gift-cart' => 'Nhập mã thẻ quà tặng',	  			  		  	 					    
+	'enter-gift-cart' => 'Nhập mã thẻ quà tặng',	  
+	'cart-empty' => 'Giỏ hàng của bạn trống',				  		  	 					    
 ];

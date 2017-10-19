@@ -8,7 +8,6 @@
 @stop
 
 @section('content')
-
     <div id="content-wrapper" >
         <section id="content" class="container mt-3">
             <div class="costeps row row-hardcode no-gutters">
@@ -49,7 +48,6 @@
                     </a>
                 </div>
             </div>
-
             <!-- row row-hardcode -->
             <div id="content-body" class="row row-hardcode mt-4">
                 <div id="content-center" class="col-lg-12">
