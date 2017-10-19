@@ -14,6 +14,7 @@ use App\Models\Comment;
 use App\Models\Media;
 use Validator;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 use DB;
 
 class ProductsController extends Controller
@@ -343,7 +344,11 @@ class ProductsController extends Controller
         }
          
         if (request()->hasFile('image_upload')) {
-            $path = $request->file('image_upload')->store('images');
+            $path = $request->file('image_upload')->store('images');                            
+            $fitImage = Image::make(Storage::get($path))->fit(420, 420)->encode();
+            Storage::put($path, $fitImage); 
+
+
             $product = Product::find($request->product_id);
             $images =  new Media();
             $images->name =  $request->name_image;

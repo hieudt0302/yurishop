@@ -30,7 +30,7 @@
 						data-paddingbottom="[0,0,0,0]"
 						data-paddingleft="[0,0,0,0]"
 
-						style="z-index: 5; white-space: nowrap; font-size: 64px; line-height: 64px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Playfair Display;">{{$slider->translation->description}} </div>
+						style="z-index: 5; white-space: nowrap; font-size: 64px; line-height: 64px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Playfair Display;">{{$slider->translation->title}} </div>
 
 					<!-- LAYER NR. 2 -->
 					<div class="tp-caption btn-line rev-btn " 

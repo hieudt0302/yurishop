@@ -9,10 +9,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Shop list</h1>
+                <h1>@lang('common.shop-list')</h1>
                 <ul class="breadcumb">
-                    <li><a href="#">Home</a></li>
-                    <li><span>/</span>Shop list</li>
+                    <li><a href="#">@lang('common.home')</a></li>
+                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <!-- <li><span>/</span>{{$results[0]->category->translation->name}}</li> -->
                 </ul>
             </div>
         </div>

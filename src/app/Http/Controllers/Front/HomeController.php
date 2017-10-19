@@ -72,6 +72,12 @@ class HomeController extends Controller
         return View("front.home.infopage",compact('info_page_translation'));
     }   
 
+    public function promotion()
+    {
+        $info_page_translation = $this->getInfoPageTranslation('promotion');
+        return View("front.home.infopage",compact('info_page_translation'));
+    }       
+
     public function contact()
     {
         return View("front/home/contact");

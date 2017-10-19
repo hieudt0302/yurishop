@@ -21,7 +21,7 @@
 				<div class="pro-it new col-md-3 col-sm-6 col-xs-12">
 					<img class="pro-img" src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="">
 					<div class="pro-infor">
-						<h2><a href="{{url('/products')}}/{{$product->id}}">{{$product->name}}</a></h2>
+						<h2><a href="{{url('/products')}}/{{$product->slug}}">{{$product->name}}</a></h2>
 						<span class="pro-cost">
 							@if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                             <del class="section-text">{{$product->price}}</del> &nbsp;
@@ -35,7 +35,7 @@
 						</span>
 					</div>
 					<div class="hover-inner">	
-						<a class="search" href="{{url('/products')}}/{{$product->id}}" data-toggle="tooltip" data-placement="top" title="Quick view">
+						<a class="search" href="{{url('/products')}}/{{$product->slug}}" data-toggle="tooltip" data-placement="top" title="Quick view">
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</a>
 						<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart">
@@ -49,9 +49,9 @@
             @endforeach
 			@foreach($best_sellers_products as $product)
 				<div class="pro-it best-sellers col-md-3 col-sm-6 col-xs-12">
-					<img class="pro-img" src="{{ asset('frontend/images/uploads/p1.jpg') }}" alt="">
+					<img class="pro-img" src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="">
 					<div class="pro-infor">
-						<h2><a href="{{url('/products')}}/{{$product->id}}">{{$product->name}}</a></h2>
+						<h2><a href="{{url('/products')}}/{{$product->slug}}">{{$product->name}}</a></h2>
 						<span class="pro-cost">
 							@if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                             <del class="section-text">{{$product->price}}</del> &nbsp;
@@ -65,7 +65,7 @@
 						</span>
 					</div>
 					<div class="hover-inner">	
-						<a class="search" href="{{url('/products')}}/{{$product->id}}" data-toggle="tooltip" data-placement="top" title="Quick view">
+						<a class="search" href="{{url('/products')}}/{{$product->slug}}" data-toggle="tooltip" data-placement="top" title="Quick view">
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</a>
 						<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart">
@@ -79,9 +79,9 @@
             @endforeach
 			@foreach($sale_products as $product)
 				<div class="pro-it sale col-md-3 col-sm-6 col-xs-12">
-					<img class="pro-img" src="{{ asset('frontend/images/uploads/p1.jpg') }}" alt="">
+					<img class="pro-img" src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="">
 					<div class="pro-infor">
-						<h2><a href="{{url('/products')}}/{{$product->id}}">{{$product->name}}</a></h2>
+						<h2><a href="{{url('/products')}}/{{$product->slug}}">{{$product->name}}</a></h2>
 						<span class="pro-cost">
 							@if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                             <del class="section-text">{{$product->price}}</del> &nbsp;
@@ -95,7 +95,7 @@
 						</span>
 					</div>
 					<div class="hover-inner">	
-						<a class="search" href="{{url('/products')}}/{{$product->id}}" data-toggle="tooltip" data-placement="top" title="Quick view">
+						<a class="search" href="{{url('/products')}}/{{$product->slug}}" data-toggle="tooltip" data-placement="top" title="Quick view">
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</a>
 						<a class="cart" href="#" data-toggle="tooltip" data-placement="top" title="Add to cart">

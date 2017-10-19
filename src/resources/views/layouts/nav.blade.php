@@ -69,6 +69,11 @@
                             </li>
                             @endforeach
                             <li class="dropdown first">
+                                <a href="{{ url('/promotion')}}" class="btn btn-default lv1">
+                                @lang('header.promotion')
+                                </a>
+                            </li>                            
+                            <li class="dropdown first">
                                 <a href="{{ url('/contact')}}" class="btn btn-default lv1">
                                 @lang('header.contact')
                                 </a>
