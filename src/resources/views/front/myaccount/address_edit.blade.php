@@ -71,8 +71,6 @@
                                                     <input class="form-control" data-val="true" data-val-required="Zip / postal code is required" id="Address_ZipPostalCode" name="Address.ZipPostalCode" placeholder="" style="width: 6rem" type="text" value="31232132">
                                                 </div>
                                             </div>
-                                            <span class="field-validation-valid" data-valmsg-for="Address.City" data-valmsg-replace="true"></span>
-                                            <span class="field-validation-valid" data-valmsg-for="Address.ZipPostalCode" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
 

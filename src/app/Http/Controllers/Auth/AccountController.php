@@ -96,4 +96,12 @@ class AccountController extends Controller
     {
         return View('front.myaccount.changepassword');
     }
+
+
+    public function destroy($id)
+    {
+        $address = BookAddress::find($id);
+        $address->delete();
+        return View('front.myaccount.addresses');
+    }
 }

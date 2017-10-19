@@ -96,6 +96,7 @@ Route::post('/Checkout/Complete/Next', 'Front\CheckoutController@CompleteNext');
 // 1. Change Info
 Route::get('/Account/Info', 'Auth\AccountController@Info');
 Route::post('/Account/Info/Update', 'Auth\AccountController@InfoUpdate');
+Route::get('/Account/Addresses/Delete/{id}', 'Auth\AccountController@destroy');
 
 // 2. Order
 Route::get('/Account/Orders', 'Auth\AccountController@Orders');
