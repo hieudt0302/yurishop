@@ -9,11 +9,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>blog list 02</h1>
-                <ul class="breadcumb">
-                    <li><a href="#">Home</a></li>
-                    <li><span>/</span>Blog list 02</li>
-                </ul>
+                @if(!empty($search_key))
+                    <h1>@lang('common.search-results')</h1>
+                @else               
+                    <h1>{{$posts[0]->category->translation->name}}</h1>
+                @endif
             </div>
         </div>
     </div>

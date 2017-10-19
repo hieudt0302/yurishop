@@ -33,9 +33,9 @@ class MenuController extends Controller
             $post_category = Category::where('slug','posts')->firstOrFail();
             $categories = Category::where('parent_id',$post_category->id)->get(); 
             //POSTS
-            $results = $category->publishedPosts()->paginate(21);  ///TODO: move number limit to database setting
+            $posts = $category->publishedPosts()->paginate(21);  ///TODO: move number limit to database setting
             
-            return View('front/posts/index', compact('results', 'lastPosts','tags','comments','post_category','categories'))
+            return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories'))
             ->with('i', ($page??1 - 1) * 21);
         }
     }
