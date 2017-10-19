@@ -395,11 +395,11 @@ class ProductsController extends Controller
     public function destroyImage($id)
     {
         DB::beginTransaction();
-        try{
+         try{
             $media = Media::find($id);
             Storage::delete( $media->source, $media->thumb);
             $media->delete();
-            DB::rollBack();
+            DB::commit();
         }catch(\Exception $e){
             DB::rollBack();
             return response()->json([

@@ -338,14 +338,14 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach($product->medias as  $m)
-                                                        <tr>
+                                                        <tr id="table-row-{{$m->id}}">
                                                             <td>
                                                                 <a href="#"><img alt="File Not Found" src="{{asset('/storage')}}/{{$m->source}}" width="150"></a>
                                                             </td>
                                                             <td>{{$m->pivot->order}}</td>
                                                             <td >{{$m->name}}</td>
                                                             <td >{{$m->description}}</td>
-                                                            <td ><a class="ajax-action-link" data-href="{{url('/products/images')}}/{{$m->id}}"  href="#"><span ></span>Xóa</a></td>
+                                                            <td ><a class="btn btn-danger ajax-action-link" data-href="{{url('/admin/products/images')}}/{{$m->id}}" data-id="{{$m->id}}" href="#"><span ></span>Xóa</a></td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -461,12 +461,12 @@
                     //add to table
                     // $('#medias-table > tbody:first-child').append
                     $("#medias-table").prepend(
-                        '<tr>'
+                        '<tr id="table-row-'+ response['id']+'">'
                             +'<td><a href="#"><img alt="File Not Found" src="{{asset("/storage")}}/'+response['path']+'"width="150"></a></td>'
                             +'<td>'+response['order']+'</td>'
                             +'<td>'+response['name']+'</td>'
                             +'<td>'+response['description']+'</td>'
-                            +'<td ><a class="ajax-action-link" data-href="{{url("/products/images")}}/'+response['order']+'"  href="#"><span ></span>Xóa</a></td>'
+                            +'<td ><a class="btn btn-danger ajax-action-link" data-href="{{url("/admin/products/images")}}/'+response['id']+'" data-id="'+response['id']+'"  href="#" ><span ></span>Xóa</a></td>'
                         +'</tr>');
                 }
             },
@@ -477,10 +477,15 @@
     });
 
     /* DELETE IMAGE */
+    $("#table-row").on("click", ".ajax-action-link", function () {
+                //$(this).closest('tr').remove();
+    });
     $('.ajax-action-link').on("click",  function (e) {
         e.preventDefault();
         var token = '{{csrf_token()}}';
         var link = $(this);
+        var id =link.data("id");
+        
         $.ajax({
             cache: false,
             url: link.data("href"),
@@ -488,7 +493,7 @@
             data: { _token :token},
             success: function (response) {
                 if (response['status'] =='success') {
-
+                    $('[id="table-row-'+id+'"]').remove();
                 }
             }
         });
