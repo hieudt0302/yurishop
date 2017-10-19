@@ -223,7 +223,8 @@
                                 <!-- Translate Content -->
                                 <div class="panel panel-default">
                                     <form id="update-content-translation" method="POST">
-                                        {!! method_field('patch') !!} 
+                                        <!-- REMOVE THIS TO FIX BUT: Cannot send data to server -->
+                                        <!-- {!! method_field('patch') !!}  -->
                                         {{ csrf_field()}}
                                         <input type="hidden" id="language_id_translate" name="language_id_translate" value="0">
                                         <div class="panel-body">
