@@ -84,13 +84,13 @@
                                                     <div class="cart-col cart-col-main">
                                                         <div class="row row-hardcode sm-gutters">
                                                             <div class="col cart-item-img">
-                                                                <img class="img-fluid" alt="Picture of Herren T-Shirt" src="{{asset('images/default-image.png')}}" title="Image of Product">
+                                                                <img class="img-fluid" alt="Picture of Herren T-Shirt" src="{{asset('/storage')}}/{{$row->options->source}}" title="Image of Product">
                                                             </div>
                                                             <div class="col">
                                                                 <a class="cart-item-link" href="{{url('/products')}}/$row->id" title="Description">{{$row->name}}</a>
-                                                                <!-- <div class="cart-item-desc fs-sm">
-                                                                    Description
-                                                                </div> -->
+                                                                <div class="cart-item-desc fs-sm">
+                                                                    {{$row->options->summary}}
+                                                                </div>
                                                                 <!-- PUT OTHER ATTR -->
                                                                 <!-- <div class="cart-item-attrs fs-sm my-2">
                                                                 </div> -->

@@ -2403,7 +2403,7 @@ pre code {
     display: block;
     width: 100%;
     padding: .625rem .75rem;
-    font-size: .875rem;
+    /* font-size: .875rem; */
     line-height: 1.5;
     color: #464a4c;
     background-color: #fff;
@@ -2815,8 +2815,8 @@ select.form-control-lg:not([size]):not([multiple]),
     -ms-user-select: none;
     user-select: none;
     border: 1px solid transparent;
-    padding: .625rem 1rem;
-    font-size: .875rem;
+    /* padding: .625rem 1rem;
+    font-size: .875rem; */
     border-radius: .125rem;
     -webkit-transition: box-shadow 0.12s ease-in-out;
     transition: box-shadow 0.12s ease-in-out
@@ -3305,15 +3305,15 @@ fieldset[disabled] a.btn {
 
 .btn-lg,
 .btn-group-lg>.btn {
-    padding: .875rem 1.5rem;
-    font-size: 1rem;
+    /* padding: .875rem 1.5rem;
+    font-size: 1rem; */
     border-radius: .1875rem
 }
 
 .btn-sm,
 .btn-group-sm>.btn {
-    padding: .5rem .75rem;
-    font-size: .8125rem;
+    /* padding: .5rem .75rem;
+    font-size: .8125rem; */
     border-radius: .125rem
 }
 
@@ -9988,7 +9988,7 @@ a.text-gray-dark:hover {
 
 .fs-sm,
 .fs-sm a {
-    font-size: .8125rem !important
+    /* font-size: .8125rem !important */
 }
 
 .fs-xs,
@@ -11483,7 +11483,11 @@ fieldset.content-group>legend>span {
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
-    margin-right: 0.25rem
+    margin-right: 0.25rem;
+}
+
+.checkbox {
+    margin-left: 0px
 }
 
 .validation-summary-valid>*:last-child,
@@ -20312,7 +20316,7 @@ body>.select2-container .select2-dropdown {
 }
 
 .checkout-data .change-checkout-data {
-    padding: 0.25rem 0.5rem
+    /* padding: 0.25rem 0.5rem */
 }
 
 .manufacturer-list-title {

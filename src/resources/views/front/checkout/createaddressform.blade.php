@@ -60,9 +60,7 @@
         <div class="form-group row row-hardcode">
             <label class="col-sm-3 col-form-label" for="state_province">@lang('profile.province')</label>
             <div class="col-sm-9">
-                <select class="form-control select2"  id="state_province" name="state_province">
-                    <option value="0">Other (Non VN)</option>
-                </select>
+                <input class="form-control" id="state_province" name="state_province" placeholder="" type="text" value="">
             </div>
         </div>
         <div class="form-group row row-hardcode">

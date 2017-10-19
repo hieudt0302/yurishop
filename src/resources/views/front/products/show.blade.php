@@ -88,15 +88,15 @@
 						<div class="right-it">
 								 <form class="quantity" method="post" action="#">
 								      <div class="numbers-row">
-								        <input type="text" name="quantity" id="french-hens" value="3">
+								        <input type="text" name="quantity" id="french-hens" value="1">
 								      </div>
 							    </form>
-								<div class="drop">
+								<!-- <div class="drop">
 									<select>
 										<option value="">1 kg</option>
 										<option value="">Other</option>
 									</select>
-								</div>
+								</div> -->
 								<span class="check">
 									<i class="fa fa-check-circle" aria-hidden="true"></i>In stock
 								</span>	

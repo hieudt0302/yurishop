@@ -12,13 +12,13 @@
     <section id="content" class="container mt-3">
         <div class="costeps row row-hardcode no-gutters">
             <div class="col-2 costep visited" data-step="cart">
-                <a class="costep-link" href="/frontend/en/cart">
+                <a class="costep-link" href="{{url('/cart')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">@lang('shoppings.cart')</span>
                 </a>
             </div>
             <div class="col-2 costep active" data-step="address">
-                <a class="costep-link" href="/frontend/en/Checkout/BillingAddress">
+                <a class="costep-link" href="{{url('/Checkout/BillingAddress')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">@lang('profile.address')</span>
                 </a>

@@ -114,9 +114,9 @@ class ProductsController extends Controller
             ]);
         }
        
-        
-        Cart::add($request->id, $request->name, $request->quantity, $request->price);
-        
+        $product = Product::find($request->id);
+        $cartItem = Cart::add($request->id, $request->name, $request->quantity, $request->price, ['summary'=>$product->translation->summary??'', 'source' =>  $product->GetMediaByOrderAsc()->source??'images/default-image.png']);
+
         return response()->json([
             'message' => 'Đã thêm '. $request->quantity .' sản phẩm vào giỏ hàng!',
             'status' => 'success',
