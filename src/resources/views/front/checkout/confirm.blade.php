@@ -225,14 +225,14 @@
                                                         <div class="row row-hardcode sm-gutters">
                                                             <div class="col cart-item-img">
                                                                 <img class="img-fluid" alt="Picture of Item" 
-                                                                src="{{asset('images/default-image.png')}}"
+                                                                src="{{asset('/storage')}}/{{$row->options->source}}"
                                                                     title="Show details for Herren T-Shirt">
                                                             </div>
                                                             <div class="col">
-                                                                <a class="cart-item-link" href="/frontend/en/t-shirt-3?size-221-0-180=3546&amp;color-221-0-181=3550" title="Description">Herren T-Shirt</a>
-                                                                <!-- <div class="cart-item-desc fs-sm">
-                                                                    Description
-                                                                </div> -->
+                                                                <a class="cart-item-link" href="{{url('/products')}}/$row->id" title="Description">{{$row->name}}</a>
+                                                                <div class="cart-item-desc fs-sm">
+                                                                {{$row->options->summary}}
+                                                                </div>
                                                                 <!-- <div class="cart-item-attrs fs-sm my-2">
                                                                     Atributes
                                                                 </div> -->
