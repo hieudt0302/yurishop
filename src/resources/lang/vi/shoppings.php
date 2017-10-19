@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'cart-noitems' => 'Bạn không có sản phẩm nào trong giỏ hàng!',
+    'cart-empty' => 'Bạn không có sản phẩm nào trong giỏ hàng!',
     'continue-shopping' => 'Tra sản phẩm khác',
 	'order-history' => 'Lịch sử đặt hàng',
 	'cart' => 'Giỏ hàng',

@@ -19,26 +19,26 @@
                             </div>
                             <div class="col-md-8 col-lg-9">
                                 <div class="page-title pt-4 pt-md-0">
-                                    <h1 class="h3">Orders</h1>
+                                    <h1 class="h3">@lang('account.orders')</h1>
                                 </div>
                                 <div class="card-deck card-cols-sm-1 order-list">
                                     @foreach(Auth::user()->orders as $order)
                                     <div class="card card-shadow order-item">
                                         <div class="card-block">
-                                            <h4 class="card-title mb-4">Order #: {{$order->order_no}}</h4>
+                                            <h4 class="card-title mb-4">@lang('account.order') #: {{$order->order_no}}</h4>
                                             <dl class="row row-hardcode mb-0">
-                                                <dt class="col-sm-3 font-weight-400 text-muted">Order Status</dt>
+                                                <dt class="col-sm-3 font-weight-400 text-muted">@lang('account.order-status')</dt>
                                                 <dd class="col-sm-9">Pending</dd>
-                                                <dt class="col-sm-3 font-weight-400 text-muted">Order Date</dt>
+                                                <dt class="col-sm-3 font-weight-400 text-muted">@lang('account.order-date')</dt>
                                                 <dd class="col-sm-9">10/9/2017 6:04:02 PM</dd>
-                                                <dt class="col-sm-3 font-weight-400 text-muted">Order Total</dt>
+                                                <dt class="col-sm-3 font-weight-400 text-muted">@lang('account.order-total')</dt>
                                                 <dd class="col-sm-9 price">230,00 €</dd>
                                             </dl>
                                         </div>
                                         <div class="card-footer d-flex p-0">
                                             <a class="btn btn-secondary btn-flat rounded-0" href="{{url('/Order/Details')}}/{{$order->id}}" rel="nofollow">
                                                 <i class="fa fa-list-alt"></i>
-                                                <span>Order Details</span>
+                                                <span>@lang('account.order-details')</span>
                                             </a>
                                         </div>
                                     </div>

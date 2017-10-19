@@ -2,7 +2,7 @@
 
 return [
 	 '' => '', 
-     'cart-noitems' => 'You have no items in your shopping cart!',
+     'cart-empty' => 'You have no items in your shopping cart!',
      'continue-shopping' => 'Continute Shopping',
 	 'order-history' => 'Order history',
 	 'cart' => 'Cart',      
