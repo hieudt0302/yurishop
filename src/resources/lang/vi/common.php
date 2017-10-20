@@ -36,6 +36,5 @@ return [
      'product-list' => 'Danh sách sản phẩm',
      'product-details' => 'Chi tiết sản phẩm',        
      'showing' => 'Hiển thị',
-     'of' => 'trong',               	                     
-];           	 
+     'of' => 'trong',               	                                	 
 ];
