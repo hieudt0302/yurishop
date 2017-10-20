@@ -13,9 +13,27 @@
                     <h1>@lang('common.search-results')</h1>
                 @else               
                     <h1>{{$posts[0]->category->translation->name}}</h1>
+                    <ul class="breadcumb">
+                        <li><a href="#">@lang('common.home')</a></li>
+                        <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                        <li><span>/</span>{{$posts[0]->category->translation->name}}</li>
+                    </ul>
+
                 @endif
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1>@lang('common.product-list')</h1>
+                <ul class="breadcumb">
+                    <li><a href="#">@lang('common.home')</a></li>
+                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <!-- <li><span>/</span>{{$results[0]->category->translation->name}}</li> -->
+                </ul>
+            </div>
+        </div>
+
     </div>
 </div>
 <section class="bloglistpost-v1 bloglistpost-v2">

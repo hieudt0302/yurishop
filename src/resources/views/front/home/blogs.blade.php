@@ -13,7 +13,7 @@
 			<div class="col-md-4 col-sm-4 col-xs-4">
 				<div class="blog-it-left">
 					<a href="{{url('/posts')}}/{{$blog->slug}}">
-						<img class="blog-img" src="{{ asset('images/blog/' . $blog->img) }}" alt="">
+						<img class="blog-img" src="{{asset('/storage/images/blog/')}}/{{$blog->img}}" alt="">
 					</a>
 					<div class="blog-ct-left">
 						<div class="date">

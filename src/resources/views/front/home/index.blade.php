@@ -29,7 +29,7 @@
                     <img src="{{ asset('images/logo/poko.jpg') }}" alt="">
                     <h2>@lang('home.about-us')</h2>
                     <p>Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? Uterque enim summo bono fruitur, id est voluptate barbarorum pedibu</p>
-                    <a class="learnmore" href="#">@lang('common.more-details')</a>
+                    <a class="learnmore" href="{{url('/about')}}">@lang('common.more-details')</a>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
@@ -37,7 +37,7 @@
                     <img src="{{ asset('images/logo/origin.jpg') }}" alt="">
                     <h2>@lang('home.product-origin')</h2>
                     <p>Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? Uterque enim summo bono fruitur, id est voluptate barbarorum pedibu</p>
-                    <a class="learnmore" href="#">@lang('common.more-details')</a>
+                    <a class="learnmore" href="{{url('/product-origin')}}">@lang('common.more-details')</a>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
@@ -45,7 +45,7 @@
                     <img src="{{ asset('images/logo/fairtrade.jpg') }}" alt="">
                     <h2>@lang('home.product-quality')</h2>
                     <p>Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit? Uterque enim summo bono fruitur, id est voluptate barbarorum pedibu</p>
-                    <a class="learnmore" href="#">@lang('common.more-details')</a>
+                    <a class="learnmore" href="{{url('/product-quality')}}">@lang('common.more-details')</a>
                 </div>
             </div>
         </div>

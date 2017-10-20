@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>@lang('common.shop-list')</h1>
+                <h1>@lang('common.product-list')</h1>
                 <ul class="breadcumb">
                     <li><a href="#">@lang('common.home')</a></li>
                     <li><span>/</span><a href="#">@lang('product.product')</a></li>
@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="left-it">
-					<h5>Showing <span class="sub">{{($results->currentPage()- 1) * 21 + 1}}-{{$results->total() * $results->currentPage() }} of {{$results->count()}}</span> </h5>
+					<h5>@lang('common.showing') <span class="sub">{{($results->currentPage()- 1) * 21 + 1}}-{{$results->total() * $results->currentPage() }} @lang('common.of') {{$results->count()}}</span> </h5>
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
