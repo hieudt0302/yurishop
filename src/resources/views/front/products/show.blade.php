@@ -242,7 +242,7 @@
                                     </select>
                                 </div>
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<input  class="comt" type="textarea" placeholder="{{ __('product.comment')}}*">
+									<input name="comment" class="comt" type="textarea" placeholder="{{ __('product.comment')}}*">
 								</div>
                             </div>
 							<input class="submit" type="submit" value="{{ __('product.send-review')}}">
