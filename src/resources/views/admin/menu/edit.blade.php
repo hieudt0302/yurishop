@@ -69,7 +69,11 @@
                                                     <select name="parent_id" class="form-control">
                                                         <option value="0">-----Không Chọn-----</option>
                                                         @foreach($menus as  $m)
-                                                        <option value="{{$m->id}}">{{$m->name}}</option>
+                                                            @if($menu->parent_id->id == $m->id)
+                                                            <option selected="selected" value="{{$m->id}}">{{$m->name}}</option>
+                                                            @else
+                                                            <option value="{{$m->id}}">{{$m->name}}</option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -101,8 +105,7 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            
+                                            </div>                                            
                                           
                                             <div class="form-group">
                                                 <div class="col-md-3">
