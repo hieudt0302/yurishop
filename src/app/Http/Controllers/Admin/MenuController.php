@@ -134,6 +134,7 @@ class MenuController extends Controller
 
         $menu =Category::find($id);
         $menu->name = $request->name;
+        $menu->order = $request->order;
         $menu->slug = $request->slug;
         $menu->enabled = $request->enabled??0;
         $menu->is_visible = $request->is_visible??0;
