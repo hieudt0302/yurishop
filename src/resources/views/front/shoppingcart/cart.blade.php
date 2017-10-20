@@ -145,7 +145,7 @@
 
                                         <div class="cart-footer rounded-bottom">
                                             <div class="row row-hardcode">
-                                                <div class="col-md-6">
+                                                <!-- <div class="col-md-6">
                                                     <div class="cart-action cart-action-coupon">
                                                         <h5 class="cart-action-title collapsed" data-toggle="collapse" data-target="#cart-action-coupon-body" aria-controls="cart-action-coupon-body">
                                                             @lang('shoppings.discount-code')
@@ -182,9 +182,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 col-md-offset-6">
                                                     <div id="order-totals">
                                                         <table class="cart-summary">
                                                             <tbody>
