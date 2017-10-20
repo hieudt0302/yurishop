@@ -31,6 +31,8 @@ Route::post('/search', 'Front\HomeController@search');
 Route::get('/product-origin', 'Front\HomeController@product_origin');
 Route::get('/product-quality', 'Front\HomeController@product_quality');
 Route::get('/contact', 'Front\HomeController@contact');
+Route::post('/contact',  ['uses'=>'Front\HomeController@send_contact','as' => 'front.send-contact']);
+Route::post('/subscribe',  ['uses'=>'Front\HomeController@subscribe','as' => 'front.subscribe']);
 Route::get('/promotion', 'Front\HomeController@promotion');
 
 /* ACCOUNT */
@@ -222,5 +224,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('sliders/{id}/edit',['as'  =>'admin.sliders.edit','uses' => 'SliderController@edit']);
     Route::patch('sliders/{id}',['as'  =>'admin.sliders.update','uses' => 'SliderController@update']);    
     Route::delete('sliders/{id}',['as'  =>'admin.sliders.destroy','uses' => 'SliderController@destroy']);      
+
+    //Mail Templates
+    Route::get('mail_templates',['as'=>'admin.mail_templates.index','uses'=>'MailTemplateController@index']);
+    Route::get('mail_templates/create',['as'=>'admin.mail_templates.create','uses'=>'MailTemplateController@create']);
+    Route::post('mail_templates/create',['as'=>'admin.mail_templates.store','uses'=>'MailTemplateController@store']);
+    Route::get('mail_templates/{id}/edit',['as'  =>'admin.mail_templates.edit','uses' => 'MailTemplateController@edit']);
+    Route::patch('mail_templates/{id}',['as'  =>'admin.mail_templates.update','uses' => 'MailTemplateController@update']);    
+    Route::delete('mail_templates/{id}',['as'  =>'admin.mail_templates.destroy','uses' => 'MailTemplateController@destroy']);     
+
+    // Settings
+    Route::get('settings',['as'=>'admin.settings.edit','uses'=>'SettingController@edit']);
+    Route::post('settings',['as'=>'admin.settings.update','uses'=>'SettingController@update']);
 });
 

@@ -49,6 +49,7 @@
 	<link rel="stylesheet" href="{{asset('frontend/css/pushy.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/revicons.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/settings.css')}}"> -->
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	@yield('header')
 	
 </head>
@@ -93,8 +94,6 @@
 		<!-- End Main Page -->
 
  	</div>
-
-	 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	 <script src="{{asset('frontend/js/plugins.js')}}"></script>
 	 <script src="{{asset('frontend/js/custom.js')}}"></script>
 	 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

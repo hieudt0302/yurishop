@@ -465,7 +465,29 @@
             <li><a href="{{url('/admin/sliders')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
             <li><a href="{{url('/admin/sliders/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
           </ul>
-        </li>                     
+        </li>
+        
+        <!-- Mail Templates-->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-envelope-o"></i> <span>Mail Templates</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('/admin/mail_templates')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
+            <li><a href="{{url('/admin/mail_templates/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
+          </ul>
+        </li>
+
+        <!-- Settings-->
+        <li class="treeview">
+          <a href="{{url('/admin/settings')}}">
+            <i class="fa fa-cogs"></i> 
+            <span>Cài đặt</span>
+          </a>
+        </li>
       
         <li class="header">QUICK VIEW</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Đơn Hàng</span></a></li>

@@ -39,14 +39,33 @@
 			</div>
 			<div class="col-md-5 col-sm-5 col-xs-12">
 				<div class="form">
-					<input class="email" type="text" placeholder="{{ __('profile.email') }}">
+					<input class="email" type="text" name="email" placeholder="{{ __('profile.email') }}">
+					<div class="subscribe-mes">Bạn đã đăng ký thành công !</div>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-3 col-xs-12">
 				<div class="sub-button">
-					<a href="#">@lang('footer.subscribe')</a>
+					<a class="subscribe" href="javascript:void(0);">@lang('footer.subscribe')</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$('a.subscribe').click(function() {  // chỉ có trong trường hợp sp có nhiều màu sắc và kích cỡ
+        $.ajax({
+            type: "POST",
+            url: "{{url('/subscribe')}}" ,
+            data: {
+                "email": $("input[name='email']").val(),
+            },
+            success: function(res){
+            	$(".subscribe-mes").show();
+            },
+            error:function(res){
+                console.log("xay ra loi" + JSON.stringify(res));  
+            }
+        });            
+    });
+</script>

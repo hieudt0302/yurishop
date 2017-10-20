@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Mail;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Product;
@@ -12,6 +13,7 @@ use App\Models\Slider;
 use App\Models\InfoPage;
 use App\Models\InfoPageTranslation;
 use App\Models\Language;
+use App\Models\Subscribe;
 
 class HomeController extends Controller
 {
@@ -73,6 +75,22 @@ class HomeController extends Controller
     public function contact()
     {
         return View("front/home/contact");
+    }
+    public function send_contact(Request $request){
+        $input = $request->all();
+        Mail::send('front/home/mail_template', array('name'=>$input["name"], 'email'=>$input["email"], 'phone'=>$input["phone"], 'content'=>$input['message']),                                  function($message){
+            $message->to('ducthang.237@gmail.com', 'Admin')->subject('Mail liên hệ');
+        });
+        session()->flash('success_message', 'Send message successfully!');
+
+         return View("front/home/contact");
+    }
+
+    public function subscribe(Request $request){
+        $subscribe = new Subscribe();
+        $subscribe->email = $request->email;
+        $subscribe->save();
+        return response()->json(['success' => true]);
     }
 
     /**
