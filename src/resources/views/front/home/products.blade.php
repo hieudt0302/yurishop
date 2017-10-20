@@ -9,8 +9,8 @@
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<ul class="menu-filter">
-					<li  class="active" data-filter=".new"><a href="#">@lang('home.new-products')</a></li>
-					<li  data-filter=".best-sellers"><a href="#">@lang('home.best-sellers-products')</a></li>
+					<li  data-filter=".new"><a href="#">@lang('home.new-products')</a></li>
+					<li  class="active" data-filter=".best-sellers"><a href="#">@lang('home.best-sellers-products')</a></li>
 					<li  data-filter=".sale"><a href="#">@lang('home.sale-products')</a></li>
 				</ul>
 			</div>

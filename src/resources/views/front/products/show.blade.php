@@ -8,11 +8,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Product detail</h1>
+                <h1>@lang('common.product-details')</h1>
                 <ul class="breadcumb">
-                    <li><a href="#">Home</a></li>
-                    <li><span>/</span><a href="#">Shop grid</a></li>
-                    <li><span>/</span>Product detail</li>
+                    <li><a href="#">@lang('common.home')</a></li>
+                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <li><span>/</span>{{$product->translation->name??$product->name}}</li>
                 </ul>
             </div>
         </div>

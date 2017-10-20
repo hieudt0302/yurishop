@@ -32,5 +32,10 @@ return [
      'headquarter-address' => '123 Hùng Vương, Đăk Hà, Kon Tum',   	                            	 	 	 	      
  	 'poko-message' => 'Chúng tôi hy vọng giúp cộng đồng có cuộc sống vui vẻ, hạnh phúc, tràn đầy năng lượng hơn bằng những sản phẩn sạch, chất lượng cao của cao nguyên lộng gió.',   	                            	 	 	 	      
 	 'read-more' => 'Đọc thêm',   	 
-     'faq' => 'Câu hỏi thường gặp',	 
+     'faq' => 'Câu hỏi thường gặp',
+     'product-list' => 'Danh sách sản phẩm',
+     'product-details' => 'Chi tiết sản phẩm',        
+     'showing' => 'Hiển thị',
+     'of' => 'trong',               	                     
+];           	 
 ];

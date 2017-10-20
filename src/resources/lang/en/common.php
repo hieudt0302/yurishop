@@ -34,5 +34,9 @@ return [
      'poko-message' => 'We are <span>Online Market</span> of dried fruits, green coffee and agricultural products. Visit our site for a complete list of 
                     exclusive we are stocking.',         
 	 'read-more' => 'Read more',
-     'faq' => 'Frequently Asked Questions',	                     
+     'faq' => 'Frequently Asked Questions',
+     'product-list' => 'Product list',
+     'product-details' => 'Product details',     
+     'showing' => 'Showing',
+     'of' => 'of',               	                     
 ];
