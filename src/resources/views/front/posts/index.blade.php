@@ -22,17 +22,6 @@
                 @endif
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h1>@lang('common.product-list')</h1>
-                <ul class="breadcumb">
-                    <li><a href="#">@lang('common.home')</a></li>
-                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
-                </ul>
-            </div>
-        </div>
-
     </div>
 </div>
 <section class="bloglistpost-v1 bloglistpost-v2">
