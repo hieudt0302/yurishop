@@ -421,14 +421,15 @@
             var specs = $(this).find('textarea[name=specs_translate]').val();
 
             $.ajax({
-                type: "PATCH",
+                type: "POST",
                 url: '{{url("/admin/products")}}/{{$product->id}}/translation',
                 data:{
                     'language_id':language_id,
                     'name': name,
                     'summary': summary,
                     'description': description,
-                    'specs': specs
+                    'specs': specs,
+                    '_method': 'PATCH'
                 },
                 success:function(response){
                     alert(response['message']);
