@@ -216,12 +216,13 @@
         var description = $(this).find('textarea[name=description_translate]').val();
 
         $.ajax({
-            type: "PATCH",
+            type: "POST",
             url: '{{url("/admin/menu")}}/{{$menu->id}}/translation',
             data:{
                 'language_id':language_id,
                 'name': name,
                 'description': description,
+                '_method': 'PATCH',
             },
             success:function(response){
                 ///TODO: Make sense
