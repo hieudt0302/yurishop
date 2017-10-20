@@ -29,7 +29,6 @@
                 <ul class="breadcumb">
                     <li><a href="#">@lang('common.home')</a></li>
                     <li><span>/</span><a href="#">@lang('product.product')</a></li>
-                    <!-- <li><span>/</span>{{$results[0]->category->translation->name}}</li> -->
                 </ul>
             </div>
         </div>
