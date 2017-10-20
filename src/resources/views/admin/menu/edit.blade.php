@@ -69,7 +69,7 @@
                                                     <select name="parent_id" class="form-control">
                                                         <option value="0">-----Không Chọn-----</option>
                                                         @foreach($menus as  $m)
-                                                            @if($menu->parent_id->id??0 == $m->id)
+                                                            @if($menu->parent_id??0 == $m->id)
                                                             <option selected="selected" value="{{$m->id}}">{{$m->name}}</option>
                                                             @else
                                                             <option value="{{$m->id}}">{{$m->name}}</option>
