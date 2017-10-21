@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+<div class="row">
+        <div class="col-xs-12">
+            @include('notifications.status_message') 
+            @include('notifications.errors_message') 
+        </div>
+    </div> 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">

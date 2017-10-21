@@ -3,24 +3,23 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-      <h1>
-      Sản Phẩm
+    <h1>Sản Phẩm
         <small>
             <i class="fa fa-arrow-circle-left"></i>
             <a href="{{url('/admin/products')}}">Quay lại danh sách</a>
         </small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Sản Phẩm</a></li>
-        <li class="active">Cập Nhật</li>
-      </ol>
-      <div class="row">
+    </h1>
+    <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><a href="#">Sản Phẩm</a></li>
+    <li class="active">Cập Nhật</li>
+    </ol>
+    <div class="row">
         <div class="col-xs-12">
-        @include('notifications.status_message') 
-        @include('notifications.errors_message') 
+            @include('notifications.status_message') 
+            @include('notifications.errors_message') 
         </div>
-        </div> 
+    </div> 
 </section>
 <!-- Main content -->
 <section class="content">
