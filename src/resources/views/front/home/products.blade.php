@@ -9,8 +9,8 @@
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<ul class="menu-filter">
-					<li  data-filter=".new"><a href="#">@lang('home.new-products')</a></li>
-					<li  class="active" data-filter=".best-sellers"><a href="#">@lang('home.best-sellers-products')</a></li>
+					<li  data-filter=".new" class="active"><a href="#">@lang('home.new-products')</a></li>
+					<li  data-filter=".best-sellers"><a href="#">@lang('home.best-sellers-products')</a></li>
 					<li  data-filter=".sale"><a href="#">@lang('home.sale-products')</a></li>
 				</ul>
 			</div>
@@ -49,7 +49,7 @@
             @endforeach
 			@foreach($best_sellers_products as $product)
 				<div class="pro-it best-sellers col-md-3 col-sm-6 col-xs-12">
-					<img class="pro-img" src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="">
+					<img class="pro-img" src="{{ asset('/storage') }}/images/no-image.png}}" alt="">
 					<div class="pro-infor">
 						<h2><a href="{{url('/products')}}/{{$product->slug}}">{{$product->name}}</a></h2>
 						<span class="pro-cost">
@@ -111,3 +111,9 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    	$('.grid').isotope({ filter: '.new' });
+	});
+</script>

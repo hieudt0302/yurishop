@@ -15,6 +15,7 @@ return [
     'order-history' => 'Order history',
     'faqs' => 'FAQs',
     'newsletter-message' => 'Stay informed with Pokofarms',
-    'subscribe' => 'Subscribe',          
+    'subscribe' => 'Subscribe',   
+    'subscribe-success' => 'You have successfully subscribed !',       
     'about-us' => 'About',          
 ];

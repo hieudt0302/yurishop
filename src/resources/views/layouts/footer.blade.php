@@ -9,7 +9,7 @@
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <div class="form">
                     <input class="email" type="text" name="email" placeholder="{{ __('profile.email') }}">
-                    <div class="subscribe-mes">Bạn đã đăng ký thành công !</div>
+                    <div class="subscribe-mes">@lang('footer.subscribe-success')</div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12">
@@ -120,8 +120,9 @@
     </div>
 </div>
 </footer>
+
 <script type="text/javascript">
-    $('a.subscribe1').click(function() {  // chỉ có trong trường hợp sp có nhiều màu sắc và kích cỡ
+    $('a.subscribe1').click(function() {  
         $.ajax({
             type: "POST",
             url: "{{url('/subscribe')}}" ,
