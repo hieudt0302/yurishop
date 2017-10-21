@@ -91,13 +91,19 @@
                                     <td>
                                         <input type="text" id="title" class="form-control" name="{{$language->id}}-title" placeholder="Nhập tiêu đề" />
                                     </td>
-                                </tr>                
+                                </tr>  
+                                <tr>
+                                    <td>Mô tả</td>                  
+                                    <td>
+                                        <textarea class="form-control" name="{{$language->id}}-description" placeholder="Nhập mô tả" rows="10" cols="120"></textarea>                        
+                                    </td>
+                                </tr>                                                
                                 <tr>
                                     <td>Nội dung</td>                  
                                     <td>
                                         <textarea class="form-control ckeditor" id="{{$language->id}}-content-editor" name="{{$language->id}}-content" placeholder="Nhập nội dung" rows="10" cols="120"></textarea>                        
                                     </td>
-                                </tr> 
+                                </tr>                                
                             </table>
                         </div>
                         @endforeach

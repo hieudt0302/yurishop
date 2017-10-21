@@ -9,7 +9,7 @@ return [
     'sale-products' => 'Sale',   
     'farm-activities' => 'Our Activities',
     'farm-activities-message' => 'Change the message later',    
-    'about-us' => 'Who are you',
+    'about-us' => 'Who are we?',
     'product-origin' => 'Products origin',    
     'product-quality' => 'Products quality',
 ];
