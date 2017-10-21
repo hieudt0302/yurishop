@@ -95,7 +95,7 @@
                                 </a>
                                 <ul class="dropdown-menu level1">
                                     <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>@lang('account.my-account')</a></li>
-                                    <li><a href="{{ url('/wishlish') }}"><i class="ion-ios-minus-empty"></i>@lang('account.wishlist')</a></li>
+                                    <li><a href="{{ url('/wishlist') }}"><i class="ion-ios-minus-empty"></i>@lang('account.wishlist')</a></li>
                                     <li><a href="{{ url('/cart') }}"><i class="ion-ios-minus-empty"></i>@lang('shoppings.cart')</a></li>
                                     <li class="it-last">
                                         <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
