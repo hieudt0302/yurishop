@@ -7,8 +7,8 @@
             <i class="fa fa-fw fa-user-o list-group-item-icon"></i>
             <span>@lang('account.customer-info')</span>
         </a>
-        <a id="account-addresses " href="{{url('Account/Addresses')}}" rel="nofollow" class="list-group-item list-group-item-action">
-            <i class="fa fa-address-book-o list-group-item-icon"></i>
+        <a id="account-addresses" href="{{url('Account/Addresses')}}" rel="nofollow" class="list-group-item list-group-item-action">
+            <i class="fa fa-fw fa-address-book-o list-group-item-icon"></i>
             <span>@lang('account.addresses')</span>
         </a>
         <a id="account-orders" href="{{url('Account/Orders')}}" rel="nofollow" class="list-group-item list-group-item-action">
