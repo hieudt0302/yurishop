@@ -105,11 +105,10 @@
                                                             </div>
                                                             <div class="col col-auto">
                                                                 <div class="cart-row row row-hardcode row-actions btn-group-vertical card-shadow">
-                                                                    <a class="btn btn-gray btn-to-danger btn-sm btn-icon ajax-action-link" title="Remove" href="#" rel="nofollow" data-href="/Cart/DeleteCartItem?sciItemId={{$row->rowId}}" data-sci-item="{{$row->rowId}}" data-name="{{$row->name}}" data-type="cart" data-action="remove">
+                                                                    <a class="btn btn-gray btn-to-danger btn-sm btn-icon ajax-action-link" title="Remove" href="#" rel="nofollow" data-href="/Cart/DeleteCartItem?ItemId={{$row->rowId}}" data-sci-item="{{$row->rowId}}" >
                                                                         <i class="fa fa-2x">×</i>
                                                                     </a>
-                                                                    <a class="btn btn-secondary btn-sm btn-icon ajax-action-link" title="Move to wishlist" href="#" rel="nofollow" data-href="/Cart/MoveItemBetweenCartAndWishlist?sciItemId={{$row->rowId}}&amp;cartType=ShoppingCart&amp;isCartPage=True" data-sci-item="{{$row->rowId}}" data-name="{{$row->name}}"
-                                                                        data-type="wishlist" data-action="addfromcart">
+                                                                    <a class="btn btn-secondary btn-sm btn-icon ajax-action-link" title="Move to wishlist" href="#" rel="nofollow" data-href="/Cart/MoveItemBetweenCartAndWishlist?ItemId={{$row->rowId}}" data-sci-item="{{$row->rowId}}">
                                                                         <i class="fa fa-heart-o"></i>
                                                                     </a>
                                                                 </div>
@@ -128,7 +127,7 @@
                                                                     </button>
                                                                 </span>
                                                                 <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span> -->
-                                                                <input  class="form-control" data-href="/Cart/UpdateCartItem?sciItemId={{$row->rowId}}&isCartPage=True" data-max="10000" data-min="1"
+                                                                <input  class="form-control" data-href="/Cart/UpdateCartItem?ItemId={{$row->rowId}}" data-max="10000" data-min="1"
                                                                     data-postfix="" data-sci-item="{{$row->rowId}}" data-step="1" data-val="true" data-val-number="The field 'EnteredQuantity' must be a number." id="itemquantity{{$row->id}}" type="text" value="{{$row->qty}}" style="display: block;">
                                                                 <!-- <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
                                                                 <span class="input-group-btn">
@@ -149,45 +148,6 @@
 
                                         <div class="cart-footer rounded-bottom">
                                             <div class="row row-hardcode">
-                                                <!-- <div class="col-md-6">
-                                                    <div class="cart-action cart-action-coupon">
-                                                        <h5 class="cart-action-title collapsed" data-toggle="collapse" data-target="#cart-action-coupon-body" aria-controls="cart-action-coupon-body">
-                                                            @lang('shoppings.discount-code')
-                                                        </h5>
-                                                        <div class="cart-action-body collapse" id="cart-action-coupon-body">
-                                                            <div class="coupon-code form-group">
-                                                                <div class="input-group">
-                                                                    <input name="discountcouponcode" type="text" class="form-control form-control-success discount-coupon-code" placeholder="{{ __('shoppings.enter-coupon')}}">
-                                                                    <span class="input-group-btn">
-                                                                        <button type="button" class="btn btn-primary apply-discount-coupon-code-button" title="Apply coupon" name="applydiscountcouponcode" value="applydiscountcouponcode">
-                                                                            <i class="fa fa-check"></i>
-                                                                            <span>@lang('shoppings.apply-coupon')</span>
-                                                                        </button>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cart-action cart-action-giftcard">
-                                                        <h5 class="cart-action-title collapsed" data-toggle="collapse" data-target="#cart-action-giftcard-body" aria-controls="cart-action-giftcard-body">
-                                                            @lang('shoppings.have-gift-card')
-                                                        </h5>
-                                                        <div class="cart-action-body collapse" id="cart-action-giftcard-body">
-                                                            <div class="coupon-code form-group">
-                                                                <div class="input-group">
-                                                                    <input name="giftcardcouponcode" type="text" class="form-control gift-card-coupon-code" placeholder="{{ __('shoppings.enter-gift-card')}}">
-                                                                    <span class="input-group-btn">
-                                                                        <button type="button" class="btn btn-primary apply-gift-card-coupon-code-button" name="applygiftcardcouponcode" value="applygiftcardcouponcode">
-                                                                            <i class="fa fa-check"></i>
-                                                                            <span>@lang('shoppings.add-gift-card')</span>
-                                                                        </button>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-
                                                 <div class="col-md-6 col-md-offset-6">
                                                     <div id="order-totals">
                                                         <table class="cart-summary">
@@ -286,7 +246,7 @@ $(document).ready(function(){
         e.preventDefault();
         var link = $(this);
         updateShoppingCartItems(link, {
-            "sciItemId": link.data("sci-item"),
+            "ItemId": link.data("sci-item"),
         });
         return false;
     });
@@ -296,55 +256,39 @@ $(document).ready(function(){
         e.preventDefault();
         var link = $(this);
         updateShoppingCartItems(link, {
-            "sciItemId": link.data("sci-item"),
+            "ItemId": link.data("sci-item"),
             "newQuantity": link.val()
         });
         return false;
     });
 
     function updateShoppingCartItems(link, data) {
-
         showThrobber();
-
         $.ajax({
             cache: false,
             url: link.data("href"),
             data: data,
             type: 'POST',
             success: function (response) {
+                if(response['status'] ==='success')
+                {
+                    if (response['newCartItemCount'] == 0) {
+                        orderSummary.html(
+                            '<div class="alert alert-warning fade show">Your Shopping Cart is empty!</div>'
+                        );
+                    }
 
-                if (response['newCartItemCount'] == 0) {
-                    orderSummary.html(
-                        '<div class="alert alert-warning fade show">Your Shopping Cart is empty!</div>'
-                    );
-                }
-
-                var cartBody = $(".cart-body");
-                var totals = $("#order-totals");
-
-                $("#start-checkout-buttons").toggleClass("d-none", !response['showCheckoutButtons']);
-
-                if (response['type'] === 'delete') {
-                    // replace html
-                    // cartBody.html(response.cartHtml);
-                    // totals.html(response.totalsHtml);
-                    var rowItem =document.getElementById(response['rowId']);
-                    rowItem.parentNode.removeChild(rowItem);
+                    if (response['type'] === 'remove') {
+                        var rowItem =document.getElementById(response['rowId']);
+                        rowItem.parentNode.removeChild(rowItem);
+                    }
+                    $("#start-checkout-buttons").toggleClass("d-none", !response['showCheckoutButtons']);
                 }
 
                 displayNotification(response['message'], response['status']);
 
-                // reinit qty ctls
-                //applyCommonPlugins(cartBody);
-
-              
-                // if (link.data("type") == "wishlist") {
-                //     Cart.loadSummary("wishlist", true);
-                // }
-
                 // $('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
                 hideThrobber();
-
             }
         });
     }

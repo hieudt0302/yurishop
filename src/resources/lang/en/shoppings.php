@@ -38,6 +38,8 @@ return [
 	 'apply-coupon' => 'Apply coupon',
 	 'enter-coupon' => 'Enter your coupon here',
 	 'enter-gift-cart' => 'Enter your gift card code',	  
-	 'cart-empty' => 'Your cart is empty',	  	   	  	  	  	  	  	  	  	  	  	  	 	 
+	 'wishlist-empty' => 'You have no items in your wishlist!',	  
+	 'wishlist' => 'Wishlish',	   	
+	 'goto-cart' => 'Go To Cart',
 	  	 	  	  	 	 	 
 ];

@@ -71,6 +71,9 @@ Route::post('/Cart/MoveItemBetweenCartAndWishlist', 'Front\CartController@MoveIt
 
 /* WISHLIST */
 Route::get('/wishlist', 'Front\ShoppingCartController@wishlist');
+Route::post('/Cart/UpdateWishlistItem', 'Front\CartController@UpdateWishlistItem');
+Route::post('/Cart/DeleteWishlistItem', 'Front\CartController@DeleteWishlistItem');
+Route::post('/Cart/MoveItemBetweenWishlistAndCart', 'Front\CartController@MoveItemBetweenWishlistAndCart');
 
 /* CHECKOUT*/
 //Step 1

@@ -66,7 +66,7 @@
                                 <p>
                                     @lang('checkout.order-number'): &nbsp;
                                     <a href="{{url('/Order/Details')}}/{{$order_id}}" rel="nofollow">
-                                        <strong>{{$order_no}}</strong>
+                                        <strong>#{{$order_no}}</strong>
                                     </a>
                                 </p>
                             </div>
@@ -75,7 +75,7 @@
                                     <span>@lang('checkout.order-details')</span>
                                 </a>
                                 <a href="{{url('/')}}" class="btn btn-secondary order-completed-continue-button">
-                                    <span>@lang('shopping.continue-shopping')</span>
+                                    <span>@lang('shoppings.continue-shopping')</span>
                                 </a>
                             </p>
                         </div>

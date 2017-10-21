@@ -36,5 +36,8 @@ return [
 	'apply-coupon' => 'Sử dụng coupon',
 	'enter-coupon' => 'Nhập coupon',
 	'enter-gift-cart' => 'Nhập mã thẻ quà tặng',	  
-	'cart-empty' => 'Giỏ hàng của bạn trống',				  		  	 					    
+	'cart-empty' => 'Giỏ hàng của bạn trống',		
+	'goto-cart' => 'Giỏ Hàng',		
+	'wishlist-empty' => 'Bạn không có sản phẩm nào trong wishlist!',	  
+	'wishlist' => 'Wishlish',	  		  	 					    
 ];
