@@ -60,7 +60,8 @@ class InfoPagesController extends Controller
             $info_page_translation = new InfoPageTranslation;
             $info_page_translation->info_page_id = $info_page->id;
             $info_page_translation->language_id = $language->id;
-            $info_page_translation->title = $request->input($language->id.'-title');            
+            $info_page_translation->title = $request->input($language->id.'-title'); 
+            $info_page_translation->description = $request->input($language->id.'-description');                          
             $info_page_translation->content = $request->input($language->id.'-content');
             $info_page_translation->save();
         }
@@ -120,6 +121,9 @@ class InfoPagesController extends Controller
             if (!empty($request->input($info_page_translation->language_id.'-title'))) {
                 $info_page_translation->title = $request->input($info_page_translation->language_id.'-title');  
             }
+            if (!empty($request->input($info_page_translation->language_id.'-description'))) {
+                $info_page_translation->description = $request->input($info_page_translation->language_id.'-description');  
+            }             
             if (!empty($request->input($info_page_translation->language_id.'-content'))) {
                 $info_page_translation->content = $request->input($info_page_translation->language_id.'-content');  
             }            

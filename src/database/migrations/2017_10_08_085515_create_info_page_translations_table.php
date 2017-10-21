@@ -26,6 +26,7 @@ class CreateInfoPageTranslationsTable extends Migration
 
             $table->text('title')->nullable();
             $table->text('content')->nullable();
+            $table->string('description')->nullable();            
 
             $table->timestamps();
         });
