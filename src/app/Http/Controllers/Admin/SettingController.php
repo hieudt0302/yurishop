@@ -28,44 +28,8 @@ class SettingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $info_page = InfoPage::find($id);
-        $this->validate($request,['title' => 'required',
-                                  'slug' => 'required'
-                                ]);
 
-        // Update data bảng info-page
-        $info_page->title = $request->input("title");
-        $info_page->slug = $request->input("slug");
-        $info_page->save();
-
-        $info_page_translations = $info_page->translations()->get();
-        foreach ($info_page_translations as $info_page_translation){
-            if (!empty($request->input($info_page_translation->language_id.'-title'))) {
-                $info_page_translation->title = $request->input($info_page_translation->language_id.'-title');  
-            }
-            if (!empty($request->input($info_page_translation->language_id.'-content'))) {
-                $info_page_translation->content = $request->input($info_page_translation->language_id.'-content');  
-            }            
-            $info_page_translation->save();
-        }
-        
-        session()->flash('success_message', "Cập nhật thành công !");
-        return redirect()->back(); 
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $info_page = InfoPage::find($id);
-        $info_page->delete();
-        session()->flash('success_message', "Xóa thành công!");        
-        return redirect()->route('admin.info-pages.index'); 
     }
 }

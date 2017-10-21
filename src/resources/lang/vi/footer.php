@@ -15,5 +15,6 @@ return [
     'faqs' => 'Câu hỏi thường gặp',        
     'newsletter-message' => 'Đăng kí nhận tin từ Pokofarms',
     'subscribe' => 'Đăng ký',
+    'subscribe-success' => 'Bạn đã đăng ký thành công !',
     'about-us' => 'Liên Hệ',    
 ];

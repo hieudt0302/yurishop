@@ -30,10 +30,20 @@ class HomeController extends Controller
         // $product_origin = $this->getInfoPageTranslation('product-origin');
         // $product_quality = $this->getInfoPageTranslation('product-quality');
         $new_products = Product::orderBy('created_at', 'desc')->limit(4)->get();
-        $best_sellers_products = Product::orderBy('created_at', 'desc')->limit(4)->get();
-        $sale_products = Product::orderBy('created_at', 'desc')->limit(4)->get();                
+        $best_sellers_products = DB::table('products')
+                                    ->join('order_details','products.id', '=', 'order_details.product_id')
+                                    ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
+                                    ->groupBy('product_id')
+                                    ->orderBy('count', 'desc')
+                                    ->get();
+        $sale_products = Product::where('special_price', '>', 0)
+                                ->where('special_price_start_date', '<=', date('Y-m-d', time()))
+                                ->where('special_price_end_date', '>=', date('Y-m-d', time()))
+                                ->orderBy('created_at', 'desc')->limit(4)->get();                
         $new_blogs = Post::orderBy('updated_at', 'desc')->limit(3)->get();
-        $sliders = Slider::where('is_show',1)->get();        
+        $sliders = Slider::where('is_show',1)->get();      
+
+        //var_dump($best_sellers_products); die();  
         return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'new_products', 'best_sellers_products', 'sale_products', 'new_blogs','sliders'));
 
     }
