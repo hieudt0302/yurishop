@@ -14,12 +14,14 @@
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="sub-button">
-                    <a class="subscribe" href="javascript:void(0);">@lang('footer.subscribe')</a>
+                    <a class="subscribe1" href="javascript:void(0);">@lang('footer.subscribe')</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 <footer class="ht-footer">
 <div class="container">
     <div class="row">
@@ -39,11 +41,11 @@
                     </li>
                     <li>
                         <i class="ion-ios-email"></i>
-                        <a href="#">contact@organie.com</a>
+                        <a href="#">pokofarms@pokofarms.com.vn</a>
                     </li>
                     <li>
                         <i class="ion-android-globe"></i>
-                        <a href="#">pokofarms@pokofarms.com.vn</a>
+                        <a href="#">pokofarms.com.vn</a>
                     </li>
                 </ul>
             </div>
@@ -120,7 +122,7 @@
 </footer>
 
 <script type="text/javascript">
-    $('a.subscribe').click(function() {
+    $('a.subscribe1').click(function() {  
         $.ajax({
             type: "POST",
             url: "{{url('/subscribe')}}" ,

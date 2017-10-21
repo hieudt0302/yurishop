@@ -28,10 +28,15 @@ class SliderController extends Controller
     public function store(Request $request){
         $this->validate($request,['title' => 'required',
                                   'url' => 'required',
-                                  'sort_order' => 'required'                                  
+                                  'image' => 'required|image'                                  
                                 ]);        
 
-        $slider->image  = '';
+        $slider = new Slider;
+        $slider->title = $request->title;
+        $slider->url = $request->url;
+        $slider->order = $request->sort_order??0;
+        $slider->is_show = $request->is_show;
+
         if (request()->hasFile('image')) {
             $image = $request->file('image');
             $img_path = $image->storeAs('images/slider',$image->getClientOriginalName());                              
@@ -40,11 +45,6 @@ class SliderController extends Controller
             $slider->image = $img_path;                      
         }           
 
-        $slider = new Slider;
-        $slider->title = $request->title;
-        $slider->url = $request->url;
-        $slider->order = $request->sort_order;
-        $slider->is_show = $request->is_show;
         $slider->save();
 
         $language_list = Language::all();
@@ -73,8 +73,7 @@ class SliderController extends Controller
         $slider = Slider::find($id);
 
         $this->validate($request,['title' => 'required',
-                                  'url' => 'required',
-                                  'sort_order' => 'required'                                  
+                                  'url' => 'required'                                
                                 ]);   
 
         if (request()->hasFile('image')) {
@@ -87,7 +86,7 @@ class SliderController extends Controller
 
         $slider->title = $request->title;
         $slider->url = $request->url;
-        $slider->order = $request->sort_order;
+        $slider->order = $request->sort_order??0;
         $slider->is_show = $request->is_show;
         $slider->save();
 
@@ -105,11 +104,7 @@ class SliderController extends Controller
     }
     public function destroy($id){
         $slider = Slider::find($id);
-        if($slider->image != ''){
-            $img_file = './public/assets/img/slider/'.$slider->image;
-            if(file_exists($img_file))
-                unlink($img_file);
-        }
+        Storage::delete($slider->image);
         $slider->delete();
 
         session()->flash('success_message', "Xóa thành công !");

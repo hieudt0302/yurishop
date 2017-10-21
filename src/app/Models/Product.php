@@ -44,6 +44,8 @@ class Product extends Model
          return $this->hasMany('App\Models\OrderDetail');
      }
 
+     
+
      /**
      * Get the category that owns the product.
      */

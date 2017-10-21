@@ -52,6 +52,7 @@ class PostsController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'slug' => 'required|string|min:1',
+            'img' => 'required|inage'            
         ]);
 
         if ($validator->fails()) {
@@ -288,6 +289,8 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        Storage::delete('images/blog/'.$post->img);
+        Storage::delete('images/blog/preview/'.$post->img);                
         $post->delete();
         session()->flash('success_message', "Xóa thành công!");        
         return redirect()->route('admin.posts.index'); 

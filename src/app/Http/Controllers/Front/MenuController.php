@@ -22,7 +22,7 @@ class MenuController extends Controller
             $lastProducts = Product::where('published',1)->take(4)->get(); ///TODO: move number limit to database setting
             //PRODCTS
             $results = $category->publishedProducts()->paginate(21);  ///TODO: move number limit to database setting
-            return View('front/products/index', compact('results','tags','comments', 'lastProducts'))
+            return View('front/products/index', compact('results','tags','comments', 'lastProducts','category'))
             ->with('i', ($page??1 - 1) * 21);
         } elseif ($parent == "posts") {
             //RELATED
@@ -35,7 +35,7 @@ class MenuController extends Controller
             //POSTS
             $posts = $category->publishedPosts()->paginate(21);  ///TODO: move number limit to database setting
             
-            return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories'))
+            return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories','category'))
             ->with('i', ($page??1 - 1) * 21);
         }
     }

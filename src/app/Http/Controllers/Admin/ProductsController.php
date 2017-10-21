@@ -333,7 +333,7 @@ class ProductsController extends Controller
         ],
         [
             'product_id' => 'Không lấy được thông tin sản phẩm. CodeI1002x1',
-            'image_upload.image' => 'The file must be an image (jpeg, png, bmp, gif, or svg)'
+            'image_upload.image' => 'File phải ở định dạng ảnh (jpeg, png, bmp, gif, or svg)'
         ]);
 
         if ($validator->fails()){

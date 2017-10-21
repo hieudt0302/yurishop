@@ -13,6 +13,7 @@ return [
     'last-name' => 'Họ',
     'phone' => 'Điện thoại',
     'email' => 'Email',
+    'change-password' => 'Thay đổi mật khẩu',     
     'current-password' => 'Mật khẩu hiện tại',
     'new-password' => 'Mật khẩu mới',
     'retype-password' => 'Xác nhận mật khẩu',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Order;
@@ -92,9 +93,32 @@ class AccountController extends Controller
         return View('front.myaccount.changepassword');
     }
 
-    public function ChangePasswordUpdate()
+    public function ChangePasswordUpdate(Request $request)
     {
-        return View('front.myaccount.changepassword');
+        $validator = Validator::make($request->all(), [
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|string|min:5',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator);
+        }
+
+        $user = Auth::user();
+       
+        if (Hash::check($request->new_password,  $user->password)) {
+            $user->password = bcrypt($request->password);
+            $user->save();
+        }else{
+            return redirect()->back()
+            ->with('message', 'Mật khẩu cũ không đúng!')
+            ->with('status', 'danger');
+        }
+
+        return redirect()->back()
+        ->with('message', 'Thay đổi mật khẩu thành công!') 
+        ->with('status', 'success');
     }
 
 

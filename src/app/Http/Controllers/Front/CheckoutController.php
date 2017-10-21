@@ -43,13 +43,19 @@ class CheckoutController extends Controller
 
     public function BillingAddressCreateNew(Request $request)
     {
-        ///TODO: Working on it...
-       
         $validator = Validator::make($request->all(), [
-            // 'first_name' => 'required',
-            // 'phone' => 'required',
-            // 'address1' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => 'required',
+            'address1' => 'required',
+            'city' => 'required'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
 
            
 
@@ -73,22 +79,21 @@ class CheckoutController extends Controller
 
     public function ShippingAddressCreateNew(Request $request)
     {
-        ///TODO: Working on it...
-            $validator = Validator::make($request->all(), [
-                'first_name' => 'required',
-                'phone' => 'required',
-                'address1' => 'required',
-            ]);
-    
-            if ($validator->fails()) {
-                return redirect()->back()
-                ->with('message', 'ERROR-INPUT: Code EI1003')
-                ->with('status', 'danger')
-                ->withInput();
-            }
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => 'required',
+            'address1' => 'required',
+            'city' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
 
            
-
         session(['ShippingAddressId' => $this->CreateNewAddress($request)]);
 
         return redirect()->action('Front\CheckoutController@ShippingMethod');
@@ -155,16 +160,6 @@ class CheckoutController extends Controller
 
     public function ConfirmNext(Request $request)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'note' => 'string'
-        // ]);
-
-        // if ($validator->fails()) {
-        //     return redirect()->back()
-        //     ->with('message', 'ERROR-INPUT: Code EI1001')
-        //     ->with('status', 'danger')
-        //     ->withInput();
-        // }
 
         $billingAddressId =  session('BillingAddressId');
         $shippingAddressId = session('ShippingAddressId');
@@ -178,10 +173,10 @@ class CheckoutController extends Controller
         try{
             // Make order
             $order_id = DB::table('orders')->insertGetId([
-                'order_no'=> 'O2018-123',
+                'order_no'=> date("y") . date("m") . date("d"). date("h"). date("m"). date("s") .  Auth::user()->id,
                 'order_start_date' => Carbon::now(),
                 'order_end_date' =>Carbon::now(),
-                'order_tax'=>0,
+                'order_tax'=>Cart::tax(),
                 'order_shipping_price'=>0,
                 'order_total' =>Cart::total(2, '.', ''),
                 'note' => $note,
@@ -199,7 +194,7 @@ class CheckoutController extends Controller
              foreach (Cart::content() as $item) {
                 DB::table('order_details')->insert([
                     'product_id' => $item->id,
-                    'discount'=>0,
+                    'discount'=> 0,
                     'order_id'=> $order_id,
                     'price'=>$item->price,
                     'quantity'=>$item->qty,
@@ -212,19 +207,17 @@ class CheckoutController extends Controller
 
         }catch(\Exception $e){
             DB::rollBack();
-            var_dump($e->getMessage()); die;
             return redirect()->back()
-                ->with('message', 'ERROR-CREATE: Code EC1002')
-                ->with('status', 'danger')
+                ->withErrors($validator)
                 ->withInput();
         }
 
-        //Cart::destroy();
-        //session()->flush();
+        Cart::destroy();
         session()->forget('BillingAddressId');
         session()->forget('ShippingAddressId');
         session()->forget('ShippingMethodId');
         session()->forget('PaymentMethodId');
+
 
         session(['OrderId' => $order_id]);
         return redirect()->action('Front\CheckoutController@Complete');
@@ -233,11 +226,13 @@ class CheckoutController extends Controller
     public function Complete()
     {
         $order_id =  session('OrderId');
+        $order_no = Order::find($order_id)->order_no??$order_id;
+        
         if(empty($order_id))
             return abort(404);
 
         session()->forget('OrderId');
-        return View('front.checkout.complete',compact('order_id'));
+        return View('front.checkout.complete',compact('order_id','order_no'));
     }
 
     public function CompleteNext(Request $request)

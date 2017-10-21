@@ -92,13 +92,19 @@
                                     <td>
                                         <input type="text" id="title" class="form-control" name="{{$info_page_tran->language_id}}-title" value="{{ $info_page_tran->title }}" />
                                     </td>
-                                </tr>                
+                                </tr>    
+                                <tr>
+                                    <td>Mô tả</td>                  
+                                    <td>
+                                        <textarea class="form-control" name="{{$info_page_tran->language_id}}-description">{{ $info_page_tran->description }}</textarea>                   
+                                    </td>
+                                </tr>                                               
                                 <tr>
                                     <td>Nội dung</td>                  
                                     <td>
                                         <textarea class="form-control ckeditor" name="{{$info_page_tran->language_id}}-content">{{ $info_page_tran->content }}</textarea>                   
                                     </td>
-                                </tr> 
+                                </tr>                               
                             </table>
                         </div>
                         @endforeach

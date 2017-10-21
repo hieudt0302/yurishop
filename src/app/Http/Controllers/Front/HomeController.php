@@ -26,9 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $about_us = $this->getInfoPageTranslation('about-us');
-        // $product_origin = $this->getInfoPageTranslation('product-origin');
-        // $product_quality = $this->getInfoPageTranslation('product-quality');
+        $about_us = InfoPage::where('slug','about')->first();
+        $product_origin = InfoPage::where('slug','product-origin')->first();
+        $product_quality = InfoPage::where('slug','product-quality')->first(); 
         $new_products = Product::orderBy('created_at', 'desc')->limit(4)->get();
         $best_sellers_products = DB::table('products')
                                     ->join('order_details','products.id', '=', 'order_details.product_id')

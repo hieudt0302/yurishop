@@ -24,6 +24,7 @@
 		<div class="row">
 			<div class="pro-detail-infor list-item">
 				<div class="col-md-4 col-sm-4 col-xs-12">
+				@if(count($product->medias) > 0)
 					@foreach($product->medias as $key =>  $media)
 						@if($key === 0)
 						<div class="pro-img">
@@ -47,6 +48,11 @@
 							@endif
 						@endif
 					@endforeach
+				@else
+					<div class="pro-img">
+						<img src="{{asset('/images/no-image.png')}}" alt="" class="product-main-img">
+					</div>
+				@endif 
 				</div>
 				<div class="col-md-8 col-sm-8 col-xs-12">
 					<div class="pro-list-it it">

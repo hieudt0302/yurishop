@@ -112,6 +112,7 @@ Route::post('/Account/Addresses/Update', 'Auth\AccountController@AddressUpdate')
 
 // 4. Change Password
 Route::get('/Account/ChangePassword', 'Auth\AccountController@ChangePassword');
+Route::post('/Account/ChangePassword/Update', 'Auth\AccountController@ChangePasswordUpdate');
 
 /* ORDER */
 Route::get('/Order/Details/{id}', 'Front\OrdersController@show');
