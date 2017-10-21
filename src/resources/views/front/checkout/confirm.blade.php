@@ -54,28 +54,21 @@
                     <div class="page-title">
                         <h1 class="h3">@lang('checkout.confirm-order')</h1>
                     </div>
-                    <div class="page-body checkout-data">
-                        <form action="{{url('/Checkout/Confirm/Next')}}" id="confirm-order-form" method="post">
-                        {{ csrf_field() }}	
+                    <div class="page-body checkout-data">                       
                             <p class="page-intro lead">
                                 @lang('checkout.confirm-message')
                             </p>
-                            <input type="hidden" id="customercommenthidden" name="customercommenthidden">
-                            <input type="hidden" id="SubscribeToNewsLetterHidden" name="SubscribeToNewsLetterHidden">
-                            <input type="hidden" id="AcceptThirdPartyEmailHandOverHidden" name="AcceptThirdPartyEmailHandOverHidden">
                             <div class="terms-of-service alert alert-info mb-3">
-                                
                                 <div class="checkbox">
                                     <label class="mb-0 form-check-label">
                                         <input id="termsofservice" type="checkbox" name="termsofservice" class="form-check-input"> @lang('checkout.agree-message')
                                     </label>
                                 </div>
-
                                 <!-- Terms of service -->
                             </div>
                             <div class="confirm-order">
                             </div>
-                        </form>
+                  
                         <div class="order-summary-body mb-4">
                             <div class="order-summary-content">
                                 <div class="card card-block order-review-data-box mb-3">
@@ -173,7 +166,7 @@
                                                             <a class="btn btn-primary btn-sm change-checkout-data" href="{{url('/Checkout/ShippingMethod')}}">@lang('checkout.change')</a>
                                                         </div>
                                                     </div>
-                                                    <p>Pickup</p>
+                                                    <p>{{__('method.shipping.'. $shippingMethodId . '.name')}}</p>
                                                     <div class="row row-hardcode sm-gutters">
                                                         <div class="col">
                                                             <div class="heading">
@@ -184,123 +177,124 @@
                                                             <a class="btn btn-primary btn-sm change-checkout-data" href="{{'/Checkout/PaymentMethod'}}">@lang('checkout.change')</a>
                                                         </div>
                                                     </div>
-                                                    <p>Cash on delivery</p>
+                                                    <p>{{__('method.payment.'. $paymentMethodId . '.name')}}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     
                                 </div>
-                                <div class="comment-box card mb-3">
-                                    <div class="card-header h5">
-                                        @lang('checkout.checkout-comment')
-                                    </div>
-                                    <div class="card-block">
-                                        <textarea class="form-control" cols="20" id="CustomerComment" name="note" placeholder="{{ __('checkout.optional')}}" rows="2"></textarea>
-                                    </div>
-                                </div>
-                                <form action="#" enctype="multipart/form-data" method="post">
-                                    <div class="card">
-                                        <div id="cart-items" class="cart mb-0">
-                                            <div class="cart-head">
-                                                <div class="cart-row">
-                                                    <div class="cart-col cart-col-main">
-                                                        @lang('shoppings.products')
-                                                    </div>
-                                                    <div class="cart-col cart-col-price">
-                                                        @lang('shoppings.price')
-                                                    </div>
-                                                    <div class="cart-col cart-col-qty">
-                                                        @lang('shoppings.qty')
-                                                    </div>
-                                                    <div class="cart-col cart-col-price cart-col-subtotal">
-                                                        @lang('shoppings.total')
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cart-body">
-                                                @foreach(Cart::content() as $row)
-                                                <div class="cart-row">
-                                                    <div class="cart-col cart-col-main">
-                                                        <div class="row row-hardcode sm-gutters">
-                                                            <div class="col cart-item-img">
-                                                                <img class="img-fluid" alt="Picture of Item" 
-                                                                src="{{asset('/storage')}}/{{$row->options->source}}"
-                                                                    title="Show details for Herren T-Shirt">
-                                                            </div>
-                                                            <div class="col">
-                                                                <a class="cart-item-link" href="{{url('/products')}}/$row->id" title="Description">{{$row->name}}</a>
-                                                                <div class="cart-item-desc fs-sm">
-                                                                {{$row->options->summary}}
-                                                                </div>
-                                                                <!-- <div class="cart-item-attrs fs-sm my-2">
-                                                                    Atributes
-                                                                </div> -->
-                                                                <!-- <div class="attributes text-muted fs-sm mb-2">
-                                                                    Size: M
-                                                                    <br>Color: Red
-                                                                </div> -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="cart-col cart-col-price" data-caption="Price">
-                                                        <span class="price">{{$row->price}}</span>
-                                                    </div>
-                                                    <div class="cart-col cart-col-qty" data-caption="Quantity">
-                                                        <span>{{$row->qty}}</span>
-                                                    </div>
-
-                                                    <div class="cart-col cart-col-price cart-col-subtotal" data-caption="Total">
-                                                        <span class="price">{{$row->total}}</span>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
+                                <form action="{{url('/Checkout/Confirm/Next')}}" id="confirm-order-form" method="post">
+                                    {{ csrf_field() }}	
+                                    <div class="comment-box card mb-3">
+                                        <div class="card-header h5">
+                                            @lang('checkout.checkout-comment')
                                         </div>
-                                        <div class="cart-footer rounded-bottom">
-                                            <div class="row row-hardcode">
-                                                <div class="col-md-6">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div id="order-totals">
-                                                        <table class="cart-summary">
-                                                            <tbody>
-                                                                <tr class="cart-summary-subtotal">
-                                                                    <td class="cart-summary-label">@lang('shoppings.subtotal'):</td>
-                                                                    <td class="cart-summary-value">{{$row->subtotal()}}</td>
-                                                                </tr>
-                                                                <tr class="cart-summary-shipping">
-                                                                    <td class="cart-summary-label">
-                                                                        <span class="text-nowrap">@lang('checkout.shipping'):</span>
-                                                                        <span class="font-weight-medium">
-                                                                            Pickup
-                                                                        </span>
-                                                                    </td>
-                                                                    <td class="cart-summary-value">
-                                                                        <span class="cart-summary-neg">$0.00</span>
-                                                                    </td>
-                                                                </tr>
-
-                                                                <tr class="cart-summary-tax">
-                                                                    <td class="cart-summary-label">@lang('shoppings.tax'):</td>
-                                                                    <td class="cart-summary-value">{{$row->tax()}}</td>
-                                                                </tr>
-                                                                <tr class="cart-summary-total">
-                                                                    <td class="cart-summary-label">@lang('shoppings.total'):</td>
-                                                                    <td class="cart-summary-value">
-                                                                        <span>$69.96</span>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
+                                        <div class="card-block">
+                                            <textarea class="form-control" cols="20" id="CustomerComment" name="note" placeholder="{{ __('checkout.optional')}}" rows="2"></textarea>
                                         </div>
                                     </div>
                                 </form>
+                                <div class="card">
+                                    <div id="cart-items" class="cart mb-0">
+                                        <div class="cart-head">
+                                            <div class="cart-row">
+                                                <div class="cart-col cart-col-main">
+                                                    @lang('shoppings.products')
+                                                </div>
+                                                <div class="cart-col cart-col-price">
+                                                    @lang('shoppings.price')
+                                                </div>
+                                                <div class="cart-col cart-col-qty">
+                                                    @lang('shoppings.qty')
+                                                </div>
+                                                <div class="cart-col cart-col-price cart-col-subtotal">
+                                                    @lang('shoppings.total')
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-body">
+                                            @foreach(Cart::content() as $row)
+                                            <div class="cart-row">
+                                                <div class="cart-col cart-col-main">
+                                                    <div class="row row-hardcode sm-gutters">
+                                                        <div class="col cart-item-img">
+                                                            <img class="img-fluid" alt="Picture of Item" 
+                                                            src="{{asset('/storage')}}/{{$row->options->source}}"
+                                                                title="Show details for Herren T-Shirt">
+                                                        </div>
+                                                        <div class="col">
+                                                            <a class="cart-item-link" href="{{url('/products')}}/$row->id" title="Description">{{$row->name}}</a>
+                                                            <div class="cart-item-desc fs-sm">
+                                                            {{$row->options->summary}}
+                                                            </div>
+                                                            <!-- <div class="cart-item-attrs fs-sm my-2">
+                                                                Atributes
+                                                            </div> -->
+                                                            <!-- <div class="attributes text-muted fs-sm mb-2">
+                                                                Size: M
+                                                                <br>Color: Red
+                                                            </div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cart-col cart-col-price" data-caption="Price">
+                                                    <span class="price">{{$row->price}}</span>
+                                                </div>
+                                                <div class="cart-col cart-col-qty" data-caption="Quantity">
+                                                    <span>{{$row->qty}}</span>
+                                                </div>
+
+                                                <div class="cart-col cart-col-price cart-col-subtotal" data-caption="Total">
+                                                    <span class="price">{{$row->total}}</span>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="cart-footer rounded-bottom">
+                                        <div class="row row-hardcode">
+                                            <div class="col-md-6">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div id="order-totals">
+                                                    <table class="cart-summary">
+                                                        <tbody>
+                                                            <tr class="cart-summary-subtotal">
+                                                                <td class="cart-summary-label">@lang('shoppings.subtotal'):</td>
+                                                                <td class="cart-summary-value">{{$row->subtotal()}}</td>
+                                                            </tr>
+                                                            <tr class="cart-summary-shipping">
+                                                                <td class="cart-summary-label">
+                                                                    <span class="text-nowrap">@lang('checkout.shipping'):</span>
+                                                                    <span class="font-weight-medium">
+                                                                        Pickup
+                                                                    </span>
+                                                                </td>
+                                                                <td class="cart-summary-value">
+                                                                    <span class="cart-summary-neg">$0.00</span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="cart-summary-tax">
+                                                                <td class="cart-summary-label">@lang('shoppings.tax'):</td>
+                                                                <td class="cart-summary-value">{{$row->tax()}}</td>
+                                                            </tr>
+                                                            <tr class="cart-summary-total">
+                                                                <td class="cart-summary-label">@lang('shoppings.total'):</td>
+                                                                <td class="cart-summary-value">
+                                                                    <span>$69.96</span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="cart-buttons my-4 row row-hardcode">

@@ -5,8 +5,6 @@
 <!-- OVERRIDER MASTER CSS -->
 <link rel="stylesheet" href="{{ asset('css/custom-order.css') }}">
 @stop
-
-
 @section('content')
 <div id="content-wrapper">
     <section id="content" class="container mt-3">
@@ -45,7 +43,7 @@
                             </div>
                             <div class="col-6 col-sm-auto pb-3">
                                 <h5 class="text-muted">Order Status</h5>
-                                <div>{{$order->order_status}}</div>
+                                <div>{{__('status.order.'. $order->order_status)}}</div>
                             </div>
                             <div class="col-6 col-sm-auto pb-3">
                                 <h5 class="text-muted">Order Total</h5>
@@ -124,9 +122,9 @@
                                     <div class="row row-hardcode">
                                         <div class="col">
                                             <h5>Shipping Method</h5>
-                                            <p>Abholung</p>
+                                            <p>{{__('method.shipping.'. $order->shipping_method . '.name')}}</p>
                                             <h5>Payment Method</h5>
-                                            <p>Cash on delivery</p>
+                                            <p>{{__('method.payment.'. $order->payment_method . '.name')}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -160,15 +158,17 @@
                                         <div class="cart-col cart-col-main">
                                             <div class="row row-hardcode sm-gutters">
                                                 <div class="col cart-item-img">
-                                                    <img class="img-fluid" alt="Picture of Product" src="{{asset('/storage')}}/{{$orderdetail->product->GetMediaByOrderAsc()->source??'images/default-image.png'}}"
-                                                        title="Show details for product">
+                                                    @if(strlen($orderdetail->product->GetMediaByOrderAsc()->source??'') > 0)
+                                                    <img class="img-fluid" alt="{{$orderdetail->product->name}}" src="{{asset('/storage')}}/{{$orderdetail->product->GetMediaByOrderAsc()->source??'images/default-image.png'}}" title="{{$orderdetail->product->name}}">
+                                                    @else
+                                                    <img class="img-fluid" alt="{{$orderdetail->product->name}}" src="{{asset('/images/no-image.png')}}">
+                                                    @endif
                                                 </div>
                                                 <div class="col">
                                                     <a class="cart-item-link" href="{{url('/products/')}}/{{$orderdetail->product->id}}" title="Description">{{$orderdetail->product->name}}</a>
-                                                    <!-- <div class="cart-item-attrs">
-                                                        Size: 1
-                                                        <br>Color: Brown
-                                                    </div> -->
+                                                    <div class="cart-item-desc fs-sm">
+                                                    {{$orderdetail->product->translation->summary??''}}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -195,19 +195,19 @@
                                             <tbody>
                                                 <tr class="cart-summary-subtotal">
                                                     <td class="cart-summary-label">Sub-Total:</td>
-                                                    <td class="cart-summary-value">$596.89</td>
+                                                    <td class="cart-summary-value">{{$order->orderdetails->sum('total')}}</td>
                                                 </tr>
                                                 <tr class="cart-summary-shipping cart-summary-neg">
                                                     <td class="cart-summary-label">Shipping:</td>
-                                                    <td class="cart-summary-value">$0.00</td>
+                                                    <td class="cart-summary-value">{{$order->order_shipping_price}}</td>
                                                 </tr>
                                                 <tr class="cart-summary-tax">
                                                     <td class="cart-summary-label">Tax:</td>
-                                                    <td class="cart-summary-value">$99.48</td>
+                                                    <td class="cart-summary-value">{{$order->order_tax}}</td>
                                                 </tr>
                                                 <tr class="cart-summary-total">
                                                     <td class="cart-summary-label">Order Total:</td>
-                                                    <td class="cart-summary-value">$596.89</td>
+                                                    <td class="cart-summary-value">{{$order->order_total}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -218,15 +218,14 @@
 
 
 
-                        <div class="cart-actions row row-hardcode sm-gutters mb-2 justify-content-lg-end">
-
+                        <!-- <div class="cart-actions row row-hardcode sm-gutters mb-2 justify-content-lg-end">
                             <div class="col-12 mt-2 col-sm-6 mt-sm-0 col-lg-3">
                                 <a class="btn btn-primary btn-block" href="{{url('/Order/ReOrder')}}/{{$order->id}}" rel="nofollow">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Re-order</span>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

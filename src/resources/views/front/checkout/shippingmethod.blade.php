@@ -57,47 +57,21 @@
                         <form action="{{url('/Checkout/ShippingMethod/Next')}}" method="POST">
                         {{ csrf_field() }}	
                             <ul class="list-group opt-list shipping-options">
-                                <li class="list-group-item opt-list-item shipping-option-item active">
+                                @foreach(\Lang::get('method.shipping') as $key =>$value)
+                                <li class="list-group-item opt-list-item shipping-option-item {{$key==1?'active':''}} ">
                                     <div class="opt-data">
                                         <div class="form-check opt-control option-name radio">
                                             <label class="form-check-label">
-                                                <input id="shippingoption_0" type="radio" name="shippingoption" class="opt-radio form-check-input" checked="checked" value="1">
-                                                <span class="opt-name">@lang('checkout.pickup')</span>
+                                                <input id="shippingoption_{{$key}}" type="radio" name="shippingoption" class="opt-radio form-check-input" value="{{$key}}"  {{$key==1?'checked="checked"':''}}>
+                                                <span class="opt-name">{{$value['name']}}</span>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="opt-info text-muted shipping-option-description">
-                                        @lang('checkout.pickup-message')
+                                    {{$value['description']}}
                                     </div>
                                 </li>
-                                <li class="list-group-item opt-list-item shipping-option-item">
-                                    <div class="opt-data">
-                                        <div class="form-check opt-control option-name radio">
-                                            <label class="form-check-label">
-                                                <input id="shippingoption_1" type="radio" name="shippingoption" class="opt-radio form-check-input" value="2">
-                                                <span class="opt-name">@lang('checkout.shipping')</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="opt-info text-muted shipping-option-description">
-                                        @lang('checkout.shipping-message')
-                                    </div>
-                                </li>
-                                <li class="list-group-item opt-list-item shipping-option-item">
-                                    <div class="opt-data">
-                                        <div class="form-check opt-control option-name radio">
-                                            <label class="form-check-label">
-                                                <input id="shippingoption_2" type="radio" name="shippingoption" class="opt-radio form-check-input" value="3">
-                                                <span class="opt-name">@lang('checkout.courier')Delivery from Vietnam by courier</span>
-                                            </label>
-                                        </div>
-                                        <div class="opt-fee shipping-fee text-danger">
-                                            $61.20
-                                        </div>
-                                    </div>
-                                    <div class="opt-info text-muted shipping-option-description">
-                                    @lang('checkout.courier-message')</div>
-                                </li>
+                                @endforeach
                             </ul>
                             <div class="buttons">
                                 <a class="btn btn-secondary btn-lg" href="{{url('/Checkout/ShippingAddress')}}">

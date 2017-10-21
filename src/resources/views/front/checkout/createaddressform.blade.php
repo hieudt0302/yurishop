@@ -1,4 +1,10 @@
 <div class="enter-address-body">
+    <div class="row">
+            <div class="col-xs-12">
+                @include('notifications.status_message') 
+                @include('notifications.errors_message') 
+            </div>
+    </div> 
     <div class="form-horizontal">
         <div class="form-group row row-hardcode">
             <label class="col-sm-3 col-form-label" for="company">@lang('profile.company')</label>
@@ -49,7 +55,7 @@
                     <div class="col">
                         <input class="form-control"  id="city" name="city" placeholder="" type="text" value=""></div>
                     <div class="col col-auto">
-                        <label class="text-right col-form-label required" for="zipcode" >@lang('profile.zipcode')</label>
+                        <label class="text-right col-form-label" for="zipcode" >@lang('profile.zipcode')</label>
                     </div>
                     <div class="col col-auto">
                         <input class="form-control"  id="zipcode" name="zipcode" placeholder="" style="width: 6rem" type="text" value="">
@@ -74,9 +80,9 @@
             <hr>
         </div>
         <div class="form-group row row-hardcode">
-            <label class="col-sm-3 col-form-label required" for="email" >Email</label>
+            <label class="col-sm-3 col-form-label" for="email" >Email</label>
             <div class="col-sm-9">
-                <input class="form-control"   data-val-required="Email is required." id="email" name="email" type="email" value="">
+                <input class="form-control"   id="email" name="email" type="email" value="">
             </div>
         </div>
 

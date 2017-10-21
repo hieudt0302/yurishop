@@ -8,7 +8,7 @@
 
 @section('content')
 <div id="content-wrapper">
-    <section id="content" class="container mt-3">
+    <section id="content" class="container mt-3">        
         <div class="costeps row row-hardcode no-gutters">
             <div class="col-2 costep visited" data-step="cart">
                 <a class="costep-link" href="{{url('/cart')}}"> <i class="costep-icon"></i>

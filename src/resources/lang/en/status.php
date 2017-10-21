@@ -13,26 +13,26 @@ return [
     */
 
     'order' => [
-        1 => 'Pending',
-        2 => 'Processing',
-        3 => 'Complete',
-        4 => 'Cancelled'
+        0 => 'Pending',
+        1 => 'Processing',
+        2 => 'Complete',
+        3 => 'Cancelled'
     ],
 
     'shipping' => [
-        1 => 'Shipping Not Required',
-        2 => 'Not Yet Shipped',
-        3 => 'Partially Shipped',
-        4 => 'Shipped',
-        5 => 'Delivered',
+        0 => 'Shipping Not Required',
+        1 => 'Not Yet Shipped',
+        2 => 'Partially Shipped',
+        3 => 'Shipped',
+        4 => 'Delivered',
     ],
 
     'payment' => [
-        1 => 'Pending',
-        2 => 'Authorized',
-        3 => 'Paid',
-        4 => 'Partially Refunded',
-        5 => 'Refunded',
-        6 => 'Voided',
+        0 => 'Pending',
+        1 => 'Authorized',
+        2 => 'Paid',
+        3 => 'Partially Refunded',
+        4 => 'Refunded',
+        5 => 'Voided',
     ]
 ];

@@ -57,69 +57,26 @@
                         <form action="{{url('/Checkout/PaymentMethod/Next')}}" method="post">
                         {{ csrf_field() }}	
                             <ul class="list-group opt-list payment-methods">
-                                <li class="list-group-item opt-list-item payment-method-item active">
+                            @foreach(\Lang::get('method.payment') as $key =>$value)
+                                <li class="list-group-item opt-list-item payment-method-item {{$key==1?'active':''}} ">
                                     <div class="opt-data">
                                         <div class="form-check opt-control option-name radio">
                                             <label class="form-check-label">
-                                                <input id="paymentmethod_0" type="radio" name="paymentmethod" data-has-info="true" data-lazy-info="false" class="opt-radio form-check-input"
-                                                    value="1">
-                                                <span class="opt-name">Cash on delivery</span>
+                                                <input id="paymentmethod_{{$key}}" 
+                                                type="radio" name="paymentmethod" 
+                                                class="opt-radio form-check-input"
+                                                value="{{$key}}" {{$key==1?'checked="checked"':''}}>
+                                                <span class="opt-name">{{$value['name']}}</span>
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="opt-info payment-method-info" data-system-name="Payments.CashOnDelivery">
+                                    <div class="opt-info payment-method-info" >
                                         <div class="text-muted">
-                                            Once your order is placed, you will be contacted by our staff to confirm the order.
+                                        {{$value['description']}}
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item opt-list-item payment-method-item">
-                                    <div class="opt-data">
-                                        <div class="form-check opt-control option-name radio">
-                                            <label class="form-check-label">
-                                                <input id="paymentmethod_1" type="radio" name="paymentmethod" data-has-info="true" data-lazy-info="false" class="opt-radio form-check-input"
-                                                    value="2">
-                                                <span class="opt-name">Pay in store</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="opt-info payment-method-info" data-system-name="Payments.PayInStore">
-
-
-                                        <div class="text-muted">
-                                            Reserve items at your local store, and pay in store when you pick up your order.
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item opt-list-item payment-method-item">
-                                    <div class="opt-data">
-                                        <div class="form-check opt-control option-name radio">
-                                            <label class="form-check-label">
-                                                <input id="paymentmethod_2" type="radio" name="paymentmethod" data-has-info="true" data-lazy-info="false" class="opt-radio form-check-input"
-                                                    value="3">
-                                                <span class="opt-name">Prepayment</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="opt-info payment-method-info" data-system-name="Payments.Prepayment">
-
-
-                                        <div class="text-muted">
-                                            Once your order is placed, you will be contacted by our staff to confirm the order.
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item opt-list-item payment-method-item">
-                                    <div class="opt-data">
-                                        <div class="form-check opt-control option-name radio">
-                                            <label class="form-check-label">
-                                                <input id="paymentmethod_3" type="radio" name="paymentmethod" checked="checked" data-has-info="true" data-lazy-info="true"
-                                                    class="opt-radio form-check-input" value="4">
-                                                <span class="opt-name">Credit card (manual)</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
                             <div class="buttons">
                                 <a class="btn btn-secondary btn-lg" href="{{url('/Checkout/ShippingMethod')}}">
