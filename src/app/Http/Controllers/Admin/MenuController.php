@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\CategoryTranslation;
+use App\Models\Language;
 use Validator;
 
 class MenuController extends Controller
@@ -68,7 +70,7 @@ class MenuController extends Controller
         $menu->enabled = $request->enabled??0;
         $menu->is_visible = $request->is_visible??0;
         $menu->is_menu_avaiable = true;
-
+        $menu->parent_id = $request->parent_id > 0?$request->parent_id:null;
      
         if (is_numeric($request->parent) && (int)$request->parent >0 ) {
             $menu->parent_id = $request->parent_id;
@@ -99,7 +101,8 @@ class MenuController extends Controller
     public function edit($id)
     {
         $menu = Category::find($id);
-        return View('admin/menu/edit', compact('menu'));
+        $languages = Language::all(); ///TODO: make condition active
+        return View('admin/menu/edit', compact('menu','languages'));
     }
 
     /**
@@ -131,11 +134,12 @@ class MenuController extends Controller
 
         $menu =Category::find($id);
         $menu->name = $request->name;
+        $menu->order = $request->order;
         $menu->slug = $request->slug;
         $menu->enabled = $request->enabled??0;
         $menu->is_visible = $request->is_visible??0;
         $menu->is_menu_avaiable = true;
-
+        $menu->parent_id = $request->parent_id > 0?$request->parent_id:null;
      
         if (is_numeric($request->parent) && (int)$request->parent >0 ) {
             $menu->parent_id = $request->parent_id;
@@ -146,6 +150,69 @@ class MenuController extends Controller
         ->with('message', 'Menu đã được cập nhật.')
         ->with('status', 'success')
         ->withInput();
+    }
+
+    public function updateTranslation(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'language_id' =>'required|numeric|min:1',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'ERROR-INPUT: Code EI1001',
+                'status' => 'error'
+            ]);
+        }
+
+        $translation = CategoryTranslation::where('language_id',$request->language_id)
+        ->where('category_id',$id)->withoutGlobalScopes()
+        ->first();
+
+        if(!empty($translation))
+        {
+            $translation->name = $request->name;
+            $translation->description = $request->description;
+            $translation->save();
+        }else{
+            $translation = new  CategoryTranslation();
+            $translation ->name = $request->name;
+            $translation ->description = $request->description;
+            $translation->category_id = $id;
+            $translation->language_id =  $request->language_id;
+            $translation->save();
+        }
+
+        return response()->json([
+            'message' => 'Cập nhật nội dung  thành công.',
+            'status' => 'success',
+            'type' => 'update'
+        ]);
+    }
+
+    public function fetchTranslation($id, $code)
+    {
+        $translation = CategoryTranslation::where('language_id',$code)
+        ->where('category_id',$id)->withoutGlobalScopes()
+        ->first();
+
+      
+        $name = "";
+        $description = "";
+
+        if(!empty($translation))
+        {
+            $id =  $translation->id;
+            $name =  $translation ->name;
+            $description =  $translation ->description;
+        }
+        return response()->json([
+            'message' => 'OK',
+            'id' => $id,
+            'name'=> $name,
+            'description' =>$description,
+        ]);
     }
 
     /**

@@ -2,6 +2,19 @@
 @extends('layouts.master')
 @section('title','Pokofarms - '.__('header.contact'))
 @section('content')
+
+<!-- Head Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>@lang('header.contact')</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Head Section -->
+
 <section class="contact blogsingle">
     <div class="container">
         @include('notifications.status_message') 

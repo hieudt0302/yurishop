@@ -2,7 +2,7 @@
 
 return [
 	 '' => '', 
-     'cart-noitems' => 'You have no items in your shopping cart!',
+     'cart-empty' => 'You have no items in your shopping cart!',
      'continue-shopping' => 'Continute Shopping',
 	 'order-history' => 'Order history',
 	 'cart' => 'Cart',      
@@ -37,6 +37,7 @@ return [
 	 'shopping-cart' => 'Shopping Cart',
 	 'apply-coupon' => 'Apply coupon',
 	 'enter-coupon' => 'Enter your coupon here',
-	 'enter-gift-cart' => 'Enter your gift card code',	  	  	   	  	  	  	  	  	  	  	  	  	  	 	 
+	 'enter-gift-cart' => 'Enter your gift card code',	  
+	 'cart-empty' => 'Your cart is empty',	  	   	  	  	  	  	  	  	  	  	  	  	 	 
 	  	 	  	  	 	 	 
 ];

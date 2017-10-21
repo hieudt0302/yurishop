@@ -4,16 +4,16 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <h1>
-      Post
+      Bài viết
         <small>
             <i class="fa fa-arrow-circle-left"></i>
-            <a href="{{url('/admin/posts')}}">back to post list</a>
+            <a href="{{url('/admin/posts')}}">Quay lại danh sách</a>
         </small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Post</a></li>
-        <li class="active">Update</li>
+        <li><a href="#">Bài viết</a></li>
+        <li class="active">Cập nhật</li>
       </ol>
 </section>
 <!-- Main content -->
@@ -24,8 +24,8 @@
             <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">General Info</a></li>
-                        <li><a href="#content" data-toggle="tab">Content</a></li>
+                        <li class="active"><a href="#info" data-toggle="tab">Thông tin chung</a></li>
+                        <li><a href="#content" data-toggle="tab">Nội dung</a></li>
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
@@ -37,10 +37,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="title" title="">Title</label>
-                                                    <div class="ico-help" title="The title of the post."><i class="fa fa-question-circle"></i></div></div>
-                                                </div>
+                                                <label class="control-label col-md-3" for="title" title="">Tiêu đề</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group input-group-required">
                                                         <input class="form-control text-box single-line valid" id="title" name="title" type="text" value="{{$post->title}}">
@@ -51,46 +48,33 @@
                                                 </div>
                                             </div>                                        
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="Published" title="">Published</label><div class="ico-help" title="Check to publish this post (visible in store). Uncheck to unpublish (post not available in store)."><i class="fa fa-question-circle"></i></div></div>
-                                                </div>
+                                                <label class="control-label col-md-3" for="title" title="">Xuất bản</label>
                                                 <div class="col-md-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('published', 1 , $post->published ? true : false, array('class' => 'check-box')) }}
-                                                            Published
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="slug" title="">Slug</label>
-                                                        <div class="ico-help" title="Slug of post"><i class="fa fa-question-circle"></i></div>
-                                                    </div>
-                                                </div>
+                                                <label class="control-label col-md-3" for="title" title="">Slug</label>
                                                 <div class="col-md-4">
                                                     <input class="form-control text-box single-line valid"  id="slug" name="slug" type="text" value="{{$post->slug}}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="category" title="">Category</label><div class="ico-help" title="The category of the post."><i class="fa fa-question-circle"></i></div></div>
-                                                </div>
+                                                <label class="control-label col-md-3" for="title" title="">Danh mục</label>
                                                 <div class="col-md-4">
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
-                                                        <option value="{{$category->id}}">{{$category->translation->name}}</option>
+                                                        <option value="{{$category->id}}">{{$category->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="slug" title="">Ảnh đại diện</label>
-                                                        <div class="ico-help" title="Slug of post"><i class="fa fa-question-circle"></i></div>
-                                                    </div>
-                                                </div>
+                                                <label class="control-label col-md-3" for="title" title="">Ảnh đại diện</label>
                                                 <div class="col-md-4">
                                                     <input class="single-line valid" type="file" name="img"/>
                                                     <span class="text-danger">{{ $errors->first('img') }}</span>                                                        
@@ -100,7 +84,7 @@
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                    <button type="submit" class="btn btn-primary">Lưu</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -117,9 +101,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="name" title="">Translate</label><div class="ico-help" title="The language of the content."><i class="fa fa-question-circle"></i></div></div>
-                                                </div>
+                                                <label class="control-label col-md-3" for="title" title="">Ngôn ngữ</label>
                                                 <div class="col-md-4">
                                                     <select id="language-select" name="language_id" class="form-control">
                                                         <option value="0">-----Chọn Ngôn Ngữ-----</option>                                                        
@@ -134,10 +116,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="title_translate" title="">Title</label>
-                                                    <div class="ico-help" title="The name of the post."><i class="fa fa-question-circle"></i></div></div>
-                                                </div>
+                                                <label class="control-label col-md-3" for="title" title="">Tiêu đề</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group input-group-required">
                                                         <input class="form-control text-box single-line valid" id="title_translate" name="title_translate" type="text" value="">
@@ -145,28 +124,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="excerpt_translate" title="">Excerpt</label>
-                                                    <div class="ico-help" title="The excerpt of the post."><i class="fa fa-question-circle"></i></div></div>
-                                                </div>
+                                                <label class="control-label col-md-3" for="title" title="">Lởi trích</label>
                                                 <div class="col-md-8">
                                                     <textarea id="excerpt_translate" class="form-control" name="excerpt_translate" rows="3"  placeholder=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="content_translate" title="">Content</label>
-                                                    <div class="ico-help" title="The content of the post."><i class="fa fa-question-circle"></i></div></div>
-                                                </div>
+                                                <label class="control-label col-md-3" for="title" title="">Nội dung</label>
                                                 <div class="col-md-8">
-                                                    <textarea id="content_translate" class="form-control" name="content_translate" rows="3"  placeholder=""></textarea>
+                                                    <textarea id="content_translate" class="form-control ckeditor" name="content_translate" rows="3"  placeholder=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="description_translate" title="">Description</label>
-                                                    <div class="ico-help" title="The description of the post."><i class="fa fa-question-circle"></i></div></div>
-                                                </div>
+                                                <label class="control-label col-md-3" for="title" title="">Mô tả</label>
                                                 <div class="col-md-8">
                                                     <textarea id="description_translate" class="form-control" name="description_translate" rows="3"  placeholder=""></textarea>
                                                 </div>
@@ -175,7 +145,7 @@
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                    <button type="submit" class="btn btn-primary">Lưu</button>
                                                 </div>
                                             </div>
                                         </div>

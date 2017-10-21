@@ -11,25 +11,25 @@
     <section id="content" class="container mt-3">
         <div class="costeps row row-hardcode no-gutters">
             <div class="col-2 costep visited" data-step="cart">
-                <a class="costep-link" href="/frontend/en/cart">
+                <a class="costep-link" href="{{url('/cart')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">Cart</span>
                 </a>
             </div>
             <div class="col-2 costep visited" data-step="address">
-                <a class="costep-link" href="/frontend/en/Checkout/BillingAddress">
+                <a class="costep-link" href="{{url('/Checkout/BillingAddress')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">Address</span>
                 </a>
             </div>
             <div class="col-2 costep visited" data-step="shipping">
-                <a class="costep-link" href="/frontend/en/Checkout/ShippingMethod">
+                <a class="costep-link" href="{{url('/Checkout/ShippingMethod')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">Shipping</span>
                 </a>
             </div>
             <div class="col-2 costep active" data-step="payment">
-                <a class="costep-link" href="/frontend/en/Checkout/PaymentMethod">
+                <a class="costep-link" href="{{url('/Checkout/PaymentMethod')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">Payment</span>
                 </a>

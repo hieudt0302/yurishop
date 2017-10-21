@@ -8,7 +8,9 @@ use DB;
 use Mail;
 use Carbon\Carbon;
 use App\Models\Post;
+use App\Models\PostTranslation;
 use App\Models\Product;
+use App\Models\ProductTranslation;
 use App\Models\Slider;
 use App\Models\InfoPage;
 use App\Models\InfoPageTranslation;
@@ -71,6 +73,12 @@ class HomeController extends Controller
         $info_page_translation = $this->getInfoPageTranslation('product-quality');
         return View("front.home.infopage",compact('info_page_translation'));
     }   
+
+    public function promotion()
+    {
+        $info_page_translation = $this->getInfoPageTranslation('promotion');
+        return View("front.home.infopage",compact('info_page_translation'));
+    }       
 
     public function contact()
     {
@@ -164,11 +172,11 @@ class HomeController extends Controller
         
 
         $products = ProductTranslation::where("name", "LIKE", "%$search_key%")
-        ->paginate(10);             
+        ->paginate(12);             
 
 
         $posts = PostTranslation::where("title", "LIKE", "%$search_key%")
-        ->paginate(10);             
+        ->paginate(4);             
 
 
         return view('front/home/search',compact('products','posts','search_key'));

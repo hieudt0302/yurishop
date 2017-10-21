@@ -70,9 +70,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>DM</span>
+      <span class="logo-mini"><b>PK</b>F</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>DAK</b>MARK</span>
+      <span class="logo-lg"><b>Poko</b>Farms</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -506,7 +506,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.9
     </div>
-    <strong>Copyright &copy; 2018 <a href="#">Dakmark Food</a>.</strong> All rights
+    <strong>Copyright &copy; 2018 <a href="#">Poko Farms</a>.</strong> All rights
     reserved.
   </footer>
 

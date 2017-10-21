@@ -1,3 +1,24 @@
+<div class="subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="sub-heading">
+                    <h1>@lang('footer.newsletter-message')</h1>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-12">
+                <div class="form">
+                    <input class="email" type="text" placeholder="{{ __('profile.email') }}">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="sub-button">
+                    <a href="#">@lang('footer.subscribe')</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <footer class="ht-footer">
 <div class="container">
     <div class="row">
@@ -74,7 +95,7 @@
                         <a href="{{ url('/wishlist') }}">@lang('footer.my-wishlist')</i></a>
                     </li>
                     <li>
-                        <a href="{{ url('/orders') }}">@lang('footer.order-history')</i></a>
+                        <a href="{{ url('/Account/Orders') }}">@lang('footer.order-history')</i></a>
                     </li>
                 </ul>
                 @endif                
@@ -93,21 +114,6 @@
                 </div>
             </div>
         </div>                
-        <img class="ft-line" src="{{asset('frontend/images/uploads/div-line.png')}}" alt="line">
-    </div>
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="ft-below-left">
-                <p>Copyright © 2016
-                    <a href="#">Organiestore</a> - All Rights Reserved</p>
-            </div>
-            <div class="ft-below-right">
-                <p>
-                    <a href="#">Privacy policy </a>&nbsp; &nbsp;&nbsp;
-                    <a href="#">term and conditions</a>
-                </p>
-            </div>
-        </div>
     </div>
 </div>
 </footer>

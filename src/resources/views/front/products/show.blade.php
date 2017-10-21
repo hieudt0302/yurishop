@@ -8,11 +8,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Product detail</h1>
+                <h1>@lang('common.product-details')</h1>
                 <ul class="breadcumb">
-                    <li><a href="#">Home</a></li>
-                    <li><span>/</span><a href="#">Shop grid</a></li>
-                    <li><span>/</span>Product detail</li>
+                    <li><a href="#">@lang('common.home')</a></li>
+                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <li><span>/</span>{{$product->translation->name??$product->name}}</li>
                 </ul>
             </div>
         </div>
@@ -34,13 +34,13 @@
 							<div class="more-img">
 								<a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a>
 							@endif 
-
-								@if($key === 1)
-								<img class="sub-img img1" src="{{asset('/storage')}}/{{$media->source}}" alt="">
-								@else
-								<img class="sub-img" src="{{asset('/storage')}}/{{$media->source}}" alt="">
+								@if($key < 4)
+									@if($key === 1)
+									<img class="sub-img img1" src="{{asset('/storage')}}/{{$media->source}}" alt="">
+									@else
+									<img class="sub-img" src="{{asset('/storage')}}/{{$media->source}}" alt="">
+									@endif
 								@endif
-
 							@if($key + 1  == count($product->medias))
 								<a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a>
 							</div>
@@ -88,15 +88,15 @@
 						<div class="right-it">
 								 <form class="quantity" method="post" action="#">
 								      <div class="numbers-row">
-								        <input type="text" name="quantity" id="french-hens" value="3">
+								        <input type="text" name="quantity" id="french-hens" value="1">
 								      </div>
 							    </form>
-								<div class="drop">
+								<!-- <div class="drop">
 									<select>
 										<option value="">1 kg</option>
 										<option value="">Other</option>
 									</select>
-								</div>
+								</div> -->
 								<span class="check">
 									<i class="fa fa-check-circle" aria-hidden="true"></i>In stock
 								</span>	
@@ -214,13 +214,13 @@
                             @guest
 							<div class="row">
 								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input class="name" type="text" placeholder="{{ __('profile.name')}}">
+									<input name="name" class="name" type="text" placeholder="{{ __('profile.name')}}">
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input class="email" type="text" placeholder="E-{{ __('profile.email')}}*">
+									<input name="email" class="email" type="text" placeholder="E-{{ __('profile.email')}}*">
 								</div>
 								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input class="website" type="text" placeholder="Website">
+									<input name="website" class="website" type="text" placeholder="Website">
 								</div>
                             </div>
                             @else
@@ -242,7 +242,7 @@
                                     </select>
                                 </div>
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<input  class="comt" type="textarea" placeholder="{{ __('product.comment')}}*">
+									<input name="comment" class="comt" type="textarea" placeholder="{{ __('product.comment')}}*">
 								</div>
                             </div>
 							<input class="submit" type="submit" value="{{ __('product.send-review')}}">

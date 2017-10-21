@@ -98,6 +98,7 @@ Route::post('/Checkout/Complete/Next', 'Front\CheckoutController@CompleteNext');
 // 1. Change Info
 Route::get('/Account/Info', 'Auth\AccountController@Info');
 Route::post('/Account/Info/Update', 'Auth\AccountController@InfoUpdate');
+Route::get('/Account/Addresses/Delete/{id}', 'Auth\AccountController@destroy');
 
 // 2. Order
 Route::get('/Account/Orders', 'Auth\AccountController@Orders');
@@ -167,6 +168,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::patch('menu/{id}',['as'=>'admin.menu.update','uses'=>'MenuController@update','middleware' => ['role:admin|manager']]);
     Route::delete('menu/{id}',['as'=>'admin.menu.destroy','uses'=>'MenuController@destroy','middleware' => ['role:admin|manager']]);  
     Route::delete('menu/{id}',['as'  =>'admin.menu.destroy','uses' => 'MenuController@destroy']); 
+    //
+    Route::patch('menu/{id}/translation',['as'=>'admin.menu.updateTranslation','uses'=>'MenuController@updateTranslation','middleware' => ['role:admin|manager']]);
+    Route::get('menu/{id}/{code}/fetch',['as'=>'admin.menu.fetchTranslation','uses'=>'MenuController@fetchTranslation','middleware' => ['role:admin|manager']]);
+
     //Blog
     Route::get('posts',['as'=>'admin.posts.index','uses'=>'PostsController@index','middleware' => ['role:admin|manager']]);
     Route::get('posts/create',['as'=>'admin.posts.create','uses'=>'PostsController@create','middleware' => ['role:admin|manager']]);
@@ -201,6 +206,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     //
     Route::delete('products/{id}',['as'=>'admin.products.destroy','uses'=>'ProductsController@destroy','middleware' => ['role:admin|manager']]);
     Route::post('products/{id}/image/upload',['as'=>'admin.products.uploadImage','uses'=>'ProductsController@uploadImage','middleware' => ['role:admin|manager']]);
+    Route::delete('products/images/{id}',['as'=>'admin.products.destroyImage','uses'=>'ProductsController@destroyImage','middleware' => ['role:admin|manager']]);
     
    //Order
     Route::get('orders',['as'=>'admin.orders.index','uses'=>'OrdersController@index','middleware' => ['role:admin|manager']]);

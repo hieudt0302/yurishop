@@ -22,8 +22,8 @@ class ProductsController extends Controller
     public function index()
     {
         $tags = Tag::has('products')->get();
-        $products = Product::where('published',1)->paginate(10);
-        return View('front/products/index',compact('products','tags'));
+        $results = Product::where('published',1)->paginate(10);
+        return View('front/products/index',compact('results','tags'));
     }
   
     /**
@@ -114,9 +114,9 @@ class ProductsController extends Controller
             ]);
         }
        
-        
-        Cart::add($request->id, $request->name, $request->quantity, $request->price);
-        
+        $product = Product::find($request->id);
+        $cartItem = Cart::add($request->id, $request->name, $request->quantity, $request->price, ['summary'=>$product->translation->summary??'', 'source' =>  $product->GetMediaByOrderAsc()->source??'images/default-image.png']);
+
         return response()->json([
             'message' => 'Đã thêm '. $request->quantity .' sản phẩm vào giỏ hàng!',
             'status' => 'success',

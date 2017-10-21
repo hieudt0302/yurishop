@@ -14,6 +14,7 @@ use App\Models\Comment;
 use App\Models\Media;
 use Validator;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 use DB;
 
 class ProductsController extends Controller
@@ -41,12 +42,10 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        // $shopCategory = Category::where('slug', 'products')->firstOrFail();
-        // $categories = Category::where('parent_id', $shopCategory->id)->get();
-        // $language_list = Language::all();         
-        // return View('admin.products.create', compact('categories','language_list'));
         $languages = Language::all(); ///TODO: make condition active
-        return View('admin/products/create',compact('languages'));
+        $shopCategory = Category::where('slug', 'products')->firstOrFail();
+        $categories = Category::where('parent_id', $shopCategory->id)->get();        
+        return View('admin/products/create',compact('languages','categories'));
     }
 
     /**
@@ -130,30 +129,7 @@ class ProductsController extends Controller
 
         $product->author_id = Auth::user()->id;
 
-        $product->save();        
-    
-        // $language_list = Language::all();
-        // foreach ($language_list as $language){ 
-        //     $product_translation = new ProductTranslation;
-        //     $product_translation->product_id = $product->id;
-        //     $product_translation->language_id = $language->id;
-        //     if (!empty( $request->input($language->id.'-name'))) {
-        //         $product_translation->name = $request->input($language->id.'-name');  
-        //     }
-        //     if (!empty( $request->input($language->id.'-summary'))) {
-        //         $product_translation->summary = $request->input($language->id.'-summary');  
-        //     } 
-        //     if (!empty( $request->input($language->id.'-specs'))) {
-        //         $product_translation->specs = $request->input($language->id.'-specs');  
-        //     } 
-        //     if (!empty( $request->input($language->id.'-description'))) {
-        //         $product_translation->description = $request->input($language->id.'-description');  
-        //     }                                                                                
-        //     $product_translation->save();
-        // }         
-        
-        // return redirect('admin/products/edit')
-        // ->with('success_message', 'Sản phẩm mới đã được tạo');
+        $product->save();  
 
         return redirect()->action(
             'Admin\ProductsController@edit', ['id' => $product->id]
@@ -179,13 +155,9 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        // $shopCategory = Category::where('slug', 'products')->firstOrFail();
-        // $categories = Category::where('parent_id', $shopCategory->id)->get();
-        // $product = Product::where('id', $id)->firstOrFail();
-        // $language_list = Language::all();
-        // $product_translations = $product->translations()->get();        
-        // return View('admin.products.edit', compact('product','product_translations','language_list', 'categories'));
-
+        $shopCategory = Category::where('slug', 'products')->firstOrFail();
+        
+        $categories = Category::where('parent_id', $shopCategory->id)->get();
         $product = Product::find($id);
 		if(empty($product))
 		{
@@ -194,7 +166,7 @@ class ProductsController extends Controller
             ->with('status', 'danger');
 		}
         $languages = Language::all(); ///TODO: make condition active
-        return View('admin/products/edit',compact('product','languages'));
+        return View('admin/products/edit',compact('product','languages','categories'));
     }
 
     /**
@@ -268,36 +240,9 @@ class ProductsController extends Controller
         $product->disable_wishlist_button = $request->disable_wishlist_button??0;
         $product->call_for_price = $request->call_for_price??0;
         $product->sold_off = $request->sold_off??0;
-
         $product->published = $request->published??0;
 
         $product->save();
-
-
-        // $language_list = Language::all();
-        // foreach ($language_list as $language){
-        //     $product_tran_id=$request->input($language->id.'-id');
-        //     $product_translation = ProductTranslation::find($product_tran_id);
-        //     if ($product_translation == null) {
-        //         $product_translation = new ProductTranslation;
-        //         $product_translation->product_id = $product->id;                
-        //         $product_translation->language_id = $language->id;                
-        //     }
-        //     if (!empty( $request->input($language->id.'-name'))) {
-        //         $product_translation->name = $request->input($language->id.'-name');  
-        //     }
-        //     if (!empty( $request->input($language->id.'-summary'))) {
-        //         $product_translation->summary = $request->input($language->id.'-summary');  
-        //     } 
-        //     if (!empty( $request->input($language->id.'-specs'))) {
-        //         $product_translation->specs = $request->input($language->id.'-specs');  
-        //     } 
-        //     if (!empty( $request->input($language->id.'-description'))) {
-        //         $product_translation->description = $request->input($language->id.'-description');  
-        //     }                                                                                
-        //     $product_translation->save();
-        // }
-
 
         return redirect()->back()
         ->with('message', 'Sản phẩm đã được cập nhật.')
@@ -399,7 +344,11 @@ class ProductsController extends Controller
         }
          
         if (request()->hasFile('image_upload')) {
-            $path = $request->file('image_upload')->store('images');
+            $path = $request->file('image_upload')->store('images');                            
+            $fitImage = Image::make(Storage::get($path))->fit(420, 420)->encode();
+            Storage::put($path, $fitImage); 
+
+
             $product = Product::find($request->product_id);
             $images =  new Media();
             $images->name =  $request->name_image;
@@ -442,7 +391,27 @@ class ProductsController extends Controller
         session()->flash('success_message', "Xóa thành công!");        
         return redirect()->route('admin.products.index'); 
     }
-
+    
+    public function destroyImage($id)
+    {
+        DB::beginTransaction();
+         try{
+            $media = Media::find($id);
+            Storage::delete( $media->source, $media->thumb);
+            $media->delete();
+            DB::commit();
+        }catch(\Exception $e){
+            DB::rollBack();
+            return response()->json([
+                'message' =>  'Không thể Xóa!',
+                'status' => 'error',
+            ]);
+        }
+        return response()->json([
+            'message' =>  'Xóa thành công!',
+            'status' => 'success',
+        ]);
+    }
     public function categories(Request $request)
     {
         $categories = Category::all();
@@ -491,7 +460,8 @@ class ProductsController extends Controller
         ///TODO: Get sub category. Not yet!
 
         $products = $query->paginate(21);
-        $categories = Category::all();
+        $shopCategory = Category::where('slug', 'products')->firstOrFail();
+        $categories = Category::where('parent_id', $shopCategory->id)->get();
         
         return View('admin.products.index', compact('products','categories'))
       ->with('i', ($request->input('page', 1) - 1) * 21);

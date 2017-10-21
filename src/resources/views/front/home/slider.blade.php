@@ -6,7 +6,7 @@
 				@foreach ($sliders as $slider)
 				<li data-index="rs-10" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="assets/slider-home-farm-slide-01-bg-100x50.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 					<!-- MAIN IMAGE -->
-					<img src="{{ asset('images/slider/'.$slider->image) }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+					<img src="{{asset('/storage/'.$slider->image) }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
 					<!-- LAYERS -->
 
 					<!-- LAYER NR. 1 -->
@@ -32,7 +32,8 @@
 
 						style="z-index: 5; white-space: nowrap; font-size: 64px; line-height: 64px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Playfair Display;">{{$slider->translation->description}} </div>
 
-					<!-- LAYER NR. 2 -->
+
+					<!-- LAYER NR. 6 -->
 					<div class="tp-caption btn-line rev-btn " 
 						 id="slide-10-layer-10" 
 						 data-x="['center','center','center','center']" data-hoffset="['-1','-1','-1','0']" 
@@ -51,7 +52,8 @@
 						data-paddingbottom="[14,14,14,14]"
 						data-paddingleft="[35,35,35,35]"
 
-						style="z-index: 10; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 400; color: rgba(142, 179, 90, 1.00);font-family:Lato;text-transform:uppercase;background-color:rgba(255, 255, 255, 1.00);border-color:rgba(142, 179, 90, 0);border-style:solid;border-width:1px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:0.1em;cursor:pointer;">@lang('common.more-details') </div>
+						style="z-index: 10; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 400; color: rgba(142, 179, 90, 1.00);font-family:Lato;text-transform:uppercase;background-color:rgba(255, 255, 255, 1.00);border-color:rgba(142, 179, 90, 0);border-style:solid;border-width:1px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:0.1em;cursor:pointer;">@lang('common.more-details') 
+					</div>
 				</li>
 				@endforeach
 			</ul>

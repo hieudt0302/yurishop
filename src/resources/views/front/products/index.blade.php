@@ -9,10 +9,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Shop list</h1>
+                <h1>@lang('common.product-list')</h1>
                 <ul class="breadcumb">
-                    <li><a href="#">Home</a></li>
-                    <li><span>/</span>Shop list</li>
+                    <li><a href="#">@lang('common.home')</a></li>
+                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <!-- <li><span>/</span>{{$results[0]->category->translation->name}}</li> -->
                 </ul>
             </div>
         </div>
@@ -24,7 +25,7 @@
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="left-it">
-					<h5>Showing <span class="sub">1-12 of 134</span> results</h5>
+					<h5>@lang('common.showing') <span class="sub">{{($results->currentPage()- 1) * 21 + 1}}-{{$results->total() * $results->currentPage() }} @lang('common.of') {{$results->count()}}</span> </h5>
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
@@ -48,27 +49,29 @@
 				</div>
 			</div>
         </div>
-        @foreach($products as $key => $product)
+        @foreach($results as $key => $product)
             @if($key == 0 || $key%4 === 0)
             <div class="row">
                 <div class="products-it">
             @endif                    
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="pro-it">
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                            <img class="pro-img" src="frontend/images/uploads/p1.jpg" alt="">
-                            <div class="pro-infor">
-                                <h2>{{$product->translation->name??$product->name}}</h2>
-                                <span class="pro-cost">{{$product->price}}</span>
-                            </div>
-                            <div class="hover-inner">	
-                                <a class="search" href="{{url('/products')}}/{{$product->slug}}" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                <a class="cart" href="{{url('/products')}}/{{$product->id}}" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                <a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                            </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="pro-it">
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        <a href="{{url('/products')}}/{{$product->slug}}">
+                        <img class="pro-img" src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="">
+                        </a>
+                        <div class="pro-infor">
+                            <h2>{{$product->translation->name??$product->name}}</h2>
+                            <span class="pro-cost">{{$product->price}}</span>
+                        </div>
+                        <div class="hover-inner">	
+                            <a class="search" href="{{url('/products')}}/{{$product->slug}}" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            <a class="cart" href="{{url('/products')}}/{{$product->slug}}" data-toggle="tooltip" data-placement="top" title="Add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            <a class="wishlist" href="#"  data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
                         </div>
                     </div>
-            @if(($key > 0 && ($key+1) %4 === 0) || $key +1 ===count($products))
+                </div>
+            @if(($key > 0 && ($key+1) %4 === 0) || $key +1 ===count($results))
                 </div>
             </div>
             @endif
@@ -78,7 +81,7 @@
 		<div class="row">
 			<div class="blogpanigation">
 				<div class="col-md-12 col-sm-12 col-xs-12">
-					<ul>
+					<!-- <ul>
 						<li class="prev"><a href="#">prev</a></li>
 						<li class="num"><a href="#">1</a></li>
 						<li class="num active"><a href="#">2</a></li>
@@ -87,7 +90,8 @@
 						<li class="num2"><a href="#">13</a></li>
 						<li class="num2"><a href="#">14</a></li>
 						<li class="next"><a href="#">next</a></li>
-					</ul>
+					</ul> -->
+                    {{ $results->links() }}
 				</div>
 			</div>
 		</div>

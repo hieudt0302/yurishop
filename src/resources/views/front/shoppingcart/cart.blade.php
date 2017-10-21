@@ -8,7 +8,6 @@
 @stop
 
 @section('content')
-
     <div id="content-wrapper" >
         <section id="content" class="container mt-3">
             <div class="costeps row row-hardcode no-gutters">
@@ -49,7 +48,6 @@
                     </a>
                 </div>
             </div>
-
             <!-- row row-hardcode -->
             <div id="content-body" class="row row-hardcode mt-4">
                 <div id="content-center" class="col-lg-12">
@@ -86,13 +84,13 @@
                                                     <div class="cart-col cart-col-main">
                                                         <div class="row row-hardcode sm-gutters">
                                                             <div class="col cart-item-img">
-                                                                <img class="img-fluid" alt="Picture of Herren T-Shirt" src="{{asset('images/default-image-250.png')}}" title="Image of Product">
+                                                                <img class="img-fluid" alt="Picture of Herren T-Shirt" src="{{asset('/storage')}}/{{$row->options->source}}" title="Image of Product">
                                                             </div>
                                                             <div class="col">
                                                                 <a class="cart-item-link" href="{{url('/products')}}/$row->id" title="Description">{{$row->name}}</a>
-                                                                <!-- <div class="cart-item-desc fs-sm">
-                                                                    Description
-                                                                </div> -->
+                                                                <div class="cart-item-desc fs-sm">
+                                                                    {{$row->options->summary}}
+                                                                </div>
                                                                 <!-- PUT OTHER ATTR -->
                                                                 <!-- <div class="cart-item-attrs fs-sm my-2">
                                                                 </div> -->
@@ -147,7 +145,7 @@
 
                                         <div class="cart-footer rounded-bottom">
                                             <div class="row row-hardcode">
-                                                <div class="col-md-6">
+                                                <!-- <div class="col-md-6">
                                                     <div class="cart-action cart-action-coupon">
                                                         <h5 class="cart-action-title collapsed" data-toggle="collapse" data-target="#cart-action-coupon-body" aria-controls="cart-action-coupon-body">
                                                             @lang('shoppings.discount-code')
@@ -157,7 +155,7 @@
                                                                 <div class="input-group">
                                                                     <input name="discountcouponcode" type="text" class="form-control form-control-success discount-coupon-code" placeholder="{{ __('shoppings.enter-coupon')}}">
                                                                     <span class="input-group-btn">
-                                                                        <button type="submit" class="btn btn-primary apply-discount-coupon-code-button" title="Apply coupon" name="applydiscountcouponcode" value="applydiscountcouponcode">
+                                                                        <button type="button" class="btn btn-primary apply-discount-coupon-code-button" title="Apply coupon" name="applydiscountcouponcode" value="applydiscountcouponcode">
                                                                             <i class="fa fa-check"></i>
                                                                             <span>@lang('shoppings.apply-coupon')</span>
                                                                         </button>
@@ -175,7 +173,7 @@
                                                                 <div class="input-group">
                                                                     <input name="giftcardcouponcode" type="text" class="form-control gift-card-coupon-code" placeholder="{{ __('shoppings.enter-gift-card')}}">
                                                                     <span class="input-group-btn">
-                                                                        <button type="submit" class="btn btn-primary apply-gift-card-coupon-code-button" name="applygiftcardcouponcode" value="applygiftcardcouponcode">
+                                                                        <button type="button" class="btn btn-primary apply-gift-card-coupon-code-button" name="applygiftcardcouponcode" value="applygiftcardcouponcode">
                                                                             <i class="fa fa-check"></i>
                                                                             <span>@lang('shoppings.add-gift-card')</span>
                                                                         </button>
@@ -184,9 +182,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 col-md-offset-6">
                                                     <div id="order-totals">
                                                         <table class="cart-summary">
                                                             <tbody>

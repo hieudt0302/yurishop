@@ -16,7 +16,7 @@
     <div class="pull-right">
         <a href="{{('/admin/products/create')}}" class="btn bg-blue">
             <i class="fa fa-plus-square"></i>
-            Add new
+            Thêm mới
         </a>
     </div>
 </section>
@@ -27,27 +27,27 @@
         <div class="col-xs-12">
             <div class="box box-info">
                 <div class="box-header with-border">
-                <h3 class="box-title">Quick Search</h3>
+                <h3 class="box-title">Tìm kiếm</h3>
                 </div>
                 <form action="{{url('admin/products')}}" method="POST" class="form-horizontal" >
                 {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="from_date" class="col-sm-2 control-label">From Date</label>
+                            <label for="from_date" class="col-sm-2 control-label">From</label>
                             <div class="col-sm-4 input-group date">
                                 <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                 <input type="text" name="from_date" class="form-control pull-right" id="from_date" data-date-end-date="-1d">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="to_date" class="col-sm-2 control-label">To Date</label>
+                            <label for="to_date" class="col-sm-2 control-label">To</label>
                             <div class="col-sm-4 input-group date">
                                 <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                 <input type="text" name="to_date" class="form-control pull-right" id="to_date" data-date-end-date="0d">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="product_name" class="col-sm-2 control-label">Product Name</label>
+                            <label for="product_name" class="col-sm-2 control-label">Tên sản phẩm</label>
                             <div class="col-sm-4">
                                 <input type="text" name="product_name" class="form-control" id="product_name" >
                             </div>
@@ -59,12 +59,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="category_id" class="col-sm-2 control-label">Category</label>
+                            <label for="category_id" class="col-sm-2 control-label">Danh mục</label>
                             <div class="col-sm-4">
                                 <select name="category_id" class="form-control select2" style="width: 100%;">
-                                    <option value="0" selected>-----All-----</option>
+                                    <option value="0" selected>-----Tất cả-----</option>
                                     @foreach($categories as $category)
-                                       <option value="{{$category->id}}">{{$category->translation->name}}</option>
+                                       <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                              </select>
                             </div>
@@ -75,7 +75,7 @@
                                 <div class="form-check">
                                     <label class="form-check-label">
                                         <input type="checkbox" name="show_sub_categories" id="show_sub_categories" >
-                                        Include Sub Categories
+                                        Bao gồm cả danh mục con
                                     </label>
                                 </div>
                             </div>
@@ -84,10 +84,10 @@
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <button type="submit" class="btn btn-info">
-                            <i class="fa fa-search"></i> Search
+                            <i class="fa fa-search"></i> Tìm kiếm
                         </button>
                         <button type="submit" class="btn btn-default pull-right">
-                            <i class="fa fa-print"></i> Export
+                            <i class="fa fa-print"></i> Xuất file
                         </button>
                     </div>
                     <!-- /.box-footer -->

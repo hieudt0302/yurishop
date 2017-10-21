@@ -160,7 +160,7 @@
                                         <div class="cart-col cart-col-main">
                                             <div class="row row-hardcode sm-gutters">
                                                 <div class="col cart-item-img">
-                                                    <img class="img-fluid" alt="Picture of Product" src="{{asset('/#')}}"
+                                                    <img class="img-fluid" alt="Picture of Product" src="{{asset('/storage')}}/{{$orderdetail->product->GetMediaByOrderAsc()->source??'images/default-image.png'}}"
                                                         title="Show details for product">
                                                 </div>
                                                 <div class="col">

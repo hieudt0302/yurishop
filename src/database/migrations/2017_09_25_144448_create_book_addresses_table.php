@@ -33,6 +33,7 @@ class CreateBookAddressesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             // ->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

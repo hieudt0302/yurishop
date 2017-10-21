@@ -19,12 +19,12 @@
                             </div>
                             <div class="col-md-8 col-lg-9">
                                 <div class="page-title pt-4 pt-md-0">
-                                    <h1 class="h3">Addresses</h1>
+                                    <h1 class="h3">@lang('account.addresses')</h1>
                                 </div>
                                 <div class="add-address">
                                     <a class="btn btn-primary btn-lg add-address-button mb-4" href="{{url('/Account/Addresses/Create')}}" rel="nofollow">
                                         <i class="fa fa-plus"></i>
-                                        <span>Add new</span>
+                                        <span>@lang('common.add')</span>
                                     </a>
                                 </div>
 
@@ -39,7 +39,7 @@
                                                     <label class="m-0" for="email">Email</label>: {{$address->email}}
                                                 </div>
                                                 <div class="phone">
-                                                    <label class="m-0" for="phone">Phone number</label>: {{$address->phone}}
+                                                    <label class="m-0" for="phone">Phone</label>: {{$address->phone}}
                                                 </div>
                                             </div>
 
@@ -56,10 +56,10 @@
 
                                         <div class="card-footer d-flex p-0">
                                             <a class="btn btn-secondary btn-lg btn-flat rounded-0 edit-address-button" href="{{url('/Account/Addresses/Edit')}}/{{$address->id}}">
-                                                <span>Edit</span>
+                                                <span>@lang('common.edit')</span>
                                             </a>
                                             <a class="btn btn-danger btn-lg btn-flat rounded-0 delete-address-button" href="{{url('/Account/Addresses/Delete')}}/{{$address->id}}" onclick="return confirm('Are you sure?');">
-                                                <span>Delete</span>
+                                                <span>@lang('common.delete')</span>
                                             </a>
                                         </div>
                                     </div>

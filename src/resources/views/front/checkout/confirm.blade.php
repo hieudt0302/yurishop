@@ -12,31 +12,31 @@
     <section id="content" class="container mt-3">
         <div class="costeps row row-hardcode no-gutters">
             <div class="col-2 costep visited" data-step="cart">
-                <a class="costep-link" href="/frontend/en/cart">
+                <a class="costep-link" href="{{url('/cart')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">@lang('shoppings.cart')</span>
                 </a>
             </div>
             <div class="col-2 costep visited" data-step="address">
-                <a class="costep-link" href="/frontend/en/Checkout/BillingAddress">
+                <a class="costep-link" href="{{url('/Checkout/BillingAddress')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">@lang('profile.address')</span>
                 </a>
             </div>
             <div class="col-2 costep visited" data-step="shipping">
-                <a class="costep-link" href="/frontend/en/Checkout/ShippingMethod">
+                <a class="costep-link" href="{{url('/Checkout/ShippingMethod')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">@lang('shoppings.shipping')</span>
                 </a>
             </div>
             <div class="col-2 costep visited" data-step="payment">
-                <a class="costep-link" href="/frontend/en/Checkout/PaymentMethod">
+                <a class="costep-link" href="{{url('/Checkout/PaymentMethod')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">@lang('shoppings.payment')</span>
                 </a>
             </div>
             <div class="col-2 costep active" data-step="confirm">
-                <a class="costep-link" href="/frontend/en/Checkout/Confirm">
+                <a class="costep-link" href="{{url('Checkout/Confirm')}}">
                     <i class="costep-icon"></i>
                     <span class="costep-label">@lang('shoppings.confirm')</span>
                 </a>
@@ -224,14 +224,15 @@
                                                     <div class="cart-col cart-col-main">
                                                         <div class="row row-hardcode sm-gutters">
                                                             <div class="col cart-item-img">
-                                                                <img class="img-fluid" alt="Picture of Item" src="{{asset('images/default-image-250.png')}}"
+                                                                <img class="img-fluid" alt="Picture of Item" 
+                                                                src="{{asset('/storage')}}/{{$row->options->source}}"
                                                                     title="Show details for Herren T-Shirt">
                                                             </div>
                                                             <div class="col">
-                                                                <a class="cart-item-link" href="/frontend/en/t-shirt-3?size-221-0-180=3546&amp;color-221-0-181=3550" title="Description">Herren T-Shirt</a>
-                                                                <!-- <div class="cart-item-desc fs-sm">
-                                                                    Description
-                                                                </div> -->
+                                                                <a class="cart-item-link" href="{{url('/products')}}/$row->id" title="Description">{{$row->name}}</a>
+                                                                <div class="cart-item-desc fs-sm">
+                                                                {{$row->options->summary}}
+                                                                </div>
                                                                 <!-- <div class="cart-item-attrs fs-sm my-2">
                                                                     Atributes
                                                                 </div> -->
@@ -326,7 +327,7 @@
 @endsection
 
 @section('scripts')
-    <!-- <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>  -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.js"></script> 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>  -->
 <script type="text/javascript" src="{{ asset('js/viewport.js') }}"></script> 

@@ -11,12 +11,12 @@
     <section id="content" class="container mt-3">
         <div class="costeps row row-hardcode no-gutters">
             <div class="col-2 costep visited" data-step="cart">
-                <a class="costep-link" href="/frontend/en/cart"> <i class="costep-icon"></i>
+                <a class="costep-link" href="{{url('/cart')}}"> <i class="costep-icon"></i>
                     <span class="costep-label">@lang('shoppings.cart')</span>
                 </a>
             </div>
             <div class="col-2 costep active" data-step="address">
-                <a class="costep-link" href="/frontend/en/Checkout/BillingAddress"> <i class="costep-icon"></i>
+                <a class="costep-link" href="{{url('/Checkout/BillingAddress')}}"> <i class="costep-icon"></i>
                     <span class="costep-label">@lang('profile.address')</span>
                 </a>
             </div>
@@ -98,135 +98,18 @@
                                 </span>
                             </legend>
                             <div class="enter-address">
-                                <form action="{{url('/Checkout/ShippingAddress')}}" method="POST" novalidate="novalidate">
+                                <form action="{{url('/Checkout/BillingAddress/CreateNew')}}" method="POST">
                                     {{ csrf_field() }}
-                                    <div class="enter-address-body">
-                                        <input data-val="true" data-val-number="The field 'ID' must be a number." data-val-required="'Id' must not be empty." id="NewAddress_Id" name="NewAddress.Id" type="hidden" value="0">
 
-                                        <div class="form-horizontal">
+                                    <!-- Common Form Create New Address -->
+                                    @include('front.checkout.createaddressform')
 
-                                            <div class="form-group row row-hardcode">
-                                                <label class="col-sm-3 col-form-label" for="NewAddress_Company">@lang('profile.company')</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" id="NewAddress_Company" name="NewAddress.Company" placeholder="{{ __('checkout.optional')}}" type="text" value="">
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.Company" data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <hr>
-                                            </div>
-                                            <div class="form-group row row-hardcode">
-                                                <label class="col-sm-3 col-form-label required" for="NewAddress_FirstName" aria-required="true">@lang('profile.first-name')</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" data-val="true" data-val-required="First name is required." id="NewAddress_FirstName" name="NewAddress.FirstName" type="text" value="">
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.FirstName" data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row row-hardcode">
-                                                <label class="col-sm-3 col-form-label required" for="NewAddress_LastName" aria-required="true">@lang('profile.last-name')</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" data-val="true" data-val-required="Last name is required." id="NewAddress_LastName" name="NewAddress.LastName" type="text" value="">
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.LastName" data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row row-hardcode">
-                                                <label class="col-sm-3 col-form-label required" for="NewAddress_Address1" aria-required="true">@lang('profile.address') 1</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" data-val="true" data-val-required="Street address is required" id="NewAddress_Address1" name="NewAddress.Address1" type="text" value="">
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.Address1" data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row row-hardcode">
-                                                <label class="col-sm-3 col-form-label" for="NewAddress_Address2">@lang('profile.address') 2</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" id="NewAddress_Address2" name="NewAddress.Address2" placeholder="{{ __('checkout.optional')}}" type="text" value="">
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.Address2" data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row row-hardcode">
-                                                <label class="col-sm-3 col-form-label required" for="NewAddress_City" aria-required="true">@lang('profile.city')</label>
-                                                <div class="col-sm-9">
-                                                    <div class="row row-hardcode sm-gutters d-flex">
-                                                        <div class="col">
-                                                            <input class="form-control" data-val="true" data-val-required="City is required" id="NewAddress_City" name="NewAddress.City" placeholder="" type="text" value=""></div>
-                                                        <div class="col col-auto">
-                                                            <label class="text-right col-form-label required" for="NewAddress_ZipPostalCode" aria-required="true">@lang('profile.zipcode')</label>
-                                                        </div>
-                                                        <div class="col col-auto">
-                                                            <input class="form-control" data-val="true" data-val-required="Zip / postal code is required" id="NewAddress_ZipPostalCode" name="NewAddress.ZipPostalCode" placeholder="" style="width: 6rem" type="text" value=""></div>
-                                                    </div>
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.City" data-valmsg-replace="true"></span>
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.ZipPostalCode" data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row row-hardcode">
-                                                <label class="col-sm-3 col-form-label" for="NewAddress_StateProvinceId">@lang('profile.province')</label>
-                                                <div class="col-sm-9">
-                                                    <select class="form-control select2-hidden-accessible" data-val="true" data-val-number="The field 'State / province' must be a number." id="NewAddress_StateProvinceId" name="NewAddress.StateProvinceId" tabindex="-1" aria-hidden="true">
-                                                        <option value="0">Other (Non US)</option>
-                                                    </select>
-                                                    <span class="select2 select2-container select2-container--bootstrap" dir="ltr">
-                                                        <span class="selection">
-                                                            <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-NewAddress_StateProvinceId-container">
-                                                                <span class="select2-selection__rendered" id="select2-NewAddress_StateProvinceId-container" title="Other (Non US)">Other (Non US)</span>
-                                                                <span class="select2-selection__arrow" role="presentation"> <b role="presentation"></b>
-                                                                </span>
-                                                            </span>
-                                                        </span>
-                                                        <span class="dropdown-wrapper" aria-hidden="true"></span>
-                                                    </span>
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.StateProvinceId" data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <hr></div>
-
-                                            <div class="form-group row row-hardcode">
-                                                <label class="col-sm-3 col-form-label required" for="NewAddress_Email" aria-required="true">Email</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" data-val="true" data-val-email="Wrong email" data-val-required="Email is required." id="NewAddress_Email" name="NewAddress.Email" type="email" value="">
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.Email" data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row row-hardcode">
-                                                <label class="col-sm-3 col-form-label required" for="NewAddress_PhoneNumber" aria-required="true">@lang('profile.phone')</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" data-val="true" data-val-required="Phone is required" id="NewAddress_PhoneNumber" name="NewAddress.PhoneNumber" type="tel" value="">
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.PhoneNumber" data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row row-hardcode">
-                                                <label class="col-sm-3 col-form-label" for="NewAddress_FaxNumber">@lang('profile.fax')</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" id="NewAddress_FaxNumber" name="NewAddress.FaxNumber" placeholder="{{ __('checkout.optional')}}" type="tel" value="">
-                                                    <span class="field-validation-valid" data-valmsg-for="NewAddress.FaxNumber" data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row row-hardcode">
-                                                <div class="offset-sm-3 col-sm-9 text-muted address-required-hint">
-                                                    @lang('checkout.required-message')
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
                                     <div class="buttons">
-                                        <a class="btn btn-secondary btn-lg" href="/frontend/en/cart">
+                                        <a class="btn btn-secondary btn-lg" href="{{url('/cart')}}">
                                             <i class="fa fa-angle-left"></i>
                                             <span>@lang('checkout.back')</span>
                                         </a>
-                                        <input type="submit" id="nextstep" name="nextstep" class="d-none">
-
+                                        <input type="submit" id="nextstep" class="d-none">
                                         <button class="btn btn-warning btn-lg new-address-next-step-button" onclick="$('#nextstep').trigger('click');return false;">
                                             <span>@lang('checkout.next')</span>
                                             <i class="fa fa-angle-right"></i>
@@ -267,30 +150,30 @@
 <!-- Select2 -->
 <script src="{{asset('js/select2.full.min.js')}}"></script>
 <script type="text/javascript">
-                                            $(function() {
-                                                $("#NewAddress_CountryId").change(function() {
-                                                    var selectedItem = $(this).val();
-                                                    var ddlStates = $("#NewAddress_StateProvinceId");
-                                                    $.ajax({
-                                                        cache: false,
-                                                        type: "GET",
-                                                        url: "/frontend/en/Country/GetStatesByCountryId",
-                                                        data: {
-                                                            "countryId": selectedItem,
-                                                            "addEmptyStateIfRequired": "true"
-                                                        },
-                                                        success: function(data) {
-                                                            ddlStates.html('');
-                                                            $.each(data, function(id, option) {
-                                                                ddlStates.append($('<option></option>').val(option.id).html(option.name));
-                                                            });
-                                                            ddlStates.trigger("change");
-                                                        },
-                                                        error: function(xhr, ajaxOptions, thrownError) {
-                                                            alert('Failed to retrieve states.');
-                                                        }
-                                                    });
-                                                });
-                                            });
-                                        </script>
+    $(function() {
+        $("#NewAddress_CountryId").change(function() {
+            var selectedItem = $(this).val();
+            var ddlStates = $("#state_province");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/frontend/en/Country/GetStatesByCountryId",
+                data: {
+                    "countryId": selectedItem,
+                    "addEmptyStateIfRequired": "true"
+                },
+                success: function(data) {
+                    ddlStates.html('');
+                    $.each(data, function(id, option) {
+                        ddlStates.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                    ddlStates.trigger("change");
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+    });
+</script>
 @endsection

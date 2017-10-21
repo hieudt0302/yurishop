@@ -4,18 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
-class Product extends Model
+class Product extends Model 
 {
+    /**/
     use SoftDeletes;
 
-    /**
-     * Get the reviews for the product.
-     */
-    // public function reviews()
-    // {
-    //     return $this->hasMany('App\Models\Review');
-    // }
+   
 
     /**
      * Get the category that owns the product.
@@ -80,6 +74,11 @@ class Product extends Model
     {
        return $this->belongsToMany('App\Models\Media', 'product_media')
                         ->withPivot('order');
+    }
+
+    public function GetMediaByOrderAsc()
+    {
+       return $this->medias->sortBy('order')->first(); //sortByDesc()
     }
   
 }

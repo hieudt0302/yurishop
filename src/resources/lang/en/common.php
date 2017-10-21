@@ -10,7 +10,9 @@ return [
 	 'delete' => 'Delete',
 	 'update' => 'Update',
 	 'cancel' => 'Cancel',
+	 'save'=>'Save',
 	 'or' => 'Or',
+	 'search-results' => 'Search results',	 
 	 'search-message' => 'Search results for keyword: ',
 	 'zero-search-message' => 'Found nothing for keyword: ',	 
 	 'no-result' => 'No result',	 	
@@ -32,5 +34,9 @@ return [
      'poko-message' => 'We are <span>Online Market</span> of dried fruits, green coffee and agricultural products. Visit our site for a complete list of 
                     exclusive we are stocking.',         
 	 'read-more' => 'Read more',
-     'faq' => 'Frequently Asked Questions',	                     
+     'faq' => 'Frequently Asked Questions',
+     'product-list' => 'Product list',
+     'product-details' => 'Product details',     
+     'showing' => 'Showing',
+     'of' => 'of',               	                     
 ];

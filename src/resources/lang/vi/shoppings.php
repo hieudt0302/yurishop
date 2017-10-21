@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'cart-noitems' => 'Bạn không có sản phẩm nào trong giỏ hàng!',
+    'cart-empty' => 'Bạn không có sản phẩm nào trong giỏ hàng!',
     'continue-shopping' => 'Tra sản phẩm khác',
 	'order-history' => 'Lịch sử đặt hàng',
 	'cart' => 'Giỏ hàng',
@@ -35,5 +35,6 @@ return [
 	'calculated-during-checkout' => 'Được tính trong quá trình thanh toán', 
 	'apply-coupon' => 'Sử dụng coupon',
 	'enter-coupon' => 'Nhập coupon',
-	'enter-gift-cart' => 'Nhập mã thẻ quà tặng',	  			  		  	 					    
+	'enter-gift-cart' => 'Nhập mã thẻ quà tặng',	  
+	'cart-empty' => 'Giỏ hàng của bạn trống',				  		  	 					    
 ];

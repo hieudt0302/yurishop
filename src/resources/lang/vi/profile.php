@@ -19,7 +19,9 @@ return [
 	'save' => 'Lưu', 
 	'action' => 'Thao tác',
     'city' => 'Thành phố',
-    'province' => 'Tỉnh',         	         
+    'province' => 'Tỉnh',
+    'country' => 'Nước',
+    'fax' => 'Fax',                   	         
     'company' => 'Công ty',
     'zipcode' => 'Mã bưu điện',        
 ];

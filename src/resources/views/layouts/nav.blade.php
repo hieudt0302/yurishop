@@ -3,9 +3,9 @@
     <header class="ht-header" id="hd-fixed">
         <div class="row">
             <div class="topsearch">
-                <form action="GET">
-                    <input type="text" class="search-top" placeholder="What are you looking for ?">
-                </form>
+                {!! Form::open(array('url' => '/search')) !!}
+                    <input type="text" class="search-top" name="keyword" placeholder="@lang('header.enter-keyword')">
+                {!! Form::close() !!}
             </div>
         </div>
         <div class="row">
@@ -53,7 +53,7 @@
                             @foreach($menus as $key => $menu)
                             <li class="dropdown first">
                                 <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                {{$menu->translation->name}}
+                                {{$menu->translation->name??$menu->name}}
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu level1">
@@ -61,13 +61,18 @@
                                     <li>
                                         <a href="{{url('/menu')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
                                             <i class="ion-ios-minus-empty"></i>
-                                            {{$sub->translation->name}}
+                                            {{$sub->translation->name??$sub->name}}
                                         </a>
                                     </li>
                                     @endforeach
                                 </ul>
                             </li>
                             @endforeach
+                            <!-- <li class="dropdown first">
+                                <a href="{{ url('/promotion')}}" class="btn btn-default lv1">
+                                @lang('header.promotion')
+                                </a>
+                            </li>  -->
                             <li class="dropdown first">
                                 <a href="{{ url('/contact')}}" class="btn btn-default lv1">
                                 @lang('header.contact')
@@ -89,12 +94,12 @@
                                 <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ Auth::user()->last_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu level1">
-                                    <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>My Account</a></li>
-                                    <li><a href="{{ url('/wishlish') }}"><i class="ion-ios-minus-empty"></i>Wishlist</a></li>
-                                    <li><a href="{{ url('/cart') }}"><i class="ion-ios-minus-empty"></i>Shopping Cart</a></li>
+                                    <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>@lang('account.my-account')</a></li>
+                                    <li><a href="{{ url('/wishlish') }}"><i class="ion-ios-minus-empty"></i>@lang('account.wishlist')</a></li>
+                                    <li><a href="{{ url('/cart') }}"><i class="ion-ios-minus-empty"></i>@lang('shoppings.cart')</a></li>
                                     <li class="it-last">
                                         <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                            <i class="ion-ios-minus-empty"></i>Logout
+                                            <i class="ion-ios-minus-empty"></i>@lang('auth.logout')
                                         </a>
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}

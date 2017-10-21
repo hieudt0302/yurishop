@@ -6,7 +6,7 @@
       Thêm Mới Menu
         <small>
             <i class="fa fa-arrow-circle-left"></i>
-            <a href="{{url('/admin/menu')}}">back to menu list</a>
+            <a href="{{url('/admin/menu')}}">Quay lại danh sách</a>
         </small>
       </h1>
       <ol class="breadcrumb">
