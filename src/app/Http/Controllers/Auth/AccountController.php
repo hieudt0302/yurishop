@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Order;
@@ -96,28 +97,27 @@ class AccountController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'old_password' => 'required',
-            'password' => 'required|string|min:6|confirmed'
+            'new_password' => 'required|confirmed|string|min:5',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
-            ->with('message', 'ERROR-INPUT: Code EI1002')
-            ->with('status', 'error');
+            ->withErrors($validator);
         }
 
         $user = Auth::user();
        
-        if (Hash::check($request->password,  $user->password)) {
+        if (Hash::check($request->new_password,  $user->password)) {
             $user->password = bcrypt($request->password);
             $user->save();
         }else{
             return redirect()->back()
             ->with('message', 'Mật khẩu cũ không đúng!')
-            ->with('status', 'error');
+            ->with('status', 'danger');
         }
 
         return redirect()->back()
-        ->with('message', trans('register.success')) 
+        ->with('message', 'Thay đổi mật khẩu thành công!') 
         ->with('status', 'success');
     }
 
