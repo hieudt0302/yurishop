@@ -17,6 +17,18 @@
 
 <section class="contact blogsingle">
     <div class="container">
+        @include('notifications.status_message') 
+        @include('notifications.errors_message')
+        @if (session()->has('success_message'))
+            <div class="alert alert-success">
+                {{ session()->get('success_message') }}
+            </div>
+        @endif
+        @if (session()->has('error_message'))
+            <div class="alert alert-danger">
+                {{ session()->get('error_message') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="contact-left">
@@ -48,26 +60,26 @@
             <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="contact-form blogsingle-content">
                     <!-- comment form -->
-                    <form action="#" class="post-cmt">
+                    {!! Form::open(array('route' => 'front.send-contact', 'class' => 'post-cmt')) !!}
                         <label>@lang('contact.review')</label>
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input class="name" type="text" placeholder="@lang('contact.name')">
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input class="email" type="text" placeholder="@lang('contact.email')*">
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input class="website" type="text" placeholder="@lang('contact.phone')">
-                                </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <input class="name" type="text" name="name" placeholder="@lang('contact.name')">
                             </div>
-                            <div class="row">
-                                <div class="col-md-12 col-xs-12 col-sm-12">
-                                    <input  class="comt" type="text" placeholder="@lang('contact.message')*">
-                                </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <input class="email" type="text" name="email" placeholder="@lang('contact.email')*">
                             </div>
-                            <input class="submit" type="submit" value="@lang('contact.submit')">
-                    </form>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <input class="website" type="text" name="phone" placeholder="@lang('contact.phone')">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <input  class="comt" type="text" name="message" placeholder="@lang('contact.message')*">
+                            </div>
+                        </div>
+                        <input class="submit" type="submit" value="@lang('contact.submit')">
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
