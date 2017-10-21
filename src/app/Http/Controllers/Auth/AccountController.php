@@ -92,9 +92,33 @@ class AccountController extends Controller
         return View('front.myaccount.changepassword');
     }
 
-    public function ChangePasswordUpdate()
+    public function ChangePasswordUpdate(Request $request)
     {
-        return View('front.myaccount.changepassword');
+        $validator = Validator::make($request->all(), [
+            'old_password' => 'required',
+            'password' => 'required|string|min:6|confirmed'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->with('message', 'ERROR-INPUT: Code EI1002')
+            ->with('status', 'error');
+        }
+
+        $user = Auth::user();
+       
+        if (Hash::check($request->password,  $user->password)) {
+            $user->password = bcrypt($request->password);
+            $user->save();
+        }else{
+            return redirect()->back()
+            ->with('message', 'Mật khẩu cũ không đúng!')
+            ->with('status', 'error');
+        }
+
+        return redirect()->back()
+        ->with('message', trans('register.success')) 
+        ->with('status', 'success');
     }
 
 

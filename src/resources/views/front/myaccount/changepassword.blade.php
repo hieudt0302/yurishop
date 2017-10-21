@@ -14,35 +14,39 @@
             <div id="content-center" class="col-lg-12">
                 <div class="page page-myaccount page-myaccount-changepassword">
                     <div class="page-body">
+                        
                         <div class="row row-hardcode">
                             <div class="col-md-4 col-lg-3">
                             @include('front.myaccount.myaccount_sidebar')
                             </div>
                             <div class="col-md-8 col-lg-9">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                        @include('notifications.status_message') 
+                                        @include('notifications.errors_message') 
+                                    </div>
+                                </div> 
                                 <div class="page-title pt-4 pt-md-0">
                                     <h1 class="h3">Change password</h1>
                                 </div>
-                                <form action="{{url('/Account/ChangePassword/Update')}}" class="form-horizontal" method="post" novalidate="novalidate"><input name="__RequestVerificationToken" type="hidden" value="YFB8FzyJqYjyJ3Qwq19Y5Kz9LbtthllPrPuMrq27Wha8VOPRPFgIRoJasPFIScza-9sOoFqKbGHr4fI0GsQFnYl28btT0d7seqLcyDBD8no1">
+                                <form action="{{url('/Account/ChangePassword/Update')}}" class="form-horizontal" method="post">
+                                {{ csrf_field()}}
                                     <div class="form-group row row-hardcode">
-                                        <label class="col-lg-4 col-form-label required" for="OldPassword" aria-required="true">Old password</label>
+                                        <label class="col-lg-4 col-form-label required" for="OldPassword">Old password</label>
                                         <div class="col-lg-8">
-                                            <input class="form-control" data-val="true" data-val-required="Old password is required." id="OldPassword" name="OldPassword" type="password">
-                                            <span class="field-validation-valid" data-valmsg-for="OldPassword" data-valmsg-replace="true"></span>
+                                            <input class="form-control" id="OldPassword" name="old_password" type="password">
                                         </div>
                                     </div>
                                     <div class="form-group row row-hardcode">
                                         <label class="col-lg-4 col-form-label required" for="NewPassword" aria-required="true">New password</label>
                                         <div class="col-lg-8">
-                                            <input class="form-control" data-val="true" data-val-length="The password should have at least 6 characters." data-val-length-max="999" data-val-length-min="6" data-val-required="New password is required." id="NewPassword" name="NewPassword" type="password">
-                                            <span class="field-validation-valid" data-valmsg-for="NewPassword" data-valmsg-replace="true"></span>
+                                            <input class="form-control" id="NewPassword" name="password" type="password">
                                         </div>
                                     </div>
                                     <div class="form-group row row-hardcode">
-                                        <label class="col-lg-4 col-form-label required" for="ConfirmNewPassword" aria-required="true">Confirm password</label>
+                                        <label class="col-lg-4 col-form-label required" for="ConfirmNewPassword" >Confirm password</label>
                                         <div class="col-lg-8">
-                                            <input class="form-control" data-val="true" data-val-equalto="The new password and confirmation password do not match." data-val-equalto-other="*.NewPassword" data-val-required="Password is required." id="ConfirmNewPassword" name="ConfirmNewPassword"
-                                                type="password">
-                                            <span class="field-validation-valid" data-valmsg-for="ConfirmNewPassword" data-valmsg-replace="true"></span>
+                                            <input class="form-control" id="ConfirmNewPassword" name="password_confirmation " type="password">
                                         </div>
                                     </div>
                                     <div class="form-group row row-hardcode">

@@ -2,7 +2,7 @@
 
 return[
     'username' => 'Username',
-    'password' => 'Password',
+    'password' => 'password',
     'remember_me' => 'Remember Me',
     'forgot_password' => 'Forgot Your Password?',
     'login'=>'Login',
