@@ -112,7 +112,7 @@
                                                     <select id="language-select" name="language_id" class="form-control">
                                                         <option value="0">-----Chọn Ngôn Ngữ-----</option>                                                        
                                                         @foreach($languages as  $language)
-                                                        <option value="{{$language->id}}">{{$language->name}}</option>
+                                                        <option value="{{$language->id}}" selected={{old('language_id')===$language->id?'selected':''}}>{{$language->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -125,26 +125,26 @@
                                                 <label class="control-label col-md-3" for="title" title="">Tiêu đề</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group input-group-required">
-                                                        <input class="form-control text-box single-line valid" id="title_translate" name="title_translate" type="text" value="">
+                                                        <input class="form-control text-box single-line valid" id="title_translate" name="title_translate" type="text" value="{{old('title_translate')}}">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Lởi trích</label>
                                                 <div class="col-md-8">
-                                                    <textarea id="excerpt_translate" class="form-control" name="excerpt_translate" rows="3"  placeholder=""></textarea>
+                                                    <textarea id="excerpt_translate" class="form-control" name="excerpt_translate" rows="3"  placeholder="">{{old('excerpt_translate')}}</textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Nội dung</label>
                                                 <div class="col-md-8">
-                                                    <textarea id="content_translate" class="form-control ckeditor" name="content_translate" rows="3"  placeholder=""></textarea>
+                                                    <textarea id="content_translate" class="form-control ckeditor" name="content_translate" rows="3"  placeholder="" contenteditable="true">{!!old('content_translate')!!}</textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Mô tả</label>
                                                 <div class="col-md-8">
-                                                    <textarea id="description_translate" class="form-control" name="description_translate" rows="3"  placeholder=""></textarea>
+                                                    <textarea id="description_translate" class="form-control" name="description_translate" rows="3"  placeholder="">{{old('description_translate')}}</textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -204,7 +204,8 @@
             },
             success:function(response){
             $('#title_translate').val(response['title']);
-            $('#content_translate').val(response['content']);
+            var html = $('#comments').val();
+            $('#content_translate').html(response['content']);
             $('#description_translate').val(response['description']);
             $('#excerpt_translate').val(response['excerpt']);
             },
