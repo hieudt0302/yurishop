@@ -31,6 +31,8 @@ return [
      'company-name' => ' Công ty TNHH Dakmark Foods',
      'headquarter-address' => '123 Hùng Vương, Đăk Hà, Kon Tum',   	                            	 	 	 	      
  	 'poko-message' => 'Chúng tôi hy vọng giúp cộng đồng có cuộc sống vui vẻ, hạnh phúc, tràn đầy năng lượng hơn bằng những sản phẩn sạch, chất lượng cao của cao nguyên lộng gió.',   	                            	 	 	 	      
+	 'video-header' => 'The Pokofarms farmers',                             
+	 'video-message' => 'We are different. We could not do best but we will try to do better everyday.', 
 	 'read-more' => 'Đọc thêm',   	 
      'faq' => 'Câu hỏi thường gặp',
      'product-list' => 'Danh sách sản phẩm',
