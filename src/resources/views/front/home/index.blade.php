@@ -54,6 +54,25 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+
+        <!-- Video -->
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="ab-intro">
+                    <p>- <b>@lang('common.video-header')</b> -</p>
+                    <p>"@lang('common.video-message')"</p>
+                    </br>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PLKTGWH398Q?autoplay=1&amp;rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <!-- End Video -->
+
+        </div>
     </div>
 </div>      
     
