@@ -39,39 +39,50 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="OrderStatus" title="">Order status:</label>
                                             <div class="col-md-9">
-                                                <div class="input-group input-group-short">
+                                                <div class="input-group input-group-short">                                                   
                                                     <div class="input-group-text">
                                                         <strong>
                                                             <div class="form-text-row">{{__('status.order.'.$order->order_status)}}</div>
                                                         </strong>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9 col-md-offset-3">
+                                                <div class="input-group input-group-short">
                                                     <div class="input-group-btn">
+                                                        <strong>
+                                                            <div class="form-text-row">{{__('status.order.'.$order->order_status)}}</div>
+                                                        </strong>
+                                                        @if($order->order_status!==3)
                                                         <button type="button" name="" id="cancelorder" class="btn bg-red" style="margin-right: 3px;" data-toggle="modal" data-target="#cancelorder-action-confirmation">
                                                             Cancel order
                                                         </button>
+                                                        @endif
                                                         <button type="submit" name="btnChangeOrderStatus" onclick="toggleChangeOrderStatus(true);return false;" id="btnChangeOrderStatus" class="btn btn-primary" style="display: inline-block;">
                                                         Change status
                                                         </button>
-                                                        <div id="pnlChangeOrderStatus" style="margin-top: 3px; display: none;">
-                                                            <select class="form-control valid" data-val="true" data-val-number="The field Order status must be a number." id="OrderStatusId" name="OrderStatusId">
-                                                                @foreach(\Lang::get('status.order') as $key =>$value)
-                                                                    @if($order->order_status === $key)
-                                                                        <option value="{{$key}}" selected="selected">{{$value}}</option>
-                                                                    @else 
-                                                                        <option value="{{$key}}">{{$value}}</option>
-                                                                    @endif
-                                                                @endforeach
-                                                            </select>
-                                                            <button type="button" name="" id="btnSaveOrderStatus" class="btn btn-primary" style="margin-left: 3px" data-toggle="modal" data-target="#btnSaveOrderStatus-action-confirmation">
-                                                            Save
-                                                            </button>
-                                                            <button type="submit" name="btnCancelOrderStatus" onclick="toggleChangeOrderStatus(false);return false;" id="btnCancelOrderStatus" class="btn bg-teal" style="margin-left: 3px">
-                                                            Cancel
-                                                            </button>
-                                                            <div class="input-group-btn-hint">
-                                                                <em>This option is only for advanced users (not recommended to change manually). All appropriate actions (such as inventory adjustment, sending notification emails, reward points, gift card activation/deactivation, etc) should be done manually in this case.</em>
+                                                        <form action="{{url('/admin/orders')}}/{{$order->id}}/change/orderstatus" method="POST">
+                                                        {{ csrf_field()}}
+                                                            <div id="pnlChangeOrderStatus" style="margin-top: 3px; display: none;">
+                                                                <select class="form-control valid" id="OrderStatusId" name="order_status" style="max-width: 160px">
+                                                                    @foreach(\Lang::get('status.order') as $key =>$value)
+                                                                        @if($order->order_status === $key)
+                                                                            <option value="{{$key}}" selected="selected">{{$value}}</option>
+                                                                        @else 
+                                                                            <option value="{{$key}}">{{$value}}</option>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </select>
+                                                                <button type="submit" name="" id="btnSaveOrderStatus" class="btn btn-primary" style="margin-left: 3px">
+                                                                Save
+                                                                </button>
+                                                                <button type="button" onclick="toggleChangeOrderStatus(false);return false;" id="btnCancelOrderStatus" class="btn bg-teal" style="margin-left: 3px">
+                                                                Cancel
+                                                                </button>
                                                             </div>
-                                                        </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,7 +100,9 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="CustomerId" title="">Customer Name</label>
                                             <div class="col-md-9">
-                                                <a href="#">{{$order->billingaddress->last_name}} {{$order->billingaddress->first_name}}</a>
+                                                <div class="form-text-row">
+                                                    <a href="#">{{$order->billingaddress->last_name}} {{$order->billingaddress->first_name}}</a>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -146,38 +159,40 @@
                                             </div>
                                         </div>
                                         <hr>
-                                        <div id="trEditOrderTotals" style="display: none;">
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="order_shipping_price" title="">Order Shipping Price</label>
-                                                <div class="col-md-9">
-                                                    <div class="input-group bootstrap-touchspin">
-                                                        <input data-val="true" data-val-number="The field Order tax must be a number." id="OrderShippingPrice" name="order_shipping_price" type="text" value="0.0000"
-                                                            class="form-control" style="display: block;">
+                                        <form action="{{url('admin/orders')}}/{{$order->id}}/update/fee" method="POST">
+                                        {{ csrf_field()}}
+                                            <div id="trEditOrderTotals" style="display: none;">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" title="">Order Shipping Price</label>
+                                                    <div class="col-md-4">
+                                                        <div class="input-group bootstrap-touchspin">
+                                                            <input  id="OrderShippingPrice" name="order_shipping_price" type="text" value="0.00"  class="form-control" style="display: block;">
                                                         </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="order_tax" title="">Order Tax</label>
-                                                <div class="col-md-9">
-                                                    <div class="input-group bootstrap-touchspin">
-                                                        <input data-val="true" data-val-number="The field Order discount must be a number." id="OrderTax" name="order_tax" type="text" value="0.0000" class="form-control" style="display: block;">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label"  title="">Order Tax</label>
+                                                    <div class="col-md-4">
+                                                        <div class="input-group bootstrap-touchspin">
+                                                            <input  id="OrderTax" name="order_tax" type="text" value="0.00" class="form-control" style="display: block;">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-9 col-md-offset-3">
-                                                <button type="submit" name="btnEditOrderTotals" onclick="toggleOrderTotals(true);return false;" id="btnEditOrderTotals" class="btn btn-primary">
-                                                Edit order totals
-                                                </button>
-                                                <button type="button" name="" id="btnSaveOrderTotals" class="btn btn-primary" data-toggle="modal" data-target="#btnSaveOrderTotals-action-confirmation" style="display: none;">
-                                                    Save order totals
-                                                </button>
-                                                <button type="submit" name="btnCancelOrderTotals" onclick="toggleOrderTotals(false);return false;" id="btnCancelOrderTotals" class="btn bg-teal" style="display: none;">
-                                                Cancel
-                                                </button>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-md-offset-3">
+                                                    <button type="button" name="btnEditOrderTotals" onclick="toggleOrderTotals(true);return false;" id="btnEditOrderTotals" class="btn btn-primary">
+                                                    Edit order totals
+                                                    </button>
+                                                    <button type="submit" name="" id="btnSaveOrderTotals" class="btn btn-primary" style="display: none;">
+                                                        Save order totals
+                                                    </button>
+                                                    <button type="button" name="btnCancelOrderTotals" onclick="toggleOrderTotals(false);return false;" id="btnCancelOrderTotals" class="btn bg-teal" style="display: none;">
+                                                    Cancel
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </form>
                                         
                                     </div>
                                 </div>
@@ -644,37 +659,19 @@
                 <h4 class="modal-title" id="cancelorder-action-confirmation-title">Are you sure?</h4>
             </div>
             <div class="modal-body">
-                Are you sure you want to perform this action?
+                Are you sure you want to cancel this order?
             </div>
             <div class="modal-footer">
-                <button type="submit" id="cancelorder-action-confirmation-submit-button" class="btn btn-primary pull-right" name="cancelorder">
-                Yes
-                </button>
+                <form action="{{url('/admin/orders')}}/{{$order->id}}/cancel/orderstatus" method="POST">
+                    {{ csrf_field()}}
+                    <button type="submit" class="btn btn-danger pull-right">Yes </button>
+                </form>
                 <span class="btn btn-default pull-right margin-r-5" data-dismiss="modal">No, cancel</span>
             </div>
         </div>
     </div>
 </div>
-<!-- 2 -->
-<div id="btnSaveOrderStatus-action-confirmation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="btnSaveOrderStatus-action-confirmation-title" style="display: none;">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="btnSaveOrderStatus-action-confirmation-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to perform this action?
-            </div>
-            <div class="modal-footer">
-                <button type="submit" id="btnSaveOrderStatus-action-confirmation-submit-button" class="btn btn-primary pull-right" name="btnSaveOrderStatus">
-                Yes
-                </button>
-                <span class="btn btn-default pull-right margin-r-5" data-dismiss="modal">No, cancel</span>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- 3 -->
 <div id="btnSaveOrderTotals-action-confirmation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="btnSaveOrderTotals-action-confirmation-title">
     <div class="modal-dialog">
@@ -769,75 +766,30 @@
         }
     }
 
-    function toggleCC(editmode) {
-        if (editmode) {
-            $('#lblCardType').hide();
-            $('#CardType').show();
-            $('#lblCardName').hide();
-            $('#CardName').show();
-            $('#lblCardNumber').hide();
-            $('#CardNumber').show();
-            $('#lblCardCvv2').hide();
-            $('#CardCvv2').show();
-            $('#lblCardExpirationMonth').hide();
-            $('#CardExpirationMonth').show();
-            $('#lblCardExpirationYear').hide();
-            $('#CardExpirationYear').show();
-            $('#btnEditCC').hide();
-            $('#btnSaveCC').show();
-            $('#btnCancelCC').show();
-        } else {
-            $('#lblCardType').show();
-            $('#CardType').hide();
-            $('#lblCardName').show();
-            $('#CardName').hide();
-            $('#lblCardNumber').show();
-            $('#CardNumber').hide();
-            $('#lblCardCvv2').show();
-            $('#CardCvv2').hide();
-            $('#lblCardExpirationMonth').show();
-            $('#CardExpirationMonth').hide();
-            $('#lblCardExpirationYear').show();
-            $('#CardExpirationYear').hide();
-            $('#btnEditCC').show();
-            $('#btnSaveCC').hide();
-            $('#btnCancelCC').hide();
-        }
-    }
+    
 </script>
 <script>
     $(function(){
-        $('#cancelorder').attr("data-toggle", "modal").attr("data-target", "#cancelorder-action-confirmation");
-        $('#cancelorder-action-confirmation-submit-button').attr("name", $("#cancelorder").attr("name"));
-        $("#cancelorder").attr("name", "")
-        if ($("#cancelorder").attr("type") == "submit") $("#cancelorder").attr("type", "button")
-        $('#btnSaveOrderStatus').attr("data-toggle", "modal").attr("data-target", "#btnSaveOrderStatus-action-confirmation");
-        $('#btnSaveOrderStatus-action-confirmation-submit-button').attr("name", $("#btnSaveOrderStatus").attr("name"));
-        $("#btnSaveOrderStatus").attr("name", "")
-        if ($("#btnSaveOrderStatus").attr("type") == "submit") $("#btnSaveOrderStatus").attr("type", "button")
+       $('#cancelorder').attr("data-toggle", "modal").attr("data-target", "#cancelorder-action-confirmation");
 
         $("#OrderShippingPrice").TouchSpin({
-            min: -79228162514264337593543950335,
-            max: 79228162514264337593543950335,
-            decimals: 4, //always display 4 digits
+            min: 0,
+            max: 999999999,
+            decimals: 2,
             forcestepdivisibility: "none",
             verticalbuttons: true,
             postfix: ""
         });
 
         $("#OrderTax").TouchSpin({
-            min: -79228162514264337593543950335,
-            max: 79228162514264337593543950335,
-            decimals: 4, //always display 4 digits
+            min: 0,
+            max: 999999999,
+            decimals: 2,
             forcestepdivisibility: "none",
             verticalbuttons: true,
             postfix: ""
         });
 
-        $('#btnSaveOrderTotals').attr("data-toggle", "modal").attr("data-target", "#btnSaveOrderTotals-action-confirmation");
-        $('#btnSaveOrderTotals-action-confirmation-submit-button').attr("name", $("#btnSaveOrderTotals").attr("name"));
-        $("#btnSaveOrderTotals").attr("name", "")
-        if ($("#btnSaveOrderTotals").attr("type") == "submit") $("#btnSaveOrderTotals").attr("type", "button")
     });
 </script>
 

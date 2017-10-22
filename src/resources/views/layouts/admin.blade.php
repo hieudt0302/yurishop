@@ -62,8 +62,15 @@
     }
 
     .form-text-row {
-    padding-top: 6px;
-  }
+      padding-top: 6px;
+    }
+
+    group.input-group-short .group-btn-row {
+      width: auto !important;
+    }
+    .input-group.input-group-short .input-group-text {
+      margin-right: 10px !important;
+    }
  </style>
 </head>
  

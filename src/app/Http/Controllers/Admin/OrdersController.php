@@ -144,4 +144,32 @@ class OrdersController extends Controller
         return View('admin.orders.index', compact('orders'))
         ->with('i', ($request->input('page', 1) - 1) * 21);
     }
+
+    public function CancelOrderStatus($id)
+    {
+        $order = Order::find($id);
+        $order->order_status = 3; //refer Lang/method.php
+        $order->save();
+        
+        return view('admin/orders/show',compact('order'));
+    }
+
+    public function ChangeOrderStatus(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $order->order_status =  $request->order_status; //refer Lang/method.php
+        $order->save();
+        
+        return view('admin/orders/show',compact('order'));
+    }
+    public function UpdateOrderFee(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $order->order_tax =  $request->order_tax; 
+        $order->order_shipping_price =  $request->order_shipping_price; 
+        $order->order_total = $order->order_tax  + $order->order_shipping_price +  $order->orderdetails->sum('total');
+        $order->save();
+        
+        return view('admin/orders/show',compact('order'));
+    }
 }

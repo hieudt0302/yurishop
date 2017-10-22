@@ -216,7 +216,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('orders',['as'=>'admin.orders.index','uses'=>'OrdersController@index','middleware' => ['role:admin|manager']]);
     Route::post('orders',['as'=>'admin.orders.find','uses'=>'OrdersController@find','middleware' => ['role:admin|manager']]);
     Route::get('orders/{id}',['as'=>'admin.orders.show','uses'=>'OrdersController@show','middleware' => ['role:admin|manager']]);
-    
+    //
+    Route::post('orders/{id}/cancel/orderstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@CancelOrderStatus','middleware' => ['role:admin|manager']]);
+    Route::post('orders/{id}/change/orderstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@ChangeOrderStatus','middleware' => ['role:admin|manager']]);
+    Route::post('orders/{id}/update/fee',['as'=>'admin.orders.show','uses'=>'OrdersController@UpdateOrderFee','middleware' => ['role:admin|manager']]);
+
     // InfoPages
     Route::get('info-pages',['as'=>'admin.info-pages.index','uses'=>'InfoPagesController@index','middleware'=> ['role:admin|manager']]);
     Route::get('info-pages/create',['as'=>'admin.info-pages.create','uses'=>'InfoPagesController@create','middleware'=> ['role:admin|manager']]);
