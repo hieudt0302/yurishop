@@ -32,18 +32,25 @@ class AccountController extends Controller
         $validator = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required'
+            'email' => 'required|email',
+            'day' => 'numeric|min:1|max:31',
+            'month' => 'numeric|min:1|max:12',
+            'year' => 'numeric|min:1900|max:2500',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
-            ->with('danger_message', 'ERROR-INPUT: Code EI1003')
+            ->withErrors($validator)
             ->withInput();
         }
 
         $user = User::find(Auth::user()->id);
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
+        if(!empty($request->day) && !empty($request->month)&& !empty($request->year))
+        {
+            $user->date_of_birth= date_create($request->year.'-'.$request->month.'-'.$request->day);
+        }
         $user->gender = $request->gender ==="M"?true:false;
         $user->email = $request->email;
         $user->phone = $request->phone;
@@ -54,7 +61,8 @@ class AccountController extends Controller
         $user->save();
 
         return redirect()->back()
-        ->with('success_message', 'Đã Cập Nhật Thông Tin Tài Khoản');
+        ->with('message', 'Đã Cập Nhật Thông Tin Tài Khoản')
+        ->with('status', 'success');
     }
 
     public function Orders()

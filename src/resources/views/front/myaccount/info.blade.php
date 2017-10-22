@@ -20,6 +20,12 @@
                                 @include('front.myaccount.myaccount_sidebar')
                             </div>
                             <div class="col-md-8 col-lg-9">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                            @include('notifications.status_message') 
+                                            @include('notifications.errors_message') 
+                                    </div>
+                                </div> 
                                 <div class="page-title pt-4 pt-md-0">
                                     <h1 class="h3">@lang('account.customer-info')</h1>
                                 </div>
@@ -32,13 +38,13 @@
                                             <div class="col-lg-9">
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input  class="form-check-input" id="gender-male" name="gender" type="radio" value="M">
+                                                        <input  class="form-check-input" id="gender-male" name="gender" type="radio" value="M" checked="{{Auth::user()->gender?'checked':''}}">
                                                     <span>&nbsp;&nbsp;&nbsp;&nbsp;@lang('account.male')</span>
                                                 </label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" id="gender-female" name="gender" type="radio" value="F">
+                                                        <input class="form-check-input" id="gender-female" name="gender" type="radio" value="F" checked="{{Auth::user()->gender?'':'checked'}}">
                                                         <span>&nbsp;&nbsp;&nbsp;&nbsp;@lang('account.female')</span>
                                                     </label>
                                                 </div>
@@ -47,14 +53,12 @@
                                         <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="FirstName" aria-required="true">@lang('profile.first-name')</label>
                                             <div class="col-lg-9">
                                                 <input class="form-control" data-val="true" data-val-required="First name is required." id="FirstName" name="first_name" type="text" value="{{Auth::user()->first_name}}">
-                                                <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
                                             </div>
                                         </div>
 
                                         <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="LastName" aria-required="true">@lang('profile.last-name')</label>
                                             <div class="col-lg-9">
                                                 <input class="form-control" data-val="true" data-val-required="Last name is required." id="LastName" name="last_name" type="text" value="{{Auth::user()->last_name}}">
-                                                <span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
                                             </div>
                                         </div>
                                         <div class="form-group row row-hardcode">
@@ -62,31 +66,25 @@
                                             <div class="col-lg-9">
                                                 <div class="row row-hardcode xs-gutters">
                                                     <div class="col">
-                                                        <select class="date-part form-control noskin" data-native-menu="false" data-select-min-results-for-search="100" name="DateOfBirthDay">
-                                                            <option value="0">Day</option>
-                                                        </select>
+                                                        <input class="form-control"  id="day" name="day" type="text" value="{{Auth::user()->date_of_birth->format('d') }}">
                                                     </div>
                                                     <div class="col">
-                                                        <select class="date-part form-control noskin" data-native-menu="false" data-select-min-results-for-search="100" name="DateOfBirthMonth"><option value="">Month</option><option value="1">January</option><option value="2">February</option><option value="3" selected="selected">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option>
-                                                    </select></div>
+                                                        <input class="form-control"  id="month" name="month" type="text" value="{{Auth::user()->date_of_birth->format('m')}}">
+                                                    </div>
                                                     <div class="col">
-                                                        <select class="date-part form-control noskin" data-native-menu="false" name="DateOfBirthYear">
-                                                            <option value="">Year</option>
-                                                        </select>
+                                                        <input class="form-control" id="year" name="year" type="text" value="{{Auth::user()->date_of_birth->format('Y')}}">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label required" for="Email" aria-required="true">Email</label>
                                             <div class="col-lg-9">
-                                                <input class="form-control" data-val="true" data-val-email="Wrong email" data-val-required="Email is required." id="Email" name="email" type="email" value="{{Auth::user()->email}}">
-                                                <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                                <input class="form-control" id="Email" name="email" type="email" value="{{Auth::user()->email}}">
                                             </div>
                                         </div>
                                         <div class="form-group row row-hardcode"><label class="col-lg-3 col-form-label" for="Phone" aria-required="true">Phone</label>
                                             <div class="col-lg-9">
-                                                <input class="form-control" data-val="true"  id="Phone" name="phone" type="text" value="{{Auth::user()->phone}}">
-                                                <span class="field-validation-valid" data-valmsg-for="Phone" data-valmsg-replace="true"></span>
+                                                <input class="form-control" id="Phone" name="phone" type="text" value="{{Auth::user()->phone}}">
                                             </div>
                                         </div>
                                         <div class="form-group row row-hardcode">
@@ -149,13 +147,7 @@
   
 <script>
     $(function () {
-        if({{Auth::user()->gender}}){
-            radiobtn = document.getElementById("gender-male");
-            radiobtn.checked = true;
-        }else{
-            radiobtn = document.getElementById("gender-female");
-            radiobtn.checked = true;
-        }
+        
     });
 </script>
 @endsection

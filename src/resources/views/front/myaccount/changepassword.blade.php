@@ -20,10 +20,10 @@
                             @include('front.myaccount.myaccount_sidebar')
                             </div>
                             <div class="col-md-8 col-lg-9">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                        @include('notifications.status_message') 
-                                        @include('notifications.errors_message') 
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                            @include('notifications.status_message') 
+                                            @include('notifications.errors_message') 
                                     </div>
                                 </div> 
                                 <div class="page-title pt-4 pt-md-0">

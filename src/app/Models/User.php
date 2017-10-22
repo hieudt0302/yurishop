@@ -38,6 +38,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
          'remember_token',
     ];
 
+    //In Blade: $user->date_of_birth->format('d/m/Y') }}
+    protected $dates = ['date_of_birth'];
+
     protected $fillable = [
         'first_name', 'last_name', 'email', 'password', 'username',
     ];
