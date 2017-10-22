@@ -52,53 +52,41 @@ class PostsController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'slug' => 'required|string|min:1',
-            'img' => 'required|inage'            
+            'img' => 'required|image'            
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
-            ->with('message', 'ERROR-INPUT: Code EI1002')
-            ->with('status', 'danger')
+            ->withErrors($validator)
             ->withInput();
         }
 
-            $post = new Post();
-            $post->title = $request->title;
-            $post->slug = $request->slug;
-            if(!empty($request->category_id))
-                $post->category_id = $request->category_id;
-            $post->author_id = Auth::user()->id;
-            $post->published = $request->published??0;
+        $post = new Post();
 
-            $post->img = '' ;
-            if (request()->hasFile('img')) {
-                $image = $request->file('img');
-                $img_path = $image->storeAs('images/blog',$image->getClientOriginalName());                              
-                $img = Image::make(Storage::get($img_path))->fit(370, 230)->encode();
-                Storage::put($img_path, $img);                     
-                $post->img = $image->getClientOriginalName();
 
-                $img_path = $image->storeAs('images/blog/preview',$image->getClientOriginalName());                              
-                $img = Image::make(Storage::get($img_path))->fit(80, 100)->encode();
-                Storage::put($img_path, $img);                         
-            }
+        $post->title = $request->title;
+        $post->slug = $request->slug;
+        if(!empty($request->category_id))
+            $post->category_id = $request->category_id;
+        $post->author_id = Auth::user()->id;
+        $post->published = $request->published??0;
 
-            $post->save();            
+        $post->img = '' ;
 
-            // $language_list = Language::all();
-            // foreach ($language_list as $language){ 
-            //     $post_translation = new PostTranslation;
-            //     $post_translation->post_id = $post->id;
-            //     $post_translation->language_id = $language->id;
-            //     $post_translation->title = $request->input($language->id.'-title');            
-            //     $post_translation->content = $request->input($language->id.'-content');
-            //     $post_translation->excerpt = $request->input($language->id.'-excerpt');
-            //     $post_translation->description = $request->input($language->id.'-description');                                   
-            //     $post_translation->save();
-            // }    
-        
-        // return redirect()->back()
-        // ->with('success_message', 'Bài viết mới đã được tạo');
+        if ($request->hasFile('img')) {
+
+            $image = $request->file('img');
+            $img_path = $image->storeAs('images/blog',$image->getClientOriginalName());                              
+            $img = Image::make(Storage::get($img_path))->fit(370, 230)->encode();
+            Storage::put($img_path, $img);                     
+            $post->img = $image->getClientOriginalName();
+            $img_path = $image->storeAs('images/blog/preview',$image->getClientOriginalName());                              
+            $img = Image::make(Storage::get($img_path))->fit(80, 100)->encode();
+            Storage::put($img_path, $img);                         
+        }
+
+        $post->save();            
+
         return redirect()->action(
             'Admin\PostsController@edit', ['id' => $post->id]
         );
@@ -152,8 +140,7 @@ class PostsController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()
-            ->with('message', 'ERROR-INPUT: Code EI1002')
-            ->with('status', 'danger')
+            ->withErrors($validator)
             ->withInput();
         }
 
@@ -182,24 +169,6 @@ class PostsController extends Controller
         $post->save();
 
 
-        // $language_list = Language::all();
-        // foreach ($language_list as $language){
-        //     $post_tran_id=$request->input($language->id.'-id');
-        //     $post_translation = PostTranslation::find($post_tran_id);
-        //     if ($post_translation == null) {
-        //         $post_translation = new PostTranslation;
-        //         $post_translation->post_id = $post->id;                
-        //         $post_translation->language_id = $language->id;                
-        //     }
-        //     $post_translation->title = $request->input($language->id.'-title');            
-        //     $post_translation->content = $request->input($language->id.'-content');
-        //     $post_translation->excerpt = $request->input($language->id.'-excerpt');
-        //     $post_translation->description = $request->input($language->id.'-description');                                   
-        //     $post_translation->save();
-        // }
-
-    //     return redirect()->back()
-    //     ->with('success_message', 'Bài viết đã được cập nhật');
             return redirect()->back()
             ->with('message', 'Bài viết đã được cập nhật')
             ->with('status', 'success')
@@ -214,8 +183,7 @@ class PostsController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()
-            ->with('message', 'ERROR-INPUT: Code EI1001')
-            ->with('status', 'danger')
+            ->withErrors($validator)
             ->withInput();
         }
 
@@ -306,5 +274,18 @@ class PostsController extends Controller
     {
         $comments = Comment::where('commentable_type','App\Models\Post')->get();
         return View('admin/posts/comments',compact('comments'));
+    }
+
+     public function GenerateSlug($title)
+    {
+        $slug = str_slug($title, "-");
+        if(Post::where('slug',$slug)->count() >0 )
+        {
+            $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
+        }
+        return response()->json([
+            'slug' =>  $slug,
+            'status' => 'success'
+        ]);
     }
 }

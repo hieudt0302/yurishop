@@ -15,6 +15,12 @@
         <li><a href="#">Bài viết</a></li>
         <li class="active">Thêm mới</li>
       </ol>
+      <div class="row">
+        <div class="col-xs-12">
+        @include('notifications.status_message') 
+        @include('notifications.errors_message') 
+        </div>
+    </div>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -38,7 +44,7 @@
                                                 <label class="control-label col-md-3" for="title" title="">Tiêu đề</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group">
-                                                        <input class="form-control text-box single-line valid" id="title" name="title" type="text">
+                                                        <input class="form-control text-box single-line valid" id="title" name="title" type="text" value="{{old('title')}}">
                                                         <div class="input-group-btn">
                                                             <span class="required">*</span>
                                                         </div>
@@ -50,7 +56,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            {{ Form::checkbox('published', 1 , true , array('class' => 'check-box')) }}
+                                                            {{ Form::checkbox('published', old('published') , true , array('class' => 'check-box')) }}
                                                         </label>
                                                     </div>
                                                 </div>
@@ -58,7 +64,7 @@
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="slug" title="">Slug</label>
                                                 <div class="col-md-4">
-                                                    <input class="form-control text-box single-line valid"  id="slug" name="slug" type="text">
+                                                    <input class="form-control text-box single-line valid"  id="slug" name="slug" type="text" value="{{old('slug')}}">
                                                 </div>
                                             </div>                                           
                                             <div class="form-group">
@@ -66,7 +72,7 @@
                                                 <div class="col-md-4">
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
-                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                        <option value="{{$category->id}}" selected="{{old('category_id')===$category->id?'selected':''}}">{{$category->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -186,6 +192,24 @@
     // CKEDITOR.replace('content-editor');
     //bootstrap WYSIHTML5 - text editor
     // $('.textarea').wysihtml5()
+
+    $('#title').on('change', function(e) {
+        e.preventDefault();
+        var token = '{{csrf_token()}}';
+        var title =  $('#title').val();
+        $.ajax({
+            cache: false,
+            url: '{{url("admin/posts/generateslug")}}' + '/' + title,
+            type: 'GET',
+            data: { _token :token},
+            success: function (response) {
+                if (response['status'] =='success') {
+                    $('#slug').val(response['slug'])
+                }
+            }
+        });
+        return false;
+    });
   })
 </script>
 @endsection
