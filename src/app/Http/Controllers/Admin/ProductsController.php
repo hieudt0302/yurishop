@@ -186,8 +186,7 @@ class ProductsController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()
-            ->with('message', 'ERROR-INPUT: Code EI1002')
-            ->with('status', 'danger')
+            ->withErrors($validator)
             ->withInput();
         }
 
@@ -259,7 +258,7 @@ class ProductsController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'message' => 'ERROR-INPUT: Code EI1001',
+                'message' => 'Không được để trống tên sản phẩm',
                 'status' => 'error'
             ]);
         }
@@ -465,5 +464,18 @@ class ProductsController extends Controller
         
         return View('admin.products.index', compact('products','categories'))
       ->with('i', ($request->input('page', 1) - 1) * 21);
+    }
+
+    public function GenerateSlug($name)
+    {
+        $slug = str_slug($name, "-");
+        if(Product::where('slug',$slug)->count() >0 )
+        {
+            $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
+        }
+        return response()->json([
+            'slug' =>  $slug,
+            'status' => 'success'
+        ]);
     }
 }

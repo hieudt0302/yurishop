@@ -221,10 +221,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                     <div class="form-group">
-                                        <div class="col-md-3">
-                                            <div class="label-wrapper"><label class="col-md-3 control-label" for="billing_address" title="">Billing address</label>
-                                            </div>
-                                        </div>
+                                        <label class="col-md-3 control-label" for="billing_address" title="">Billing address</label>
                                         <div class="col-md-9">
                                             <img alt="google maps" src="data:image/gif;base64,R0lGODlhEAAQANUAAAATVm+s78cjAE+tVaq2wldzvBxase3/9gAlvS23QNPZ+QsWpMLO/gdj6HyPx3qk1r/e8MTb4ygmi84UGSQ6sUy0O////6/S+hUqqiZbyykwdOX2/UZ0ygQ2sd0YEomP2RUfgG+a6Rc7k8wuIk21UgAilvf//80qABxJsM3c88H1/xMxxSAuxUJu2//1/2KEqd3r/xY/v9waAGWF2NIoDzFguBMsoNYgL4GZ3zE3sdDl/9slGg4qy+n//zy1RNEQByH5BAAHAP8ALAAAAAAQABAAAAaXwAapMqgMjb6KMuHzNSzQqFQ6elp6MFyBsurUAhDo6XlQcVaw3pUh0kB/1plILU1FoLQnTqQwTaVjFiEULn9ScBY1BoZSHk8ZKIxRN08tJX5QJgcROjopFgJPDwgOB1EMORgUHxY7TxssCwyYUDogBBYTVjASCx8bFgcHFwC4eRYmJhsFEjYrMTwoL8CuklM7Tdna2z4yQQA7">
                                             <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;ie=UTF8&amp;oe=UTF8&amp;geocode=&amp;q={{$order->billingaddress->address1}}+{{$order->billingaddress->district}}+{{$order->billingaddress->city}}+{{$order->billingaddress->country}}" style="margin-bottom: 10px;" target="_blank">View address on Google Maps</a>
@@ -338,10 +335,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                     <div class="form-group">
-                                        <div class="col-md-3">
-                                            <div class="label-wrapper"><label class="col-md-3 control-label" for="billing_address" title="">Shipping address</label>
-                                            </div>
-                                        </div>
+                                        <label class="col-md-3 control-label" for="billing_address" title="">Shipping address</label>
                                         <div class="col-md-9">
                                             <img alt="google maps" src="data:image/gif;base64,R0lGODlhEAAQANUAAAATVm+s78cjAE+tVaq2wldzvBxase3/9gAlvS23QNPZ+QsWpMLO/gdj6HyPx3qk1r/e8MTb4ygmi84UGSQ6sUy0O////6/S+hUqqiZbyykwdOX2/UZ0ygQ2sd0YEomP2RUfgG+a6Rc7k8wuIk21UgAilvf//80qABxJsM3c88H1/xMxxSAuxUJu2//1/2KEqd3r/xY/v9waAGWF2NIoDzFguBMsoNYgL4GZ3zE3sdDl/9slGg4qy+n//zy1RNEQByH5BAAHAP8ALAAAAAAQABAAAAaXwAapMqgMjb6KMuHzNSzQqFQ6elp6MFyBsurUAhDo6XlQcVaw3pUh0kB/1plILU1FoLQnTqQwTaVjFiEULn9ScBY1BoZSHk8ZKIxRN08tJX5QJgcROjopFgJPDwgOB1EMORgUHxY7TxssCwyYUDogBBYTVjASCx8bFgcHFwC4eRYmJhsFEjYrMTwoL8CuklM7Tdna2z4yQQA7">
                                             <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;ie=UTF8&amp;oe=UTF8&amp;geocode=&amp;q={{$order->shippingaddress->address1}}+{{$order->shippingaddress->district}}+{{$order->shippingaddress->city}}+{{$order->shippingaddress->country}}" style="margin-bottom: 10px;" target="_blank">View address on Google Maps</a>
@@ -487,46 +481,53 @@
                                                         <th>
                                                             Edit
                                                         </th>
+                                                        <th>
+                                                            Remove
+                                                        </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach($order->orderdetails as $detail)
                                                     <tr>
-                                                        <td>
-                                                            <img src="{{asset('/images/shop/previews/shop-prev-1.jpg')}}" alt="" title="">
+                                                        <td >
+                                                            @if(strlen($order->GetMediaByOrderAsc->source??'')> 0)
+                                                            <img src="{{asset('/storage')}}/{{$order->GetMediaByOrderAsc->source}}" alt="{{$order->name}}" title="{{$order->name}}" style="width: 120px;">
+                                                            @else 
+                                                            <img src="{{asset('/images/no-image.png')}}" alt="{{$order->name}}" title="{{$order->name}}"  style="width: 120px;">
+                                                            @endif
                                                         </td>
                                                         <td style="text-align: left; width: 15%;">
-                                                            <em><a href="{{url('/admin/products')}}/{{$detail->product->id}}">{{$detail->product->name}}</a></em>
+                                                            <em><a href="{{url('/admin/products')}}/{{$detail->product->slug}}">{{$detail->product->name}}</a></em>
                                                             <p>
                                                                 <strong>SKU</strong><text>:</text> {{$detail->product->sku}}
                                                             </p>
                                                         </td>
                                                         <td style="width: 15%;">
                                                             <div>{{$detail->price}}</div>
-                                                            <div id="pnlEditPvPrice4" style="display: block;">
+                                                            <div id="pnlEditPvPrice4" style="display: none;">
                                                                 <div class="form-group">
                                                                     <div class="col-md-8 col-md-offset-2">
-                                                                        <input name="pvPrice4" type="text" value="{{$detail->price}}" id="pvPrice4" class="form-control input-sm">
+                                                                        <input id="price"  name="price" type="text" value="{{$detail->price}}" class="form-control input-sm">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </td>
                                                         <td style="width: 10%;">
                                                             <div>{{$detail->quantity}}</div>
-                                                            <div id="pnlEditPvQuantity4" style="display: block;">
+                                                            <div id="pnlEditPvQuantity4" >
                                                                 <div class="form-group">
                                                                     <div class="col-md-8 col-md-offset-2">
-                                                                        <input name="pvQuantity4" type="text" value="{{$detail->quantity}}" id="pvQuantity4" class="form-control input-sm">
+                                                                        <input id="quantity"  name="quantity" type="text" value="{{$detail->quantity}}" class="form-control input-sm">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </td>
                                                         <td style="width: 15%;">
                                                             <div>{{$detail->discount}}</div>
-                                                            <div id="pnlEditPvDiscount4" style="display: block;">
+                                                            <div id="pnlEditPvDiscount4" style="display: none;">
                                                                 <div class="form-group">
                                                                     <div class="col-md-8 col-md-offset-2">
-                                                                        <input name="pvDiscount4" type="text" value="{{$detail->discount}}" id="pvDiscount4" class="form-control input-sm">
+                                                                        <input id="discount"   name="discount" type="text" value="{{$detail->discount}}"class="form-control input-sm">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -535,22 +536,25 @@
                                                             {{$detail->total}}
                                                         </td>
                                                         <td style="width: 15%;">
-                                                            <button type="submit" class="btn btn-default" name="btnEditOrderItem4" onclick="toggleOrderItemEdit(true);return false;" id="btnEditOrderItem4}" style="display: none;">
-                                                            <i class="fa fa-pencil"></i>
+                                                            <button type="submit" class="btn btn-default" name="btnEditOrderItem4" onclick="toggleOrderItemEdit(true);return false;" id="btnEditOrderItem4}">
+                                                                <i class="fa fa-pencil"></i>
                                                                 Edit
                                                             </button>
-                                                            <button type="button" class="btn btn-default" name="" id="btnDeleteOrderItem4" data-toggle="modal" data-target="#btnDeleteOrderItem4-action-confirmation" style="display: none;">
-                                                            <i class="fa fa-trash"></i>
-                                                            Delete
-                                                            </button>
-                                                            <button type="button" class="btn btn-default" name="" id="btnSaveOrderItem4" style="" data-toggle="modal" data-target="#btnSaveOrderItem4-action-confirmation">
-                                                            <i class="fa fa-floppy-o"></i>
-                                                            Save
+                                                            
+                                                            <button type="button" class="btn btn-default" name="" id="btnSaveOrderItem4" style="display:none;">
+                                                                <i class="fa fa-floppy-o"></i>
+                                                                Save
                                                             </button>
                                                         
-                                                            <button type="submit" class="btn btn-default" name="btnCancelOrderItem4" onclick="toggleOrderItemEdit(false);return false;" id="btnCancelOrderItem4" style="">
-                                                            <i class="fa fa-close"></i>
-                                                            Cancel
+                                                            <button type="submit" class="btn btn-default" name="btnCancelOrderItem4" onclick="toggleOrderItemEdit(false);return false;" id="btnCancelOrderItem4" style="display:none;">
+                                                                <i class="fa fa-close"></i>
+                                                                Cancel
+                                                            </button>
+                                                        </td>
+                                                        <td style="width: 15%;">
+                                                            <button type="button" class="btn btn-danger" name="" id="btnDeleteOrderItem{{$detail->id}}">
+                                                                <i class="fa fa-trash"></i>
+                                                                Delete
                                                             </button>
                                                         </td>
                                                     </tr>
@@ -793,64 +797,31 @@
     });
 </script>
 
+
 <script type="text/javascript">
-            $(document).ready(function() {
-                toggleOrderItemEdit4(false);
-            });
-        </script>
-        <script type="text/javascript">
-            function toggleOrderItemEdit4(editMode) {
-                if (editMode) {
-                    $('#pnlEditPvUnitPrice4').show();
-                    $('#pnlEditPvQuantity4').show();
-                    $('#pnlEditPvDiscount4').show();
-                    $('#pnlEditPvPrice4').show();
-                    $('#btnEditOrderItem4').hide();
-                    $('#btnDeleteOrderItem4').hide();
-                    $('#btnSaveOrderItem4').show();
-                    $('#btnCancelOrderItem4').show();
-                } else {
-                    $('#pnlEditPvUnitPrice4').hide();
-                    $('#pnlEditPvQuantity4').hide();
-                    $('#pnlEditPvDiscount4').hide();
-                    $('#pnlEditPvPrice4').hide();
-                    $('#btnEditOrderItem4').show();
-                    $('#btnDeleteOrderItem4').show();
-                    $('#btnSaveOrderItem4').hide();
-                    $('#btnCancelOrderItem4').hide();
-                }
-            }
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                toggleOrderItemEdit5(false);
-            });
-        </script>
-<script type="text/javascript">
-    function toggleOrderItemEdit5(editMode) {
+    function toggleOrderItemEdit4(editMode) {
         if (editMode) {
-            $('#pnlEditPvUnitPrice5').show();
-            $('#pnlEditPvQuantity5').show();
-            $('#pnlEditPvDiscount5').show();
-            $('#pnlEditPvPrice5').show();
-            $('#btnEditOrderItem5').hide();
-            $('#btnDeleteOrderItem5').hide();
-            $('#btnSaveOrderItem5').show();
-            $('#btnCancelOrderItem5').show();
+            $('#pnlEditPvUnitPrice4').show();
+            $('#pnlEditPvQuantity4').show();
+            $('#pnlEditPvDiscount4').show();
+            $('#pnlEditPvPrice4').show();
+            $('#btnEditOrderItem4').hide();
+            $('#btnDeleteOrderItem4').hide();
+            $('#btnSaveOrderItem4').show();
+            $('#btnCancelOrderItem4').show();
         } else {
-            $('#pnlEditPvUnitPrice5').hide();
-            $('#pnlEditPvQuantity5').hide();
-            $('#pnlEditPvDiscount5').hide();
-            $('#pnlEditPvPrice5').hide();
-            $('#btnEditOrderItem5').show();
-            $('#btnDeleteOrderItem5').show();
-            $('#btnSaveOrderItem5').hide();
-            $('#btnCancelOrderItem5').hide();
+            $('#pnlEditPvUnitPrice4').hide();
+            $('#pnlEditPvQuantity4').hide();
+            $('#pnlEditPvDiscount4').hide();
+            $('#pnlEditPvPrice4').hide();
+            $('#btnEditOrderItem4').show();
+            $('#btnDeleteOrderItem4').show();
+            $('#btnSaveOrderItem4').hide();
+            $('#btnCancelOrderItem4').hide();
         }
     }
-
-        
 </script>
+
 <script>
     $(document).ready(function() {
         $('#btnDeleteOrderItem4').attr("data-toggle", "modal").attr("data-target", "#btnDeleteOrderItem4-action-confirmation");
