@@ -1,8 +1,6 @@
 @extends('layouts.master')
 @section('title','Poko Farms - Post') 
-@section('header')
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-@endsection
+
 @section('content')
 
 <div class="hero">
@@ -15,7 +13,7 @@
                     <h1>{{$posts[0]->category->translation->name}}</h1>
                     <ul class="breadcumb">
                         <li><a href="#">@lang('common.home')</a></li>
-                        <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                        <li><span>/</span><a href="#">Blog</a></li>
                         <li><span>/</span>{{$posts[0]->category->translation->name}}</li>
                     </ul>
 
@@ -38,28 +36,28 @@
                 @if(!empty($search_key) && count($posts)!=0)
                     <!-- Post -->
                     @foreach($posts as $post_tran)
-                    @if($post_tran->post->published==1)
-                    <div class="blogpost-v2">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="video2">
-                                    <img src="{{asset('/storage/images/blog/')}}/{{$post_tran->post->img}}" alt="">
+                        @if($post_tran->post->published==1)
+                        <div class="blogpost-v2">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="video2">
+                                        <img src="{{asset('/storage/images/blog/')}}/{{$post_tran->post->img}}" alt="">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="blog-it-content2">
-                                    <div class="date">
-                                        <span>@lang('blog.posted-by') {{$post_tran->post->author->last_name}} {{$post_tran->post->author->first_name}}, {{ date('d-m-Y', strtotime($post_tran->post->created_at)) }}</span>
-                                    </div>                                
-                                    <h2><a href="{{url('/')}}/posts/{{$post_tran->post->slug}}">{{$post_tran->title}}</a></h2>
-                                    <p>{{$post_tran->excerpt}} </p>
-                                    <a class="readmore2" href="{{url('/')}}/posts/{{$post_tran->post->slug}}">/ &nbsp; @lang('common.read-more')</a>
+                                <div class="col-md-7">
+                                    <div class="blog-it-content2">
+                                        <div class="date">
+                                            <span>@lang('blog.posted-by') {{$post_tran->post->author->last_name}} {{$post_tran->post->author->first_name}}, {{ date('d-m-Y', strtotime($post_tran->post->created_at)) }}</span>
+                                        </div>                                
+                                        <h2><a href="{{url('/')}}/posts/{{$post_tran->post->slug}}">{{$post_tran->title}}</a></h2>
+                                        <p>{{$post_tran->excerpt}} </p>
+                                        <a class="readmore2" href="{{url('/')}}/posts/{{$post_tran->post->slug}}">/ &nbsp; @lang('common.read-more')</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    @endif
+                        <hr>
+                        @endif
                     @endforeach
                     <!-- End Post -->
                 @else
@@ -162,7 +160,7 @@
 <div class="blogpanigation">
     <div class="container">
         <div class="col-md-9">
-            <ul>
+            <!-- <ul>
                 <li class="prev"><a href="#">prev</a></li>
                 <li class="num active"><a href="#">1</a></li>
                 <li class="num"><a href="#">2</a></li>
@@ -171,7 +169,8 @@
                 <li class="num2"><a href="#">13</a></li>
                 <li class="num2"><a href="#">14</a></li>
                 <li class="next"><a href="#">next</a></li>
-            </ul>
+            </ul> -->
+            {{ $posts->links() }}
         </div>
     </div>
 </div>

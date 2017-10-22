@@ -37,11 +37,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="OrderStatus" title="">Order status</label>
-                                                    <div class="ico-help" title="The status of this order."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
+                                            <label class="col-md-3 control-label" for="OrderStatus" title="">Order status:</label>
                                             <div class="col-md-9">
                                                 <div class="input-group input-group-short">
                                                     <div class="input-group-text">
@@ -81,13 +77,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="CustomOrderNumber" title="">#Order No</label>
-                                                    <div class="ico-help" title="The unique number of this order."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
+                                            <label class="col-md-3  control-label" for="CustomOrderNumber" title="">Order No</label>
                                             <div class="col-md-9">
-                                                <div class="form-text-row">{{$order->order_noe}}</div>
+                                                <div class="form-text-row">#{{$order->order_no}}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -95,44 +87,25 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="CustomerId" title="">Customer Name</label>
-                                                    <div class="ico-help" title="The customer who placed this order."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
+                                            <label class="col-md-3 control-label" for="CustomerId" title="">Customer Name</label>
                                             <div class="col-md-9">
-                                                <a href="/Admin/Customer/Edit/6">{{$order->billingaddress->last_name}} {{$order->billingaddress->first_name}}</a>
+                                                <a href="#">{{$order->billingaddress->last_name}} {{$order->billingaddress->first_name}}</a>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="customer_email" title="">Customer Email</label>
-                                                    <div class="ico-help" title="The email of customer who placed this order."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
+                                            <label class="col-md-3 control-label" for="customer_email" title="">Customer Email</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{$order->billingaddress->email}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="customer_phone" title="">Customer Phone</label>
-                                                    <div class="ico-help" title="The phone of icustomer who placed this order."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
+                                            <label class="col-md-3 control-label" for="customer_phone" title="">Customer Phone</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{$order->billingaddress->phone}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper">
-                                                    <label class="control-label">Order subtotal</label>
-                                                    <div class="ico-help" title="The subtotal of this order.">
-                                                        <i class="fa fa-question-circle"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <label class="col-md-3 control-label">Order subtotal</label>
                                             <div class="col-md-7">
                                                 <div class="row">
                                                     <div class="col-md-10">
@@ -144,14 +117,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper">
-                                                    <label class="control-label">Order shipping</label>
-                                                    <div class="ico-help" title="The total shipping cost for this order.">
-                                                        <i class="fa fa-question-circle"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <label class="col-md-3  control-label">Order shipping</label>
                                             <div class="col-md-7">
                                                 <div class="row">
                                                     <div class="col-md-2">
@@ -163,19 +129,16 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="Tax" title="">Order tax</label>
-                                                    <div class="ico-help" title="Total tax applied to this order. Manage your tax settings from Configuration : Tax."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
+                                            <label class="col-md-3 control-label" for="Tax" title="">Order tax</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{$order->order_tax}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="OrderTotal" title="">Order total</label>
-                                                    <div class="ico-help" title="The total cost of this order (includes discounts, shipping and tax)."><i class="fa fa-question-circle"></i></div>
+                                            <div class="">
+                                                <div class="label-wrapper">
+                                                
+                                                <label class="col-md-3 control-label" for="OrderTotal" title="">Order total</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
@@ -185,11 +148,7 @@
                                         <hr>
                                         <div id="trEditOrderTotals" style="display: none;">
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="order_shipping_price" title="">Order Shipping Price</label>
-                                                        <div class="ico-help" title="Edit the total tax applied to this order."><i class="fa fa-question-circle"></i></div>
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="order_shipping_price" title="">Order Shipping Price</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input data-val="true" data-val-number="The field Order tax must be a number." id="OrderShippingPrice" name="order_shipping_price" type="text" value="0.0000"
@@ -198,11 +157,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-md-3">
-                                                    <div class="label-wrapper"><label class="control-label" for="order_tax" title="">Order Tax</label>
-                                                        <div class="ico-help" title="Edit the total discount applied to this order."><i class="fa fa-question-circle"></i></div>
-                                                    </div>
-                                                </div>
+                                                <label class="col-md-3 control-label" for="order_tax" title="">Order Tax</label>
                                                 <div class="col-md-9">
                                                     <div class="input-group bootstrap-touchspin">
                                                         <input data-val="true" data-val-number="The field Order discount must be a number." id="OrderTax" name="order_tax" type="text" value="0.0000" class="form-control" style="display: block;">
@@ -229,21 +184,13 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="payment_status" title="">Payment status</label>
-                                                    <div class="ico-help" title="The payment status of the order."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
+                                                <label class="col-md-3 control-label" for="payment_status" title="">Payment status</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{__('status.payment.'.$order->payment_status)}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="shipping_status" title="">Shipping status</label>
-                                                    <div class="ico-help" title="The shipping status of the order."><i class="fa fa-question-circle"></i></div>
-                                                </div>
-                                            </div>
+                                            <label class="col-md-3 control-label" for="shipping_status" title="">Shipping status</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{__('status.shipping.'.$order->shipping_status)}}</div>
                                             </div>
@@ -260,12 +207,11 @@
                                     <div class="panel-body">
                                     <div class="form-group">
                                         <div class="col-md-3">
-                                            <div class="label-wrapper"><label class="control-label" for="billing_address" title="">Billing address</label>
-                                                <div class="ico-help" title="Billing address info."><i class="fa fa-question-circle"></i></div>
+                                            <div class="label-wrapper"><label class="col-md-3 control-label" for="billing_address" title="">Billing address</label>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
-                                            <img alt="google maps" src="{{asset('/images/goolge_map_16x16.png')}}">
+                                            <img alt="google maps" src="data:image/gif;base64,R0lGODlhEAAQANUAAAATVm+s78cjAE+tVaq2wldzvBxase3/9gAlvS23QNPZ+QsWpMLO/gdj6HyPx3qk1r/e8MTb4ygmi84UGSQ6sUy0O////6/S+hUqqiZbyykwdOX2/UZ0ygQ2sd0YEomP2RUfgG+a6Rc7k8wuIk21UgAilvf//80qABxJsM3c88H1/xMxxSAuxUJu2//1/2KEqd3r/xY/v9waAGWF2NIoDzFguBMsoNYgL4GZ3zE3sdDl/9slGg4qy+n//zy1RNEQByH5BAAHAP8ALAAAAAAQABAAAAaXwAapMqgMjb6KMuHzNSzQqFQ6elp6MFyBsurUAhDo6XlQcVaw3pUh0kB/1plILU1FoLQnTqQwTaVjFiEULn9ScBY1BoZSHk8ZKIxRN08tJX5QJgcROjopFgJPDwgOB1EMORgUHxY7TxssCwyYUDogBBYTVjASCx8bFgcHFwC4eRYmJhsFEjYrMTwoL8CuklM7Tdna2z4yQQA7">
                                             <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;ie=UTF8&amp;oe=UTF8&amp;geocode=&amp;q={{$order->billingaddress->address1}}+{{$order->billingaddress->district}}+{{$order->billingaddress->city}}+{{$order->billingaddress->country}}" style="margin-bottom: 10px;" target="_blank">View address on Google Maps</a>
                                             <table class="table table-hover table-bordered" style="max-width: 400px;">
                                                 <tbody>
@@ -378,12 +324,11 @@
                                     <div class="panel-body">
                                     <div class="form-group">
                                         <div class="col-md-3">
-                                            <div class="label-wrapper"><label class="control-label" for="billing_address" title="">Shipping address</label>
-                                                <div class="ico-help" title="Billing address info."><i class="fa fa-question-circle"></i></div>
+                                            <div class="label-wrapper"><label class="col-md-3 control-label" for="billing_address" title="">Shipping address</label>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
-                                            <img alt="google maps" src="{{asset('/images/goolge_map_16x16.png')}}">
+                                            <img alt="google maps" src="data:image/gif;base64,R0lGODlhEAAQANUAAAATVm+s78cjAE+tVaq2wldzvBxase3/9gAlvS23QNPZ+QsWpMLO/gdj6HyPx3qk1r/e8MTb4ygmi84UGSQ6sUy0O////6/S+hUqqiZbyykwdOX2/UZ0ygQ2sd0YEomP2RUfgG+a6Rc7k8wuIk21UgAilvf//80qABxJsM3c88H1/xMxxSAuxUJu2//1/2KEqd3r/xY/v9waAGWF2NIoDzFguBMsoNYgL4GZ3zE3sdDl/9slGg4qy+n//zy1RNEQByH5BAAHAP8ALAAAAAAQABAAAAaXwAapMqgMjb6KMuHzNSzQqFQ6elp6MFyBsurUAhDo6XlQcVaw3pUh0kB/1plILU1FoLQnTqQwTaVjFiEULn9ScBY1BoZSHk8ZKIxRN08tJX5QJgcROjopFgJPDwgOB1EMORgUHxY7TxssCwyYUDogBBYTVjASCx8bFgcHFwC4eRYmJhsFEjYrMTwoL8CuklM7Tdna2z4yQQA7">
                                             <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;ie=UTF8&amp;oe=UTF8&amp;geocode=&amp;q={{$order->shippingaddress->address1}}+{{$order->shippingaddress->district}}+{{$order->shippingaddress->city}}+{{$order->shippingaddress->country}}" style="margin-bottom: 10px;" target="_blank">View address on Google Maps</a>
                                             <table class="table table-hover table-bordered" style="max-width: 400px;">
                                                 <tbody>
@@ -655,8 +600,7 @@
                                     <div class="panel-body">
                                         <div class="form-group">
                                             <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="AddOrderNoteMessage" title="">Note</label>
-                                                    <div class="ico-help" title="Enter this order note message."><i class="fa fa-question-circle"></i></div>
+                                                <div class="label-wrapper"><label class="col-md-3 control-label" for="AddOrderNoteMessage" title="">Note</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
@@ -666,8 +610,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="control-label" for="AddOrderNoteDisplayToCustomer" title="">Display to customer</label>
-                                                    <div class="ico-help" title="A value indicating whether to display this order note to a customer."><i class="fa fa-question-circle"></i></div>
+                                                <div class="label-wrapper"><label class="col-md-3 control-label" for="AddOrderNoteDisplayToCustomer" title="">Display to customer</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-9">

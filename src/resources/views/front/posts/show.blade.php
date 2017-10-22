@@ -1,8 +1,6 @@
 @extends('layouts.master')
 @section('title', $post->title) 
-@section('header')
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-@endsection
+
 @section('content')
 <section class="blogsingle">
     <img class="blog-img" src="images/uploads/blogsingle.png" alt="">

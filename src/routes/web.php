@@ -128,41 +128,41 @@ Route::get('/Order/Details/{id}', 'Front\OrdersController@show');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     //Dashboard
-    Route::get('/', ['as' => 'admin.dashboard.index', 'uses' => 'DashboardController@index']);
+    Route::get('/', ['as' => 'admin.dashboard.index', 'uses' => 'DashboardController@index', 'middleware'=> ['role:admin|manager']]);
 
     //role area
-    Route::get('roles',['as'=>'admin.roles.index','uses'=>'RolesController@index','middleware' => ['permission:role-list']]);
-    Route::get('roles/create',['as'=>'admin.roles.create','uses'=>'RolesController@create','middleware' => ['permission:role-create']]);
-    Route::post('roles/create',['as'=>'admin.roles.store','uses'=>'RolesController@store','middleware' => ['permission:role-create']]);
-    Route::get('roles/{id}',['as'=>'admin.roles.show','uses'=>'RolesController@show', 'middleware'=> ['permission:role-show']]);
-    Route::get('roles/{id}/edit',['as'=>'admin.roles.edit','uses'=>'RolesController@edit','middleware' => ['permission:role-edit']]);
-    Route::patch('roles/{id}',['as'=>'admin.roles.update','uses'=>'RolesController@update','middleware' => ['permission:role-edit']]);
-    Route::delete('roles/{id}',['as'=>'admin.roles.destroy','uses'=>'RolesController@destroy','middleware' => ['permission:role-delete']]);
+    Route::get('roles',['as'=>'admin.roles.index','uses'=>'RolesController@index','middleware'=> ['role:admin|manager']]);
+    Route::get('roles/create',['as'=>'admin.roles.create','uses'=>'RolesController@create','middleware'=> ['role:admin|manager']]);
+    Route::post('roles/create',['as'=>'admin.roles.store','uses'=>'RolesController@store','middleware'=> ['role:admin|manager']]);
+    Route::get('roles/{id}',['as'=>'admin.roles.show','uses'=>'RolesController@show', 'middleware'=> ['role:admin|manager']]);
+    Route::get('roles/{id}/edit',['as'=>'admin.roles.edit','uses'=>'RolesController@edit','middleware'=> ['role:admin|manager']]);
+    Route::patch('roles/{id}',['as'=>'admin.roles.update','uses'=>'RolesController@update','middleware'=> ['role:admin|manager']]);
+    Route::delete('roles/{id}',['as'=>'admin.roles.destroy','uses'=>'RolesController@destroy','middleware'=> ['role:admin|manager']]);
     //user area
-    Route::get('users',['as'=>'admin.users.index','uses'=>'UsersController@index','middleware' => ['permission:user-list']]);
-    Route::get('users/create',['as'=>'admin.users.create','uses'=>'UsersController@create','middleware' => ['permission:user-create']]);
-    Route::post('users/create',['as'=>'admin.users.store','uses'=>'UsersController@store','middleware' => ['permission:user-create']]);
-    Route::get('users/{id}',['as'=>'admin.users.show','uses'=>'UsersController@show', 'middleware'=> ['permission:user-show']]);
-    Route::get('users/{id}/edit',['as'=>'admin.users.edit','uses'=>'UsersController@edit','middleware' => ['permission:user-edit']]);
-    Route::patch('users/{id}',['as'=>'admin.users.update','uses'=>'UsersController@update','middleware' => ['permission:user-edit']]);
-    Route::delete('users/{id}',['as'=>'admin.users.destroy','uses'=>'UsersController@destroy','middleware' => ['permission:user-delete']]);
+    Route::get('users',['as'=>'admin.users.index','uses'=>'UsersController@index','middleware'=> ['role:admin|manager']]);
+    Route::get('users/create',['as'=>'admin.users.create','uses'=>'UsersController@create','middleware'=> ['role:admin|manager']]);
+    Route::post('users/create',['as'=>'admin.users.store','uses'=>'UsersController@store','middleware'=> ['role:admin|manager']]);
+    Route::get('users/{id}',['as'=>'admin.users.show','uses'=>'UsersController@show', 'middleware'=> ['role:admin|manager']]);
+    Route::get('users/{id}/edit',['as'=>'admin.users.edit','uses'=>'UsersController@edit','middleware'=> ['role:admin|manager']]);
+    Route::patch('users/{id}',['as'=>'admin.users.update','uses'=>'UsersController@update','middleware'=> ['role:admin|manager']]);
+    Route::delete('users/{id}',['as'=>'admin.users.destroy','uses'=>'UsersController@destroy','middleware'=> ['role:admin|manager']]);
     
     // Navigators
-    Route::get('navigator',['as'=>'admin.navigator','uses'=>'NavigatorController@navigatorList']);
-    Route::get('navigator/add',['as'=>'admin.navigator.add','uses'=>'NavigatorController@addNavigator']);
-    Route::post('navigator/add',['as'=>'admin.navigator.insert','uses'=>'NavigatorController@insertNavigator']);
-    Route::get('navigator/edit/{id}',['as'  =>'admin.navigator.edit','uses' => 'NavigatorController@editNavigator']);
-    Route::post('navigator/edit/{id}',['as' =>'admin.navigator.update','uses' => 'NavigatorController@updateNavigator']);
-    Route::get('navigator/delete/{id}',['as'  =>'admin.navigator.delete','uses' => 'NavigatorController@deleteNavigator']);
+    Route::get('navigator',['as'=>'admin.navigator','uses'=>'NavigatorController@navigatorList','middleware'=> ['role:admin|manager']]);
+    Route::get('navigator/add',['as'=>'admin.navigator.add','uses'=>'NavigatorController@addNavigator','middleware'=> ['role:admin|manager']]);
+    Route::post('navigator/add',['as'=>'admin.navigator.insert','uses'=>'NavigatorController@insertNavigator','middleware'=> ['role:admin|manager']]);
+    Route::get('navigator/edit/{id}',['as'  =>'admin.navigator.edit','uses' => 'NavigatorController@editNavigator','middleware'=> ['role:admin|manager']]);
+    Route::post('navigator/edit/{id}',['as' =>'admin.navigator.update','uses' => 'NavigatorController@updateNavigator','middleware'=> ['role:admin|manager']]);
+    Route::get('navigator/delete/{id}',['as'  =>'admin.navigator.delete','uses' => 'NavigatorController@deleteNavigator','middleware'=> ['role:admin|manager']]);
    
     //FAQs
-    Route::get('faqs',['as'=>'admin.faqs.index','uses'=>'FaqController@index']);
-    Route::get('faqs/create',['as'=>'admin.faqs.create','uses'=>'FaqController@create']);
-    Route::post('faqs/create',['as'=>'admin.faqs.store','uses'=>'FaqController@store']);
-    Route::get('faqs/{id}',['as'  =>'admin.faqs.show','uses' => 'FaqController@show']);
-    Route::get('faqs/{id}/edit',['as'  =>'admin.faqs.edit','uses' => 'FaqController@edit']);
-    Route::patch('faqs/{id}',['as'  =>'admin.faqs.update','uses' => 'FaqController@update']);    
-    Route::delete('faqs/{id}',['as'  =>'admin.faqs.destroy','uses' => 'FaqController@destroy']); 
+    Route::get('faqs',['as'=>'admin.faqs.index','uses'=>'FaqController@index','middleware'=> ['role:admin|manager']]);
+    Route::get('faqs/create',['as'=>'admin.faqs.create','uses'=>'FaqController@create','middleware'=> ['role:admin|manager']]);
+    Route::post('faqs/create',['as'=>'admin.faqs.store','uses'=>'FaqController@store','middleware'=> ['role:admin|manager']]);
+    Route::get('faqs/{id}',['as'  =>'admin.faqs.show','uses' => 'FaqController@show','middleware'=> ['role:admin|manager']]);
+    Route::get('faqs/{id}/edit',['as'  =>'admin.faqs.edit','uses' => 'FaqController@edit','middleware'=> ['role:admin|manager']]);
+    Route::patch('faqs/{id}',['as'  =>'admin.faqs.update','uses' => 'FaqController@update','middleware'=> ['role:admin|manager']]);    
+    Route::delete('faqs/{id}',['as'  =>'admin.faqs.destroy','uses' => 'FaqController@destroy','middleware'=> ['role:admin|manager']]); 
 
     //Menu
     Route::get('menu',['as'=>'admin.menu.index','uses'=>'MenuController@index', 'middleware'=> ['role:admin|manager']]);
@@ -171,7 +171,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('menu/{id}/edit',['as'=>'admin.menu.edit','uses'=>'MenuController@edit','middleware' => ['role:admin|manager']]);
     Route::patch('menu/{id}',['as'=>'admin.menu.update','uses'=>'MenuController@update','middleware' => ['role:admin|manager']]);
     Route::delete('menu/{id}',['as'=>'admin.menu.destroy','uses'=>'MenuController@destroy','middleware' => ['role:admin|manager']]);  
-    Route::delete('menu/{id}',['as'  =>'admin.menu.destroy','uses' => 'MenuController@destroy']); 
+    Route::delete('menu/{id}',['as'  =>'admin.menu.destroy','uses' => 'MenuController@destroy','middleware'=> ['role:admin|manager']]); 
     //
     Route::patch('menu/{id}/translation',['as'=>'admin.menu.updateTranslation','uses'=>'MenuController@updateTranslation','middleware' => ['role:admin|manager']]);
     Route::get('menu/{id}/{code}/fetch',['as'=>'admin.menu.fetchTranslation','uses'=>'MenuController@fetchTranslation','middleware' => ['role:admin|manager']]);
@@ -218,30 +218,30 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('orders/{id}',['as'=>'admin.orders.show','uses'=>'OrdersController@show','middleware' => ['role:admin|manager']]);
     
     // InfoPages
-    Route::get('info-pages',['as'=>'admin.info-pages.index','uses'=>'InfoPagesController@index']);
-    Route::get('info-pages/create',['as'=>'admin.info-pages.create','uses'=>'InfoPagesController@create']);
-    Route::post('info-pages/create',['as'=>'admin.info-pages.store','uses'=>'InfoPagesController@store']);
-    Route::get('info-pages/{id}',['as'  =>'admin.info-pages.show','uses' => 'InfoPagesController@show']);
-    Route::get('info-pages/{id}/edit',['as'  =>'admin.info-pages.edit','uses' => 'InfoPagesController@edit']);
-    Route::patch('info-pages/{id}',['as'  =>'admin.info-pages.update','uses' => 'InfoPagesController@update']);    
-    Route::delete('info-pages/{id}',['as'  =>'admin.info-pages.destroy','uses' => 'InfoPagesController@destroy']);   
+    Route::get('info-pages',['as'=>'admin.info-pages.index','uses'=>'InfoPagesController@index','middleware'=> ['role:admin|manager']]);
+    Route::get('info-pages/create',['as'=>'admin.info-pages.create','uses'=>'InfoPagesController@create','middleware'=> ['role:admin|manager']]);
+    Route::post('info-pages/create',['as'=>'admin.info-pages.store','uses'=>'InfoPagesController@store','middleware'=> ['role:admin|manager']]);
+    Route::get('info-pages/{id}',['as'  =>'admin.info-pages.show','uses' => 'InfoPagesController@show','middleware'=> ['role:admin|manager']]);
+    Route::get('info-pages/{id}/edit',['as'  =>'admin.info-pages.edit','uses' => 'InfoPagesController@edit','middleware'=> ['role:admin|manager']]);
+    Route::patch('info-pages/{id}',['as'  =>'admin.info-pages.update','uses' => 'InfoPagesController@update','middleware'=> ['role:admin|manager']]);    
+    Route::delete('info-pages/{id}',['as'  =>'admin.info-pages.destroy','uses' => 'InfoPagesController@destroy','middleware'=> ['role:admin|manager']]);   
 
     //Slider
-    Route::get('sliders',['as'=>'admin.sliders.index','uses'=>'SliderController@index']);
-    Route::get('sliders/create',['as'=>'admin.sliders.create','uses'=>'SliderController@create']);
-    Route::post('sliders/create',['as'=>'admin.sliders.store','uses'=>'SliderController@store']);
-    Route::get('sliders/{id}',['as'  =>'admin.sliders.show','uses' => 'SliderController@show']);
-    Route::get('sliders/{id}/edit',['as'  =>'admin.sliders.edit','uses' => 'SliderController@edit']);
-    Route::patch('sliders/{id}',['as'  =>'admin.sliders.update','uses' => 'SliderController@update']);    
-    Route::delete('sliders/{id}',['as'  =>'admin.sliders.destroy','uses' => 'SliderController@destroy']);      
+    Route::get('sliders',['as'=>'admin.sliders.index','uses'=>'SliderController@index','middleware'=> ['role:admin|manager']]);
+    Route::get('sliders/create',['as'=>'admin.sliders.create','uses'=>'SliderController@create','middleware'=> ['role:admin|manager']]);
+    Route::post('sliders/create',['as'=>'admin.sliders.store','uses'=>'SliderController@store','middleware'=> ['role:admin|manager']]);
+    Route::get('sliders/{id}',['as'  =>'admin.sliders.show','uses' => 'SliderController@show','middleware'=> ['role:admin|manager']]);
+    Route::get('sliders/{id}/edit',['as'  =>'admin.sliders.edit','uses' => 'SliderController@edit','middleware'=> ['role:admin|manager']]);
+    Route::patch('sliders/{id}',['as'  =>'admin.sliders.update','uses' => 'SliderController@update','middleware'=> ['role:admin|manager']]);    
+    Route::delete('sliders/{id}',['as'  =>'admin.sliders.destroy','uses' => 'SliderController@destroy','middleware'=> ['role:admin|manager']]);      
 
     //Mail Templates
-    Route::get('mail_templates',['as'=>'admin.mail_templates.index','uses'=>'MailTemplateController@index']);
-    Route::get('mail_templates/create',['as'=>'admin.mail_templates.create','uses'=>'MailTemplateController@create']);
-    Route::post('mail_templates/create',['as'=>'admin.mail_templates.store','uses'=>'MailTemplateController@store']);
-    Route::get('mail_templates/{id}/edit',['as'  =>'admin.mail_templates.edit','uses' => 'MailTemplateController@edit']);
-    Route::patch('mail_templates/{id}',['as'  =>'admin.mail_templates.update','uses' => 'MailTemplateController@update']);    
-    Route::delete('mail_templates/{id}',['as'  =>'admin.mail_templates.destroy','uses' => 'MailTemplateController@destroy']);     
+    Route::get('mail_templates',['as'=>'admin.mail_templates.index','uses'=>'MailTemplateController@index','middleware'=> ['role:admin|manager']]);
+    Route::get('mail_templates/create',['as'=>'admin.mail_templates.create','uses'=>'MailTemplateController@create','middleware'=> ['role:admin|manager']]);
+    Route::post('mail_templates/create',['as'=>'admin.mail_templates.store','uses'=>'MailTemplateController@store','middleware'=> ['role:admin|manager']]);
+    Route::get('mail_templates/{id}/edit',['as'  =>'admin.mail_templates.edit','uses' => 'MailTemplateController@edit','middleware'=> ['role:admin|manager']]);
+    Route::patch('mail_templates/{id}',['as'  =>'admin.mail_templates.update','uses' => 'MailTemplateController@update','middleware'=> ['role:admin|manager']]);    
+    Route::delete('mail_templates/{id}',['as'  =>'admin.mail_templates.destroy','uses' => 'MailTemplateController@destroy','middleware'=> ['role:admin|manager']]);     
 
     // Settings
     Route::get('settings',['as'=>'admin.settings.edit','uses'=>'SettingController@edit']);

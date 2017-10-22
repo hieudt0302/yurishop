@@ -1,8 +1,6 @@
 @extends('layouts.master')
 @section('title','Poko Farms - Post') 
-@section('header')
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-@endsection
+
 @section('content')
 
 <!-- Head Section -->

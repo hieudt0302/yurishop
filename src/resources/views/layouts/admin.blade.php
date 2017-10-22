@@ -60,6 +60,10 @@
         color: #D22D2D;
         font-size: 20px;
     }
+
+    .form-text-row {
+    padding-top: 6px;
+  }
  </style>
 </head>
  
