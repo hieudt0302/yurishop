@@ -1,5 +1,5 @@
 @extends('layouts.master') 
-@section('title','Dakmark Foods')
+@section('title','Poko Farms')
 @section('header')
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 @endsection 

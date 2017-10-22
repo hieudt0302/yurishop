@@ -60,7 +60,7 @@ class InfoPageTranslationsTableSeeder extends Seeder
             'id'=>7,
             'info_page_id'=>3,
             'language_id'=>1,
-            'title'=>'Dakmark Foods', 
+            'title'=>'Poko Farms', 
             'content'=>'Chung toi da co kinh nghiem.',
         ]);
         InfoPageTranslation::create([
