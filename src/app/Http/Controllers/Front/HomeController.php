@@ -35,11 +35,14 @@ class HomeController extends Controller
                                     ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
                                     ->groupBy('product_id')
                                     ->orderBy('count', 'desc')
+                                    ->limit(4)
                                     ->get();
         $sale_products = Product::where('special_price', '>', 0)
                                 ->where('special_price_start_date', '<=', date('Y-m-d', time()))
                                 ->where('special_price_end_date', '>=', date('Y-m-d', time()))
-                                ->orderBy('created_at', 'desc')->limit(4)->get();                
+                                ->orderBy('created_at', 'desc')
+                                ->limit(4)
+                                ->get();                
         $new_blogs = Post::orderBy('updated_at', 'desc')->limit(3)->get();
         $sliders = Slider::where('is_show',1)->get();      
 
