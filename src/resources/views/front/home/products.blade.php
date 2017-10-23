@@ -21,7 +21,7 @@
 				<div class="pro-it new col-md-3 col-sm-6 col-xs-12">
 					<img class="pro-img" src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="">
 					<div class="pro-infor">
-						<h2><a href="{{url('/products')}}/{{$product->slug}}">{{$product->name}}</a></h2>
+						<h2><a href="{{url('/products')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a></h2>
 						<span class="pro-cost">
 							@if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                             <del class="section-text">{{$product->price}}</del> &nbsp;
@@ -49,9 +49,9 @@
             @endforeach
 			@foreach($best_sellers_products as $product)
 				<div class="pro-it best-sellers col-md-3 col-sm-6 col-xs-12">
-					<img class="pro-img" src="{{ asset('/storage') }}/images/no-image.png}}" alt="">
+					<img class="pro-img" src="{{ asset('/storage') }}/images/no-image.png" alt="">
 					<div class="pro-infor">
-						<h2><a href="{{url('/products')}}/{{$product->slug}}">{{$product->name}}</a></h2>
+						<h2><a href="{{url('/products')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a></h2>
 						<span class="pro-cost">
 							@if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                             <del class="section-text">{{$product->price}}</del> &nbsp;
@@ -81,7 +81,7 @@
 				<div class="pro-it sale col-md-3 col-sm-6 col-xs-12">
 					<img class="pro-img" src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="">
 					<div class="pro-infor">
-						<h2><a href="{{url('/products')}}/{{$product->slug}}">{{$product->name}}</a></h2>
+						<h2><a href="{{url('/products')}}/{{$product->slug}}">{{$product->translation->name??$product->name}}</a></h2>
 						<span class="pro-cost">
 							@if($product->special_price != 0 && $product->special_price_start_date  <= $product->special_price_end_date )
                             <del class="section-text">{{$product->price}}</del> &nbsp;
