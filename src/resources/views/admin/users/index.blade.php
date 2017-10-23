@@ -1,17 +1,11 @@
 @extends('layouts.admin') 
 @section('title','Người Dùng - Admin') 
 @section('content')
-<!-- Content Header (Page header) -->
 <section class="content-header">
     <h1 class="pull-left">
     	Người Dùng
         <small>Danh Sách</small>
     </h1>
-    <!-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Menu</a></li>
-        <li class="active">Danh Sách</li>
-    </ol> -->
     <div class="pull-right">
         <a href="{{('/admin/users/create')}}" class="btn bg-blue">
             <i class="fa fa-plus-square"></i>
@@ -19,6 +13,7 @@
         </a>
     </div>
 </section>
+
 <!-- Main content -->
 <section class="content">
 	<div class="row">
@@ -60,10 +55,10 @@
 								<label class="label label-success">{{ $v->display_name }}</label> @endforeach @endif
 							</td>
 							<td>
-								@permission('user-show')
-								<a class="btn btn-info" href="{{ route('admin.users.show',$user->id) }}">Xem</a> @endpermission @permission('user-edit')
-								<a class="btn btn-primary" href="{{ route('admin.users.edit',$user->id) }}">Sửa</a> @endpermission @permission('user-delete') {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline'])
-								!!} {!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!} {!! Form::close() !!} @endpermission
+								<!-- <a class="btn btn-info" href="{{ route('admin.users.show',$user->id) }}">Xem</a> -->
+								<a class="btn btn-primary" href="{{ route('admin.users.edit',$user->id) }}">Sửa</a>
+								  {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline'])!!} 
+								{!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!} {!! Form::close() !!} 
 							</td>
 							@endif
 						</tr>

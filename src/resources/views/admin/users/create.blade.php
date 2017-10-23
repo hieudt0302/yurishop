@@ -1,86 +1,96 @@
 @extends('layouts.admin')
- 
+@section('title','Thêm Mới Người Dùng - Admin') 
 @section('content')
+<section class="content-header">
+<h1>
+Thêm Mới Người Dùng
+  <small>
+      <i class="fa fa-arrow-circle-left"></i>
+      <a href="{{url('/admin/users')}}">Quay lại danh sách</a>
+  </small>
+</h1>
+<ol class="breadcrumb">
+  <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+  <li><a href="#">Người Dùng</a></li>
+  <li class="active">Thêm Mới</li>
+</ol>
+<div class="row">
+  <div class="col-xs-12">
+  @include('notifications.status_message') 
+  @include('notifications.errors_message') 
+  </div>
+</div>
+<section class="content">
 	<div class="row">
-	    <div class="col-lg-12 margin-tb">
-	        <div class="pull-left">
-	            <h2>Create New User</h2>
-	        </div>
-	        <div class="pull-right">
-	            <a class="btn btn-primary" href="{{ route('admin.users.index') }}"> Back</a>
-	        </div>
-	    </div>
-	</div>
-	@if (count($errors) > 0)
-		<div class="alert alert-danger">
-			<strong>Whoops!</strong> There were some problems with your input.<br><br>
-			<ul>
-				@foreach ($errors->all() as $error)
-					<li>{{ $error }}</li>
-				@endforeach
-			</ul>
+		<div class="col-xs-12">
+			<div class="box">
+				<div class="box-header">
+					<h3 class="box-title"></h3>Danh Sách Người Dùng
+				</div>
+				<div class="box-body">
+                    {!! Form::open(array('route' => 'admin.users.store','method'=>'POST')) !!}
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Tài Khoản:</strong>
+                                {!! Form::text('username', old('username'), array('placeholder' => 'User Name','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Tên:</strong>
+                                {!! Form::text('first_name',  old('first_name'), array('placeholder' => 'First Name','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Họ:</strong>
+                                {!! Form::text('last_name', null, array('placeholder' => 'Last Name','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Điện Thoại:</strong>
+                                {!! Form::text('phone', null, array('placeholder' => 'Phone','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Email:</strong>
+                                {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Mật Khẩu:</strong>
+                                {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Xác Nhận Mật Khẩu:</strong>
+                                {!! Form::password('confirm_password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Quyền:</strong>
+                                {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label>
+                                    {{ Form::checkbox('activated',  old('activated') , false, array('class' => 'check-box')) }}
+                                Kích Hoạt</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 pull-left">
+                                <button type="submit" class="btn btn-primary">Thêm Mới</button>
+                        </div>
+                    {!! Form::close() !!}
+                </div>
+			</div>
 		</div>
-	@endif
-	{!! Form::open(array('route' => 'admin.users.store','method'=>'POST')) !!}
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>User Name:</strong>
-                {!! Form::text('username', null, array('placeholder' => 'User Name','class' => 'form-control')) !!}
-            </div>
-        </div>
-		<div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>First Name:</strong>
-                {!! Form::text('first_name', null, array('placeholder' => 'First Name','class' => 'form-control')) !!}
-            </div>
-        </div>
-        	<div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Last Name:</strong>
-                {!! Form::text('last_name', null, array('placeholder' => 'Last Name','class' => 'form-control')) !!}
-            </div>
-        </div>
-         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Phone:</strong>
-                {!! Form::text('phone', null, array('placeholder' => 'Phone','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Email:</strong>
-                {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Password:</strong>
-                {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Confirm Password:</strong>
-                {!! Form::password('confirm_password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Role:</strong>
-                {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <input type="hidden" name="activated" value="0">
-                <label>{{ Form::checkbox('activated', 1 ,false, array('class' => 'name')) }}
-                Activated</label>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-				<button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-	</div>
-	{!! Form::close() !!}
+    </div>
+</section>
 @endsection

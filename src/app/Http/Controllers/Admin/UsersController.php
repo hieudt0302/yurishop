@@ -45,7 +45,7 @@ class UsersController extends Controller
         $this->validate($request, [
             'username' => 'required',
             'email' => 'required|email|unique:users,email',
-            'phone' => 'required|phone:AUTO,VN',
+            'phone' => 'string',
             'password' => 'required|same:confirm_password',
             // 'roles' => 'required'
         ]);
@@ -66,7 +66,8 @@ class UsersController extends Controller
         }
 
         return redirect()->route('admin.users.index')
-                        ->with('success','User created successfully');
+                        ->with('message', 'Sản phẩm đã được cập nhật.')
+                        ->with('status', 'success');                  
     }
 
     /**
@@ -92,7 +93,8 @@ class UsersController extends Controller
         $user = User::find($id);
         if($user->hasRole('admin'))
         {
-            return abort(404);
+            if(!Auth::user()->hasRole('admin'))
+                return abort(404);
         }
 
         $roles = Role::where('name','!=','admin')->orWhereNull('name')->pluck('display_name','id');
@@ -113,7 +115,7 @@ class UsersController extends Controller
         $this->validate($request, [
             'username' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
-            'phone' => 'required|phone:AUTO,VN',
+            'phone' => 'string',
             'password' => 'same:confirm_password',
             // 'roles' => 'required'
         ]);
