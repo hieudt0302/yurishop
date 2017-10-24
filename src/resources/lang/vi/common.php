@@ -39,4 +39,6 @@ return [
      'product-details' => 'Chi tiết sản phẩm',        
      'showing' => 'Hiển thị',
      'of' => 'trong',               	                                	 
+	 'call-details' => 'Gọi để biết thêm chi tiết',     
+     'chat-details' => 'Nói chuyện với hướng dẫn viên',       
 ];

@@ -40,5 +40,7 @@ return [
      'product-list' => 'Product list',
      'product-details' => 'Product details',     
      'showing' => 'Showing',
-     'of' => 'of',               	                     
+     'of' => 'of',
+	 'call-details' => 'Call for more details',     
+     'chat-details' => 'Chat for more details',                    	                     
 ];
