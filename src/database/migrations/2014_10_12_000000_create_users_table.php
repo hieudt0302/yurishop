@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('first_name'); 
             $table->string('last_name'); 
             $table->text('avatar')->nullable(); 
-            $table->boolean('gender');
-            $table->date('date_of_birth'); 
+            $table->boolean('gender')->default(false); 
+            $table->date('date_of_birth')->nullable();
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->string('company')->nullable();

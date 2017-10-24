@@ -14,16 +14,24 @@ class LanguagesTableSeeder extends Seeder
     {     
         Language::create([
             'id'=>1,
-            'name'=>'vi'
+            'code'=>'vi',
+            'name'=>'Tiếng Việt'
         ]);
         Language::create([
             'id'=>2,
-            'name'=>'en'
+            'code'=>'en',
+            'name'=>'Tiếng Anh'
         ]);
         Language::create([
             'id'=>3,
-            'name'=>'cn'
+            'code'=>'cn',
+            'name'=>'Tiếng Trung'
         ]);                
+        Language::create([
+            'id'=>4,
+            'code'=>'ja',
+            'name'=>'Tiếng Nhật'
+        ]); 
 
         /* php artisan db:seed --class=LanguageTableSeeder */        
     }

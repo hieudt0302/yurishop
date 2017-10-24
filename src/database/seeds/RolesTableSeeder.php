@@ -15,6 +15,7 @@ class RolesTableSeeder extends Seeder
         $role = Role::firstOrNew(['name' => 'admin']);
         if (!$role->exists) {
             $role->fill([
+                    'name' =>'admin',
                     'display_name' => 'Administrator',
                     'description' => 'Admin Account',
                 ])->save();
@@ -22,6 +23,7 @@ class RolesTableSeeder extends Seeder
         $role = Role::firstOrNew(['name' => 'manager']);
         if (!$role->exists) {
             $role->fill([
+                    'name' =>'manager',
                     'display_name' => 'Manager',
                     'description' => 'Manager Account',
                 ])->save();
@@ -30,6 +32,7 @@ class RolesTableSeeder extends Seeder
         $role = Role::firstOrNew(['name' => 'customer']);
         if (!$role->exists) {
             $role->fill([
+                    'name' =>'customer',
                     'display_name' => 'Customer',
                     'description' => 'Customer Account',
                 ])->save();
