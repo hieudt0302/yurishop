@@ -39,7 +39,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     ];
 
     //In Blade: $user->date_of_birth->format('d/m/Y') }}
-    // protected $dates = ['date_of_birth'];
+    // protected $dates = ['date_of_birth']; //=>this make bug in seed. TODO fix this
 
     protected $fillable = [
         'first_name', 'last_name', 'email', 'password', 'username',
