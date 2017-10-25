@@ -59,8 +59,15 @@ class ProductsController extends Controller
         if(empty($product))
             return abort(404);
         $starAvg = $product->comments->avg('rate');
-      
-        return View('front.products.show', compact('product','starAvg'));
+        
+        $is_sales = false;
+        if(!empty($product->special_price_start_date) && !empty($product->special_price_end_date)){
+            if($product->special_price_start_date >= new Date() && $product->special_price_end_date <= new Date()){
+                $is_sales = true;
+            }
+        }
+
+        return View('front.products.show', compact('product','starAvg','is_sales'));
     }
 
     /**

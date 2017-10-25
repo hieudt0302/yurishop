@@ -56,7 +56,7 @@
 				</div>
 				<div class="col-md-8 col-sm-8 col-xs-12">
 					<div class="pro-list-it it">
-						<span class="hot">hot</span>
+						
 						<h4 class="hd-after"><a href="#">{{$product->translation->name??$product->name}}</a></h4>
 						<span class="right">
 							<span class="star-rate small">
@@ -88,7 +88,20 @@
 						 	</span><br>
 						 	<span class="rv">(Based on {{count($product->comments)}} reviews)</span>
 						</span>
-						<span class="price2">{{$product->old_price}}</span><span class="sub">{{$product->price}}</span>
+
+						@if($product->sold_off)
+							<span class="hot">Sold Off</span>
+						@else
+							@if(!$is_sales)
+								<span class="price2">{{$product->old_price}}</span>
+								<span class="sub">{{$product->price}}</span>
+							@else
+								<span class="price2">{{$product->price}}</span>
+								<span class="sub">{{$product->special_price}}</span>
+								<span class="hot">Sale</span>
+							@endif
+						@endif
+
 						<p class="para">{{$product->translation->summary??''}}</p>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
 						<div class="right-it">
@@ -119,14 +132,21 @@
                                 </span></p>
 						</div>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">
-						<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
-						<a class="wishlist" href="#"><i class="fa fa-heart" aria-hidden="true"></i>haha</a>
-						<a class="call" href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></a>
+						@if(!$product->call_for_price)
+							@if(!$product->disable_buy_button)
+							<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
+							@endif
+							@if(!$product->disable_wishlist_button)
+							<a class="wishlist add-wishlist" href="javascript:void(0)"><i class="fa fa-heart" aria-hidden="true"></i></a>
+							@endif
+						@else
+							<a class="call" href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></a>
+						@endif
 						<a class="chat" href="#"  data-toggle="tooltip" data-placement="top" title="{{ __('common.chat-details')}}"><i class="fa fa-weixin" aria-hidden="true"></i></a>
-						
-						<div id="call-number" >
+						<div id="call-number" style="display:none;">
 							<br>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">							
+							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">		
+							<!-- TODO: Get Phone from setting data -->
 						  	<h2 class="cmt-heading">{{ __('common.call-details')}}: 0123456789.</h2>
 						</div>
 					</div>	
