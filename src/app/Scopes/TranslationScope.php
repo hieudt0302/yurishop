@@ -18,7 +18,7 @@ class TranslationScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        return $builder->where('language_id', Language::where('name',\App::getLocale())->firstOrFail()->id);
+        return $builder->where('language_id', Language::where('code',\App::getLocale())->firstOrFail()->id);
     }
 
     /* HOW TO REMOVE IT*/

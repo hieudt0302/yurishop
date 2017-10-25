@@ -120,11 +120,11 @@
 						</div>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">
 						<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
-						<a class="wishlist" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+						<a class="wishlist" href="#"><i class="fa fa-heart" aria-hidden="true"></i>haha</a>
 						<a class="call" href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></a>
 						<a class="chat" href="#"  data-toggle="tooltip" data-placement="top" title="{{ __('common.chat-details')}}"><i class="fa fa-weixin" aria-hidden="true"></i></a>
 						
-						<div id="call-number" style="display:none">
+						<div id="call-number" >
 							<br>
 							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">							
 						  	<h2 class="cmt-heading">{{ __('common.call-details')}}: 0123456789.</h2>

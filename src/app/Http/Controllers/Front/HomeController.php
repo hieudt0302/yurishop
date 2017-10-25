@@ -207,7 +207,7 @@ class HomeController extends Controller
     function getInfoPageTranslation($slug){
         $language_id = 1; //make vietnamese as default alternative
         $locale = \App::getLocale(); 
-        $language = Language::where('name',$locale)->first();
+        $language = Language::where('code',$locale)->first();
         if ($language != null){
             $language_id = $language->id; //make english as default alternative
         }
