@@ -319,10 +319,9 @@
         });
 		$('.add-wishlist').click(function() {
 			$(this).effect("shake", {
-                times: 2
+                times: 1
 			}, 200);
 			
-            var quantity = $("input[name='quantity']").val();
             $.ajax({
                type:'POST',
                url:'{{ url("/add-to-wishlist") }}',              
@@ -330,7 +329,7 @@
                     'id': '{{$product->id}}',//just test
                     'name': '{{$product->name}}',//just test
                     'price': {{$product->price}},//just test
-                    'quantity': quantity,//just test
+                    'quantity': 1,//just test
                 },
                success:function(response){
 					console.log(response['message']); //debug
