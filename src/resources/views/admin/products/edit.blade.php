@@ -128,7 +128,7 @@
                                                 <div class="col-md-4">
                                                     <div class="input-group date">
                                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                                        <input type="text" name="special_price_start_date" class="form-control pull-right" id="special_price_start_date" data-date-start-date="0d">
+                                                        <input id="special_price_start_date" type="text" name="special_price_start_date" value="{{date('Y-m-d', strtotime($product->special_price_start_date))}}" class="form-control pull-right"  data-date-start-date="0d">
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,7 +137,7 @@
                                                 <div class="col-md-4">
                                                     <div class="input-group date">
                                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                                        <input type="text" name="special_price_end_date" class="form-control pull-right" id="special_price_end_date" data-date-start-date="+1d">
+                                                        <input id="special_price_end_date" type="text" name="special_price_end_date" value="{{date('Y-m-d', strtotime($product->special_price_end_date))}}" class="form-control pull-right"  data-date-start-date="+1d">
                                                     </div>
                                                 </div>
                                             </div>
