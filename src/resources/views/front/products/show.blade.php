@@ -294,6 +294,8 @@
 
 
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/offcanvas.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('js/offcanvas-cart.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('dist/pnotify/pnotify.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('dist/pnotify/pnotify.animate.js') }}"></script> 
 <script type="text/javascript" src="{{ asset('js/system.common.js') }}"></script> 
