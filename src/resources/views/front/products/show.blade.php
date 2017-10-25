@@ -1,15 +1,7 @@
 @extends('layouts.master')
 @section('title',$product->name)
 @section('header')
-<style>
-a.button:hover {
-  text-decoration: none;
-}
-a.button.active {
-  transform: rotate(135deg);
-  transition: transform 0.5s;
-}
-</style>
+
 @endsection
 @section('content')
 <div class="hero">
@@ -318,7 +310,8 @@ a.button.active {
                success:function(response){
                     console.log(response['newCartItemCount']); //debug
                     /* @bravohex: refresh cart items */
-                    $('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
+					// $('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
+					$(".shopping-cart-icon").title = response['newCartItemCount'];
                },
                error:function(response){
                     console.log(response['newCartItemCount']); //debug
@@ -326,7 +319,10 @@ a.button.active {
             });
         });
 		$('.add-wishlist').click(function() {
-			$(this).toggleClass('active');
+			$(this).effect("shake", {
+                times: 2
+			}, 200);
+			
             var quantity = $("input[name='quantity']").val();
             $.ajax({
                type:'POST',
