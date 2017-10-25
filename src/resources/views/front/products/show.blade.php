@@ -341,7 +341,7 @@ a.button.active {
 					console.log(response['newWishlistItemCount']); //debug
                },
                error:function(response){
-                    console.log(response['newWishlistItemCount']); //debug
+                    console.log(response['message']); //debug
                }
             });
         });
