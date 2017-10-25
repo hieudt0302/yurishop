@@ -137,7 +137,7 @@
 							<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
 							@endif
 							@if(!$product->disable_wishlist_button)
-							<a class="button wishlist add-wishlist" href="javascript:void(0)"><i class="fa fa-heart" aria-hidden="true"></i></a>
+							<a class="add-wishlist" href="javascript:void(0)"><i class="fa fa-heart" aria-hidden="true"></i></a>
 							@endif
 						@else
 							<a class="call" href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></a>
@@ -309,7 +309,6 @@
                 },
                success:function(response){
                     console.log(response['newCartItemCount']); //debug
-                    /* @bravohex: refresh cart items */
 					// $('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
 					$(".shopping-cart-icon").title = response['newCartItemCount'];
                },
