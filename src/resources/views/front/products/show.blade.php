@@ -4,7 +4,6 @@
 <style>
 a.button:hover {
   text-decoration: none;
-  background: #8eb35a;
 }
 a.button.active {
   transform: rotate(135deg);
@@ -340,7 +339,6 @@ a.button.active {
                 },
                success:function(response){
 					console.log(response['newWishlistItemCount']); //debug
-					displayNotification(response['message'], response['status']);
                },
                error:function(response){
                     console.log(response['newWishlistItemCount']); //debug
