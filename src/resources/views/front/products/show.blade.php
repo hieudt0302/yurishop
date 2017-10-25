@@ -310,7 +310,7 @@
                success:function(response){
                     console.log(response['newCartItemCount']); //debug
 					// $('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
-					$(".shopping-cart-icon").title = response['newCartItemCount'];
+					$(".shopping-cart-icon").attr('title', response['newCartItemCount']);
                },
                error:function(response){
                     console.log(response['newCartItemCount']); //debug
