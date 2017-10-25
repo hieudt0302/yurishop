@@ -131,6 +131,33 @@ class ProductsController extends Controller
         ]);
     }
 
+    public function addToWishlist(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'name' => 'required',
+            'price' => 'required|numeric|min:0',
+            'quantity' => 'required|numeric|min:1',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'ERROR-INPUT: Code EI1004',
+                'status' => 'error',
+                'newWishlistItemCount' => Cart::instance('wishlist')->count()
+            ]);
+        }
+       
+        $product = Product::find($request->id);
+        $cartItem = Cart::instance('wishlist')->add($request->id, $request->name, $request->quantity, $request->price, ['summary'=>$product->translation->summary??'', 'source' =>  $product->GetMediaByOrderAsc()->source??'']);
+
+        return response()->json([
+            'message' => 'Đã thêm '. $request->quantity .' sản phẩm vào wishlist!',
+            'status' => 'success',
+            'newWishlistItemCount' => Cart::instance('wishlist')->count()
+        ]);
+    }
+
     public function search(Request $request){
         $search_key = $request->input('key'); 
         

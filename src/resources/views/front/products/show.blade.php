@@ -318,6 +318,25 @@
                }
             });
         });
+		$('.add-wishlist').click(function() {
+            var quantity = $("input[name='quantity']").val();
+            $.ajax({
+               type:'POST',
+               url:'{{ url("/add-to-wishlist") }}',              
+               data: {
+                    'id': '{{$product->id}}',//just test
+                    'name': '{{$product->name}}',//just test
+                    'price': {{$product->price}},//just test
+                    'quantity': quantity,//just test
+                },
+               success:function(response){
+                    console.log(response['newCartItemCount']); //debug
+               },
+               error:function(response){
+                    console.log(response['newCartItemCount']); //debug
+               }
+            });
+        });
         $('.call').click(function() {
 		    var x = document.getElementById("call-number");
 		    if (x.style.display === "none") {
