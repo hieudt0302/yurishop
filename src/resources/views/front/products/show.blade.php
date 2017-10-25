@@ -1,7 +1,16 @@
 @extends('layouts.master')
 @section('title',$product->name)
 @section('header')
-
+<style>
+a.button:hover {
+  text-decoration: none;
+  background: #8eb35a;
+}
+a.button.active {
+  transform: rotate(135deg);
+  transition: transform 0.5s;
+}
+</style>
 @endsection
 @section('content')
 <div class="hero">
@@ -137,7 +146,7 @@
 							<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
 							@endif
 							@if(!$product->disable_wishlist_button)
-							<a class="wishlist add-wishlist" href="javascript:void(0)"><i class="fa fa-heart" aria-hidden="true"></i></a>
+							<a class="button wishlist add-wishlist" href="javascript:void(0)"><i class="fa fa-heart" aria-hidden="true"></i></a>
 							@endif
 						@else
 							<a class="call" href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></a>
@@ -294,11 +303,6 @@
 
 
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/offcanvas.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('js/offcanvas-cart.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('dist/pnotify/pnotify.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('dist/pnotify/pnotify.animate.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('js/system.common.js') }}"></script> 
 <script>
      $(document).ready(function(){      
         $('.add-shoopingcart').click(function() {
@@ -323,6 +327,7 @@
             });
         });
 		$('.add-wishlist').click(function() {
+			$(this).toggleClass('active');
             var quantity = $("input[name='quantity']").val();
             $.ajax({
                type:'POST',
