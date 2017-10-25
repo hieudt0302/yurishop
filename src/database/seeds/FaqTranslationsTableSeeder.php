@@ -24,7 +24,7 @@ class FaqTranslationsTableSeeder extends Seeder
             'faq_id'=>1,
             'language_id'=>2,
             'question'=>'Who are you?',
-            'answer'=>'We are Dakmark foods.',
+            'answer'=>'We are Poko Farms.',
         ]);
         FaqTranslation::create([
             'id'=>3,
