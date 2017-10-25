@@ -11,6 +11,7 @@ use App\Models\Comment;
 use Validator;
 use \Cart as Cart;
 use DB;
+use DateTime;
 
 class ProductsController extends Controller
 {
@@ -62,7 +63,7 @@ class ProductsController extends Controller
         
         $is_sales = false;
         if(!empty($product->special_price_start_date) && !empty($product->special_price_end_date)){
-            if($product->special_price_start_date >= new Date() && $product->special_price_end_date <= new Date()){
+            if($product->special_price_start_date >= new DateTime() && $product->special_price_end_date <= new DateTime()){
                 $is_sales = true;
             }
         }
