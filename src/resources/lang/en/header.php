@@ -27,5 +27,6 @@ return [
     'cart' => 'CART',
     'account' => 'ACCOUNT',          
      'promotion' => 'PROMOTION',
-    'enter-keyword' => 'Enter keyword',      
+    'enter-keyword' => 'Enter keyword',   
+    'call-us-now' => 'Call us now',          
 ];

@@ -102,7 +102,10 @@ class MenuController extends Controller
     {
         $menu = Category::find($id);
         $languages = Language::all(); ///TODO: make condition active
-        return View('admin/menu/edit', compact('menu','languages'));
+        $menus = Category::where('is_menu_avaiable',1)
+            ->whereNull('parent_id')
+            ->get();        
+        return View('admin/menu/edit', compact('menu','languages','menus'));
     }
 
     /**

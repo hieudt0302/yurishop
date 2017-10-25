@@ -1,155 +1,179 @@
  <!-- BEGIN | Header -->
- <div class="sticky-wrapper" style="height: 110px;">
-    <header class="ht-header" id="hd-fixed">
-        <div class="row">
-            <div class="topsearch">
-                {!! Form::open(array('url' => '/search')) !!}
-                    <input type="text" class="search-top" name="keyword" placeholder="@lang('header.enter-keyword')">
-                {!! Form::close() !!}
-            </div>
+<section id="topbar">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
         </div>
-        <div class="row">
-            <nav id="mainNav" class="navbar navbar-default navbar-custom">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="col-md-2 col-sm-2 col-xs-12">
-                    <div class="row">
-                        <div class="main-logo">
-                            <div class="col-md-5">
-                                <div class="mobile-btn">
-                                    <button id="btn">
-                                        <i class="ion-navicon"></i>
-                                    </button>
-                                    <button id="close-btn">
-                                        <i class="ion-android-close"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <a class="hd-logo" href="{{url('/')}}">
-                                    <img class="logo" src="{{asset('frontend/images/logo.png')}}" alt="">
-                                </a>
-                            </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <ul class="nav navbar-nav hd-menu topbar-right">
+                <li class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
+                        <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ app()->getLocale() }}
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu level1">
+                        <li>
+                            <a href="{{URL::asset('')}}language/vi">
+                                Tiếng Việt
+                            </a>                                        
+                        </li>
+                        <li>
+                            <a href="{{URL::asset('')}}language/en">
+                                English
+                            </a>                                        
+                        </li> 
+                        <li>
+                            <a href="#">
+                                中文
+                            </a>                                        
+                        </li>                                                                                                          
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    @guest
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
+                        @lang('header.account')<i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                    <!-- Sub -->
+                    <ul class="dropdown-menu level1">    
+                        <li><a href="{{ url('/login') }}"><i class="ion-ios-minus-empty"></i>@lang('auth.login')</a></li>
+                        <li><a href="{{ url('/register') }}"><i class="ion-ios-minus-empty"></i>@lang('auth.register')</a></li>                          
+                    </ul>
+                    <!-- End Sub -->
+                    @else
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
+                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ Auth::user()->first_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu level1">
+                        <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>@lang('account.my-account')</a></li>
+                        <li><a href="{{ url('/wishlist') }}"><i class="ion-ios-minus-empty"></i>@lang('account.wishlist')</a></li>
+                        <li><a href="{{ url('/cart') }}"><i class="ion-ios-minus-empty"></i>@lang('shoppings.cart')</a></li>
+                        <li class="it-last">
+                            <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                <i class="ion-ios-minus-empty"></i>@lang('auth.logout')
+                            </a>
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                    @endguest
+                </li>                        
+            </ul>
+        </div>
+    </div>
+</section>
+<header class="ht-headerv3 ht-headerv4 sidebarmenu">
+    <div class="row">
+        <div class="topsearch">
+            <form action="GET">
+                <input type="text" class="search-top" placeholder="What are you looking for ?">
+            </form>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-logo4">
+                <div class="row">
+                <div class="col-md-2">
+                    <div class="mobile-btn">
+                        <button id="btn"><i class="ion-navicon"></i></button>
+                        <button id="close-btn"><i class="ion-android-close"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="hd-if">
+                        <div class="hd-infor">
+                            <p>@lang('header.call-us-now')</p>
+                            <span class="phone">0122 333 8889</span>
+                        </div>
+                        <i class="ion-ios-telephone-outline"></i>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="header-logov3">
+                        <a class="hd-logo3" href="{{url('/')}}">
+                            <img class="logo" src="{{asset('frontend/images/logo.png')}}" alt="">
+                        </a>                        
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="hd-if right">
+                        <button class="open4">
+                            <i href="{{ url('/cart') }}" class="ion-ios-cart-outline"></i>
+                        </button>
+                        
+                        <div class="hd-infor">
+                            <p>@lang('shoppings.cart')</p>
+                            <span>{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</span>
                         </div>
                     </div>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="col-md-8 col-sm-8 col-xs-12">
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav hd-menu">
-                            <li class="hidden">
-                                <a href="#page-top"></a>
-                            </li>
-                            <li class="dropdown first">
-                                <a href="{{ url('/')}}" class="btn btn-default lv1">
-                                @lang('header.home')
-                                </a>
-                            </li>
-                            <li class="dropdown first">
-                                <a href="{{ url('/about')}}" class="btn btn-default lv1">
-                                @lang('header.about-us')
-                                </a>
-                            </li>                            
-
-                            @foreach($menus as $key => $menu)
-                            <li class="dropdown first">
-                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                {{$menu->translation->name??$menu->name}}
-                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu level1">
-                                    @foreach($menu->GetMenuSubLevel1() as $sub)
-                                    <li>
-                                        <a href="{{url('/menu')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
-                                            <i class="ion-ios-minus-empty"></i>
-                                            {{$sub->translation->name??$sub->name}}
-                                        </a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                            @endforeach
-                            <!-- <li class="dropdown first">
-                                <a href="{{ url('/promotion')}}" class="btn btn-default lv1">
-                                @lang('header.promotion')
-                                </a>
-                            </li>  -->
-                            <li class="dropdown first">
-                                <a href="{{ url('/contact')}}" class="btn btn-default lv1">
-                                @lang('header.contact')
-                                </a>
-                            </li>
-                            <li class="dropdown first">
-                                @guest
-                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                    @lang('header.account')<i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <!-- Sub -->
-                                <ul class="dropdown-menu level1">    
-                                    <li><a href="{{ url('/login') }}"><i class="ion-ios-minus-empty"></i>@lang('auth.login')</a></li>
-                                    <li><a href="{{ url('/register') }}"><i class="ion-ios-minus-empty"></i>@lang('auth.register')</a></li>                          
-                                </ul>
-                                <!-- End Sub -->
-                                @else
-                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ Auth::user()->first_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu level1">
-                                    <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>@lang('account.my-account')</a></li>
-                                    <li><a href="{{ url('/wishlist') }}"><i class="ion-ios-minus-empty"></i>@lang('account.wishlist')</a></li>
-                                    <li><a href="{{ url('/cart') }}"><i class="ion-ios-minus-empty"></i>@lang('shoppings.cart')</a></li>
-                                    <li class="it-last">
-                                        <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                            <i class="ion-ios-minus-empty"></i>@lang('auth.logout')
-                                        </a>
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                                @endguest
-                            </li>
-
-                            <li class="dropdown first">
-                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ app()->getLocale() }}
-                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu level1">
-                                    <li>
-                                        <a href="{{URL::asset('')}}language/vi">
-                                            <i class="ion-ios-minus-empty"></i>
-                                            Tiếng Việt
-                                        </a>                                        
-                                    </li>
-                                    <li>
-                                        <a href="{{URL::asset('')}}language/en">
-                                            <i class="ion-ios-minus-empty"></i>
-                                            English
-                                        </a>                                        
-                                    </li> 
-                                    <li>
-                                        <a href="#">
-                                            <i class="ion-ios-minus-empty"></i>
-                                            中文
-                                        </a>                                        
-                                    </li>                                                                                                          
-                                </ul>
-                            </li>                            
-                        </ul>
-
-                    </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-12 nav4">
+            <nav id="mainNav3">
+                <div class="navbar-header">
                 </div>
-                <div class="col-md-2 col-sm-2 col-xs-12">
-                    <div class="right-menu">                      
-                        <button class="search-top-bt">
-                            <i class="ion-ios-search" data-toggle="tooltip" data-placement="top" title="{{ __('common.search') }}"></i>
-                        </button>
-                        <a href="{{ url('/cart') }}"><i class="fa fa-shopping-cart shopping-cart-icon" aria-hidden="true" data-toggle="tooltip" title="{{ Cart::instance('default')->count(false) }}"></i></a>
-                    </div>
-                </div>
-                <!-- /.navbar-collapse -->
+                    <ul class="nav navbar-nav hd-menu">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="dropdown first">
+                            <a href="{{ url('/')}}" class="btn btn-default lv1">
+                            @lang('header.home')
+                            </a>
+                        </li>
+                        <li class="dropdown first">
+                            <a href="{{ url('/about')}}" class="btn btn-default lv1">
+                            Pokofarms
+                            </a>
+                        </li>                            
+                        <!-- Blog menu -->
+                        @foreach($blog_menu as $menu)
+                        <li class="dropdown first">
+                            <a href="{{url('/menu')}}/{{$menu->parent->slug}}/{{$menu->slug}}" class="btn btn-default lv1">
+                            {{$menu->translation->name??$menu->name}}
+                            </a>
+                        </li>  
+                        @endforeach
+
+                        <li class="dropdown first">
+                            <a href="{{ url('/promotion')}}" class="btn btn-default lv1">
+                            @lang('header.promotion')
+                            </a>
+                        </li> 
+
+                        <!-- Product menu -->
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                            {{$product_menu->translation->name??$product_menu->name}}
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                @foreach($product_menu->GetMenuSubLevel1() as $sub)
+                                <li>
+                                    <a href="{{url('/menu')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
+                                        <i class="ion-ios-minus-empty"></i>
+                                        {{$sub->translation->name??$sub->name}}
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </li>
+
+                        <li class="dropdown first">
+                            <a href="{{ url('/contact')}}" class="btn btn-default lv1">
+                            @lang('header.contact')
+                            </a>
+                        </li>
+                           
+                    </ul>                
             </nav>
         </div>
-    </header>
-</div>
+    </div>
+    
+</header>
 <!-- END | Header -->
