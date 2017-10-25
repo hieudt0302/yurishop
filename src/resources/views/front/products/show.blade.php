@@ -338,7 +338,7 @@ a.button.active {
                     'quantity': quantity,//just test
                 },
                success:function(response){
-					console.log(response['newWishlistItemCount']); //debug
+					console.log(response['message']); //debug
                },
                error:function(response){
                     console.log(response['message']); //debug
