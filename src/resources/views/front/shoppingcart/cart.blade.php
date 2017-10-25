@@ -185,7 +185,7 @@
                                     </div>
                                     <div class="cart-buttons my-4 row row-hardcode">
                                         <div class="col-sm-6 col-lg-4 order-last order-sm-first mt-3 mt-sm-0">
-                                            <button class="btn btn-secondary btn-block btn-lg btn-continue-shopping" type="submit" name="continueshopping" value="continueshopping">
+                                            <button class="btn btn-secondary btn-block btn-lg btn-continue-shopping" type="button" name="continueshopping" value="continueshopping">
                                                 <i class="fa fa-angle-left mr-3"></i>
                                                 <span>@lang('shoppings.continue-shopping')</span>
                                             </button>
@@ -240,6 +240,11 @@
 $(document).ready(function(){   
    
     var orderSummary = $(".order-summary-content");
+    orderSummary.on("click", ".btn-continue-shopping", function (e) {
+        e.preventDefault();
+        window.location.href = '{{url("/")}}'
+        return false;
+    });
 
     // remove cart item & move to wishlist
     orderSummary.on("click", ".ajax-action-link", function (e) {
