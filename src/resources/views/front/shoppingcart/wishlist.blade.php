@@ -20,7 +20,7 @@
                         <div class="page-body">
                             <div class="order-summary-content">
                                 @if(Cart::instance('wishlist')->count() >0)
-                                <form action="{{url('/Checkout/BillingAddress')}}" enctype="multipart/form-data" method="GET" novalidate="novalidate">
+                                <form action="{{url('/cart')}}" enctype="multipart/form-data" method="GET" novalidate="novalidate">
                                 <!-- {{ csrf_field() }} -->
                                     <div class="card">
                                         <div id="cart-items" class="cart mb-0 cart-editable">
@@ -146,7 +146,7 @@
                                     </div>
                                     <div class="cart-buttons my-4 row row-hardcode">
                                         <div class="col-sm-6 col-lg-4 order-last order-sm-first mt-3 mt-sm-0">
-                                            <button class="btn btn-secondary btn-block btn-lg btn-continue-shopping" type="submit" name="continueshopping" value="continueshopping">
+                                            <button class="btn btn-secondary btn-block btn-lg btn-continue-shopping" type="button" >
                                                 <i class="fa fa-angle-left mr-3"></i>
                                                 <span>@lang('shoppings.continue-shopping')</span>
                                             </button>
@@ -154,8 +154,7 @@
                                         <div class="col-sm-6 col-lg-4 ml-lg-auto">
                                             <div id="start-checkout-buttons" class="">
                                                 <div class="checkout-buttons">
-                                                    <input type="submit" name="startcheckout" value="startcheckout" id="startcheckout" class="d-none">
-                                                    <button type="button" id="checkout" name="checkout" class="btn btn-primary btn-lg btn-block btn-checkout" onclick="$('#startcheckout').trigger('click'); return false;">
+                                                    <button type="button" class="btn btn-primary btn-lg btn-block btn-goto-cart" >
                                                         <span>@lang('shoppings.goto-cart')</span>
                                                         <i class="fa fa-angle-right ml-3"></i>
                                                     </button>
@@ -201,7 +200,18 @@
 $(document).ready(function(){   
    
     var orderSummary = $(".order-summary-content");
+    orderSummary.on("click", ".btn-continue-shopping", function (e) {
+        e.preventDefault();
+        window.location.href = '{{url("/")}}'
+        return false;
+    });
 
+    orderSummary.on("click", ".btn-goto-cart", function (e) {
+        e.preventDefault();
+        window.location.href = '{{url("/cart")}}'
+        return false;
+    });
+    
     // remove cart item & move to wishlist
     orderSummary.on("click", ".ajax-action-link", function (e) {
         e.preventDefault();
