@@ -294,7 +294,9 @@
 
 
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
-
+<script type="text/javascript" src="{{ asset('dist/pnotify/pnotify.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('dist/pnotify/pnotify.animate.js') }}"></script> 
+<script type="text/javascript" src="{{ asset('js/system.common.js') }}"></script> 
 <script>
      $(document).ready(function(){      
         $('.add-shoopingcart').click(function() {
@@ -330,10 +332,11 @@
                     'quantity': quantity,//just test
                 },
                success:function(response){
-                    console.log(response['newCartItemCount']); //debug
+					console.log(response['newWishlistItemCount']); //debug
+					displayNotification(response['message'], response['status']);
                },
                error:function(response){
-                    console.log(response['newCartItemCount']); //debug
+                    console.log(response['newWishlistItemCount']); //debug
                }
             });
         });
