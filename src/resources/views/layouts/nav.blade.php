@@ -14,7 +14,6 @@
                         &nbsp;@lang{{ strtoupper( __('common.search')) }}
                     </button>
                 </li>
-                &nbsp;&nbsp;|&nbsp;&nbsp;                    
                 <li class="dropdown">
                      
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
@@ -39,8 +38,6 @@
                         </li>                                                                                                          
                     </ul>
                 </li>
-                &nbsp;&nbsp;|&nbsp;&nbsp;
-
                 <li class="dropdown">
                     @guest
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
@@ -113,12 +110,12 @@
                 <div class="col-md-3">
                     <div class="hd-if right">
                         <button class="open4">
-                            <a href="{{ url('/cart') }}"><i class="ion-ios-cart-outline"></i></a>
+                            <a href="{{ url('/cart') }}"><i class="ion-ios-cart-outline  shopping-cart-icon"></i></a>
                         </button>
                         
                         <div class="hd-infor">
                             <p>@lang('shoppings.cart')</p>
-                            <span>{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</span>
+                            <span><p class="cartItemCount" style="display: inline;">{{ Cart::instance('default')->count(false) }}</p> @lang('shoppings.items')</span>
                         </div>
                     </div>
                 </div>
@@ -181,12 +178,9 @@
                             @lang('header.contact')
                             </a>
                         </li>
-                           
                     </ul>
-
             </nav>
         </div>
     </div>
-    
 </header>
 <!-- END | Header -->
