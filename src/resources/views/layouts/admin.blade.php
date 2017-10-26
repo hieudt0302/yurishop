@@ -404,7 +404,7 @@
           <ul class="treeview-menu">
             <li><a href="{{url('admin/products')}}"><i class="fa fa-circle-o"></i> Danh Mục</a></li>
             <li><a href="{{url('admin/products/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
-            <li><a href="{{url('admin/products/categories')}}"><i class="fa fa-circle-o"></i> Chủ Đề</a></li>
+            <!-- <li><a href="{{url('admin/products/categories')}}"><i class="fa fa-circle-o"></i> Chủ Đề</a></li> -->
             <li><a href="{{url('admin/products/reviews')}}"><i class="fa fa-circle-o"></i> Đánh Giá</a></li>
           </ul>
         </li>
@@ -419,7 +419,7 @@
           <ul class="treeview-menu">
             <li><a href="{{url('admin/posts/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
             <li><a href="{{url('admin/posts')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
-            <li><a href="{{url('admin/posts/categories')}}"><i class="fa fa-circle-o"></i> Chủ Đề</a></li>
+            <!-- <li><a href="{{url('admin/posts/categories')}}"><i class="fa fa-circle-o"></i> Chủ Đề</a></li> -->
             <li><a href="{{url('admin/posts/comments')}}"><i class="fa fa-circle-o"></i> Bình Luận</a></li>
           </ul>
         </li>

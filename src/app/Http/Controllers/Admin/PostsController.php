@@ -270,11 +270,7 @@ class PostsController extends Controller
         return View('admin/posts/categories',compact('categories'));
     }
 
-    public function comments(Request $request)
-    {
-        $comments = Comment::where('commentable_type','App\Models\Post')->get();
-        return View('admin/posts/comments',compact('comments'));
-    }
+   
 
      public function GenerateSlug($title)
     {
@@ -287,5 +283,43 @@ class PostsController extends Controller
             'slug' =>  $slug,
             'status' => 'success'
         ]);
+    }
+
+
+      /* COMMENT */
+      public function comments(Request $request)
+      {
+          return $this->filtercomments($request);
+      }
+      public function findcomments(Request $request)
+      {
+          return $this->filtercomments($request);
+      }
+    public function filtercomments(Request $request)
+    {
+        $created_from = $request->created_from;
+        $created_to = $request->created_to;
+        $review = $request->review;
+        $approved_type = $request->approved_type??2;
+        // $product_name = $request->product_name;
+
+        $comments =  Comment::where('commentable_type','App\Models\Post')
+            ->where('comment','LIKE', '%'. $review . '%')
+            ->where(function($query) use ($approved_type){
+                if($approved_type==1  || $approved_type==0 )
+                    $query->where('approved', $approved_type);
+            })
+            ->where(function($query) use ($created_from,  $created_to){
+                if(strlen($created_from)> 0 && strlen($created_to)> 0)
+                    $query->whereBetween('created_at',[$created_from . ' ' . '00:00:00',  $created_to . ' ' . '23:59:59']);
+                else if(strlen($created_from)> 0 && strlen($created_to) < 0)
+                    $query->where('created_at',$created_from . ' ' . '00:00:00');
+                else if(strlen($created_from) < 0 && strlen($created_to) > 0)
+                    $query->where('created_at', $created_to . ' ' . '23:59:59');
+
+            })
+            ->paginate(21);
+
+        return View('admin/posts/comments',compact('comments'));
     }
 }

@@ -194,6 +194,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('posts/comments',['as'=>'admin.posts.findcomments','uses'=>'PostsController@findcomments','middleware' => ['role:admin|manager']]);
     //
     Route::get('posts/generateslug/{title}',['as'=>'admin.posts.generateSlug','uses'=>'PostsController@GenerateSlug','middleware' => ['role:admin|manager']]);
+   
     //Product
     Route::get('products',['as'=>'admin.products.index','uses'=>'ProductsController@index','middleware' => ['role:admin|manager']]);
     Route::post('products',['as'=>'admin.products.find','uses'=>'ProductsController@find','middleware' => ['role:admin|manager']]);
@@ -215,6 +216,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::delete('products/images/{id}',['as'=>'admin.products.destroyImage','uses'=>'ProductsController@destroyImage','middleware' => ['role:admin|manager']]);
     //
     Route::get('products/generateslug/{name}',['as'=>'admin.products.generateSlug','uses'=>'ProductsController@GenerateSlug','middleware' => ['role:admin|manager']]);
+    //
 
    //Order
     Route::get('orders',['as'=>'admin.orders.index','uses'=>'OrdersController@index','middleware' => ['role:admin|manager']]);

@@ -417,11 +417,7 @@ class ProductsController extends Controller
         return View('admin/products/categories',compact('categories'));
     }
 
-    public function reviews(Request $request)
-    {
-        $reviews = Comment::where('commentable_type','App\Models\Product')->get();
-        return View('admin/products/reviews',compact('reviews'));
-    }
+   
 
     public function filter(Request $request)
     {
@@ -477,5 +473,42 @@ class ProductsController extends Controller
             'slug' =>  $slug,
             'status' => 'success'
         ]);
+    }
+
+    /* REVIEWS */
+    public function reviews(Request $request)
+    {
+        return $this->filterreviews($request);
+    }
+    public function findreviews(Request $request)
+    {
+        return $this->filterreviews($request);
+    }
+    public function filterreviews(Request $request)
+    {
+        $created_from = $request->created_from;
+        $created_to = $request->created_to;
+        $review = $request->review;
+        $approved_type = $request->approved_type??2;
+        // $product_name = $request->product_name;
+
+        $reviews =  Comment::where('commentable_type','App\Models\Product')
+            ->where('comment','LIKE', '%'. $review . '%')
+            ->where(function($query) use ($approved_type){
+                if($approved_type==1  || $approved_type==0 )
+                    $query->where('approved', $approved_type);
+            })
+            ->where(function($query) use ($created_from,  $created_to){
+                if(strlen($created_from)> 0 && strlen($created_to)> 0)
+                    $query->whereBetween('created_at',[$created_from . ' ' . '00:00:00',  $created_to . ' ' . '23:59:59']);
+                else if(strlen($created_from)> 0 && strlen($created_to) < 0)
+                    $query->where('created_at',$created_from . ' ' . '00:00:00');
+                else if(strlen($created_from) < 0 && strlen($created_to) > 0)
+                    $query->where('created_at', $created_to . ' ' . '23:59:59');
+
+            })
+            ->paginate(21);
+
+        return View('admin/products/reviews',compact('reviews'));
     }
 }
