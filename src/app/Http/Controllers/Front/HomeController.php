@@ -16,6 +16,7 @@ use App\Models\InfoPage;
 use App\Models\InfoPageTranslation;
 use App\Models\Language;
 use App\Models\Subscribe;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,7 @@ class HomeController extends Controller
         $product_origin = InfoPage::where('slug','product-origin')->first();
         $product_quality = InfoPage::where('slug','product-quality')->first(); 
         $new_products = Product::orderBy('created_at', 'desc')->limit(4)->get();
+        $community_category = Category::where('slug', 'community')->firstOrFail();
         // $best_sellers_products = DB::table('products')
         //                             ->join('order_details','products.id', '=', 'order_details.product_id')
         //                             ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
@@ -56,7 +58,7 @@ class HomeController extends Controller
         $sliders = Slider::where('is_show',1)->get();      
 
         //var_dump($best_sellers_products); die();  
-        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'new_products', 'best_sellers_products', 'sale_products', 'new_blogs','sliders'));
+        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'new_products', 'best_sellers_products', 'sale_products', 'new_blogs','sliders','community_category'));
 
     }
 
