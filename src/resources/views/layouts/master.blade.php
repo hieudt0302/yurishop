@@ -55,23 +55,6 @@
 <meta name="google-site-verification" content="SBNKsjbUQHBBai8E7O5TxOH4R1pHOiD1F2qaSZbPxBk" />	
 </head>
 <body>
-
-	<div id="sideNav2" class="sidenav">
-	  <p class="cart-product">No products in the cart</p>
-	  <a href="#" class="closebtn2"><i class="ion-android-close"  data-toggle="tooltip" data-placement="left" title="Close"></i></a>
-	</div>
-	<div id="sideNav3" class="sidenav">
-	  <p class="cart-product">No products in the cart</p>
-	  <a href="#" class="closebtn3"><i class="ion-android-close"  data-toggle="tooltip" data-placement="left" title="Close"></i></a>
-	</div>
-	<div id="sideNav4" class="sidenav">
-	  <p class="cart-product">No products in the cart</p>
-	  <a href="#" class="closebtn4"><i class="ion-android-close"  data-toggle="tooltip" data-placement="left" title="Close"></i></a>
-	</div>
-	<div id="sideNav5" class="sidenav">
-	  <p class="cart-product">No products in the cart</p>
-	  <a href="#" class="closebtn5"><i class="ion-android-close"  data-toggle="tooltip" data-placement="left" title="Close"></i></a>
-	</div>
 	 
 	<!-- Mobile Menu -->
 	<div class="mobile-menu">

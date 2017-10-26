@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="top-left">
-                <p>@lang('header.free-ship')<span> $100</span></p>
+                <p><span></span></p>
             </div>        
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -113,7 +113,7 @@
                 <div class="col-md-3">
                     <div class="hd-if right">
                         <button class="open4">
-                            <i href="{{ url('/cart') }}" class="ion-ios-cart-outline"></i>
+                            <a href="{{ url('/cart') }}"><i class="ion-ios-cart-outline"></i></a>
                         </button>
                         
                         <div class="hd-infor">

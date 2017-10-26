@@ -13,7 +13,7 @@
                     <h1>{{$posts[0]->category->translation->name}}</h1>
                     <ul class="breadcumb">
                         <li><a href="#">@lang('common.home')</a></li>
-                        <li><span>/</span><a href="#">Blog</a></li>
+                        <li><span>/</span><a href="#">@lang('common.posts')</a></li>
                         <li><span>/</span>{{$posts[0]->category->translation->name}}</li>
                     </ul>
 
