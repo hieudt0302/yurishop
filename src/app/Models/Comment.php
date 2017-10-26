@@ -21,7 +21,7 @@ class Comment extends Model
 
     public function product() 
     {
-        return $this->hasOne('App\Models\Product');
+        return $this->hasOne('App\Models\Product','commentable_id');
     }
     
 }
