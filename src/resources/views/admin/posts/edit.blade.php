@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <h1>
-      Bài viết
+      Bài viết  {{$tab}}
         <small>
             <i class="fa fa-arrow-circle-left"></i>
             <a href="{{url('/admin/posts')}}">Quay lại danh sách</a>
@@ -126,7 +126,7 @@
                                 <form action="{{url('/admin/posts')}}/{{$post->id}}/translation" method="post">
                                 {!! method_field('patch') !!} 
                                 {{ csrf_field()}}
-                                <input type="hidden" name="language_id" value="{{$translation->language_id}}">
+                                <input type="hidden" name="language_id" value="{{$translation->language_id??0}}">
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">

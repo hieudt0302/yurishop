@@ -180,8 +180,7 @@ class PostsController extends Controller
         return redirect()->back()
         ->with('message', 'Bài viết đã được cập nhật')
         ->with('status', 'success')
-        ->with('tab', 1)
-        ->withInput();
+        ->withInput(['tab'=> 1]);
     }
 
     public function updateTranslation(Request $request, $id)
@@ -196,9 +195,17 @@ class PostsController extends Controller
             ->withInput();
         }
 
+        if(empty(Language::find($request->language_id))){
+            return redirect()->back()
+            ->with('message', 'Vui lòng chọn ngôn ngữ.')
+            ->with('status', 'error')
+            ->withInput(['tab'=> 2]);
+        }
+
         $translation = PostTranslation::where('post_id', $id)
         ->where('language_id', $request->language_id)->withoutGlobalScopes()
         ->first();
+        
         if(!empty($translation)){
             $translation->title = $request->title_translate??'';
             $translation->excerpt = $request->excerpt_translate??'';
@@ -207,7 +214,6 @@ class PostsController extends Controller
             $translation->save();
         }
         else{
-
             $postTranslation = new PostTranslation();
             $postTranslation->title = $request->title_translate??'';
             $postTranslation->excerpt = $request->excerpt_translate??'';
@@ -215,16 +221,13 @@ class PostsController extends Controller
             $postTranslation->description = $request->description_translate??'';
             $postTranslation->language_id = $request->language_id;
             $postTranslation->post_id = $id;
-
             $postTranslation->save();
-
         }
         
         return redirect()->back()
         ->with('message', 'Cập nhật nội dung mới thành công')
         ->with('status', 'success')
-        ->with('tab', 2)
-        ->withInput();
+        ->withInput(['tab'=> 2]);
     }
 
     public function fetchTranslation($id, $code)
