@@ -11,5 +11,6 @@ return [
     'farm-activities-message' => 'Thay đổi message sau',
     'about-us' => 'Về chúng tôi',
     'product-origin' => 'Nguồn gốc sản phẩm',    
-    'product-quality' => 'Chất lượng sản phẩm',      	      
+    'product-quality' => 'Chất lượng sản phẩm',
+    'community' => 'Cộng đồng',          	      
 ];

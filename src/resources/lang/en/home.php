@@ -12,4 +12,5 @@ return [
     'about-us' => 'Who are we?',
     'product-origin' => 'Products origin',    
     'product-quality' => 'Products quality',
+    'community' => 'Community',    
 ];
