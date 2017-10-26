@@ -19,9 +19,9 @@ class Comment extends Model
          return $this->belongsTo('User');
      }
 
-    public function products() 
+    public function product() 
     {
-        return $this->belongsTo('App\Models\Product');
+        return $this->hasOne('App\Models\Product');
     }
     
 }
