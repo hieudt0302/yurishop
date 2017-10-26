@@ -52,7 +52,7 @@
 	<link rel="stylesheet" href="{{asset('frontend/css/settings.css')}}"> -->
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	@yield('header')
-	
+<meta name="google-site-verification" content="SBNKsjbUQHBBai8E7O5TxOH4R1pHOiD1F2qaSZbPxBk" />	
 </head>
 <body>
 
