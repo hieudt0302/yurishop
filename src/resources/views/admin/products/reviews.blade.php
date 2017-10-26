@@ -90,7 +90,7 @@
                             <tbody>
                                 @foreach($reviews as $review)
                                 <tr>
-                                    <td><a href="{{url('/admin/products/')}}/1/Edit">{{$review->product->name}}</a></td>
+                                    <td><a href="{{url('/admin/products/')}}/{{$review->product->id}}/Edit">{{$review->product->name}}</a></td>
                                     <td>Customer Name</td>
                                     <td>{{$review->comment}}</td>
                                     <td style="text-align:center">{{$review->rate}}</td>
