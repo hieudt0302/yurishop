@@ -2,12 +2,23 @@
 <section id="topbar">
     <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="top-left">
+                <p>@lang('header.free-ship')<span> $100</span></p>
+            </div>        
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
             <ul class="nav navbar-nav hd-menu topbar-right">
                 <li class="dropdown">
+                    <button class="btn search-top-bt  btn-default">
+                        <i class="fa fa-search"></i>
+                        &nbsp;@lang{{ strtoupper( __('common.search')) }}
+                    </button>
+                </li>
+                &nbsp;&nbsp;|&nbsp;&nbsp;                    
+                <li class="dropdown">
+                     
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
-                        <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ app()->getLocale() }}
+                        <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ strtoupper(app()->getLocale()) }}
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </button>
                     <ul class="dropdown-menu level1">
@@ -28,6 +39,7 @@
                         </li>                                                                                                          
                     </ul>
                 </li>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
 
                 <li class="dropdown">
                     @guest
@@ -36,21 +48,21 @@
                     </button>
                     <!-- Sub -->
                     <ul class="dropdown-menu level1">    
-                        <li><a href="{{ url('/login') }}"><i class="ion-ios-minus-empty"></i>@lang('auth.login')</a></li>
-                        <li><a href="{{ url('/register') }}"><i class="ion-ios-minus-empty"></i>@lang('auth.register')</a></li>                          
+                        <li><a href="{{ url('/login') }}">@lang('auth.login')</a></li>
+                        <li><a href="{{ url('/register') }}">@lang('auth.register')</a></li>                          
                     </ul>
                     <!-- End Sub -->
                     @else
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
-                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ Auth::user()->first_name }} <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ strtoupper(Auth::user()->first_name) }} <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </button>
                     <ul class="dropdown-menu level1">
-                        <li><a href="{{ url('/Account/Info') }}"><i class="ion-ios-minus-empty"></i>@lang('account.my-account')</a></li>
-                        <li><a href="{{ url('/wishlist') }}"><i class="ion-ios-minus-empty"></i>@lang('account.wishlist')</a></li>
-                        <li><a href="{{ url('/cart') }}"><i class="ion-ios-minus-empty"></i>@lang('shoppings.cart')</a></li>
+                        <li><a href="{{ url('/Account/Info') }}">@lang('account.my-account')</a></li>
+                        <li><a href="{{ url('/wishlist') }}">@lang('account.wishlist')</a></li>
+                        <li><a href="{{ url('/cart') }}"></i>@lang('shoppings.cart')</a></li>
                         <li class="it-last">
                             <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                <i class="ion-ios-minus-empty"></i>@lang('auth.logout')
+                                @lang('auth.logout')
                             </a>
                             <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
@@ -66,9 +78,9 @@
 <header class="ht-headerv3 ht-headerv4 sidebarmenu">
     <div class="row">
         <div class="topsearch">
-            <form action="GET">
-                <input type="text" class="search-top" placeholder="What are you looking for ?">
-            </form>
+            {!! Form::open(array('url' => '/search')) !!}
+                <input type="text" class="search-top" name="keyword" placeholder="@lang('header.enter-keyword')">
+            {!! Form::close() !!}
         </div>
     </div>
     
@@ -170,7 +182,8 @@
                             </a>
                         </li>
                            
-                    </ul>                
+                    </ul>
+
             </nav>
         </div>
     </div>

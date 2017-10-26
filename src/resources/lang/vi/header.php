@@ -27,5 +27,6 @@ return [
     'account' => 'TÀI KHOẢN',
     'promotion' => 'KHUYẾN MẠI',    
     'enter-keyword' => 'Nhập từ khoá',   
-    'call-us-now' => 'Hãy gọi cho chúng tôi',       
+    'call-us-now' => 'Hãy gọi cho chúng tôi',
+    'free-ship' => 'Miễn phí vận chuyển cho đơn hàng trên',             
 ];

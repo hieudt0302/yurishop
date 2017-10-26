@@ -28,5 +28,6 @@ return [
     'account' => 'ACCOUNT',          
      'promotion' => 'PROMOTION',
     'enter-keyword' => 'Enter keyword',   
-    'call-us-now' => 'Call us now',          
+    'call-us-now' => 'Call us now',
+    'free-ship' => 'Free shipping on all domestic orders over',              
 ];
