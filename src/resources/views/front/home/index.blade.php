@@ -57,8 +57,8 @@
                 <div class="ab-item">
                     <img src="{{ asset('images/logo/community-icon.png') }}" alt="">
                     <h2>@lang('home.community')</h2>
-                    <p>{{$product_quality->translation->description??""}}</p>
-                    <a class="learnmore" href="{{url('menu/posts/cong-dong')}}">@lang('common.more-details')</a>
+                    <p>{{$community_category->translation->description??""}}</p>
+                    <a class="learnmore" href="{{url('menu/posts/'.$community_category->slug)}}">@lang('common.more-details')</a>
                 </div>
             </div>            
         </div>
