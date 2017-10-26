@@ -30,12 +30,12 @@
             <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">Thông tin chung</a></li>
-                        <li><a href="#content" data-toggle="tab">Nội dung</a></li>
+                        <li class="{{$tab==1?'active':''}}"><a href="#info" data-toggle="tab">Thông tin chung</a></li>
+                        <li class="{{$tab==2?'active':''}}"><a href="#content" data-toggle="tab">Nội dung</a></li>
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
-                        <div class="active tab-pane" id="info">
+                        <div class="{{$tab==1?'active':''}} tab-pane" id="info">
                             <form action="{{url('/admin/posts')}}/{{$post->id}}" method="post" enctype="multipart/form-data">
                             {!! method_field('patch') !!} 
                             {{ csrf_field()}}
@@ -99,11 +99,9 @@
                             </form>
                         </div>
                         <!-- CONTENT TAB -->
-                        <div class="tab-pane" id="content">
+                        <div class="{{$tab==2?'active':''}} tab-pane" id="content">
                             <div class="panel-group">
-                                <form action="{{url('/admin/posts')}}/{{$post->id}}/translation" method="post">
-                                {!! method_field('patch') !!} 
-                                {{ csrf_field()}}
+                                <form id="getTranslation" action="{{url('/admin/posts')}}/{{$post->id}}/edit" method="GET">
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
@@ -112,39 +110,49 @@
                                                     <select id="language-select" name="language_id" class="form-control">
                                                         <option value="0">-----Chọn Ngôn Ngữ-----</option>                                                        
                                                         @foreach($languages as  $language)
-                                                        <option value="{{$language->id}}" selected={{old('language_id')===$language->id?'selected':''}}>{{$language->name}}</option>
+                                                            @if( ($translation->language_id??0) === $language->id )
+                                                                <option value="{{$language->id}}" selected>{{$language->name}}</option>
+                                                            @else
+                                                                <option value="{{$language->id}}" >{{$language->name}}</option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </form>
+
+                                <form action="{{url('/admin/posts')}}/{{$post->id}}/translation" method="post">
+                                {!! method_field('patch') !!} 
+                                {{ csrf_field()}}
+                                <input type="hidden" name="language_id" value="{{$translation->language_id}}">
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Tiêu đề</label>
                                                 <div class="col-md-4">
                                                     <div class="input-group input-group-required">
-                                                        <input class="form-control text-box single-line valid" id="title_translate" name="title_translate" type="text" value="{{old('title_translate')}}">
+                                                        <input class="form-control text-box single-line valid" id="title_translate" name="title_translate" type="text" value="{{$translation->title??''}}">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Lởi trích</label>
                                                 <div class="col-md-8">
-                                                    <textarea id="excerpt_translate" class="form-control" name="excerpt_translate" rows="3"  placeholder="">{{old('excerpt_translate')}}</textarea>
+                                                    <textarea id="excerpt_translate" class="form-control" name="excerpt_translate" rows="3"  placeholder="">{{$translation->excerpt??''}}</textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Nội dung</label>
                                                 <div class="col-md-8">
-                                                    <textarea id="content_translate" class="form-control ckeditor" name="content_translate" rows="3"  placeholder="" contenteditable="true">{!!old('content_translate')!!}</textarea>
+                                                    <textarea id="content_translate" class="form-control ckeditor" name="content_translate" rows="3"  placeholder="" contenteditable="true">{!! $translation->content??'' !!}</textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Mô tả</label>
                                                 <div class="col-md-8">
-                                                    <textarea id="description_translate" class="form-control" name="description_translate" rows="3"  placeholder="">{{old('description_translate')}}</textarea>
+                                                    <textarea id="description_translate" class="form-control" name="description_translate" rows="3"  placeholder="">{{$translation->description??''}}</textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -194,25 +202,27 @@
     // $('.textarea').wysihtml5()
     // TAB: CONTENT
     $('#language-select').on('change', function() {
-        var code_id = this.value;
-        $('#language_id_translate').val(code_id);
-        $.ajax({
-            type: "GET",
-            url: '{{url("/admin/posts")}}/{{$post->id}}/'+ code_id +'/fetch',
-            data:{
-                '_token': '{{csrf_token()}}'
-            },
-            success:function(response){
-            $('#title_translate').val(response['title']);
-            var html = $('#comments').val();
-            $('#content_translate').html(response['content']);
-            $('#description_translate').val(response['description']);
-            $('#excerpt_translate').val(response['excerpt']);
-            },
-            error:function(response){
-                alert('Không thể gửi yêu cầu về server');
-            }
-        });
+        $('form#getTranslation').submit();
+        return false;
+        // var code_id = this.value;
+        // $('#language_id_translate').val(code_id);
+        // $.ajax({
+        //     type: "GET",
+        //     url: '{{url("/admin/posts")}}/{{$post->id}}/'+ code_id +'/fetch',
+        //     data:{
+        //         '_token': '{{csrf_token()}}'
+        //     },
+        //     success:function(response){
+        //     $('#title_translate').val(response['title']);
+        //     var html = $('#comments').val();
+        //     $('#content_translate').val(<?php echo "response['content']" ?>);
+        //     $('#description_translate').val(response['description']);
+        //     $('#excerpt_translate').val(response['excerpt']);
+        //     },
+        //     error:function(response){
+        //         alert('Không thể gửi yêu cầu về server');
+        //     }
+        // });
     })    
   })
 </script>

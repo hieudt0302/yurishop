@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostTranslation;
@@ -120,8 +121,16 @@ class PostsController extends Controller
         $post = Post::find($id);
         $languages = Language::all();
         $blogCategory = Category::where('slug','posts')->firstOrFail();
-        $categories = Category::where('parent_id',$blogCategory->id)->get();               
-        return View('admin.posts.edit',compact('post','languages','categories'));
+        $categories = Category::where('parent_id',$blogCategory->id)->get();  
+        
+        $language_id = Input::get('language_id');
+        $tab = 1;
+        $translation =  null;
+        if(!empty( $language_id) &&   $language_id  > 0 ){
+            $translation =PostTranslation::where('post_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->firstOrFail();
+            $tab= 2;
+        }
+        return View('admin.posts.edit',compact('post','languages','categories', 'translation','tab'));
     }
 
     /**
@@ -168,11 +177,11 @@ class PostsController extends Controller
 
         $post->save();
 
-
-            return redirect()->back()
-            ->with('message', 'Bài viết đã được cập nhật')
-            ->with('status', 'success')
-            ->withInput();
+        return redirect()->back()
+        ->with('message', 'Bài viết đã được cập nhật')
+        ->with('status', 'success')
+        ->with('tab', 1)
+        ->withInput();
     }
 
     public function updateTranslation(Request $request, $id)
@@ -210,11 +219,11 @@ class PostsController extends Controller
             $postTranslation->save();
 
         }
-        // var_dump($postTranslation); die();
         
         return redirect()->back()
         ->with('message', 'Cập nhật nội dung mới thành công')
         ->with('status', 'success')
+        ->with('tab', 2)
         ->withInput();
     }
 
