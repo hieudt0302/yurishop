@@ -127,7 +127,7 @@ class PostsController extends Controller
         $tab = 1;
         $translation =  null;
         if(!empty( $language_id) &&   $language_id  > 0 ){
-            $translation =PostTranslation::where('post_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->firstOrFail();
+            $translation = PostTranslation::where('post_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->firstOrFail();
             $tab= 2;
         }
         return View('admin.posts.edit',compact('post','languages','categories', 'translation','tab'));

@@ -194,36 +194,30 @@
     });
 
     $('.select2').select2();
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    // CKEDITOR.replace('excerpt-editor');
-    // CKEDITOR.replace('content-editor');
-    //bootstrap WYSIHTML5 - text editor
-    // $('.textarea').wysihtml5()
+   
     // TAB: CONTENT
     $('#language-select').on('change', function() {
         $('form#getTranslation').submit();
         return false;
-        // var code_id = this.value;
-        // $('#language_id_translate').val(code_id);
-        // $.ajax({
-        //     type: "GET",
-        //     url: '{{url("/admin/posts")}}/{{$post->id}}/'+ code_id +'/fetch',
-        //     data:{
-        //         '_token': '{{csrf_token()}}'
-        //     },
-        //     success:function(response){
-        //     $('#title_translate').val(response['title']);
-        //     var html = $('#comments').val();
-        //     $('#content_translate').val(<?php echo "response['content']" ?>);
-        //     $('#description_translate').val(response['description']);
-        //     $('#excerpt_translate').val(response['excerpt']);
-        //     },
-        //     error:function(response){
-        //         alert('Không thể gửi yêu cầu về server');
-        //     }
-        // });
     })    
+
+    $('#title').on('change', function(e) {
+        e.preventDefault();
+        var token = '{{csrf_token()}}';
+        var title =  $('#title').val();
+        $.ajax({
+            cache: false,
+            url: '{{url("admin/posts/generateslug")}}' + '/' + title,
+            type: 'GET',
+            data: { _token :token},
+            success: function (response) {
+                if (response['status'] =='success') {
+                    $('#slug').val(response['slug'])
+                }
+            }
+        });
+        return false;
+    });
   })
 </script>
 @endsection

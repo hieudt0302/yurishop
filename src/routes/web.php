@@ -234,6 +234,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('info-pages/{id}/edit',['as'  =>'admin.info-pages.edit','uses' => 'InfoPagesController@edit','middleware'=> ['role:admin|manager']]);
     Route::patch('info-pages/{id}',['as'  =>'admin.info-pages.update','uses' => 'InfoPagesController@update','middleware'=> ['role:admin|manager']]);    
     Route::delete('info-pages/{id}',['as'  =>'admin.info-pages.destroy','uses' => 'InfoPagesController@destroy','middleware'=> ['role:admin|manager']]);   
+    Route::get('info-pages/generateslug/{title}',['as'=>'admin.info-pages.generateSlug','uses'=>'InfoPagesController@GenerateSlug','middleware' => ['role:admin|manager']]);
+    Route::patch('info-pages/{id}/translation',['as'=>'admin.info-pages.updateTranslation','uses'=>'InfoPagesController@updateTranslation','middleware' => ['role:admin|manager']]);
 
     //Slider
     Route::get('sliders',['as'=>'admin.sliders.index','uses'=>'SliderController@index','middleware'=> ['role:admin|manager']]);
