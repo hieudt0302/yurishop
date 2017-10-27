@@ -245,6 +245,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('sliders/{id}/edit',['as'  =>'admin.sliders.edit','uses' => 'SliderController@edit','middleware'=> ['role:admin|manager']]);
     Route::patch('sliders/{id}',['as'  =>'admin.sliders.update','uses' => 'SliderController@update','middleware'=> ['role:admin|manager']]);    
     Route::delete('sliders/{id}',['as'  =>'admin.sliders.destroy','uses' => 'SliderController@destroy','middleware'=> ['role:admin|manager']]);      
+    Route::get('sliders/generateslug/{title}',['as'=>'admin.sliders.generateSlug','uses'=>'SliderController@GenerateSlug','middleware' => ['role:admin|manager']]);
+    Route::patch('sliders/{id}/translation',['as'=>'admin.sliders.updateTranslation','uses'=>'SliderController@updateTranslation','middleware' => ['role:admin|manager']]);
+
 
     //Mail Templates
     Route::get('mail_templates',['as'=>'admin.mail_templates.index','uses'=>'MailTemplateController@index','middleware'=> ['role:admin|manager']]);

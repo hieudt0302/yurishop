@@ -113,24 +113,19 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        // $post = Post::where('id',$id)->firstOrFail();
-        // $language_list = Language::all();
-        // $post_translations = $post->translations()->get();       
-        // return View('admin.posts.edit',compact('post','post_translations','language_list','categories'));
-
         $post = Post::find($id);
         $languages = Language::all();
         $blogCategory = Category::where('slug','posts')->firstOrFail();
         $categories = Category::where('parent_id',$blogCategory->id)->get();  
         
-        $language_id = Input::get('language_id');
+        $language_id = Input::get('language_id')??0;
         $tab = 1;
         $translation =  null;
         if(!empty( $language_id) &&   $language_id  > 0 ){
-            $translation = PostTranslation::where('post_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->firstOrFail();
+            $translation = PostTranslation::where('post_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->first();
             $tab= 2;
         }
-        return View('admin.posts.edit',compact('post','languages','categories', 'translation','tab'));
+        return View('admin.posts.edit',compact('post','languages','categories', 'translation','tab', 'language_id'));
     }
 
     /**

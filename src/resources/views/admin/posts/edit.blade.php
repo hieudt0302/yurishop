@@ -110,7 +110,7 @@
                                                     <select id="language-select" name="language_id" class="form-control">
                                                         <option value="0">-----Chọn Ngôn Ngữ-----</option>                                                        
                                                         @foreach($languages as  $language)
-                                                            @if( ($translation->language_id??0) === $language->id )
+                                                            @if( $language_id == $language->id )
                                                                 <option value="{{$language->id}}" selected>{{$language->name}}</option>
                                                             @else
                                                                 <option value="{{$language->id}}" >{{$language->name}}</option>
@@ -126,7 +126,7 @@
                                 <form action="{{url('/admin/posts')}}/{{$post->id}}/translation" method="post">
                                 {!! method_field('patch') !!} 
                                 {{ csrf_field()}}
-                                <input type="hidden" name="language_id" value="{{$translation->language_id??0}}">
+                                <input type="hidden" name="language_id" value="{{$language_id}}">
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">

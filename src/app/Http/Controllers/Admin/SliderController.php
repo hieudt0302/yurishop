@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Input;
 use App\Models\Slider;
 use App\Models\SliderTranslation;
 use App\Models\Language;
 use DB;
+use Validator;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,19 +28,27 @@ class SliderController extends Controller
     }
 
     public function store(Request $request){
-        $this->validate($request,['title' => 'required',
-                                  'url' => 'required',
-                                  'image' => 'required|image'                                  
-                                ]);        
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'url' => 'required|string|min:1',
+            'img' => 'required|image'            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }       
 
         $slider = new Slider;
         $slider->title = $request->title;
         $slider->url = $request->url;
-        $slider->order = $request->sort_order??0;
+        $slider->order = $request->order??0;
         $slider->is_show = $request->is_show;
 
-        if (request()->hasFile('image')) {
-            $image = $request->file('image');
+        $slider->image = '' ;
+        if (request()->hasFile('img')) {
+            $image = $request->file('img');
             $img_path = $image->storeAs('images/slider',$image->getClientOriginalName());                              
             $img = Image::make(Storage::get($img_path))->fit(1920, 750)->encode();
             Storage::put($img_path, $img);                     
@@ -47,61 +57,105 @@ class SliderController extends Controller
 
         $slider->save();
 
-        $language_list = Language::all();
-        foreach ($language_list as $language){ 
-            $slider_translation = new SliderTranslation;
-            $slider_translation->slider_id = $slider->id;
-            $slider_translation->language_id = $language->id;
-            $slider_translation->description = $request->input($language->id.'-description');
-            $slider_translation->save();
-        }        
-
-        session()->flash('success_message', "Thêm mới thành công !");
-        return redirect()->back();
+        
+        return redirect()->action(
+            'Admin\SliderController@edit', ['id' => $slider->id]
+        );
     }
 
     public function edit($id)
     {
         $slider = Slider::find($id);
-        $language_list = Language::all();
-        $slider_translations = $slider->translations()->get();
-        return view('admin.sliders.edit',compact('slider','language_list','slider_translations'));   
+        $languages = Language::all();
+        
+        $language_id = Input::get('language_id')??0;
+        $tab = 1;
+        $translation =  null;
+        if(!empty( $language_id) &&   $language_id  > 0 ){
+            $translation = SliderTranslation::where('slider_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->first();
+            $tab= 2;
+        }
+        return View('admin.sliders.edit',compact('slider','languages', 'translation','tab', 'language_id'));
     }
 
     public function update($id, Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'url' => 'required|string|min:5',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
         $slider = Slider::find($id);
 
-        $this->validate($request,['title' => 'required',
-                                  'url' => 'required'                                
-                                ]);   
-
-        if (request()->hasFile('image')) {
-            $image = $request->file('image');
+        $slider->image = '' ;
+        if (request()->hasFile('img')) {
+            $image = $request->file('img');
             $img_path = $image->storeAs('images/slider',$image->getClientOriginalName());                              
             $img = Image::make(Storage::get($img_path))->fit(1920, 750)->encode();
             Storage::put($img_path, $img);                     
             $slider->image = $img_path;                      
-        }  
+        }    
 
         $slider->title = $request->title;
         $slider->url = $request->url;
-        $slider->order = $request->sort_order??0;
+        $slider->order = $request->order??0;
         $slider->is_show = $request->is_show;
         $slider->save();
+      
 
-        $slider_translations = $slider->translations()->get();
-        foreach ($slider_translations as $slider_translation){
-            if (!empty($request->input($slider_translation->language_id.'-description'))) {
-                $slider_translation->description = $request->input($slider_translation->language_id.'-description');
-                $slider_translation->save();
-            }
-        }        
-
-
-        session()->flash('success_message', "Cập nhật thành công !");
-        return redirect()->back(); 
+        return redirect()->back()
+        ->with('message', 'Slider đã được cập nhật')
+        ->with('status', 'success')
+        ->withInput(['tab'=> 1]);
     }
+
+    public function updateTranslation(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'language_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        if(empty(Language::find($request->language_id))){
+            return redirect()->back()
+            ->with('message', 'Vui lòng chọn ngôn ngữ.')
+            ->with('status', 'error')
+            ->withInput(['tab'=> 2]);
+        }
+
+        $translation = SliderTranslation::where('slider_id', $id)
+        ->where('language_id', $request->language_id)->withoutGlobalScopes()
+        ->first();
+        
+        if(!empty($translation)){
+            $translation->description = $request->description_translate??'';
+            $translation->save();
+        }
+        else{
+            $sliderTranslation = new SliderTranslation();
+            $sliderTranslation->description = $request->description_translate??'';
+            $sliderTranslation->language_id = $request->language_id;
+            $sliderTranslation->slider_id = $id;
+            $sliderTranslation->save();
+        }
+        
+        return redirect()->back()
+        ->with('message', 'Cập nhật nội dung mới thành công')
+        ->with('status', 'success')
+        ->withInput(['tab'=> 2]);
+    }
+
     public function destroy($id){
         $slider = Slider::find($id);
         Storage::delete($slider->image);
@@ -109,5 +163,18 @@ class SliderController extends Controller
 
         session()->flash('success_message', "Xóa thành công !");
         return redirect()->route('admin.sliders.index'); 
+    }
+
+    public function GenerateSlug($title)
+    {
+        $url = str_slug($title, "-");
+        if(Slider::where('url',$url)->count() >0 )
+        {
+            $url = $url . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
+        }
+        return response()->json([
+            'url' =>  $url,
+            'status' => 'success'
+        ]);
     }
 }
