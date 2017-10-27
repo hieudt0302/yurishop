@@ -127,7 +127,6 @@ Route::get('/Order/Details/{id}', 'Front\OrdersController@show');
 /* ADMIN */
 //Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function() {
-
     //Dashboard
     Route::get('/', ['as' => 'admin.dashboard.index', 'uses' => 'DashboardController@index', 'middleware'=> ['role:admin|manager']]);
 
