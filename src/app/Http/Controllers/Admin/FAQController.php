@@ -101,26 +101,68 @@ class FaqController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,['question' => 'required'
-                                ]);
+        $validator = Validator::make($request->all(), [
+            'question' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
 
         $faq = Faq::find($id);
-        $faq->question = $request->question;
-        $faq->is_show = $request->is_show??0;   
+        $faq->question = $request->title;
+        $faq->is_show = $request->is_show;
         $faq->save();
-        // Update data bảng faq
-        $faq_translations = $faq->translations()->get(); 
-        foreach ($faq_translations as $faq_translation){
-            if (!empty($request->input($faq_translation->language_id.'-question'))) {
-                $faq_translation->question = $request->input($faq_translation->language_id.'-question');
-            }
-            if (!empty($request->input($faq_translation->language_id.'-answer'))) {
-                $faq_translation->answer = $request->input($faq_translation->language_id.'-answer');
-            }
-            $faq_translation->save();
-        }
+              
         return redirect()->back()
-        ->with('success_message', 'Cập nhật thành công.');
+        ->with('message', 'Faq đã được cập nhật')
+        ->with('status', 'success')
+        ->withInput(['tab'=> 1]);
+    }
+
+    public function updateTranslation(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'language_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        if(empty(Language::find($request->language_id))){
+            return redirect()->back()
+            ->with('message', 'Vui lòng chọn ngôn ngữ.')
+            ->with('status', 'error')
+            ->withInput(['tab'=> 2]);
+        }
+
+        $translation = FaqTranslation::where('slider_id', $id)
+        ->where('language_id', $request->language_id)->withoutGlobalScopes()
+        ->first();
+        
+        if(!empty($translation)){
+            $translation->question = $request->question_translate??'';
+            $translation->answer = $request->answer_translate??'';
+            $translation->save();
+        }
+        else{
+            $faqTranslation = new FaqTranslation();
+            $faqTranslation->question = $request->question_translate??'';
+            $faqTranslation->answer = $request->answer_translate??'';
+            $faqTranslation->language_id = $request->language_id;
+            $faqTranslation->faq_id = $id;
+            $sliderTranslation->save();
+        }
+        
+        return redirect()->back()
+        ->with('message', 'Cập nhật nội dung mới thành công')
+        ->with('status', 'success')
+        ->withInput(['tab'=> 2]);
     }
 
     /**

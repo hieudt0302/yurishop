@@ -163,6 +163,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('faqs/{id}/edit',['as'  =>'admin.faqs.edit','uses' => 'FaqController@edit','middleware'=> ['role:admin|manager']]);
     Route::patch('faqs/{id}',['as'  =>'admin.faqs.update','uses' => 'FaqController@update','middleware'=> ['role:admin|manager']]);    
     Route::delete('faqs/{id}',['as'  =>'admin.faqs.destroy','uses' => 'FaqController@destroy','middleware'=> ['role:admin|manager']]); 
+    Route::patch('faqs/{id}/translation',['as'=>'admin.faqs.updateTranslation','uses'=>'FaqController@updateTranslation','middleware' => ['role:admin|manager']]);
 
     //Menu
     Route::get('menu',['as'=>'admin.menu.index','uses'=>'MenuController@index', 'middleware'=> ['role:admin|manager']]);
