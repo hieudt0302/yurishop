@@ -150,7 +150,7 @@ class FaqController extends Controller
             ->withInput(['tab'=> 2]);
         }
 
-        $translation = FaqTranslation::where('slider_id', $id)
+        $translation = FaqTranslation::where('faq_id', $id)
         ->where('language_id', $request->language_id)->withoutGlobalScopes()
         ->first();
         
