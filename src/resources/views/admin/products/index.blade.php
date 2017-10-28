@@ -119,8 +119,8 @@
                         <tbody>
                             @foreach($products as $product)
                             <tr>
-                                <td>
-                                   <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->source??''}}" alt="" title="">
+                                <td style="width: 20%">
+                                   <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->source??''}}" alt="" title="" width="120">
                                 </td>
                                 <td><a href="{{url('/admin/products/')}}/{{$product->id}}/edit">{{$product->name}}</a></td>
                                 <td>{{$product->sku}}</td>
@@ -159,6 +159,9 @@
                             </tr>
                         </tfoot>
                     </table>
+                </div>
+                <div class="box-footer clearfix">
+                {{$products->links()}}
                 </div>
             </div>
         </div>
