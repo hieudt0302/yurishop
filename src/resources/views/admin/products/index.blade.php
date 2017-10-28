@@ -161,7 +161,7 @@
                     </table>
                 </div>
                 <div class="box-footer clearfix">
-                {{$products->links()}}
+                    {{ $products->links('vendor.pagination.admin') }}
                 </div>
             </div>
         </div>
