@@ -70,26 +70,15 @@
                              </select>
                             </div>
                         </div>
-                      
-                        <div class="form-group">
-                            <div class="col-sm-4 col-sm-offset-2">
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" name="show_sub_categories" id="show_sub_categories" >
-                                        Bao gồm cả danh mục con
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <button type="submit" class="btn btn-info">
                             <i class="fa fa-search"></i> Tìm kiếm
                         </button>
-                        <button type="submit" class="btn btn-default pull-right">
+                        <!-- <button type="submit" class="btn btn-default pull-right">
                             <i class="fa fa-print"></i> Xuất file
-                        </button>
+                        </button> -->
                     </div>
                     <!-- /.box-footer -->
                 </form>
@@ -161,7 +150,7 @@
                     </table>
                 </div>
                 <div class="box-footer clearfix">
-                    {{ $products->links('vendor.pagination.admin') }}
+                    {{ $products->links('vendor.pagination.admin',[]) }}
                 </div>
             </div>
         </div>
