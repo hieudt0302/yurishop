@@ -26,7 +26,7 @@ return [
     'search' => 'SEARCH',
     'cart' => 'CART',
     'account' => 'ACCOUNT',          
-     'promotion' => 'PROMOTION',
+     'promotion' => 'Promotion',
     'enter-keyword' => 'Enter keyword',   
     'call-us-now' => 'Call us now',
     'free-ship' => 'Free shipping on all domestic orders over',              

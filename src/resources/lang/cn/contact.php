@@ -13,14 +13,16 @@ return [
     |
     */
 	
-    'contact' => 'Contact',     
-	'headquarter' => 'Headquarter',
-    'address' => 'Address',
-    'phone' => 'Phone',
-    'email' => 'Email',
-	'message' => 'Message',
-	'name' => 'Name',
-	'submit' => 'Summit message',
-    'required-message' => ' All the fields are required',    
+    'contact' => '联系我们',        
+    'headquarter' => '基地',
+    'address' => '地址',
+    'phone' => '电话',
+    'email' => '邮箱',
+    'message' => '留言内容',
+    'name' => '姓名',
+    'submit' => '发送',
+    'required-message' => ' 请填写上述内容',
+    'social' => '社会网',    
+    'review' => '留言',   
 
 ];
