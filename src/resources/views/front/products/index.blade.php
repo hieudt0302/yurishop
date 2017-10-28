@@ -7,9 +7,21 @@
 @section('content')
 <div class="hero">
     <div class="container">
+        @if(!empty($promo)&&$promo==true)
         <div class="row">
             <div class="col-md-12">
-                <h1>@lang('common.product-list')</h1>
+                <h1>@lang('header.promotion')</h1>
+                <ul class="breadcumb">
+                    <li><a href="#">@lang('common.home')</a></li>
+                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <li><span>/</span>@lang('header.promotion')</li>
+                </ul>
+            </div>
+        </div>
+        @else
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{$category->translation->name??'List'}}</h1>
                 <ul class="breadcumb">
                     <li><a href="#">@lang('common.home')</a></li>
                     <li><span>/</span><a href="#">@lang('product.product')</a></li>
@@ -17,6 +29,7 @@
                 </ul>
             </div>
         </div>
+        @endif
     </div>
 </div>
 

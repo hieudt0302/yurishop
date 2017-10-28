@@ -100,8 +100,13 @@ class HomeController extends Controller
 
     public function promotion()
     {
-        $info_page_translation = $this->getInfoPageTranslation('promotion');
-        return View("front.home.infopage",compact('info_page_translation'));
+        $promo = true;
+        $results = Product::where('special_price', '>', 0)
+                                ->where('special_price_start_date', '<=', date('Y-m-d', time()))
+                                ->where('special_price_end_date', '>=', date('Y-m-d', time()))
+                                ->orderBy('created_at', 'desc')
+                                ->paginate(12);          
+        return View("front.products.index",compact('results','promo'));
     }       
 
     public function contact()
