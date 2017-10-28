@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Input;
 use App\Models\Faq;
 use App\Models\FaqTranslation;
 use App\Models\Language;
 use DB;
-
+use Validator;
 class FaqController extends Controller
 {
 
