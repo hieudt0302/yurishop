@@ -23,9 +23,7 @@ class MailTemplateController extends Controller
     }
 
     public function store(Request $request){
-        $this->validate($request,['name' => 'required',
-                                  //'content' => 'required'                              
-                                ]);               
+        $this->validate($request,['name' => 'required']);               
 
         $mailTemplate = new MailTemplate;
         $mailTemplate->name = $request->name;
@@ -34,7 +32,7 @@ class MailTemplateController extends Controller
         $language_list = Language::all();
         foreach ($language_list as $language){ 
             $mail_temp_translation = new MailTemplateTranslation;
-            $mail_temp_translation->mail_temp_id = $mailTemplate->id;
+            $mail_temp_translation->mail_template_id = $mailTemplate->id;
             $mail_temp_translation->language_id = $language->id;
             $mail_temp_translation->content = $request->input($language->id.'-content');
             $mail_temp_translation->save();
@@ -48,7 +46,9 @@ class MailTemplateController extends Controller
     {
         $mailTemplate = MailTemplate::find($id);
         $language_list = Language::all();
-        $mail_temp_translations = $mailTemplate->translations()->get();
+        //$mail_temp_translations = $mailTemplate->translations()->get();
+        $mail_temp_translations = MailTemplateTranslation::where('mail_template_id', $id)->get();
+        //var_dump($mail_temp_translations); die();
         return view('admin.mail_templates.edit',compact('mailTemplate','language_list','mail_temp_translations'));   
     }
 
@@ -56,9 +56,7 @@ class MailTemplateController extends Controller
     {
         $mailTemplate = MailTemplate::find($id);
 
-        $this->validate($request,['name' => 'required',
-                                  'content' => 'required'                              
-                                ]);     
+        $this->validate($request,['name' => 'required']);     
 
         $mailTemplate->name = $request->name;
         $mailTemplate->save();
@@ -76,8 +74,8 @@ class MailTemplateController extends Controller
         return redirect()->back(); 
     }
     public function destroy($id){
-        $mailTemplate = MailTemplate::find($id);
-        $mailTemplate->delete();
+        MailTemplateTranslation::where('mail_template_id', $id)->delete();
+        MailTemplate::where('id', $id)->delete();
 
         session()->flash('success_message', "Xóa thành công !");
         return redirect()->route('admin.mail_templates.index'); 

@@ -69,12 +69,12 @@
                         </div>
 
                         @foreach ($mail_temp_translations as $mail_temp_translation)
-                        <div class="tab-pane fade" id="{{$mail_temp_translation->language_id}}-content">
+                        <div class="tab-pane" id="{{$mail_temp_translation->language_id}}-content">
                             <table class="table table-responsive">
                                 <tr>
                                     <td>Nội dung</td>                 
                                     <td>
-                                        <textarea class="form-control" name="{{$mail_temp_translation->language_id}}-description">{{ $mail_temp_translation->description }}</textarea>                 
+                                        <textarea class="form-control ckeditor" name="{{$mail_temp_translation->language_id}}-content">{{ $mail_temp_translation->content }}</textarea>                 
                                     </td>
                                 </tr> 
                             </table>

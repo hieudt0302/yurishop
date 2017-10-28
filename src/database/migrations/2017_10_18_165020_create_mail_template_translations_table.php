@@ -19,10 +19,10 @@ class CreateMailTemplateTranslationsTable extends Migration
             $table->foreign('language_id')->references('id')->on('languages')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer('mail_temp_id')->unsigned();        
-            $table->foreign('mail_temp_id')->references('id')->on('mail_templates')
+            $table->integer('mail_template_id')->unsigned();        
+            $table->foreign('mail_template_id')->references('id')->on('mail_templates')
                 ->onUpdate('cascade')->onDelete('cascade');
-			$table->text('content');
+			$table->text('content')->nullable();
             $table->timestamps();
         });
     }

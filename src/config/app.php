@@ -232,7 +232,9 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'Image' => Intervention\Image\Facades\Image::class,        
+        'Image' => Intervention\Image\Facades\Image::class,      
+
+        'Setting' => App\Models\Setting::class,
     ],
 
 ];

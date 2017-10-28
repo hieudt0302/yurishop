@@ -507,7 +507,7 @@
         </li>
 
         <!-- Settings-->
-        <li class="treeview">
+        <li>
           <a href="{{url('/admin/settings')}}">
             <i class="fa fa-cogs"></i> 
             <span>Cài đặt</span>

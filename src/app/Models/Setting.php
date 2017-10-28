@@ -12,4 +12,12 @@ class Setting extends Model
      * @var string
      */
     protected $table = 'settings';
+     protected $fillable = ['key', 'value'];
+
+    public static function config($key){
+    	$config = \DB::table('settings')->where('key', $key)->first();
+    	if(!empty($config))
+    		return $config->value;
+    	return '';
+    }
 }
