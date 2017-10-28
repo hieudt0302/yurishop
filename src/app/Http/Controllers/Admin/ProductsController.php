@@ -421,45 +421,50 @@ class ProductsController extends Controller
 
     public function filter(Request $request)
     {
-        $query = DB::table('products')->whereNull('deleted_at')
-             ->leftJoin('product_media', 'products.id', '=', 'product_media.product_id')
+        $product_name = $request->product_name;
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        $sku= $request->sku;
+        $category_id = $request->category_id;
+
+        $query = Product::leftJoin('product_media', 'products.id', '=', 'product_media.product_id')
              ->leftJoin('medias', 'product_media.media_id', '=', 'medias.id')
              ->select('products.id','products.name', 'products.sku', 'products.published', 'products.created_at', 'medias.source')
-             ->groupBy('products.id');
-        
-        if (strlen($request->from_date) > 0) {
-            $startDate = date('Y-m-d'.' 00:00:00', strtotime($request->from_date));
-            $query->where('products.created_at', '>=', $startDate);
-        }
-        if (strlen($request->to_date) > 0) {
-            $endDate = date('Y-m-d'.' 23:59:59', strtotime($request->to_date));
-            $query->where('products.created_at', '<=', $endDate);
-        }
-
-        $product_name = $request->product_name;
-        if (strlen($product_name) > 0) {
-            $query->where(function ($subQuery) use ($product_name) {
-                $subQuery->where('products.name', 'LIKE', '%'.strtolower($product_name).'%');
-                ///TODO: find in translation table
-                // $subQuery->orWhere(DB::raw('SELECT name FROM product_translation'), 'LIKE', '%'.$product_name.'%');
+             ->groupBy('products.id')
+             ->where(function ($query) use ($product_name) {
+                if (strlen($product_name) > 0) 
+                    $query->where('products.name', 'LIKE', '%'.strtolower($product_name).'%');
+            })
+            ->where(function ($query) use ($from_date) {
+                if (strlen($from_date) > 0) 
+                {
+                    $startDate = date('Y-m-d'.' 00:00:00', strtotime($from_date));
+                    $query->where('products.created_at', '>=', $startDate);
+                }
+            })
+            ->where(function ($query) use ($to_date) {
+                if (strlen($to_date) > 0) 
+                {
+                    $endDate = date('Y-m-d'.' 23:59:59', strtotime($to_date));
+                    $query->where('products.created_at', '>=', $startDate);
+                }
+            })
+            ->where(function ($query) use ($sku) {
+                if (strlen($sku) > 0) 
+                    $query->where('products.sku','LIKE', '%'.$sku. '%');
+            })
+            ->where(function ($query) use ($category_id) {
+                if (is_numeric($category_id) > 0 && (int)$category_id > 0) 
+                    $query->whereIn('category_id', $category_id);
             });
-        }
-
-        if (strlen($request->sku) > 0) {
-            $query->where('products.sku','LIKE', '%'.$request->sku. '%');
-        }
-
-        if (is_numeric($request->category_id) && (int)$request->category_id > 0) {
-            $query->whereIn('category_id', $request->category_id);
-        }
-        ///TODO: Get sub category. Not yet!
+   
 
         $products = $query->paginate(21);
         $shopCategory = Category::where('slug', 'products')->firstOrFail();
         $categories = Category::where('parent_id', $shopCategory->id)->get();
         
         return View('admin.products.index', compact('products','categories'))
-      ->with('i', ($request->input('page', 1) - 1) * 21);
+        ->with('i', ($request->input('page', 1) - 1) * 21);
     }
 
     public function GenerateSlug($name)
