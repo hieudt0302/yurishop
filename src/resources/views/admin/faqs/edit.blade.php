@@ -60,7 +60,7 @@
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                                                    <button type="submit" class="btn btn-primary">Cập Nhật</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,7 +134,10 @@
 @section('scripts')
 <script>
   $(function () {
-
+    $('#language-select').on('change', function() {
+        $('form#getTranslation').submit();
+        return false;
+    })    
   })
 </script>
 @endsection
