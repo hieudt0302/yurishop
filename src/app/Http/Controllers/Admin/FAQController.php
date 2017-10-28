@@ -165,7 +165,7 @@ class FaqController extends Controller
             $faqTranslation->answer = $request->answer_translate??'';
             $faqTranslation->language_id = $request->language_id;
             $faqTranslation->faq_id = $id;
-            $sliderTranslation->save();
+            $faqTranslation->save();
         }
         
         return redirect()->back()
