@@ -44,25 +44,24 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,['question' => 'required'
-                                ]);
+        $validator = Validator::make($request->all(), [
+            'question' => 'required'            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }     
         $faq = new Faq;
         $faq->question = $request->question;
         $faq->is_show = $request->is_show??0;       
         $faq->save();
 
-        // Update data bảng faq
-        $language_list = Language::all();
-        foreach ($language_list as $language){ 
-            $faq_translation = new FaqTranslation;
-            $faq_translation->faq_id = $faq->id;
-            $faq_translation->language_id = $language->id;
-            $faq_translation->question = $request->input($language->id.'-question');
-            $faq_translation->answer = $request->input($language->id.'-answer');
-            $faq_translation->save();
-        }
-        return redirect()->back()
-        ->with('success_message', 'Thêm mới thành công.');
+     
+        return redirect()->action(
+            'Admin\FaqController@edit', ['id' => $faq->id]
+        );
     }
 
     /**
