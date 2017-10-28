@@ -7,7 +7,7 @@
       FAQ
         <small>
             <i class="fa fa-arrow-circle-left"></i>
-            <a href="{{url('/admin/sliders')}}">Quay lại danh sách</a>
+            <a href="{{url('/admin/faqs')}}">Quay lại danh sách</a>
         </small>
       </h1>
       <ol class="breadcrumb">
@@ -34,7 +34,7 @@
                     <div class="tab-content">
                         <!-- INFO TAB -->
                         <div class="active tab-pane" id="info">
-                            <form action="{{url('/admin/faq/create')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{url('/admin/faqs/create')}}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field()}}
                                 <div class="panel-group">
                                     <div class="panel panel-default">
