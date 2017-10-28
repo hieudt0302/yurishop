@@ -446,7 +446,7 @@ class ProductsController extends Controller
                 if (strlen($to_date) > 0) 
                 {
                     $endDate = date('Y-m-d'.' 23:59:59', strtotime($to_date));
-                    $query->where('products.created_at', '>=', $startDate);
+                    $query->where('products.created_at', '<=', $endDate);
                 }
             })
             ->where(function ($query) use ($sku) {
@@ -455,7 +455,7 @@ class ProductsController extends Controller
             })
             ->where(function ($query) use ($category_id) {
                 if (is_numeric($category_id) > 0 && (int)$category_id > 0) 
-                    $query->whereIn('category_id', $category_id);
+                    $query->whereIn('category_id', [$category_id]);
             });
    
 
