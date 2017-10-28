@@ -32,10 +32,20 @@
                             </a>                                        
                         </li> 
                         <li>
-                            <a href="#">
+                            <a href="{{URL::asset('')}}language/cn">
                                 中文
                             </a>                                        
-                        </li>                                                                                                          
+                        </li> 
+                        <li>
+                            <a href="#">
+                                日本語
+                            </a>                                        
+                        </li> 
+                        <li>
+                            <a href="#">
+                                한국어
+                            </a>                                        
+                        </li>                                                                                                                                                          
                     </ul>
                 </li>
                 <li class="dropdown">

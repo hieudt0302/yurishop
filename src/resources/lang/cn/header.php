@@ -14,16 +14,16 @@ return [
     */
 
     '' => '',
-    'home' => 'HOME',
-    'about-us' => 'ABOUT',
-    'cert' => 'CERTIFICATES',
-    'shop' => 'SHOP',
-    'products' => 'PRODUCTS',
-    'blogs' => 'BLOGS',        
-    'blog' => 'BLOG',
-    'contact' => 'CONTACT',
-    'search' => 'SEARCH',
-    'cart' => 'CART',
-    'account' => 'ACCOUNT',           
+    'home' => '首页',
+    'about-us' => '简介',
+    'cert' => '证书',
+    'shop' => '购物',
+    'product' => '产品系列',
+    'blogs' => '评论卷',       
+    'blog' => '发表评论',
+    'contact' => '联系我们',
+    'search' => '搜索',
+    'cart' => '购物车',        
+    'account' => '帐号',        
 
 ];
