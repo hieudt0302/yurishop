@@ -98,7 +98,7 @@ class FaqController extends Controller
             $translation = FaqTranslation::where('faq_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->first();
             $tab= 2;
         }
-        return View('admin.faq.edit',compact('faq','languages', 'translation','tab', 'language_id'));             
+        return View('admin.faqs.edit',compact('faq','languages', 'translation','tab', 'language_id'));             
     }
 
     /**
