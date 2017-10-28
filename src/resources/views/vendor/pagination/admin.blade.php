@@ -2,7 +2,7 @@
 <ul class="pagination">
     {{-- Previous Page Link --}}
     @if ($paginator->onFirstPage())
-        <li class="paginate_button previous disabled"><a href="#">@lang('pagination.previous')</a></li>
+        <li class="paginate_button previous disabled"><a href="javascript:void(0)">@lang('pagination.previous')</a></li>
     @else
         <li class="paginate_button previous"><a href="{{ $paginator->previousPageUrl() }}">@lang('pagination.previous')</a></li>
     @endif
@@ -11,7 +11,7 @@
     @foreach ($elements as $element)
         {{-- "Three Dots" Separator --}}
         @if (is_string($element))
-            <li class="paginate_button disabled"><a href="#">{{ $element }}</a></li>
+            <li class="paginate_button disabled"><a href="javascript:void(0)">{{ $element }}</a></li>
         @endif
 
         {{-- Array Of Links --}}
@@ -28,9 +28,9 @@
 
     {{-- Next Page Link --}}
     @if ($paginator->hasMorePages())
-        <li class="paginate_button next disabled"><a href="{{ $paginator->nextPageUrl() }}">@lang('pagination.next')</a></li>
+        <li class="paginate_button next"><a href="{{ $paginator->nextPageUrl() }}">@lang('pagination.next')</a></li>
     @else
-        <li class="paginate_button next disabled"><a href="#">@lang('pagination.next')</a></li>
+        <li class="paginate_button next disabled"><a href="javascript:void(0)">@lang('pagination.next')</a></li>
     @endif
 </ul>
 @endif
