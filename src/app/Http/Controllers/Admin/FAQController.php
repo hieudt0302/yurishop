@@ -73,9 +73,21 @@ class FaqController extends Controller
      */
     public function show($id)
     {
-        $language_list = Language::all();
-        $faq_translations = FaqTranslation::where('faq_id',$id)->orderBy('language_id','asc')->get();
-        return view('admin.faqs.show',compact('language_list','faq_translations'));        
+        // $language_list = Language::all();
+        // $faq_translations = FaqTranslation::where('faq_id',$id)->orderBy('language_id','asc')->get();
+        // return view('admin.faqs.show',compact('language_list','faq_translations'));        
+
+        $faq = Faq::find($id);
+        $languages = Language::all();
+        
+        $language_id = Input::get('language_id')??0;
+        $tab = 1;
+        $translation =  null;
+        if(!empty( $language_id) &&   $language_id  > 0 ){
+            $translation = FaqTranslation::where('faq_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->first();
+            $tab= 2;
+        }
+        return View('admin.faq.edit',compact('faq','languages', 'translation','tab', 'language_id'));
     }
 
     /**
