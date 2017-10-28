@@ -120,7 +120,7 @@
                             @foreach($products as $product)
                             <tr>
                                 <td>
-                                   <img src="{{asset('/images/shop/previews/shop-prev-1.jpg')}}" alt="" title="">
+                                   <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->source??''}}" alt="" title="">
                                 </td>
                                 <td><a href="{{url('/admin/products/')}}/{{$product->id}}/edit">{{$product->name}}</a></td>
                                 <td>{{$product->sku}}</td>
