@@ -29,11 +29,12 @@
             <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">Thông tin chung</a></li>
+                        <li class="{{$tab==1?'active':''}}"><a href="#info" data-toggle="tab">Thông tin chung</a></li>
+                        <li class="{{$tab==2?'active':''}}"><a href="#content" data-toggle="tab">Nội dung</a></li>
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
-                        <div class="active tab-pane" id="info">
+                        <div class="{{$tab==1?'active':''}} tab-pane" id="info">
                             <form action="{{url('/admin/faqs/create')}}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field()}}
                                 <div class="panel-group">
@@ -42,7 +43,7 @@
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Câu Hỏi</label>
                                                 <div class="col-md-4">
-                                                    <input class="form-control" id="question" name="question" type="text" value="{{old('question')}}">
+                                                    <input class="form-control" id="question" name="question" type="text" value="{{$faq->question}}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -50,7 +51,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            {{ Form::checkbox('is_show', old('is_show') , true , array('class' => 'check-box')) }}
+                                                            {{ Form::checkbox('is_show', 1 , $faq->is_show ? 1 : 0 , array('class' => 'check-box')) }}
                                                         </label>
                                                     </div>
                                                 </div>
