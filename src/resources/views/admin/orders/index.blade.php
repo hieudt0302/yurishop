@@ -58,7 +58,7 @@
                         <div class="form-group">
                             <label for="order_status" class="col-sm-2 control-label">Order Status</label>
                             <div class="col-sm-8">
-                                <select id="order_status" multiple name="order_status[]" class="form-control select2" style="width: 100%;">
+                                <select id="order_status" multiple name="orders_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.order') as $key =>$value)
                                         @php($selected = false)
                                         @if (is_array(old('order_status')))
@@ -76,7 +76,7 @@
                         <div class="form-group">
                             <label for="payment_status" class="col-sm-2 control-label">Payment Status</label>
                             <div class="col-sm-8">
-                                <select id="payment_status" multiple name="paymenst_status[]" class="form-control select2" style="width: 100%;">
+                                <select id="payment_status" multiple name="payments_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.payment') as $key =>$value)
                                     <option value="{{$key}}" >{{$value}}</option>
                                     @endforeach
