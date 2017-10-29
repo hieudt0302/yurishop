@@ -118,7 +118,7 @@
                                     @if($product->published==1) 
                                     <i class="fa fa-check true-icon"></i>
                                     @else 
-                                    <i class="fa fa-check false-icon"></i>
+                                    <i class="fa fa-times false-icon"></i>
                                     @endif
                                 </td>
                                 <td>{{$product->created_at}}</td>
@@ -142,7 +142,7 @@
                                 <th>Ảnh</th>
                                 <th>Tên</th>
                                 <th>SKU</th>
-                                <th>Xuất Bản(s)</th>
+                                <th>Xuất Bản</th>
                                 <th>Ngày Tạo</th>
                                 <th></th>
                                 <th></th>
