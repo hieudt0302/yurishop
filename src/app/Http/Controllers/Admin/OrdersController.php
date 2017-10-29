@@ -198,11 +198,11 @@ class OrdersController extends Controller
         }
 
 
-        $orders = $query->paginate(2);
+        $orders = $query->paginate(21);
         $request->flashOnly(['order_start_date', 'order_end_date', 'customer_name', 'billing_email', 'order_no','orders_status','shippings_status','payments_status']);
 
         return View('admin.orders.index', compact('orders'))
-        ->with('i', ($request->input('page', 1) - 1) * 2);
+        ->with('i', ($request->input('page', 1) - 1) * 21);
     }
 
     public function CancelOrderStatus($id)
