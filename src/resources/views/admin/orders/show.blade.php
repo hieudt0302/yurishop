@@ -211,7 +211,7 @@
                                                         <button type="submit" name="btnChangePaymentStatus" onclick="toggleChangePaymentStatus(true);return false;" id="btnChangePaymentStatus" class="btn btn-primary" style="display: inline-block;">
                                                         Change status
                                                         </button>
-                                                        <form action="{{url('/admin/orders')}}/{{$orders->id}}/change/paymentstatus" method="POST">
+                                                        <form action="{{url('/admin/orders')}}/{{$order->id}}/change/paymentstatus" method="POST">
                                                         {{ csrf_field()}}
                                                             <div id="pnlChangePaymentStatus" style="margin-top: 3px; display: none;">
                                                                 <select class="form-control valid" id="PaymentStatusId" name="payment_status" style="max-width: 160px">
@@ -249,7 +249,7 @@
                                                         <button type="submit" name="btnChangeShippingStatus" onclick="toggleChangeShippingStatus(true);return false;" id="btnChangeShippingStatus" class="btn btn-primary" style="display: inline-block;">
                                                         Change status
                                                         </button>
-                                                        <form action="{{url('/admin/orders')}}/{{$orders->id}}/change/shippingstatus" method="POST">
+                                                        <form action="{{url('/admin/orders')}}/{{$order->id}}/change/shippingstatus" method="POST">
                                                         {{ csrf_field()}}
                                                             <div id="pnlChangeShippingStatus" style="margin-top: 3px; display: none;">
                                                                 <select class="form-control valid" id="ShippingStatusId" name="shipping_status" style="max-width: 160px">
