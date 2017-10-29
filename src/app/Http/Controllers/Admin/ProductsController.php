@@ -157,7 +157,6 @@ class ProductsController extends Controller
         $tags = Tag::whereIn('id',$tagIds)->get();
         $product->tags()->sync($tags); //Then set tags for product
         
-        dd($product->tags);
         
         return redirect()->action(
             'Admin\ProductsController@edit', ['id' => $product->id]
