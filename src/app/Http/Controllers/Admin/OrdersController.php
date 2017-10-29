@@ -173,6 +173,22 @@ class OrdersController extends Controller
         
         return view('admin/orders/show',compact('order'));
     }
+    public function ChangPaymentStatus(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $order->payment_status =  $request->payment_status; //refer Lang/method.php
+        $order->save();
+        
+        return view('admin/orders/show',compact('order'));
+    }
+    public function ChangeShippingStatus(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $order->shipping_status =  $request->shipping_status; //refer Lang/method.php
+        $order->save();
+        
+        return view('admin/orders/show',compact('order'));
+    }
     public function UpdateOrderFee(Request $request, $id)
     {
         $order = Order::find($id);
