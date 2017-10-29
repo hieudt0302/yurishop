@@ -760,7 +760,7 @@
                                                                 </button>
                                                             </td>
                                                             <td style="width: 15%;">
-                                                                <a type="button" class="btn btn-danger" data-product-id="{{$detail->id}}" data-toggle="modal" data-target="#modal-delete-product">
+                                                                <a type="button" class="btn btn-danger" data-detail-id="{{$detail->id}}" data-toggle="modal" data-target="#modal-delete-detail">
                                                                 <i class="fa fa-trash"></i>
                                                                 </a> 
                                                             </td>
@@ -885,7 +885,7 @@
 </div>
 
 <!-- QUESTION TO DELETE -->
-<div class="modal modal-danger fade" id="modal-delete-product">
+<div class="modal modal-danger fade" id="modal-delete-detail">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -898,7 +898,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
-            <form name="form-product-delete"  method="POST">
+            <form name="form-detail-delete"  method="POST">
                 {!! csrf_field() !!}
                 <input type="hidden" name="_method" value="DELETE">
                 <input type="submit" class="btn btn-outline" value="Xóa Sản Phẩm">
@@ -941,10 +941,10 @@
         });
 
        $('#cancelorder').attr("data-toggle", "modal").attr("data-target", "#cancelorder-action-confirmation");
-       $('#modal-delete-product').on('show.bs.modal', function (e) {
-            var detailID = $(e.relatedTarget).data('product-id');
-            var action = "{{url('admin/orders/detail')}}/" + detailID;
-            $(e.currentTarget).find('form[name="form-product-delete"]').attr("action", action);
+       $('#modal-delete-detail').on('show.bs.modal', function (e) {
+            var detailID = $(e.relatedTarget).data('detail-id');
+            var action = "{{url('admin/orders')}}/"+'{{$order->id}}/details' + detailID;
+            $(e.currentTarget).find('form[name="form-detail-delete"]').attr("action", action);
         })  
     });
 

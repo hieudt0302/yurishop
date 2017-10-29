@@ -128,10 +128,17 @@ class OrdersController extends Controller
     {
         //
     }
-    public function DetailDestroy($id)
+    public function DetailDestroy($id, $detail_id)
     {
-        $detail = OrderDetail::find($id);
+        $order  = Order::find($id);
+
+        $detail = OrderDetail::find($detail_id);
         $detail->delete();
+
+        $order->order_total = $order->orderdetails->sum('total');
+        $order->save();
+
+        $tab= 4;
 
         return redirect()->route('admin.orders.show')
         ->with('message', 'Xóa một sản phẩm trong đơn hàng thành công!')
