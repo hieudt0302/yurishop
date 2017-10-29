@@ -65,7 +65,7 @@
                                 <select name="category_id" class="form-control select2" style="width: 100%;">
                                     <option value="0" >-----Tất cả-----</option>
                                     @foreach($categories as $category)
-                                       <option value="{{$category->id}}" {{old('category_id')}}==$category->id? 'selected':''}}>{{$category->name}}</option>
+                                       <option value="{{$category->id}}" {{ old('category_id') == $category->id? 'selected':''}}>{{$category->name}}</option>
                                     @endforeach
                              </select>
                             </div>
@@ -150,7 +150,7 @@
                     </table>
                 </div>
                 <div class="box-footer clearfix">
-                    {{ $products->links('vendor.pagination.admin',['from_date'=> old('from_date'), 'to_date'=> old('to_date'), 'product_name'=> old('product_name'),'sku'=> old('sku'), 'category_id'=> old('category_id')]) }}
+                    {{ $products->appends(['from_date'=> old('from_date'), 'to_date'=> old('to_date'), 'product_name'=> old('product_name'),'sku'=> old('sku'), 'category_id'=> old('category_id')])->links('vendor.pagination.admin') }}
                 </div>
             </div>
         </div>
