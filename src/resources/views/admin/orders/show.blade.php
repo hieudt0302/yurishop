@@ -943,7 +943,7 @@
        $('#cancelorder').attr("data-toggle", "modal").attr("data-target", "#cancelorder-action-confirmation");
        $('#modal-delete-detail').on('show.bs.modal', function (e) {
             var detailID = $(e.relatedTarget).data('detail-id');
-            var action = "{{url('admin/orders')}}/"+'{{$order->id}}/details' + detailID;
+            var action = "{{url('admin/orders')}}/"+'{{$order->id}}/details/' + detailID;
             $(e.currentTarget).find('form[name="form-detail-delete"]').attr("action", action);
         })  
     });
