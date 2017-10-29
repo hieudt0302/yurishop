@@ -497,26 +497,28 @@ class ProductsController extends Controller
 
     public function SelectTags($product, $tagIds)
     {
-        foreach($tagIds as $key =>  $id)
-        {
-            if(empty(Tag::find($id)))
+        if(is_array($tagIds)){
+            foreach($tagIds as $key =>  $id)
             {
-                $tag = new Tag();
-                $tag->name = $id;
-                $slug = str_slug($id, "-");
-                
-                if(Tag::where('slug',$slug)->count() >0 )
+                if(empty(Tag::find($id)))
                 {
-                    $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
-                }
-                $tag->slug = $slug;
-                $tag->save();
-
-                $tagIds[$key] = $tag->id;
-            } 
+                    $tag = new Tag();
+                    $tag->name = $id;
+                    $slug = str_slug($id, "-");
+                    
+                    if(Tag::where('slug',$slug)->count() >0 )
+                    {
+                        $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
+                    }
+                    $tag->slug = $slug;
+                    $tag->save();
+    
+                    $tagIds[$key] = $tag->id;
+                } 
+            }
+            $tags = Tag::whereIn('id',$tagIds)->get();
+            $product->tags()->sync($tags); 
         }
-        $tags = Tag::whereIn('id',$tagIds)->get();
-        $product->tags()->sync($tags); //Then set tags for product
     }
     /* REVIEWS */
     public function reviews(Request $request)
