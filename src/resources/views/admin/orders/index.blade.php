@@ -112,7 +112,7 @@
                         <div class="form-group">
                             <label for="order_no" class="col-sm-2 control-label">#Order No</label>
                             <div class="col-sm-8">
-                                <input type="text" name="order_no" class="form-control" id="order_no" >
+                                <input type="text" name="order_no" class="form-control" id="order_no" value="{{old('order_no')}}">
                             </div>
                         </div>
                     </div>
