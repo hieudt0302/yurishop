@@ -697,7 +697,7 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach($order->orderdetails as $detail)
-                                                    <form action="{{url('admin/orders/details')}}/{{$detail}}/update" method="post">
+                                                    <form action="{{url('admin/orders')}}/{{$order->id}}/details/update" method="post">
                                                     {{ csrf_field()}}
                                                         <input type="hidden" name="order_detail_id" value="{{$detail->id}}">
                                                         <tr>
