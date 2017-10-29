@@ -32,17 +32,19 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                            <th>#</th>
                                 <th>Tiêu Đề</th>
                                 <th>Slug</th>
-                                <th>Xuất Bản(s)</th>
+                                <th>Xuất Bản</th>
                                 <th>Ngày Tạo</th>
                                 <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $post)
+                            @foreach($posts as $key => $post)
                             <tr>
+                                <td>{{$key}}</td>
                                 <td>{{$post->title}}</td>
                                 <td>{{$post->slug}}</td>
                                 <td>
@@ -56,9 +58,9 @@
                                 </td>
                                 <td>
                                   <div class="tools">
-                                    {!! Form::open(['method' => 'DELETE','route' => ['admin.posts.destroy', $post->id],'style'=>'display:inline']) !!}
-                                    {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit','class' => 'btn btn-warning btn-sm'] )  }}
-                                    {!! Form::close() !!}                                    
+                                    <a type="button" class="btn btn-danger" data-post-id="{{$post->id}}" data-toggle="modal" data-target="#modal-delete-post">
+                                        <i class="fa fa-ban"></i>
+                                    </a> 
                                   </div>
                                 </td>
                             </tr>
@@ -66,9 +68,10 @@
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th>#</th>
                                 <th>Tiêu Đề</th>
                                 <th>Slug</th>
-                                <th>Xuất Bản(s)</th>
+                                <th>Xuất Bản</th>
                                 <th>Ngày Tạo</th>
                                 <th></th>
                                 <th></th>
@@ -76,10 +79,56 @@
                         </tfoot>
                     </table>
                 </div>
+                <div class="box-footer clearfix">
+                    {{ $posts->links('vendor.pagination.admin') }}
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+
+<!-- QUESTION TO DELETE -->
+<div class="modal modal-danger fade" id="modal-delete-post">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Cảnh Báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa bài viết này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+                <form name="form-post-delete"  method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-outline" value="Xóa Bài Viết">
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection 
 
-@section('scripts') @endsection
+@section('scripts') 
+<script>
+    $(function(){
+        $('#from_date, #to_date').datepicker({
+            format : 'yyyy-mm-dd',
+            autoclose : true,
+            clearBtn : true
+        })
+
+        $('#modal-delete-post').on('show.bs.modal', function (e) {
+            var postID = $(e.relatedTarget).data('post-id');
+            var action = "{{url('admin/posts')}}/" + postID;
+            $(e.currentTarget).find('form[name="form-post-delete"]').attr("action", action);
+        })  
+    })
+</script>
+@endsection

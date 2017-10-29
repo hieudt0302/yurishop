@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\PostTranslation;
 use App\Models\Language;
 use Validator;
@@ -25,8 +26,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return View('admin.posts.index',compact('posts'));
+        $posts = Post::all()->paginate(21);
+
+        return View('admin.posts.index',compact('posts'))
+        ->with('i', ($request->input('page', 1) - 1) * 21);;
     }
 
     /**
@@ -87,6 +90,9 @@ class PostsController extends Controller
         }
 
         $post->save();            
+
+        /* Make new tags */
+        $this->SelectTags($post, $request->tagIds);
 
         return redirect()->action(
             'Admin\PostsController@edit', ['id' => $post->id]
@@ -171,6 +177,9 @@ class PostsController extends Controller
         }
 
         $post->save();
+        
+        /* Make new tags */
+        $this->SelectTags($post, $request->tagIds);
 
         return redirect()->back()
         ->with('message', 'Bài viết đã được cập nhật')
@@ -292,7 +301,31 @@ class PostsController extends Controller
         ]);
     }
 
-
+    public function SelectTags($post, $tagIds)
+    {
+        if(is_array($tagIds)){
+            foreach($tagIds as $key =>  $id)
+            {
+                if(empty(Tag::find($id)))
+                {
+                    $tag = new Tag();
+                    $tag->name = $id;
+                    $slug = str_slug($id, "-");
+                    
+                    if(Tag::where('slug',$slug)->count() >0 )
+                    {
+                        $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
+                    }
+                    $tag->slug = $slug;
+                    $tag->save();
+    
+                    $tagIds[$key] = $tag->id;
+                } 
+            }
+            $tags = Tag::whereIn('id',$tagIds)->get();
+            $post->tags()->sync($tags); 
+        }
+    }
       /* COMMENT */
       public function comments(Request $request)
       {
@@ -308,7 +341,6 @@ class PostsController extends Controller
         $created_to = $request->created_to;
         $review = $request->review;
         $approved_type = $request->approved_type??2;
-        // $product_name = $request->product_name;
 
         $comments =  Comment::where('commentable_type','App\Models\Post')
             ->where('comment','LIKE', '%'. $review . '%')
