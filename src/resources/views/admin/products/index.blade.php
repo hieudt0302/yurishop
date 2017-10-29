@@ -37,35 +37,35 @@
                             <label for="from_date" class="col-sm-2 control-label">From</label>
                             <div class="col-sm-4 input-group date">
                                 <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                <input type="text" name="from_date" class="form-control pull-right" id="from_date" data-date-end-date="-1d">
+                                <input type="text" name="from_date" class="form-control pull-right" id="from_date" data-date-end-date="-1d" value="{{old('from_date')}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="to_date" class="col-sm-2 control-label">To</label>
                             <div class="col-sm-4 input-group date">
                                 <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                <input type="text" name="to_date" class="form-control pull-right" id="to_date" data-date-end-date="0d">
+                                <input type="text" name="to_date" class="form-control pull-right" id="to_date" data-date-end-date="0d" value="{{old('to_date')}}" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="product_name" class="col-sm-2 control-label">Tên sản phẩm</label>
                             <div class="col-sm-4">
-                                <input type="text" name="product_name" class="form-control" id="product_name" >
+                                <input type="text" name="product_name" class="form-control" id="product_name" value="{{old('product_name')}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="sku" class="col-sm-2 control-label">SKU</label>
                             <div class="col-sm-4">
-                                <input type="email" name="sku" class="form-control" id="billing_email" >
+                                <input type="text" name="sku" class="form-control" id="sku" value="{{old('sku')}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="category_id" class="col-sm-2 control-label">Danh mục</label>
                             <div class="col-sm-4">
                                 <select name="category_id" class="form-control select2" style="width: 100%;">
-                                    <option value="0" selected>-----Tất cả-----</option>
+                                    <option value="0" >-----Tất cả-----</option>
                                     @foreach($categories as $category)
-                                       <option value="{{$category->id}}">{{$category->name}}</option>
+                                       <option value="{{$category->id}}" {{{{old('category_id')}}==$category->id? 'selected':''}}>{{$category->name}}</option>
                                     @endforeach
                              </select>
                             </div>
@@ -150,7 +150,7 @@
                     </table>
                 </div>
                 <div class="box-footer clearfix">
-                    {{ $products->links('vendor.pagination.admin',[]) }}
+                    {{ $products->links('vendor.pagination.admin',['from_date'=> old('from_date'), 'to_date'=> old('to_date'), 'product_name'=> old('product_name'),'sku'=> old('sku'), 'category_id'=> old('category_id')]) }}
                 </div>
             </div>
         </div>
