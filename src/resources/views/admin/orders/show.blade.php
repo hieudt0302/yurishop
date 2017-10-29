@@ -446,10 +446,10 @@
                                                             <button type="button" id="btnEditChangeBillingAddress" onclick="toggleChangeBillingAddress(true);return false;" class="btn btn-primary">
                                                             Edit
                                                             </button>
-                                                            <button type="submit" id="btnSaveChangeBillingAddress" class="btn btn-primary" style="margin-left: 3px">
+                                                            <button type="submit" id="btnSaveChangeBillingAddress" class="btn btn-primary" style="margin-left: 3px; display: none;">
                                                             Save
                                                             </button>
-                                                            <button type="button" id="btnCancelChangeBillingAddress" onclick="toggleChangeBillingAddress(false);return false;"  class="btn bg-teal" style="margin-left: 3px">
+                                                            <button type="button" id="btnCancelChangeBillingAddress" onclick="toggleChangeBillingAddress(false);return false;"  class="btn bg-teal" style="margin-left: 3px; display: none;">
                                                             Cancel
                                                             </button>
                                                         </div>
@@ -878,6 +878,7 @@
         toggleChangePaymentStatus(false);
         toggleChangeShippingStatus(false);
         toggleOrderTotals(false);
+        toggleChangeBillingAddress(false);
 
         $("#OrderShippingPrice").TouchSpin({
             min: 0,
@@ -960,6 +961,11 @@
             $('#tdEditStateProvince').show();
             $('#tdEditCountry').show();
             $('#tdEditZipCode').show();
+
+            $('#btnEditChangeBillingAddress').hide();
+
+            $('#btnSaveChangeBillingAddress').show();
+            $('#btnCancelChangeBillingAddress').show();
             
         } else {
             $('#tdEditCompany').hide();
@@ -975,6 +981,11 @@
             $('#tdEditStateProvince').hide();
             $('#tdEditCountry').hide();
             $('#tdEditZipCode').hide();
+
+            $('#btnEditChangeBillingAddress').show();
+
+            $('#btnSaveChangeBillingAddress').hide();
+            $('#btnCancelChangeBillingAddress').hide();
         }
     }
 </script>
