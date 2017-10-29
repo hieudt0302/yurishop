@@ -92,7 +92,7 @@
                                                     <select id="tags" multiple name="tagIds[]" class="form-control select2" style="width: 100%;">
                                                         @if(count($tags) > 0)
                                                             @foreach($tags as $key =>$tag)
-                                                                @if(count(old('tagIds')) > 0)
+                                                                @if(is_array(old('tagIds')) && count(old('tagIds')) > 0)
                                                                     @foreach (old('tagIds') as $id)
                                                                         @if($id == $tag->id)
                                                                             <option value="{{$tag->id}}" selected>{{$tag->name}}</option>
@@ -104,10 +104,12 @@
                                                                     <option value="{{$tag->id}}" >{{$tag->name}}</option>
                                                                 @endif
                                                             @endforeach
-                                                        @else 
-                                                            @foreach (old('tagIds') as $id)
-                                                                <option value="{{$id}}" selected>{{$id}}</option>
-                                                            @endforeach
+                                                        @else
+                                                            @if (is_array(old('tagIds')))
+                                                                @foreach(old('tagIds') as $id)
+                                                                    <option value="{{$id}}" selected>{{$id}}</option>
+                                                                @endforeach
+                                                            @endif
                                                         @endif                                                            
                                                     </select>
                                                 </div>
