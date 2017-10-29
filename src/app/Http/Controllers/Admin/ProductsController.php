@@ -135,28 +135,7 @@ class ProductsController extends Controller
         $product->save();  //Get taggable_id first. It is product_id
 
         /* Make new tags */
-        $tagIds = $request->tagIds;
-        foreach($tagIds as $key =>  $id)
-        {
-            if(empty(Tag::find($id)))
-            {
-                $tag = new Tag();
-                $tag->name = $id;
-                $slug = str_slug($id, "-");
-                
-                if(Tag::where('slug',$slug)->count() >0 )
-                {
-                    $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
-                }
-                $tag->slug = $slug;
-                $tag->save();
-
-                $tagIds[$key] = $tag->id;
-            } 
-        }
-        $tags = Tag::whereIn('id',$tagIds)->get();
-        $product->tags()->sync($tags); //Then set tags for product
-        
+        SelectTags($product, $request->tagIds);
         
         return redirect()->action(
             'Admin\ProductsController@edit', ['id' => $product->id]
@@ -270,6 +249,10 @@ class ProductsController extends Controller
         $product->published = $request->published??0;
 
         $product->save();
+
+        /* Make new tags */
+        SelectTags($product, $request->tagIds);
+
 
         return redirect()->back()
         ->with('message', 'Sản phẩm đã được cập nhật.')
@@ -512,6 +495,29 @@ class ProductsController extends Controller
         ]);
     }
 
+    public function SelectTags($product, $tagIds)
+    {
+        foreach($tagIds as $key =>  $id)
+        {
+            if(empty(Tag::find($id)))
+            {
+                $tag = new Tag();
+                $tag->name = $id;
+                $slug = str_slug($id, "-");
+                
+                if(Tag::where('slug',$slug)->count() >0 )
+                {
+                    $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
+                }
+                $tag->slug = $slug;
+                $tag->save();
+
+                $tagIds[$key] = $tag->id;
+            } 
+        }
+        $tags = Tag::whereIn('id',$tagIds)->get();
+        $product->tags()->sync($tags); //Then set tags for product
+    }
     /* REVIEWS */
     public function reviews(Request $request)
     {

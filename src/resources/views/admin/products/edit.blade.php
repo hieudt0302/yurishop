@@ -393,12 +393,10 @@
         });
 
         $('.select2').select2();
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        // CKEDITOR.replace('excerpt-editor');
-        // CKEDITOR.replace('content-editor');
-        //bootstrap WYSIHTML5 - text editor
-        // $('.textarea').wysihtml5()
+        $('#tags').select2({
+            tags: true,
+            tokenSeparators: [',']
+        });
     
 
     // TAB: CONTENT
