@@ -13,26 +13,26 @@ return [
     */
 
     'order' => [
-        1 => 'Pending',
-        2 => 'Processing',
-        3 => 'Complete',
-        4 => 'Cancelled'
+        0 => 'ペンディング',
+        1 => 'プロセッシング',
+        2 => '完成',
+        3 => 'キャンセルされた'
     ],
 
     'shipping' => [
-        1 => 'Shipping Not Required',
-        2 => 'Not Yet Shipped',
-        3 => 'Partially Shipped',
-        4 => 'Shipped',
-        5 => 'Delivered',
+        0 => '未依頼',
+        1 => '調整中',
+        2 => '一部が発送された',
+        3 => '発送された',
+        4 => '届いた',
     ],
 
     'payment' => [
-        1 => 'Pending',
-        2 => 'Authorized',
-        3 => 'Paid',
-        4 => 'Partially Refunded',
-        5 => 'Refunded',
-        6 => 'Voided',
+        0 => 'ペンディング',
+        1 => '承認済',
+        2 => '支払済',
+        3 => '御返金',
+        4 => '返金済',
+        5 => 'Voided',
     ]
 ];
