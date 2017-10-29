@@ -132,6 +132,28 @@ class ProductsController extends Controller
 
         $product->author_id = Auth::user()->id;
 
+        /* tags */
+        $tagIds = $request->tagIds;
+        foreach($tagIds as $key =>  $id)
+        {
+            if(empty(Tag::find($id)))
+            {
+                $tag = new Tag();
+                $tag->name = $id;
+                $slug = str_slug($id, "-");
+                
+                if(Tag::where('slug',$slug)->count() >0 )
+                {
+                    $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
+                }
+                $tag->slug = $slug;
+                $tag->save();
+
+                $tagIds[$key] = $tag->id;
+            } 
+        }
+
+        dd($tagIds);
         $product->save();  
 
         return redirect()->action(
