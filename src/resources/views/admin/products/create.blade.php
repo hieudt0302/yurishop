@@ -31,8 +31,6 @@
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#info" data-toggle="tab">Thông tin sản phẩm</a></li>
-                        <!-- <li><a href="#content" data-toggle="tab">Content</a></li> -->
-                        <!-- <li><a href="#pictures" data-toggle="tab">Pictures</a></li> -->
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
@@ -84,6 +82,16 @@
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
                                                         <option value="{{$category->id}}" selected="{{old('category_id')===$category->id?'selected':''}}">{{$category->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tags" class="col-sm-2 control-label">Tags</label>
+                                                <div class="col-sm-8">
+                                                    <select id="tags" multiple name="tags[]" class="form-control select2" style="width: 100%;">
+                                                        @foreach(Tags as $key =>$tag)
+                                                        <option value="{{$tag->id}}">{{$tag->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -229,6 +237,10 @@
     });
 
     $('.select2').select2();
+    $('#tags').select2({
+        tags: true,
+        tokenSeparators: [',']
+    });
 
     $('#name').on('change', function(e) {
         e.preventDefault();

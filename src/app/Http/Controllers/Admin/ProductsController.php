@@ -12,6 +12,7 @@ use App\Models\ProductTranslation;
 use App\Models\Language;
 use App\Models\Comment;
 use App\Models\Media;
+use App\Models\Tag;
 use Validator;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
@@ -44,8 +45,10 @@ class ProductsController extends Controller
     {
         $languages = Language::all(); ///TODO: make condition active
         $shopCategory = Category::where('slug', 'products')->firstOrFail();
-        $categories = Category::where('parent_id', $shopCategory->id)->get();        
-        return View('admin/products/create',compact('languages','categories'));
+        $categories = Category::where('parent_id', $shopCategory->id)->get();      
+        $tags = Tag::all();
+        
+        return View('admin/products/create',compact('languages','categories', 'tags'));
     }
 
     /**
