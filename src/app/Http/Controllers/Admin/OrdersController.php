@@ -140,7 +140,7 @@ class OrdersController extends Controller
             $query->whereIn('payment_status', $payments_status);
         }
 
-        if (count($shippings_statuss) > 0) {
+        if (count($shippings_status) > 0) {
             $query->whereIn('shipping_status', $shippings_status);
         }
 
