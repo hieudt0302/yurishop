@@ -173,7 +173,7 @@ class OrdersController extends Controller
         
         return view('admin/orders/show',compact('order'));
     }
-    public function ChangPaymentStatus(Request $request, $id)
+    public function ChangePaymentStatus(Request $request, $id)
     {
         $order = Order::find($id);
         $order->payment_status =  $request->payment_status; //refer Lang/method.php
