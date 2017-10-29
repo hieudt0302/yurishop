@@ -42,7 +42,7 @@
                             </a>                                        
                         </li> 
                         <li>
-                            <a href="#">
+                            <a href="{{URL::asset('')}}language/kr">
                                 한국어
                             </a>                                        
                         </li>                                                                                                                                                          
