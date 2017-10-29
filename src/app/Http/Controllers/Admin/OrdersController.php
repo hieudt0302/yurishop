@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\BookAddress;
 use Validator;
 use DB;
@@ -83,6 +84,38 @@ class OrdersController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function DetailUpdateItem(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'price' => 'numeric|min:0',
+            'quantity' => 'numeric|min:1',
+            'discount' => 'numeric|min:0'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        $order  = Order::find($id);
+        $detail  = OrderDetail::find($request->order_detail_id);
+        $detail->price = $request->price;
+        $detail->quantity = $request->quantity;
+        $detail->discount = $request->discount;
+        $detail->total =  ($detail->price * $detail->quantity) - $detail->discoun;
+        $detail->save();
+
+        $order->order_total = $order->orderdetails->sum('total');
+        $order->save();
+
+        $tab= 4;
+        
+        return view('admin/orders/show',compact('order', 'tab'))
+        ->with('message', 'Cập nhật sản phẩm thành công!')
+        ->with('status', 'success');
     }
 
     /**

@@ -669,9 +669,9 @@
                                                 </colgroup>
                                                 <thead>
                                                     <tr>
-                                                        <th>
+                                                        <!-- <th>
                                                             Picture
-                                                        </th>
+                                                        </th> -->
                                                         <th>
                                                             Product name
                                                         </th>
@@ -697,11 +697,13 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach($order->orderdetails as $detail)
-                                                    <form action="{{url('admin/orders')}}" method="post">
+                                                    <form action="{{url('admin/orders/details')}}/{{$detail}}/update" method="post">
+                                                    {{ csrf_field()}}
+                                                        <input type="hidden" name="order_detail_id" value="{{$detail->id}}">
                                                         <tr>
-                                                            <td >
+                                                            <!-- <td >
                                                                 <img src="{{asset('/images/no-image.png')}}" alt="{{$detail->product->name}}" title="{{$detail->product->name}}"  style="width: 120px;">
-                                                            </td>
+                                                            </td> -->
                                                             <td style="text-align: left; width: 15%;">
                                                                 <em><a href="{{url('/admin/products')}}/{{$detail->product->slug}}">{{$detail->product->name}}</a></em>
                                                                 <p>
@@ -742,17 +744,17 @@
                                                                 {{$detail->total}}
                                                             </td>
                                                             <td style="width: 15%;">
-                                                                <button id="btnEditOrderItem{{$detail->id}}" type="button" class="btn btn-default"  onclick="toggleOrderItemEdit(true, {{$detail->id}});return false;">
+                                                                <button id="btnEditOrderItem{{$detail->id}}" type="button" class="btn btn-primary"  onclick="toggleOrderItemEdit(true, {{$detail->id}});return false;">
                                                                     <i class="fa fa-pencil"></i>
                                                                     Edit
                                                                 </button>
                                                                 
-                                                                <button id="btnSaveOrderItem{{$detail->id}}" type="submit" class="btn btn-default" style="display:none;">
+                                                                <button id="btnSaveOrderItem{{$detail->id}}" type="submit" class="btn btn-primary" style="display:none; width:80px;">
                                                                     <i class="fa fa-floppy-o"></i>
                                                                     Save
                                                                 </button>
                                                             
-                                                                <button id="btnCancelOrderItem{{$detail->id}}" type="button" class="btn btn-default" onclick="toggleOrderItemEdit(false, {{$detail->id}});return false;"  style="display:none;">
+                                                                <button id="btnCancelOrderItem{{$detail->id}}" type="button" class="btn btn-teal" onclick="toggleOrderItemEdit(false, {{$detail->id}});return false;"  style="display:none; width:80px; margin-top:4px;">
                                                                     <i class="fa fa-close"></i>
                                                                     Cancel
                                                                 </button>
