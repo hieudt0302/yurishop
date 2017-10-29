@@ -760,10 +760,9 @@
                                                                 </button>
                                                             </td>
                                                             <td style="width: 15%;">
-                                                                <button type="button" class="btn btn-danger" name="" id="btnDeleteOrderItem{{$detail->id}}">
-                                                                    <i class="fa fa-trash"></i>
-                                                                    Delete
-                                                                </button>
+                                                                <a type="button" class="btn btn-danger" data-product-id="{{$detail->id}}" data-toggle="modal" data-target="#modal-delete-product">
+                                                                <i class="fa fa-trash"></i>
+                                                                </a> 
                                                             </td>
                                                         </tr>
                                                     </form>
@@ -863,7 +862,7 @@
 </section>
 
 <!-- MODEL AREA -->
-<!-- 1 -->
+<!-- QUESTION TO CANCEL ORDER STATUS -->
 <div id="cancelorder-action-confirmation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cancelorder-action-confirmation-title" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -885,66 +884,32 @@
     </div>
 </div>
 
-<!-- 3 -->
-<div id="btnSaveOrderTotals-action-confirmation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="btnSaveOrderTotals-action-confirmation-title">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="btnSaveOrderTotals-action-confirmation-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to perform this action?
-            </div>
-            <div class="modal-footer">
-                <button type="submit" id="btnSaveOrderTotals-action-confirmation-submit-button" class="btn btn-primary pull-right" name="btnSaveOrderTotals">
-                Yes
-                </button>
-                <span class="btn btn-default pull-right margin-r-5" data-dismiss="modal">No, cancel</span>
-            </div>
+<!-- QUESTION TO DELETE -->
+<div class="modal modal-danger fade" id="modal-delete-product">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Cảnh Báo</h4>
+        </div>
+        <div class="modal-body">
+            <p>Bạn có muốn xóa sản phẩm này không?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+            <form name="form-product-delete"  method="POST">
+                {!! csrf_field() !!}
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" class="btn btn-outline" value="Xóa Sản Phẩm">
+            </form>
         </div>
     </div>
+    <!-- /.modal-content -->
 </div>
-<!-- 4 -->
-<div id="btnDeleteOrderItem4-action-confirmation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="btnDeleteOrderItem4-action-confirmation-title">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="btnDeleteOrderItem4-action-confirmation-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to perform this action?
-            </div>
-            <div class="modal-footer">
-                <button type="submit" id="btnDeleteOrderItem4-action-confirmation-submit-button" class="btn btn-primary pull-right" name="btnDeleteOrderItem4">
-            Yes
-            </button>
-                <span class="btn btn-default pull-right margin-r-5" data-dismiss="modal">No, cancel</span>
-            </div>
-        </div>
-    </div>
+<!-- /.modal-dialog -->
 </div>
-<!-- 5 -->
-<div id="btnSaveOrderItem4-action-confirmation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="btnSaveOrderItem4-action-confirmation-title">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="btnSaveOrderItem4-action-confirmation-title">Are you sure?</h4>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to perform this action?
-            </div>
-            <div class="modal-footer">
-                <button type="submit" id="btnSaveOrderItem4-action-confirmation-submit-button" class="btn btn-primary pull-right" name="btnSaveOrderItem4">
-                Yes
-                </button>
-                <span class="btn btn-default pull-right margin-r-5" data-dismiss="modal">No, cancel</span>
-            </div>
-        </div>
-    </div>
-</div>
+
 @endsection 
 
 @section('scripts') 
@@ -976,6 +941,11 @@
         });
 
        $('#cancelorder').attr("data-toggle", "modal").attr("data-target", "#cancelorder-action-confirmation");
+       $('#modal-delete-product').on('show.bs.modal', function (e) {
+            var detailID = $(e.relatedTarget).data('product-id');
+            var action = "{{url('admin/orders/detail')}}/" + detailID;
+            $(e.currentTarget).find('form[name="form-product-delete"]').attr("action", action);
+        })  
     });
 
     function toggleChangeOrderStatus(editmode) {
@@ -1130,6 +1100,4 @@
         }
     }
 </script>
-
-
 @endsection

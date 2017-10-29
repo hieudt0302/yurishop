@@ -128,7 +128,15 @@ class OrdersController extends Controller
     {
         //
     }
+    public function DetailDestroy($id)
+    {
+        $detail = OrderDetail::find($id);
+        $detail->delete();
 
+        return redirect()->route('admin.orders.show')
+        ->with('message', 'Xóa một sản phẩm trong đơn hàng thành công!')
+        ->with('status', 'success');
+    }
     public function filter(Request $request)
     {
         $order_start_date = $request->order_start_date;

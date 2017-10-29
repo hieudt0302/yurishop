@@ -231,7 +231,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('orders/{id}/details/update', ['as'=>'admin.orders.show','uses'=>'OrdersController@DetailUpdateItem','middleware' => ['role:admin|manager']]);
     Route::post('orders/{id}/update/billingaddress',['as'=>'admin.orders.show','uses'=>'OrdersController@UpdateBillingAddress','middleware' => ['role:admin|manager']]);
     Route::post('orders/{id}/update/shippingaddress',['as'=>'admin.orders.show','uses'=>'OrdersController@UpdateShippingAddress','middleware' => ['role:admin|manager']]);
-
+    Route::delete('orders/detail/{id}',['as'=>'admin.products.detaildestroy','uses'=>'ProductsController@DetailDestroy','middleware' => ['role:admin|manager']]);
     // InfoPages
     Route::get('info-pages',['as'=>'admin.info-pages.index','uses'=>'InfoPagesController@index','middleware'=> ['role:admin|manager']]);
     Route::get('info-pages/create',['as'=>'admin.info-pages.create','uses'=>'InfoPagesController@create','middleware'=> ['role:admin|manager']]);
