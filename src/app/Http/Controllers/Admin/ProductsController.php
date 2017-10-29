@@ -134,7 +134,7 @@ class ProductsController extends Controller
 
         $product->save();  //Get taggable_id first. It is product_id
 
-        /* tags */
+        /* Make new tags */
         $tagIds = $request->tagIds;
         foreach($tagIds as $key =>  $id)
         {

@@ -81,7 +81,7 @@
                                                 <div class="col-md-4">
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
-                                                        <option value="{{$category->id}}" selected="{{old('category_id')===$category->id?'selected':''}}">{{$category->name}}</option>
+                                                        <option value="{{$category->id}}" {{old('category_id')===$category->id?'selected':''}}>{{$category->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -91,7 +91,17 @@
                                                 <div class="col-md-4">
                                                     <select id="tags" multiple name="tagIds[]" class="form-control select2" style="width: 100%;">
                                                         @foreach($tags as $key =>$tag)
-                                                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                                            @if(count(old('tagIds')) > 0)
+                                                                @foreach (old('tagIds') as $id)
+                                                                    @if($id = $tag->id)
+                                                                        <option value="{{$tag->id}}" >{{$tag->name}}</option>
+                                                                    @else
+                                                                        <option value="{{$id}}" >{{$id}}</option>
+                                                                    @endif
+                                                                @endforeach
+                                                            @else
+                                                                <option value="{{$tag->id}}" >{{$tag->name}}</option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                 </div>
