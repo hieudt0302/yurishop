@@ -102,12 +102,23 @@
                                                     <input class="single-line valid" type="file" name="img"/>
                                                     <span class="text-danger">{{ $errors->first('img') }}</span>                                                        
                                                 </div>
-                                            </div>                                                 
+                                            </div>  
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-md-offset-3">
+                                                    <div style="height: 200px; border: 1px solid whitesmoke;text-align: center">
+                                                        @if(strlen($post->image) > 0)
+                                                            <img width="100%" height="100%" src="{{asset('storage')}}/{{$post->image}}"/>
+                                                        @else 
+                                                            <img width="100%" height="100%" src="{{asset('images/no-image.png')}}"/>
+                                                        @endif                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                                    <button type="submit" class="btn btn-primary">Cập Nhật</button>
                                                 </div>
                                             </div>
                                         </div>

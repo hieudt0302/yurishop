@@ -57,8 +57,8 @@ class PostsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'slug' => 'required|string|min:1',
-            'img' => 'required|image'            
+            'slug' => 'required|string|min:5',
+            'img' => 'image'            
         ]);
 
         if ($validator->fails()) {
@@ -148,7 +148,8 @@ class PostsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'slug' => 'required|string|min:1',
+            'slug' => 'required|string|min:5',
+            'img' => 'image'    
         ]);
 
         if ($validator->fails()) {
