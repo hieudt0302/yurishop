@@ -387,8 +387,10 @@ class ProductsController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        session()->flash('success_message', "Xóa thành công!");        
-        return redirect()->route('admin.products.index'); 
+
+        return redirect()->route('admin.products.index')
+        ->with('message', 'Xóa một sản phẩm thành công!')
+        ->with('status', 'success');
     }
     
     public function destroyImage($id)
