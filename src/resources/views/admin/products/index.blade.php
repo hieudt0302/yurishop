@@ -65,7 +65,7 @@
                                 <select name="category_id" class="form-control select2" style="width: 100%;">
                                     <option value="0" >-----Tất cả-----</option>
                                     @foreach($categories as $category)
-                                       <option value="{{$category->id}}" {{{{old('category_id')}}==$category->id? 'selected':''}}>{{$category->name}}</option>
+                                       <option value="{{$category->id}}" {{old('category_id')}}==$category->id? 'selected':''}}>{{$category->name}}</option>
                                     @endforeach
                              </select>
                             </div>
