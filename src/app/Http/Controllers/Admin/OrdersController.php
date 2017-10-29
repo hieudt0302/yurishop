@@ -140,7 +140,7 @@ class OrdersController extends Controller
 
         $tab= 4;
 
-        return redirect()->route('admin.orders.show')
+        return view('admin/orders/show',compact('order','tab'))
         ->with('message', 'Xóa một sản phẩm trong đơn hàng thành công!')
         ->with('status', 'success');
     }
