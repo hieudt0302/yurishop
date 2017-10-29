@@ -90,19 +90,25 @@
                                                 <label for="tags" class="col-md-3 control-label">Tags</label>
                                                 <div class="col-md-4">
                                                     <select id="tags" multiple name="tagIds[]" class="form-control select2" style="width: 100%;">
-                                                        @foreach($tags as $key =>$tag)
-                                                            @if(count(old('tagIds')) > 0)
-                                                                @foreach (old('tagIds') as $id)
-                                                                    @if($id == $tag->id)
-                                                                        <option value="{{$tag->id}}" >{{$tag->name}}</option>
-                                                                    @else
-                                                                        <option value="{{$id}}" >{{$id}}</option>
-                                                                    @endif
-                                                                @endforeach
-                                                            @else
-                                                                <option value="{{$tag->id}}" >{{$tag->name}}</option>
-                                                            @endif
-                                                        @endforeach
+                                                        @if(count($tags) > 0)
+                                                            @foreach($tags as $key =>$tag)
+                                                                @if(count(old('tagIds')) > 0)
+                                                                    @foreach (old('tagIds') as $id)
+                                                                        @if($id == $tag->id)
+                                                                            <option value="{{$tag->id}}" selected>{{$tag->name}}</option>
+                                                                        @else
+                                                                            <option value="{{$id}}" selected>{{$id}}</option>
+                                                                        @endif
+                                                                    @endforeach
+                                                                @else
+                                                                    <option value="{{$tag->id}}" >{{$tag->name}}</option>
+                                                                @endif
+                                                            @endforeach
+                                                        @else 
+                                                            @foreach (old('tagIds') as $id)
+                                                                <option value="{{$id}}" selected>{{$id}}</option>
+                                                            @endforeach
+                                                        @endif                                                            
                                                     </select>
                                                 </div>
                                             </div>                                            
