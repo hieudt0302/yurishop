@@ -700,10 +700,10 @@
                                                     <form action="{{url('admin/orders')}}" method="post">
                                                         <tr>
                                                             <td >
-                                                                @if(!empty($detail->product->GetMediaByOrderAsc->source))
-                                                                <img src="{{asset('/storage')}}/{{$order->GetMediaByOrderAsc->source}}" alt="{{$order->name}}" title="{{$order->name}}" style="width: 120px;">
+                                                                @if(strlen($detail->product->GetMediaByOrderAsc->source??'') > 0)
+                                                                <img src="{{asset('/storage')}}/{{$detail->product->GetMediaByOrderAsc->source}}" alt="{{$detail->product->name}}" title="{{$detail->product->name}}" style="width: 120px;">
                                                                 @else 
-                                                                <img src="{{asset('/images/no-image.png')}}" alt="{{$order->name}}" title="{{$order->name}}"  style="width: 120px;">
+                                                                <img src="{{asset('/images/no-image.png')}}" alt="{{$detail->product->name}}" title="{{$detail->product->name}}"  style="width: 120px;">
                                                                 @endif
                                                             </td>
                                                             <td style="text-align: left; width: 15%;">
