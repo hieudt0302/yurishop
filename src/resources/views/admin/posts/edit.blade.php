@@ -86,7 +86,7 @@
                                                         <!-- Tags  -->
                                                         @foreach($tags as $key =>$tag)
                                                             @php($selected = false)
-                                                            @foreach($product->tags as $t)
+                                                            @foreach($post->tags as $t)
                                                                 @if($t->id == $tag->id)
                                                                     @php($selected = true)
                                                                 @endif
