@@ -191,9 +191,10 @@ class ProductsController extends Controller
 			return redirect()->back()
             ->with('message', 'Sản phẩm không được tìm thấy!')
             ->with('status', 'danger');
-		}
+        }
+        $tags = Tag::all();
         $languages = Language::all(); ///TODO: make condition active
-        return View('admin/products/edit',compact('product','languages','categories'));
+        return View('admin/products/edit',compact('product','languages','categories','tags'));
     }
 
     /**
@@ -218,7 +219,7 @@ class ProductsController extends Controller
         }
 
         $product = Product::find($id);
-        
+        //
         $product->name = $request->name;
         $product->slug = $request->slug;
 
