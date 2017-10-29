@@ -105,14 +105,14 @@ class OrdersController extends Controller
         $detail->price = $request->price;
         $detail->quantity = $request->quantity;
         $detail->discount = $request->discount;
-        $detail->total =  ($detail->price * $detail->quantity) - $detail->discoun;
+        $detail->total =  ($detail->price * $detail->quantity) - $detail->discount;
         $detail->save();
 
         $order->order_total = $order->orderdetails->sum('total');
         $order->save();
 
         $tab= 4;
-        
+
         return view('admin/orders/show',compact('order', 'tab'))
         ->with('message', 'Cập nhật sản phẩm thành công!')
         ->with('status', 'success');
