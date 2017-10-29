@@ -92,18 +92,29 @@
                                                     <select id="tags" multiple name="tagIds[]" class="form-control select2" style="width: 100%;">
                                                         <!-- Tags  -->
                                                         @foreach($tags as $key =>$tag)
-                                                            <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                                            @php($selected = false)
+                                                            @if (is_array(old('tagIds')))
+                                                                @foreach(old('tagIds') as $id)
+                                                                    @if($id == $tag->id)
+                                                                        @php($selected = true)
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
+                                                            <option value="{{$tag->id}}" {{$selected?'selected':''}}>{{$tag->name}}</option>
                                                         @endforeach
+
                                                         <!-- Old Data -->
                                                         @if (is_array(old('tagIds')))
+                                                            @php($selected = true)
                                                             @foreach(old('tagIds') as $id)
                                                                 @foreach($tags as $key =>$tag)
                                                                     @if($id == $tag->id)
-                                                                        <option value="{{$tag->id}}" selected>{{$tag->name}}</option>
-                                                                        @continue;
+                                                                        @php($selected = false)
                                                                     @endif
                                                                 @endforeach
-                                                                <option value="{{$id}}" selected>{{$id}}</option>
+                                                                @if($selected)
+                                                                    <option value="{{$id}}" selected>{{$id}}</option>
+                                                                @endif
                                                             @endforeach
                                                         @endif
                                                     </select>
