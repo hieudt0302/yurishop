@@ -15,6 +15,12 @@
         <li><a href="#">Chi Tiết Đơn Hàng</a></li>
         <li class="active">Danh Sách</li>
     </ol>
+    <div class="row">
+        <div class="col-xs-12">
+            @include('notifications.status_message') 
+            @include('notifications.errors_message') 
+        </div>
+    </div> 
 </section>
 <!-- Main content -->
 <section class="content">
@@ -691,76 +697,78 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach($order->orderdetails as $detail)
-                                                    <tr>
-                                                        <td >
-                                                            @if(strlen($order->GetMediaByOrderAsc->source??'')> 0)
-                                                            <img src="{{asset('/storage')}}/{{$order->GetMediaByOrderAsc->source}}" alt="{{$order->name}}" title="{{$order->name}}" style="width: 120px;">
-                                                            @else 
-                                                            <img src="{{asset('/images/no-image.png')}}" alt="{{$order->name}}" title="{{$order->name}}"  style="width: 120px;">
-                                                            @endif
-                                                        </td>
-                                                        <td style="text-align: left; width: 15%;">
-                                                            <em><a href="{{url('/admin/products')}}/{{$detail->product->slug}}">{{$detail->product->name}}</a></em>
-                                                            <p>
-                                                                <strong>SKU</strong><text>:</text> {{$detail->product->sku}}
-                                                            </p>
-                                                        </td>
-                                                        <td style="width: 15%;">
-                                                            <div>{{$detail->price}}</div>
-                                                            <div id="pnlEditPvPrice4" style="display: none;">
-                                                                <div class="form-group">
-                                                                    <div class="col-md-8 col-md-offset-2">
-                                                                        <input id="price"  name="price" type="text" value="{{$detail->price}}" class="form-control input-sm">
+                                                    <form action="{{url('admin/orders')}}" method="post">
+                                                        <tr>
+                                                            <td >
+                                                                @if(strlen($order->GetMediaByOrderAsc->source)> 0)
+                                                                <img src="{{asset('/storage')}}/{{$order->GetMediaByOrderAsc->source}}" alt="{{$order->name}}" title="{{$order->name}}" style="width: 120px;">
+                                                                @else 
+                                                                <img src="{{asset('/images/no-image.png')}}" alt="{{$order->name}}" title="{{$order->name}}"  style="width: 120px;">
+                                                                @endif
+                                                            </td>
+                                                            <td style="text-align: left; width: 15%;">
+                                                                <em><a href="{{url('/admin/products')}}/{{$detail->product->slug}}">{{$detail->product->name}}</a></em>
+                                                                <p>
+                                                                    <strong>SKU</strong><text>:</text> {{$detail->product->sku}}
+                                                                </p>
+                                                            </td>
+                                                            <td style="width: 15%;">
+                                                                <div>{{$detail->price}}</div>
+                                                                <div id="pnlEditProductPrice{{$detail->id}}" style="display: none;">
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-8 col-md-offset-2">
+                                                                            <input id="price"  name="price" type="text" value="{{$detail->price}}" class="form-control input-sm">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </td>
-                                                        <td style="width: 10%;">
-                                                            <div>{{$detail->quantity}}</div>
-                                                            <div id="pnlEditPvQuantity4" >
-                                                                <div class="form-group">
-                                                                    <div class="col-md-8 col-md-offset-2">
-                                                                        <input id="quantity"  name="quantity" type="text" value="{{$detail->quantity}}" class="form-control input-sm">
+                                                            </td>
+                                                            <td style="width: 10%;">
+                                                                <div>{{$detail->quantity}}</div>
+                                                                <div id="pnlEditProductQuantity{{$detail->id}}" style="display: none;">
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-8 col-md-offset-2">
+                                                                            <input id="quantity"  name="quantity" type="text" value="{{$detail->quantity}}" class="form-control input-sm">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </td>
-                                                        <td style="width: 15%;">
-                                                            <div>{{$detail->discount}}</div>
-                                                            <div id="pnlEditPvDiscount4" style="display: none;">
-                                                                <div class="form-group">
-                                                                    <div class="col-md-8 col-md-offset-2">
-                                                                        <input id="discount"   name="discount" type="text" value="{{$detail->discount}}"class="form-control input-sm">
+                                                            </td>
+                                                            <td style="width: 15%;">
+                                                                <div>{{$detail->discount}}</div>
+                                                                <div id="pnlEditProductDiscount{{$detail->id}}" style="display: none;">
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-8 col-md-offset-2">
+                                                                            <input id="discount"   name="discount" type="text" value="{{$detail->discount}}"class="form-control input-sm">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </td>
-                                                        <td style="width: 15%;">
-                                                            {{$detail->total}}
-                                                        </td>
-                                                        <td style="width: 15%;">
-                                                            <button type="submit" class="btn btn-default" name="btnEditOrderItem4" onclick="toggleOrderItemEdit(true);return false;" id="btnEditOrderItem4}">
-                                                                <i class="fa fa-pencil"></i>
-                                                                Edit
-                                                            </button>
+                                                            </td>
+                                                            <td style="width: 15%;">
+                                                                {{$detail->total}}
+                                                            </td>
+                                                            <td style="width: 15%;">
+                                                                <button id="btnEditOrderItem{{$detail->id}}" type="button" class="btn btn-default"  onclick="toggleOrderItemEdit(true, {{$detail->id}});return false;">
+                                                                    <i class="fa fa-pencil"></i>
+                                                                    Edit
+                                                                </button>
+                                                                
+                                                                <button id="btnSaveOrderItem{{$detail->id}}" type="submit" class="btn btn-default" style="display:none;">
+                                                                    <i class="fa fa-floppy-o"></i>
+                                                                    Save
+                                                                </button>
                                                             
-                                                            <button type="button" class="btn btn-default" name="" id="btnSaveOrderItem4" style="display:none;">
-                                                                <i class="fa fa-floppy-o"></i>
-                                                                Save
-                                                            </button>
-                                                        
-                                                            <button type="submit" class="btn btn-default" name="btnCancelOrderItem4" onclick="toggleOrderItemEdit(false);return false;" id="btnCancelOrderItem4" style="display:none;">
-                                                                <i class="fa fa-close"></i>
-                                                                Cancel
-                                                            </button>
-                                                        </td>
-                                                        <td style="width: 15%;">
-                                                            <button type="button" class="btn btn-danger" name="" id="btnDeleteOrderItem{{$detail->id}}">
-                                                                <i class="fa fa-trash"></i>
-                                                                Delete
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                                                <button id="btnCancelOrderItem{{$detail->id}}" type="button" class="btn btn-default" onclick="toggleOrderItemEdit(false, {{$detail->id}});return false;"  style="display:none;">
+                                                                    <i class="fa fa-close"></i>
+                                                                    Cancel
+                                                                </button>
+                                                            </td>
+                                                            <td style="width: 15%;">
+                                                                <button type="button" class="btn btn-danger" name="" id="btnDeleteOrderItem{{$detail->id}}">
+                                                                    <i class="fa fa-trash"></i>
+                                                                    Delete
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </form>
                                                     @endforeach
                                                 </tbody>
                                             </table>
@@ -1101,29 +1109,29 @@
             $('#btnCancelChangeShippingAddress').hide();
         }
     }
-</script>
 
-<script type="text/javascript">
-    function toggleOrderItemEdit4(editMode) {
-        if (editMode) {
-            $('#pnlEditPvUnitPrice4').show();
-            $('#pnlEditPvQuantity4').show();
-            $('#pnlEditPvDiscount4').show();
-            $('#pnlEditPvPrice4').show();
-            $('#btnEditOrderItem4').hide();
-            $('#btnDeleteOrderItem4').hide();
-            $('#btnSaveOrderItem4').show();
-            $('#btnCancelOrderItem4').show();
-        } else {
-            $('#pnlEditPvUnitPrice4').hide();
-            $('#pnlEditPvQuantity4').hide();
-            $('#pnlEditPvDiscount4').hide();
-            $('#pnlEditPvPrice4').hide();
-            $('#btnEditOrderItem4').show();
-            $('#btnDeleteOrderItem4').show();
-            $('#btnSaveOrderItem4').hide();
-            $('#btnCancelOrderItem4').hide();
+    function toggleOrderItemEdit(editmode, id = 0){
+        if (editmode) {
+            $('#pnlEditProductPrice' + id).show();
+            $('#pnlEditProductQuantity' + id).show();
+            $('#pnlEditProductDiscount' + id).show();
+
+            $('#btnEditOrderItem' + id).hide();
+
+            $('#btnSaveOrderItem' + id).show();
+            $('#btnCancelOrderItem' + id).show();
+        }else{
+            $('#pnlEditProductPrice' + id).hide();
+            $('#pnlEditProductQuantity' + id).hide();
+            $('#pnlEditProductDiscount' + id).hide();
+
+            $('#btnEditOrderItem' + id).show();
+
+            $('#btnSaveOrderItem' + id).hide();
+            $('#btnCancelOrderItem' + id).hide();
         }
     }
 </script>
+
+
 @endsection
