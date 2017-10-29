@@ -132,7 +132,7 @@
                                     {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit','class' => 'btn btn-warning btn-sm'] )  }}
                                     {!! Form::close() !!}   -->
                                     <a type="button" class="btn btn-danger" data-product-id="{{$product->id}}" data-toggle="modal" data-target="#modal-delete-product">
-                                    <i class="fa fa-ban"></i> Xóa Sản Phẩm
+                                    <i class="fa fa-ban"></i>
                                     </a> 
                                   </div>
                                 </td>
