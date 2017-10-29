@@ -90,7 +90,7 @@
                                                 <label for="tags" class="col-sm-2 control-label">Tags</label>
                                                 <div class="col-sm-8">
                                                     <select id="tags" multiple name="tags[]" class="form-control select2" style="width: 100%;">
-                                                        @foreach(Tags as $key =>$tag)
+                                                        @foreach($tags as $key =>$tag)
                                                         <option value="{{$tag->id}}">{{$tag->name}}</option>
                                                         @endforeach
                                                     </select>
