@@ -97,29 +97,39 @@ class OrdersController extends Controller
 
     public function filter(Request $request)
     {
+        $order_start_date = $request->order_start_date;
+        $order_end_date = $request->order_end_date;
+        $customer_name = $request->customer_name;
+        $billing_email = $request->billing_email;
+        $order_no = $request->order_no;
+
+        $orders_status = $request->orders_status;
+        $shippings_status = $request->shippings_status;
+        $payments_status = $request->payments_status;
+
+
         $query = DB::table('orders')
             ->join('book_addresses', 'book_addresses.id', '=', 'orders.billing_address_id')
             ->select('orders.*', 'book_addresses.last_name', 'book_addresses.first_name', 'book_addresses.email', 'book_addresses.phone');
         
-        if (strlen($request->order_start_date) > 0) {
-            $startDate = date('Y-m-d'.' 00:00:00', strtotime($request->order_start_date));
-            $query->where('orders.order_date', '>=', $startDate);
+        if (strlen($order_start_date) > 0) {
+            $start = date('Y-m-d'.' 00:00:00', strtotime($order_start_date));
+            $query->where('orders.order_date', '>=', $start);
         }
-        if (strlen($request->order_end_date) > 0) {
-            $endDate = date('Y-m-d'.' 23:59:59', strtotime($request->order_end_date));
-            $query->where('orders.order_date', '<=', $endDate);
+        if (strlen($order_end_date) > 0) {
+            $end = date('Y-m-d'.' 23:59:59', strtotime($order_end_date));
+            $query->where('orders.order_date', '<=', $end);
         }
 
-        $customer = $request->customer_name;
-        if (strlen($customer) > 0) {
-            $query->where(function ($subQuery) use ($customer) {
-                $subQuery->where('book_addresses.first_name', 'LIKE', '%'.$customer.'%');
-                $subQuery->orWhere('book_addresses.last_name', 'LIKE', '%'.$customer.'%');
+        if (strlen($customer_name) > 0) {
+            $query->where(function ($subQuery) use ($customer_name) {
+                $subQuery->where('book_addresses.first_name', 'LIKE', '%'.$customer_name.'%');
+                $subQuery->orWhere('book_addresses.last_name', 'LIKE', '%'.$customer_name.'%');
             });
         }
 
-        if (strlen($request->billing_email) > 0) {
-            $query->where('book_addresses.email', '<=', $request->billing_email);
+        if (strlen($billing_email) > 0) {
+            $query->where('book_addresses.email', '<=', $billing_email);
         }
 
         if (count($request->orders_status) > 0) {
@@ -134,15 +144,16 @@ class OrdersController extends Controller
             $query->whereIn('shipping_status', $request->shippings_status);
         }
 
-        if (strlen($request->order_no) > 0) {
-            $query->where('orders.order_no', $request->order_no);
+        if (strlen($order_no) > 0) {
+            $query->where('orders.order_no', $order_no);
         }
 
 
-        $orders = $query->paginate(21);
-        
+        $orders = $query->paginate(2);
+        $request->flashOnly(['order_start_date', 'order_end_dateend_date', 'customer_name', 'billing_email', 'order_no','orders_status','shippings_status','payments_status']);
+
         return View('admin.orders.index', compact('orders'))
-        ->with('i', ($request->input('page', 1) - 1) * 21);
+        ->with('i', ($request->input('page', 1) - 1) * 2);
     }
 
     public function CancelOrderStatus($id)

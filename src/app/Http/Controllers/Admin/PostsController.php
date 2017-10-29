@@ -268,11 +268,12 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-        Storage::delete('images/blog/'.$post->img);
-        Storage::delete('images/blog/preview/'.$post->img);                
         $post->delete();
-        session()->flash('success_message', "Xóa thành công!");        
-        return redirect()->route('admin.posts.index'); 
+        Storage::delete('images/blog/'.$post->img);
+        
+        return redirect()->route('admin.posts.index')
+        ->with('message', 'Xóa bài viết thành công!')
+        ->with('status', 'success');
     }
 
     public function categories(Request $request)
