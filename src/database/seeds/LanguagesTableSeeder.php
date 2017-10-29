@@ -29,9 +29,14 @@ class LanguagesTableSeeder extends Seeder
         ]);                
         Language::create([
             'id'=>4,
-            'code'=>'ja',
+            'code'=>'jp',
             'name'=>'Tiếng Nhật'
         ]); 
+        Language::create([
+            'id'=>5,
+            'code'=>'kr',
+            'name'=>'Tiếng Hàn'
+        ]);        
 
         /* php artisan db:seed --class=LanguageTableSeeder */        
     }
