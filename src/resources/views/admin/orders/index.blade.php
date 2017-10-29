@@ -76,7 +76,7 @@
                         <div class="form-group">
                             <label for="payments_status" class="col-sm-2 control-label">Payment Status</label>
                             <div class="col-sm-8">
-                                <select id="payment_status" multiple name="payments_status[]" class="form-control select2" style="width: 100%;">
+                                <select id="payments_status" multiple name="payments_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.payment') as $key =>$value)
                                     <option value="{{$key}}" >{{$value}}</option>
                                     @endforeach
@@ -198,7 +198,7 @@
         });
 
         //Select2: Order Status
-        $('#ordesr_status').select2();
+        $('#orders_status').select2();
         // $('#order_status').on('select2:opening select2:closing', function( event ) {
         //     var $searchfield = $(this).parent().find('.select2-search__field');
         //     $searchfield.prop('disabled', true);
@@ -213,7 +213,7 @@
         // });
 
         //Select2: Shipping Status
-        $('#shipping_status').select2();
+        $('#shippings_status').select2();
         // $('#shipping_status').on('select2:opening select2:closing', function( event ) {
         //     var $searchfield = $(this).parent().find('.select2-search__field');
         //     $searchfield.prop('disabled', true);
