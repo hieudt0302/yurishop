@@ -463,10 +463,10 @@ class ProductsController extends Controller
         $shopCategory = Category::where('slug', 'products')->firstOrFail();
         $categories = Category::where('parent_id', $shopCategory->id)->get();
         
-        $sku= $request->sku;
+        $request->flashOnly(['from_date', 'to_date', 'product_name', 'sku', 'category_id']);
+        
         return View('admin.products.index', compact('products','categories'))
-        ->with('i', ($request->input('page', 1) - 1) * 2)
-        ->withInput();
+        ->with('i', ($request->input('page', 1) - 1) * 2);
     }
 
     public function GenerateSlug($name)
