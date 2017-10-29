@@ -154,7 +154,7 @@ class ProductsController extends Controller
         }
 
         $tags = Tag::whereIn('id',$tagIds)->get();
-        $product->tags()->sync(tags);
+        $product->tags()->sync($tags);
 
         $product->save();  
 dd($produt->tags);
