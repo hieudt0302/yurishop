@@ -198,26 +198,26 @@
         });
 
         //Select2: Order Status
-        $('#order_status').select2();
-        $('#order_status').on('select2:opening select2:closing', function( event ) {
-            var $searchfield = $(this).parent().find('.select2-search__field');
-            $searchfield.prop('disabled', true);
-            console.log("Selected value is: "+$("#order_status").val());
-        });
+        $('#ordesr_status').select2();
+        // $('#order_status').on('select2:opening select2:closing', function( event ) {
+        //     var $searchfield = $(this).parent().find('.select2-search__field');
+        //     $searchfield.prop('disabled', true);
+        //     console.log("Selected value is: "+$("#order_status").val());
+        // });
 
         //Select2: Payment Status
-        $('#payment_status').select2();
-        $('#payment_status').on('select2:opening select2:closing', function( event ) {
-            var $searchfield = $(this).parent().find('.select2-search__field');
-            $searchfield.prop('disabled', true);
-        });
+        $('#payments_status').select2();
+        // $('#payment_status').on('select2:opening select2:closing', function( event ) {
+        //     var $searchfield = $(this).parent().find('.select2-search__field');
+        //     $searchfield.prop('disabled', true);
+        // });
 
         //Select2: Shipping Status
         $('#shipping_status').select2();
-        $('#shipping_status').on('select2:opening select2:closing', function( event ) {
-            var $searchfield = $(this).parent().find('.select2-search__field');
-            $searchfield.prop('disabled', true);
-        });
+        // $('#shipping_status').on('select2:opening select2:closing', function( event ) {
+        //     var $searchfield = $(this).parent().find('.select2-search__field');
+        //     $searchfield.prop('disabled', true);
+        // });
     });
 </script>
 @endsection
