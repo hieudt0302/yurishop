@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all()->paginate(21);
+        $posts = Post::paginate(21);
 
         return View('admin.posts.index',compact('posts'))
         ->with('i', ($request->input('page', 1) - 1) * 21);;
