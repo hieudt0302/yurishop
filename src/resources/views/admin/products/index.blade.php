@@ -196,10 +196,10 @@
             clearBtn : true
         })
 
-        $('#modal-delete-product').on('shown.bs.modal', function (e) {
-            // var orderID = $(e.relatedTarget).data('product-id');
-            // var action = "{{url('admin/orders')}}/" + orderID;
-            // $(e.currentTarget).find('form[name="form-order-delete"]').attr("action", action);
+        $('#modal-delete-product').on('show.bs.modal', function (e) {
+            var productID = $(e.relatedTarget).data('product-id');
+            var action = "{{url('admin/products')}}/" + productID;
+            $(e.currentTarget).find('form[name="form-product-delete"]').attr("action", action);
         })  
     })
 </script>
