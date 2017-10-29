@@ -166,7 +166,7 @@
                                                     <label class="col-md-3 control-label" title="">Order Shipping Price</label>
                                                     <div class="col-md-4">
                                                         <div class="input-group bootstrap-touchspin">
-                                                            <input  id="OrderShippingPrice" name="order_shipping_price" type="text" value="0.00"  class="form-control" style="display: block;">
+                                                            <input  id="OrderShippingPrice" name="order_shipping_price" type="text" value="0.00"  class="form-control" style="display: block;" value="{{$order->order_shipping_price}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -174,7 +174,7 @@
                                                     <label class="col-md-3 control-label"  title="">Order Tax</label>
                                                     <div class="col-md-4">
                                                         <div class="input-group bootstrap-touchspin">
-                                                            <input  id="OrderTax" name="order_tax" type="text" value="0.00" class="form-control" style="display: block;">
+                                                            <input  id="OrderTax" name="order_tax" type="text" value="0.00" class="form-control" style="display: block;" value="{{$order->order_tax}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -205,9 +205,72 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <div class="col-md-9 col-md-offset-3">
+                                                <div class="input-group input-group-short">
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" name="btnChangePaymentStatus" onclick="toggleChangePaymentStatus(true);return false;" id="btnChangePaymentStatus" class="btn btn-primary" style="display: inline-block;">
+                                                        Change status
+                                                        </button>
+                                                        <form action="{{url('/admin/orders')}}/{{$orders->id}}/change/paymentstatus" method="POST">
+                                                        {{ csrf_field()}}
+                                                            <div id="pnlChangePaymentStatus" style="margin-top: 3px; display: none;">
+                                                                <select class="form-control valid" id="PaymentStatusId" name="payment_status" style="max-width: 160px">
+                                                                    @foreach(\Lang::get('status.payment') as $key =>$value)
+                                                                        @if($orders->payment_status === $key)
+                                                                            <option value="{{$key}}" selected="selected">{{$value}}</option>
+                                                                        @else 
+                                                                            <option value="{{$key}}">{{$value}}</option>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </select>
+                                                                <button type="submit" name="" id="btnSavePaymentStatus" class="btn btn-primary" style="margin-left: 3px">
+                                                                Save
+                                                                </button>
+                                                                <button type="button" onclick="toggleChangePaymentStatus(false);return false;" id="btnCancelPaymentStatus" class="btn bg-teal" style="margin-left: 3px">
+                                                                Cancel
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-md-3 control-label" for="shipping_status" title="">Shipping status</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{__('status.shipping.'.$order->shipping_status)}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9 col-md-offset-3">
+                                                <div class="input-group input-group-short">
+                                                    <div class="input-group-btn">
+                                                       
+                                                        <button type="submit" name="btnChangeShippingStatus" onclick="toggleChangeShippingStatus(true);return false;" id="btnChangeShippingStatus" class="btn btn-primary" style="display: inline-block;">
+                                                        Change status
+                                                        </button>
+                                                        <form action="{{url('/admin/orders')}}/{{$orders->id}}/change/shippingstatus" method="POST">
+                                                        {{ csrf_field()}}
+                                                            <div id="pnlChangeShippingStatus" style="margin-top: 3px; display: none;">
+                                                                <select class="form-control valid" id="ShippingStatusId" name="shipping_status" style="max-width: 160px">
+                                                                    @foreach(\Lang::get('status.shipping') as $key =>$value)
+                                                                        @if($orders->shipping_status === $key)
+                                                                            <option value="{{$key}}" selected="selected">{{$value}}</option>
+                                                                        @else 
+                                                                            <option value="{{$key}}">{{$value}}</option>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </select>
+                                                                <button type="submit" name="" id="btnSaveShippingStatus" class="btn btn-primary" style="margin-left: 3px">
+                                                                Save
+                                                                </button>
+                                                                <button type="button" onclick="toggleChangeShippingStatus(false);return false;" id="btnCancelShippingStatus" class="btn bg-teal" style="margin-left: 3px">
+                                                                Cancel
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -742,39 +805,9 @@
 <script type="text/javascript">
     $(document).ready(function () {
         toggleChangeOrderStatus(false);
+        toggleChangePaymentStatus(false);
+        toggleChangeShippingStatus(false);
         toggleOrderTotals(false);
-        toggleCC(false);
-    });
-
-    function toggleChangeOrderStatus(editmode) {
-        if (editmode) {
-            $('#pnlChangeOrderStatus').show();
-            $('#btnChangeOrderStatus').hide();
-        } else {
-            $('#pnlChangeOrderStatus').hide();
-            $('#btnChangeOrderStatus').show();
-        }
-    }
-
-    function toggleOrderTotals(editmode) {
-        if (editmode) {
-            $('#trEditOrderTotals').show();
-            $('#btnEditOrderTotals').hide();
-            $('#btnSaveOrderTotals').show();
-            $('#btnCancelOrderTotals').show();
-        } else {
-            $('#trEditOrderTotals').hide();
-            $('#btnEditOrderTotals').show();
-            $('#btnSaveOrderTotals').hide();
-            $('#btnCancelOrderTotals').hide();
-        }
-    }
-
-    
-</script>
-<script>
-    $(function(){
-       $('#cancelorder').attr("data-toggle", "modal").attr("data-target", "#cancelorder-action-confirmation");
 
         $("#OrderShippingPrice").TouchSpin({
             min: 0,
@@ -794,9 +827,53 @@
             postfix: ""
         });
 
+       $('#cancelorder').attr("data-toggle", "modal").attr("data-target", "#cancelorder-action-confirmation");
     });
-</script>
 
+    function toggleChangeOrderStatus(editmode) {
+        if (editmode) {
+            $('#pnlChangeOrderStatus').show();
+            $('#btnChangeOrderStatus').hide();
+        } else {
+            $('#pnlChangeOrderStatus').hide();
+            $('#btnChangeOrderStatus').show();
+        }
+    }
+
+    function toggleChangePaymentStatus(editmode) {
+        if (editmode) {
+            $('#pnlChangePaymentStatus').show();
+            $('#btnChangePaymentStatus').hide();
+        } else {
+            $('#pnlChangePaymentStatus').hide();
+            $('#btnChangePaymentStatus').show();
+        }
+    }
+
+    function toggleChangeShippingStatus(editmode) {
+        if (editmode) {
+            $('#pnlChangeShippingStatus').show();
+            $('#btnChangeShippingStatus').hide();
+        } else {
+            $('#pnlChangeShippingStatus').hide();
+            $('#btnChangeShippingStatus').show();
+        }
+    }
+
+    function toggleOrderTotals(editmode) {
+        if (editmode) {
+            $('#trEditOrderTotals').show();
+            $('#btnEditOrderTotals').hide();
+            $('#btnSaveOrderTotals').show();
+            $('#btnCancelOrderTotals').show();
+        } else {
+            $('#trEditOrderTotals').hide();
+            $('#btnEditOrderTotals').show();
+            $('#btnSaveOrderTotals').hide();
+            $('#btnCancelOrderTotals').hide();
+        }
+    }
+</script>
 
 <script type="text/javascript">
     function toggleOrderItemEdit4(editMode) {
@@ -818,34 +895,6 @@
             $('#btnDeleteOrderItem4').show();
             $('#btnSaveOrderItem4').hide();
             $('#btnCancelOrderItem4').hide();
-        }
-    }
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('#btnDeleteOrderItem4').attr("data-toggle", "modal").attr("data-target", "#btnDeleteOrderItem4-action-confirmation");
-        $('#btnDeleteOrderItem4-action-confirmation-submit-button').attr("name", $("#btnDeleteOrderItem4").attr("name"));
-        $("#btnDeleteOrderItem4").attr("name", "")
-        if ($("#btnDeleteOrderItem4").attr("type") == "submit") $("#btnDeleteOrderItem4").attr("type", "button")
-
-        $('#btnSaveOrderItem4').attr("data-toggle", "modal").attr("data-target", "#btnSaveOrderItem4-action-confirmation");
-        $('#btnSaveOrderItem4-action-confirmation-submit-button').attr("name", $("#btnSaveOrderItem4").attr("name"));
-        $("#btnSaveOrderItem4").attr("name", "")
-        if ($("#btnSaveOrderItem4").attr("type") == "submit") $("#btnSaveOrderItem4").attr("type", "button")
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("#AddOrderNoteHasDownload").change(toggleAddOrderNoteHasDownload);
-        toggleAddOrderNoteHasDownload();
-    });
-
-    function toggleAddOrderNoteHasDownload() {
-        if ($('#AddOrderNoteHasDownload').is(':checked')) {
-            $('#pnlAddOrderNoteDownloadId').show();
-        } else {
-            $('#pnlAddOrderNoteDownloadId').hide();
         }
     }
 </script>
