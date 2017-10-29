@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\BookAddress;
 use Validator;
 use DB;
 
@@ -198,5 +199,72 @@ class OrdersController extends Controller
         $order->save();
         
         return view('admin/orders/show',compact('order'));
+    }
+
+    public function UpdateBillingAddress(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => 'required',
+            'address1' => 'required',
+            'city' => 'required',
+            'emai' => 'email'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        $order = Order::find($id);
+        $this->UpdateAddress($request, $order->billing_address_id);
+        $tab = 2;
+        return view('admin/orders/show',compact('order', 'tab'));
+    }
+
+    public function UpdateShippingAddress(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => 'required',
+            'address1' => 'required',
+            'city' => 'required',
+            'emai' => 'email'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        $order = Order::find($id);
+        $this->UpdateAddress($request, $order->shipping_address_id);
+        $tab = 3;
+        return view('admin/orders/show',compact('order', 'tab'));
+    }
+
+    public  function UpdateAddress(Request $request, $id)
+    {
+        $address = BookAddress::find($id);
+        
+        $address->company =  $request->company??'';
+        $address->first_name=  $request->first_name??'';
+        $address->last_name=  $request->last_name??'';
+        $address->address1 =$request->address??'';
+        $address->address2 =$request->address??'';
+        $address->district = $request->district??'';
+        $address->city = $request->city??'';
+        $address->state_province =$request->state_province??'';
+        $address->country =$request->country??'';
+        $address->zipcode = $request->zipcode??'';
+        $address->phone = $request->phone??'';
+        $address->fax = $request->fax??'';
+        $address->email = $request->email??'';
+        
+        $address->save();
     }
 }

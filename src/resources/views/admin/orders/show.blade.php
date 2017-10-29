@@ -283,110 +283,180 @@
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label" for="billing_address" title="">Billing address</label>
-                                        <div class="col-md-9">
-                                            <img alt="google maps" src="data:image/gif;base64,R0lGODlhEAAQANUAAAATVm+s78cjAE+tVaq2wldzvBxase3/9gAlvS23QNPZ+QsWpMLO/gdj6HyPx3qk1r/e8MTb4ygmi84UGSQ6sUy0O////6/S+hUqqiZbyykwdOX2/UZ0ygQ2sd0YEomP2RUfgG+a6Rc7k8wuIk21UgAilvf//80qABxJsM3c88H1/xMxxSAuxUJu2//1/2KEqd3r/xY/v9waAGWF2NIoDzFguBMsoNYgL4GZ3zE3sdDl/9slGg4qy+n//zy1RNEQByH5BAAHAP8ALAAAAAAQABAAAAaXwAapMqgMjb6KMuHzNSzQqFQ6elp6MFyBsurUAhDo6XlQcVaw3pUh0kB/1plILU1FoLQnTqQwTaVjFiEULn9ScBY1BoZSHk8ZKIxRN08tJX5QJgcROjopFgJPDwgOB1EMORgUHxY7TxssCwyYUDogBBYTVjASCx8bFgcHFwC4eRYmJhsFEjYrMTwoL8CuklM7Tdna2z4yQQA7">
-                                            <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;ie=UTF8&amp;oe=UTF8&amp;geocode=&amp;q={{$order->billingaddress->address1}}+{{$order->billingaddress->district}}+{{$order->billingaddress->city}}+{{$order->billingaddress->country}}" style="margin-bottom: 10px;" target="_blank">View address on Google Maps</a>
-                                            <table class="table table-hover table-bordered" style="max-width: 400px;">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            Full name
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->last_name}} {{$order->billingaddress->first_name}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Email
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->email}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Phone
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->phone}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Fax
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->fax}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Company
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->company}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Address 1
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->address1}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Address 2
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->address2}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            City
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->city}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            State / province
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->state_province}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Zip / postal code
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->zipcode}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Country
-                                                        </td>
-                                                        <td>
-                                                            {{$order->billingaddress->country}}
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9 col-md-offset-3">
-                                            <a href="{{url('/admin/addresses/edit')}}/{{$order->billingaddress->id}}" class="btn btn-primary">Edit</a>
-                                        </div>
-                                    </div>
+                                        <form action="{{url('admin/orders')}}/{{$order->id}}/update/billingaddress" method="POST">
+                                            {{ csrf_field()}}
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="billing_address" title="">Billing address</label>
+                                                <div class="col-md-9">
+                                                    <img alt="google maps" src="data:image/gif;base64,R0lGODlhEAAQANUAAAATVm+s78cjAE+tVaq2wldzvBxase3/9gAlvS23QNPZ+QsWpMLO/gdj6HyPx3qk1r/e8MTb4ygmi84UGSQ6sUy0O////6/S+hUqqiZbyykwdOX2/UZ0ygQ2sd0YEomP2RUfgG+a6Rc7k8wuIk21UgAilvf//80qABxJsM3c88H1/xMxxSAuxUJu2//1/2KEqd3r/xY/v9waAGWF2NIoDzFguBMsoNYgL4GZ3zE3sdDl/9slGg4qy+n//zy1RNEQByH5BAAHAP8ALAAAAAAQABAAAAaXwAapMqgMjb6KMuHzNSzQqFQ6elp6MFyBsurUAhDo6XlQcVaw3pUh0kB/1plILU1FoLQnTqQwTaVjFiEULn9ScBY1BoZSHk8ZKIxRN08tJX5QJgcROjopFgJPDwgOB1EMORgUHxY7TxssCwyYUDogBBYTVjASCx8bFgcHFwC4eRYmJhsFEjYrMTwoL8CuklM7Tdna2z4yQQA7">
+                                                    <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;ie=UTF8&amp;oe=UTF8&amp;geocode=&amp;q={{$order->billingaddress->address1}}+{{$order->billingaddress->district}}+{{$order->billingaddress->city}}+{{$order->billingaddress->country}}" style="margin-bottom: 10px;" target="_blank">View address on Google Maps</a>
+                                                    <table class="table table-hover table-bordered" style="max-width: 400px;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    First Name
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->first_name}}
+                                                                </td>
+                                                                <td id="tdEditFirstName" style="display:none;">
+                                                                    <input type="text" name="first_name">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Last Name
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->last_name}}
+                                                                </td>
+                                                                <td id="tdEditLastName" style="display:none;">
+                                                                    <input type="text" name="last_name">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Email
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->email}}
+                                                                </td>
+                                                                <td id="tdEditEmail" style="display:none;">
+                                                                    <input type="text" name="email">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Phone
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->phone}}
+                                                                </td>
+                                                                <td id="tdEditPhone" style="display:none;">
+                                                                    <input type="text" name="phone">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Fax
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->fax}}
+                                                                </td>
+                                                                <td id="tdEditFax" style="display:none;">
+                                                                    <input type="text" name="fax">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Company
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->company}}
+                                                                </td>
+                                                                <td id="tdEditCompany" style="display:none;">
+                                                                    <input type="text" name="company">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Address 1
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->address1}}
+                                                                </td>
+                                                                <td id="tdEditAddress1" style="display:none;">
+                                                                    <input type="text" name="address1">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Address 2
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->address2}}
+                                                                </td>
+                                                                <td id="tdEditAddress2" style="display:none;">
+                                                                    <input type="text" name="address2">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    District
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->district}}
+                                                                </td>
+                                                                <td id="tdEditDistrict" style="display:none;">
+                                                                    <input type="text" name="district">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    City
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->city}}
+                                                                </td>
+                                                                <td id="tdEditCity" style="display:none;">
+                                                                    <input type="text" name="city">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    State / province
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->state_province}}
+                                                                </td>
+                                                                <td id="tdEditStateProvince" style="display:none;">
+                                                                    <input type="text" name="state_province">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Zip / postal code
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->zipcode}}
+                                                                </td>
+                                                                <td id="tdEditZipCode" style="display:none;">
+                                                                    <input type="text" name="zipcode">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Country
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->billingaddress->country}}
+                                                                </td>
+                                                                <td id="tdEditCountry" style="display:none;">
+                                                                    <input type="text" name="country">
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-md-offset-3">
+                                                    <div class="input-group input-group-short">
+                                                        <div class="input-group-btn">
+                                                            <button type="button" id="btnEditChangeBillingAddress" onclick="toggleChangeBillingAddress(true);return false;" class="btn btn-primary">
+                                                            Edit
+                                                            </button>
+                                                            <button type="submit" id="btnSaveChangeBillingAddress" class="btn btn-primary" style="margin-left: 3px">
+                                                            Save
+                                                            </button>
+                                                            <button type="button" id="btnCancelChangeBillingAddress" onclick="toggleChangeBillingAddress(false);return false;"  class="btn bg-teal" style="margin-left: 3px">
+                                                            Cancel
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -871,6 +941,40 @@
             $('#btnEditOrderTotals').show();
             $('#btnSaveOrderTotals').hide();
             $('#btnCancelOrderTotals').hide();
+        }
+    }
+
+
+    function toggleChangeBillingAddress(editmode) {
+        if (editmode) {
+            $('#tdEditCompany').show();
+            $('#tdEditFirstName').show();
+            $('#tdEditLastName').show();
+            $('#tdEditPhone').show();
+            $('#tdEditFax').show();
+            $('#tdEditEmail').show();
+            $('#tdEditAddress1').show();
+            $('#tdEditAddress2').show();
+            $('#tdEditDistrict').show();
+            $('#tdEditCity').show();
+            $('#tdEditStateProvince').show();
+            $('#tdEditCountry').show();
+            $('#tdEditZipCode').show();
+            
+        } else {
+            $('#tdEditCompany').hide();
+            $('#tdEditFirstName').hide();
+            $('#tdEditLastName').hide();
+            $('#tdEditPhone').hide();
+            $('#tdEditFax').hide();
+            $('#tdEditEmail').hide();
+            $('#tdEditAddress1').hide();
+            $('#tdEditAddress2').hide();
+            $('#tdEditDistrict').hide();
+            $('#tdEditCity').hide();
+            $('#tdEditStateProvince').hide();
+            $('#tdEditCountry').hide();
+            $('#tdEditZipCode').hide();
         }
     }
 </script>

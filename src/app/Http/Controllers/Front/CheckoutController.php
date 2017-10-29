@@ -48,7 +48,8 @@ class CheckoutController extends Controller
             'last_name' => 'required',
             'phone' => 'required',
             'address1' => 'required',
-            'city' => 'required'
+            'city' => 'required',
+            'emai' => 'email'
         ]);
 
         if ($validator->fails()) {
@@ -84,7 +85,8 @@ class CheckoutController extends Controller
             'last_name' => 'required',
             'phone' => 'required',
             'address1' => 'required',
-            'city' => 'required'
+            'city' => 'required',
+            'emai' => 'email'
         ]);
 
         if ($validator->fails()) {
