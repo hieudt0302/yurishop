@@ -104,17 +104,16 @@
                                                         @endforeach
 
                                                         <!-- Old Data -->
-                                                        @if (is_array(old('tagIds')))
-                                                            @php($selected = true)
+                                                        @if (is_array(old('tagIds')))                                                            
                                                             @foreach(old('tagIds') as $id)
+                                                                @php($selected = true)
                                                                 @foreach($tags as $key =>$tag)
                                                                     @if($id == $tag->id)
                                                                         @php($selected = false)
                                                                     @endif
                                                                 @endforeach
-                                                                @if($selected)
-                                                                    <option value="{{$id}}" selected>{{$id}}</option>
-                                                                @endif
+                                                                
+                                                                <option value="{{$id}}" {{$selected?'selected':''}}>{{$id}}</option>
                                                             @endforeach
                                                         @endif
                                                     </select>
