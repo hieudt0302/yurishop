@@ -216,7 +216,7 @@
                                                             <div id="pnlChangePaymentStatus" style="margin-top: 3px; display: none;">
                                                                 <select class="form-control valid" id="PaymentStatusId" name="payment_status" style="max-width: 160px">
                                                                     @foreach(\Lang::get('status.payment') as $key =>$value)
-                                                                        @if($orders->payment_status === $key)
+                                                                        @if($order->payment_status === $key)
                                                                             <option value="{{$key}}" selected="selected">{{$value}}</option>
                                                                         @else 
                                                                             <option value="{{$key}}">{{$value}}</option>
@@ -254,7 +254,7 @@
                                                             <div id="pnlChangeShippingStatus" style="margin-top: 3px; display: none;">
                                                                 <select class="form-control valid" id="ShippingStatusId" name="shipping_status" style="max-width: 160px">
                                                                     @foreach(\Lang::get('status.shipping') as $key =>$value)
-                                                                        @if($orders->shipping_status === $key)
+                                                                        @if($order->shipping_status === $key)
                                                                             <option value="{{$key}}" selected="selected">{{$value}}</option>
                                                                         @else 
                                                                             <option value="{{$key}}">{{$value}}</option>
