@@ -41,8 +41,10 @@ class PostsController extends Controller
     {      
         $languages = Language::all();
         $blogCategory = Category::where('slug','posts')->firstOrFail();
-        $categories = Category::where('parent_id',$blogCategory->id)->get();              
-        return View('admin.posts.create',compact('languages','categories'));
+        $categories = Category::where('parent_id',$blogCategory->id)->get();     
+        
+        $tags = Tag::all();
+        return View('admin.posts.create',compact('languages','categories','tags'));
     }
 
     /**
@@ -131,7 +133,8 @@ class PostsController extends Controller
             $translation = PostTranslation::where('post_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->first();
             $tab= 2;
         }
-        return View('admin.posts.edit',compact('post','languages','categories', 'translation','tab', 'language_id'));
+        $tags = Tag::all();
+        return View('admin.posts.edit',compact('post','languages','categories', 'translation','tab', 'language_id','tags'));
     }
 
     /**

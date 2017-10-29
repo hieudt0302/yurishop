@@ -80,6 +80,23 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label for="tags" class="col-md-3 control-label">Tags</label>
+                                                <div class="col-md-4">
+                                                    <select id="tags" multiple name="tagIds[]" class="form-control select2" style="width: 100%;">
+                                                        <!-- Tags  -->
+                                                        @foreach($tags as $key =>$tag)
+                                                            @php($selected = false)
+                                                            @foreach($product->tags as $t)
+                                                                @if($t->id == $tag->id)
+                                                                    @php($selected = true)
+                                                                @endif
+                                                            @endforeach
+                                                            <option value="{{$tag->id}}" {{$selected?'selected':''}}>{{$tag->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>   
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Ảnh đại diện</label>
                                                 <div class="col-md-4">
                                                     <input class="single-line valid" type="file" name="img"/>
@@ -194,6 +211,10 @@
     });
 
     $('.select2').select2();
+    $('#tags').select2({
+        tags: true,
+        tokenSeparators: [',']
+    });
    
     // TAB: CONTENT
     $('#language-select').on('change', function() {

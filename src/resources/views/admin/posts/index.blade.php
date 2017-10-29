@@ -44,7 +44,7 @@
                         <tbody>
                             @foreach($posts as $key => $post)
                             <tr>
-                                <td>{{$key}}</td>
+                                <td>{{$key++}}</td>
                                 <td>{{$post->title}}</td>
                                 <td>{{$post->slug}}</td>
                                 <td>
