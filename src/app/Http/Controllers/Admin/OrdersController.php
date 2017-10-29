@@ -221,7 +221,9 @@ class OrdersController extends Controller
         $order = Order::find($id);
         $this->UpdateAddress($request, $order->billing_address_id);
         $tab = 2;
-        return view('admin/orders/show',compact('order', 'tab'));
+        return view('admin/orders/show',compact('order', 'tab'))
+        ->with('message', 'Cập nhật địa chỉ thanh toán của khách hàng thành công!')
+        ->with('status', 'success');
     }
 
     public function UpdateShippingAddress(Request $request, $id)
@@ -244,7 +246,9 @@ class OrdersController extends Controller
         $order = Order::find($id);
         $this->UpdateAddress($request, $order->shipping_address_id);
         $tab = 3;
-        return view('admin/orders/show',compact('order', 'tab'));
+        return view('admin/orders/show',compact('order', 'tab'))
+        ->with('message', 'Cập nhật địa chỉ vận chuyển của khách hàng thành công!')
+        ->with('status', 'success');
     }
 
     public  function UpdateAddress(Request $request, $id)
@@ -254,8 +258,8 @@ class OrdersController extends Controller
         $address->company =  $request->company??'';
         $address->first_name=  $request->first_name??'';
         $address->last_name=  $request->last_name??'';
-        $address->address1 =$request->address??'';
-        $address->address2 =$request->address??'';
+        $address->address1 =$request->address1??'';
+        $address->address2 =$request->address2??'';
         $address->district = $request->district??'';
         $address->city = $request->city??'';
         $address->state_province =$request->state_province??'';
@@ -264,7 +268,7 @@ class OrdersController extends Controller
         $address->phone = $request->phone??'';
         $address->fax = $request->fax??'';
         $address->email = $request->email??'';
-        
+
         $address->save();
     }
 }

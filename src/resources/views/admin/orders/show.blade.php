@@ -299,7 +299,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->first_name}}
                                                                 </td>
-                                                                <td id="tdEditFirstName" style="display:none;">
+                                                                <td id="tdEditBillingFirstName" style="display:none;">
                                                                     <input type="text" name="first_name">
                                                                 </td>
                                                             </tr>
@@ -310,7 +310,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->last_name}}
                                                                 </td>
-                                                                <td id="tdEditLastName" style="display:none;">
+                                                                <td id="tdEditBillingLastName" style="display:none;">
                                                                     <input type="text" name="last_name">
                                                                 </td>
                                                             </tr>
@@ -321,7 +321,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->email}}
                                                                 </td>
-                                                                <td id="tdEditEmail" style="display:none;">
+                                                                <td id="tdEditBillingEmail" style="display:none;">
                                                                     <input type="text" name="email">
                                                                 </td>
                                                             </tr>
@@ -332,7 +332,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->phone}}
                                                                 </td>
-                                                                <td id="tdEditPhone" style="display:none;">
+                                                                <td id="tdEditBillingPhone" style="display:none;">
                                                                     <input type="text" name="phone">
                                                                 </td>
                                                             </tr>
@@ -343,7 +343,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->fax}}
                                                                 </td>
-                                                                <td id="tdEditFax" style="display:none;">
+                                                                <td id="tdEditBillingFax" style="display:none;">
                                                                     <input type="text" name="fax">
                                                                 </td>
                                                             </tr>
@@ -354,7 +354,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->company}}
                                                                 </td>
-                                                                <td id="tdEditCompany" style="display:none;">
+                                                                <td id="tdEditBillingCompany" style="display:none;">
                                                                     <input type="text" name="company">
                                                                 </td>
                                                             </tr>
@@ -365,7 +365,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->address1}}
                                                                 </td>
-                                                                <td id="tdEditAddress1" style="display:none;">
+                                                                <td id="tdEditBillingAddress1" style="display:none;">
                                                                     <input type="text" name="address1">
                                                                 </td>
                                                             </tr>
@@ -376,7 +376,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->address2}}
                                                                 </td>
-                                                                <td id="tdEditAddress2" style="display:none;">
+                                                                <td id="tdEditBillingAddress2" style="display:none;">
                                                                     <input type="text" name="address2">
                                                                 </td>
                                                             </tr>
@@ -387,7 +387,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->district}}
                                                                 </td>
-                                                                <td id="tdEditDistrict" style="display:none;">
+                                                                <td id="tdEditBillingDistrict" style="display:none;">
                                                                     <input type="text" name="district">
                                                                 </td>
                                                             </tr>
@@ -398,7 +398,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->city}}
                                                                 </td>
-                                                                <td id="tdEditCity" style="display:none;">
+                                                                <td id="tdEditBillingCity" style="display:none;">
                                                                     <input type="text" name="city">
                                                                 </td>
                                                             </tr>
@@ -409,7 +409,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->state_province}}
                                                                 </td>
-                                                                <td id="tdEditStateProvince" style="display:none;">
+                                                                <td id="tdEditBillingStateProvince" style="display:none;">
                                                                     <input type="text" name="state_province">
                                                                 </td>
                                                             </tr>
@@ -420,7 +420,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->zipcode}}
                                                                 </td>
-                                                                <td id="tdEditZipCode" style="display:none;">
+                                                                <td id="tdEditBillingZipCode" style="display:none;">
                                                                     <input type="text" name="zipcode">
                                                                 </td>
                                                             </tr>
@@ -431,7 +431,7 @@
                                                                 <td>
                                                                     {{$order->billingaddress->country}}
                                                                 </td>
-                                                                <td id="tdEditCountry" style="display:none;">
+                                                                <td id="tdEditBillingCountry" style="display:none;">
                                                                     <input type="text" name="country">
                                                                 </td>
                                                             </tr>
@@ -467,110 +467,180 @@
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label" for="billing_address" title="">Shipping address</label>
-                                        <div class="col-md-9">
-                                            <img alt="google maps" src="data:image/gif;base64,R0lGODlhEAAQANUAAAATVm+s78cjAE+tVaq2wldzvBxase3/9gAlvS23QNPZ+QsWpMLO/gdj6HyPx3qk1r/e8MTb4ygmi84UGSQ6sUy0O////6/S+hUqqiZbyykwdOX2/UZ0ygQ2sd0YEomP2RUfgG+a6Rc7k8wuIk21UgAilvf//80qABxJsM3c88H1/xMxxSAuxUJu2//1/2KEqd3r/xY/v9waAGWF2NIoDzFguBMsoNYgL4GZ3zE3sdDl/9slGg4qy+n//zy1RNEQByH5BAAHAP8ALAAAAAAQABAAAAaXwAapMqgMjb6KMuHzNSzQqFQ6elp6MFyBsurUAhDo6XlQcVaw3pUh0kB/1plILU1FoLQnTqQwTaVjFiEULn9ScBY1BoZSHk8ZKIxRN08tJX5QJgcROjopFgJPDwgOB1EMORgUHxY7TxssCwyYUDogBBYTVjASCx8bFgcHFwC4eRYmJhsFEjYrMTwoL8CuklM7Tdna2z4yQQA7">
-                                            <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;ie=UTF8&amp;oe=UTF8&amp;geocode=&amp;q={{$order->shippingaddress->address1}}+{{$order->shippingaddress->district}}+{{$order->shippingaddress->city}}+{{$order->shippingaddress->country}}" style="margin-bottom: 10px;" target="_blank">View address on Google Maps</a>
-                                            <table class="table table-hover table-bordered" style="max-width: 400px;">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            Full name
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->last_name}} {{$order->shippingaddress->first_name}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Email
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->email}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Phone
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->phone}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Fax
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->fax}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Company
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->company}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Address 1
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->address1}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Address 2
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->address2}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            City
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->city}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            State / province
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->state_province}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Zip / postal code
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->zipcode}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            Country
-                                                        </td>
-                                                        <td>
-                                                            {{$order->shippingaddress->country}}
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9 col-md-offset-3">
-                                            <a href="{{url('/admin/addresses/edit')}}/{{$order->shippingaddress->id}}" class="btn btn-primary">Edit</a>
-                                        </div>
-                                    </div>
+                                        <form action="{{url('admin/orders')}}/{{$order->id}}/update/shippingaddress" method="POST">
+                                            {{ csrf_field()}}
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="shipping_address" title="">Shipping address</label>
+                                                <div class="col-md-9">
+                                                    <img alt="google maps" src="data:image/gif;base64,R0lGODlhEAAQANUAAAATVm+s78cjAE+tVaq2wldzvBxase3/9gAlvS23QNPZ+QsWpMLO/gdj6HyPx3qk1r/e8MTb4ygmi84UGSQ6sUy0O////6/S+hUqqiZbyykwdOX2/UZ0ygQ2sd0YEomP2RUfgG+a6Rc7k8wuIk21UgAilvf//80qABxJsM3c88H1/xMxxSAuxUJu2//1/2KEqd3r/xY/v9waAGWF2NIoDzFguBMsoNYgL4GZ3zE3sdDl/9slGg4qy+n//zy1RNEQByH5BAAHAP8ALAAAAAAQABAAAAaXwAapMqgMjb6KMuHzNSzQqFQ6elp6MFyBsurUAhDo6XlQcVaw3pUh0kB/1plILU1FoLQnTqQwTaVjFiEULn9ScBY1BoZSHk8ZKIxRN08tJX5QJgcROjopFgJPDwgOB1EMORgUHxY7TxssCwyYUDogBBYTVjASCx8bFgcHFwC4eRYmJhsFEjYrMTwoL8CuklM7Tdna2z4yQQA7">
+                                                    <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;ie=UTF8&amp;oe=UTF8&amp;geocode=&amp;q={{$order->shippingaddress->address1}}+{{$order->shippingaddress->district}}+{{$order->shippingaddress->city}}+{{$order->shippingaddress->country}}" style="margin-bottom: 10px;" target="_blank">View address on Google Maps</a>
+                                                    <table class="table table-hover table-bordered" style="max-width: 600px;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    First Name
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->first_name}}
+                                                                </td>
+                                                                <td id="tdEditShippingFirstName" style="display:none;">
+                                                                    <input type="text" name="first_name">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Last Name
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->last_name}}
+                                                                </td>
+                                                                <td id="tdEditShippingLastName" style="display:none;">
+                                                                    <input type="text" name="last_name">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Email
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->email}}
+                                                                </td>
+                                                                <td id="tdEditShippingEmail" style="display:none;">
+                                                                    <input type="text" name="email">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Phone
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->phone}}
+                                                                </td>
+                                                                <td id="tdEditShippingPhone" style="display:none;">
+                                                                    <input type="text" name="phone">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Fax
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->fax}}
+                                                                </td>
+                                                                <td id="tdEditShippingFax" style="display:none;">
+                                                                    <input type="text" name="fax">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Company
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->company}}
+                                                                </td>
+                                                                <td id="tdEditShippingCompany" style="display:none;">
+                                                                    <input type="text" name="company">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Address 1
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->address1}}
+                                                                </td>
+                                                                <td id="tdEditShippingAddress1" style="display:none;">
+                                                                    <input type="text" name="address1">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Address 2
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->address2}}
+                                                                </td>
+                                                                <td id="tdEditShippingAddress2" style="display:none;">
+                                                                    <input type="text" name="address2">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    District
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->district}}
+                                                                </td>
+                                                                <td id="tdEditShippingDistrict" style="display:none;">
+                                                                    <input type="text" name="district">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    City
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->city}}
+                                                                </td>
+                                                                <td id="tdEditShippingCity" style="display:none;">
+                                                                    <input type="text" name="city">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    State / province
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->state_province}}
+                                                                </td>
+                                                                <td id="tdEditShippingStateProvince" style="display:none;">
+                                                                    <input type="text" name="state_province">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Zip / postal code
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->zipcode}}
+                                                                </td>
+                                                                <td id="tdEditShippingZipCode" style="display:none;">
+                                                                    <input type="text" name="zipcode">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Country
+                                                                </td>
+                                                                <td>
+                                                                    {{$order->shippingaddress->country}}
+                                                                </td>
+                                                                <td id="tdEditShippingCountry" style="display:none;">
+                                                                    <input type="text" name="country">
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-md-offset-3">
+                                                    <div class="input-group input-group-short">
+                                                        <div class="input-group-btn">
+                                                            <button type="button" id="btnEditChangeShippingAddress" onclick="toggleChangeShippingAddress(true);return false;" class="btn btn-primary">
+                                                            Edit
+                                                            </button>
+                                                            <button type="submit" id="btnSaveChangeShippingAddress" class="btn btn-primary" style="margin-left: 3px; display: none;">
+                                                            Save
+                                                            </button>
+                                                            <button type="button" id="btnCancelChangeShippingAddress" onclick="toggleChangeShippingAddress(false);return false;"  class="btn bg-teal" style="margin-left: 3px; display: none;">
+                                                            Cancel
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -879,6 +949,7 @@
         toggleChangeShippingStatus(false);
         toggleOrderTotals(false);
         toggleChangeBillingAddress(false);
+        toggleChangeShippingAddress(false);
 
         $("#OrderShippingPrice").TouchSpin({
             min: 0,
@@ -948,19 +1019,19 @@
 
     function toggleChangeBillingAddress(editmode) {
         if (editmode) {
-            $('#tdEditCompany').show();
-            $('#tdEditFirstName').show();
-            $('#tdEditLastName').show();
-            $('#tdEditPhone').show();
-            $('#tdEditFax').show();
-            $('#tdEditEmail').show();
-            $('#tdEditAddress1').show();
-            $('#tdEditAddress2').show();
-            $('#tdEditDistrict').show();
-            $('#tdEditCity').show();
-            $('#tdEditStateProvince').show();
-            $('#tdEditCountry').show();
-            $('#tdEditZipCode').show();
+            $('#tdEditBillingCompany').show();
+            $('#tdEditBillingFirstName').show();
+            $('#tdEditBillingLastName').show();
+            $('#tdEditBillingPhone').show();
+            $('#tdEditBillingFax').show();
+            $('#tdEditBillingEmail').show();
+            $('#tdEditBillingAddress1').show();
+            $('#tdEditBillingAddress2').show();
+            $('#tdEditBillingDistrict').show();
+            $('#tdEditBillingCity').show();
+            $('#tdEditBillingStateProvince').show();
+            $('#tdEditBillingCountry').show();
+            $('#tdEditBillingZipCode').show();
 
             $('#btnEditChangeBillingAddress').hide();
 
@@ -968,24 +1039,66 @@
             $('#btnCancelChangeBillingAddress').show();
             
         } else {
-            $('#tdEditCompany').hide();
-            $('#tdEditFirstName').hide();
-            $('#tdEditLastName').hide();
-            $('#tdEditPhone').hide();
-            $('#tdEditFax').hide();
-            $('#tdEditEmail').hide();
-            $('#tdEditAddress1').hide();
-            $('#tdEditAddress2').hide();
-            $('#tdEditDistrict').hide();
-            $('#tdEditCity').hide();
-            $('#tdEditStateProvince').hide();
-            $('#tdEditCountry').hide();
-            $('#tdEditZipCode').hide();
+            $('#tdEditBillingCompany').hide();
+            $('#tdEditBillingFirstName').hide();
+            $('#tdEditBillingLastName').hide();
+            $('#tdEditBillingPhone').hide();
+            $('#tdEditBillingFax').hide();
+            $('#tdEditBillingEmail').hide();
+            $('#tdEditBillingAddress1').hide();
+            $('#tdEditBillingAddress2').hide();
+            $('#tdEditBillingDistrict').hide();
+            $('#tdEditBillingCity').hide();
+            $('#tdEditBillingStateProvince').hide();
+            $('#tdEditBillingCountry').hide();
+            $('#tdEditBillingZipCode').hide();
 
             $('#btnEditChangeBillingAddress').show();
 
             $('#btnSaveChangeBillingAddress').hide();
             $('#btnCancelChangeBillingAddress').hide();
+        }
+    }
+    function toggleChangeShippingAddress(editmode) {
+        if (editmode) {
+            $('#tdEditShippingCompany').show();
+            $('#tdEditShippingFirstName').show();
+            $('#tdEditShippingLastName').show();
+            $('#tdEditShippingPhone').show();
+            $('#tdEditShippingFax').show();
+            $('#tdEditShippingEmail').show();
+            $('#tdEditShippingAddress1').show();
+            $('#tdEditShippingAddress2').show();
+            $('#tdEditShippingDistrict').show();
+            $('#tdEditShippingCity').show();
+            $('#tdEditShippingStateProvince').show();
+            $('#tdEditShippingCountry').show();
+            $('#tdEditShippingZipCode').show();
+
+            $('#btnEditChangeShippingAddress').hide();
+
+            $('#btnSaveChangeShippingAddress').show();
+            $('#btnCancelChangeShippingAddress').show();
+            
+        } else {
+            $('#tdEditShippingCompany').hide();
+            $('#tdEditShippingFirstName').hide();
+            $('#tdEditShippingLastName').hide();
+            $('#tdEditShippingPhone').hide();
+            $('#tdEditShippingFax').hide();
+            $('#tdEditShippingEmail').hide();
+            $('#tdEditShippingAddress1').hide();
+            $('#tdEditShippingAddress2').hide();
+            $('#tdEditShippingDistrict').hide();
+            $('#tdEditShippingCity').hide();
+            $('#tdEditShippingStateProvince').hide();
+            $('#tdEditShippingCountry').hide();
+            $('#tdEditShippingZipCode').hide();
+
+            $('#btnEditChangeShippingAddress').show();
+
+            $('#btnSaveChangeShippingAddress').hide();
+            $('#btnCancelChangeShippingAddress').hide();
         }
     }
 </script>
