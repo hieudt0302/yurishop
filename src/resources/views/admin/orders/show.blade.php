@@ -34,7 +34,7 @@
                         <li><a href="#billing_address" data-toggle="tab">Billing Address</a></li>
                         <li><a href="#shipping_address" data-toggle="tab">Shipping Address</a></li>
                         <li><a href="#products" data-toggle="tab">Product(s)</a></li>
-                        <li><a href="#order_notes" data-toggle="tab">Order Note(s)</a></li>
+                        <!-- <li><a href="#order_notes" data-toggle="tab">Order Note(s)</a></li> -->
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
@@ -775,7 +775,7 @@
                             </div>
                         </div>
                         <!-- ORDER NOTE(s) TAB -->
-                        <div class="tab-pane" id="order_notes">
+                        <!-- <div class="tab-pane" id="order_notes">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
@@ -853,7 +853,7 @@
                                     </div>
                                 </div>
                             </div>                        
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
