@@ -150,7 +150,7 @@
                     </table>
                 </div>
                 <div class="box-footer clearfix">
-                    {{ $products->links('vendor.pagination.admin',['from_date'=> old('from_date'), 'to_date'=> old('to_date'), 'product_name'=> old('product_name'),'sku'=> old('sku'), 'category_id'=> old('category_id')]) }}
+                    {{ $products->links('vendor.pagination.admin',[]) }}
                 </div>
             </div>
         </div>
