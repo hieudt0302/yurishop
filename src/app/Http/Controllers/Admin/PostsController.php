@@ -29,7 +29,7 @@ class PostsController extends Controller
         $posts = Post::paginate(21);
 
         return View('admin.posts.index',compact('posts'))
-        ->with('i', ($request->input('page', 1) - 1) * 21);;
+        ->with('i', (Input::get('page', 1) - 1) * 21);;
     }
 
     /**
