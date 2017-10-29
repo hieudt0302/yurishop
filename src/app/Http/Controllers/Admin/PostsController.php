@@ -77,18 +77,13 @@ class PostsController extends Controller
         $post->author_id = Auth::user()->id;
         $post->published = $request->published??0;
 
-        $post->img = '' ;
 
-        if ($request->hasFile('img')) {
-
-            $image = $request->file('img');
-            $img_path = $image->storeAs('images/blog',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(370, 230)->encode();
-            Storage::put($img_path, $img);                     
-            $post->img = $image->getClientOriginalName();
-            $img_path = $image->storeAs('images/blog/preview',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(80, 100)->encode();
-            Storage::put($img_path, $img);                         
+        $post->img = '';
+        if (request()->hasFile('img')) {
+            $path = $request->file('img')->store('images/blog');                            
+            $fitImage = Image::make(Storage::get($path))->fit(370, 230)->encode();
+            Storage::put($path, $fitImage); 
+            $post->img= $path;
         }
 
         $post->save();            
@@ -168,16 +163,12 @@ class PostsController extends Controller
         $post->author_id = Auth::user()->id;
         $post->published = $request->published??0;
         
+        $post->img = '';
         if (request()->hasFile('img')) {
-            $image = $request->file('img');
-            $img_path = $image->storeAs('images/blog',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(370, 230)->encode();
-            Storage::put($img_path, $img);                     
-            $post->img = $image->getClientOriginalName();
-
-            $img_path = $image->storeAs('images/blog/preview',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(80, 100)->encode();
-            Storage::put($img_path, $img);                         
+            $path = $request->file('img')->store('images/blog');                            
+            $fitImage = Image::make(Storage::get($path))->fit(370, 230)->encode();
+            Storage::put($path, $fitImage); 
+            $post->img= $path;
         }
 
         $post->save();
