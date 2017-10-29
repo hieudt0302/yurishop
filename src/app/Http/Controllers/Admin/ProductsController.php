@@ -135,7 +135,7 @@ class ProductsController extends Controller
         $product->save();  //Get taggable_id first. It is product_id
 
         /* Make new tags */
-        SelectTags($product, $request->tagIds);
+        $this->SelectTags($product, $request->tagIds);
         
         return redirect()->action(
             'Admin\ProductsController@edit', ['id' => $product->id]
@@ -251,7 +251,7 @@ class ProductsController extends Controller
         $product->save();
 
         /* Make new tags */
-        SelectTags($product, $request->tagIds);
+        $this->SelectTags($product, $request->tagIds);
 
 
         return redirect()->back()
