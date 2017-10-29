@@ -395,7 +395,8 @@
         $('.select2').select2();
         $('#tags').select2({
             tags: true,
-            tokenSeparators: [',']
+            tokenSeparators: [','],
+            noResults: 'Hãy tạo mới...'
         });
     
 
