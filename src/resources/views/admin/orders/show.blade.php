@@ -700,7 +700,7 @@
                                                     <form action="{{url('admin/orders')}}" method="post">
                                                         <tr>
                                                             <td >
-                                                                @if(strlen($order->GetMediaByOrderAsc->source)> 0)
+                                                                @if(!empty($detail->product->GetMediaByOrderAsc->source))
                                                                 <img src="{{asset('/storage')}}/{{$order->GetMediaByOrderAsc->source}}" alt="{{$order->name}}" title="{{$order->name}}" style="width: 120px;">
                                                                 @else 
                                                                 <img src="{{asset('/images/no-image.png')}}" alt="{{$order->name}}" title="{{$order->name}}"  style="width: 120px;">
