@@ -114,11 +114,11 @@ class OrdersController extends Controller
         
         if (strlen($order_start_date) > 0) {
             $start = date('Y-m-d'.' 00:00:00', strtotime($order_start_date));
-            $query->where('orders.order_date', '>=', $start);
+            $query->where('orders.order_start_date', '>=', $start);
         }
         if (strlen($order_end_date) > 0) {
             $end = date('Y-m-d'.' 23:59:59', strtotime($order_end_date));
-            $query->where('orders.order_date', '<=', $end);
+            $query->where('orders.order_end_date', '<=', $end);
         }
 
         if (strlen($customer_name) > 0) {
@@ -132,16 +132,16 @@ class OrdersController extends Controller
             $query->where('book_addresses.email', '<=', $billing_email);
         }
 
-        if (count($request->orders_status) > 0) {
-            $query->whereIn('order_status', $request->orders_status);
+        if (count($orders_status) > 0) {
+            $query->whereIn('order_status', $orders_status);
         }
 
-        if (count($request->payments_status) > 0) {
-            $query->whereIn('payment_status', $request->payments_status);
+        if (count($payments_status) > 0) {
+            $query->whereIn('payment_status', $payments_status);
         }
 
-        if (count($request->shippings_status) > 0) {
-            $query->whereIn('shipping_status', $request->shippings_status);
+        if (count($shippings_statuss) > 0) {
+            $query->whereIn('shipping_status', $shippings_status);
         }
 
         if (strlen($order_no) > 0) {
@@ -150,7 +150,7 @@ class OrdersController extends Controller
 
 
         $orders = $query->paginate(2);
-        $request->flashOnly(['order_start_date', 'order_end_dateend_date', 'customer_name', 'billing_email', 'order_no','orders_status','shippings_status','payments_status']);
+        $request->flashOnly(['order_start_date', 'order_end_date', 'customer_name', 'billing_email', 'order_no','orders_status','shippings_status','payments_status']);
 
         return View('admin.orders.index', compact('orders'))
         ->with('i', ($request->input('page', 1) - 1) * 2);

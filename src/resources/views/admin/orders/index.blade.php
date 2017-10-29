@@ -56,13 +56,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="order_status" class="col-sm-2 control-label">Order Status</label>
+                            <label for="orders_status" class="col-sm-2 control-label">Order Status</label>
                             <div class="col-sm-8">
-                                <select id="order_status" multiple name="orders_status[]" class="form-control select2" style="width: 100%;">
+                                <select id="orders_status" multiple name="orders_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.order') as $key =>$value)
                                         @php($selected = false)
-                                        @if (is_array(old('order_status')))
-                                            @foreach(old('order_status') as $id)
+                                        @if (is_array(old('orders_status')))
+                                            @foreach(old('orders_status') as $id)
                                                 @if($id == $key)
                                                     @php($selected = true)
                                                 @endif
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="payment_status" class="col-sm-2 control-label">Payment Status</label>
+                            <label for="payments_status" class="col-sm-2 control-label">Payment Status</label>
                             <div class="col-sm-8">
                                 <select id="payment_status" multiple name="payments_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.payment') as $key =>$value)
@@ -84,9 +84,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="shipping_status" class="col-sm-2 control-label">Shipping Status</label>
+                            <label for="shippings_status" class="col-sm-2 control-label">Shipping Status</label>
                             <div class="col-sm-8">
-                                <select id="shipping_status" multiple name="shippings_status[]" class="form-control select2" style="width: 100%;">
+                                <select id="shippings_status" multiple name="shippings_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.shipping') as $key =>$value)
                                     <option value="{{$key}}">{{$value}}</option>
                                     @endforeach
