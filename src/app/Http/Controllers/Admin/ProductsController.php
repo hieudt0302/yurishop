@@ -153,9 +153,11 @@ class ProductsController extends Controller
             } 
         }
 
-        dd($tagIds);
-        $product->save();  
+        $tags = Tag::whereIn('id',$tagIds)->get();
+        $product->tags()->sync(tags);
 
+        $product->save();  
+dd($produt->tags);
         return redirect()->action(
             'Admin\ProductsController@edit', ['id' => $product->id]
         );
