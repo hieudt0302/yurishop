@@ -78,7 +78,15 @@
                             <div class="col-sm-8">
                                 <select id="payments_status" multiple name="payments_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.payment') as $key =>$value)
-                                    <option value="{{$key}}" >{{$value}}</option>
+                                        @php($selected = false)
+                                        @if (is_array(old('payments_status')))
+                                            @foreach(old('payments_status') as $id)
+                                                @if($id == $key)
+                                                    @php($selected = true)
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                        <option value="{{$key}}" {{$selected?'selected':''}}>{{$value}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -88,7 +96,15 @@
                             <div class="col-sm-8">
                                 <select id="shippings_status" multiple name="shippings_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.shipping') as $key =>$value)
-                                    <option value="{{$key}}">{{$value}}</option>
+                                        @php($selected = false)
+                                        @if (is_array(old('shippings_status')))
+                                            @foreach(old('shippings_status') as $id)
+                                                @if($id == $key)
+                                                    @php($selected = true)
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                        <option value="{{$key}}" {{$selected?'selected':''}}>{{$value}}</option>
                                     @endforeach
                                 </select>
                             </div>
