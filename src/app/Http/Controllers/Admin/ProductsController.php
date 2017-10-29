@@ -132,6 +132,8 @@ class ProductsController extends Controller
 
         $product->author_id = Auth::user()->id;
 
+        $product->save();  //Get taggable_id first. It is product_id
+
         /* tags */
         $tagIds = $request->tagIds;
         foreach($tagIds as $key =>  $id)
@@ -152,12 +154,11 @@ class ProductsController extends Controller
                 $tagIds[$key] = $tag->id;
             } 
         }
-
         $tags = Tag::whereIn('id',$tagIds)->get();
-        $product->tags()->sync($tags);
-
-        $product->save();  
-dd($produt->tags);
+        $product->tags()->sync($tags); //Then set tags for product
+        
+        dd($produt->tags);
+        
         return redirect()->action(
             'Admin\ProductsController@edit', ['id' => $product->id]
         );
