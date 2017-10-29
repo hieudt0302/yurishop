@@ -189,7 +189,7 @@ class ProductsController extends Controller
 		if(empty($product))
 		{
 			return redirect()->back()
-            ->with('message', 'Không tìm thấy sản phẩm này!')
+            ->with('message', 'Sản phẩm không được tìm thấy!')
             ->with('status', 'danger');
 		}
         $languages = Language::all(); ///TODO: make condition active
