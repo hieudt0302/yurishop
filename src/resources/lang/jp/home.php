@@ -2,9 +2,14 @@
 
 return [
 	'' => '',
-    'new-products' => 'New products',
-    'price' => 'Price',
-    'best-sellers-products' => 'Best sellers',
-	'our-blogs' => 'Our blogs',
-    'sale-products' => 'Sale',   
+    'new-products' => '新製品',
+    'price' => '値段',
+    'best-sellers-products' => '人気商品',
+    'sale-products' => 'セール中',   
+    'farm-activities' => 'Pokofarms活動',
+    'farm-activities-message' => 'Change the message later',    
+    'about-us' => 'Pokofarmsとは?',
+    'product-origin' => '商品のオリジン',    
+    'product-quality' => '商品品質',
+    'community' => '共同',    
 ];
