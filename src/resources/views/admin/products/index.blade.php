@@ -128,9 +128,12 @@
                                 </td>
                                 <td>
                                   <div class="tools">
-                                    {!! Form::open(['method' => 'DELETE','route' => ['admin.products.destroy', $product->id],'style'=>'display:inline']) !!}
+                                    <!-- {!! Form::open(['method' => 'DELETE','route' => ['admin.products.destroy', $product->id],'style'=>'display:inline']) !!}
                                     {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit','class' => 'btn btn-warning btn-sm'] )  }}
-                                    {!! Form::close() !!}  
+                                    {!! Form::close() !!}   -->
+                                    <a type="button" class="btn btn-danger" data-product-id="{{$product->id}}" data-toggle="modal" data-target="#modal-delete-product">
+                                    <i class="fa fa-ban"></i> Xóa Sản Phẩm
+                                    </a> 
                                   </div>
                                 </td>
                             </tr>
@@ -156,6 +159,32 @@
         </div>
     </div>
 </section>
+
+<!-- QUESTION TO DELETE -->
+<div class="modal modal-danger fade" id="modal-delete-product">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Cảnh Báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa sản phẩm này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+                <form name="form-product-delete"  method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-outline" value="Xóa Sản Phẩm">
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection 
 
 @section('scripts')
@@ -166,6 +195,12 @@
             autoclose : true,
             clearBtn : true
         })
+
+        $('#modal-delete-product').on('shown.bs.modal', function (e) {
+            // var orderID = $(e.relatedTarget).data('product-id');
+            // var action = "{{url('admin/orders')}}/" + orderID;
+            // $(e.currentTarget).find('form[name="form-order-delete"]').attr("action", action);
+        })  
     })
 </script>
 @endsection
