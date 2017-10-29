@@ -93,7 +93,7 @@
                                                         @foreach($tags as $key =>$tag)
                                                             @if(count(old('tagIds')) > 0)
                                                                 @foreach (old('tagIds') as $id)
-                                                                    @if($id = $tag->id)
+                                                                    @if($id == $tag->id)
                                                                         <option value="{{$tag->id}}" >{{$tag->name}}</option>
                                                                     @else
                                                                         <option value="{{$id}}" >{{$id}}</option>
