@@ -74,7 +74,7 @@
                                 <tr>
                                     <td>Nội dung</td>                  
                                     <td>
-                                        <textarea class="form-control" name="{{$language->id}}-content" id="{{$language->name}}-content" ></textarea>                
+                                        <textarea class="form-control ckeditor" name="{{$language->id}}-content" id="{{$language->name}}-content" ></textarea>         
                                     </td>
                                 </tr> 
                             </table>

@@ -3,22 +3,27 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-//use Illuminate\Validation\Rule;
+use Request;
 use App\Models\Setting;
+use App\Models\MailTemplate;
 use DB;
 
 class SettingController extends Controller
 {
-    public function edit(){
-        $inputs = Input::all();
+    public function edit()
+    {
+        $mail_temps = MailTemplate::all();
+        return view('admin.settings.edit',compact('mail_temps'));
+    }
+
+    public function update(){
+        
+        $inputs = Request::all();
         foreach ($inputs as $key => $value) {
-            DB::table('settings')->where('key', $key)->update(['value' => $value]);
-            $exists = DB::table('settings')->where('key', $key)->count();
-            if ($exists == 0) {
-               DB::table('settings')->insert(['key' => $key, 'value' => $value]);
-            }
-        }               
+            Setting::updateOrCreate(['key' => $key], ['value' => $value]);
+        }
+        session()->flash('success_message', "Cập nhật thành công !");
+        return redirect()->back();               
     }
 
     /**
@@ -28,8 +33,5 @@ class SettingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
-    {
-
-    }
+    
 }
