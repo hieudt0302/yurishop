@@ -30,6 +30,6 @@ return [
     'headquarter-address' => '123 HùngVương, ĐăkHà, Kon Tum',                                           
     'poko-message' => '',                                           
     'read-more' => 'Đọcthêm',  
-
+     'in-stock' => 'In stock',
 
 ];

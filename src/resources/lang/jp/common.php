@@ -41,7 +41,8 @@ return [
      'product-details' => '商品詳細',     
      'showing' => '表示中',
      'of' => 'of',
-	 'call-details' => 'スタッフに電話をかけます。',     
+	 'call-details' => 'スタッフに電話をかけます',     
      'chat-details' => 'スタッフをチャットします',
-     'posts' => 'ブログ',                         	                     
+     'posts' => 'ブログ',
+     'in-stock' => '在庫あり',                              	                     
 ];

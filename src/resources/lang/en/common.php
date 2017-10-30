@@ -43,5 +43,6 @@ return [
      'of' => 'of',
 	 'call-details' => 'Call for more details',     
      'chat-details' => 'Chat for more details',
-     'posts' => 'Posts',                         	                     
+     'posts' => 'Posts',
+     'in-stock' => 'In stock',                         	                     
 ];

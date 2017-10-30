@@ -19,7 +19,9 @@ return [
     'save' => '保存', 
     'action' => '操作',
     'city' => '城市',
-    'province' => '省份',                 
+    'province' => '省份',
+    'district' => '区',     
+    'country' => '国',                     
     'company' => '公司',
     'zipcode' => '邮政编码', 	
 

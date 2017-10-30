@@ -29,9 +29,10 @@ class HomeController extends Controller
     {
         $about_us = InfoPage::where('slug','about')->first();
         $product_origin = InfoPage::where('slug','product-origin')->first();
-        $product_quality = InfoPage::where('slug','product-quality')->first(); 
-        $new_products = Product::orderBy('created_at', 'desc')->limit(4)->get();
+        $product_quality = InfoPage::where('slug','product-quality')->first();
         $community_category = Category::where('slug', 'community')->firstOrFail();
+
+        $new_products = Product::where('published',1)->orderBy('created_at', 'desc')->limit(4)->get();
         // $best_sellers_products = DB::table('products')
         //                             ->join('order_details','products.id', '=', 'order_details.product_id')
         //                             ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
@@ -48,7 +49,8 @@ class HomeController extends Controller
                                         ->get();
 
 
-        $sale_products = Product::where('special_price', '>', 0)
+        $sale_products = Product::where('published',1)
+                                ->where('special_price', '>', 0)
                                 ->where('special_price_start_date', '<=', date('Y-m-d', time()))
                                 ->where('special_price_end_date', '>=', date('Y-m-d', time()))
                                 ->orderBy('created_at', 'desc')

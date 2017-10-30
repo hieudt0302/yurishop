@@ -22,6 +22,7 @@ return [
     'city' => '市',
     'province' => '県',        
     'company' => '会社',
+    'district' => '区',     
     'country' => '国',
     'fax' => 'ファックス',       
     'zipcode' => '郵便コード',    

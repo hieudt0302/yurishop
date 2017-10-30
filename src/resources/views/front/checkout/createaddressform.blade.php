@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="form-group row row-hardcode">
-            <label class="col-sm-3 col-form-label" for="address2">Disstrict</label>
+            <label class="col-sm-3 col-form-label" for="address2">@lang('profile.district')</label>
             <div class="col-sm-9">
                 <input class="form-control" id="district" name="district" placeholder="{{ __('checkout.optional')}}" type="text" value="">
             </div>
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="form-group row row-hardcode">
-            <label class="col-sm-3 col-form-label" for="country">Country</label>
+            <label class="col-sm-3 col-form-label" for="country">@lang('profile.country')</label>
             <div class="col-sm-9">
                 <input class="form-control" id="country" name="country" placeholder="" type="text" value="">
             </div>
@@ -80,7 +80,7 @@
             <hr>
         </div>
         <div class="form-group row row-hardcode">
-            <label class="col-sm-3 col-form-label" for="email" >Email</label>
+            <label class="col-sm-3 col-form-label" for="email" >@lang('profile.email')</label>
             <div class="col-sm-9">
                 <input class="form-control"   id="email" name="email" type="email" value="">
             </div>

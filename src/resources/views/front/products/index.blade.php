@@ -69,7 +69,6 @@
             @endif                    
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="pro-it">
-                        <i class="fa fa-heart-o" aria-hidden="true"></i>
                         <a href="{{url('/products')}}/{{$product->slug}}">
                         <img class="pro-img" src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="">
                         </a>

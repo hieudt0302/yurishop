@@ -19,10 +19,11 @@ return [
     'retype-password' => 'Xác nhận mật khẩu',
 	'save' => 'Lưu', 
 	'action' => 'Thao tác',
+    'district' => 'Quận',     
     'city' => 'Thành phố',
     'province' => 'Tỉnh',
     'country' => 'Nước',
-    'fax' => 'Fax',                   	         
+    'fax' => 'Fax',                      	         
     'company' => 'Công ty',
     'zipcode' => 'Mã bưu điện',        
 ];
