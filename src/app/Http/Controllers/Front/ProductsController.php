@@ -23,7 +23,7 @@ class ProductsController extends Controller
     public function index()
     {
         $tags = Tag::has('products')->get();
-        $results = Product::where('published',1)->paginate(10);
+        $results = Product::where('published',1)->paginate(12);
         return View('front/products/index',compact('results','tags'));
     }
   

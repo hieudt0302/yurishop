@@ -19,6 +19,7 @@ return [
     'retype-password' => 'Confirm password',    
 	'save' => 'Save',
 	'action' => 'Action',
+    'district' => 'District',    
     'city' => 'City',
     'province' => 'Province',        
     'company' => 'Company',

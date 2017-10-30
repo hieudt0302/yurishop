@@ -13,7 +13,7 @@ return [
     'my-wishlist' => '宝贝名单',
     'order-history' => '购物记录',
     'faqs' => '常见问题',        
-    'newsletter-message' => '接收信息',
+    'newsletter-message' => 'Pokofarms<br>接收信息',
     'subscribe' => '注册',
     'about-us' => '联系',         
 ];

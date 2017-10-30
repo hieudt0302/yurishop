@@ -15,7 +15,7 @@ return [
 
     '' => '',
     'home' => 'ホーム',
-    'about-us' => 'Pokofarms',
+    'about-us' => 'ポコファーム',
     'shop' => 'ショップ',
     'product' => '商品一覧',    
     'products' => '商品',
@@ -27,5 +27,5 @@ return [
     'account' => 'アカウント',          
      'promotion' => 'キャンペーン',
     'enter-keyword' => '検索キーワードを入力',   
-    'call-us-now' => '私たちを電話',           
+    'call-us-now' => '私たちへ電話',           
 ];

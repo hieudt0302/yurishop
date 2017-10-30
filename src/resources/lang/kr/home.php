@@ -12,7 +12,7 @@ return [
     'about-us' => '우리에 대해', 
     'product-origin' => '상품출처', 
     'product-quality' => '상품품질',  
-    'community' => 'Community',  
+    'community' => '커뮤니티',  
 
      
 ];

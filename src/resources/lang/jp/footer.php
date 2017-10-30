@@ -2,7 +2,7 @@
 
 return [
     '' => '',
-    'follow-us' => 'Pokofarmsと接続',
+    'follow-us' => 'ポコファームと接続',
     'customer-support' => '顧客サポート',
     'purchase-flow' => '購入フロー',
     'returns' => '返品',
@@ -12,9 +12,9 @@ return [
     'view-cart' => 'カート表示',
     'my-wishlist' => '欲しいリスト',
     'order-history' => '注文履歴',
-    'faq' => 'FAQs',
-    'newsletter-message' => 'Pokofarmsから新製品・キャンペーン情報などをもらう',
+    'faq' => 'よくある質問',
+    'newsletter-message' => 'ポコファームからニュースをもらう',
     'subscribe' => '登録',   
     'subscribe-success' => '登録が成功しました!',       
-    'about-us' => 'Pokofarmsについて',          
+    'about-us' => 'ポコファームについて',          
 ];

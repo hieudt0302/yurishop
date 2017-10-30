@@ -25,8 +25,8 @@ return [
     'search' => '찾기', 
     'cart' => '장바구니',      
     'account' => '계정',        
-    'promotion' => 'Promotion',
-    'enter-keyword' => 'Enter keyword',   
-    'call-us-now' => 'Call us now',
-    'free-ship' => 'Free shipping on all domestic orders over',              
+    'promotion' => '판매',
+    'enter-keyword' => '키워드를 입력하십시오',   
+    'call-us-now' => '지금 전화주세요',
+    'free-ship' => '국내 주문 이상으로 무료 배송',              
 ];

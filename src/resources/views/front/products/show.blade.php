@@ -86,7 +86,7 @@
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                                 @endif
 						 	</span><br>
-						 	<span class="rv">(Based on {{count($product->comments)}} reviews)</span>
+						 	<span class="rv">({{count($product->comments)}} @lang('product.reviews'))</span>
 						</span>
 
 						@if($product->sold_off)
@@ -98,7 +98,7 @@
 							@else
 								<span class="price2">{{$product->price}}</span>
 								<span class="sub">{{$product->special_price}}</span>
-								<span class="hot">Sale</span>
+								<span class="hot">@lang('product.sale')</span>
 							@endif
 						@endif
 
@@ -117,7 +117,7 @@
 									</select>
 								</div> -->
 								<span class="check">
-									<i class="fa fa-check-circle" aria-hidden="true"></i>In stock
+									<i class="fa fa-check-circle" aria-hidden="true"></i>@lang('common.in-stock')
 								</span>	
 						</div>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
