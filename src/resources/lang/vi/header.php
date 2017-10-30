@@ -25,7 +25,7 @@ return [
     'search' => 'TÌM KIẾM',
     'cart' => 'GIỎ HÀNG',        
     'account' => 'TÀI KHOẢN',
-    'promotion' => 'KHUYẾN MẠI',    
+    'promotion' => 'Khuyến mại',    
     'enter-keyword' => 'Nhập từ khoá',   
     'call-us-now' => 'Hãy gọi cho chúng tôi',
     'free-ship' => 'Miễn phí vận chuyển cho đơn hàng trên',             

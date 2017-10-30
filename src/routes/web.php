@@ -225,8 +225,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     //
     Route::post('orders/{id}/cancel/orderstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@CancelOrderStatus','middleware' => ['role:admin|manager']]);
     Route::post('orders/{id}/change/orderstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@ChangeOrderStatus','middleware' => ['role:admin|manager']]);
+    Route::post('orders/{id}/change/paymentstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@ChangePaymentStatus','middleware' => ['role:admin|manager']]);
+    Route::post('orders/{id}/change/shippingstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@ChangeShippingStatus','middleware' => ['role:admin|manager']]);
     Route::post('orders/{id}/update/fee',['as'=>'admin.orders.show','uses'=>'OrdersController@UpdateOrderFee','middleware' => ['role:admin|manager']]);
-
+    Route::post('orders/{id}/details/update', ['as'=>'admin.orders.show','uses'=>'OrdersController@DetailUpdateItem','middleware' => ['role:admin|manager']]);
+    Route::post('orders/{id}/update/billingaddress',['as'=>'admin.orders.show','uses'=>'OrdersController@UpdateBillingAddress','middleware' => ['role:admin|manager']]);
+    Route::post('orders/{id}/update/shippingaddress',['as'=>'admin.orders.show','uses'=>'OrdersController@UpdateShippingAddress','middleware' => ['role:admin|manager']]);
+    Route::delete('orders/{id}/details/{detail_id}',['as'=>'admin.products.show','uses'=>'OrdersController@DetailDestroy','middleware' => ['role:admin|manager']]);
     // InfoPages
     Route::get('info-pages',['as'=>'admin.info-pages.index','uses'=>'InfoPagesController@index','middleware'=> ['role:admin|manager']]);
     Route::get('info-pages/create',['as'=>'admin.info-pages.create','uses'=>'InfoPagesController@create','middleware'=> ['role:admin|manager']]);

@@ -23,6 +23,7 @@ class CreateMailTemplateTranslationsTable extends Migration
             $table->foreign('mail_template_id')->references('id')->on('mail_templates')
                 ->onUpdate('cascade')->onDelete('cascade');
 			$table->text('content')->nullable();
+
             $table->timestamps();
         });
     }

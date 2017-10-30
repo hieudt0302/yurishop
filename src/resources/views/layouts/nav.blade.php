@@ -11,7 +11,7 @@
                 <li class="dropdown">
                     <button class="btn search-top-bt  btn-default">
                         <i class="fa fa-search"></i>
-                        &nbsp;@lang{{ strtoupper( __('common.search')) }}
+                        &nbsp;@lang{{ strtoupper( __('header.search')) }}
                     </button>
                 </li>
                 <li class="dropdown">
@@ -32,10 +32,20 @@
                             </a>                                        
                         </li> 
                         <li>
-                            <a href="#">
+                            <a href="{{URL::asset('')}}language/cn">
                                 中文
                             </a>                                        
-                        </li>                                                                                                          
+                        </li> 
+                        <li>
+                            <a href="{{URL::asset('')}}language/jp">
+                                日本語
+                            </a>                                        
+                        </li> 
+                        <li>
+                            <a href="{{URL::asset('')}}language/kr">
+                                한국어
+                            </a>                                        
+                        </li>                                                                                                                                                          
                     </ul>
                 </li>
                 <li class="dropdown">

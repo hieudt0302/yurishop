@@ -13,14 +13,15 @@ return [
     |
     */
 	
-    'contact' => 'Contact',     
-	'headquarter' => 'Headquarter',
-    'address' => 'Address',
-    'phone' => 'Phone',
-    'email' => 'Email',
-	'message' => 'Message',
-	'name' => 'Name',
-	'submit' => 'Summit message',
-    'required-message' => ' All the fields are required',    
-
+    'contact' => '連絡先',     
+	'headquarter' => '本社',
+    'address' => '住所',
+    'phone' => '電話番号',
+    'email' => 'メール',
+	'message' => 'メッセージ',
+	'name' => '名前',
+	'submit' => 'メッセージを送ります',
+    'required-message' => '全項目が必至となります',    
+    'social' => 'ソーシャル',
+    'review' => '連絡',
 ];

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\PostTranslation;
 use App\Models\Language;
 use Validator;
@@ -25,8 +26,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return View('admin.posts.index',compact('posts'));
+        $posts = Post::paginate(21);
+
+        return View('admin.posts.index',compact('posts'))
+        ->with('i', (Input::get('page', 1) - 1) * 21);;
     }
 
     /**
@@ -38,8 +41,10 @@ class PostsController extends Controller
     {      
         $languages = Language::all();
         $blogCategory = Category::where('slug','posts')->firstOrFail();
-        $categories = Category::where('parent_id',$blogCategory->id)->get();              
-        return View('admin.posts.create',compact('languages','categories'));
+        $categories = Category::where('parent_id',$blogCategory->id)->get();     
+        
+        $tags = Tag::all();
+        return View('admin.posts.create',compact('languages','categories','tags'));
     }
 
     /**
@@ -52,8 +57,8 @@ class PostsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'slug' => 'required|string|min:1',
-            'img' => 'required|image'            
+            'slug' => 'required|string|min:5',
+            'img' => 'image'            
         ]);
 
         if ($validator->fails()) {
@@ -72,21 +77,19 @@ class PostsController extends Controller
         $post->author_id = Auth::user()->id;
         $post->published = $request->published??0;
 
-        $post->img = '' ;
 
-        if ($request->hasFile('img')) {
-
-            $image = $request->file('img');
-            $img_path = $image->storeAs('images/blog',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(370, 230)->encode();
-            Storage::put($img_path, $img);                     
-            $post->img = $image->getClientOriginalName();
-            $img_path = $image->storeAs('images/blog/preview',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(80, 100)->encode();
-            Storage::put($img_path, $img);                         
+        $post->img = '';
+        if (request()->hasFile('img')) {
+            $path = $request->file('img')->store('images/blog');                            
+            $fitImage = Image::make(Storage::get($path))->fit(370, 230)->encode();
+            Storage::put($path, $fitImage); 
+            $post->img= $path;
         }
 
         $post->save();            
+
+        /* Make new tags */
+        $this->SelectTags($post, $request->tagIds);
 
         return redirect()->action(
             'Admin\PostsController@edit', ['id' => $post->id]
@@ -125,7 +128,8 @@ class PostsController extends Controller
             $translation = PostTranslation::where('post_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->first();
             $tab= 2;
         }
-        return View('admin.posts.edit',compact('post','languages','categories', 'translation','tab', 'language_id'));
+        $tags = Tag::all();
+        return View('admin.posts.edit',compact('post','languages','categories', 'translation','tab', 'language_id','tags'));
     }
 
     /**
@@ -139,7 +143,8 @@ class PostsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'slug' => 'required|string|min:1',
+            'slug' => 'required|string|min:5',
+            'img' => 'image'    
         ]);
 
         if ($validator->fails()) {
@@ -158,19 +163,18 @@ class PostsController extends Controller
         $post->author_id = Auth::user()->id;
         $post->published = $request->published??0;
         
+        $post->img = '';
         if (request()->hasFile('img')) {
-            $image = $request->file('img');
-            $img_path = $image->storeAs('images/blog',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(370, 230)->encode();
-            Storage::put($img_path, $img);                     
-            $post->img = $image->getClientOriginalName();
-
-            $img_path = $image->storeAs('images/blog/preview',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(80, 100)->encode();
-            Storage::put($img_path, $img);                         
+            $path = $request->file('img')->store('images/blog');                            
+            $fitImage = Image::make(Storage::get($path))->fit(370, 230)->encode();
+            Storage::put($path, $fitImage); 
+            $post->img= $path;
         }
 
         $post->save();
+        
+        /* Make new tags */
+        $this->SelectTags($post, $request->tagIds);
 
         return redirect()->back()
         ->with('message', 'Bài viết đã được cập nhật')
@@ -264,11 +268,12 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-        Storage::delete('images/blog/'.$post->img);
-        Storage::delete('images/blog/preview/'.$post->img);                
         $post->delete();
-        session()->flash('success_message', "Xóa thành công!");        
-        return redirect()->route('admin.posts.index'); 
+        Storage::delete('images/blog/'.$post->img);
+        
+        return redirect()->route('admin.posts.index')
+        ->with('message', 'Xóa bài viết thành công!')
+        ->with('status', 'success');
     }
 
     public function categories(Request $request)
@@ -292,7 +297,31 @@ class PostsController extends Controller
         ]);
     }
 
-
+    public function SelectTags($post, $tagIds)
+    {
+        if(is_array($tagIds)){
+            foreach($tagIds as $key =>  $id)
+            {
+                if(empty(Tag::find($id)))
+                {
+                    $tag = new Tag();
+                    $tag->name = $id;
+                    $slug = str_slug($id, "-");
+                    
+                    if(Tag::where('slug',$slug)->count() >0 )
+                    {
+                        $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
+                    }
+                    $tag->slug = $slug;
+                    $tag->save();
+    
+                    $tagIds[$key] = $tag->id;
+                } 
+            }
+            $tags = Tag::whereIn('id',$tagIds)->get();
+            $post->tags()->sync($tags); 
+        }
+    }
       /* COMMENT */
       public function comments(Request $request)
       {
@@ -308,7 +337,6 @@ class PostsController extends Controller
         $created_to = $request->created_to;
         $review = $request->review;
         $approved_type = $request->approved_type??2;
-        // $product_name = $request->product_name;
 
         $comments =  Comment::where('commentable_type','App\Models\Post')
             ->where('comment','LIKE', '%'. $review . '%')

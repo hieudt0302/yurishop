@@ -31,8 +31,6 @@
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#info" data-toggle="tab">Thông tin sản phẩm</a></li>
-                        <!-- <li><a href="#content" data-toggle="tab">Content</a></li> -->
-                        <!-- <li><a href="#pictures" data-toggle="tab">Pictures</a></li> -->
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
@@ -83,8 +81,41 @@
                                                 <div class="col-md-4">
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
-                                                        <option value="{{$category->id}}" selected="{{old('category_id')===$category->id?'selected':''}}">{{$category->name}}</option>
+                                                        <option value="{{$category->id}}" {{old('category_id')===$category->id?'selected':''}}>{{$category->name}}</option>
                                                         @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tags" class="col-md-3 control-label">Tags</label>
+                                                <div class="col-md-4">
+                                                    <select id="tags" multiple name="tagIds[]" class="form-control select2" style="width: 100%;">
+                                                        <!-- Tags  -->
+                                                        @foreach($tags as $key =>$tag)
+                                                            @php($selected = false)
+                                                            @if (is_array(old('tagIds')))
+                                                                @foreach(old('tagIds') as $id)
+                                                                    @if($id == $tag->id)
+                                                                        @php($selected = true)
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
+                                                            <option value="{{$tag->id}}" {{$selected?'selected':''}}>{{$tag->name}}</option>
+                                                        @endforeach
+
+                                                        <!-- Old Data -->
+                                                        @if (is_array(old('tagIds')))                                                            
+                                                            @foreach(old('tagIds') as $id)
+                                                                @php($selected = true)
+                                                                @foreach($tags as $key =>$tag)
+                                                                    @if($id == $tag->id)
+                                                                        @php($selected = false)
+                                                                    @endif
+                                                                @endforeach
+                                                                
+                                                                <option value="{{$id}}" {{$selected?'selected':''}}>{{$id}}</option>
+                                                            @endforeach
+                                                        @endif
                                                     </select>
                                                 </div>
                                             </div>                                            
@@ -229,6 +260,10 @@
     });
 
     $('.select2').select2();
+    $('#tags').select2({
+        tags: true,
+        tokenSeparators: [',']
+    });
 
     $('#name').on('change', function(e) {
         e.preventDefault();

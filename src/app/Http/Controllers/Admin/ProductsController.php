@@ -12,6 +12,7 @@ use App\Models\ProductTranslation;
 use App\Models\Language;
 use App\Models\Comment;
 use App\Models\Media;
+use App\Models\Tag;
 use Validator;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
@@ -44,8 +45,10 @@ class ProductsController extends Controller
     {
         $languages = Language::all(); ///TODO: make condition active
         $shopCategory = Category::where('slug', 'products')->firstOrFail();
-        $categories = Category::where('parent_id', $shopCategory->id)->get();        
-        return View('admin/products/create',compact('languages','categories'));
+        $categories = Category::where('parent_id', $shopCategory->id)->get();      
+        $tags = Tag::all();
+        
+        return View('admin/products/create',compact('languages','categories', 'tags'));
     }
 
     /**
@@ -129,8 +132,11 @@ class ProductsController extends Controller
 
         $product->author_id = Auth::user()->id;
 
-        $product->save();  
+        $product->save();  //Get taggable_id first. It is product_id
 
+        /* Make new tags */
+        $this->SelectTags($product, $request->tagIds);
+        
         return redirect()->action(
             'Admin\ProductsController@edit', ['id' => $product->id]
         );
@@ -162,11 +168,12 @@ class ProductsController extends Controller
 		if(empty($product))
 		{
 			return redirect()->back()
-            ->with('message', 'Không tìm thấy sản phẩm này!')
+            ->with('message', 'Sản phẩm không được tìm thấy!')
             ->with('status', 'danger');
-		}
+        }
+        $tags = Tag::all();
         $languages = Language::all(); ///TODO: make condition active
-        return View('admin/products/edit',compact('product','languages','categories'));
+        return View('admin/products/edit',compact('product','languages','categories','tags'));
     }
 
     /**
@@ -191,7 +198,7 @@ class ProductsController extends Controller
         }
 
         $product = Product::find($id);
-        
+        //
         $product->name = $request->name;
         $product->slug = $request->slug;
 
@@ -242,6 +249,10 @@ class ProductsController extends Controller
         $product->published = $request->published??0;
 
         $product->save();
+
+        /* Make new tags */
+        $this->SelectTags($product, $request->tagIds);
+
 
         return redirect()->back()
         ->with('message', 'Sản phẩm đã được cập nhật.')
@@ -387,8 +398,10 @@ class ProductsController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        session()->flash('success_message', "Xóa thành công!");        
-        return redirect()->route('admin.products.index'); 
+
+        return redirect()->route('admin.products.index')
+        ->with('message', 'Xóa một sản phẩm thành công!')
+        ->with('status', 'success');
     }
     
     public function destroyImage($id)
@@ -421,45 +434,52 @@ class ProductsController extends Controller
 
     public function filter(Request $request)
     {
-        $query = DB::table('products')->whereNull('deleted_at')
-             ->leftJoin('product_media', 'products.id', '=', 'product_media.product_id')
+        $product_name = $request->product_name;
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        $sku= $request->sku;
+        $category_id = $request->category_id;
+
+        $query = Product::leftJoin('product_media', 'products.id', '=', 'product_media.product_id')
              ->leftJoin('medias', 'product_media.media_id', '=', 'medias.id')
              ->select('products.id','products.name', 'products.sku', 'products.published', 'products.created_at', 'medias.source')
-             ->groupBy('products.id');
-        
-        if (strlen($request->from_date) > 0) {
-            $startDate = date('Y-m-d'.' 00:00:00', strtotime($request->from_date));
-            $query->where('products.created_at', '>=', $startDate);
-        }
-        if (strlen($request->to_date) > 0) {
-            $endDate = date('Y-m-d'.' 23:59:59', strtotime($request->to_date));
-            $query->where('products.created_at', '<=', $endDate);
-        }
-
-        $product_name = $request->product_name;
-        if (strlen($product_name) > 0) {
-            $query->where(function ($subQuery) use ($product_name) {
-                $subQuery->where('products.name', 'LIKE', '%'.strtolower($product_name).'%');
-                ///TODO: find in translation table
-                // $subQuery->orWhere(DB::raw('SELECT name FROM product_translation'), 'LIKE', '%'.$product_name.'%');
+             ->groupBy('products.id')
+             ->where(function ($query) use ($product_name) {
+                if (strlen($product_name) > 0) 
+                    $query->where('products.name', 'LIKE', '%'.strtolower($product_name).'%');
+            })
+            ->where(function ($query) use ($from_date) {
+                if (strlen($from_date) > 0) 
+                {
+                    $startDate = date('Y-m-d'.' 00:00:00', strtotime($from_date));
+                    $query->where('products.created_at', '>=', $startDate);
+                }
+            })
+            ->where(function ($query) use ($to_date) {
+                if (strlen($to_date) > 0) 
+                {
+                    $endDate = date('Y-m-d'.' 23:59:59', strtotime($to_date));
+                    $query->where('products.created_at', '<=', $endDate);
+                }
+            })
+            ->where(function ($query) use ($sku) {
+                if (strlen($sku) > 0) 
+                    $query->where('products.sku','LIKE', '%'.$sku. '%');
+            })
+            ->where(function ($query) use ($category_id) {
+                if (is_numeric($category_id) > 0 && (int)$category_id > 0) 
+                    $query->whereIn('category_id', [$category_id]);
             });
-        }
-
-        if (strlen($request->sku) > 0) {
-            $query->where('products.sku','LIKE', '%'.$request->sku. '%');
-        }
-
-        if (is_numeric($request->category_id) && (int)$request->category_id > 0) {
-            $query->whereIn('category_id', $request->category_id);
-        }
-        ///TODO: Get sub category. Not yet!
+   
 
         $products = $query->paginate(21);
         $shopCategory = Category::where('slug', 'products')->firstOrFail();
         $categories = Category::where('parent_id', $shopCategory->id)->get();
         
+        $request->flashOnly(['from_date', 'to_date', 'product_name', 'sku', 'category_id']);
+        
         return View('admin.products.index', compact('products','categories'))
-      ->with('i', ($request->input('page', 1) - 1) * 21);
+        ->with('i', ($request->input('page', 1) - 1) * 21);
     }
 
     public function GenerateSlug($name)
@@ -475,6 +495,31 @@ class ProductsController extends Controller
         ]);
     }
 
+    public function SelectTags($product, $tagIds)
+    {
+        if(is_array($tagIds)){
+            foreach($tagIds as $key =>  $id)
+            {
+                if(empty(Tag::find($id)))
+                {
+                    $tag = new Tag();
+                    $tag->name = $id;
+                    $slug = str_slug($id, "-");
+                    
+                    if(Tag::where('slug',$slug)->count() >0 )
+                    {
+                        $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
+                    }
+                    $tag->slug = $slug;
+                    $tag->save();
+    
+                    $tagIds[$key] = $tag->id;
+                } 
+            }
+            $tags = Tag::whereIn('id',$tagIds)->get();
+            $product->tags()->sync($tags); 
+        }
+    }
     /* REVIEWS */
     public function reviews(Request $request)
     {

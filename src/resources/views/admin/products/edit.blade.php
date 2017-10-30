@@ -49,12 +49,7 @@
                                             <div class="form-group">
                                                <label class="col-md-3 control-label" for="name" title="">Tên sản phẩm</label>
                                                 <div class="col-md-4">
-                                                    <div class="input-group input-group-required">
-                                                        <input class="form-control text-box single-line valid" id="name" name="name" type="text" value="{{$product->name}}">
-                                                        <div class="input-group-btn">
-                                                            <span class="required">*</span>
-                                                        </div>
-                                                    </div>
+                                                     <input class="form-control" id="name" name="name" type="text" value="{{$product->name}}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -90,7 +85,24 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                            </div>                                            
+                                            </div> 
+                                            <div class="form-group">
+                                                <label for="tags" class="col-md-3 control-label">Tags</label>
+                                                <div class="col-md-4">
+                                                    <select id="tags" multiple name="tagIds[]" class="form-control select2" style="width: 100%;">
+                                                        <!-- Tags  -->
+                                                        @foreach($tags as $key =>$tag)
+                                                            @php($selected = false)
+                                                            @foreach($product->tags as $t)
+                                                                @if($t->id == $tag->id)
+                                                                    @php($selected = true)
+                                                                @endif
+                                                            @endforeach
+                                                            <option value="{{$tag->id}}" {{$selected?'selected':''}}>{{$tag->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>                                   
                                         </div>
                                     </div>
                                     <div class="panel panel-default">
@@ -381,12 +393,10 @@
         });
 
         $('.select2').select2();
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        // CKEDITOR.replace('excerpt-editor');
-        // CKEDITOR.replace('content-editor');
-        //bootstrap WYSIHTML5 - text editor
-        // $('.textarea').wysihtml5()
+        $('#tags').select2({
+            tags: true,
+            tokenSeparators: [',']
+        });
     
 
     // TAB: CONTENT
@@ -476,6 +486,23 @@
         });
     });
 
+    $('#name').on('change', function(e) {
+        e.preventDefault();
+        var token = '{{csrf_token()}}';
+        var name =  $('#name').val();
+        $.ajax({
+            cache: false,
+            url: '{{url("admin/products/generateslug")}}' + '/' + name,
+            type: 'GET',
+            data: { _token :token},
+            success: function (response) {
+                if (response['status'] =='success') {
+                    $('#slug').val(response['slug'])
+                }
+            }
+        });
+        return false;
+    });
     /* DELETE IMAGE */
     // $("#table-row").on("click", ".ajax-action-link", function () {
     //             //$(this).closest('tr').remove();

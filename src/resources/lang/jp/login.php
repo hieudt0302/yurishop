@@ -1,10 +1,10 @@
 <?php
 
 return[
-    'username' => 'Username',
-    'password' => 'password',
+    'username' => 'ユーザー名',
+    'password' => 'パスワード',
     'remember_me' => 'Remember Me',
-    'forgot_password' => 'Forgot Your Password?',
-    'login'=>'Login',
-    'error' => 'Your username or password not exist. Please enter your username or email and password correct to login.',
+    'forgot_password' => 'パスワードを忘れました?',
+    'login'=>'ログイン',
+    'error' => 'ユーザー名またパスワードが正しくません。再度ご入力ください。',
 ];

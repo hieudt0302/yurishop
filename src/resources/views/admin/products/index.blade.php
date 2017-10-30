@@ -8,17 +8,18 @@
     Sản Phẩm
         <small>Danh Sách</small>
     </h1>
-    <!-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Menu</a></li>
-        <li class="active">Danh Sách</li>
-    </ol> -->
     <div class="pull-right">
         <a href="{{('/admin/products/create')}}" class="btn bg-blue">
             <i class="fa fa-plus-square"></i>
             Thêm mới
         </a>
     </div>
+    <div class="row">
+        <div class="col-xs-12">
+            @include('notifications.status_message') 
+            @include('notifications.errors_message') 
+        </div>
+    </div> 
 </section>
 
 <!-- Main content -->
@@ -37,48 +38,37 @@
                             <label for="from_date" class="col-sm-2 control-label">From</label>
                             <div class="col-sm-4 input-group date">
                                 <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                <input type="text" name="from_date" class="form-control pull-right" id="from_date" data-date-end-date="-1d">
+                                <input type="text" name="from_date" class="form-control pull-right" id="from_date" data-date-end-date="-1d" value="{{old('from_date')}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="to_date" class="col-sm-2 control-label">To</label>
                             <div class="col-sm-4 input-group date">
                                 <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                <input type="text" name="to_date" class="form-control pull-right" id="to_date" data-date-end-date="0d">
+                                <input type="text" name="to_date" class="form-control pull-right" id="to_date" data-date-end-date="0d" value="{{old('to_date')}}" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="product_name" class="col-sm-2 control-label">Tên sản phẩm</label>
                             <div class="col-sm-4">
-                                <input type="text" name="product_name" class="form-control" id="product_name" >
+                                <input type="text" name="product_name" class="form-control" id="product_name" value="{{old('product_name')}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="sku" class="col-sm-2 control-label">SKU</label>
                             <div class="col-sm-4">
-                                <input type="email" name="sku" class="form-control" id="billing_email" >
+                                <input type="text" name="sku" class="form-control" id="sku" value="{{old('sku')}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="category_id" class="col-sm-2 control-label">Danh mục</label>
                             <div class="col-sm-4">
                                 <select name="category_id" class="form-control select2" style="width: 100%;">
-                                    <option value="0" selected>-----Tất cả-----</option>
+                                    <option value="0" >-----Tất cả-----</option>
                                     @foreach($categories as $category)
-                                       <option value="{{$category->id}}">{{$category->name}}</option>
+                                       <option value="{{$category->id}}" {{ old('category_id') == $category->id? 'selected':''}}>{{$category->name}}</option>
                                     @endforeach
                              </select>
-                            </div>
-                        </div>
-                      
-                        <div class="form-group">
-                            <div class="col-sm-4 col-sm-offset-2">
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" name="show_sub_categories" id="show_sub_categories" >
-                                        Bao gồm cả danh mục con
-                                    </label>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,9 +77,9 @@
                         <button type="submit" class="btn btn-info">
                             <i class="fa fa-search"></i> Tìm kiếm
                         </button>
-                        <button type="submit" class="btn btn-default pull-right">
+                        <!-- <button type="submit" class="btn btn-default pull-right">
                             <i class="fa fa-print"></i> Xuất file
-                        </button>
+                        </button> -->
                     </div>
                     <!-- /.box-footer -->
                 </form>
@@ -119,8 +109,8 @@
                         <tbody>
                             @foreach($products as $product)
                             <tr>
-                                <td>
-                                   <img src="{{asset('/images/shop/previews/shop-prev-1.jpg')}}" alt="" title="">
+                                <td style="width: 20%">
+                                   <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->source??''}}" alt="" title="" width="120">
                                 </td>
                                 <td><a href="{{url('/admin/products/')}}/{{$product->id}}/edit">{{$product->name}}</a></td>
                                 <td>{{$product->sku}}</td>
@@ -128,7 +118,7 @@
                                     @if($product->published==1) 
                                     <i class="fa fa-check true-icon"></i>
                                     @else 
-                                    <i class="fa fa-check false-icon"></i>
+                                    <i class="fa fa-times false-icon"></i>
                                     @endif
                                 </td>
                                 <td>{{$product->created_at}}</td>
@@ -139,9 +129,9 @@
                                 </td>
                                 <td>
                                   <div class="tools">
-                                    {!! Form::open(['method' => 'DELETE','route' => ['admin.products.destroy', $product->id],'style'=>'display:inline']) !!}
-                                    {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit','class' => 'btn btn-warning btn-sm'] )  }}
-                                    {!! Form::close() !!}  
+                                    <a type="button" class="btn btn-danger" data-product-id="{{$product->id}}" data-toggle="modal" data-target="#modal-delete-product">
+                                    <i class="fa fa-ban"></i>
+                                    </a> 
                                   </div>
                                 </td>
                             </tr>
@@ -152,7 +142,7 @@
                                 <th>Ảnh</th>
                                 <th>Tên</th>
                                 <th>SKU</th>
-                                <th>Xuất Bản(s)</th>
+                                <th>Xuất Bản</th>
                                 <th>Ngày Tạo</th>
                                 <th></th>
                                 <th></th>
@@ -160,10 +150,39 @@
                         </tfoot>
                     </table>
                 </div>
+                <div class="box-footer clearfix">
+                    {{ $products->appends(['from_date'=> old('from_date'), 'to_date'=> old('to_date'), 'product_name'=> old('product_name'),'sku'=> old('sku'), 'category_id'=> old('category_id')])->links('vendor.pagination.admin') }}
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- QUESTION TO DELETE -->
+<div class="modal modal-danger fade" id="modal-delete-product">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Cảnh Báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa sản phẩm này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+                <form name="form-product-delete"  method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-outline" value="Xóa Sản Phẩm">
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection 
 
 @section('scripts')
@@ -174,6 +193,12 @@
             autoclose : true,
             clearBtn : true
         })
+
+        $('#modal-delete-product').on('show.bs.modal', function (e) {
+            var productID = $(e.relatedTarget).data('product-id');
+            var action = "{{url('admin/products')}}/" + productID;
+            $(e.currentTarget).find('form[name="form-product-delete"]').attr("action", action);
+        })  
     })
 </script>
 @endsection

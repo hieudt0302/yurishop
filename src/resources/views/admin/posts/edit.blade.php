@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <h1>
-      Bài viết  {{$tab}}
+      Bài viết
         <small>
             <i class="fa fa-arrow-circle-left"></i>
             <a href="{{url('/admin/posts')}}">Quay lại danh sách</a>
@@ -80,17 +80,45 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label for="tags" class="col-md-3 control-label">Tags</label>
+                                                <div class="col-md-4">
+                                                    <select id="tags" multiple name="tagIds[]" class="form-control select2" style="width: 100%;">
+                                                        <!-- Tags  -->
+                                                        @foreach($tags as $key =>$tag)
+                                                            @php($selected = false)
+                                                            @foreach($post->tags as $t)
+                                                                @if($t->id == $tag->id)
+                                                                    @php($selected = true)
+                                                                @endif
+                                                            @endforeach
+                                                            <option value="{{$tag->id}}" {{$selected?'selected':''}}>{{$tag->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>   
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Ảnh đại diện</label>
                                                 <div class="col-md-4">
                                                     <input class="single-line valid" type="file" name="img"/>
                                                     <span class="text-danger">{{ $errors->first('img') }}</span>                                                        
                                                 </div>
-                                            </div>                                                 
+                                            </div>  
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-md-offset-3">
+                                                    <div style="height: 200px; border: 1px solid whitesmoke;text-align: center">
+                                                        @if(strlen($post->img) > 0)
+                                                            <img width="100%" height="100%" src="{{asset('storage')}}/{{$post->img}}"/>
+                                                        @else 
+                                                            <img width="100%" height="100%" src="{{asset('images/no-image.png')}}"/>
+                                                        @endif                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                                    <button type="submit" class="btn btn-primary">Cập Nhật</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -194,6 +222,10 @@
     });
 
     $('.select2').select2();
+    $('#tags').select2({
+        tags: true,
+        tokenSeparators: [',']
+    });
    
     // TAB: CONTENT
     $('#language-select').on('change', function() {

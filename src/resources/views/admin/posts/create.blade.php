@@ -77,6 +77,39 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label for="tags" class="col-md-3 control-label">Tags</label>
+                                                <div class="col-md-4">
+                                                    <select id="tags" multiple name="tagIds[]" class="form-control select2" style="width: 100%;">
+                                                        <!-- Tags  -->
+                                                        @foreach($tags as $key =>$tag)
+                                                            @php($selected = false)
+                                                            @if (is_array(old('tagIds')))
+                                                                @foreach(old('tagIds') as $id)
+                                                                    @if($id == $tag->id)
+                                                                        @php($selected = true)
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
+                                                            <option value="{{$tag->id}}" {{$selected?'selected':''}}>{{$tag->name}}</option>
+                                                        @endforeach
+
+                                                        <!-- Old Data -->
+                                                        @if (is_array(old('tagIds')))                                                            
+                                                            @foreach(old('tagIds') as $id)
+                                                                @php($selected = true)
+                                                                @foreach($tags as $key =>$tag)
+                                                                    @if($id == $tag->id)
+                                                                        @php($selected = false)
+                                                                    @endif
+                                                                @endforeach
+                                                                
+                                                                <option value="{{$id}}" {{$selected?'selected':''}}>{{$id}}</option>
+                                                            @endforeach
+                                                        @endif
+                                                    </select>
+                                                </div>
+                                            </div> 
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3" for="slug" title="">Ảnh đại diện</label>
                                                 <div class="col-md-4">
                                                     <input class="single-line valid" type="file" name="img"/>
@@ -122,12 +155,10 @@
     });
 
     $('.select2').select2();
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    // CKEDITOR.replace('excerpt-editor');
-    // CKEDITOR.replace('content-editor');
-    //bootstrap WYSIHTML5 - text editor
-    // $('.textarea').wysihtml5()
+    $('#tags').select2({
+        tags: true,
+        tokenSeparators: [',']
+    });
 
     $('#title').on('change', function(e) {
         e.preventDefault();
