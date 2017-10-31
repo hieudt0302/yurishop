@@ -28,7 +28,7 @@ class PostsController extends Controller
         return View('front/posts/index-allcat', compact('post_group','tags','comments', 'lastPosts'));        
     }
 
-    public function filterByTag()
+    public function filterByTag($slug)
     {     
         $tags = Tag::has('posts')->get();
         $lastPosts = Post::where('published',1)->take(4)->get(); ///TODO: move number limit to database setting
@@ -37,7 +37,7 @@ class PostsController extends Controller
 
         
         //POSTS
-        $posts = Tag::where('slug',Input::get('slug'))->first()->posts->paginate(21);  ///TODO: move number limit to database setting
+        $posts = Tag::where('slug',Input::get($slug))->first()->posts->paginate(21);  ///TODO: move number limit to database setting
         
         return View('front/posts/index', compact('posts', 'lastPosts','tags','post_category','categories'))
         ->with('i', ($page??1 - 1) * 21);    
