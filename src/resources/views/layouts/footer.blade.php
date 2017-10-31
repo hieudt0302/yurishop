@@ -9,7 +9,8 @@
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <div class="form">
                     <input class="email" type="text" name="email" placeholder="{{ __('profile.email') }}">
-                    <div class="subscribe-mes">@lang('footer.subscribe-success')</div>
+                    <div class="subscribe-success">@lang('footer.subscribe-success')</div>
+                    <div class="subscribe-failed">@lang('footer.subscribe-failed')</div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12">
@@ -130,7 +131,15 @@
                 "email": $("input[name='email']").val(),
             },
             success: function(res){
-                $(".subscribe-mes").show();
+                if(res.success){
+                    $(".subscribe-success").show();
+                    $(".subscribe-failed").hide();
+                }
+                else{
+                    $(".subscribe-success").hide();
+                    $(".subscribe-failed").show();
+                }
+                
             },
             error:function(res){
                 console.log("xay ra loi" + JSON.stringify(res));  

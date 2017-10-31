@@ -14056,7 +14056,7 @@ footer.ht-footer.flowerft .ft-contact .ct-icon a:hover i {
     background-color: #f49ac1;
 }
 
-.subscribe-mes {
+.subscribe-success, .subscribe-failed {
     display: none;
     margin-top: 10px;
     font-size: 15px;
@@ -14065,7 +14065,12 @@ footer.ht-footer.flowerft .ft-contact .ct-icon a:hover i {
     margin-bottom: 20px;
     /* border: 1px solid transparent; */
     /* border-radius: 4px; */
-    color: #3c763d;
     /* background-color: #dff0d8; */
     border-color: #d6e9c6;
+}
+.subscribe-success {
+    color: #3c763d;
+}
+.subscribe-failed {
+    color: #990000;
 }

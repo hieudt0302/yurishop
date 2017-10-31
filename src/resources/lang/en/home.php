@@ -13,4 +13,6 @@ return [
     'product-origin' => 'Products origin',    
     'product-quality' => 'Products quality',
     'community' => 'Community',    
+    'unsubscribe-success' => 'You have successfully unsubscribed from promotion. <br> Thank you for using our service',
+    'back-home' => 'Back Home',
 ];
