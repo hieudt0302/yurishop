@@ -70,7 +70,8 @@
                                     <input type="hidden" id="reader_id" name="reader_id" value="{{Auth::user()->id}}">
                                     <input type="hidden" id="name" name="name" value="{{Auth::user()->last_name}} {{Auth::user()->first_name}}">
                                     <input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
-                                @endguest                                
+                                @endguest       
+                                                         
                             </div>
                             <div class="row">
                                 <div class="col-md-12">

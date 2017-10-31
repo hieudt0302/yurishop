@@ -42,6 +42,7 @@ class CommentsController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'comment' => 'required|string',
+            'post_id' =>'required',
         ]);
 
         if ($validator->fails()) {
@@ -62,7 +63,7 @@ class CommentsController extends Controller
         if(!empty($request->reader_id))
             $comment->author_id = $request->reader_id;
 
-        $post = Post::find();
+        $post = Post::find($request->post_id); 
 
         $review = $post->comments()->save($comment);
 
