@@ -44,8 +44,10 @@
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="right-it">
-                    <form class="form-inline">
-                        <input type="text" name="search_content" placeholder="What are you looking for?">
+                    <form class="form-inline subscribe">
+                        <div class="form-group form">
+                            <input type="text" name="search_content" placeholder="What are you looking for?"  class="form-control">
+                        </div>
                         <div class="sub-button">
                             <button type="submit">Search</button>
                         </div>
