@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('title',$product->name)
 @section('header')
-
+<!-- Share Nav -->
+@include('layouts.share')
 @endsection
 @section('content')
 <div class="hero">

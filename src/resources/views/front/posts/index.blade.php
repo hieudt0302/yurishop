@@ -1,6 +1,9 @@
 @extends('layouts.master')
 @section('title','Poko Farms - Post') 
-
+@section('header')
+<!-- Share Nav -->
+@include('layouts.share')
+@endsection
 @section('content')
 
 <div class="hero">

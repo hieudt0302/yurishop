@@ -1,10 +1,11 @@
 @extends('layouts.master')
 @section('title','Poko Farms - Product')
 @section('header')
-
+<!-- Share Nav -->
+@include('layouts.share')
 @endsection
-
 @section('content')
+
 <div class="hero">
     <div class="container">
         @if(!empty($promo)&&$promo==true)
@@ -107,6 +108,8 @@
 
 @endsection
 @section('scripts')
+
+
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
 <script>

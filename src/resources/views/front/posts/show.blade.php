@@ -1,6 +1,9 @@
 @extends('layouts.master')
 @section('title', $post->title) 
-
+@section('header')
+<!-- Share Nav -->
+@include('layouts.share')
+@endsection
 @section('content')
 <section class="blogsingle">
     <img class="blog-img" src="images/uploads/blogsingle.png" alt="">
