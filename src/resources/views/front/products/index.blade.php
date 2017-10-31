@@ -44,22 +44,7 @@
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="right-it">
-						<div class="drop">
-							<select>
-								<option value="default sorting">default sorting</option>
-								<option value="default sorting">default sorting</option>
-							</select>
-						</div>
-						<div class="drop">
-							<select>
-								<option value="by categories">by categories</option>
-								<option value="by categories">by categories</option>
-							</select>
-						</div>
-						<div class="icon-select">
-							<a href="shoplist.html"><i class="fa fa-bars" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="List"></i></a>
-							<a href="shopgridv2.html"><i class="fa fa-th" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Grid"></i></a>
-						</div>
+						
 				</div>
 			</div>
         </div>
