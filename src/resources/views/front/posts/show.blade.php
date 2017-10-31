@@ -27,7 +27,7 @@
                         <i class="fa fa-tag" aria-hidden="true"></i>
                         @foreach($post->tags as $tag)
                         <a href="{{$tag->slug}}">{{$tag->name}}</a>, 
-                        @endoforeach
+                        @endforeach
                     </div>
                     <hr>
 
