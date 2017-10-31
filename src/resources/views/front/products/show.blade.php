@@ -231,7 +231,7 @@
 											 	</span>
 											</span>
 											<p>{{$review->comment}}</p>
-											<a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>@lang('product.comment')</a>
+											<a class="reply" href="#review-form"><i class="fa fa-reply" aria-hidden="true"></i>@lang('product.comment')</a>
 										</div>	
 									</div>
 								</div>
@@ -242,7 +242,7 @@
 			       	 	</div>
 				    </div>
 				    <!-- comment form -->
-					<form method="post" action="{{url('/products')}}/{{$product->id}}/review"  class="post-cmt">
+					<form id="review-form" method="post" action="{{url('/products')}}/{{$product->id}}/review"  class="post-cmt">
                     {{ csrf_field() }}
                     <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
                         <label>@lang('product.add-review')</label>

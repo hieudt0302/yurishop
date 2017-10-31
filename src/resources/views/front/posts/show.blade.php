@@ -44,7 +44,7 @@
                                     <div class="cmt-content">
                                         <h4><a href="#">{{$comment->name}}</a><li class="date">{{$comment->created_at}}</li></h4>
                                         <p>{{$comment->comment}}</p>
-                                        <a class="reply" href="#"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
+                                        <a class="reply" href="#comment-form"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
                                     </div>  
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                     </div>
                     <hr>
                     <!-- comment form -->
-                    <form class="post-cmt" method="post" action="{{url('/posts')}}/{{$post->id}}/comment" >
+                    <form id="comment-form" class="post-cmt" method="post" action="{{url('/posts')}}/{{$post->id}}/comment" >
                     {{ csrf_field() }}
                     <input type="hidden" id="post_id" name="post_id" value="{{$post->id}}">
                         <label>@lang('blog.leave-a-comment')</label>

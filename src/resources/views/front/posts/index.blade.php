@@ -145,13 +145,8 @@
                     <div class="searchbytag">
                         <h1 class="cate-heading">Tags</h1>
                         <ul class="tags">
-                            <li><a href="galleryv1.html">coffee</a></li>
-                            <li><a href="galleryv1.html">che</a></li>
-                            <li><a href="galleryv1.html">green</a></li>
-                            <li><a href="galleryv1.html">natural</a></li>
-                            <li><a href="galleryv1.html">healthy</a></li>                            
                             @foreach($tags as $tag)
-                            <li><a href="">{{$tag->name}}</a></li>
+                            <li><a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -163,16 +158,6 @@
 <div class="blogpanigation">
     <div class="container">
         <div class="col-md-9">
-            <!-- <ul>
-                <li class="prev"><a href="#">prev</a></li>
-                <li class="num active"><a href="#">1</a></li>
-                <li class="num"><a href="#">2</a></li>
-                <li class="num"><a href="#">3</a></li>
-                <li><a href="#">...</a></li>
-                <li class="num2"><a href="#">13</a></li>
-                <li class="num2"><a href="#">14</a></li>
-                <li class="next"><a href="#">next</a></li>
-            </ul> -->
             {{ $posts->links() }}
         </div>
     </div>

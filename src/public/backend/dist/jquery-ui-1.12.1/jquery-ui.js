@@ -4932,8 +4932,8 @@ var safeActiveElement = $.ui.safeActiveElement = function( document ) {
 //>>label: Menu
 //>>group: Widgets
 //>>description: Creates nestable menus.
-//>>docs: http://api.jqueryui.com/menu/
-//>>demos: http://jqueryui.com/menu/
+//>>docs: http://api.jqueryui.com/subject/
+//>>demos: http://jqueryui.com/subject/
 //>>css.structure: ../../themes/base/core.css
 //>>css.structure: ../../themes/base/menu.css
 //>>css.theme: ../../themes/base/theme.css

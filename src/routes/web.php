@@ -44,14 +44,15 @@ Route::get('/orders',  ['uses'=>'Front\HomeController@orders','middleware' => 'a
 Route::get('/faqs', 'Front\FaqController@index');
 
 /* PRODUCT */
-Route::get('/products', 'Front\ProductsController@index');
+// Route::get('/products', 'Front\ProductsController@index');
 Route::get('/products/{id}', 'Front\ProductsController@show');
 Route::post('/add-to-cart', 'Front\ProductsController@addToCart');
 Route::post('/add-to-wishlist', 'Front\ProductsController@addToWishlist');
 Route::post('/products','Front\ProductsController@search'); 
 
 /* POST */
-Route::get('/posts', 'Front\PostsController@index');
+// Route::get('/posts', 'Front\PostsController@index');
+Route::get('/subject/posts/tags/{slug}', 'Front\PostsController@filterByTag');
 Route::get('/posts/{slug}', 'Front\PostsController@show');
 Route::post('/posts','Front\PostsController@search');  
 
@@ -62,7 +63,7 @@ Route::post('/products/{id}/review', 'Front\ReviewsController@store');
 Route::post('/posts/{id}/comment', 'Front\CommentsController@store');
 
 /* MENU */
-Route::get('/menu/{parent}/{slug}', 'Front\MenuController@menu');
+Route::get('/subject/{parent}/{slug}', 'Front\MenuController@menu');
 
 /* SHOPPING CART */
 Route::get('/cart', 'Front\ShoppingCartController@cart');
