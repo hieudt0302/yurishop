@@ -59,7 +59,7 @@ Route::post('/posts','Front\PostsController@search');
 Route::post('/products/{id}/review', 'Front\ReviewsController@store');
 
 /* COMMENT - PRODUCT */
-Route::post('/posts/{slug}/comment', 'Front\CommentsController@store');
+Route::post('/posts/{id}/comment', 'Front\CommentsController@store');
 
 /* MENU */
 Route::get('/menu/{parent}/{slug}', 'Front\MenuController@menu');

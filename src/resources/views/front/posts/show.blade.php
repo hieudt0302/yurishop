@@ -25,8 +25,9 @@
                     <!-- tags -->
                     <div class="tags">
                         <i class="fa fa-tag" aria-hidden="true"></i>
-                        <a href="#">fruits</a>, <a href="#">vegetables</a>, <a href="#">oganic store</a>
-                        <span class="share"><a href="#"><i class="fa fa-share-alt" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Share"></i>Share this post</a></span>
+                        @foreach($post->tags as $tag)
+                        <a href="{{$tag->slug}}">{{$tag->name}}</a>, 
+                        @endoforeach
                     </div>
                     <hr>
 
@@ -52,16 +53,18 @@
                     </div>
                     <hr>
                     <!-- comment form -->
-                    <form class="post-cmt" method="post" action="{{url('/posts')}}/{{$post->slug}}/comment" id="form" role="form">
+                    <form class="post-cmt" method="post" action="{{url('/posts')}}/{{$post->id}}/comment" >
+                    {{ csrf_field() }}
+                    <input type="hidden" id="post_id" name="post_id" value="{{$post->id}}">
                         <label>@lang('blog.leave-a-comment')</label>
                             {{ csrf_field() }}
                             <div class="row">
                                 @guest
                                 <div class="col-md-6">
-                                    <input class="name" type="text" placeholder="{{ __('blog.name') }} *">
+                                    <input name="name"  type="text" placeholder="{{ __('blog.name') }} *">
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="email" type="text" placeholder="{{ __('blog.email') }} *">
+                                    <input name="email" type="text" placeholder="{{ __('blog.email') }} *">
                                 </div>
                                 @else
                                     <input type="hidden" id="reader_id" name="reader_id" value="{{Auth::user()->id}}">

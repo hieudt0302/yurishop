@@ -46,8 +46,7 @@ class CommentsController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()
-            ->with('message', 'ERROR-INPUT: Code EI1003')
-            ->with('status', 'danger')
+            ->withErrors($validator)
             ->withInput();
         }
 
@@ -63,7 +62,7 @@ class CommentsController extends Controller
         if(!empty($request->reader_id))
             $comment->author_id = $request->reader_id;
 
-        $post = Post::where('slug', $request->post_slug)->firstOrFail();
+        $post = Post::find();
 
         $review = $post->comments()->save($comment);
 
