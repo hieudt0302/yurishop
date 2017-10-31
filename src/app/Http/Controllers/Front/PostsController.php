@@ -37,7 +37,7 @@ class PostsController extends Controller
 
         
         //POSTS
-        $posts = Tag::where('slug',Input::get($slug))->first()->posts->paginate(21);  ///TODO: move number limit to database setting
+        $posts = Tag::where('slug', $slug)->first()->posts()->paginate(21);  ///TODO: move number limit to database setting
         
         return View('front/posts/index', compact('posts', 'lastPosts','tags','post_category','categories'))
         ->with('i', ($page??1 - 1) * 21);    
