@@ -78,23 +78,22 @@
 		<!-- End Main Page -->
 
  	</div>
-	 <script src="{{asset('frontend/js/plugins.js')}}"></script>
-	 <script src="{{asset('frontend/js/custom.js')}}"></script>
-	 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	 <script src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
-	 <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAguiQMk8GSqnO6GHpkgS8txEqYNXDjp4k&callback=initialize" type="text/javascript"></script> -->
+	<script src="{{asset('frontend/js/plugins.js')}}"></script>
+	<script src="{{asset('frontend/js/custom.js')}}"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJyWgPF1EBDeQjx4ctp4e_DuoLi7Zf8OA&callback=initialize" type="text/javascript"></script>
 
-		  <!-- <script type="text/javascript" src="{{ asset('js/app.js') }}"></script> -->
-		  <script>
-                (function() {
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                })();
-        </script>
-        @yield('scripts')
+	<script>
+		(function() {
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+		})();
+	</script>
+    @yield('scripts')
 </body>
 </html>
