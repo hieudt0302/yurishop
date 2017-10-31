@@ -153,7 +153,7 @@
                         <!-- Blog menu -->
                         @foreach($blog_menu as $menu)
                         <li class="dropdown first">
-                            <a href="{{url('/menu')}}/{{$menu->parent->slug}}/{{$menu->slug}}" class="btn btn-default lv1">
+                            <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}" class="btn btn-default lv1">
                             {{$menu->translation->name??$menu->name}}
                             </a>
                         </li>  
@@ -174,7 +174,7 @@
                             <ul class="dropdown-menu level1">
                                 @foreach($product_menu->GetMenuSubLevel1() as $sub)
                                 <li>
-                                    <a href="{{url('/menu')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
+                                    <a href="{{url('/subject')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
                                         <i class="ion-ios-minus-empty"></i>
                                         {{$sub->translation->name??$sub->name}}
                                     </a>
