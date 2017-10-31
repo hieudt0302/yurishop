@@ -26,7 +26,7 @@
                     <div class="tags">
                         <i class="fa fa-tag" aria-hidden="true"></i>
                         @foreach($post->tags as $tag)
-                        <a href="{{$tag->slug}}">{{$tag->name}}</a>, 
+                        <a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a>, 
                         @endforeach
                     </div>
                     <hr>
