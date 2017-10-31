@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <input type="text" name="search_content" placeholder="What are you looking for?"  class="form-control">
                         </div>
-                         <button type="submit">Search</button>
+                         <button type="submit" style="background-color: #fbfaf9;border: 1px solid #efefef;border-radius: 5px;">Search</button>
                     </form>
 				</div>
 			</div>
