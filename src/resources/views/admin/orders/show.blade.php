@@ -30,15 +30,15 @@
             <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">Chung</a></li>
-                        <li><a href="#billing_address" data-toggle="tab">Địa Chỉ Thanh Toán</a></li>
-                        <li><a href="#shipping_address" data-toggle="tab">Địa Chỉ Vận Chuyển</a></li>
-                        <li><a href="#products" data-toggle="tab">Sản  Phẩm</a></li>
+                        <li class="{{$tab==1?'active':''}}"><a href="#info" data-toggle="tab">Chung</a></li>
+                        <li class="{{$tab==2?'active':''}}"><a href="#billing_address" data-toggle="tab">Địa Chỉ Thanh Toán</a></li>
+                        <li class="{{$tab==3?'active':''}}"><a href="#shipping_address" data-toggle="tab">Địa Chỉ Vận Chuyển</a></li>
+                        <li class="{{$tab==4?'active':''}}"><a href="#products" data-toggle="tab">Sản  Phẩm</a></li>
                         <!-- <li><a href="#order_notes" data-toggle="tab">Order Note(s)</a></li> -->
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
-                        <div class="active tab-pane" id="info">
+                        <div class="{{$tab==1?'active':''}}  tab-pane" id="info">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
@@ -285,7 +285,7 @@
                         </div>
 
                         <!-- BILLING ADDRESS TAB -->
-                        <div class="tab-pane" id="billing_address">
+                        <div class="{{$tab==2?'active':''}} tab-pane" id="billing_address">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
@@ -469,7 +469,7 @@
                         </div>
 
                         <!-- SHIPPING ADDRESS TAB -->
-                        <div class="tab-pane" id="shipping_address">
+                        <div class="{{$tab==3?'active':''}} tab-pane" id="shipping_address">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
@@ -652,7 +652,7 @@
                             </div>
                         </div>
                         <!-- PRODUCT(s) TAB -->
-                        <div class="tab-pane" id="products">
+                        <div class="{{$tab==4?'active':''}} tab-pane" id="products">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="form-group">

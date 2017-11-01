@@ -29,13 +29,13 @@
             <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">Thông tin sản phẩm</a></li>
-                        <li><a href="#content" data-toggle="tab">Nội dung</a></li>
-                        <li><a href="#pictures" data-toggle="tab">Ảnh sản phẩm</a></li>
+                        <li class="{{$tab==1?'active':''}}"><a href="#info" data-toggle="tab">Thông tin sản phẩm</a></li>
+                        <li class="{{$tab==2?'active':''}}"><a href="#content" data-toggle="tab">Nội dung</a></li>
+                        <li class="{{$tab==3?'active':''}}"><a href="#pictures" data-toggle="tab">Ảnh sản phẩm</a></li>
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
-                        <div class="active tab-pane" id="info">
+                        <div class="{{$tab==1?'active':''}}  tab-pane" id="info">
                             <form action="{{url('/admin/products')}}/{{$product->id}}" method="post">
                             {!! method_field('patch') !!} 
                             {{ csrf_field()}}
@@ -213,7 +213,7 @@
                             </form>
                         </div>
                         <!-- CONTENT TAB -->
-                        <div class="tab-pane" id="content">
+                        <div class="{{$tab==2?'active':''}} tab-pane" id="content">
                             <div class="panel-group">
                                 <!-- Language Select -->
                                 <div class="panel panel-default">
@@ -281,7 +281,7 @@
                             </div>
                         </div>
                         <!-- PRICTURES TAB -->
-                        <div class="tab-pane" id="pictures">
+                        <div class="{{$tab==3?'active':''}} tab-pane" id="pictures">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <form id="form-upload-image" name="form-upload-image"  method="post" enctype="multipart/form-data"> 

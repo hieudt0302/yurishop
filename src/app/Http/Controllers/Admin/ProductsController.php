@@ -477,7 +477,7 @@ class ProductsController extends Controller
         $categories = Category::where('parent_id', $shopCategory->id)->get();
         
         $request->flashOnly(['from_date', 'to_date', 'product_name', 'sku', 'category_id']);
-        
+       
         return View('admin.products.index', compact('products','categories'))
         ->with('i', ($request->input('page', 1) - 1) * 21);
     }
@@ -520,6 +520,7 @@ class ProductsController extends Controller
             $product->tags()->sync($tags); 
         }
     }
+
     /* REVIEWS */
     public function reviews(Request $request)
     {
@@ -554,6 +555,8 @@ class ProductsController extends Controller
             })
             ->paginate(21);
 
+        $tab = 1;
+        $request->flashOnly(['tab']);
         return View('admin/products/reviews',compact('reviews'));
     }
 }

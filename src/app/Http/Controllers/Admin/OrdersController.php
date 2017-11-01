@@ -60,7 +60,8 @@ class OrdersController extends Controller
     public function show($id)
     {
         $order = Order::find($id);
-        return view('admin/orders/show',compact('order'));
+        $tab =1;
+        return view('admin/orders/show',compact('order','tab'));
     }
 
     /**
@@ -111,9 +112,10 @@ class OrdersController extends Controller
         $order->order_total = $order->orderdetails->sum('total');
         $order->save();
 
-        $tab= 4;
+        $tab = 4;
+        $request->flashOnly(['tab']);
 
-        return view('admin/orders/show',compact('order', 'tab'))
+        return view('admin/orders/show',compact('order'))
         ->with('message', 'Cập nhật sản phẩm thành công!')
         ->with('status', 'success');
     }
@@ -201,6 +203,9 @@ class OrdersController extends Controller
         $orders = $query->paginate(21);
         $request->flashOnly(['order_start_date', 'order_end_date', 'customer_name', 'billing_email', 'order_no','orders_status','shippings_status','payments_status']);
 
+        $tab = 1;
+        $request->flashOnly(['tab']);
+
         return View('admin.orders.index', compact('orders'))
         ->with('i', ($request->input('page', 1) - 1) * 21);
     }
@@ -220,6 +225,8 @@ class OrdersController extends Controller
         $order->order_status =  $request->order_status; //refer Lang/method.php
         $order->save();
         
+        $tab = 1;
+        $request->flashOnly(['tab']);
         return view('admin/orders/show',compact('order'));
     }
     public function ChangePaymentStatus(Request $request, $id)
@@ -228,6 +235,8 @@ class OrdersController extends Controller
         $order->payment_status =  $request->payment_status; //refer Lang/method.php
         $order->save();
         
+        $tab = 1;
+        $request->flashOnly(['tab']);
         return view('admin/orders/show',compact('order'));
     }
     public function ChangeShippingStatus(Request $request, $id)
@@ -236,6 +245,8 @@ class OrdersController extends Controller
         $order->shipping_status =  $request->shipping_status; //refer Lang/method.php
         $order->save();
         
+        $tab = 1;
+        $request->flashOnly(['tab']);
         return view('admin/orders/show',compact('order'));
     }
     public function UpdateOrderFee(Request $request, $id)
@@ -245,7 +256,8 @@ class OrdersController extends Controller
         $order->order_shipping_price =  $request->order_shipping_price; 
         $order->order_total = $order->order_tax  + $order->order_shipping_price +  $order->orderdetails->sum('total');
         $order->save();
-        
+        $tab = 1;
+        $request->flashOnly(['tab']);
         return view('admin/orders/show',compact('order'));
     }
 
@@ -269,7 +281,8 @@ class OrdersController extends Controller
         $order = Order::find($id);
         $this->UpdateAddress($request, $order->billing_address_id);
         $tab = 2;
-        return view('admin/orders/show',compact('order', 'tab'))
+        $request->flashOnly(['tab']);
+        return view('admin/orders/show',compact('order'))
         ->with('message', 'Cập nhật địa chỉ thanh toán của khách hàng thành công!')
         ->with('status', 'success');
     }
@@ -293,8 +306,11 @@ class OrdersController extends Controller
 
         $order = Order::find($id);
         $this->UpdateAddress($request, $order->shipping_address_id);
+
         $tab = 3;
-        return view('admin/orders/show',compact('order', 'tab'))
+        $request->flashOnly(['tab']);
+
+        return view('admin/orders/show',compact('order'))
         ->with('message', 'Cập nhật địa chỉ vận chuyển của khách hàng thành công!')
         ->with('status', 'success');
     }
@@ -319,4 +335,6 @@ class OrdersController extends Controller
 
         $address->save();
     }
+
+    
 }
