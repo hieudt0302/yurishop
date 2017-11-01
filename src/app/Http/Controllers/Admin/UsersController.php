@@ -91,7 +91,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        if($user->hasRole('admin'))
+        if($user->hasRole('admin') && $id != Auth::id())
         {
             if(!Auth::user()->hasRole('admin'))
                 return abort(404);

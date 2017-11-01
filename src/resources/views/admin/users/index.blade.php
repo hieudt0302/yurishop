@@ -33,7 +33,7 @@
 						</tr>
 						@foreach ($data as $key => $user)
 						<tr>
-							@if(Auth::user()->id===$user->id)
+							@if(Auth::user()->id == $user->id)
 							<td>{{ ++$i }}</td>
 							<td>{{ $user->username }}</td>
 							<td>{{ $user->email }}</td>
@@ -42,9 +42,9 @@
 								<label class="label label-success">{{ $v->display_name }}</label> @endforeach @endif
 							</td>
 							<td>
-								@permission('user-show')
-								<a class="btn btn-info" href="{{ route('admin.users.show',$user->id) }}">Xem</a> @endpermission @permission('user-edit')
-								<a class="btn btn-primary" href="{{ route('admin.users.edit',$user->id) }}">Sửa</a> @endpermission
+								
+								<a class="btn btn-primary" href="{{ route('admin.users.edit',$user->id) }}">Sửa</a>
+					
 							</td>
 							@else
 							<td>{{ ++$i }}</td>
@@ -52,16 +52,16 @@
 							<td>{{ $user->email }}</td>
 							<td>
 								@if(!empty($user->roles)) @foreach($user->roles as $v)
-								<label class="label label-success">{{ $v->display_name }}</label> @endforeach @endif
+								<label class="label label-success">{{ $v->display_name }}</label> 
+								@endforeach @endif
 							</td>
 							<td>
-								<!-- <a class="btn btn-info" href="{{ route('admin.users.show',$user->id) }}">Xem</a> -->
+								@role('admin')
 								<a class="btn btn-primary" href="{{ route('admin.users.edit',$user->id) }}">Sửa</a>
-								  <!-- {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline'])!!} 
-								{!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!} {!! Form::close() !!}  -->
 								<a type="button" class="btn btn-danger" data-user-id="{{$user->id}}" data-toggle="modal" data-target="#modal-delete-user">
                                     <i class="fa fa-ban"></i>
-                                    </a> 
+                                </a> 
+								@endrole
 							</td>
 							@endif
 						</tr>
