@@ -173,7 +173,8 @@ class ProductsController extends Controller
         }
         $tags = Tag::all();
         $languages = Language::all(); ///TODO: make condition active
-        return View('admin/products/edit',compact('product','languages','categories','tags'));
+        $tab = 1;
+        return View('admin/products/edit',compact('product','languages','categories','tags','tab'));
     }
 
     /**
