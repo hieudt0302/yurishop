@@ -371,6 +371,27 @@
             </div>
         </div>
     </div>  
+
+<!-- MESSAGE-->
+<div class="modal modal-info fade" id="modal-alert-update">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Hoàn Thành</h4>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Cập nhật thành công?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection
 
 
@@ -441,7 +462,9 @@
                     '_method': 'PATCH'
                 },
                 success:function(response){
-                    alert(response['message']);
+                    // alert(response['message']);
+                    $('#modal-message').html(response['message'])
+                    $("#modal-alert-update").modal();
                 },
                 error:function(response){
                     alert(response['message']);
@@ -504,9 +527,6 @@
         return false;
     });
     /* DELETE IMAGE */
-    // $("#table-row").on("click", ".ajax-action-link", function () {
-    //             //$(this).closest('tr').remove();
-    // });
     $('.ajax-action-link').on("click",  function (e) {
         e.preventDefault();
         var token = '{{csrf_token()}}';
