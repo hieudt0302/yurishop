@@ -269,7 +269,8 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
         $post->delete();
-        Storage::delete('images/blog/'.$post->img);
+        if(!empty($post->img))
+            Storage::delete('images/blog/'.$post->img);
         
         return redirect()->route('admin.posts.index')
         ->with('message', 'Xóa bài viết thành công!')
