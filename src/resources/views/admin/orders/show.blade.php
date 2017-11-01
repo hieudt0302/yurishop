@@ -30,10 +30,10 @@
             <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">Info</a></li>
-                        <li><a href="#billing_address" data-toggle="tab">Billing Address</a></li>
-                        <li><a href="#shipping_address" data-toggle="tab">Shipping Address</a></li>
-                        <li><a href="#products" data-toggle="tab">Product(s)</a></li>
+                        <li class="active"><a href="#info" data-toggle="tab">Chung</a></li>
+                        <li><a href="#billing_address" data-toggle="tab">Địa Chỉ Thanh Toán</a></li>
+                        <li><a href="#shipping_address" data-toggle="tab">Địa Chỉ Vận Chuyển</a></li>
+                        <li><a href="#products" data-toggle="tab">Sản  Phẩm</a></li>
                         <!-- <li><a href="#order_notes" data-toggle="tab">Order Note(s)</a></li> -->
                     </ul>
                     <div class="tab-content">
@@ -43,7 +43,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="OrderStatus" title="">Order status:</label>
+                                            <label class="col-md-3 control-label" for="OrderStatus" title="">Đơn Hàng:</label>
                                             <div class="col-md-9">
                                                 <div class="input-group input-group-short">                                                   
                                                     <div class="input-group-text">
@@ -63,11 +63,11 @@
                                                         </strong>
                                                         @if($order->order_status!==3)
                                                         <button type="button" name="" id="cancelorder" class="btn bg-red" style="margin-right: 3px;" data-toggle="modal" data-target="#cancelorder-action-confirmation">
-                                                            Cancel order
+                                                            Hủy Đơn Hàng
                                                         </button>
                                                         @endif
                                                         <button type="submit" name="btnChangeOrderStatus" onclick="toggleChangeOrderStatus(true);return false;" id="btnChangeOrderStatus" class="btn btn-primary" style="display: inline-block;">
-                                                        Change status
+                                                        Đổi Trạng Thái
                                                         </button>
                                                         <form action="{{url('/admin/orders')}}/{{$order->id}}/change/orderstatus" method="POST">
                                                         {{ csrf_field()}}
@@ -82,10 +82,10 @@
                                                                     @endforeach
                                                                 </select>
                                                                 <button type="submit" name="" id="btnSaveOrderStatus" class="btn btn-primary" style="margin-left: 3px">
-                                                                Save
+                                                                Lưu
                                                                 </button>
                                                                 <button type="button" onclick="toggleChangeOrderStatus(false);return false;" id="btnCancelOrderStatus" class="btn bg-teal" style="margin-left: 3px">
-                                                                Cancel
+                                                                Hủy
                                                                 </button>
                                                             </div>
                                                         </form>
@@ -94,7 +94,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3  control-label" for="CustomOrderNumber" title="">Order No</label>
+                                            <label class="col-md-3  control-label" for="CustomOrderNumber" title="">Mã Đơn Hàng</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">#{{$order->order_no}}</div>
                                             </div>
@@ -104,7 +104,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="CustomerId" title="">Customer Name</label>
+                                            <label class="col-md-3 control-label" for="CustomerId" title="">Tên Khách Hàng</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">
                                                     <a href="#">{{$order->billingaddress->last_name}} {{$order->billingaddress->first_name}}</a>
@@ -112,19 +112,19 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="customer_email" title="">Customer Email</label>
+                                            <label class="col-md-3 control-label" for="customer_email" title="">Email Khách Hàng</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{$order->billingaddress->email}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="customer_phone" title="">Customer Phone</label>
+                                            <label class="col-md-3 control-label" for="customer_phone" title="">Điện Thoại Khách Hàng</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{$order->billingaddress->phone}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">Order subtotal</label>
+                                            <label class="col-md-3 control-label">Tổng Tiền Sản Phẩm</label>
                                             <div class="col-md-7">
                                                 <div class="row">
                                                     <div class="col-md-10">
@@ -136,7 +136,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3  control-label">Order shipping</label>
+                                            <label class="col-md-3  control-label">Phí Vận Chuyển</label>
                                             <div class="col-md-7">
                                                 <div class="row">
                                                     <div class="col-md-2">
@@ -148,7 +148,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="Tax" title="">Order tax</label>
+                                            <label class="col-md-3 control-label" for="Tax" title="">Thuế</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{$order->order_tax}}</div>
                                             </div>
@@ -157,7 +157,7 @@
                                             <div class="">
                                                 <div class="label-wrapper">
                                                 
-                                                <label class="col-md-3 control-label" for="OrderTotal" title="">Order total</label>
+                                                <label class="col-md-3 control-label" for="OrderTotal" title="">Tổng Tiền Đơn Hàng</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
@@ -169,7 +169,7 @@
                                         {{ csrf_field()}}
                                             <div id="trEditOrderTotals" style="display: none;">
                                                 <div class="form-group">
-                                                    <label class="col-md-3 control-label" title="">Order Shipping Price</label>
+                                                    <label class="col-md-3 control-label" title="">Phí Vận Chuyển</label>
                                                     <div class="col-md-4">
                                                         <div class="input-group bootstrap-touchspin">
                                                             <input  id="OrderShippingPrice" name="order_shipping_price" type="text" value="0.00"  class="form-control" style="display: block;" value="{{$order->order_shipping_price}}">
@@ -177,7 +177,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-3 control-label"  title="">Order Tax</label>
+                                                    <label class="col-md-3 control-label"  title="">Thuế</label>
                                                     <div class="col-md-4">
                                                         <div class="input-group bootstrap-touchspin">
                                                             <input  id="OrderTax" name="order_tax" type="text" value="0.00" class="form-control" style="display: block;" value="{{$order->order_tax}}">
@@ -188,13 +188,13 @@
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-3">
                                                     <button type="button" name="btnEditOrderTotals" onclick="toggleOrderTotals(true);return false;" id="btnEditOrderTotals" class="btn btn-primary">
-                                                    Edit order totals
+                                                    Cập Nhật Phí/Thuế
                                                     </button>
                                                     <button type="submit" name="" id="btnSaveOrderTotals" class="btn btn-primary" style="display: none;">
-                                                        Save order totals
+                                                        Lưu
                                                     </button>
                                                     <button type="button" name="btnCancelOrderTotals" onclick="toggleOrderTotals(false);return false;" id="btnCancelOrderTotals" class="btn bg-teal" style="display: none;">
-                                                    Cancel
+                                                    Hủy
                                                     </button>
                                                 </div>
                                             </div>
@@ -205,7 +205,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="form-group">
-                                                <label class="col-md-3 control-label" for="payment_status" title="">Payment status</label>
+                                                <label class="col-md-3 control-label" for="payment_status" title="">Thanh Toán</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{__('status.payment.'.$order->payment_status)}}</div>
                                             </div>
@@ -215,7 +215,7 @@
                                                 <div class="input-group input-group-short">
                                                     <div class="input-group-btn">
                                                         <button type="submit" name="btnChangePaymentStatus" onclick="toggleChangePaymentStatus(true);return false;" id="btnChangePaymentStatus" class="btn btn-primary" style="display: inline-block;">
-                                                        Change status
+                                                        Đổi Trạng Thái
                                                         </button>
                                                         <form action="{{url('/admin/orders')}}/{{$order->id}}/change/paymentstatus" method="POST">
                                                         {{ csrf_field()}}
@@ -230,10 +230,10 @@
                                                                     @endforeach
                                                                 </select>
                                                                 <button type="submit" name="" id="btnSavePaymentStatus" class="btn btn-primary" style="margin-left: 3px">
-                                                                Save
+                                                                Lưu
                                                                 </button>
                                                                 <button type="button" onclick="toggleChangePaymentStatus(false);return false;" id="btnCancelPaymentStatus" class="btn bg-teal" style="margin-left: 3px">
-                                                                Cancel
+                                                                Hủy
                                                                 </button>
                                                             </div>
                                                         </form>
@@ -242,7 +242,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="shipping_status" title="">Shipping status</label>
+                                            <label class="col-md-3 control-label" for="shipping_status" title="">Vận Chuyển</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{__('status.shipping.'.$order->shipping_status)}}</div>
                                             </div>
@@ -253,7 +253,7 @@
                                                     <div class="input-group-btn">
                                                        
                                                         <button type="submit" name="btnChangeShippingStatus" onclick="toggleChangeShippingStatus(true);return false;" id="btnChangeShippingStatus" class="btn btn-primary" style="display: inline-block;">
-                                                        Change status
+                                                        Đổi Trạng Thái
                                                         </button>
                                                         <form action="{{url('/admin/orders')}}/{{$order->id}}/change/shippingstatus" method="POST">
                                                         {{ csrf_field()}}
@@ -268,10 +268,10 @@
                                                                     @endforeach
                                                                 </select>
                                                                 <button type="submit" name="" id="btnSaveShippingStatus" class="btn btn-primary" style="margin-left: 3px">
-                                                                Save
+                                                                Lưu
                                                                 </button>
                                                                 <button type="button" onclick="toggleChangeShippingStatus(false);return false;" id="btnCancelShippingStatus" class="btn bg-teal" style="margin-left: 3px">
-                                                                Cancel
+                                                                Hủy
                                                                 </button>
                                                             </div>
                                                         </form>
@@ -292,7 +292,7 @@
                                         <form action="{{url('admin/orders')}}/{{$order->id}}/update/billingaddress" method="POST">
                                             {{ csrf_field()}}
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="billing_address" title="">Billing address</label>
+                                                <label class="col-md-3 control-label" for="billing_address" title="">Địa chỉ thanh toán</label>
                                                 <div class="col-md-9">
                                                     <img alt="google maps" src="data:image/gif;base64,R0lGODlhEAAQANUAAAATVm+s78cjAE+tVaq2wldzvBxase3/9gAlvS23QNPZ+QsWpMLO/gdj6HyPx3qk1r/e8MTb4ygmi84UGSQ6sUy0O////6/S+hUqqiZbyykwdOX2/UZ0ygQ2sd0YEomP2RUfgG+a6Rc7k8wuIk21UgAilvf//80qABxJsM3c88H1/xMxxSAuxUJu2//1/2KEqd3r/xY/v9waAGWF2NIoDzFguBMsoNYgL4GZ3zE3sdDl/9slGg4qy+n//zy1RNEQByH5BAAHAP8ALAAAAAAQABAAAAaXwAapMqgMjb6KMuHzNSzQqFQ6elp6MFyBsurUAhDo6XlQcVaw3pUh0kB/1plILU1FoLQnTqQwTaVjFiEULn9ScBY1BoZSHk8ZKIxRN08tJX5QJgcROjopFgJPDwgOB1EMORgUHxY7TxssCwyYUDogBBYTVjASCx8bFgcHFwC4eRYmJhsFEjYrMTwoL8CuklM7Tdna2z4yQQA7">
                                                     <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;ie=UTF8&amp;oe=UTF8&amp;geocode=&amp;q={{$order->billingaddress->address1}}+{{$order->billingaddress->district}}+{{$order->billingaddress->city}}+{{$order->billingaddress->country}}" style="margin-bottom: 10px;" target="_blank">View address on Google Maps</a>
@@ -300,7 +300,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>
-                                                                    First Name
+                                                                    Tên
                                                                 </td>
                                                                 <td>
                                                                     {{$order->billingaddress->first_name}}
@@ -311,7 +311,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Last Name
+                                                                    Họ
                                                                 </td>
                                                                 <td>
                                                                     {{$order->billingaddress->last_name}}
@@ -333,7 +333,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Phone
+                                                                    Điện Thoại
                                                                 </td>
                                                                 <td>
                                                                     {{$order->billingaddress->phone}}
@@ -355,7 +355,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Company
+                                                                    Công Ty
                                                                 </td>
                                                                 <td>
                                                                     {{$order->billingaddress->company}}
@@ -366,7 +366,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Address 1
+                                                                    Địa Chỉ 1
                                                                 </td>
                                                                 <td>
                                                                     {{$order->billingaddress->address1}}
@@ -377,7 +377,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Address 2
+                                                                    Địa Chỉ 2
                                                                 </td>
                                                                 <td>
                                                                     {{$order->billingaddress->address2}}
@@ -388,7 +388,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    District
+                                                                    Quận/Huyện
                                                                 </td>
                                                                 <td>
                                                                     {{$order->billingaddress->district}}
@@ -399,7 +399,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    City
+                                                                    Tỉnh/Thành Phố
                                                                 </td>
                                                                 <td>
                                                                     {{$order->billingaddress->city}}
@@ -410,7 +410,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    State / province
+                                                                    State / Province (Tùy chọn)
                                                                 </td>
                                                                 <td>
                                                                     {{$order->billingaddress->state_province}}
@@ -432,7 +432,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Country
+                                                                    Quốc Gia
                                                                 </td>
                                                                 <td>
                                                                     {{$order->billingaddress->country}}
@@ -450,13 +450,13 @@
                                                     <div class="input-group input-group-short">
                                                         <div class="input-group-btn">
                                                             <button type="button" id="btnEditChangeBillingAddress" onclick="toggleChangeBillingAddress(true);return false;" class="btn btn-primary">
-                                                            Edit
+                                                            Cập Nhật
                                                             </button>
                                                             <button type="submit" id="btnSaveChangeBillingAddress" class="btn btn-primary" style="margin-left: 3px; display: none;">
-                                                            Save
+                                                            Lưu
                                                             </button>
                                                             <button type="button" id="btnCancelChangeBillingAddress" onclick="toggleChangeBillingAddress(false);return false;"  class="btn bg-teal" style="margin-left: 3px; display: none;">
-                                                            Cancel
+                                                            Hủy
                                                             </button>
                                                         </div>
                                                     </div>
@@ -484,7 +484,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>
-                                                                    First Name
+                                                                    Tên
                                                                 </td>
                                                                 <td>
                                                                     {{$order->shippingaddress->first_name}}
@@ -495,7 +495,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Last Name
+                                                                    Họ
                                                                 </td>
                                                                 <td>
                                                                     {{$order->shippingaddress->last_name}}
@@ -517,7 +517,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Phone
+                                                                    Điện Thoại
                                                                 </td>
                                                                 <td>
                                                                     {{$order->shippingaddress->phone}}
@@ -539,7 +539,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Company
+                                                                    Công Ty
                                                                 </td>
                                                                 <td>
                                                                     {{$order->shippingaddress->company}}
@@ -550,7 +550,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Address 1
+                                                                    Địa Chỉ 1
                                                                 </td>
                                                                 <td>
                                                                     {{$order->shippingaddress->address1}}
@@ -561,7 +561,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Address 2
+                                                                    Địa Chỉ 2
                                                                 </td>
                                                                 <td>
                                                                     {{$order->shippingaddress->address2}}
@@ -572,7 +572,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    District
+                                                                    Quận/Huyện
                                                                 </td>
                                                                 <td>
                                                                     {{$order->shippingaddress->district}}
@@ -583,7 +583,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    City
+                                                                    Tỉnh/Thành Phố
                                                                 </td>
                                                                 <td>
                                                                     {{$order->shippingaddress->city}}
@@ -594,7 +594,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    State / province
+                                                                    State / Province (Tùy chọn)
                                                                 </td>
                                                                 <td>
                                                                     {{$order->shippingaddress->state_province}}
@@ -616,7 +616,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Country
+                                                                    Quốc Gia
                                                                 </td>
                                                                 <td>
                                                                     {{$order->shippingaddress->country}}
@@ -634,13 +634,13 @@
                                                     <div class="input-group input-group-short">
                                                         <div class="input-group-btn">
                                                             <button type="button" id="btnEditChangeShippingAddress" onclick="toggleChangeShippingAddress(true);return false;" class="btn btn-primary">
-                                                            Edit
+                                                            Cập Nhật
                                                             </button>
                                                             <button type="submit" id="btnSaveChangeShippingAddress" class="btn btn-primary" style="margin-left: 3px; display: none;">
-                                                            Save
+                                                            Lưu
                                                             </button>
                                                             <button type="button" id="btnCancelChangeShippingAddress" onclick="toggleChangeShippingAddress(false);return false;"  class="btn bg-teal" style="margin-left: 3px; display: none;">
-                                                            Cancel
+                                                            Hủy
                                                             </button>
                                                         </div>
                                                     </div>
@@ -673,25 +673,25 @@
                                                             Picture
                                                         </th> -->
                                                         <th>
-                                                            Product name
+                                                            Tên Sản Phẩm
                                                         </th>
                                                         <th>
-                                                            Price
+                                                            Giá Tiền
                                                         </th>
                                                         <th>
-                                                            Quantity
+                                                            Số Lượng
                                                         </th>
                                                         <th>
-                                                            Discount
+                                                            Giảm Giá
                                                         </th>
                                                         <th>
-                                                            Total
+                                                            Tổng
                                                         </th>
                                                         <th>
-                                                            Edit
+                                                            Cập Nhật
                                                         </th>
                                                         <th>
-                                                            Remove
+                                                            Loại Bỏ
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -746,17 +746,17 @@
                                                             <td style="width: 15%;">
                                                                 <button id="btnEditOrderItem{{$detail->id}}" type="button" class="btn btn-primary"  onclick="toggleOrderItemEdit(true, {{$detail->id}});return false;">
                                                                     <i class="fa fa-pencil"></i>
-                                                                    Edit
+                                                                    Cập Nhật
                                                                 </button>
                                                                 
                                                                 <button id="btnSaveOrderItem{{$detail->id}}" type="submit" class="btn btn-primary" style="display:none; width:80px;">
                                                                     <i class="fa fa-floppy-o"></i>
-                                                                    Save
+                                                                    Lưu
                                                                 </button>
                                                             
                                                                 <button id="btnCancelOrderItem{{$detail->id}}" type="button" class="btn btn-teal" onclick="toggleOrderItemEdit(false, {{$detail->id}});return false;"  style="display:none; width:80px; margin-top:4px;">
                                                                     <i class="fa fa-close"></i>
-                                                                    Cancel
+                                                                    Hủy
                                                                 </button>
                                                             </td>
                                                             <td style="width: 15%;">

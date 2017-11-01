@@ -22,7 +22,7 @@
             <!-- Horizontal Form -->
             <div class="box box-info">
                 <div class="box-header with-border">
-                <h3 class="box-title">Quick Search</h3>
+                <h3 class="box-title">Tìm Nhanh</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
@@ -30,33 +30,33 @@
                 {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="order_start_date" class="col-sm-2 control-label">Start Date</label>
+                            <label for="order_start_date" class="col-sm-2 control-label">Từ Ngày</label>
                             <div class="col-sm-4 input-group date">
                                 <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                 <input type="text" name="order_start_date" class="form-control pull-right" id="start_datepicker" data-date-end-date="-1d" value="{{old('order_start_date')}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="order_end_date" class="col-sm-2 control-label">End Date</label>
+                            <label for="order_end_date" class="col-sm-2 control-label">Đến Ngày</label>
                             <div class="col-sm-4 input-group date">
                                 <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                 <input type="text" name="order_end_date" class="form-control pull-right" id="end_datepicker" data-date-end-date="0d" value="{{old('order_end_date')}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="customer_name" class="col-sm-2 control-label">Customer Name</label>
+                            <label for="customer_name" class="col-sm-2 control-label">Tên Khách Hàng</label>
                             <div class="col-sm-8">
                                 <input type="text" name="customer_name" class="form-control" id="customer_name" value="{{old('customer_name')}}" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="billing_email" class="col-sm-2 control-label">Billing Email</label>
+                            <label for="billing_email" class="col-sm-2 control-label">Email Thanh Toán</label>
                             <div class="col-sm-8">
                                 <input type="email" name="billing_email" class="form-control" id="billing_email" value="{{old('billing_email')}}" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="orders_status" class="col-sm-2 control-label">Order Status</label>
+                            <label for="orders_status" class="col-sm-2 control-label">Đơn Hàng</label>
                             <div class="col-sm-8">
                                 <select id="orders_status" multiple name="orders_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.order') as $key =>$value)
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="payments_status" class="col-sm-2 control-label">Payment Status</label>
+                            <label for="payments_status" class="col-sm-2 control-label">Thanh Toán</label>
                             <div class="col-sm-8">
                                 <select id="payments_status" multiple name="payments_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.payment') as $key =>$value)
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="shippings_status" class="col-sm-2 control-label">Shipping Status</label>
+                            <label for="shippings_status" class="col-sm-2 control-label">Vận Chuyển</label>
                             <div class="col-sm-8">
                                 <select id="shippings_status" multiple name="shippings_status[]" class="form-control select2" style="width: 100%;">
                                     @foreach(\Lang::get('status.shipping') as $key =>$value)
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="order_no" class="col-sm-2 control-label">#Order No</label>
+                            <label for="order_no" class="col-sm-2 control-label">Mã Đơn Hàng</label>
                             <div class="col-sm-8">
                                 <input type="text" name="order_no" class="form-control" id="order_no" value="{{old('order_no')}}">
                             </div>
@@ -119,7 +119,7 @@
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <button type="submit" class="btn btn-info">
-                            <i class="fa fa-search"></i> Search
+                            <i class="fa fa-search"></i> Tìm Kiếm
                         </button>
                     </div>
                     <!-- /.box-footer -->
@@ -140,15 +140,15 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>No</th>
-                                <th>Order</th>
-                                <th>Payment</th>
-                                <th>Shipping</th>
-                                <th>Customer</th>
+                                <th>Mã</th>
+                                <th>Đơn Hàng</th>
+                                <th>Thanh Toán</th>
+                                <th>Vận Chuyển</th>
+                                <th>Khách Hàng</th>
                                 <th>Email</th>
-                                <th>Phone</th>
-                                <th>Order Date</th>
-                                <th>Order Total</th>
+                                <th>Điện Thoại</th>
+                                <th>Ngày Đặt</th>
+                                <th>Tổng</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -172,15 +172,15 @@
                         <tfoot>
                             <tr>
                                 <th>#</th>
-                                <th>No</th>
-                                <th>Order</th>
-                                <th>Payment</th>
-                                <th>Shipping</th>
-                                <th>Customer</th>
+                                <th>Mã</th>
+                                <th>Đơn Hàng</th>
+                                <th>Thanh Toán</th>
+                                <th>Vận Chuyển</th>
+                                <th>Khách Hàng</th>
                                 <th>Email</th>
-                                <th>Phone</th>
-                                <th>Order Date</th>
-                                <th>Order Total</th>
+                                <th>Điện Thoại</th>
+                                <th>Ngày Đặt</th>
+                                <th>Tổng</th>
                                 <th></th>
                             </tr>
                         </tfoot>
