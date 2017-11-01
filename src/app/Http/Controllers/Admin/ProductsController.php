@@ -556,7 +556,6 @@ class ProductsController extends Controller
             ->paginate(21);
 
         $tab = 1;
-        $request->flashOnly(['tab']);
-        return View('admin/products/reviews',compact('reviews'));
+        return View('admin/products/reviews',compact('reviews','tab'));
     }
 }
