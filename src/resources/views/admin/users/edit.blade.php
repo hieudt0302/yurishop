@@ -11,7 +11,7 @@ Thêm Mới Người Dùng
 </h1>
 <ol class="breadcrumb">
   <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-  <li><a href="#">Nguowfi Dùng</a></li>
+  <li><a href="#">Người Dùng</a></li>
   <li class="active">Thêm Mới</li>
 </ol>
 <div class="row">
@@ -38,19 +38,19 @@ Thêm Mới Người Dùng
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>First Name:</strong>
+                            <strong>Tên:</strong>
                             {!! Form::text('first_name', null, array('placeholder' => 'First Name','class' => 'form-control')) !!}
                         </div>
                     </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Last Name:</strong>
+                            <strong>Họ</strong>
                             {!! Form::text('last_name', null, array('placeholder' => 'Last Name','class' => 'form-control')) !!}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Phone:</strong>
+                            <strong>Điện Thoại:</strong>
                             {!! Form::text('phone', null, array('placeholder' => 'Phone','class' => 'form-control')) !!}
                         </div>
                     </div>
@@ -66,19 +66,19 @@ Thêm Mới Người Dùng
                 
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Password:</strong>
+                            <strong>Mật Khẩu:</strong>
                             {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Confirm Password:</strong>
+                            <strong>Xác Nhận Lại Mật Khẩu:</strong>
                             {!! Form::password('confirm_password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Role:</strong>
+                            <strong>Quyền Hạn:</strong>
                             {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
                         </div>
                     </div>
@@ -87,11 +87,11 @@ Thêm Mới Người Dùng
                         <div class="form-group">
                             <input type="hidden" name="activated" value="0">
                             <label>{{ Form::checkbox('activated', 1 , $user->activated ? true : false, array('class' => 'name')) }}
-                            Activated</label>
+                            Kích Hoạt</label>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Cập Nhật</button>
                     </div>
                     {!! Form::close() !!}
                 </div>
