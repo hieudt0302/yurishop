@@ -16,6 +16,8 @@ return [
     'faqs' => 'FAQs',
     'newsletter-message' => 'Stay informed with Pokofarms',
     'subscribe' => 'Subscribe',   
-    'subscribe-success' => 'You have successfully subscribed !',       
+    'unsubscribe' => 'Unsubscribe',
+    'subscribe-success' => 'You have successfully subscribed !',
+    'subscribe-failed' => 'This email is already subscribed !',       
     'about-us' => 'About',          
 ];

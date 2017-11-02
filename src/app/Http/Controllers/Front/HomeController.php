@@ -17,6 +17,9 @@ use App\Models\InfoPageTranslation;
 use App\Models\Language;
 use App\Models\Subscribe;
 use App\Models\Category;
+use App\Models\MailTemplate;
+use App\Models\MailTemplateTranslation;
+use Setting;
 
 class HomeController extends Controller
 {
@@ -117,8 +120,9 @@ class HomeController extends Controller
     }
     public function send_contact(Request $request){
         $input = $request->all();
-        Mail::send('front/home/mail_template', array('name'=>$input["name"], 'email'=>$input["email"], 'phone'=>$input["phone"], 'content'=>$input['message']),                                  function($message){
-            $message->to('ducthang.237@gmail.com', 'Admin')->subject('Mail liên hệ');
+        Mail::send('front/home/contact_mail', array('name'=>$input["name"], 'email'=>$input["email"], 'phone'=>$input["phone"], 'content'=>$input['message']),
+            function($message){
+                $message->to('ducthang.237@gmail.com', 'Admin')->subject('Mail liên hệ');
         });
         session()->flash('success_message', 'Send message successfully!');
 
@@ -126,10 +130,39 @@ class HomeController extends Controller
     }
 
     public function subscribe(Request $request){
+        if(Subscribe::existEmail($request->email)){
+            return response()->json(['success' => false]);
+        }
         $subscribe = new Subscribe();
         $subscribe->email = $request->email;
         $subscribe->save();
         return response()->json(['success' => true]);
+    }
+
+    public function unsubscribe($email){
+        DB::table('subscribe')->where('email', $email)->delete();
+        return View("front/home/unsubscribe");
+    }
+
+    public function send_promotion_info(Request $request){
+        $temp_id = Setting::config('promote_mail');
+        $promotion_content = '';
+        if($temp_id != ''){
+            $language_id = 1; //make vietnamese as default alternative
+            $locale = \App::getLocale(); 
+            $language = Language::where('code',$locale)->first();
+            if ($language != null){
+                $language_id = $language->id; //make english as default alternative
+            }
+            $promotion_content = MailTemplateTranslation::where('mail_template_id',$temp_id)->where('language_id',$language_id)->first()->content;    
+        }
+        $input = $request->all();
+        Mail::send('front/home/promotion_mail', array('content' => $promotion_content), function($message){
+            $message->to('ducthang.237@gmail.com', 'Admin')->subject('Mail liên hệ');
+        });
+        session()->flash('success_message', 'Send mail successfully!');
+
+        // return View("front/home/contact");
     }
 
     /**
