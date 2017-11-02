@@ -150,7 +150,7 @@
 							<br>
 							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">		
 							<!-- TODO: Get Phone from setting data -->
-						  	<h2 class="cmt-heading">{{ __('common.call-details')}}: 0123456789.</h2>
+						  	<h2 class="cmt-heading">{{ __('common.call-details')}}: {{ Setting::config('hotline') }}.</h2>
 						</div>
 					</div>	
 				</div>

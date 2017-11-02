@@ -105,7 +105,7 @@
                     <div class="hd-if">
                         <div class="hd-infor">
                             <p>@lang('header.call-us-now')</p>
-                            <span class="phone">0122 333 8889</span>
+                            <span class="phone">{{ Setting::config('hotline') }}</span>
                         </div>
                         <i class="ion-ios-telephone-outline"></i>
                     </div>
