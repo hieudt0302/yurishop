@@ -94,7 +94,6 @@
             <div class="col-md-3 col-sm-4 col-xs-12">
                 <div class="bg-sidebar">
                     <div class="search">
-
                         {!! Form::open(array('method'=>'post','url' => '/posts','class'=>'form-inline form','role'=>'form')) !!}
                             <div class="search-wrap">
                                 <button class="search-button hidden" type="submit" title="Start Search">
@@ -109,7 +108,6 @@
                                 @endif  
                             </div>
                         {!! Form::close() !!}
-
                     </div>
                     <br><br>
 

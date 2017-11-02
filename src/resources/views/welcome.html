@@ -1,10 +1,19 @@
-<ul class="pagination">
-    <li class="paginate_button previous"><a href="#">Previous</a></li>
-    <li class="paginate_button "><a href="#">1</a></li>
-    <li class="paginate_button "><a href="#">2</a></li>
-    <li class="paginate_button "><a href="#">3</a></li>
-    <li class="paginate_button "><a href="#">4</a></li>
-    <li class="paginate_button active"><a href="#">5</a></li>
-    <li class="paginate_button "><a href="#">6</a></li>
-    <li class="paginate_button next"><a href="#">Next</a></li>
-</ul>
+<div class="bg-sidebar">
+    <div class="search">
+        {!! Form::open(array('method'=>'post','url' => '/products','class'=>'form-inline form','role'=>'form')) !!}
+        <div class="search-wrap">
+            <button class="search-button hidden" type="submit" title="Start Search">
+                <i class="fa fa-search"></i>
+            </button>
+            
+            @if(!empty($search_key))
+            <input type="text" class="search-input" name="key" placeholder="{{$search_key}}">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            @else
+            <input type="text" class="search-input" name="key" placeholder="{{ __('common.search') }}">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            @endif
+        </div>
+        {!! Form::close() !!}
+    </div>
+</div>

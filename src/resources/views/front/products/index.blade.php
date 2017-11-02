@@ -44,12 +44,31 @@
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="right-it">
-                    <form class="form-inline">
+                    <!-- <form class="form-inline">
                         <div class="form-group">
                             <input type="text" name="search_content" placeholder="What are you looking for?"  class="form-control">
                         </div>
                          <button type="submit" class="btn btn-primary" style="border-radius: 5px;">Search</button>
-                    </form>
+                    </form> -->
+                    <div class="bg-sidebar">
+                        <div class="search">
+                            {!! Form::open(array('method'=>'post','url' => '/products','class'=>'form-inline form','role'=>'form')) !!}
+                            <div class="search-wrap">
+                                <button class="search-button hidden" type="submit" title="Start Search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                
+                                @if(!empty($search_key))
+                                <input type="text" class="search-input" name="key" placeholder="{{$search_key}}">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                @else
+                                <input type="text" class="search-input" name="key" placeholder="{{ __('common.search') }}">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                @endif
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
 				</div>
 			</div>
         </div>
