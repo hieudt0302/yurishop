@@ -50,20 +50,6 @@
                         <div class="tab-pane active" id="company">
                             <table class="table table-responsive">            
 	                            <tr>
-	                                <td>
-	                                    Tên công ty
-	                                </td>
-	                                <td>
-	                                    <input type="text" class="form-control" name="website_name" value="{{ Setting::config('website_name') }}"/>
-	                                </td>
-	                            </tr>
-	                            <tr>
-	                                <td>Địa chỉ</td>
-	                                <td>
-	                                    <input type="text" class="form-control" name="address" value="{{ Setting::config('address') }}"/>
-	                                </td>
-	                            </tr>
-	                            <tr>
 	                                <td>Địện thoại</td>
 	                                <td>
 	                                    <input type="text" class="form-control" name="phone" value="{{ Setting::config('phone') }}"/>
@@ -94,7 +80,44 @@
 	                                <td>
 	                                    <input type="text" class="form-control" name="tax_code" value="{{ Setting::config('tax_code') }}"/>
 	                                </td>
-	                            </tr>        
+	                            </tr>
+	                            <tr>
+	                                <td>Tài khoản Facebook</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="facebook" value="{{ Setting::config('facebook') }}"/>
+	                                </td>
+	                            </tr>
+	                            <tr>
+	                                <td>Facebook messenger ID</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="messenger" value="{{ Setting::config('messenger') }}"/>
+	                                </td>
+	                            </tr>	                            
+	                            <tr>
+	                                <td>Tài khoản Twitter</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="twitter" value="{{ Setting::config('twitter') }}"/>
+	                                </td>
+	                            </tr>	
+	                            <tr>
+	                                <td>Tài khoản Youtube</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="youtube" value="{{ Setting::config('youtube') }}"/>
+	                                </td>
+	                            </tr>	
+	                            <tr>
+	                                <td>Tài khoản Vimeo</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="vimeo" value="{{ Setting::config('vimeo') }}"/>
+	                                </td>
+	                            </tr>
+	                            <tr>
+	                                <td>Link video homepage</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="home_video_url" value="{{ Setting::config('home_video_url') }}"/>
+	                                </td>
+	                            </tr>	                            
+
                             </table>                
                         </div>
                         <div class="tab-pane" id="website">

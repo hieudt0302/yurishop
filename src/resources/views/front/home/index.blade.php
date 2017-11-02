@@ -71,7 +71,7 @@
         </div>
 
         <div class="video-wrapper">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/PLKTGWH398Q?autoplay=1&amp;rel=0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="{{ Setting::config('home_video_url') }}?autoplay=1&amp;rel=0" frameborder="0" allowfullscreen></iframe>
         </div>
         <!-- End Video -->
 
