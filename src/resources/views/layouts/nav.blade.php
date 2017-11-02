@@ -86,7 +86,7 @@
     <div class="row">
         <div class="topsearch">
             {!! Form::open(array('url' => '/search')) !!}
-                <input type="text" class="search-top" name="keyword" placeholder="@lang('header.enter-keyword')">
+                <input type="text" class="search-top" name="key" placeholder="@lang('header.enter-keyword')">
             {!! Form::close() !!}
         </div>
     </div>
