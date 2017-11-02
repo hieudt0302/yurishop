@@ -111,10 +111,10 @@
                     <h6>@lang('footer.follow-us')</h6>
                 </div>
                 <div class="ct-icon">
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Twitter"></i></a>
-                    <a href="#"><i class="fa fa-youtube-play" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Youtube"></i></a>
-                    <a href="#"><i class="fa fa-vimeo" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vimeo"></i></a>
+                    <a target="_blank" href="http://www.facebbook.com/{{ Setting::config('facebook') }}"><i class="fa fa-facebook" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Facebook"></i></a>
+                    <a target="_blank" href="http://www.twitter.com/{{ Setting::config('twitter') }}"><i class="fa fa-twitter" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Twitter"></i></a>
+                    <a target="_blank" href="http://www.youtube.com/{{ Setting::config('youtube') }}"><i class="fa fa-youtube-play" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Youtube"></i></a>
+                    <a target="_blank" href="http://www.vimeo.com/{{ Setting::config('vimeo') }}"><i class="fa fa-vimeo" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vimeo"></i></a>
                 </div>
             </div>
         </div>                
