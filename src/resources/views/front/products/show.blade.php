@@ -140,10 +140,12 @@
 							@if(!$product->disable_wishlist_button)
 							<a class="add-wishlist" href="javascript:void(0)"><i class="fa fa-heart" aria-hidden="true"></i></a>
 							@endif
-						@else
-							<a class="call" href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></a>
 						@endif
+
+						<a class="call" href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></a>
+						
 						<a class="chat" target="_blank" href="http://www.messenger.com/t/{{ Setting::config('messenger') }}"  data-toggle="tooltip" data-placement="top" title="{{ __('common.chat-details')}}"><i class="fa fa-weixin" aria-hidden="true"></i></a>
+
 						<div id="call-number" style="display:none;">
 							<br>
 							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">		

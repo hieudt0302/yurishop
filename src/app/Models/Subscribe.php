@@ -14,10 +14,11 @@ class Subscribe extends Model
      */
     protected $table = 'subscribe';
 
-    public static existEmail($email){
-    	$exist = DB::table('subscribe')->where('email', $email)->first();
-    	if(!empty($exist))
-    		return true;
-    	return false;
-    }
+    /* Hàm này thiếu function. Lỗi không nên đẩy lên git nhé mọi người */
+    // public static existEmail($email){
+    // 	$exist = DB::table('subscribe')->where('email', $email)->first();
+    // 	if(!empty($exist))
+    // 		return true;
+    // 	return false;
+    // }
 }
