@@ -194,6 +194,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('posts/categories',['as'=>'admin.posts.findcategories','uses'=>'PostsController@findcategories','middleware' => ['role:admin|manager']]);
     Route::get('posts/comments',['as'=>'admin.posts.comments','uses'=>'PostsController@comments','middleware' => ['role:admin|manager']]);
     Route::post('posts/comments',['as'=>'admin.posts.findcomments','uses'=>'PostsController@findcomments','middleware' => ['role:admin|manager']]);
+    Route::get('posts/comments/{id}',['as'=>'admin.products.editcomments','uses'=>'PostsController@editcomments','middleware' => ['role:admin|manager']]);
+    Route::delete('posts/comments/{id}',['as'=>'admin.products.deletecomments','uses'=>'PostsController@deletecomments','middleware' => ['role:admin|manager']]);
     //
     Route::get('posts/generateslug/{title}',['as'=>'admin.posts.generateSlug','uses'=>'PostsController@GenerateSlug','middleware' => ['role:admin|manager']]);
    
@@ -204,6 +206,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('products/categories',['as'=>'admin.products.findcategories','uses'=>'ProductsController@findcategories','middleware' => ['role:admin|manager']]);
     Route::get('products/reviews',['as'=>'admin.products.reviews','uses'=>'ProductsController@reviews','middleware' => ['role:admin|manager']]);
     Route::post('products/reviews',['as'=>'admin.products.findreviews','uses'=>'ProductsController@findreviews','middleware' => ['role:admin|manager']]);
+    Route::get('products/reviews/{id}',['as'=>'admin.products.editreviews','uses'=>'ProductsController@editreviews','middleware' => ['role:admin|manager']]);
+    Route::delete('products/reviews/{id}',['as'=>'admin.products.deletereviews','uses'=>'ProductsController@deletereviews','middleware' => ['role:admin|manager']]);
     //
     Route::get('products/create',['as'=>'admin.products.create','uses'=>'ProductsController@create','middleware' => ['role:admin|manager']]);
     Route::post('products/create',['as'=>'admin.products.store','uses'=>'ProductsController@store','middleware' => ['role:admin|manager']]);

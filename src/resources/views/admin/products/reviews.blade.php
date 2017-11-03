@@ -78,31 +78,42 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Product Name</th>
-                                    <th>Customer</th>
+                                    <th>Sản Phẩm</th>
+                                    <th>Khách Hàng</th>
                                     <th>Review</th>
-                                    <th style="text-align:center">Rating</th>
-                                    <th style="text-align:center">Approved</th>
-                                    <th>Created on</th>
-                                    <th style="text-align:center">Edit</th>
+                                    <th style="text-align:center">Sao</th>
+                                    <th style="text-align:center">Chấp Nhận</th>
+                                    <th>Ngày Tạo</th>
+                                    <th style="text-align:center"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($reviews as $review)
                                 <tr>
                                     <td><a href="{{url('/admin/products/')}}/{{$review->product->id}}/Edit">{{$review->product->name}}</a></td>
-                                    <td>Customer Name</td>
+                                    <td>{{$review->name}}</td>
                                     <td>{{$review->comment}}</td>
                                     <td style="text-align:center">{{$review->rate}}</td>
                                     <td style="text-align:center">
                                         @if($review->approved===1)
                                         <i class="fa fa-check true-icon"></i>
                                         @else 
-                                        <i class="fa fa-check false-icon"></i>
+                                        <i class="fa fa-times false-icon"></i>
                                         @endif
                                     </td>
                                     <td>{{$review->created_at}}</td>
-                                    <td style="text-align:center"><a class="btn btn-default" href="#"><i class="fa fa-pencil"></i>Edit</a></td>
+                                    <td>
+                                        <div class="tools">
+                                            <a class="btn btn-primary btn-sm" href="{{url('/admin/products/reviews')}}/{{$review->id}}/edit"> <i class="fa fa-edit"></i></a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="tools">
+                                            <a type="button" class="btn btn-danger" data-product-id="{{$review->id}}" data-toggle="modal" data-target="#modal-delete-review">
+                                                <i class="fa fa-ban"></i>
+                                            </a> 
+                                        </div>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -116,6 +127,31 @@
         </div>
     </div>
 </section>
+<!-- QUESTION TO DELETE -->
+<div class="modal modal-danger fade" id="modal-review-product">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Cảnh Báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa đánh giá này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+                <form name="form-review-delete"  method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-outline" value="Xóa Đánh Giá">
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection 
 
 @section('scripts')
@@ -126,6 +162,12 @@
             autoclose : true,
             clearBtn : true
         })
+
+        $('#modal-delete-review').on('show.bs.modal', function (e) {
+            var reviewID = $(e.relatedTarget).data('review-id');
+            var action = "{{url('admin/products/reviews/')}}/" + reviewID;
+            $(e.currentTarget).find('form[name="form-review-delete"]').attr("action", action);
+        })  
     })
 </script>
 @endsection

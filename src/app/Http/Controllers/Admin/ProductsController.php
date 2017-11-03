@@ -556,7 +556,25 @@ class ProductsController extends Controller
             })
             ->paginate(21);
 
-        $tab = 1;
-        return View('admin/products/reviews',compact('reviews','tab'));
+   
+        return View('admin/products/reviews',compact('reviews'))
+        ->with('i', ($request->input('page', 1) - 1) * 21);
+    }
+
+    public function editreviews($id)
+    {
+        $review = Comment::find($id);
+
+        return View('admin.products.reviews', compact('review'));
+    }
+
+    public function deletereviews($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+
+        return redirect()->route('admin.products.reviews')
+        ->with('message', 'Đã Xóa đánh giá!')
+        ->with('status', 'success');
     }
 }
