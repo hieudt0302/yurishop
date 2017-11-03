@@ -113,7 +113,7 @@
                                 @endforeach
                             </tbody>
                             <tfoot>
-                                {{$comments->links()}}
+                                {{ $comments->links('vendor.pagination.admin') }}
                             </tfoot>
                         </table>
                     </div>
@@ -159,7 +159,7 @@
         })
         $('#modal-delete-comment').on('show.bs.modal', function (e) {
             var commentID = $(e.relatedTarget).data('comment-id');
-            var action = "{{url('admin/products/comments/')}}/" + commentID;
+            var action = "{{url('admin/posts/comments/')}}/" + commentID;
             $(e.currentTarget).find('form[name="form-comment-delete"]').attr("action", action);
         })  
     })

@@ -124,7 +124,7 @@
                                 @endforeach
                             </tbody>
                             <tfoot>
-                                {{$reviews->links()}}
+                                {{ $reviews->links('vendor.pagination.admin') }}
                             </tfoot>
                         </table>
                     </div>

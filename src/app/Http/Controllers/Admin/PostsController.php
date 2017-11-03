@@ -29,7 +29,7 @@ class PostsController extends Controller
         $posts = Post::paginate(21);
 
         return View('admin.posts.index',compact('posts'))
-        ->with('i', (Input::get('page', 1) - 1) * 21);;
+        ->with('i', (Input::get('page', 1) - 1) * 21);
     }
 
     /**
@@ -356,7 +356,8 @@ class PostsController extends Controller
             })
             ->paginate(21);
 
-        return View('admin/posts/comments',compact('comments'));
+        return View('admin/posts/comments',compact('comments'))
+        ->with('i', (Input::get('page', 1) - 1) * 21);
     }
 
     public function deletecomments($id)
