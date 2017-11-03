@@ -570,8 +570,8 @@ class ProductsController extends Controller
 
     public function deletereviews($id)
     {
-        $product = Product::find($id);
-        $product->delete();
+        $review = Comment::find($id);
+        $review->delete();
 
         return redirect()->route('admin.products.reviews')
         ->with('message', 'Đã Xóa đánh giá!')
