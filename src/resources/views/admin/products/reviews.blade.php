@@ -109,7 +109,7 @@
                                     </td>
                                     <td>
                                         <div class="tools">
-                                            <a type="button" class="btn btn-danger" data-product-id="{{$review->id}}" data-toggle="modal" data-target="#modal-delete-review">
+                                            <a type="button" class="btn btn-danger" data-review-id="{{$review->id}}" data-toggle="modal" data-target="#modal-delete-review">
                                                 <i class="fa fa-ban"></i>
                                             </a> 
                                         </div>
@@ -128,7 +128,7 @@
     </div>
 </section>
 <!-- QUESTION TO DELETE -->
-<div class="modal modal-danger fade" id="modal-review-product">
+<div class="modal modal-danger fade" id="modal-delete-review">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
