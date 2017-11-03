@@ -23,5 +23,10 @@ class Comment extends Model
     {
         return $this->hasOne('App\Models\Product','id', 'commentable_id');
     }
+
+    public function post() 
+    {
+        return $this->hasOne('App\Models\Post','id', 'commentable_id');
+    }
     
 }
