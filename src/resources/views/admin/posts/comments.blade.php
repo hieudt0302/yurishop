@@ -80,7 +80,7 @@
                                 <tr>
                                     <th>Bài Viết</th>
                                     <th>Khách Hàng</th>
-                                    <th>Comment</th>
+                                    <th>Bình Luận</th>
                                     <th style="text-align:center">Website</th>
                                     <th style="text-align:center">Hiển Thị</th>
                                     <th>Created on</th>
