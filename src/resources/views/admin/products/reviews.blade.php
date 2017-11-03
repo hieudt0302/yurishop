@@ -88,7 +88,7 @@
                                     <th>Khách Hàng</th>
                                     <th>Review</th>
                                     <th style="text-align:center">Sao</th>
-                                    <th style="text-align:center">Chấp Nhận</th>
+                                    <th style="text-align:center">Hiển Thị</th>
                                     <th>Ngày Tạo</th>
                                     <th style="text-align:center"></th>
                                 </tr>
@@ -108,11 +108,11 @@
                                         @endif
                                     </td>
                                     <td>{{$review->created_at}}</td>
-                                    <td>
+                                    <!-- <td>
                                         <div class="tools">
                                             <a class="btn btn-primary btn-sm" href="{{url('/admin/products/reviews')}}/{{$review->id}}/edit"> <i class="fa fa-edit"></i></a>
                                         </div>
-                                    </td>
+                                    </td> -->
                                     <td>
                                         <div class="tools">
                                             <a type="button" class="btn btn-danger" data-review-id="{{$review->id}}" data-toggle="modal" data-target="#modal-delete-review">
@@ -168,7 +168,6 @@
             autoclose : true,
             clearBtn : true
         })
-
         $('#modal-delete-review').on('show.bs.modal', function (e) {
             var reviewID = $(e.relatedTarget).data('review-id');
             var action = "{{url('admin/products/reviews/')}}/" + reviewID;

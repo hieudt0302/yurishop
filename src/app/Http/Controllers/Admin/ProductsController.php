@@ -563,9 +563,7 @@ class ProductsController extends Controller
 
     public function editreviews($id)
     {
-        $review = Comment::find($id);
-
-        return View('admin.products.reviews', compact('review'));
+        return redirect()->route('admin.products.reviews');
     }
 
     public function deletereviews($id)
@@ -574,7 +572,7 @@ class ProductsController extends Controller
         $review->delete();
 
         return redirect()->route('admin.products.reviews')
-        ->with('message', 'Đã Xóa đánh giá!')
+        ->with('message', 'Đã xóa đánh giá!')
         ->with('status', 'success');
     }
 }

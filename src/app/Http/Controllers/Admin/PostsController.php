@@ -358,4 +358,14 @@ class PostsController extends Controller
 
         return View('admin/posts/comments',compact('comments'));
     }
+
+    public function deletecomments($id)
+    {
+        $review = Comment::find($id);
+        $review->delete();
+
+        return redirect()->route('admin.posts.comments')
+        ->with('message', 'Đã xóa bình luận!')
+        ->with('status', 'success');
+    }
 }

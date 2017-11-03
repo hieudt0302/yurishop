@@ -12,6 +12,12 @@
         <li><a href="#">Bình Luận Bài Viết</a></li>
         <li class="active">Danh Sách</li>
     </ol>
+    <div class="row">
+        <div class="col-xs-12">
+            @include('notifications.status_message') 
+            @include('notifications.errors_message') 
+        </div>
+    </div>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -38,18 +44,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="SearchText" title="">Comment</label>
+                                    <label class="col-md-4 control-label" for="SearchText" title="">Bình Luận</label>
                                     <div class="col-md-8">
                                         <input class="form-control text-box single-line" name="comment" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" >Approved</label>
+                                    <label class="col-md-4 control-label" >Đang Hiển Thị</label>
                                     <div class="col-md-8">
                                         <select class="form-control" name="approved_type">
-                                            <option selected="selected" value="2">All</option>
-                                            <option value="1">Approved only</option>
-                                            <option value="0">Disapproved only</option>
+                                            <option selected="selected" value="2">Tất Cả</option>
+                                            <option value="1">Hiển Thị</option>
+                                            <option value="0">Không Hiển Thị</option>
                                         </select>
                                     </div>
                                 </div>
@@ -72,20 +78,20 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Post Name</th>
-                                    <th>Customer</th>
+                                    <th>Bài Viết</th>
+                                    <th>Khách Hàng</th>
                                     <th>Comment</th>
                                     <th style="text-align:center">Website</th>
-                                    <th style="text-align:center">Approved</th>
+                                    <th style="text-align:center">Hiển Thị</th>
                                     <th>Created on</th>
-                                    <th style="text-align:center">Edit</th>
+                                    <th style="text-align:center"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($comments as $comment)
                                 <tr>
-                                    <td><a href="{{url('/admin/products/')}}/1/Edit">Product Name...</a></td>
-                                    <td>Customer Name</td>
+                                <td><a href="{{url('/admin/posts/')}}/{{$comment->post->id}}/edit">{{$comment->post->title}}</a></td>
+                                    <td>{{$comment->name}}</td>
                                     <td>{{$comment->comment}}</td>
                                     <td style="text-align:center">{{$comment->website}}</td>
                                     <td style="text-align:center">
@@ -96,7 +102,13 @@
                                         @endif
                                     </td>
                                     <td>{{$comment->created_at}}</td>
-                                    <td style="text-align:center"><a class="btn btn-default" href="#"><i class="fa fa-pencil"></i>Edit</a></td>
+                                    <td>
+                                        <div class="tools">
+                                            <a type="button" class="btn btn-danger" data-comment-id="{{$comment->id}}" data-toggle="modal" data-target="#modal-delete-comment">
+                                                <i class="fa fa-ban"></i>
+                                            </a> 
+                                        </div>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -110,6 +122,31 @@
         </div>
     </div>
 </section>
+<!-- QUESTION TO DELETE -->
+<div class="modal modal-danger fade" id="modal-delete-comment">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Cảnh Báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa đánh giá này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+                <form name="form-comment-delete"  method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-outline" value="Xóa Đánh Giá">
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection 
 
 @section('scripts')
@@ -120,6 +157,11 @@
             autoclose : true,
             clearBtn : true
         })
+        $('#modal-delete-comment').on('show.bs.modal', function (e) {
+            var commentID = $(e.relatedTarget).data('comment-id');
+            var action = "{{url('admin/products/comments/')}}/" + commentID;
+            $(e.currentTarget).find('form[name="form-comment-delete"]').attr("action", action);
+        })  
     })
 </script>
 @endsection
