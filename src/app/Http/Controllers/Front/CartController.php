@@ -77,7 +77,7 @@ class CartController extends Controller
 
         $item = Cart::get($request->ItemId);  
         Cart::remove($request->ItemId);
-        Cart::instance('wishlist')->add($item->id, $item->name, $item->qty, $item->price, (array)$item->options);
+        Cart::instance('wishlist')->add($item->id, $item->name, $item->qty, $item->price, ['summary' => $item->options->summary, 'source' => $item->options->source]);
 
         return response()->json([
             'message' => 'Đã di chuyển sản phẩm sang danh sách mong ước!',
@@ -150,17 +150,17 @@ class CartController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'message' => 'ERROR-INPUT: Code EI1001',
+                'message' => 'Không nhận được yêu cầu!',
                 'status' => 'error'
             ]);
         }
 
         $item =  Cart::instance('wishlist')->get($request->ItemId);  
-        Cart::instance('default')->add($item->id, $item->name, $item->qty, $item->price, (array)$item->options);
+        Cart::instance('default')->add($item->id, $item->name, $item->qty, $item->price,  ['summary' => $item->options->summary, 'source' => $item->options->source]);
         Cart::instance('wishlist')->remove($request->ItemId);
 
         return response()->json([
-            'message' => 'Đã di chuyển sản phẩm sang danh sách mong ước!',
+            'message' => 'Đã di chuyển sản phẩm sang giỏ hàng!',
             'status' => 'success',
             'type' => 'remove',
             'rowId' => $request->ItemId,

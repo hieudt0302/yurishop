@@ -259,7 +259,6 @@ $(document).ready(function(){
 
                 displayNotification(response['message'], response['status']);
 
-                // $('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
                 hideThrobber();
 
             }
