@@ -47,6 +47,7 @@ class MenuController extends Controller
                     
                 }
             })
+            ->groupBy('products->id')
             ->distinct()
             ->paginate(21);  
 
