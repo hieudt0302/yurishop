@@ -34,7 +34,8 @@ class MenuController extends Controller
             ->paginate(21);  
 
             return View('front/products/index', compact('results','tags','comments', 'lastProducts','category','parent','slug'))
-            ->with('i', ($page??1 - 1) * 21);
+            ->with('i', ($page??1 - 1) * 21)
+            ->withInput();
 
         } elseif ($parent == "posts") {
             //RELATED
