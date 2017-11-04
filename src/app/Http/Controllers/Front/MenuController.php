@@ -33,22 +33,6 @@ class MenuController extends Controller
             })
             ->paginate(21);  
 
-//             $results = Product::where('products.published',1)
-//             ->leftJoin('categories','categories.id','=','products.category_id')
-//             ->leftJoin('product_translations','product_translations.product_id','=','products.id')
-//             ->where('categories.slug', $slug)
-//             ->where(function ($query) use ($search) {
-//                 if (strlen($search) > 0) 
-//                 {
-//                     $query->where('products.name', 'LIKE','%'. $search . '%')
-//                     ->orWhere('product_translations.name', 'LIKE','%'. $search . '%');
-                    
-//                 }
-//             })
-//             ->groupBy('products.id')
-//             ->distinct()
-//             ->paginate(21);  
-// dd($results);
             return View('front/products/index', compact('results','tags','comments', 'lastProducts','category','parent','slug'))
             ->with('i', ($page??1 - 1) * 21);
 
@@ -62,13 +46,13 @@ class MenuController extends Controller
             $categories = Category::where('parent_id',$post_category->id)->get(); 
             
             // GET POSTS
-            $posts = $category->publishedPosts() 
-            ->where(function ($query) use ($search) {
-                if (strlen($search) > 0) 
-                {
-                    $query->where('posts.title', 'LIKE','%'. $search . '%');
-                }
-            })->paginate(21);
+            $posts = $category->publishedPosts()
+            ->where('posts.title', 'LIKE', '%'. $search . '%')
+            ->orWhereIn('posts.id', function($query) use ($search){
+                $query->select('product_id')->from('post_translations')
+                ->Where('title','LIKE', '%'. $search . '%');
+            })
+            ->paginate(21);  
             
             return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories','category','parent','slug'))
             ->with('i', ($page??1 - 1) * 21)
