@@ -273,6 +273,7 @@ $(document).ready(function(){
                         var rowItem =document.getElementById(response['rowId']);
                         rowItem.parentNode.removeChild(rowItem);
                     }
+                    $('.cartItemCount').html(response['newCartItemCount']);
                     $("#start-checkout-buttons").toggleClass("d-none", !response['showCheckoutButtons']);
                 }
 
