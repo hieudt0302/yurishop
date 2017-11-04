@@ -25,7 +25,8 @@ class MenuController extends Controller
             $lastProducts = Product::where('published',1)->take(4)->get(); 
             
             // GET PRODUCTS
-            $results = $category->publishedProducts()->join('product_translations','product_translations.product_id','=','products.id')
+            $results = $category->publishedProducts()
+            ->join('product_translations','product_translations.product_id','=','products.id')
             ->where(function ($query) use ($search) {
                 if (strlen($search) > 0) 
                 {
@@ -34,8 +35,8 @@ class MenuController extends Controller
                     
                 }
             })
-            ->groupBy('products.id')
             ->distinct()
+            ->groupBy('products.id')
             ->paginate(21);  
 
 //             $results = Product::where('products.published',1)

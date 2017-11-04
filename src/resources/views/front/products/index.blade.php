@@ -79,7 +79,8 @@
 			</div>
         </div>
         @foreach($results as $key => $product)
-            @if($key == 0 || $key%4 === 0)
+            @php($index = $key)
+            @if($index == 0 || $index % 4 === 0)
             <div class="row">
                 <div class="products-it">
             @endif                    
@@ -94,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-            @if(($key > 0 && ($key+1) %4 === 0) || $key +1 ===count($results))
+            @if(($index > 0 && $index % 3 === 0) || $index + 1 === count($results))
                 </div>
             </div>
             @endif
