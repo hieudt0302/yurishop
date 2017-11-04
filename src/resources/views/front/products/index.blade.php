@@ -3,6 +3,26 @@
 @section('header')
 <!-- Share Nav -->
 @include('layouts.share')
+<style>
+.add-on .input-group-btn > .btn {
+  border-left-width:0;left:-2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+/* stop the glowing blue shadow */
+.add-on .form-control:focus {
+ box-shadow:none;
+ -webkit-box-shadow:none; 
+ border-color:#cccccc; 
+}
+.form-control{width:20%}
+.navbar-nav > li > a {
+  border-right: 1px solid #ddd;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.navbar-nav:last-child{ border-right:0}
+</style>
 @endsection
 @section('content')
 
@@ -44,7 +64,7 @@
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="right-it">
-                    <div class="bg-sidebar">
+                    <!-- <div class="bg-sidebar">
                         <div class="search">
                             {!! Form::open(array('method'=>'post','url' => '/products','class'=>'form-inline form','role'=>'form')) !!}
                             <div class="search-wrap">
@@ -61,7 +81,15 @@
                             </div>
                             {!! Form::close() !!}
                         </div>
-                    </div>
+                    </div> -->
+                    <form class="navbar-form" role="search">
+                        <div class="input-group add-on">
+                        <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                        </div>
+                    </form>
 				</div>
 			</div>
         </div>
