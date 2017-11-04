@@ -46,14 +46,11 @@
 				<div class="right-it">
                     <div class="bg-sidebar">
                         <div class="search">
-                            <input class="search-input" type="text" placeholder="Enter keyword">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                            <!-- {!! Form::open(array('method'=>'post','url' => '/products','class'=>'form-inline form','role'=>'form')) !!}
+                            {!! Form::open(array('method'=>'post','url' => '/products','class'=>'form-inline form','role'=>'form')) !!}
                             <div class="search-wrap">
                                 <button class="search-button hidden" type="submit" title="Start Search">
                                     <i class="fa fa-search"></i>
                                 </button>
-                                
                                 @if(!empty($search_key))
                                 <input type="text" class="search-input" name="key" placeholder="{{$search_key}}">
                                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -62,7 +59,7 @@
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 @endif
                             </div>
-                            {!! Form::close() !!} -->
+                            {!! Form::close() !!}
                         </div>
                     </div>
 				</div>
