@@ -107,8 +107,7 @@
 
 						<p class="para">{{$product->translation->summary??''}}</p>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
-						@if(!$product->call_for_price)
-							@if(!$product->disable_buy_button)
+						@if(!$product->call_for_price && !$product->disable_buy_button && $product->sold_off)
 							<div class="right-it">
 									<form class="quantity" method="post" action="#">
 										<div class="numbers-row">
@@ -121,10 +120,9 @@
 									</span>	
 							</div>
 							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
-							@endif
 						@endif
 						<div class="pro-description"> 
-							<p>sku<span>{{$product->sku}}:</span></p>
+							<p>SKU:<span>{{$product->sku}}</span></p>
 							<p>@lang('common.categories'):<span>{{$product->category->translation->name??''}}</span></p>
 							<!-- <p>Expire date<span>01/11/2015</span></p> -->
 							<p>Tags:<span>
@@ -134,10 +132,8 @@
                                 </span></p>
 						</div>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">
-						@if(!$product->call_for_price)
-							@if(!$product->disable_buy_button)
+						@if(!$product->call_for_price && !$product->disable_buy_button && $product->sold_off)
 							<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
-							@endif
 							@if(!$product->disable_wishlist_button)
 							<a class="add-wishlist" href="javascript:void(0)"><i class="fa fa-heart wishlist-icon" aria-hidden="true"></i></a>
 							@endif
