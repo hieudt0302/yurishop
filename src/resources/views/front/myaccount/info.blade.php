@@ -38,13 +38,13 @@
                                             <div class="col-lg-9">
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input  class="form-check-input" id="gender-male" name="gender" type="radio" value="M" checked="{{Auth::user()->gender == 1 ?'checked':''}}">
+                                                        <input  class="form-check-input" id="gender-male" name="gender" type="radio" value="M" {{Auth::user()->gender == 1 ?'checked':''}}>
                                                     <span>&nbsp;&nbsp;&nbsp;&nbsp;@lang('account.male')</span>
                                                 </label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" id="gender-female" name="gender" type="radio" value="F" checked="{{Auth::user()->gender == 1  ?'':'checked'}}">
+                                                        <input class="form-check-input" id="gender-female" name="gender" type="radio" value="F" {{Auth::user()->gender == 1  ?'':'checked'}}>
                                                         <span>&nbsp;&nbsp;&nbsp;&nbsp;@lang('account.female')</span>
                                                     </label>
                                                 </div>
