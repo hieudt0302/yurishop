@@ -67,27 +67,9 @@
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="right-it">
-                    <!-- <div class="bg-sidebar">
-                        <div class="search">
-                            {!! Form::open(array('method'=>'post','url' => '/products','class'=>'form-inline form','role'=>'form')) !!}
-                            <div class="search-wrap">
-                                <button class="search-button hidden" type="submit" title="Start Search">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                                @if(!empty($search_key))
-                                <input type="text" class="search-input" name="key" placeholder="{{$search_key}}">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                @else
-                                <input type="text" class="search-input" name="key" placeholder="{{ __('common.search') }}">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                @endif
-                            </div>
-                            {!! Form::close() !!}
-                        </div>
-                    </div> -->
-                    <form class="navbar-form" role="search">
+                    <form action="{{url('/subject/')}}/{$parent}/{{$slug}}" method="GET" class="navbar-form" role="search">
                         <div class="input-group add-on">
-                        <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                        <input class="form-control" placeholder="Search" name="search-content" type="text" value="{{old('search-content')}}">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                         </div>
@@ -122,16 +104,6 @@
 		<div class="row">
 			<div class="blogpanigation">
 				<div class="col-md-12 col-sm-12 col-xs-12">
-					<!-- <ul>
-						<li class="prev"><a href="#">prev</a></li>
-						<li class="num"><a href="#">1</a></li>
-						<li class="num active"><a href="#">2</a></li>
-						<li class="num"><a href="#">3</a></li>
-						<li><a href="#">...</a></li>
-						<li class="num2"><a href="#">13</a></li>
-						<li class="num2"><a href="#">14</a></li>
-						<li class="next"><a href="#">next</a></li>
-					</ul> -->
                     {{ $results->links() }}
 				</div>
 			</div>

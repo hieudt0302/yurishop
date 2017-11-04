@@ -49,7 +49,6 @@ Route::get('/faqs', 'Front\FaqController@index');
 Route::get('/products/{id}', 'Front\ProductsController@show');
 Route::post('/add-to-cart', 'Front\ProductsController@addToCart');
 Route::post('/add-to-wishlist', 'Front\ProductsController@addToWishlist');
-Route::post('/products','Front\ProductsController@search'); 
 
 /* POST */
 // Route::get('/posts', 'Front\PostsController@index');
@@ -65,6 +64,7 @@ Route::post('/posts/{id}/comment', 'Front\CommentsController@store');
 
 /* MENU */
 Route::get('/subject/{parent}/{slug}', 'Front\MenuController@menu');
+
 
 /* SHOPPING CART */
 Route::get('/cart', 'Front\ShoppingCartController@cart');
