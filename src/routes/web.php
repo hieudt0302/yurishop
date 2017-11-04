@@ -272,5 +272,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     // Settings
     Route::get('settings',['as'=>'admin.settings.edit','uses'=>'SettingController@edit']);
     Route::post('settings',['as'=>'admin.settings.update','uses'=>'SettingController@update']);
+
+    // Subscribes
+    Route::get('subscribes',['as'=>'admin.subscribes.index','uses'=>'SubscribeController@index']);
+    Route::post('subscribes',['as'=>'admin.subscribes.send_mail','uses'=>'SubscribeController@send_mail']);
 });
 

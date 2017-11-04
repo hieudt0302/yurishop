@@ -492,6 +492,14 @@
           </ul>
         </li>
 
+        <!-- Settings-->
+        <li>
+          <a href="{{url('/admin/subscribes')}}">
+            <i class="fa fa-share-square"></i> 
+            <span>Subscribe</span>
+          </a>
+        </li>
+
           <!-- User Manager -->
           <li class="treeview">
           <a href="#">
