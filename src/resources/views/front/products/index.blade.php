@@ -67,7 +67,7 @@
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="right-it">
-                    <form action="{{url('/subject/')}}/{{$parent}}/{{$slug}}" method="GET" class="navbar-form" role="search">
+                    <form action="{{url('/subject/')}}/{{$parent}}/{{$slug}}" method="GET" class="navbar-form" role="search" autocomplete="true">
                         <div class="input-group add-on">
                         <input class="form-control" placeholder="Search" name="search" type="text" value="{{old('search')}}">
                         <div class="input-group-btn">
