@@ -26,6 +26,11 @@ class MenuController extends Controller
             
             // GET PRODUCTS
             $results = $category->publishedProducts()
+            ->where('products.name', 'LIKE', '%'. $search . '%')
+            ->orWhereIn('products.id', function($query) use ($search){
+                $query->select('product_id')->from('product_translations')
+                ->Where('name','LIKE', '%'. $search . '%');
+            })
             ->paginate(21);  
 
 //             $results = Product::where('products.published',1)
