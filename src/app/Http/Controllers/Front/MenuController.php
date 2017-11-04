@@ -16,8 +16,8 @@ class MenuController extends Controller
     public function menu($parent, $slug)
     {
         $search = Input::get('search');
-        Input::flashOnly(['search'=> $search]);
-        
+        Input::flashOnly(['search']);
+
         if ($parent == "products") {
             //RELATED
             $category = Category::where('slug', $slug)->firstOrFail();
