@@ -105,28 +105,27 @@
 
 						<p class="para">{{$product->translation->summary??''}}</p>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
-						<div class="right-it">
-								 <form class="quantity" method="post" action="#">
-								      <div class="numbers-row">
-								        <input type="text" name="quantity" id="french-hens" value="1">
-								      </div>
-							    </form>
-								<!-- <div class="drop">
-									<select>
-										<option value="">1 kg</option>
-										<option value="">Other</option>
-									</select>
-								</div> -->
-								<span class="check">
-									<i class="fa fa-check-circle" aria-hidden="true"></i>@lang('common.in-stock')
-								</span>	
-						</div>
-						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
+						@if(!$product->call_for_price)
+							@if(!$product->disable_buy_button)
+							<div class="right-it">
+									<form class="quantity" method="post" action="#">
+										<div class="numbers-row">
+											<input type="text" name="quantity" id="french-hens" value="1">
+										</div>
+									</form>
+									
+									<span class="check">
+										<i class="fa fa-check-circle" aria-hidden="true"></i>@lang('common.in-stock')
+									</span>	
+							</div>
+							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
+							@endif
+						@endif
 						<div class="pro-description"> 
-							<p>sku<span>{{$product->sku}}</span></p>
-							<p>@lang('common.categories')<span>{{$product->category->translation->name??''}}</span></p>
+							<p>sku<span>{{$product->sku}}:</span></p>
+							<p>@lang('common.categories'):<span>{{$product->category->translation->name??''}}</span></p>
 							<!-- <p>Expire date<span>01/11/2015</span></p> -->
-							<p>Tags<span>
+							<p>Tags:<span>
                                     @foreach($product->tags as $tag)
                                 		{{$tag->name}}, 
                                 		@endforeach
