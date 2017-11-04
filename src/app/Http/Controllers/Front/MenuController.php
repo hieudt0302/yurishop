@@ -26,17 +26,6 @@ class MenuController extends Controller
             
             // GET PRODUCTS
             $results = $category->publishedProducts()
-            ->join('product_translations','product_translations.product_id','=','products.id')
-            ->where(function ($query) use ($search) {
-                if (strlen($search) > 0) 
-                {
-                    $query->where('products.name', 'LIKE','%'. $search . '%')
-                    ->orWhere('product_translations.name', 'LIKE','%'. $search . '%');
-                    
-                }
-            })
-            ->distinct()
-            ->groupBy('products.id')
             ->paginate(21);  
 
 //             $results = Product::where('products.published',1)
