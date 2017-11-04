@@ -69,7 +69,7 @@
 				<div class="right-it">
                     <form action="{{url('/subject/')}}/{{$parent}}/{{$slug}}" method="GET" class="navbar-form" role="search">
                         <div class="input-group add-on">
-                        <input class="form-control" placeholder="Search" name="search_content" type="text" value="{{old('search-content')}}">
+                        <input class="form-control" placeholder="Search" name="search" type="text" value="{{old('search')}}">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                         </div>

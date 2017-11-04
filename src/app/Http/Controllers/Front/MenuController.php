@@ -15,7 +15,7 @@ class MenuController extends Controller
 {
     public function menu($parent, $slug)
     {
-        $search = Input::get('search_content');
+        $search = Input::get('search');
         
         if ($parent == "products") {
             //RELATED
@@ -55,7 +55,8 @@ class MenuController extends Controller
             })->paginate(21);
             
             return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories','category','parent','slug'))
-            ->with('i', ($page??1 - 1) * 21);
+            ->with('i', ($page??1 - 1) * 21)
+            ->with('search', $search);
         }
     }
 }
