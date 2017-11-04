@@ -9,6 +9,9 @@
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
+.add-on .input-group-btn > .btn:hover{
+    color:#8eb35a;
+}
 /* stop the glowing blue shadow */
 .add-on .form-control:focus {
  box-shadow:none;
@@ -54,7 +57,7 @@
     </div>
 </div>
 
-<section class="shopgrid products  bloglistpost-v1">
+<section class="shopgrid products">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-12">
