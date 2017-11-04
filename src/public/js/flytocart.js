@@ -4,10 +4,10 @@
 	license: https://www.opensource.org/licenses/mit-license.php
 */
 
-$('.add-shoopingcart').on('click', function (img) {
+$('.add-shoopingcart').on('click', function(img) {
     var cart = $('.shopping-cart-icon');
     // var imgtodrag = $(this).parent('.item').find("img").eq(0);
-    
+
     var imgtodrag = $('.product-main-img');
 
     if (imgtodrag) {
@@ -31,7 +31,7 @@ $('.add-shoopingcart').on('click', function (img) {
                 'height': 75
             }, 1000, 'easeInOutExpo');
 
-        setTimeout(function () {
+        setTimeout(function() {
             cart.effect("shake", {
                 times: 2
             }, 200);
@@ -40,7 +40,49 @@ $('.add-shoopingcart').on('click', function (img) {
         imgclone.animate({
             'width': 0,
             'height': 0
-        }, function () {
+        }, function() {
+            $(this).detach()
+        });
+    }
+});
+
+$('.add-wishlist').on('click', function(img) {
+    var cart = $('.wishlist-icon');
+    // var imgtodrag = $(this).parent('.item').find("img").eq(0);
+
+    var imgtodrag = $('.product-main-img');
+
+    if (imgtodrag) {
+        var imgclone = imgtodrag.clone()
+            .offset({
+                top: imgtodrag.offset().top,
+                left: imgtodrag.offset().left
+            })
+            .css({
+                'opacity': '0.5',
+                'position': 'absolute',
+                'height': '150px',
+                'width': '150px',
+                'z-index': '9999'
+            })
+            .appendTo($('body'))
+            .animate({
+                'top': cart.offset().top + 10,
+                'left': cart.offset().left + 10,
+                'width': 75,
+                'height': 75
+            }, 1000, 'easeInOutExpo');
+
+        setTimeout(function() {
+            cart.effect("shake", {
+                times: 2
+            }, 200);
+        }, 1500);
+
+        imgclone.animate({
+            'width': 0,
+            'height': 0
+        }, function() {
             $(this).detach()
         });
     }

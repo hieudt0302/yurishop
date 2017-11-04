@@ -138,7 +138,7 @@
 							<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
 							@endif
 							@if(!$product->disable_wishlist_button)
-							<a class="add-wishlist" href="javascript:void(0)"><i class="fa fa-heart" aria-hidden="true"></i></a>
+							<a class="add-wishlist" href="javascript:void(0)"><i class="fa fa-heart wishlist-icon" aria-hidden="true"></i></a>
 							@endif
 						@endif
 
@@ -319,11 +319,12 @@
                     console.log(response['newCartItemCount']); //debug
                }
             });
-        });
+		});
+		
 		$('.add-wishlist').click(function() {
-			$(this).effect("shake", {
-                times: 1
-			}, 200);
+			// $(this).effect("shake", {
+            //     times: 1
+			// }, 200);
 			
             $.ajax({
                type:'POST',
