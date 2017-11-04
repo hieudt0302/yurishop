@@ -35,7 +35,7 @@ class MenuController extends Controller
             //     }
             // })->paginate(21);  
 
-            $results = Product::where('published',1)
+            $results = Product::where('products.published',1)
             ->leftJoin('categories','categories.id','=','products.category_id')
             ->leftJoin('product_translations','product_translations.product_id','=','products.id')
             ->where('categories.slug', $slug)
@@ -47,7 +47,7 @@ class MenuController extends Controller
                     
                 }
             })
-            ->groupBy('products->id')
+            ->groupBy('products.id')
             ->distinct()
             ->paginate(21);  
 
