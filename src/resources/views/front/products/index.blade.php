@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<section class="shopgrid products">
+<section class="shopgrid products  bloglistpost-v1">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-12">
@@ -44,15 +44,11 @@
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="right-it">
-                    <!-- <form class="form-inline">
-                        <div class="form-group">
-                            <input type="text" name="search_content" placeholder="What are you looking for?"  class="form-control">
-                        </div>
-                         <button type="submit" class="btn btn-primary" style="border-radius: 5px;">Search</button>
-                    </form> -->
                     <div class="bg-sidebar">
                         <div class="search">
-                            {!! Form::open(array('method'=>'post','url' => '/products','class'=>'form-inline form','role'=>'form')) !!}
+                            <input class="search-input" type="text" placeholder="Enter keyword">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <!-- {!! Form::open(array('method'=>'post','url' => '/products','class'=>'form-inline form','role'=>'form')) !!}
                             <div class="search-wrap">
                                 <button class="search-button hidden" type="submit" title="Start Search">
                                     <i class="fa fa-search"></i>
@@ -66,7 +62,7 @@
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 @endif
                             </div>
-                            {!! Form::close() !!}
+                            {!! Form::close() !!} -->
                         </div>
                     </div>
 				</div>
