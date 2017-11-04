@@ -33,7 +33,7 @@ Route::get('/product-quality', 'Front\HomeController@product_quality');
 Route::get('/contact', 'Front\HomeController@contact');
 Route::post('/contact',  ['uses'=>'Front\HomeController@send_contact','as' => 'front.send-contact']);
 Route::post('/subscribe',  ['uses'=>'Front\HomeController@subscribe','as' => 'front.subscribe']);
-Route::post('/unsubscribe',  ['uses'=>'Front\HomeController@unsubscribe','as' => 'front.unsubscribe']);
+Route::get('/unsubscribe/{email}',  ['uses'=>'Front\HomeController@unsubscribe','as' => 'front.unsubscribe']);
 Route::get('/promotion', 'Front\HomeController@promotion');
 
 /* ACCOUNT */

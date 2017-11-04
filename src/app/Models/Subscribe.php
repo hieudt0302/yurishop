@@ -15,8 +15,8 @@ class Subscribe extends Model
     protected $table = 'subscribe';
 
     public static function existEmail($email){
-    	$exist = DB::table('subscribe')->where('email', $email)->first();
-    	if(!empty($exist))
+    	$exist = DB::table('subscribe')->where('email', $email)->count();
+    	if($exist >0)
     		return true;
     	return false;
     }

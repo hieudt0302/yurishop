@@ -30,8 +30,9 @@ class SubscribeController extends Controller
                 if(!empty($language)){
                     $language_id = $language->id; 
                     $promotion_content = MailTemplateTranslation::where('mail_template_id',$mail_temp_id)->where('language_id',$language_id)->first()->content;
-                    Mail::send('admin/subscribes/mail_template', array('content' => $promotion_content), function($message){
-                        $message->to($email->email, 'Admin')->subject('Mail khuyến mãi');
+                    $data = array('email' => $email->email, 'content' => $promotion_content);
+                    Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data){
+                        $message->to($data['email'])->subject('Mail khuyến mãi');
                     }); 
                 }                
             } 
