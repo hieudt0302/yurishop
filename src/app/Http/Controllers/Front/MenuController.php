@@ -29,7 +29,7 @@ class MenuController extends Controller
             ->where(function ($query) use ($search) {
                 if (strlen($search) > 0) 
                 {
-                    $query->where('product.name', 'LIKE','%'. $search . '%');
+                    $query->where('products.name', 'LIKE','%'. $search . '%');
                 }
             })->paginate(21);  
 
@@ -50,7 +50,7 @@ class MenuController extends Controller
             ->where(function ($query) use ($search) {
                 if (strlen($search) > 0) 
                 {
-                    $query->where('post.name', 'LIKE','%'. $search . '%');
+                    $query->where('posts.title', 'LIKE','%'. $search . '%');
                 }
             })->paginate(21);
             
