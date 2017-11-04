@@ -78,9 +78,9 @@
 				</div>
 			</div>
         </div>
-        @foreach($results as $key => $product)
-            @php($index = $key)
-            @if($index == 0 || $index % 4 === 0)
+        @php($index = 0)
+        @foreach($results as $product)
+            @if($index == 0 || $index % 4 == 0)
             <div class="row">
                 <div class="products-it">
             @endif                    
