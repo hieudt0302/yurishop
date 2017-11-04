@@ -25,7 +25,20 @@ class MenuController extends Controller
             $lastProducts = Product::where('published',1)->take(4)->get(); 
             
             // GET PRODUCTS
-            $results = $category->publishedProducts()->join('product_translations','product_translations.product_id','=','products.id')
+            // $results = $category->publishedProducts()->join('product_translations','product_translations.product_id','=','products.id')
+            // ->where(function ($query) use ($search) {
+            //     if (strlen($search) > 0) 
+            //     {
+            //         $query->where('products.name', 'LIKE','%'. $search . '%')
+            //         ->orWhere('product_translations.name', 'LIKE','%'. $search . '%');
+                    
+            //     }
+            // })->paginate(21);  
+
+            $results = Product::where('published',1)
+            ->leftJoin('categories','categories.id','=','products.category_id')
+            ->leftJoin('product_translations','product_translations.product_id','=','products.id')
+            ->where('categories.slug', $slug)
             ->where(function ($query) use ($search) {
                 if (strlen($search) > 0) 
                 {
@@ -33,10 +46,8 @@ class MenuController extends Controller
                     ->orWhere('product_translations.name', 'LIKE','%'. $search . '%');
                     
                 }
-            })->paginate(21);  
-
-            // $results = Product::where('published',1)
-            // ->leftJoin('categories','')
+            })
+            ->paginate(21);  
 
             return View('front/products/index', compact('results','tags','comments', 'lastProducts','category','parent','slug'))
             ->with('i', ($page??1 - 1) * 21);
