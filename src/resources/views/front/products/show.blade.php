@@ -107,7 +107,7 @@
 
 						<p class="para">{{$product->translation->summary??''}}</p>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
-						@if(!$product->call_for_price && !$product->disable_buy_button && $product->sold_off)
+						@if(!$product->call_for_price && !$product->disable_buy_button && !$product->sold_off)
 							<div class="right-it">
 									<form class="quantity" method="post" action="#">
 										<div class="numbers-row">
