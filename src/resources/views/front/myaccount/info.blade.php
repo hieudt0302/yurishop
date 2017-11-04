@@ -66,13 +66,13 @@
                                             <div class="col-lg-9">
                                                 <div class="row row-hardcode xs-gutters">
                                                     <div class="col">
-                                                        <input class="form-control"  id="day" name="day" type="text" value="{{Auth::user()->date_of_birth->format('d') }}">
+                                                        <input class="form-control"  id="day" name="day" type="text" value="{{date('d',strtotime(Auth::user()->date_of_birth))}}">
                                                     </div>
                                                     <div class="col">
-                                                        <input class="form-control"  id="month" name="month" type="text" value="{{Auth::user()->date_of_birth->format('m')}}">
+                                                        <input class="form-control"  id="month" name="month" type="text" value="{{date('m',strtotime(Auth::user()->date_of_birth))}}">
                                                     </div>
                                                     <div class="col">
-                                                        <input class="form-control" id="year" name="year" type="text" value="{{Auth::user()->date_of_birth->format('Y')}}">
+                                                        <input class="form-control" id="year" name="year" type="text" value="{{date('Y',strtotime(Auth::user()->date_of_birth))}}">
                                                     </div>
                                                 </div>
                                             </div>
