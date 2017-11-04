@@ -58,6 +58,7 @@ class MenuController extends Controller
             return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories','category','parent','slug'))
             ->with('i', ($page??1 - 1) * 21)
             ->withInput();
+            //s
         }
     }
 }
