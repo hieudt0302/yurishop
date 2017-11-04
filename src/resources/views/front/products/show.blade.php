@@ -132,7 +132,7 @@
                                 </span></p>
 						</div>
 						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">
-						@if(!$product->call_for_price && !$product->disable_buy_button && $product->sold_off)
+						@if(!$product->call_for_price && !$product->disable_buy_button && !$product->sold_off)
 							<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
 							@if(!$product->disable_wishlist_button)
 							<a class="add-wishlist" href="javascript:void(0)"><i class="fa fa-heart wishlist-icon" aria-hidden="true"></i></a>
