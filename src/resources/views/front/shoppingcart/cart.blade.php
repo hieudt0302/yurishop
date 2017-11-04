@@ -261,6 +261,8 @@ $(document).ready(function(){
             data: data,
             type: 'POST',
             success: function (response) {
+                $('.cartItemCount').html(response['newCartItemCount']);
+                
                 if(response['status'] ==='success')
                 {
                     if (response['newCartItemCount'] == 0) {
@@ -273,7 +275,6 @@ $(document).ready(function(){
                         var rowItem =document.getElementById(response['rowId']);
                         rowItem.parentNode.removeChild(rowItem);
                     }
-                    $('.cartItemCount').html(response['newCartItemCount']);
                     $("#start-checkout-buttons").toggleClass("d-none", !response['showCheckoutButtons']);
                 }
 
