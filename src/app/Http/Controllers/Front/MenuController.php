@@ -25,13 +25,18 @@ class MenuController extends Controller
             $lastProducts = Product::where('published',1)->take(4)->get(); 
             
             // GET PRODUCTS
-            $results = $category->publishedProducts()
+            $results = $category->publishedProducts()->join('product_translations','product_translations.product_id','=','products.id')
             ->where(function ($query) use ($search) {
                 if (strlen($search) > 0) 
                 {
-                    $query->where('products.name', 'LIKE','%'. $search . '%');
+                    $query->where('products.name', 'LIKE','%'. $search . '%')
+                    ->orWhere('product_translations.name', 'LIKE','%'. $search . '%');
+                    
                 }
             })->paginate(21);  
+
+            // $results = Product::where('published',1)
+            // ->leftJoin('categories','')
 
             return View('front/products/index', compact('results','tags','comments', 'lastProducts','category','parent','slug'))
             ->with('i', ($page??1 - 1) * 21);
@@ -56,7 +61,7 @@ class MenuController extends Controller
             
             return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories','category','parent','slug'))
             ->with('i', ($page??1 - 1) * 21)
-            ->with('search', $search);
+            ->withInput();
         }
     }
 }
