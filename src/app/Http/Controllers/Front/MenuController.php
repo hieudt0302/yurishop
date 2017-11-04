@@ -49,7 +49,7 @@ class MenuController extends Controller
             $posts = $category->publishedPosts()
             ->where('posts.title', 'LIKE', '%'. $search . '%')
             ->orWhereIn('posts.id', function($query) use ($search){
-                $query->select('product_id')->from('post_translations')
+                $query->select('post_id')->from('post_translations')
                 ->Where('title','LIKE', '%'. $search . '%');
             })
             ->paginate(21);  
