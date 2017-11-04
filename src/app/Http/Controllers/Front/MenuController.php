@@ -50,7 +50,7 @@ class MenuController extends Controller
             ->groupBy('products.id')
             ->distinct()
             ->paginate(21);  
-
+dd($results);
             return View('front/products/index', compact('results','tags','comments', 'lastProducts','category','parent','slug'))
             ->with('i', ($page??1 - 1) * 21);
 
