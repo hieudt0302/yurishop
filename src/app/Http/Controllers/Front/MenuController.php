@@ -34,8 +34,7 @@ class MenuController extends Controller
             ->paginate(21);  
 
             return View('front/products/index', compact('results','tags','comments', 'lastProducts','category','parent','slug'))
-            ->with('i', ($page??1 - 1) * 21)
-            ->withInput();
+            ->with('i', ($page??1 - 1) * 21);
 
         } elseif ($parent == "posts") {
             //RELATED
@@ -56,9 +55,7 @@ class MenuController extends Controller
             ->paginate(21);  
             
             return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories','category','parent','slug'))
-            ->with('i', ($page??1 - 1) * 21)
-            ->withInput();
-            //s
+            ->with('i', ($page??1 - 1) * 21);
         }
     }
 }
