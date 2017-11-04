@@ -47,6 +47,7 @@ class MenuController extends Controller
                     
                 }
             })
+            ->distinct()
             ->paginate(21);  
 
             return View('front/products/index', compact('results','tags','comments', 'lastProducts','category','parent','slug'))
