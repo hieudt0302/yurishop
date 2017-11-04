@@ -92,6 +92,8 @@
 
 						@if($product->sold_off)
 							<span class="hot">Sold Off</span>
+						@elseif($product->call_for_price)
+							<span class="hot">Call for Price</span>
 						@else
 							@if(!$is_sales)
 								<span class="price2">{{$product->old_price}}</span>
