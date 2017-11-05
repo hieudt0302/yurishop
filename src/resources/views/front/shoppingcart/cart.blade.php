@@ -140,7 +140,7 @@
                                                             <tbody>
                                                                 <tr class="cart-summary-subtotal">
                                                                     <td class="cart-summary-label">@lang('shoppings.subtotal'):</td>
-                                                                    <td class="cart-summary-value">{{ FormatPrice::price(Cart::subtotal(),'vnd') }}</td>
+                                                                    <td class="cart-summary-value">{{ Cart::subtotal() }}</td>
                                                                 </tr>
                                                                 <tr class="cart-summary-shipping">
                                                                     <td class="cart-summary-label">
@@ -152,7 +152,7 @@
                                                                 </tr>
                                                                 <tr class="cart-summary-tax">
                                                                     <td class="cart-summary-label">@lang('shoppings.tax'):</td>
-                                                                    <td class="cart-summary-value">{{ FormatPrice::price(Cart::tax(),'vnd') }}</td>
+                                                                    <td class="cart-summary-value">{{ Cart::tax() }}</td>
                                                                 </tr>
                                                                 <tr class="cart-summary-total">
                                                                     <td class="cart-summary-label">@lang('shoppings.total'):</td>
