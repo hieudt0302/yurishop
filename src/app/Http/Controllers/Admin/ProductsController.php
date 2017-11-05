@@ -574,5 +574,6 @@ class ProductsController extends Controller
         return redirect()->route('admin.products.reviews')
         ->with('message', 'Đã xóa đánh giá!')
         ->with('status', 'success');
+
     }
 }

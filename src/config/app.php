@@ -180,6 +180,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\BladeServiceProvider::class,
 
     ],
 
@@ -232,7 +233,9 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'Image' => Intervention\Image\Facades\Image::class,      
+        'Image' => Intervention\Image\Facades\Image::class,    
+        'FormatPrice' => App\Helpers\Blade\FormatPrice::class,
+          
 
         'Setting' => App\Models\Setting::class,
     ],
