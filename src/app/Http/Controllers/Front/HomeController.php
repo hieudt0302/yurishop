@@ -135,6 +135,7 @@ class HomeController extends Controller
         }
         $subscribe = new Subscribe();
         $subscribe->email = $request->email;
+        $subscribe->locale = \App::getLocale(); 
         $subscribe->save();
         return response()->json(['success' => true]);
     }
@@ -144,26 +145,6 @@ class HomeController extends Controller
         return View("front/home/unsubscribe");
     }
 
-    public function send_promotion_info(Request $request){
-        $temp_id = Setting::config('promote_mail');
-        $promotion_content = '';
-        if($temp_id != ''){
-            $language_id = 1; //make vietnamese as default alternative
-            $locale = \App::getLocale(); 
-            $language = Language::where('code',$locale)->first();
-            if ($language != null){
-                $language_id = $language->id; //make english as default alternative
-            }
-            $promotion_content = MailTemplateTranslation::where('mail_template_id',$temp_id)->where('language_id',$language_id)->first()->content;    
-        }
-        $input = $request->all();
-        Mail::send('front/home/promotion_mail', array('content' => $promotion_content), function($message){
-            $message->to('ducthang.237@gmail.com', 'Admin')->subject('Mail liên hệ');
-        });
-        session()->flash('success_message', 'Send mail successfully!');
-
-        // return View("front/home/contact");
-    }
 
     /**
      * Show the form for creating a new resource.

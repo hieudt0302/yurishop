@@ -14074,3 +14074,11 @@ footer.ht-footer.flowerft .ft-contact .ct-icon a:hover i {
 .subscribe-failed {
     color: #990000;
 }
+.unsubscribe-mes{
+    padding: 25px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    display: block;
+    color: #990000;
+}

@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-5 col-sm-5 col-xs-12">
                 <div class="form">
-                    <input class="email" type="text" name="email" placeholder="{{ __('profile.email') }}">
+                    <input class="email" type="text" name="subscribe_email" placeholder="{{ __('profile.email') }}">
                     <div class="subscribe-success">@lang('footer.subscribe-success')</div>
                     <div class="subscribe-failed">@lang('footer.subscribe-failed')</div>
                 </div>
@@ -128,7 +128,7 @@
             type: "POST",
             url: "{{url('/subscribe')}}" ,
             data: {
-                "email": $("input[name='email']").val(),
+                "email": $("input[name='subscribe_email']").val(),
             },
             success: function(res){
                 if(res.success){
@@ -142,7 +142,7 @@
                 
             },
             error:function(res){
-                console.log("xay ra loi" + JSON.stringify(res));  
+                console.log("xay ra loi");  
             }
         });            
     });
