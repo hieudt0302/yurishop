@@ -227,7 +227,7 @@ class MenuController extends Controller
     public function destroy($id)
     {
         $menu = Category::find($id);
-        if(count($menu->GetMenuSubLevel1()))
+        if(count($menu->GetMenuSubLevel1()) > 0)
             return redirect()->back()
             ->with('message','Bạn không thể xóa menu chứa menu con')
             ->with('status','danger');
