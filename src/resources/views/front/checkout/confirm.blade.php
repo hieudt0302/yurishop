@@ -262,7 +262,7 @@
                                                         <tbody>
                                                             <tr class="cart-summary-subtotal">
                                                                 <td class="cart-summary-label">@lang('shoppings.subtotal'):</td>
-                                                                <td class="cart-summary-value">{{FormatPrice::price($row->subtotal())}}</td>
+                                                                <td class="cart-summary-value">{{$row->subtotal()}}</td>
                                                             </tr>
                                                             <tr class="cart-summary-shipping">
                                                                 <td class="cart-summary-label">
@@ -278,19 +278,17 @@
 
                                                             <tr class="cart-summary-tax">
                                                                 <td class="cart-summary-label">@lang('shoppings.tax'):</td>
-                                                                <td class="cart-summary-value">{{FormatPrice::price($row->tax())}}</td>
+                                                                <td class="cart-summary-value">{{$row->tax()}}</td>
                                                             </tr>
                                                             <tr class="cart-summary-total">
                                                                 <td class="cart-summary-label">@lang('shoppings.total'):</td>
                                                                 <td class="cart-summary-value">
-                                                                    <span>{{ FormatPrice::price(Cart::total()) }}</span>
+                                                                    <span>{{ Cart::total() }}</span>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
-
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
