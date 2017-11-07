@@ -6,9 +6,13 @@ class FormatPrice {
     public static function price($price, $type = null) {
         switch ($type) {
             case 'usd':
-                return '$' . number_format($price, 2, ',', '.'); //etc: 5.500.000,69
+                return '$' . number_format($price, 2, ',', '.'); 
+            case 'usd-f':
+                return '$' . $price; 
+            case 'vnd-f':
+                return $price . 'đ';
             default:
-                return number_format($price, 2, '.', ',') . 'đ'; //etc: 5,500,000.69 
+                return number_format($price, 2, '.', ',') . 'đ';
         } 
     }
 }
