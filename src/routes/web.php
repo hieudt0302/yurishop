@@ -260,7 +260,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('sliders/generateslug/{title}',['as'=>'admin.sliders.generateSlug','uses'=>'SliderController@GenerateSlug','middleware' => ['role:admin|manager']]);
     Route::patch('sliders/{id}/translation',['as'=>'admin.sliders.updateTranslation','uses'=>'SliderController@updateTranslation','middleware' => ['role:admin|manager']]);
 
-
     //Mail Templates
     Route::get('mail_templates',['as'=>'admin.mail_templates.index','uses'=>'MailTemplateController@index','middleware'=> ['role:admin|manager']]);
     Route::get('mail_templates/create',['as'=>'admin.mail_templates.create','uses'=>'MailTemplateController@create','middleware'=> ['role:admin|manager']]);
@@ -276,5 +275,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     // Subscribes
     Route::get('subscribes',['as'=>'admin.subscribes.index','uses'=>'SubscribeController@index']);
     Route::post('subscribes',['as'=>'admin.subscribes.send_mail','uses'=>'SubscribeController@send_mail']);
+
+    //Banner
+    Route::get('banners/edit',['as'=>'admin.banners.edit','uses'=>'BannersController@edit','middleware'=> ['role:admin|manager']]);
+    Route::post('banners/update',['as'=>'admin.banners.update','uses'=>'BannersController@update','middleware'=> ['role:admin|manager']]); 
 });
 

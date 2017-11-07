@@ -7888,6 +7888,15 @@ section {
     max-width: 960px;
 }
 
+#adsv2 .ads-center {
+    margin-left: -15px;
+    background: url('../images/uploads/ads-bg3.jpg') no-repeat;
+    background-size: contain;
+    background-position: left center;
+    height: 400px;
+    max-width: 1920px;
+}
+
 div.ads-right a {
     position: absolute;
     width: 100%;

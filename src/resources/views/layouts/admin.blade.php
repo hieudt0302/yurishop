@@ -467,7 +467,7 @@
         <!-- Slider-->
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-picture-o"></i> <span>Slider</span>
+            <i class="fa fa-sliders"></i> <span>Slider</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -477,6 +477,14 @@
             <li><a href="{{url('/admin/sliders/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
           </ul>
         </li>
+
+        <!-- Slider-->        
+        <li>
+          <a href="{{url('/admin/banners/edit')}}">
+            <i class="fa fa-picture-o"></i> 
+            <span>Banner</span>
+          </a>
+        </li>                
         
         <!-- Mail Templates-->
         <li class="treeview">
