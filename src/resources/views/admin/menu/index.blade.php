@@ -13,6 +13,12 @@
             Thêm mới
         </a>
       </div>
+      <div class="row">
+        <div class="col-xs-12">
+            @include('notifications.status_message') 
+            @include('notifications.errors_message') 
+        </div>
+    </div> 
 </section>
 
 <section class="content">
@@ -60,9 +66,12 @@
                            <a class="btn btn-primary btn-sm" href="{{url('/')}}/admin/menu/{{$menu->id}}/edit"> <i class="fa fa-edit"></i></a>
                         </td>
                         <td>
-                              {!! Form::open(['method' => 'DELETE','route' => ['admin.menu.destroy', $menu->id],'style'=>'display:inline']) !!}
+                              <!-- {!! Form::open(['method' => 'DELETE','route' => ['admin.menu.destroy', $menu->id],'style'=>'display:inline']) !!}
                               {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit','class' => 'btn btn-warning btn-sm'] )  }}
-                              {!! Form::close() !!}  
+                              {!! Form::close() !!}   -->
+                              <a type="button" class="btn btn-danger" data-menu-id="{{$menu->id}}" data-toggle="modal" data-target="#modal-delete-menu">
+                                    <i class="fa fa-ban"></i>
+                                </a> 
                         </td>
                       </tr>
                         @foreach($menu->GetMenuSubLevel1() as $i => $sub )
@@ -91,10 +100,13 @@
 
                           </td>
                           <td>
-                              {!! Form::open(['method' => 'DELETE','route' => ['admin.menu.destroy', $sub->id],'style'=>'display:inline']) !!}
+                              <!-- {!! Form::open(['method' => 'DELETE','route' => ['admin.menu.destroy', $sub->id],'style'=>'display:inline']) !!}
                               {{ Form::button('<i class="fa fa-trash-o"></i>', ['type' => 'submit','class' => 'btn btn-warning btn-sm'] )  }}
-                              {!! Form::close() !!}  
-                          </td>
+                              {!! Form::close() !!}   -->
+                                <a type="button" class="btn btn-danger" data-menu-id="{{$sub->id}}" data-toggle="modal" data-target="#modal-delete-menu">
+                                    <i class="fa fa-ban"></i>
+                                </a> 
+                            </td>
                         </tr>
                         @endforeach
                       @endforeach
@@ -116,13 +128,43 @@
     </div>
   </div>
 </section>
+
+<!-- QUESTION TO DELETE -->
+<div class="modal modal-danger fade" id="modal-delete-menu">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Cảnh Báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa menu này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+                <form name="form-menu-delete"  method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-outline" value="Xóa Menu">
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection
 
 @section('scripts')
 
 <script>
     $(function() {
-        
+        $('#modal-delete-menu').on('show.bs.modal', function (e) {
+            var menuID = $(e.relatedTarget).data('menu-id');
+            var action = "{{url('admin/menu')}}/" + menuID;
+            $(e.currentTarget).find('form[name="form-menu-delete"]').attr("action", action);
+        })  
     });
 </script>
 @endsection
