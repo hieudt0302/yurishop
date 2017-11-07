@@ -229,12 +229,15 @@ class MenuController extends Controller
         $menu = Category::find($id);
         if(count($menu->GetMenuSubLevel1()) > 0)
         {
-            session()->flash('error_message', "Bạn không thể xóa menu chứa menu con");        
-            return redirect()->route('admin.menu.index'); 
+            return redirect()->route('admin.menu.index')
+            ->with('message', 'Bạn không thể xóa menu chứa menu con')
+            ->with('status', 'danger'); 
         }
+        
         $menu->delete();
-        session()->flash('success_message', "Xóa menu thành công!");        
-        return redirect()->route('admin.menu.index'); 
+        return redirect()->route('admin.menu.index')
+        ->with('message', 'Đã xóa menu')
+        ->with('status', 'success'); 
     }
 
     public function GenerateSlug($name)
