@@ -234,6 +234,24 @@
             }
         });
     });
+
+    $('#name').on('change', function(e) {
+        e.preventDefault();
+        var token = '{{csrf_token()}}';
+        var name =  $('#name').val();
+        $.ajax({
+            cache: false,
+            url: '{{url("admin/menu/generateslug")}}' + '/' + name,
+            type: 'GET',
+            data: { _token :token},
+            success: function (response) {
+                if (response['status'] =='success') {
+                    $('#slug').val(response['slug'])
+                }
+            }
+        });
+        return false;
+    });
 })
 </script>
 @endsection
