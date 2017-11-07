@@ -227,6 +227,10 @@ class MenuController extends Controller
     public function destroy($id)
     {
         $menu = Category::find($id);
+        if(count($menu->GetMenuSubLevel1()))
+            return redirect()->back()
+            ->with('message','Bạn không thể xóa menu chứa menu con')
+            ->with('status','danger');
         $menu->delete();
         session()->flash('success_message', "Xóa menu thành công!");        
         return redirect()->route('admin.menu.index'); 
@@ -239,7 +243,7 @@ class MenuController extends Controller
         {
             $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
         }
-        
+
         return response()->json([
             'slug' =>  $slug,
             'status' => 'success'
