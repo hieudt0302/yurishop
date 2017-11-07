@@ -91,7 +91,7 @@
                         </a>
                         <div class="pro-infor">
                             <h2>{{$product->translation->name??$product->name}}</h2>
-                            <span class="pro-cost">{{$product->price}}</span>
+                            <span class="pro-cost">{{FormatPrice::price($product->price)}}</span>
                         </div>
                     </div>
                 </div>
@@ -120,28 +120,28 @@
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
 <script>
      $(document).ready(function(){      
-        $('.add-shoopingcart').click(function() {
-            var id = $("input[name='product_id']").val();
-            var name = $("input[name='product_name']").val();
-            var price = $("input[name='product_price']").val();
-            var quantity = 1;//$("input[name='quantity']").val();
-            $.ajax({
-               type:'POST',
-               url:'{{ url("/add-to-cart") }}',              
-               data: {
-                    'id': id, //just test
-                    'name': name,//just test
-                    'price': price,//just test
-                    'quantity': quantity,//just test
-                },
-               success:function(response){
-                console.log(response['message']);
-               },
-               error:function(response){
-                  console.log(response['message']);
-               }
-            });
-        });
+        // $('.add-shoopingcart').click(function() {
+        //     var id = $("input[name='product_id']").val();
+        //     var name = $("input[name='product_name']").val();
+        //     var price = $("input[name='product_price']").val();
+        //     var quantity = 1;//$("input[name='quantity']").val();
+        //     $.ajax({
+        //        type:'POST',
+        //        url:'{{ url("/add-to-cart") }}',              
+        //        data: {
+        //             'id': id, //just test
+        //             'name': name,//just test
+        //             'price': price,//just test
+        //             'quantity': quantity,//just test
+        //         },
+        //        success:function(response){
+        //         console.log(response['message']);
+        //        },
+        //        error:function(response){
+        //           console.log(response['message']);
+        //        }
+        //     });
+        // });
     });
 </script>
 @endsection

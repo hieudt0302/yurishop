@@ -96,11 +96,11 @@
 							<span class="hot">Call for Price</span>
 						@else
 							@if(!$is_sales)
-								<span class="price2">{{$product->old_price}}</span>
-								<span class="sub">{{$product->price}}</span>
+								<span class="price2">{{FormatPrice::price($product->old_price)}}</span>
+								<span class="sub">{{FormatPrice::price($product->price)}}</span>
 							@else
-								<span class="price2">{{$product->price}}</span>
-								<span class="sub">{{$product->special_price}}</span>
+								<span class="price2">{{FormatPrice::price($product->price)}}</span>
+								<span class="sub">{{FormatPrice::price(($product->special_price)}}</span>
 								<span class="hot">@lang('product.sale')</span>
 							@endif
 						@endif
