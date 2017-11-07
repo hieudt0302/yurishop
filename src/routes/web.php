@@ -178,6 +178,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     //
     Route::patch('menu/{id}/translation',['as'=>'admin.menu.updateTranslation','uses'=>'MenuController@updateTranslation','middleware' => ['role:admin|manager']]);
     Route::get('menu/{id}/{code}/fetch',['as'=>'admin.menu.fetchTranslation','uses'=>'MenuController@fetchTranslation','middleware' => ['role:admin|manager']]);
+    Route::get('menu/generateslug/{name}',['as'=>'admin.menu.generateSlug','uses'=>'MenuController@GenerateSlug','middleware' => ['role:admin|manager']]);
+
 
     //Blog
     Route::get('posts',['as'=>'admin.posts.index','uses'=>'PostsController@index','middleware' => ['role:admin|manager']]);

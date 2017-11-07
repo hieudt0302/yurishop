@@ -58,7 +58,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" for="slug" title="">Slug</label>
                                                 <div class="col-md-4">
-                                                    <input class="form-control text-box single-line valid"  id="slug" name="slug" type="text">
+                                                    <input class="form-control"  id="slug" name="slug" type="text">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -125,7 +125,23 @@
 @section('scripts')
 <script>
   $(function () {
-
+    $('#name').on('change', function(e) {
+        e.preventDefault();
+        var token = '{{csrf_token()}}';
+        var name =  $('#name').val();
+        $.ajax({
+            cache: false,
+            url: '{{url("admin/menu/generateslug")}}' + '/' + name,
+            type: 'GET',
+            data: { _token :token},
+            success: function (response) {
+                if (response['status'] =='success') {
+                    $('#slug').val(response['slug'])
+                }
+            }
+        });
+        return false;
+    });
   })
 </script>
 @endsection

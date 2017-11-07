@@ -231,4 +231,18 @@ class MenuController extends Controller
         session()->flash('success_message', "Xóa menu thành công!");        
         return redirect()->route('admin.menu.index'); 
     }
+
+    public function GenerateSlug($name)
+    {
+        $slug = str_slug($name, "-");
+        if(Category::where('slug',$slug)->count() >0 )
+        {
+            $slug = $slug . '-' .  date('y') . date('m'). date('d'). date('H'). date('i'). date('s'); 
+        }
+        
+        return response()->json([
+            'slug' =>  $slug,
+            'status' => 'success'
+        ]);
+    }
 }
