@@ -90,6 +90,7 @@
                 @endif 
             </div>
 
+            @if(!empty($search_key) && count($posts)!=0)
             @foreach($posts as $post_tran)
             @if($post_tran->post->published)
             <div class="col-md-4 col-sm-4 col-xs-4">
@@ -109,7 +110,7 @@
             </div>
             @endif
             @endforeach
-
+            @endif
         </div>
 
         <div class="row">
