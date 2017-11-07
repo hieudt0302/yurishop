@@ -272,7 +272,7 @@
                                                                     </span>
                                                                 </td>
                                                                 <td class="cart-summary-value">
-                                                                    <span class="cart-summary-neg">FormatPrice::price(0.00)</span>
+                                                                    <span class="cart-summary-neg">{{FormatPrice::price(0.00)}}</span>
                                                                 </td>
                                                             </tr>
 
