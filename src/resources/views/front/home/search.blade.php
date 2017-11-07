@@ -91,7 +91,7 @@
             </div>
 
             @foreach($posts as $post_tran)
-            @if($post_tran->post->published==1)
+            @if($post_tran->post->published)
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <div class="blog-it-left">
                     <a href="{{url('/posts')}}/{{$post_tran->post->slug}}">

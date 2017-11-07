@@ -39,7 +39,7 @@
                 @if(!empty($search_key) && count($posts)!=0)
                     <!-- Post -->
                     @foreach($posts as $post_tran)
-                        @if($post_tran->post->published==1)
+                        @if($post_tran->post->published)
                         <div class="blogpost-v2">
                             <div class="row">
                                 <div class="col-md-5">
