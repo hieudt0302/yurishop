@@ -228,9 +228,10 @@ class MenuController extends Controller
     {
         $menu = Category::find($id);
         if(count($menu->GetMenuSubLevel1()) > 0)
-            return redirect()->back()
-            ->with('message','Bạn không thể xóa menu chứa menu con')
-            ->with('status','danger');
+        {
+            session()->flash('error_message', "Bạn không thể xóa menu chứa menu con");        
+            return redirect()->route('admin.menu.index'); 
+        }
         $menu->delete();
         session()->flash('success_message', "Xóa menu thành công!");        
         return redirect()->route('admin.menu.index'); 

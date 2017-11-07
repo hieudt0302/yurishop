@@ -39,20 +39,20 @@
                                 <div class="panel-group">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            General Infomation
+                                            Thông Tin
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="name" title="">Name</label>                                                    
+                                                <label class="col-md-3 control-label" for="name" title="">Tên</label>                                                    
                                                 <div class="col-md-4">
                                                     <input class="form-control" id="name" name="name" type="text">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="sku" title="">Order</label>
+                                                <label class="col-md-3 control-label" for="sku" title="">Thứ Tự</label>
                                                 <div class="col-md-4">
                                                     <input class="form-control text-box single-line valid" 
-                                                    name="order" type="text">
+                                                    name="order" type="text" value="0">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -62,7 +62,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="name" title="">Parent</label>
+                                                <label class="col-md-3 control-label" for="name" title="">Menu Chính</label>
                                                 <div class="col-md-4">
                                                     <select  name="parent_id" class="form-control">
                                                         <option value="0">-----Không Chọn-----</option>
@@ -77,7 +77,7 @@
                                    
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Option(s)
+                                            Tùy Chọn
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
@@ -95,7 +95,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('is_visible', 1 , true, array('class' => 'check-box')) }}
-                                                            Visible
+                                                            Hiển Thị
                                                         </label>
                                                     </div>
                                                 </div>
@@ -106,7 +106,7 @@
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <button type="submit" class="btn btn-primary">Create New</button>
+                                                    <button type="submit" class="btn btn-primary">Thêm Mới</button>
                                                 </div>
                                             </div>
                                         </div>
