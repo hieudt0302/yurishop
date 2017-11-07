@@ -6,13 +6,13 @@ class FormatPrice {
     public static function price($price, $type = null) {
         switch ($type) {
             case 'usd':
-                return '$' . number_format(floatval(str_replace( ',', '', $price)), 2, '.', ','); 
+                return '$' . str_replace('.00', '',number_format(str_replace( ',', '', $price), 2, '.', ',')); 
             case 'usd-f':
                 return '$' . $price; 
             case 'vnd-f':
                 return $price . 'đ';
             default:
-                return number_format(floatval(str_replace( ',', '', $price)), 2, ',', '.') . 'đ';
+                return str_replace(',00', '',number_format(str_replace( ',', '', $price), 2, ',', '.')) . 'đ';
         } 
     }
 }
