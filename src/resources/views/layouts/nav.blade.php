@@ -147,7 +147,7 @@
                         </li>
                         <li class="dropdown first">
                             <a href="{{ url('/about')}}" class="btn btn-default lv1">
-                            Pokofarms
+                            Pô Kô Farms
                             </a>
                         </li>                            
                         <!-- Blog menu -->
