@@ -12,7 +12,7 @@ class FormatPrice {
             case 'vnd-f':
                 return $price . 'đ';
             default:
-                return number_format(floatval(str_replace( ',', '', $price), 2, ',', '.')) . 'đ';
+                return number_format(floatval(str_replace( ',', '', $price)), 2, ',', '.') . 'đ';
         } 
     }
 }
