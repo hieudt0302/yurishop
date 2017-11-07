@@ -34,7 +34,7 @@
                     <div class="tab-content">
                         <!-- INFO TAB -->
                         <div class="active tab-pane" id="info">
-                            <form action="{{url('/admin/subject/create')}}" method="post">
+                            <form action="{{url('/admin/menu/create')}}" method="post">
                             {{ csrf_field()}}
                                 <div class="panel-group">
                                     <div class="panel panel-default">
