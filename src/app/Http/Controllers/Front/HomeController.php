@@ -59,7 +59,7 @@ class HomeController extends Controller
                                 ->orderBy('created_at', 'desc')
                                 ->limit(4)
                                 ->get();                
-        $new_blogs = Post::orderBy('updated_at', 'desc')->limit(3)->get();
+        $new_blogs = Post::where('published',1)->orderBy('updated_at', 'desc')->limit(3)->get();
         $sliders = Slider::where('is_show',1)->get();      
 
         //var_dump($best_sellers_products); die();  

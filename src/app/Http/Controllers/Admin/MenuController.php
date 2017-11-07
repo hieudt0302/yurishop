@@ -105,7 +105,7 @@ class MenuController extends Controller
         $menus = Category::where('is_menu_avaiable',1)
             ->whereNull('parent_id')
             ->get();        
-        return View('admin/subject/edit', compact('menu','languages','menus'));
+        return View('admin/menu/edit', compact('menu','languages','menus'));
     }
 
     /**
