@@ -262,7 +262,7 @@
                                                         <tbody>
                                                             <tr class="cart-summary-subtotal">
                                                                 <td class="cart-summary-label">@lang('shoppings.subtotal'):</td>
-                                                                <td class="cart-summary-value">{{$row->subtotal()}}</td>
+                                                                <td class="cart-summary-value">{{FormatPrice::price(Cart::subtotal())}}</td>
                                                             </tr>
                                                             <tr class="cart-summary-shipping">
                                                                 <td class="cart-summary-label">
@@ -278,12 +278,12 @@
 
                                                             <tr class="cart-summary-tax">
                                                                 <td class="cart-summary-label">@lang('shoppings.tax'):</td>
-                                                                <td class="cart-summary-value">{{$row->tax()}}</td>
+                                                                <td class="cart-summary-value">{{FormatPrice::price(Cart::tax())}}</td>
                                                             </tr>
                                                             <tr class="cart-summary-total">
                                                                 <td class="cart-summary-label">@lang('shoppings.total'):</td>
                                                                 <td class="cart-summary-value">
-                                                                    <span>{{ Cart::total() }}</span>
+                                                                    <span>{{ FormatPrice::price(Cart::total()) }}</span>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
