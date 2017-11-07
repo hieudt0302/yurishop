@@ -23,13 +23,14 @@ class AppServiceProvider extends ServiceProvider
 		
 		if(DB::connection()->getDatabaseName()){
 			if (Schema::hasTable('categories')) {
-                $blogCategory = Category::where('slug','posts')->firstOrFail();
+                $blogCategory = Category::where('slug','posts')->first();
+
 				$blog_menu = Category::where('is_menu_avaiable',1)
-                ->where('parent_id',$blogCategory->id)
+                ->where('parent_id',$blogCategory->id??0)
 				->orderBy('order','asc')
 				->get();
 
-                $product_menu = Category::where('slug','products')->firstOrFail();                
+                $product_menu = Category::where('slug','products')->first();                
 
 				View::share(['blog_menu' => $blog_menu, 'product_menu' => $product_menu ]);
 			}
