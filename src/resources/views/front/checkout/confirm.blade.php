@@ -239,14 +239,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="cart-col cart-col-price" data-caption="Price">
-                                                    <span class="price">{{$row->price}}</span>
+                                                    <span class="price">{{FormatPrice::price($row->price)}}</span>
                                                 </div>
                                                 <div class="cart-col cart-col-qty" data-caption="Quantity">
                                                     <span>{{$row->qty}}</span>
                                                 </div>
 
                                                 <div class="cart-col cart-col-price cart-col-subtotal" data-caption="Total">
-                                                    <span class="price">{{$row->total}}</span>
+                                                    <span class="price">{{FormatPrice::price($row->total)}}</span>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -262,7 +262,7 @@
                                                         <tbody>
                                                             <tr class="cart-summary-subtotal">
                                                                 <td class="cart-summary-label">@lang('shoppings.subtotal'):</td>
-                                                                <td class="cart-summary-value">{{$row->subtotal()}}</td>
+                                                                <td class="cart-summary-value">{{FormatPrice::price($row->subtotal())}}</td>
                                                             </tr>
                                                             <tr class="cart-summary-shipping">
                                                                 <td class="cart-summary-label">
@@ -272,18 +272,18 @@
                                                                     </span>
                                                                 </td>
                                                                 <td class="cart-summary-value">
-                                                                    <span class="cart-summary-neg">$0.00</span>
+                                                                    <span class="cart-summary-neg">FormatPrice::price(0.00)</span>
                                                                 </td>
                                                             </tr>
 
                                                             <tr class="cart-summary-tax">
                                                                 <td class="cart-summary-label">@lang('shoppings.tax'):</td>
-                                                                <td class="cart-summary-value">{{$row->tax()}}</td>
+                                                                <td class="cart-summary-value">{{FormatPrice::price($row->tax())}}</td>
                                                             </tr>
                                                             <tr class="cart-summary-total">
                                                                 <td class="cart-summary-label">@lang('shoppings.total'):</td>
                                                                 <td class="cart-summary-value">
-                                                                    <span>$69.96</span>
+                                                                    <span>{{ FormatPrice::price(Cart::total()) }}</span>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
