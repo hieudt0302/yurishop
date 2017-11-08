@@ -27,9 +27,7 @@
 <section class="content">
     <div class="row">
         <div class="col-md-12">
-            <form action="{{url('/admin/mail_templates')}}/{{$mailTemplate->id}}" method="post" class="form-horizontal">
-             {!! method_field('patch') !!} 
-             {{ csrf_field()}}               
+            <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <li class="{{$tab==1?'active':''}}"><a href="#info" data-toggle="tab">Thông tin</a></li>
@@ -109,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-            </form>    
+            </div>    
         </div>
     </div>
 </section>        
