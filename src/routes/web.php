@@ -269,6 +269,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('mail_templates/{id}/edit',['as'  =>'admin.mail_templates.edit','uses' => 'MailTemplateController@edit','middleware'=> ['role:admin|manager']]);
     Route::patch('mail_templates/{id}',['as'  =>'admin.mail_templates.update','uses' => 'MailTemplateController@update','middleware'=> ['role:admin|manager']]);    
     Route::delete('mail_templates/{id}',['as'  =>'admin.mail_templates.destroy','uses' => 'MailTemplateController@destroy','middleware'=> ['role:admin|manager']]);     
+    Route::patch('mail_templates/{id}/translation',['as'=>'admin.mail_templates.updateTranslation','uses'=>'MailTemplateController@updateTranslation','middleware' => ['role:admin|manager']]);
 
     // Settings
     Route::get('settings',['as'=>'admin.settings.edit','uses'=>'SettingController@edit']);

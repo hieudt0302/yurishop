@@ -40,7 +40,7 @@
                             <form action="{{url('/admin/products')}}/{{$product->id}}" method="post">
                             {!! method_field('patch') !!} 
                             {{ csrf_field()}}
-                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
                                 <div class="panel-group">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
