@@ -38,7 +38,7 @@
                     </li>
                     <li>
                         <i class="ion-ios-telephone"></i>
-                        <a href="#">024 6253 1666</a>
+                        <a href="#">{{ Setting::config('phone') }}</a>
                     </li>
                     <li>
                         <i class="ion-ios-email"></i>
@@ -113,6 +113,7 @@
                 <div class="ct-icon">
                     <a target="_blank" href="http://www.facebbook.com/{{ Setting::config('facebook') }}"><i class="fa fa-facebook" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Facebook"></i></a>
                     <a target="_blank" href="http://www.twitter.com/{{ Setting::config('twitter') }}"><i class="fa fa-twitter" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Twitter"></i></a>
+                    <a target="_blank" href="skype:{{ Setting::config('skype')}}?chat"><i class="fa fa-skype" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Skype"></i></a>
                     <a target="_blank" href="http://www.youtube.com/{{ Setting::config('youtube') }}"><i class="fa fa-youtube-play" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Youtube"></i></a>
                     <a target="_blank" href="http://www.vimeo.com/{{ Setting::config('vimeo') }}"><i class="fa fa-vimeo" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vimeo"></i></a>
                 </div>
