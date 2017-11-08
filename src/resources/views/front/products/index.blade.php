@@ -12,7 +12,7 @@
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
-.search-form a{
+.search-form button{
     padding: 12px 20px 12px 20px;
     text-transform: uppercase;
     background-color: #8eb35a;
@@ -25,6 +25,12 @@
     font-style: Bold;
     padding-left: 40px;
     padding-right: 40px;
+}
+.search-form button:hover{
+    color: #8eb35a;
+    background-color: #ffffff;
+    border: 1px solid #8eb35a;
+    text-decoration: none;
 }
 </style>
 @endsection
@@ -72,7 +78,7 @@
                         <div class="form-group">
                             <input class="form-control" placeholder="Search" name="search" type="text" value="{{old('search')}}">
                         </div>
-                        <a class="btn" type="submit">Search</a>
+                        <button type="submit">Search</button>
                     </form>
 				</div>
 			</div>
