@@ -34,9 +34,15 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="company">
-                            <table class="table table-responsive">            
+                            <table class="table table-responsive">  
+								<tr>
+	                                <td>Địa Chỉ</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="address" value="{{ Setting::config('address') }}"/>
+	                                </td>
+	                            </tr>          
 	                            <tr>
-	                                <td>Địện thoại</td>
+	                                <td>Điện thoại</td>
 	                                <td>
 	                                    <input type="text" class="form-control" name="phone" value="{{ Setting::config('phone') }}"/>
 	                                </td>
@@ -61,6 +67,12 @@
 	                                    <input type="text" class="form-control" name="email" value="{{ Setting::config('email') }}"/>
 	                                </td>
 	                            </tr>
+								<tr>
+	                                <td>Địa Chỉ</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="address" value="{{ Setting::config('website') }}"/>
+	                                </td>
+	                            </tr>    
 	                            <tr>
 	                                <td>Mã số thuế</td>
 	                                <td>

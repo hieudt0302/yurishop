@@ -34,19 +34,19 @@
                 <ul class="ct-it">
                     <li>
                         <i class="ion-ios-home"></i>
-                        <a href="#">@lang('common.headquarter-address')</a>
+                        <a href="javascript:void(0)">{{ Setting::config('address') }}</a>
                     </li>
                     <li>
                         <i class="ion-ios-telephone"></i>
-                        <a href="#">{{ Setting::config('phone') }}</a>
+                        <a href="javascript:void(0)">{{ Setting::config('phone') }}</a>
                     </li>
                     <li>
                         <i class="ion-ios-email"></i>
-                        <a href="#">pokofarms@pokofarms.com.vn</a>
+                        <a href="mailto:{{ Setting::config('email') }}">{{ Setting::config('email') }}</a>
                     </li>
                     <li>
                         <i class="ion-android-globe"></i>
-                        <a href="#">pokofarms.com.vn</a>
+                        <a href="{{ Setting::config('email') }}" target="blank">{{ Setting::config('website') }}</a>
                     </li>
                 </ul>
             </div>
