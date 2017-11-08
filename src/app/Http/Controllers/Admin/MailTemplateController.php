@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\MailTemplate;
 use App\Models\MailTemplateTranslation;
+use Illuminate\Support\Facades\Input;
 use App\Models\Language;
 use DB;
+use Validator;
 
 class MailTemplateController extends Controller
 {
@@ -81,7 +83,7 @@ class MailTemplateController extends Controller
         ->with('status', 'success')
         ->withInput(['tab'=> 1]);
     }
-    
+
     public function destroy($id){
         MailTemplateTranslation::where('mail_template_id', $id)->delete();
         MailTemplate::where('id', $id)->delete();
