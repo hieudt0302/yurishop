@@ -87,9 +87,9 @@ class MailTemplateController extends Controller
     public function destroy($id){
         MailTemplateTranslation::where('mail_template_id', $id)->delete();
         MailTemplate::where('id', $id)->delete();
-
-        session()->flash('success_message', "Xóa thành công !");
-        return redirect()->route('admin.mail_templates.index'); 
+        return redirect()->route('admin.mail_templates.index')
+        ->with('message', 'Xóa thành công ')
+        ->with('status', 'success') ;
     }
 
     public function updateTranslation(Request $request, $id)
