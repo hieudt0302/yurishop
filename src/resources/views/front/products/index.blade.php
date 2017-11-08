@@ -5,7 +5,7 @@
 @include('layouts.share')
 <style>
 .search-form div input{
-    padding: 20px;
+    padding: 12px;
     /* border: none; */
     font-family: "Lato", 'Source Sans Pro', serif;
     color: #ababab;
@@ -13,7 +13,7 @@
     border-radius: 5px;
 }
 .search-form button{
-    padding: 12px 20px 12px 20px;
+    padding: 5px 20px 5px 20px;
     text-transform: uppercase;
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
