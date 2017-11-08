@@ -164,7 +164,7 @@
                                 <td>{{$order->email}}</td>
                                 <td>{{$order->phone}}</td>
                                 <td>{{$order->order_start_date}}</td>
-                                <td>{{$order->order_total}}</td>
+                                <td>{{FormatPrice::price($order->order_total)}}</td>
                                 <td></td>
                             </tr>
                             @endforeach
