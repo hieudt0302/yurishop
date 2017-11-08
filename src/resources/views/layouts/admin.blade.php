@@ -295,7 +295,7 @@
 
                 <p>
                 {{Auth::user()->last_name}} {{Auth::user()->first_name}} - Admin
-                  <small>Gia nhập từ {{ date('d/m/Y',strtotime($Auth::user()->created_at))}}</small>
+                  <small>Gia nhập từ {{ date('d/m/Y',strtotime(Auth::user()->created_at))}}</small>
                 </p>
               </li>
               <!-- Menu Body -->
