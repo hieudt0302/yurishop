@@ -27,7 +27,7 @@
 <section class="content">
     <div class="row">
         <div class="col-md-12">
-            <form action="{{url('/admin/mail_templates')}}/{{$mailTemplate->id}}" method="post">
+            <form action="{{url('/admin/mail_templates')}}/{{$mailTemplate->id}}" method="post" class="form-horizontal">
              {!! method_field('patch') !!} 
              {{ csrf_field()}}               
                 <div class="nav-tabs-custom">
@@ -50,12 +50,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                                <div class="col-md-3">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <button type="submit" class="btn btn-primary">Cập Nhật</button>
-                                                </div>
+                                            <div class="col-md-3">
                                             </div>
+                                            <div class="col-md-4">
+                                                <button type="submit" class="btn btn-primary">Cập Nhật</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -115,17 +115,14 @@
 </section>        
 @endsection
 
-
 @section('scripts')
 <script>
   $(function () {
-   
     // TAB: CONTENT
     $('#language-select').on('change', function() {
         $('form#getTranslation').submit();
         return false;
     })    
-   
   })
 </script>
 @endsection

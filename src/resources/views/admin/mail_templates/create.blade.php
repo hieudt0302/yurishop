@@ -29,7 +29,7 @@
                     <div class="tab-content">
                         <!-- INFO TAB -->
                         <div class="active tab-pane" id="info">
-                            <form action="{{url('/admin/mail_templates/create')}}" method="post" >
+                            <form action="{{url('/admin/mail_templates/create')}}" method="post" class="form-horizontal">
                                 {{ csrf_field()}}
                                 <div class="panel-group">
                                     <div class="panel panel-default">
