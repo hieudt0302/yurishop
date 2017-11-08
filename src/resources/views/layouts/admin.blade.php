@@ -316,7 +316,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="{{url('admin/users')}}/{{{Auth::id()}}/edit" class="btn btn-default btn-flat">Tài Khoản</a>
+                  <a href="{{url('admin/users')}}/{{Auth::id()}}/edit" class="btn btn-default btn-flat">Tài Khoản</a>
                 </div>
                 <div class="pull-right">
                   <a class="btn btn-default btn-flat" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
