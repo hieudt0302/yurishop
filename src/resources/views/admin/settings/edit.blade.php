@@ -71,7 +71,7 @@
 	                                <td>Loại Tiền Tệ Chính</td>
 	                                <td>
 		                                <select name="currency " class="form-control">
-	                                        <option value="Setting::config('currency')" {{ Setting::config('currency') == 'vnd'?'selected':'' }} >Việt Nam Đồng</option>
+	                                        <option value="{{Setting::config('currency')}}" {{ Setting::config('currency') == 'vnd'?'selected':'' }} >Việt Nam Đồng</option>
 											<option value="usd" {{ Setting::config('currency') == 'usd'?'selected':'' }}>US Dollar</option>
 	                                    </select>
 	                                </td>
