@@ -302,11 +302,11 @@
 
                 <p>
                 {{Auth::user()->last_name}} {{Auth::user()->first_name}} - Admin
-                  <small>Member since Nov. 2012</small>
+                  <small>Gia nhập từ {{ date('Y-m-d',strolen($Auth::user()->created_at))}}</small>
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              <!-- <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
@@ -318,15 +318,19 @@
                     <a href="#">Friends</a>
                   </div>
                 </div>
-                <!-- /.row -->
-              </li>
+              </li> -->
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{url('admin/users')}}/{{{Auth::id()}}/edit" class="btn btn-default btn-flat">Tài Khoản</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a class="btn btn-default btn-flat" href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                      @lang('auth.logout')
+                  </a>
+                  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                  </form>
                 </div>
               </li>
             </ul>
