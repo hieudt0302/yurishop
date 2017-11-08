@@ -81,13 +81,10 @@
     <!-- ./col -->
   </div>
   <!-- /.row -->
-
-
 </section>
 <!-- /.content -->        
 @endsection
 
 @section('scripts')
- <!-- AdminLTE dashboard -->
- <script src="{{asset('adminlte/dist/js/pages/dashboard.js')}}"></script>
+
 @endsection

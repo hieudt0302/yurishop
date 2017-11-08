@@ -100,15 +100,14 @@
               <i class="fa fa-envelope-o"></i>
               <span class="label label-success">4</span>
             </a>
-            <ul class="dropdown-menu">
+            <!-- <ul class="dropdown-menu">
               <li class="header">You have 4 messages</li>
               <li>
-                <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-                  <li><!-- start message -->
+                  <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="{{asset('backend/images/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                        <img src="{{asset('/images/logo/poko.png')}}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -117,7 +116,6 @@
                       <p>Why not buy a new awesome theme?</p>
                     </a>
                   </li>
-                  <!-- end message -->
                   <li>
                     <a href="#">
                       <div class="pull-left">
@@ -169,7 +167,7 @@
                 </ul>
               </li>
               <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
+            </ul> -->
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
@@ -294,13 +292,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset('backend/images/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+              <img src="{{asset('images/logo/poko.png')}}" class="user-image" alt="User Image">
               <span class="hidden-xs">{{Auth::user()->last_name}} {{Auth::user()->first_name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{asset('backend/images/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                <img src="{{asset('images/logo/poko.png')}}" class="img-circle" alt="User Image">
 
                 <p>
                 {{Auth::user()->last_name}} {{Auth::user()->first_name}} - Admin
@@ -348,7 +346,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{asset('backend/images/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+          <img src="{{asset('/images/logo/poko.png')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{Auth::user()->last_name}} {{Auth::user()->first_name}}</p>
