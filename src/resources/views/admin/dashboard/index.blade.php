@@ -53,7 +53,7 @@
       <!-- small box -->
       <div class="small-box bg-red">
         <div class="inner">
-          <h3>{$product_count}</h3>
+          <h3>{{$product_count}}</h3>
 
           <p>Sản Phẩm</p>
         </div>
