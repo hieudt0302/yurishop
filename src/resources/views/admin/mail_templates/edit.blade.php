@@ -15,6 +15,12 @@
         <li><a href="#">Mail Template</a></li>
         <li class="active">Chỉnh sửa</li>
       </ol>
+      <div class="row">
+        <div class="col-xs-12">
+        @include('notifications.status_message') 
+        @include('notifications.errors_message') 
+        </div>
+    </div>
 </section>
 
 <!-- Main content -->
@@ -43,6 +49,13 @@
                                                 <input class="form-control" id="name" name="name" type="text" value="{{ $mailTemplate->name }}">
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                                <div class="col-md-3">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button type="submit" class="btn btn-primary">Cập Nhật</button>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +90,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="title" title="">Nội dung</label>
+                                                <label class="control-label col-md-3">Nội dung</label>
                                                 <div class="col-md-8">
                                                     <textarea id="content_translate" class="form-control ckeditor" name="content_translate" rows="3"  placeholder="" contenteditable="true">{!! $translation->content??'' !!}</textarea>
                                                 </div>
@@ -100,4 +113,19 @@
         </div>
     </div>
 </section>        
+@endsection
+
+
+@section('scripts')
+<script>
+  $(function () {
+   
+    // TAB: CONTENT
+    $('#language-select').on('change', function() {
+        $('form#getTranslation').submit();
+        return false;
+    })    
+   
+  })
+</script>
 @endsection

@@ -6,17 +6,19 @@
     <h1>
         Danh sách Mail Template
     </h1>
-    <!-- <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Mail Template</a></li>
-        <li class="active">Danh sách</li>
-    </ol> -->
+    
 	<div class="pull-right">
         <a href="{{('/admin/mail_templates/create')}}" class="btn bg-blue">
             <i class="fa fa-plus-square"></i>
             Thêm mới
         </a>
     </div>
+	<div class="row">
+        <div class="col-xs-12">
+            @include('notifications.status_message') 
+            @include('notifications.errors_message') 
+        </div>
+    </div> 
 </section>
 <!-- Main content -->
 <section class="content">
