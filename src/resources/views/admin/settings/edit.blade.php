@@ -97,7 +97,7 @@
 								<tr>
 	                                <td>Skype</td>
 	                                <td>
-	                                    <input type="text" class="form-control" name="twitter" value="{{ Setting::config('twitter') }}"/>
+	                                    <input type="text" class="form-control" name="skype" value="{{ Setting::config('skype') }}"/>
 	                                </td>
 	                            </tr>	
 	                            <tr>
