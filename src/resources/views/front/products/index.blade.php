@@ -4,13 +4,27 @@
 <!-- Share Nav -->
 @include('layouts.share')
 <style>
-.search-form input{
+.search-form div input{
     padding: 20px;
-    border: none;
+    /* border: none; */
     font-family: "Lato", 'Source Sans Pro', serif;
     color: #ababab;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+}
+.search-form a{
+    padding: 12px 20px 12px 20px;
+    text-transform: uppercase;
+    background-color: #8eb35a;
+    border: 1px solid #8eb35a;
+    border-radius: 25px;
+    font-family: "Lato", 'Source Sans Pro', serif;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 700;
+    font-style: Bold;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 </style>
 @endsection
@@ -58,7 +72,7 @@
                         <div class="form-group">
                             <input class="form-control" placeholder="Search" name="search" type="text" value="{{old('search')}}">
                         </div>
-                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        <a class="btn" type="submit">Search</a>
                     </form>
 				</div>
 			</div>
@@ -101,7 +115,7 @@
 @section('scripts')
 
 
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
 <script>
      $(document).ready(function(){      
