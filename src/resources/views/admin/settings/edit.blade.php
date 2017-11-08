@@ -68,9 +68,9 @@
 	                                </td>
 	                            </tr>
 								<tr>
-	                                <td>Địa Chỉ</td>
+	                                <td>Website</td>
 	                                <td>
-	                                    <input type="text" class="form-control" name="address" value="{{ Setting::config('website') }}"/>
+	                                    <input type="text" class="form-control" name="website" value="{{ Setting::config('website') }}"/>
 	                                </td>
 	                            </tr>    
 	                            <tr>
