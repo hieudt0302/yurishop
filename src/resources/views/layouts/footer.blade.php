@@ -46,7 +46,7 @@
                     </li>
                     <li>
                         <i class="ion-android-globe"></i>
-                        <a href="{{ Setting::config('email') }}" target="blank">{{ Setting::config('website') }}</a>
+                        <a href="{{ Setting::config('website')}}" target="blank">{{ Setting::config('website') }}</a>
                     </li>
                 </ul>
             </div>
