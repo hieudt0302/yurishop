@@ -90,7 +90,7 @@
                             <tbody>
                                 @foreach($comments as $comment)
                                 <tr>
-                                <td><a href="{{url('/admin/posts/')}}/{{$comment->post->id}}/edit">{{$comment->post->title}}</a></td>
+                                <td><a href="{{url('/admin/posts/')}}/{{$comment->commentable_id}}/edit">{{$comment->post->title??'Bài viết đã được xóa.'}}</a></td>
                                     <td>{{$comment->name}}</td>
                                     <td>{{$comment->comment}}</td>
                                     <td style="text-align:center">{{$comment->website}}</td>
