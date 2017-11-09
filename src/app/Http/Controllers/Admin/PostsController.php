@@ -123,7 +123,7 @@ class PostsController extends Controller
         $post = Post::find($id);
         if(empty($post))
         {
-            return redirect()->route('admin.products.index')
+            return redirect()->route('admin.posts.index')
             ->with('message', 'Bài viết không tồn tại trên hệ thống')
             ->with('status', 'danger');
         }
