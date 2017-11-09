@@ -165,9 +165,9 @@ class ProductsController extends Controller
         
         if(empty($product))
         {
-            return redirect()->action(
-                'Admin\ProductsController@filter', ['content_message' => 'Sản phẩm không tồn tại trên hệ thống!', 'status_message' => 'danger']
-            );
+            return redirect()->route('admin.products.index')
+            ->with('message', 'Sản phẩm không tồn tại trên hệ thống')
+            ->with('status', 'danger');
         }
 
         $shopCategory = Category::where('slug', 'products')->firstOrFail();
