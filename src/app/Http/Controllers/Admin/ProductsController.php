@@ -165,7 +165,7 @@ class ProductsController extends Controller
         
         if(empty($product))
         {
-            return $this->filter($request,'Sản phẩm không tồn tại trên hệ thống!','danger');
+            return $this->filter(null,'Sản phẩm không tồn tại trên hệ thống!','danger');
         }
 
         $shopCategory = Category::where('slug', 'products')->firstOrFail();
