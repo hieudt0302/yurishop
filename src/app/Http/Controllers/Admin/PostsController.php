@@ -121,6 +121,14 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        if(empty($post))
+        {
+            $posts = Post::paginate(21);
+                    return View('admin.posts.index',compact('posts'))
+                    ->with('message','Bài viết không còn tồn tại trên hệ thống!')
+                    ->with('status','danger')
+                    ->with('i', (Input::get('page', 1) - 1) * 21);
+        }
         $languages = Language::all();
         $blogCategory = Category::where('slug','posts')->firstOrFail();
         $categories = Category::where('parent_id',$blogCategory->id)->get();  
