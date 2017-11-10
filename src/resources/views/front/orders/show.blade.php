@@ -58,29 +58,29 @@
                                             <h5>Billing Address</h5>
                                             <div class="mb-2">
                                                 <div class="company">
-                                                    {{$order->billingaddress->company}}
+                                                    {{$order->billingaddress->company??''}}
                                                 </div>
                                                 <div class="name">
-                                                {{$order->billingaddress->last_name}} {{$order->billingaddress->first_name}}
+                                                {{$order->billingaddress->last_name??''}} {{$order->billingaddress->first_name??''}}
                                                 </div>
                                                 <div class="address1">
-                                                {{$order->billingaddress->address1}}
+                                                {{$order->billingaddress->address1??''}}
                                                 </div>
                                                 <div class="address2">
-                                                {{$order->billingaddress->address2}}
+                                                {{$order->billingaddress->address2??''}}
                                                 </div>
                                                 <div class="city-state-zip">
-                                                {{$order->billingaddress->city}}, {{$order->billingaddress->zipcode}}
+                                                {{$order->billingaddress->city??''}}, {{$order->billingaddress->zipcode??''}}
                                                 </div>
                                                 <div class="country">
-                                                {{$order->billingaddress->country}}
+                                                {{$order->billingaddress->country??''}}
                                                 </div>
                                             </div>
                                             <div class="email">
-                                                Email: {{$order->billingaddress->email}}
+                                                Email: {{$order->billingaddress->email??''}}
                                             </div>
                                             <div class="phone">
-                                                Phone: {{$order->billingaddress->phone}}
+                                                Phone: {{$order->billingaddress->phone??''}}
                                             </div>
 
                                         </div>
@@ -89,29 +89,29 @@
                                             <h5>Shipping Address</h5>
                                             <div class="mb-2">
                                                 <div class="company">
-                                                    {{$order->shippingaddress->company}}
+                                                    {{$order->shippingaddress->company??''}}
                                                 </div>
                                                 <div class="name">
-                                                {{$order->shippingaddress->last_name}} {{$order->shippingaddress->first_name}}
+                                                {{$order->shippingaddress->last_name??''}} {{$order->shippingaddress->first_name??''}}
                                                 </div>
                                                 <div class="address1">
-                                                {{$order->shippingaddress->address1}}
+                                                {{$order->shippingaddress->address1??''}}
                                                 </div>
                                                 <div class="address2">
-                                                {{$order->shippingaddress->address2}}
+                                                {{$order->shippingaddress->address2??''}}
                                                 </div>
                                                 <div class="city-state-zip">
-                                                {{$order->shippingaddress->city}}, {{$order->shippingaddress->zipcode}}
+                                                {{$order->shippingaddress->city??''}}, {{$order->shippingaddress->zipcode??''}}
                                                 </div>
                                                 <div class="country">
-                                                {{$order->shippingaddress->country}}
+                                                {{$order->shippingaddress->country??''}}
                                                 </div>
                                             </div>
                                             <div class="email">
-                                                Email: {{$order->shippingaddress->email}}
+                                                Email: {{$order->shippingaddress->email??''}}
                                             </div>
                                             <div class="phone">
-                                                Phone: {{$order->shippingaddress->phone}}
+                                                Phone: {{$order->shippingaddress->phone??''}}
                                             </div>
 
                                         </div>
