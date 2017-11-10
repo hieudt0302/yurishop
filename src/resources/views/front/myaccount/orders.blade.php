@@ -28,11 +28,11 @@
                                             <h4 class="card-title mb-4">@lang('account.order') #: {{$order->order_no}}</h4>
                                             <dl class="row row-hardcode mb-0">
                                                 <dt class="col-sm-3 font-weight-400 text-muted">@lang('account.order-status')</dt>
-                                                <dd class="col-sm-9">Pending</dd>
+                                                <dd class="col-sm-9">{{__('status.order.'.$order->order_status)}}</dd>
                                                 <dt class="col-sm-3 font-weight-400 text-muted">@lang('account.order-date')</dt>
-                                                <dd class="col-sm-9">10/9/2017 6:04:02 PM</dd>
+                                                <dd class="col-sm-9">{{$order->order_start_date}}</dd>
                                                 <dt class="col-sm-3 font-weight-400 text-muted">@lang('account.order-total')</dt>
-                                                <dd class="col-sm-9 price">230,00 €</dd>
+                                                <dd class="col-sm-9 price">{{FormatPrice::price($order->order_total)}}</dd>
                                             </dl>
                                         </div>
                                         <div class="card-footer d-flex p-0">
