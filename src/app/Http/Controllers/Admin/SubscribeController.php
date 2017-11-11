@@ -14,12 +14,17 @@ use Mail;
 
 class SubscribeController extends Controller
 {
-   	public function index(){
-        $mailTemplates = MailTemplate::all();
-        return view('admin.subscribes.index',compact('mailTemplates'));
+    public function index(){
+        $email_subscribed = Subscribe::all();
+        return view('admin.subscribes.index',compact('email_subscribed'));
     }
 
-    public function send_mail(Request $request){
+   	public function send_mail(){
+        $mailTemplates = MailTemplate::all();
+        return view('admin.subscribes.send_mail',compact('mailTemplates'));
+    }
+
+    public function send_mail_perform(Request $request){
         $this->validate($request,['mail_temp_id' => 'required']);   
         $emails = Subscribe::all();
         $mail_temp_id = $request->mail_temp_id;
@@ -41,5 +46,25 @@ class SubscribeController extends Controller
         session()->flash('success_message', 'Send mail successfully!');
 
         return redirect()->back();    
+    }
+
+    public function destroy($id){
+        Subscribe::destroy($id);
+        session()->flash('success_message', "Đã xóa email ra khỏi danh sách đăng ký!");        
+        return redirect()->route('admin.subscribes.index'); 
+    }
+
+    // Tìm kiếm email
+    public function search(Request $request){
+        $email = $request->input('email'); 
+        
+        if($email != ''){
+            $email_subscribed = Subscribe::where("email", "LIKE", "%$email%")->paginate(10);   
+        }
+        else{
+             $email_subscribed = Subscribe::orderBy('email','ASC')->paginate(10);
+        }
+        return view('admin.subscribes.index',compact('email_subscribed'))
+               ->with('i', ($request->input('page', 1) - 1) * 10);
     }
 }

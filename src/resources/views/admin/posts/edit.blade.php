@@ -200,6 +200,20 @@
             </div>
         </div>
     </div>  
+</section>
+<script src="{{asset('backend/dist/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('backend/dist/ckfinder/ckfinder.js')}}"></script>
+<script type="text/javascript">
+    CKEDITOR.replace( 'content_translate',
+    {
+        filebrowserBrowseUrl : '/backend/dist/ckfinder/ckfinder.html',
+        filebrowserImageBrowseUrl : '/backend/dist/ckfinder/ckfinder.html?type=Images',
+        filebrowserFlashBrowseUrl : '/backend/dist/ckfinder/ckfinder.html?type=Flash',
+        filebrowserUploadUrl : '/backend/dist/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl : '/backend/dist/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserFlashUploadUrl : '/backend/dist/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    });
+</script>
 @endsection
 
 

@@ -74,7 +74,7 @@
                                 <tr>
                                     <td>Nội dung</td>                  
                                     <td>
-                                        <textarea class="form-control ckeditor" name="{{$language->id}}-content" id="{{$language->name}}-content" ></textarea>         
+                                        <textarea id="content-{{$language->id}}" class="form-control" name="{{$language->id}}-content" id="{{$language->name}}-content" ></textarea>         
                                     </td>
                                 </tr> 
                             </table>
@@ -88,5 +88,20 @@
             </div>
         </div>
     </div>
-</section>        
+</section> 
+<script src="{{asset('backend/dist/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('backend/dist/ckfinder/ckfinder.js')}}"></script>
+<script type="text/javascript">
+    @foreach ($language_list as $language)
+    CKEDITOR.replace( 'content-{{$language->id}}',
+    {
+        filebrowserBrowseUrl : '/backend/dist/ckfinder/ckfinder.html',
+        filebrowserImageBrowseUrl : '/backend/dist/ckfinder/ckfinder.html?type=Images',
+        filebrowserFlashBrowseUrl : '/backend/dist/ckfinder/ckfinder.html?type=Flash',
+        filebrowserUploadUrl : '/backend/dist/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl : '/backend/dist/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserFlashUploadUrl : '/backend/dist/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    });
+    @endforeach
+</script>
 @endsection

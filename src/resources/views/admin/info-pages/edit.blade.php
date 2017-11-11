@@ -114,7 +114,7 @@
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="title" title="">Nội dung</label>
                                                 <div class="col-md-8">
-                                                    <textarea id="content_translate" class="form-control ckeditor" name="content_translate" rows="3"  placeholder="" contenteditable="true">{!! $translation->content??'' !!}</textarea>
+                                                    <textarea id="content_translate" class="form-control" name="content_translate" rows="3"  placeholder="" contenteditable="true">{!! $translation->content??'' !!}</textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -135,7 +135,19 @@
         </div>
     </div>
 </section>        
-
+<script src="{{asset('backend/dist/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('backend/dist/ckfinder/ckfinder.js')}}"></script>
+<script type="text/javascript">
+    CKEDITOR.replace( 'content_translate',
+    {
+        filebrowserBrowseUrl : '/backend/dist/ckfinder/ckfinder.html',
+        filebrowserImageBrowseUrl : '/backend/dist/ckfinder/ckfinder.html?type=Images',
+        filebrowserFlashBrowseUrl : '/backend/dist/ckfinder/ckfinder.html?type=Flash',
+        filebrowserUploadUrl : '/backend/dist/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl : '/backend/dist/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserFlashUploadUrl : '/backend/dist/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    });
+</script>
 @endsection
 @section('scripts')    
 <script type="text/javascript">
