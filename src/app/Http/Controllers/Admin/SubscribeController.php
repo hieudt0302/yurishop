@@ -35,6 +35,8 @@ class SubscribeController extends Controller
                 if(!empty($language)){
                     $language_id = $language->id; 
                     $promotion_content = MailTemplateTranslation::where('mail_template_id',$mail_temp_id)->where('language_id',$language_id)->first()->content;
+                    if(empty($promotion_content))
+                        continue;
                     $data = array('email' => $email->email, 'content' => $promotion_content);
                     Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data){
                         $message->to($data['email'])->subject('Mail khuyến mãi');
@@ -59,12 +61,12 @@ class SubscribeController extends Controller
         $email = $request->input('email'); 
         
         if($email != ''){
-            $email_subscribed = Subscribe::where("email", "LIKE", "%$email%")->paginate(10);   
+            $email_subscribed = Subscribe::where("email", "LIKE", "%$email%")->paginate(21);   
         }
         else{
-             $email_subscribed = Subscribe::orderBy('email','ASC')->paginate(10);
+             $email_subscribed = Subscribe::orderBy('email','ASC')->paginate(21);
         }
         return view('admin.subscribes.index',compact('email_subscribed'))
-               ->with('i', ($request->input('page', 1) - 1) * 10);
+               ->with('i', ($request->input('page', 1) - 1) * 21);
     }
 }

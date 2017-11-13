@@ -22,6 +22,8 @@ class CreateMailTemplateTranslationsTable extends Migration
             $table->integer('mail_template_id')->unsigned();        
             $table->foreign('mail_template_id')->references('id')->on('mail_templates')
                 ->onUpdate('cascade')->onDelete('cascade');
+            
+            $table->text('title')->nullable();
 			$table->text('content')->nullable();
 
             $table->timestamps();
