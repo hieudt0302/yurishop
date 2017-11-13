@@ -35,11 +35,11 @@ class SubscribeController extends Controller
                 if(!empty($language)){
                     $language_id = $language->id; 
                     $mail_template = MailTemplateTranslation::where('mail_template_id',$mail_temp_id)->where('language_id',$language_id)->first();
-                    if(strolen($mail_template->content) <= 0)
+                    if(strlen($mail_template->content) <= 0)
                         continue;
                     $data = array('email' => $email->email, 'content' => $mail_template->content);
                     Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data){
-                        $message->to($data['email'])->subject(strolen($mail_template->title)> 0? $mail_template->title :'Pokofarms: Tin khuyến mãi');
+                        $message->to($data['email'])->subject(strlen($mail_template->title)> 0? $mail_template->title :'Pokofarms: Tin khuyến mãi');
                     }); 
                 }                
             } 
