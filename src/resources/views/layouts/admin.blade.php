@@ -72,6 +72,10 @@
       margin-right: 10px !important;
     }
  </style>
+
+ <!-- jQuery 3 -->
+    <script src="{{asset('backend/js/jquery-3.2.1.min.js')}}"></script>
+    
 </head>
  
 <body class="hold-transition skin-blue sidebar-mini">
@@ -495,12 +499,18 @@
           </ul>
         </li>
 
-        <!-- Settings-->
-        <li>
-          <a href="{{url('/admin/subscribes')}}">
-            <i class="fa fa-share-square"></i> 
-            <span>Subscribe</span>
+        <!-- Subscribes-->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share-square"></i> <span>Subscribes</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('/admin/subscribes')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
+            <li><a href="{{url('/admin/subscribes/send_mail')}}"><i class="fa fa-circle-o"></i> Gửi mail</a></li>
+          </ul>
         </li>
 
           <!-- User Manager -->
@@ -556,8 +566,7 @@
   <!-- <div class="control-sidebar-bg"></div> -->
 </div>
     <!-- /#wrapper -->
-    <!-- jQuery 3 -->
-    <script src="{{asset('backend/js/jquery-3.2.1.min.js')}}"></script>
+    
     <!-- jQuery UI 1.11.4 -->
     <script src="{{asset('backend/dist/jquery-ui-1.12.1/jquery-ui.min.js')}}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -590,6 +599,7 @@
     <!-- AdminLTE App -->
     <script src="{{asset('backend/js/adminlte.min.js')}}"></script>     
     <script src="{{asset('backend/dist/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('backend/dist/ckfinder/ckfinder.js')}}"></script>
     <!-- Select2 -->
     <script src="{{asset('backend/dist/select2/js/select2.full.min.js')}}"></script>
     <script type="text/javascript" src="{{ asset('backend/dist/bootstrap-touchspin/jquery.bootstrap-touchspin.js') }}"></script> 
