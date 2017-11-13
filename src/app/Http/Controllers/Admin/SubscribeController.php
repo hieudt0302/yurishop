@@ -28,18 +28,18 @@ class SubscribeController extends Controller
         $this->validate($request,['mail_temp_id' => 'required']);   
         $emails = Subscribe::all();
         $mail_temp_id = $request->mail_temp_id;
-        $promotion_content = '';
+        $mail_template = '';
         if($mail_temp_id != '' && $mail_temp_id != null){
             foreach($emails as $email){
                 $language = Language::where('code',$email->locale)->first();
                 if(!empty($language)){
                     $language_id = $language->id; 
-                    $promotion_content = MailTemplateTranslation::where('mail_template_id',$mail_temp_id)->where('language_id',$language_id)->first()->content;
-                    if(empty($promotion_content))
+                    $mail_template = MailTemplateTranslation::where('mail_template_id',$mail_temp_id)->where('language_id',$language_id)->first();
+                    if(strolen($mail_template->content) <= 0)
                         continue;
-                    $data = array('email' => $email->email, 'content' => $promotion_content);
+                    $data = array('email' => $email->email, 'content' => $mail_template->content);
                     Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data){
-                        $message->to($data['email'])->subject('Mail khuyến mãi');
+                        $message->to($data['email'])->subject(strolen($mail_template->title)> 0? $mail_template->title :'Mail khuyến mãi');
                     }); 
                 }                
             } 
