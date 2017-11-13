@@ -28,14 +28,15 @@ class SubscribeController extends Controller
         $this->validate($request,['mail_temp_id' => 'required']);   
         $emails = Subscribe::all();
         $mail_temp_id = $request->mail_temp_id;
-        $mail_template = '';
+        $mail_template = null;
         if($mail_temp_id != '' && $mail_temp_id != null){
             foreach($emails as $email){
                 $language = Language::where('code',$email->locale)->first();
                 if(!empty($language)){
                     $language_id = $language->id; 
                     $mail_template = MailTemplateTranslation::where('mail_template_id',$mail_temp_id)->where('language_id',$language_id)->first();
-                    if(strlen($mail_template->content) <= 0)
+
+                    if(strlen($mail_template->content) <= 0 || empty($mail_template))
                         continue;
                     $data = array('email' => $email->email, 'content' => $mail_template->content);
                     Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data){
