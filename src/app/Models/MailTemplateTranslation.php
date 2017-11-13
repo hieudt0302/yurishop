@@ -12,17 +12,17 @@ class MailTemplateTranslation extends Model
      *
      * @return void
      */
-    // protected static function boot()
-    // {
-    //     parent::boot();
-    //     static::addGlobalScope(new TranslationScope);
-    // }
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new TranslationScope);
+    }
     
      /**
      * Get the product that owns the slider translation.
      */
-    // public function mailTemplate()
-    // {
-    //     return $this->belongsTo('App\Models\MailTemplate');
-    // }
+    public function mailTemplate()
+    {
+        return $this->belongsTo('App\Models\MailTemplate');
+    }
 }

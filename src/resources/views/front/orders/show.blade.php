@@ -21,14 +21,14 @@
                             </h1>
                         </div>
                         <div class="print-buttons float-sm-right">
-                            <a href="/Order/print/11346?pdf=False" target="print" class="btn btn-secondary btn-sm print-order-button" rel="nofollow">
+                            <!-- <a href="/Order/print/11346?pdf=False" target="print" class="btn btn-secondary btn-sm print-order-button" rel="nofollow">
                                 <i class="fa fa-print"></i>
                                 <span>Print</span>
                             </a>
                             <a href="/Order/print/11346?pdf=True" class="btn btn-secondary btn-sm pdf-order-button" rel="nofollow">
                                 <i class="fa fa-file-pdf-o"></i>
                                 <span>Order as PDF</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                     <div class="page-body">
@@ -38,8 +38,8 @@
                                 <div>{{date("Y-m-d", strtotime($order->order_start_date))}}</div>
                             </div>
                             <div class="col-6 col-sm-auto pb-3">
-                                <h5 class="text-muted">Order #</h5>
-                                <div>{{$order->order_no}}</div>
+                                <h5 class="text-muted">Order</h5>
+                                <div>#{{$order->order_no}}</div>
                             </div>
                             <div class="col-6 col-sm-auto pb-3">
                                 <h5 class="text-muted">Order Status</h5>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="col-6 col-sm-auto pb-3">
                                 <h5 class="text-muted">Order Total</h5>
-                                <div class="text-success">{{$order->order_total}}</div>
+                                <div class="text-success">{{FormatPrice::price($order->order_total)}}</div>
                             </div>
                         </div>
                         <div class="card card-block order-details-box">
@@ -58,29 +58,29 @@
                                             <h5>Billing Address</h5>
                                             <div class="mb-2">
                                                 <div class="company">
-                                                    {{$order->billingaddress->company}}
+                                                    {{$order->billingaddress->company??''}}
                                                 </div>
                                                 <div class="name">
-                                                {{$order->billingaddress->last_name}} {{$order->billingaddress->first_name}}
+                                                {{$order->billingaddress->last_name??''}} {{$order->billingaddress->first_name??''}}
                                                 </div>
                                                 <div class="address1">
-                                                {{$order->billingaddress->address1}}
+                                                {{$order->billingaddress->address1??''}}
                                                 </div>
                                                 <div class="address2">
-                                                {{$order->billingaddress->address2}}
+                                                {{$order->billingaddress->address2??''}}
                                                 </div>
                                                 <div class="city-state-zip">
-                                                {{$order->billingaddress->city}}, {{$order->billingaddress->zipcode}}
+                                                {{$order->billingaddress->city??''}}, {{$order->billingaddress->zipcode??''}}
                                                 </div>
                                                 <div class="country">
-                                                {{$order->billingaddress->country}}
+                                                {{$order->billingaddress->country??''}}
                                                 </div>
                                             </div>
                                             <div class="email">
-                                                Email: {{$order->billingaddress->email}}
+                                                Email: {{$order->billingaddress->email??''}}
                                             </div>
                                             <div class="phone">
-                                                Phone: {{$order->billingaddress->phone}}
+                                                Phone: {{$order->billingaddress->phone??''}}
                                             </div>
 
                                         </div>
@@ -89,29 +89,29 @@
                                             <h5>Shipping Address</h5>
                                             <div class="mb-2">
                                                 <div class="company">
-                                                    {{$order->shippingaddress->company}}
+                                                    {{$order->shippingaddress->company??''}}
                                                 </div>
                                                 <div class="name">
-                                                {{$order->shippingaddress->last_name}} {{$order->shippingaddress->first_name}}
+                                                {{$order->shippingaddress->last_name??''}} {{$order->shippingaddress->first_name??''}}
                                                 </div>
                                                 <div class="address1">
-                                                {{$order->shippingaddress->address1}}
+                                                {{$order->shippingaddress->address1??''}}
                                                 </div>
                                                 <div class="address2">
-                                                {{$order->shippingaddress->address2}}
+                                                {{$order->shippingaddress->address2??''}}
                                                 </div>
                                                 <div class="city-state-zip">
-                                                {{$order->shippingaddress->city}}, {{$order->shippingaddress->zipcode}}
+                                                {{$order->shippingaddress->city??''}}, {{$order->shippingaddress->zipcode??''}}
                                                 </div>
                                                 <div class="country">
-                                                {{$order->shippingaddress->country}}
+                                                {{$order->shippingaddress->country??''}}
                                                 </div>
                                             </div>
                                             <div class="email">
-                                                Email: {{$order->shippingaddress->email}}
+                                                Email: {{$order->shippingaddress->email??''}}
                                             </div>
                                             <div class="phone">
-                                                Phone: {{$order->shippingaddress->phone}}
+                                                Phone: {{$order->shippingaddress->phone??''}}
                                             </div>
 
                                         </div>
@@ -173,13 +173,13 @@
                                             </div>
                                         </div>
                                         <div class="cart-col cart-col-price" data-caption="Price">
-                                            <span class="price">{{$orderdetail->price}}</span>
+                                            <span class="price">{{FormatPrice::price($orderdetail->price)}}</span>
                                         </div>
                                         <div class="cart-col cart-col-qty" data-caption="Quantity">
                                             {{$orderdetail->quantity}} 
                                         </div>
                                         <div class="cart-col cart-col-price cart-col-subtotal" data-caption="Total">
-                                            <span class="price">{{$orderdetail->total}}</span>
+                                            <span class="price">{{FormatPrice::price($orderdetail->total)}}</span>
                                         </div>
                                     </div>
                                     @endforeach
@@ -195,19 +195,19 @@
                                             <tbody>
                                                 <tr class="cart-summary-subtotal">
                                                     <td class="cart-summary-label">Sub-Total:</td>
-                                                    <td class="cart-summary-value">{{$order->orderdetails->sum('total')}}</td>
+                                                    <td class="cart-summary-value">{{FormatPrice::price($order->orderdetails->sum('total'))}}</td>
                                                 </tr>
                                                 <tr class="cart-summary-shipping cart-summary-neg">
                                                     <td class="cart-summary-label">Shipping:</td>
-                                                    <td class="cart-summary-value">{{$order->order_shipping_price}}</td>
+                                                    <td class="cart-summary-value">{{FormatPrice::price($order->order_shipping_price)}}</td>
                                                 </tr>
                                                 <tr class="cart-summary-tax">
                                                     <td class="cart-summary-label">Tax:</td>
-                                                    <td class="cart-summary-value">{{$order->order_tax}}</td>
+                                                    <td class="cart-summary-value">{{FormatPrice::price($order->order_tax)}}</td>
                                                 </tr>
                                                 <tr class="cart-summary-total">
                                                     <td class="cart-summary-label">Order Total:</td>
-                                                    <td class="cart-summary-value">{{$order->order_total}}</td>
+                                                    <td class="cart-summary-value">{{FormatPrice::price($order->order_total)}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

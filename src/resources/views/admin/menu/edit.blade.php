@@ -30,7 +30,7 @@
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#info" data-toggle="tab">Menu</a></li>
-                        <li><a href="#content" data-toggle="tab">Translation</a></li>
+                        <li><a href="#content" data-toggle="tab">Nội Dung</a></li>
                         
                     </ul>
                     <div class="tab-content">
@@ -42,17 +42,17 @@
                                 <div class="panel-group">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            General Infomation
+                                            Thông Tin
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="name" title="">Name</label>                                                    
+                                                <label class="col-md-3 control-label" for="name" title="">Tên</label>                                                    
                                                 <div class="col-md-4">
                                                     <input class="form-control" id="name" name="name" type="text" value="{{$menu->name}}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="sku" title="">Order</label>
+                                                <label class="col-md-3 control-label" for="sku" title="">Thứ Tự</label>
                                                 <div class="col-md-4">
                                                     <input class="form-control" name="order" type="text" value="{{$menu->order}}" >
                                                 </div>
@@ -64,7 +64,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="name" title="">Parent</label>
+                                                <label class="col-md-3 control-label" for="name" title="">Menu Chính</label>
                                                 <div class="col-md-4">
                                                     <select name="parent_id" class="form-control">
                                                         <option value="0">-----Không Chọn-----</option>
@@ -83,7 +83,7 @@
                                    
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Option(s)
+                                            Tùy Chọn
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
@@ -101,7 +101,7 @@
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             {{ Form::checkbox('is_visible', 1 , $menu->is_visible? true:false, array('class' => 'check-box')) }}
-                                                            Visible
+                                                            Vô Hiệu
                                                         </label>
                                                     </div>
                                                 </div>
@@ -111,7 +111,7 @@
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <button type="submit" class="btn btn-primary">Update</button>
+                                                    <button type="submit" class="btn btn-primary">Cập Nhật</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,6 +233,24 @@
                 alert('ERROR: Không thể xử lý yêu cầu, vui lòng kiểm tra kết nối');
             }
         });
+    });
+
+    $('#name').on('change', function(e) {
+        e.preventDefault();
+        var token = '{{csrf_token()}}';
+        var name =  $('#name').val();
+        $.ajax({
+            cache: false,
+            url: '{{url("admin/menu/generateslug")}}' + '/' + name,
+            type: 'GET',
+            data: { _token :token},
+            success: function (response) {
+                if (response['status'] =='success') {
+                    $('#slug').val(response['slug'])
+                }
+            }
+        });
+        return false;
     });
 })
 </script>

@@ -161,10 +161,18 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
+        $product = Product::find($id);
+        
+        if(empty($product))
+        {
+            return redirect()->route('admin.products.index')
+            ->with('message', 'Sản phẩm không tồn tại trên hệ thống')
+            ->with('status', 'danger');
+        }
+
         $shopCategory = Category::where('slug', 'products')->firstOrFail();
         
         $categories = Category::where('parent_id', $shopCategory->id)->get();
-        $product = Product::find($id);
 		if(empty($product))
 		{
 			return redirect()->back()
@@ -531,7 +539,7 @@ class ProductsController extends Controller
     {
         return $this->filterreviews($request);
     }
-    public function filterreviews(Request $request)
+    public function filterreviews(Request $request, $content_message=null,$status_message=null )
     {
         $created_from = $request->created_from;
         $created_to = $request->created_to;
@@ -558,6 +566,8 @@ class ProductsController extends Controller
 
    
         return View('admin/products/reviews',compact('reviews'))
+        ->with('message',$content_message)
+        ->with('status', $status_message)
         ->with('i', ($request->input('page', 1) - 1) * 21);
     }
 

@@ -4,27 +4,34 @@
 <!-- Share Nav -->
 @include('layouts.share')
 <style>
-.add-on .input-group-btn > .btn {
-  border-left-width:0;left:-2px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+.search-form div input{
+    padding: 12px;
+    /* border: none; */
+    font-family: "Lato", 'Source Sans Pro', serif;
+    color: #ababab;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
-.add-on .input-group-btn > .btn:hover{
-    color:#8eb35a;
+.search-form button{
+    padding: 5px 20px 5px 20px;
+    text-transform: uppercase;
+    background-color: #8eb35a;
+    border: 1px solid #8eb35a;
+    border-radius: 25px;
+    font-family: "Lato", 'Source Sans Pro', serif;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 700;
+    font-style: Bold;
+    padding-left: 40px;
+    padding-right: 40px;
 }
-/* stop the glowing blue shadow */
-.add-on .form-control:focus {
- box-shadow:none;
- -webkit-box-shadow:none; 
- border-color:#cccccc; 
+.search-form button:hover{
+    color: #8eb35a;
+    background-color: #ffffff;
+    border: 1px solid #8eb35a;
+    text-decoration: none;
 }
-.form-control{width:20%}
-.navbar-nav > li > a {
-  border-right: 1px solid #ddd;
-  padding-bottom: 15px;
-  padding-top: 15px;
-}
-.navbar-nav:last-child{ border-right:0}
 </style>
 @endsection
 @section('content')
@@ -67,13 +74,11 @@
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="right-it">
-                    <form action="{{url('/subject/')}}/{{$parent}}/{{$slug}}" method="GET" class="navbar-form" role="search" autocomplete="true">
-                        <div class="input-group add-on">
-                        <input class="form-control" placeholder="Search" name="search" type="text" value="{{old('search')}}">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    <form action="{{url('/subject/')}}/{{$parent}}/{{$slug}}" method="GET" class="form-inline search-form"  autocomplete="true">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Search" name="search" type="text" value="{{old('search')}}">
                         </div>
-                        </div>
+                        <button type="submit">Search</button>
                     </form>
 				</div>
 			</div>
@@ -116,7 +121,7 @@
 @section('scripts')
 
 
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
 <script>
      $(document).ready(function(){      

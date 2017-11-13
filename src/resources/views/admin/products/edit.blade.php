@@ -21,6 +21,7 @@
         </div>
     </div> 
 </section>
+
 <!-- Main content -->
 <section class="content">
     <!-- PRODUCTS EDIT -->
@@ -39,7 +40,7 @@
                             <form action="{{url('/admin/products')}}/{{$product->id}}" method="post">
                             {!! method_field('patch') !!} 
                             {{ csrf_field()}}
-                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
                                 <div class="panel-group">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
@@ -107,7 +108,7 @@
                                     </div>
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            Giá
+                                            Giá ({{Setting::config('currency')}})
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">

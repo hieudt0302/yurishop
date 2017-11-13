@@ -34,19 +34,19 @@
                 <ul class="ct-it">
                     <li>
                         <i class="ion-ios-home"></i>
-                        <a href="#">@lang('common.headquarter-address')</a>
+                        <a href="javascript:void(0)">{{ Setting::config('address') }}</a>
                     </li>
                     <li>
                         <i class="ion-ios-telephone"></i>
-                        <a href="#">024 6253 1666</a>
+                        <a href="javascript:void(0)">{{ Setting::config('phone') }}</a>
                     </li>
                     <li>
                         <i class="ion-ios-email"></i>
-                        <a href="#">pokofarms@pokofarms.com.vn</a>
+                        <a href="mailto:{{ Setting::config('email') }}">{{ Setting::config('email') }}</a>
                     </li>
                     <li>
                         <i class="ion-android-globe"></i>
-                        <a href="#">pokofarms.com.vn</a>
+                        <a href="{{ Setting::config('website')}}" target="blank">{{ Setting::config('website') }}</a>
                     </li>
                 </ul>
             </div>
@@ -113,6 +113,7 @@
                 <div class="ct-icon">
                     <a target="_blank" href="http://www.facebbook.com/{{ Setting::config('facebook') }}"><i class="fa fa-facebook" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Facebook"></i></a>
                     <a target="_blank" href="http://www.twitter.com/{{ Setting::config('twitter') }}"><i class="fa fa-twitter" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Twitter"></i></a>
+                    <a target="_blank" href="skype:{{ Setting::config('skype')}}?chat"><i class="fa fa-skype" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Skype"></i></a>
                     <a target="_blank" href="http://www.youtube.com/{{ Setting::config('youtube') }}"><i class="fa fa-youtube-play" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Youtube"></i></a>
                     <a target="_blank" href="http://www.vimeo.com/{{ Setting::config('vimeo') }}"><i class="fa fa-vimeo" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vimeo"></i></a>
                 </div>

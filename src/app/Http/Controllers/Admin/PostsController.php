@@ -121,6 +121,12 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        if(empty($post))
+        {
+            return redirect()->route('admin.posts.index')
+            ->with('message', 'Bài viết không tồn tại trên hệ thống')
+            ->with('status', 'danger');
+        }
         $languages = Language::all();
         $blogCategory = Category::where('slug','posts')->firstOrFail();
         $categories = Category::where('parent_id',$blogCategory->id)->get();  

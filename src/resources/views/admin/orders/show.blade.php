@@ -129,7 +129,7 @@
                                                 <div class="row">
                                                     <div class="col-md-10">
                                                         <div class="form-text-row">
-                                                            {{$order->orderdetails->sum('total')}}
+                                                            {{FormatPrice::price($order->orderdetails->sum('total'))}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -141,7 +141,7 @@
                                                 <div class="row">
                                                     <div class="col-md-2">
                                                         <div class="form-text-row">
-                                                        {{$order->order_shipping_price}}
+                                                        {{FormatPrice::price($order->order_shipping_price)}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -150,7 +150,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="Tax" title="">Thuế</label>
                                             <div class="col-md-9">
-                                                <div class="form-text-row">{{$order->order_tax}}</div>
+                                                <div class="form-text-row">{{FormatPrice::price($order->order_tax)}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -161,7 +161,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <div class="form-text-row">{{$order->order_total}}</div>
+                                                <div class="form-text-row">{{FormatPrice::price($order->order_total)}}</div>
                                             </div>
                                         </div>
                                         <hr>
@@ -711,7 +711,7 @@
                                                                 </p>
                                                             </td>
                                                             <td style="width: 15%;">
-                                                                <div>{{$detail->price}}</div>
+                                                                <div>{{FormatPrice::price($detail->price)}}</div>
                                                                 <div id="pnlEditProductPrice{{$detail->id}}" style="display: none;">
                                                                     <div class="form-group">
                                                                         <div class="col-md-8 col-md-offset-2">
@@ -731,7 +731,7 @@
                                                                 </div>
                                                             </td>
                                                             <td style="width: 15%;">
-                                                                <div>{{$detail->discount}}</div>
+                                                                <div>{{FormatPrice::price($detail->discount)}}</div>
                                                                 <div id="pnlEditProductDiscount{{$detail->id}}" style="display: none;">
                                                                     <div class="form-group">
                                                                         <div class="col-md-8 col-md-offset-2">
@@ -741,7 +741,7 @@
                                                                 </div>
                                                             </td>
                                                             <td style="width: 15%;">
-                                                                {{$detail->total}}
+                                                                {{FormatPrice::price($detail->total)}}
                                                             </td>
                                                             <td style="width: 15%;">
                                                                 <button id="btnEditOrderItem{{$detail->id}}" type="button" class="btn btn-primary"  onclick="toggleOrderItemEdit(true, {{$detail->id}});return false;">

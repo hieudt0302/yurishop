@@ -10,33 +10,19 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li class="active">Cài đặt</li>
       </ol>
+	  <div class="row">
+        <div class="col-xs-12">
+            @include('notifications.status_message') 
+            @include('notifications.errors_message') 
+        </div>
+    </div>
 </section>
+
 <!-- Main content -->
 <section class="content">
     <div class="row">
         <div class="col-md-12">
-            <div class="box box-primary">
-                @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <strong>Lỗi!</strong> Kiểm tra lại thông tin đã nhập.<br><br>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                @if ($message = Session::get('success_message'))
-                    <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                    </div>
-                @endif
-                @if ($message = Session::get('danger_message'))
-                    <div class="alert alert-danger">
-                        <p>{{ $message }}</p>
-                    </div>
-                @endif   
-
+            <div class="box">
                 {!! Form::open(array('route' => ['admin.settings.update'])) !!}
                     <ul class="nav nav-tabs" role="tablist" style="padding-left: 10px">
                         <li class="active">
@@ -48,9 +34,15 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="company">
-                            <table class="table table-responsive">            
+                            <table class="table table-responsive">  
+								<tr>
+	                                <td>Địa Chỉ</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="address" value="{{ Setting::config('address') }}"/>
+	                                </td>
+	                            </tr>          
 	                            <tr>
-	                                <td>Địện thoại</td>
+	                                <td>Điện thoại</td>
 	                                <td>
 	                                    <input type="text" class="form-control" name="phone" value="{{ Setting::config('phone') }}"/>
 	                                </td>
@@ -75,38 +67,59 @@
 	                                    <input type="text" class="form-control" name="email" value="{{ Setting::config('email') }}"/>
 	                                </td>
 	                            </tr>
+								<tr>
+	                                <td>Website</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="website" value="{{ Setting::config('website') }}"/>
+	                                </td>
+	                            </tr>    
 	                            <tr>
 	                                <td>Mã số thuế</td>
 	                                <td>
 	                                    <input type="text" class="form-control" name="tax_code" value="{{ Setting::config('tax_code') }}"/>
 	                                </td>
 	                            </tr>
+								<tr>
+	                                <td>Loại Tiền Tệ Chính</td>
+	                                <td>
+		                                <select name="currency" class="form-control">
+	                                        <option value="vnd" {{ Setting::config('currency') == 'vnd'?'selected':'' }}>Việt Nam Đồng</option>
+											<option value="usd" {{ Setting::config('currency') == 'usd'?'selected':'' }}>US Dollar</option>
+	                                    </select>
+	                                </td>
+	                            </tr>
 	                            <tr>
-	                                <td>Tài khoản Facebook</td>
+	                                <td>Facebook</td>
 	                                <td>
 	                                    <input type="text" class="form-control" name="facebook" value="{{ Setting::config('facebook') }}"/>
 	                                </td>
 	                            </tr>
 	                            <tr>
-	                                <td>Facebook messenger ID</td>
+	                                <td>Facebook Messenger</td>
 	                                <td>
 	                                    <input type="text" class="form-control" name="messenger" value="{{ Setting::config('messenger') }}"/>
 	                                </td>
 	                            </tr>	                            
 	                            <tr>
-	                                <td>Tài khoản Twitter</td>
+	                                <td>Twitter</td>
 	                                <td>
 	                                    <input type="text" class="form-control" name="twitter" value="{{ Setting::config('twitter') }}"/>
 	                                </td>
+	                            </tr>
+								<tr>
+	                                <td>Skype</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="skype" value="{{ Setting::config('skype') }}"/>
+	                                </td>
 	                            </tr>	
 	                            <tr>
-	                                <td>Tài khoản Youtube</td>
+	                                <td>Youtube</td>
 	                                <td>
 	                                    <input type="text" class="form-control" name="youtube" value="{{ Setting::config('youtube') }}"/>
 	                                </td>
 	                            </tr>	
 	                            <tr>
-	                                <td>Tài khoản Vimeo</td>
+	                                <td>Vimeo</td>
 	                                <td>
 	                                    <input type="text" class="form-control" name="vimeo" value="{{ Setting::config('vimeo') }}"/>
 	                                </td>
