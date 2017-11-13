@@ -116,11 +116,13 @@ class MailTemplateController extends Controller
         ->first();
         
         if(!empty($translation)){
+            $translation->title = $request->title_translate??'';
             $translation->content = $request->content_translate??'';
             $translation->save();
         }
         else{
             $mailTemplateTranslation = new MailTemplateTranslation();
+            $mailTemplateTranslation->content = $request->title_translate??'';
             $mailTemplateTranslation->content = $request->content_translate??'';
             $mailTemplateTranslation->language_id = $request->language_id;
             $mailTemplateTranslation->mail_template_id = $id;

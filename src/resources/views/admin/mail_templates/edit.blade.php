@@ -89,6 +89,12 @@
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
+                                                <label class="control-label col-md-3">Tiêu Đề</label>
+                                                <div class="col-md-8">
+                                                    <input id="title_translate" class="form-control" name="title_translate"  value="{{ $translation->title??'' }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3">Nội dung</label>
                                                 <div class="col-md-8">
                                                     <textarea id="content_translate" class="form-control ckeditor" name="content_translate" rows="3"  placeholder="" contenteditable="true">{!! $translation->content??'' !!}</textarea>
