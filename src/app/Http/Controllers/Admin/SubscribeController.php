@@ -25,8 +25,30 @@ class SubscribeController extends Controller
     }
 
     public function send_mail_perform(Request $request){
-        $this->validate($request,['mail_temp_id' => 'required']);   
-        $emails = Subscribe::all();
+        $this->validate($request,['mail_temp_id' => 'required|integer|min:1']);   
+
+        // foreach(Subscribe::select('locale') as $ $locale){
+        //     $language = Language::where('code',$locale)->first();
+        //     if(!empty($language)){
+        //         $mail_template = MailTemplateTranslation::where('mail_template_id', $request->mail_temp_id)
+        //             ->where('language_id',$language_id)->first();
+
+        //         if(strlen($mail_template->content) <= 0 || empty($mail_template))
+        //             continue;
+
+        //         $emailAddresses =  Subscribe::where('locale', $locale)->toArray();
+
+        //         $data = array('email' => $email->email, 'content' => $mail_template->content);
+
+        //         Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data, $mail_template){
+        //             $message
+        //             ->to($data['email'])
+        //             ->subject(strlen($mail_template->title)> 0? $mail_template->title :'Pokofarms: Tin khuyến mãi');
+        //         }); 
+
+        //     }
+        // }
+
         $mail_temp_id = $request->mail_temp_id;
         $mail_template = null;
         if($mail_temp_id != '' && $mail_temp_id != null){
@@ -40,14 +62,15 @@ class SubscribeController extends Controller
                         continue;
                     $data = array('email' => $email->email, 'content' => $mail_template->content);
                     Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data, $mail_template){
-                        $message->to($data['email'])->subject(strlen($mail_template->title)> 0? $mail_template->title :'Pokofarms: Tin khuyến mãi');
+                        $message
+                        ->to($data['email'])
+                        ->subject(strlen($mail_template->title)> 0? $mail_template->title :'Pokofarms: Tin khuyến mãi');
                     }); 
                 }                
             } 
         }
         
         session()->flash('success_message', 'Send mail successfully!');
-
         return redirect()->back();    
     }
 
