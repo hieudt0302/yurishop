@@ -39,7 +39,7 @@ class SubscribeController extends Controller
                     if(strlen($mail_template->content) <= 0 || empty($mail_template))
                         continue;
                     $data = array('email' => $email->email, 'content' => $mail_template->content);
-                    Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data){
+                    Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data, $mail_template){
                         $message->to($data['email'])->subject(strlen($mail_template->title)> 0? $mail_template->title :'Pokofarms: Tin khuyến mãi');
                     }); 
                 }                
