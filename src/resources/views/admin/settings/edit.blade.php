@@ -204,7 +204,25 @@
 	                                <td>
 	                                    <input type="text" class="form-control" name="banner-style" value="{{ Setting::config('banner-style') }}"/>
 	                                </td>
-	                            </tr>                           	                            	                            		                            	                                     
+	                            </tr>
+	                            <tr>
+	                                <td>Url cho full-width bannder</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="fw-banner-url" value="{{ Setting::config('fw-banner-url') }}"/>
+	                                </td>
+	                            </tr>
+	                            <tr>
+	                                <td>Url cho bannder bên trái</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="left-banner-url" value="{{ Setting::config('left-banner-url') }}"/>
+	                                </td>
+	                            </tr> 
+	                            <tr>
+	                                <td>Url cho bannder bên phải</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="right-banner-url" value="{{ Setting::config('right-banner-url') }}"/>
+	                                </td>
+	                            </tr> 	                             	                              	                                                       	                            	                            		                            	                                     
                             </table>  
                         </div>
                     </div>
