@@ -43,4 +43,6 @@ return [
      'chat-details' => 'Nói chuyện với hướng dẫn viên', 
      'posts' => 'Bài viết',
      'in-stock' => 'Còn hàng',                  
+     'open-map' => 'Mở bản đồ',
+     'close-map' => 'Đóng bản đồ',   
 ];

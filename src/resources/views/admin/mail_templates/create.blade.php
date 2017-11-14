@@ -4,7 +4,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <h1>
-        Chỉnh sửa Mail Template
+        Thêm mới Mail Template
         <small>
             <i class="fa fa-arrow-circle-left"></i>
             <a href="{{url('/admin/mail_templates')}}">Quay lại danh sách</a>
@@ -13,7 +13,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="#">Mail Template</a></li>
-        <li class="active">Chỉnh sửa</li>
+        <li class="active">Thêm mới</li>
       </ol>
 </section>
 
