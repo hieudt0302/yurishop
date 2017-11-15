@@ -39,5 +39,5 @@ return [
 	'cart-empty' => 'Giỏ hàng của bạn trống',		
 	'goto-cart' => 'Giỏ Hàng',		
 	'wishlist-empty' => 'Bạn không có sản phẩm nào trong wishlist!',	  
-	'wishlist' => 'Wishlish',	  		  	 					    
+	'wishlist' => 'Wishlist',	  		  	 					    
 ];
