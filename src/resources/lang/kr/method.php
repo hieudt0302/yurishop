@@ -7,8 +7,8 @@ return [
             'description' => '집으로 배송'
         ],
         1 => [
-            'name' => 'Shipping',
-            'description' => 'Your order will be sent to you by our shipping partners.'
+            'name' => '배송',
+            'description' => '귀하의 주문은 배송 파트너가 귀하에게 발송합니다.'
         ],
         // 3 => [
         //     'name' => '',
@@ -18,12 +18,12 @@ return [
 
     'payment' => [
         0 => [
-           'name' => 'Cash on delivery',
-           'description' => 'Once your order is placed, you will be contacted by our staff to confirm the order.'
+           'name' => '대금 상환',
+           'description' => '주문이 접수되면 당사 직원이 연락하여 주문을 확인합니다.'
         ],
         1 =>[
-            'name' => 'Prepayment',
-            'description' =>'Once your order is placed, you will be contacted by our staff to confirm the order.'
+            'name' => '선불',
+            'description' =>'주문이 접수되면 당사 직원이 연락하여 주문을 확인합니다.'
         ],
         // 3 => [
         //     'name' => '',

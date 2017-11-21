@@ -4,11 +4,11 @@ return [
     'shipping' => [
         0 => [
             'name' => '自提',
-            'description' => 'Get your order directly from us.'
+            'description' => '直接从我们这里得到您的订单'
         ],
         1 => [
             'name' => '送上门',
-            'description' => 'Your order will be sent to you by our shipping partners.'
+            'description' => '您的订单将由我们的运输伙伴发送给您'
         ],
         // 3 => [
         //     'name' => '',
@@ -18,12 +18,12 @@ return [
 
     'payment' => [
         0 => [
-           'name' => 'Cash on delivery',
-           'description' => 'Once your order is placed, you will be contacted by our staff to confirm the order.'
+           'name' => '货到付款',
+           'description' => '一旦您下订单，我们的工作人员会联系您确认订单。'
         ],
         1 =>[
-            'name' => 'Prepayment',
-            'description' =>'Once your order is placed, you will be contacted by our staff to confirm the order.'
+            'name' => '预付款',
+            'description' =>'一旦您下订单，我们的工作人员会联系您确认订单。'
         ],
         // 3 => [
         //     'name' => '',

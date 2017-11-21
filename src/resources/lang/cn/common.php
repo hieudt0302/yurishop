@@ -27,7 +27,7 @@ return [
     'search' => '查询',   
     'home' => '首页',
     'company-name' => ' Công ty TNHH Dakmark Foods',
-    'headquarter-address' => '123 HùngVương, ĐăkHà, Kon Tum',                                           
+    'headquarter-address' => '123 Hùng Vương, Đăk Hà, Kon Tum',                                           
     'poko-message' => '',                                           
     'read-more' => 'Đọcthêm',  
      'in-stock' => 'In stock',

@@ -16,7 +16,7 @@ return [
 	'add-cart' => '장바구니에 추가하기', 
 	'filter' => '필터', 
 	'filter-price' => '가격에 따라 필터 ',        
-	'related-products' => 'Sản phẩm liên quan', 
+	'related-products' => '관련 제품', 
 	'product-details' => '상품명세', 
 	'shipping' => '배송', 
 	'payment' => '계산', 
@@ -36,8 +36,8 @@ return [
 	'apply-coupon' => '쿠폰 사용',
 	'enter-coupon' => '쿠폰 입력', 
 	'enter-gift-cart' => '기프트 카드 코드 입력',  
-	'wishlist-empty' => 'You have no items in your wishlist!',	  
-	'wishlist' => 'Wishlish',	   	
-	'goto-cart' => 'Go To Cart',
+	'wishlist-empty' => '당신은 위시리스트에 아이템이 없습니다!',	  
+	'wishlist' => '희망 목록',	   	
+	'goto-cart' => '장바구니로 이동',
 	  	 	  	  	 	 	 
 ];

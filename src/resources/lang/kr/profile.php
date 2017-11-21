@@ -24,7 +24,7 @@ return [
     'country' => '국가',                             
     'company' => '회사',
     'zipcode' => '우편번호',
-    'fax' => 'Fax',       
-    'zipcode' => 'Zip/Portal code',    
+    'fax' => '팩스',       
+    'zipcode' => '우편 번호 / 포털 코드',    
 
 ];
