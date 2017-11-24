@@ -3,7 +3,7 @@
 return [
 	'' => '',
 	'blog' => 'ブログ',	 
-     'title' => 'Title',
+     'title' => 'タイトル',
      'content' => '内容',
      'image' => '画像',
 	'status' => 'ステータス',     
