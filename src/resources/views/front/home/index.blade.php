@@ -1,11 +1,11 @@
-@extends('layouts.master')
+    @extends('layouts.master')
 @section('title','Pokofarms - Home')
 @section('content')
 
 <!-- Slider -->
 @include('front.home.slider')
  <!-- End Slider -->
-<section id="decorate">
+<!-- <section id="decorate">
     <div class="row">
         <div class="container">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <div class="about">
     <div class="container">
         <div class="row">
