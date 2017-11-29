@@ -39,7 +39,7 @@ return [
 	 'enter-coupon' => 'Enter your coupon here',
 	 'enter-gift-cart' => 'Enter your gift card code',	  
 	 'wishlist-empty' => 'You have no items in your wishlist!',	  
-	 'wishlist' => 'Wishlish',	   	
+	 'wishlist' => 'Wishlist',	   	
 	 'goto-cart' => 'Go To Cart',
 	  	 	  	  	 	 	 
 ];

@@ -34,18 +34,18 @@
                 <div class="contact-left">
                     <div class="ct-it">
                         <h4>@lang('contact.address')</h4>
-                        @lang('common.headquarter-address')
+                        {{ Setting::config('address') }}
                         <hr>
                     </div>
                     <div class="ct-it">
                         <h4>@lang('contact.phone')</h4>
-                        <p>Mobile: (+88) - 1990 - 6886<br>
-                        Hotline: 1800 - 1102</p>
+                        <p>Mobile: {{ Setting::config('phone') }}<br>
+                        Hotline: {{ Setting::config('hotline') }}</p>
                         <hr>
                     </div>
                     <div class="ct-it">
                         <h4>@lang('contact.email')</h4>
-                        <p>pokofarms@pokofarms.com.vn</p>
+                        <p>{{ Setting::config('email') }}</p>
                         <hr>
                     </div>
                     <div class="ct-it ct-icon">
