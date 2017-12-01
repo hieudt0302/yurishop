@@ -51,6 +51,7 @@ class SubscribeController extends Controller
 
         $mail_temp_id = $request->mail_temp_id;
         $mail_template = null;
+        $emails = Subscribe::all();
         if($mail_temp_id != '' && $mail_temp_id != null){
             foreach($emails as $email){
                 $language = Language::where('code',$email->locale)->first();
@@ -68,9 +69,10 @@ class SubscribeController extends Controller
                     }); 
                 }                
             } 
+            session()->flash('success_message', 'Send mail is successfully!');
+        }else{
+            session()->flash('error_message', 'Send mail is failed!');
         }
-        
-        session()->flash('success_message', 'Send mail successfully!');
         return redirect()->back();    
     }
 
