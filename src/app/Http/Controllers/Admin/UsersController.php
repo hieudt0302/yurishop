@@ -116,7 +116,7 @@ class UsersController extends Controller
         $this->validate($request, [
             'username' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
-            'phone' => 'string',
+            'phone' => 'string|nullable',
             'password' => 'same:confirm_password',
             // 'roles' => 'required'
         ]);
