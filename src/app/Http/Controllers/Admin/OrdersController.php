@@ -213,8 +213,8 @@ class OrdersController extends Controller
         $order = Order::find($id);
         $order->order_status = 3; //refer Lang/method.php
         $order->save();
-        
-        return view('admin/orders/show',compact('order'));
+        $tab = 1;
+        return view('admin/orders/show',compact('order','tab'));
     }
 
     public function ChangeOrderStatus(Request $request, $id)
