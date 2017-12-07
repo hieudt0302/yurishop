@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="ab-intro">
-                    <p>@lang('common.poko-message')</p>
+                    <p>{{$pokofarms_message->translation->description??""}}</p>
                 </div>
             </div>
         </div>
@@ -63,8 +63,8 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="ab-intro">
-                    <p>- <b>@lang('common.video-header')</b> -</p>
-                    <p>"@lang('common.video-message')"</p>
+                    <p>- <b>{{$video_message->translation->title??""}}</b> -</p>
+                    <p>"{{$video_message->translation->description??""}}"</p>
                     </br>
                 </div>
             </div>
@@ -88,7 +88,7 @@
     <!-- End Promo -->
 
     <!-- Blogs -->
-    @include('front.home.blogs')
+<!--     @include('front.home.blogs') -->
     <!-- End Blogs -->
 
     <!-- Social -->
