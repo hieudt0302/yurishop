@@ -34,6 +34,8 @@ class HomeController extends Controller
         $product_origin = InfoPage::where('slug','product-origin')->first();
         $product_quality = InfoPage::where('slug','product-quality')->first();
         $community_category = Category::where('slug', 'community')->firstOrFail();
+        $pokofarms_message = Category::where('slug', 'pokofarms-message')->firstOrFail();        
+        $video_message = Category::where('slug', 'video-message')->firstOrFail(); 
 
         $new_products = Product::where('published',1)->orderBy('created_at', 'desc')->limit(4)->get();
         // $best_sellers_products = DB::table('products')
@@ -63,7 +65,7 @@ class HomeController extends Controller
         $sliders = Slider::where('is_show',1)->get();      
 
         //var_dump($best_sellers_products); die();  
-        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'new_products', 'best_sellers_products', 'sale_products', 'new_blogs','sliders','community_category'));
+        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'pokofarms_message', 'video_message', 'new_products', 'best_sellers_products', 'sale_products', 'new_blogs','sliders','community_category'));
 
     }
 
