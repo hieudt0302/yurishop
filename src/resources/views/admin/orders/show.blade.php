@@ -61,7 +61,7 @@
                                                         <strong>
                                                             <div class="form-text-row">{{__('status.order.'.$order->order_status)}}</div>
                                                         </strong>
-                                                        @if($order->order_status!==3)
+                                                        @if($order->order_status!==4)
                                                         <button type="button" name="" id="cancelorder" class="btn bg-red" style="margin-right: 3px;" data-toggle="modal" data-target="#cancelorder-action-confirmation">
                                                             Hủy Đơn Hàng
                                                         </button>

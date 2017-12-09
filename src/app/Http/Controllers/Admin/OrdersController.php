@@ -211,7 +211,7 @@ class OrdersController extends Controller
     public function CancelOrderStatus($id)
     {
         $order = Order::find($id);
-        $order->order_status = 3; //refer Lang/method.php
+        $order->order_status = 4; //refer Lang/method.php
         $order->save();
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
