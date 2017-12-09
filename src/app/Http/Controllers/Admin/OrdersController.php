@@ -214,7 +214,7 @@ class OrdersController extends Controller
         $order->order_status = 4; //Cancelled
         $order->shipping_status = 1; //Shipping Not Required
         $order->payment_status = 6; //Voided
-        
+
         $order->save();
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
@@ -226,12 +226,37 @@ class OrdersController extends Controller
         $order->order_status =  $request->order_status; //refer Lang/method.php
 
         if(is_numeric($request->order_status)){
-            if( $request->order_status == 3){ //IF Complete
-                $order->shipping_status = 5; //Delivered
-                $order->payment_status = 3; //Paid
-            }else if($request->order_status == 4){//IF Cancelled
-                $order->shipping_status = 1; //Shipping Not Required
-                $order->payment_status = 6; //Voided
+            // if( $request->order_status == 2){ //IF Processing
+            // }else if( $request->order_status == 2){ //IF Processing
+            // }else if( $request->order_status == 3){ //IF Complete
+            //     $order->shipping_status = 5; //Delivered
+            //     $order->payment_status = 3; //Paid
+            // }else if($request->order_status == 4){//IF Cancelled
+            //     $order->shipping_status = 1; //Shipping Not Required
+            //     $order->payment_status = 6; //Voided
+            // }
+            switch ($request->order_status) {
+                case 1://Pending
+                    $order->shipping_status = 1; //Delivered
+                    $order->payment_status = 1; //Paid
+                break;
+
+                case 2://Processing
+                    if($order->payment_status == 6)
+                        $order->payment_status = 2;
+                break;
+
+                case 3://Complete
+                    $order->shipping_status = 5; //Delivered
+                    $order->payment_status = 3; //Paid
+                break;
+
+                case 4://Cancelled
+                    $order->shipping_status = 1; //Shipping Not Required
+                    $order->payment_status = 6; //Voided
+                break;
+
+                default:
             }
         }
 
