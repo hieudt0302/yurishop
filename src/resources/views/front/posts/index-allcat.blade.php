@@ -137,7 +137,7 @@
                         <ul class="clearlist widget-menu">
                             @foreach($posts as $item)
                             <li>
-                                <a href="#" title="">{{$item->category->translation->name}}</a>
+                                <a href="#" title="">{{$item->category->translation->name??$item->$category->name}}</a>
                                 <small>
                                     - {{count($item->category->posts)}}
                                 </small>

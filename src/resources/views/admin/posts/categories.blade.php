@@ -71,7 +71,7 @@
                             <tbody >
                                 @foreach($categories as $category)
                                 <tr>
-                                    <td>{{$category->translation->name}}</td>
+                                    <td>{{$category->translation->name??$category->name}}</td>
                                     <td style="text-align:center">
                                         @if($category->enabled)
                                         <i class="fa fa-check true-icon"></i>
