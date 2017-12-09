@@ -14,8 +14,8 @@ class DashboardController extends Controller
     public function index()
     {
         $user_new = User::where('created_at', '>=', Carbon::today()->startOfWeek())->count();
-        $order_new = Order::where('order_status', 0)->count();
-        $order_wait = Order::where('order_status', 1)->count();
+        $order_new = Order::where('order_status', 1)->count();
+        $order_wait = Order::where('order_status', 2)->count();
         $product_count = Product::count();
         
         

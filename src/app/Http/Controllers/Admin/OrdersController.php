@@ -221,6 +221,17 @@ class OrdersController extends Controller
     {
         $order = Order::find($id);
         $order->order_status =  $request->order_status; //refer Lang/method.php
+
+        if(is_numeric($request->order_status)){
+            if( $request->order_status == 3){ //IF Complete
+                $order->shipping_status = 5; //Delivered
+                $order->payment_status = 3; //Paid
+            }else if($request->order_status == 4){//IF Cancelled
+                $order->shipping_status = 1; //Shipping Not Required
+                $order->payment_status = 6; //Voided
+            }
+        }
+
         $order->save();
         
         $tab = 1;
@@ -231,7 +242,6 @@ class OrdersController extends Controller
         $order = Order::find($id);
         $order->payment_status =  $request->payment_status; //refer Lang/method.php
         $order->save();
-        
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
     }
@@ -327,7 +337,5 @@ class OrdersController extends Controller
         $address->email = $request->email??'';
 
         $address->save();
-    }
-
-    
+    }    
 }
