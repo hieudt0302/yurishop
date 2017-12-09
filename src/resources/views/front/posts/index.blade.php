@@ -13,11 +13,11 @@
                 @if(!empty($search_key))
                     <h1>@lang('common.search-results')</h1>
                 @else               
-                    <h1>{{$posts[0]->category->translation->name??$posts[0]->category->name}}</h1>
+                    <h1>{{$category->translation->name??$category->name}}</h1>
                     <ul class="breadcumb">
                         <li><a href="#">@lang('common.home')</a></li>
                         <li><span>/</span><a href="#">@lang('common.posts')</a></li>
-                        <li><span>/</span>{{$posts[0]->category->translation->name??$posts[0]->category->name}}</li>
+                        <li><span>/</span>{{$category->translation->name??$category->name}}</li>
                     </ul>
 
                 @endif

@@ -52,13 +52,13 @@ class MenuController extends Controller
             $categories = Category::where('parent_id',$post_category->id)->get(); 
             
             // GET POSTS
-            $posts = $category->publishedPosts()
-            ->where('posts.title', 'LIKE', '%'. $search . '%')
-            ->orWhereIn('posts.id', function($query) use ($search){
-                $query->select('post_id')->from('post_translations')
-                ->Where('title','LIKE', '%'. $search . '%');
-            })
-            ->paginate(21); 
+            // $posts = $category->publishedPosts()
+            // ->where('posts.title', 'LIKE', '%'. $search . '%')
+            // ->orWhereIn('posts.id', function($query) use ($search){
+            //     $query->select('post_id')->from('post_translations')
+            //     ->Where('title','LIKE', '%'. $search . '%');
+            // })
+            // ->paginate(21); 
 
             $posts = $category->publishedPosts()
             ->where('posts.title', 'LIKE', '%'. $search . '%')
