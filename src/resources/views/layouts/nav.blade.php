@@ -159,11 +159,11 @@
                         </li>  
                         @endforeach
 
-                        <li class="dropdown first">
+                        <!-- <li class="dropdown first">
                             <a href="{{ url('/promotion')}}" class="btn btn-default lv1">
                             @lang('header.promotion')
                             </a>
-                        </li> 
+                        </li>  -->
 
                         <!-- Product menu -->
                         <li class="dropdown first">
