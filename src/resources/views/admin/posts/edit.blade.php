@@ -74,7 +74,7 @@
                                                 <div class="col-md-4">
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
-                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                        <option value="{{$category->id}}" {{$post->category->id == $category->id?'checked':''}}>{{$category->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
