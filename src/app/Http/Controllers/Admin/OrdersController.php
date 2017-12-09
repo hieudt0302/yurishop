@@ -211,7 +211,17 @@ class OrdersController extends Controller
     public function CancelOrderStatus($id)
     {
         $order = Order::find($id);
-        $order->order_status = 4; //refer Lang/method.php
+        $order->order_status = 4; //Cancelled
+        
+        if(is_numeric($request->order_status)){
+            if( $request->order_status == 3){ //IF Complete
+                $order->shipping_status = 5; //Delivered
+                $order->payment_status = 3; //Paid
+            }else if($request->order_status == 4){//IF Cancelled
+                $order->shipping_status = 1; //Shipping Not Required
+                $order->payment_status = 6; //Voided
+            }
+        }
         $order->save();
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
