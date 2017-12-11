@@ -1,12 +1,13 @@
  <!-- BEGIN | Header -->
 <section id="topbar">
     <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-6 hidden-sm hidden-xs">
             <div class="top-left">
-                <p><span></span></p>
+                <!-- <a href="{{ url('/') }}">@lang('header.home')</a>    -->
+                <p><span>&nbsp</span></p>
             </div>        
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-6 col-sm-12 col-xs-12">
             <ul class="nav navbar-nav hd-menu topbar-right">
                 <li class="dropdown">
                     <button class="btn search-top-bt  btn-default">
@@ -53,12 +54,10 @@
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
                         @lang('header.account')<i class="fa fa-angle-down" aria-hidden="true"></i>
                     </button>
-                    <!-- Sub -->
                     <ul class="dropdown-menu level1">    
                         <li><a href="{{ url('/login') }}">@lang('auth.login')</a></li>
                         <li><a href="{{ url('/register') }}">@lang('auth.register')</a></li>                          
                     </ul>
-                    <!-- End Sub -->
                     @else
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
                     <i class="fa fa-user" aria-hidden="true"></i>&nbsp;{{ strtoupper(Auth::user()->first_name) }} <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -82,115 +81,87 @@
         </div>
     </div>
 </section>
-<header class="ht-headerv3 ht-headerv4 sidebarmenu">
-    <div class="row">
-        <div class="topsearch">
-            {!! Form::open(array('url' => '/search')) !!}
-                <input type="text" class="search-top" name="key" placeholder="@lang('header.enter-keyword')">
-            {!! Form::close() !!}
+<div class="sticky-wrapper" style="height: 110px;">
+    <header class="ht-header sidebarmenu" id="hd-fixed">
+        <div class="row">
+            <div class="topsearch">
+                {!! Form::open(array('url' => '/search')) !!}
+                    <input type="text" class="search-top" name="key" placeholder="@lang('header.enter-keyword')">
+                {!! Form::close() !!}
+            </div>
         </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-12">
-            <div class="main-logo4">
-                <div class="row">
-                <div class="col-md-2">
-                    <div class="mobile-btn">
-                        <button id="btn"><i class="ion-navicon"></i></button>
-                        <button id="close-btn"><i class="ion-android-close"></i></button>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="hd-if">
-                        <div class="hd-infor">
-                            <p>@lang('header.call-us-now')</p>
-                            <span class="phone">{{ Setting::config('hotline') }}</span>
+        
+        <div class="row">
+            <nav id="mainNav" class="navbar navbar-default navbar-custom">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="col-lg-3 col-md-10 col-sm-10 col-xs-10">   
+                    <div class="main-logo row">
+                        <div class="hidden-lg col-sm-3 col-xs-3">
+                            <div class="mobile-btn">
+                                <button id="btn" style="display: block;"><i class="ion-navicon"></i></button>
+                                <button id="close-btn"><i class="ion-android-close"></i></button>
+                            </div>
                         </div>
-                        <i class="ion-ios-telephone-outline"></i>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="header-logov3">
-                        <a class="hd-logo3" href="{{url('/')}}">
-                            <img class="logo" src="{{asset('frontend/images/logo.png')}}" alt="">
-                        </a>                        
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="hd-if right">
-                        <button class="open4">
-                            <a href="{{ url('/cart') }}"><i class="ion-ios-cart-outline  shopping-cart-icon"></i></a>
-                        </button>
-                        
-                        <div class="hd-infor">
-                            <p>@lang('shoppings.cart')</p>
-                            <span><p class="cartItemCount" style="display: inline;">{{ Cart::instance('default')->count(false) }}</p> @lang('shoppings.items')</span>
+                        <div class="col-md-5 col-sm-5 col-xs-4 col-xs-offset-2">
+                            <a class="hd-logo" href="{{ url('/')}}"><img class="logo" src="{{asset('frontend/images/logo.png')}}" alt=""></a>    
                         </div>
                     </div>
                 </div>
-            </div>
-            </div>
-        </div>
-        <div class="col-md-12 nav4">
-            <nav id="mainNav3">
-                <div class="navbar-header">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="col-lg-7 hidden-xs hidden-sm hidden-md">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav hd-menu">
+                            <li class="hidden">
+                                <a href="#page-top"></a>
+                            </li>
+                            <li class="dropdown first">
+                                <a href="{{ url('/')}}" class="btn btn-default lv1"><i class="fa fa-home" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="dropdown first">
+                                <a href="{{ url('/about')}}" class="btn btn-default lv1">
+                                Pô Kô Farms
+                                </a>
+                            </li>
+                            @foreach($blog_menu as $menu)
+                            <li class="dropdown first">
+                                <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}" class="btn btn-default lv1">
+                                {{$menu->translation->name??$menu->name}}
+                                </a>
+                            </li>  
+                            @endforeach
+                            <li class="dropdown first">
+                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                {{$product_menu->translation->name??$product_menu->name}}
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </a>
+                                <ul class="dropdown-menu level1">
+                                    @foreach($product_menu->GetMenuSubLevel1() as $sub)
+                                    <li>
+                                        <a href="{{url('/subject')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
+                                            <i class="ion-ios-minus-empty"></i>
+                                            {{$sub->translation->name??$sub->name}}
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+
+                            <li class="dropdown first">
+                                <a href="{{ url('/contact')}}" class="btn btn-default lv1">
+                                @lang('header.contact')
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                    <ul class="nav navbar-nav hd-menu">
-                        <li class="hidden">
-                            <a href="#page-top"></a>
-                        </li>
-                        <li class="dropdown first">
-                            <a href="{{ url('/')}}" class="btn btn-default lv1">
-                            @lang('header.home')
-                            </a>
-                        </li>
-                        <li class="dropdown first">
-                            <a href="{{ url('/about')}}" class="btn btn-default lv1">
-                            Pô Kô Farms
-                            </a>
-                        </li>                            
-                        <!-- Blog menu -->
-                        @foreach($blog_menu as $menu)
-                        <li class="dropdown first">
-                            <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}" class="btn btn-default lv1">
-                            {{$menu->translation->name??$menu->name}}
-                            </a>
-                        </li>  
-                        @endforeach
-
-                        <!-- <li class="dropdown first">
-                            <a href="{{ url('/promotion')}}" class="btn btn-default lv1">
-                            @lang('header.promotion')
-                            </a>
-                        </li>  -->
-
-                        <!-- Product menu -->
-                        <li class="dropdown first">
-                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                            {{$product_menu->translation->name??$product_menu->name}}
-                                <i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                            <ul class="dropdown-menu level1">
-                                @foreach($product_menu->GetMenuSubLevel1() as $sub)
-                                <li>
-                                    <a href="{{url('/subject')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
-                                        <i class="ion-ios-minus-empty"></i>
-                                        {{$sub->translation->name??$sub->name}}
-                                    </a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </li>
-
-                        <li class="dropdown first">
-                            <a href="{{ url('/contact')}}" class="btn btn-default lv1">
-                            @lang('header.contact')
-                            </a>
-                        </li>
-                    </ul>
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <div class="right-menu">
+                        <button class="opennav2"><i class="ion-ios-cart-outline" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to cart"></i></button>
+                    </div>
+                </div>
+            <!-- /.navbar-collapse -->
             </nav>
         </div>
-    </div>
-</header>
+    </header>
+</div>
 <!-- END | Header -->

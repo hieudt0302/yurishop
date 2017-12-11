@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/plugins.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('css/video.css')}}">	
+	<link rel="stylesheet" href="{{asset('frontend/css/custom-style.css')}}">	
 	<!-- <link rel="stylesheet" href="{{asset('frontend/css/animate.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/bootstrap-dropdownhover.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/font-awesome.min.css')}}">
