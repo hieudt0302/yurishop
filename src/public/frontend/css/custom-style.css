@@ -1,0 +1,45 @@
+.ht-header .hd-logo img.logo{
+	margin-top: 10px;
+}
+
+@media (min-width: 992px) {
+	.ht-header .hd-logo img.logo{
+		max-height: 90px;
+		width: auto;
+	}
+}
+header nav ul.hd-menu li.dropdown a{
+	margin-right: 20px;
+}
+
+header .right-menu{
+	margin-top: 40px;
+}
+
+section#topbar{
+	background-color: #f7f7f7;
+}
+
+@media (max-width: 767px) {
+	section#topbar ul.topbar-right{
+		float: right;
+	}
+	section#topbar ul.topbar-right li.dropdown button{
+		margin-top: 0;
+	}
+	.nav>li{
+		display: inline-block;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.ht-header .hd-logo img.logo{
+		margin-left: 0;
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+	.ht-header .hd-logo img.logo{
+		margin-left: 150px;
+	}	
+}
