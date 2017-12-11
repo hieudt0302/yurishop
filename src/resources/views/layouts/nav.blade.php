@@ -156,7 +156,7 @@
                 </div>
                 <div class="col-md-2 col-sm-2 col-xs-2">
                     <div class="right-menu">
-                        <button class="opennav2"><i class="ion-ios-cart-outline" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to cart"></i></button>
+                        <button class="opennav2"><i class="ion-ios-cart-outline" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to cart"></i> {{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</button>
                     </div>
                 </div>
             <!-- /.navbar-collapse -->
