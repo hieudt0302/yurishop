@@ -100,7 +100,7 @@
                 </form>
                 <li>
                     <a class="shopping-cart" href="#">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')
+                        <i class="fa fa-shopping-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')
                     </a>
                 </li>
             </ul>
