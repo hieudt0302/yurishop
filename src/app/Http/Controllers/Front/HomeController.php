@@ -48,7 +48,7 @@ class HomeController extends Controller
                                         ->limit(4)
                                         ->select('products.*')
                                         ->get();
-                                        
+
         $commercial_coffee = Product::leftJoin('categories','products.category_id','=','categories.id')
                                         ->where('products.published',1)
                                         ->where('categories.slug','commercial_coffee') ///This is hard-code
@@ -76,7 +76,7 @@ class HomeController extends Controller
         $sliders = Slider::where('is_show',1)->get();      
 
         //var_dump($best_sellers_products); die();  
-        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'pokofarms_message', 'video_message', 'new_products', 'best_sellers_products', 'sale_products', 'new_blogs','sliders','community_category'));
+        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'pokofarms_message', 'video_message', 'specialty_coffee', 'commercial_coffee', 'sale_products', 'new_blogs','sliders','community_category'));
 
     }
 
