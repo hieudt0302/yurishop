@@ -32,7 +32,7 @@ return [
     'checkout-comment' => '이 주문에 대한 더 많은 정보를 보내시겠습니까?', 
     'change' => '변경', 
     'order-received' => '주문을 받게 되었습니다.', 
-    'thank' => 'Pokofamrs에서 구입해 주셔서 감사합니다.',  
+    'thank' => 'Pô Kô Famrs에서 구입해 주셔서 감사합니다.',  
     'order-number' => '주문번호',                                                    
     'order-details' => '주문명세', 
 ];

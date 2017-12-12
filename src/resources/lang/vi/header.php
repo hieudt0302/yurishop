@@ -15,7 +15,7 @@ return [
 
     '' => '',
     'home' => 'Trang chủ',
-    'about-us' => 'Pokofarms',
+    'about-us' => 'Pô Kô Farms',
     'cert' => 'Chứng chỉ',
     'shop' => 'Mua hàng',
     'product' => 'Sản phẩm',
@@ -25,7 +25,7 @@ return [
     'contact' => 'Liên hệ',
     'search' => 'Tìm kiếm',
     'cart' => 'Giỏ hàng',        
-    'account' => 'Tài khoản',
+    'account' => 'TÀI KHOẢN',
     'promotion' => 'Khuyến mại',    
     'enter-keyword' => 'Nhập từ khoá',   
     'call-us-now' => 'Hãy gọi cho chúng tôi',

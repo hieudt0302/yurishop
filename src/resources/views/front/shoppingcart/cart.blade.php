@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Pokofarms - Giỏ Hàng')
+@section('title','Pô Kô Farms - Giỏ Hàng')
 
 @section('header')
 @parent

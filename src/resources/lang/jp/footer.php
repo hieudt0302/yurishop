@@ -13,7 +13,7 @@ return [
     'my-wishlist' => '欲しいリスト',
     'order-history' => '注文履歴',
     'faq' => 'よくある質問',
-    'newsletter-message' => 'ポコファームからニュースをもらう',
+    'newsletter-message' => 'ポコファームから<br>ニュースをもらう',
     'subscribe' => '登録',   
     'subscribe-success' => '登録が成功しました!',       
     'about-us' => 'ポコファームについて',          
