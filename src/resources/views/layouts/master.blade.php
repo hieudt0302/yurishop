@@ -17,6 +17,7 @@
 	<meta name="author" content="">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="profile" href="#">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">
 	<!-- <link rel="shortcut icon" href="images/favicon.ico"> -->
 	<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:bold,black,regular"> -->
 	<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Playfair+Display:bold,italic,bolditalic"> -->
@@ -56,13 +57,12 @@
 <meta name="google-site-verification" content="SBNKsjbUQHBBai8E7O5TxOH4R1pHOiD1F2qaSZbPxBk" />	
 </head>
 <body>
-	 
-	<!-- Mobile Menu -->
-	<div class="mobile-menu">
-    	@include('layouts.mobile_menu')
+	<div class="topsearch">
+		{!! Form::open(array('url' => '/search')) !!}
+            <input type="text" class="search-top" name="key" placeholder="@lang('header.enter-keyword')">
+        {!! Form::close() !!}
     </div>
-    <!-- End Mobile Menu -->
-
+	
     <!-- Main Page -->
 	<div id="page2" class="allpage">
 		@yield('top')
