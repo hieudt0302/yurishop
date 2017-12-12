@@ -4543,24 +4543,24 @@ del {
 
 ::-webkit-input-placeholder {
     color: rgba(51, 51, 51, 0.7);
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 :-moz-placeholder {
     color: rgba(51, 51, 51, 0.7);
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 ::-moz-placeholder {
     color: rgba(51, 51, 51, 0.7);
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
     opacity: 1;
     /* Since FF19 lowers the opacity of the placeholder by default */
 }
 
 :-ms-input-placeholder {
     color: rgba(51, 51, 51, 0.7);
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 textarea {
@@ -4702,7 +4702,7 @@ a.readmore3.pink:hover {
 }
 
 h2 {
-    font-family: "Playfair Display", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 18px;
     color: #333333;
     font-weight: 700;
@@ -4710,7 +4710,7 @@ h2 {
 }
 
 p {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #8e8e8e;
     font-weight: '';
@@ -4767,7 +4767,7 @@ span.sub {
 span.hot,
 span.sale-pr,
 span.new {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 12px;
     color: #ffffff;
     font-weight: 700;
@@ -5504,7 +5504,7 @@ section {
 .hero h1 {
     text-transform: uppercase;
     margin-bottom: 30px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 40px;
     color: #333333;
     font-weight: 900;
@@ -5570,7 +5570,7 @@ section {
 
 .bloglistpost-v1 .blogpost-v1 .blog-it .blog-it-content p,
 .bloglistpost-v2 .blogpost-v1 .blog-it .blog-it-content p {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #8e8e8e;
     font-weight: 400;
@@ -5587,7 +5587,7 @@ section {
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
     border-radius: 25px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ffffff;
     font-weight: 700;
@@ -5601,7 +5601,7 @@ section {
     border: 1px solid #8eb35a;
     border-radius: 25px;
     background-color: #ffffff;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #8eb35a;
     font-weight: 700;
@@ -5655,7 +5655,7 @@ section {
 .bloglistpost-v1 .blogpost-v1 .blog-it.quote h4,
 .bloglistpost-v2 .blogpost-v1 .blog-it.quote h4 {
     margin-left: 45px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #333333;
     font-weight: 700;
@@ -5699,7 +5699,7 @@ section {
     -moz-border-radius: 5px;
     border-radius: 5px;
     padding: 20px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #c2c2c2;
     font-weight: '';
@@ -5729,7 +5729,7 @@ section {
 
 .bloglistpost-v1 .bg-sidebar .categories ul li,
 .bloglistpost-v2 .bg-sidebar .categories ul li {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #8e8e8e;
     font-weight: '';
@@ -5812,7 +5812,7 @@ section {
 .bloglistpost-v1 .bg-sidebar .searchbytag ul.tags li a,
 .bloglistpost-v2 .bg-sidebar .searchbytag ul.tags li a {
     padding: 10px 15px 10px 15px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #ababab;
     font-weight: '';
@@ -5866,7 +5866,7 @@ section {
 
 .bloglistpost-v2 .blogpost-v2 .blog-it-content2 p,
 .blog .blogpost-v2 .blog-it-content2 p {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #8e8e8e;
     font-weight: 400;
@@ -5877,7 +5877,7 @@ section {
 
 .bloglistpost-v2 .blogpost-v2 .blog-it-content2 a.readmore2,
 .blog .blogpost-v2 .blog-it-content2 a.readmore2 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: 700;
@@ -5927,7 +5927,7 @@ section {
 .bloglistpost-v2 .blogpost-v2-quote h4,
 .blog .blogpost-v2-quote h4 {
     margin-left: 45px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #333333;
     font-weight: 700;
@@ -6019,7 +6019,7 @@ section {
 .subscribe .form input.email,
 .subscribev3 .form input.email {
     width: 100%;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ababab;
     font-weight: '';
@@ -6044,7 +6044,7 @@ section {
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
     border-radius: 25px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ffffff;
     font-weight: 700;
@@ -6177,7 +6177,7 @@ section {
 }
 
 .blogsingle .blogsingle-content .author-post .author-infor h3 a {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #333333;
     font-weight: 700;
@@ -6265,7 +6265,7 @@ section {
 
 .blogsingle .blogsingle-content .comment .cmt-it .cmt-content h4 {
     display: flex;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #333333;
     font-weight: 700;
@@ -6327,7 +6327,7 @@ section {
 .blogsingle .blogsingle-content .comment a.loadmore {
     text-transform: uppercase;
     text-align: center;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 12px;
     color: #696969;
     font-weight: '';
@@ -6377,7 +6377,7 @@ section {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #8e8e8e;
     font-weight: 400;
@@ -6395,7 +6395,7 @@ section {
     text-transform: uppercase;
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ffffff;
     font-weight: 700;
@@ -6503,7 +6503,7 @@ section {
     border: 1px solid #8eb35a;
     border-radius: 25px;
     background-color: #ffffff;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #8eb35a;
     font-weight: 700;
@@ -6518,7 +6518,7 @@ section {
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
     border-radius: 25px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ffffff;
     font-weight: 700;
@@ -6720,7 +6720,7 @@ section {
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
     border-radius: 25px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ffffff;
     font-weight: 700;
@@ -6739,7 +6739,7 @@ section {
 }
 
 .heading-sec h1 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 40px;
     color: #333333;
     font-weight: 900;
@@ -6801,7 +6801,7 @@ section {
     border: 1px solid #8eb35a;
     border-radius: 25px;
     background-color: #ffffff;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #8eb35a;
     font-weight: 700;
@@ -6819,7 +6819,7 @@ section {
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
     border-radius: 25px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ffffff;
     font-weight: 700;
@@ -7253,7 +7253,7 @@ section {
 }
 
 .ads .ads-item .ads-text span {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: 700;
@@ -7421,7 +7421,7 @@ section {
 }
 
 #testimonial h1.line {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 24px;
     color: #333333;
     font-weight: 900;
@@ -7442,7 +7442,7 @@ section {
 }
 
 #testimonial p.name {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #333333;
     font-weight: 700;
@@ -7589,7 +7589,7 @@ section {
 }
 
 .blog .blog-it-left .blog-ct-left p {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #8e8e8e;
     font-weight: 400;
@@ -7600,7 +7600,7 @@ section {
 }
 
 .blog .blog-it-left .blog-ct-left a.readmore2 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: 700;
@@ -7715,7 +7715,7 @@ section {
 
 .blog .blog-it.quote h4 {
     margin-left: 30px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #8eb35a;
     font-weight: 700;
@@ -7853,7 +7853,7 @@ section {
     letter-spacing: 0.23em;
     text-transform: uppercase;
     margin-right: 8px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: 700;
@@ -8094,7 +8094,7 @@ img.div-line2 {
 }
 
 #productratev3 .rate-it .rate-heading h1 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 24px;
     color: #333333;
     font-weight: 900;
@@ -8479,7 +8479,7 @@ img.div-line2 {
 
 #aboutv1 .ab-right .quote h4 {
     margin-left: 30px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #333333;
     font-weight: 700;
@@ -8557,7 +8557,7 @@ img.div-line2 {
 }
 
 .farmers .farm-it h2 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 18px;
     color: #333333;
     font-weight: 700;
@@ -8697,7 +8697,7 @@ img.div-line2 {
 }
 
 .shopgrid .right-it select {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 13px;
     color: #b0b0b0;
     font-weight: '';
@@ -8975,7 +8975,7 @@ img.div-line2 {
 }
 
 .shoplist .pro-list-it span.right span.rv {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: '';
@@ -8988,7 +8988,7 @@ img.div-line2 {
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
     border-radius: 25px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ffffff;
     font-weight: 700;
@@ -9002,7 +9002,7 @@ img.div-line2 {
     border: 1px solid #8eb35a;
     border-radius: 25px;
     background-color: #ffffff;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #8eb35a;
     font-weight: 700;
@@ -9129,7 +9129,7 @@ img.div-line2 {
 
 .productdetail .right-it form.quantity input {
     text-align: center;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 13px;
     color: #b0b0b0;
     font-weight: '';
@@ -9139,7 +9139,7 @@ img.div-line2 {
 }
 
 .productdetail span.check {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #b0b0b0;
     font-weight: '';
@@ -9152,7 +9152,7 @@ img.div-line2 {
 }
 
 .productdetail select {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 13px;
     color: #b0b0b0;
     font-weight: '';
@@ -9172,7 +9172,7 @@ img.div-line2 {
 }
 
 .productdetail .pro-description p {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #696969;
     font-weight: 700;
@@ -9181,7 +9181,7 @@ img.div-line2 {
 }
 
 .productdetail .pro-description span {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #696969;
     font-weight: '';
@@ -9371,7 +9371,7 @@ img.div-line2 {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #8e8e8e;
     font-weight: 400;
@@ -9391,7 +9391,7 @@ img.div-line2 {
     -moz-border-radius: 5px;
     border-radius: 5px;
     margin-bottom: 30px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #8e8e8e;
     font-weight: 400;
@@ -9421,7 +9421,7 @@ img.div-line2 {
 }
 
 .checkout .order h1 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 24px;
     color: #333333;
     font-weight: 900;
@@ -9475,7 +9475,7 @@ img.div-line2 {
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
     border-radius: 25px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ffffff;
     font-weight: 700;
@@ -9490,7 +9490,7 @@ img.div-line2 {
     border: 1px solid #8eb35a;
     border-radius: 25px;
     background-color: #ffffff;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #8eb35a;
     font-weight: 700;
@@ -9524,7 +9524,7 @@ img.div-line2 {
 
 .checkbox-custom-label {
     position: relative;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 15px;
     color: #8e8e8e;
     font-weight: 400;
@@ -9780,7 +9780,7 @@ img.div-line2 {
 }
 
 .contactv2 .ct-v2-hd h1 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 40px;
     color: #333333;
     font-weight: 900;
@@ -9910,7 +9910,7 @@ img.div-line2 {
     border: 1px solid #8eb35a;
     border-radius: 25px;
     background-color: #ffffff;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #8eb35a;
     font-weight: 700;
@@ -10034,7 +10034,7 @@ img.div-line2 {
     border: 1px solid #8eb35a;
     border-radius: 25px;
     background-color: #ffffff;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #8eb35a;
     font-weight: 700;
@@ -10050,7 +10050,7 @@ img.div-line2 {
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
     border-radius: 25px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ffffff;
     font-weight: 700;
@@ -10180,7 +10180,7 @@ img.div-line2 {
 }
 
 .flowerinstagram .insta-content h1 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 18px;
     color: #9a9a9a;
     font-weight: '';
@@ -10255,7 +10255,7 @@ img.div-line2 {
     border: 1px solid #8eb35a;
     border-radius: 25px;
     background-color: #ffffff;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #8eb35a;
     font-weight: 700;
@@ -10289,7 +10289,7 @@ img.div-line2 {
 }
 
 .flowerarrival .arr-left h2 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 24px;
     color: #333333;
     font-weight: 900;
@@ -10474,7 +10474,7 @@ img.div-line2 {
 }
 
 .slogan h2 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 24px;
     color: #333333;
     font-weight: 900;
@@ -10494,7 +10494,7 @@ img.div-line2 {
 }
 
 .slogan p {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 18px;
     color: #696969;
     font-weight: 700;
@@ -10528,7 +10528,7 @@ img.div-line2 {
 }
 
 .flowercategories .fl-cate-ct h2.cate-title {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: 700;
@@ -10607,7 +10607,7 @@ img.div-line2 {
 }
 
 .floweradsv3 .ads-item-left .ads-text span {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: 900;
@@ -10704,7 +10704,7 @@ img.div-line2 {
 }
 
 .floweraboutv4 .ab-flower-it h1 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: 900;
@@ -11229,7 +11229,7 @@ img.div-line2 {
 }
 
 .cakeaboutab .milestone span {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: 600;
@@ -11461,7 +11461,7 @@ img.div-line2 {
 }
 
 .plantheading h2 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #333333;
     font-weight: 600;
@@ -11499,7 +11499,7 @@ img.div-line2 {
 }
 
 .aboutplantintro .ab-plant-left .team-it .hover-inner h2 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 18px;
     color: #696969;
     font-weight: 600;
@@ -11575,7 +11575,7 @@ img.div-line2 {
 }
 
 .aboutplantintro .ab-plant-r .it h2 {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: 900;
@@ -12803,7 +12803,7 @@ header nav ul.hd-menu li.dropdown a {
     color: #696969;
     font-size: 13px;
     text-transform: uppercase;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-weight: 700;
     margin-right: 50px;
     padding: 40px 0 40px 0;
@@ -12859,7 +12859,7 @@ header nav ul.hd-menu ul.dropdown-menu.level1 {
 }
 
 header nav ul.hd-menu ul.dropdown-menu.level1 li a {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: 500;
@@ -13200,7 +13200,7 @@ header .right-menu button.white i:hover {
 
 .topsearch input[type="text"]::-webkit-input-placeholder {
     line-height: 40px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 16px;
     color: #ffffff;
     font-weight: '';
@@ -13358,7 +13358,7 @@ header .right-menu button.white i:hover {
 
 .sidenav .menu .menu-right a,
 .sidenav .menu .menu-left a {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ababab;
     font-weight: 600;
@@ -13447,7 +13447,7 @@ header .right-menu button.white i:hover {
     border: 1px solid #8eb35a;
     border-radius: 25px;
     background-color: #ffffff;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #8eb35a;
     font-weight: 700;
@@ -13463,7 +13463,7 @@ header .right-menu button.white i:hover {
     background-color: #8eb35a;
     border: 1px solid #8eb35a;
     border-radius: 25px;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #ffffff;
     font-weight: 700;
@@ -13569,7 +13569,7 @@ button#close-btn {
     outline: 0;
     color: #696969;
     font-size: 15px;
-    font-family: "Lato";
+    font-family: "Open Sans";
     text-transform: capitalize;
     font-weight: 400;
     font-style: normal;
@@ -13866,7 +13866,7 @@ footer.ht-footer ul li {
 }
 
 footer.ht-footer ul li a {
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 14px;
     color: #696969;
     font-weight: '';
@@ -13996,7 +13996,7 @@ footer.ht-footer .ft-below-right {
 
 footer.ht-footer .ft-below-right p a {
     text-transform: uppercase;
-    font-family: "Lato", 'Source Sans Pro', serif;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
     font-size: 12px;
     color: #696969;
     font-weight: 700;
