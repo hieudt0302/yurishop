@@ -14,12 +14,12 @@
                     <div class="date">
                         <span>@lang('blog.posted-by') {{$post->author->last_name}} {{$post->author->first_name}}, {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
                     </div>
-                    <h1>{{$post->translation->title}} </h1>
-                    <p class="quote">{{$post->translation->excerpt}}</p>
+                    <h1>{{$post->translation->title??$post->title}} </h1>
+                    <p class="quote">{{$post->translation->excerpt??'Content not found!'}}</p>
                     
 
                     <!-- Post content -->
-                    {!! $post->translation->content !!}
+                    {!! $post->translation->content??'' !!}
                     <!-- End post content -->
                     <br><br>
                     <!-- tags -->
