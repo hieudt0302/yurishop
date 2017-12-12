@@ -99,8 +99,11 @@
                     {{ csrf_field() }}
                 </form>
                 <li>
-                    <a class="shopping-cart" href="#">
-                        <i class="fa fa-shopping-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')
+                    <a class="shopping-cart " href="{{url('/cart')}}">
+                     <!-- Dont remove the class: shopping-cart-icon -->
+                        <i class="fa fa-shopping-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;
+                            <!-- Dont remove the class: cartItemCount -->
+                            <span class="cartItemCount">{{ Cart::instance('default')->count(false) }}</span> @lang('shoppings.items')
                     </a>
                 </li>
             </ul>
