@@ -43,7 +43,7 @@ class HomeController extends Controller
        
         $specialty_coffee = Product::leftJoin('categories','products.category_id','=','categories.id')
                                         ->where('products.published',1)
-                                        ->where('categories.slug','specialty_coffee') ///This is hard-code
+                                        ->where('categories.slug','specialty-coffee') ///This is hard-code
                                         ->orderBy('products.created_at', 'desc')
                                         ->limit(4)
                                         ->select('products.*')
@@ -51,7 +51,7 @@ class HomeController extends Controller
 
         $commercial_coffee = Product::leftJoin('categories','products.category_id','=','categories.id')
                                         ->where('products.published',1)
-                                        ->where('categories.slug','commercial_coffee') ///This is hard-code
+                                        ->where('categories.slug','commercial-coffee') ///This is hard-code
                                         ->orderBy('products.created_at', 'desc')
                                         ->limit(4)
                                         ->select('products.*')
