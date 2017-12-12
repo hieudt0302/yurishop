@@ -4,11 +4,11 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <h1>
-      Banner
+      Banner / Icon
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#">Banner</a></li>
+        <li><a href="#">Banner / Icon</a></li>
         <li class="active">Cập nhật</li>
       </ol>
       <div class="row">
@@ -25,7 +25,7 @@
             <div class="form-horizontal">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">Thay đổi ảnh banner</a></li>
+                        <li class="active"><a href="#info" data-toggle="tab">Thay đổi ảnh banner / icon</a></li>
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
@@ -35,8 +35,6 @@
                                 <div class="panel-group">
                                     <div class="panel panel-default">
                                         <div class="panel-body">
-
-
                                        
                                             <div class="form-group">
                                                 <label class="control-label col-md-3" for="slug" title="">Banner rộng toàn màn hình</label>
@@ -58,7 +56,41 @@
                                                     <input class="single-line valid" type="file" name="banner-right"/>
                                                     <span class="text-danger">{{ $errors->first('banner-right') }}</span>                                                        
                                                 </div>
-                                            </div>                                                                                                                                      
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Icon logo</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="icon-1"/>
+                                                    <span class="text-danger">{{ $errors->first('icon-1') }}</span>                                                        
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Icon chất lượng sản phẩm</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="icon-2"/>
+                                                    <span class="text-danger">{{ $errors->first('icon-2') }}</span>                                                        
+                                                </div>
+                                            </div> 
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Icon nguồn gốc sản phẩm</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="icon-3"/>
+                                                    <span class="text-danger">{{ $errors->first('icon-3') }}</span>                                                        
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Icon cộng đồng</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="icon-4"/>
+                                                    <span class="text-danger">{{ $errors->first('icon-4') }}</span>                                                        
+                                                </div>
+                                            </div>                                                                                            
+
+                                            <hr>
+
                                             <div class="form-group">
                                                 <div class="col-md-3">
                                                 </div>
