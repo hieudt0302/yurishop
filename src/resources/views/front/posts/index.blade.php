@@ -15,8 +15,8 @@
                 @else               
                     <h1>{{$category->translation->name??$category->name}}</h1>
                     <ul class="breadcumb">
-                        <li><a href="#">@lang('common.home')</a></li>
-                        <li><span>/</span><a href="#">@lang('common.posts')</a></li>
+                        <li><a href="{{ Setting::config('website')}}">@lang('common.home')</a></li>
+                        <li><span>/</span>@lang('common.posts')</li>
                         <li><span>/</span>{{$category->translation->name??$category->name}}</li>
                     </ul>
 

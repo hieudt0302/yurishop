@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Pokofarms - Home')
+@section('title','Pô Kô Farms - Home')
 @section('content')
 
 <!-- Slider -->

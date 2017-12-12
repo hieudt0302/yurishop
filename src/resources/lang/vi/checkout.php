@@ -30,7 +30,7 @@ return [
     'checkout-comment' => 'Bạn có muốn gửi đến thông tin gì thêm về đơn hàng này không?', 
     'change' => 'Thay đổi',  
     'order-received' => 'Đơn hàng của bạn đã được nhận.',  
-    'thank' => 'Cảm ơn đã mua hàng từ Pokofamrs!',  
+    'thank' => 'Cảm ơn đã mua hàng từ Pô Kô Famrs!',  
     'order-number' => 'Số hiệu đơn hàng',                                                    
     'order-details' => 'Chi tiết đơn hàng',         
 ];

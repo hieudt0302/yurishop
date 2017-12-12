@@ -1,6 +1,6 @@
 
 @extends('layouts.master')
-@section('title','Pokofarms - '.__('header.contact'))
+@section('title','Pô Kô Farms - '.__('header.contact'))
 @section('content')
 
 <!-- Head Section -->

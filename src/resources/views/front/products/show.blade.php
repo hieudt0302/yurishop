@@ -11,13 +11,13 @@
             <div class="col-md-12">
                 <h1>@lang('common.product-details')</h1>
                 <ul class="breadcumb">
-                    <li><a href="#">@lang('common.home')</a></li>
-                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <li><a href="{{ Setting::config('website')}}">@lang('common.home')</a></li>
+                    <li><span>/</span>@lang('product.product')</li>
                     <li><span>/</span>{{$product->translation->name??$product->name}}</li>
                 </ul>
             </div>
         </div>
-    </div>
+    </div>		
 </div>
 
 <section class="productdetail blogsingle shoplist">

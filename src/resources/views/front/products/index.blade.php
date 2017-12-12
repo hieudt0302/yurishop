@@ -43,8 +43,8 @@
             <div class="col-md-12">
                 <h1>@lang('header.promotion')</h1>
                 <ul class="breadcumb">
-                    <li><a href="#">@lang('common.home')</a></li>
-                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <li><a href="{{ Setting::config('website')}}">@lang('common.home')</a></li>
+                    <li><span>/</span>@lang('product.product')</li>
                     <li><span>/</span>@lang('header.promotion')</li>
                 </ul>
             </div>
@@ -54,8 +54,8 @@
             <div class="col-md-12">
                 <h1>{{$category->translation->name??'List'}}</h1>
                 <ul class="breadcumb">
-                    <li><a href="#">@lang('common.home')</a></li>
-                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <li><a href="{{ Setting::config('website')}}">@lang('common.home')</a></li>
+                    <li><span>/</span>@lang('product.product')</li>
                     <li><span>/</span>{{$category->translation->name??'List'}}</li>
                 </ul>
             </div>
