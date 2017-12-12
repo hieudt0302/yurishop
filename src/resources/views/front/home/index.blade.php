@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="ab-item">
-                    <img src="{{ asset('images/logo/origin.jpg') }}" alt="">
+                    <img src="{{ asset('images/logo/origin.png') }}" alt="">
                     <h2>@lang('home.product-origin')</h2>
                     <p>{{$product_origin->translation->description??""}}</p>
                     <a class="learnmore" href="{{url('/product-origin')}}">@lang('common.more-details')</a>
@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="ab-item">
-                    <img src="{{ asset('images/logo/fairtrade.jpg') }}" alt="">
+                    <img src="{{ asset('images/logo/fairtrade.png') }}" alt="">
                     <h2>@lang('home.product-quality')</h2>
                     <p>{{$product_quality->translation->description??""}}</p>
                     <a class="learnmore" href="{{url('/product-quality')}}">@lang('common.more-details')</a>
