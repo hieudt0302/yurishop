@@ -68,14 +68,14 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Icon chất lượng sản phẩm</label>
+                                                <label class="control-label col-md-3" for="slug" title="">Icon nguồn gốc sản phẩm</label>
                                                 <div class="col-md-4">
                                                     <input class="single-line valid" type="file" name="icon-2"/>
                                                     <span class="text-danger">{{ $errors->first('icon-2') }}</span>                                                        
                                                 </div>
                                             </div> 
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Icon nguồn gốc sản phẩm</label>
+                                                <label class="control-label col-md-3" for="slug" title="">Icon chất lượng sản phẩm</label>
                                                 <div class="col-md-4">
                                                     <input class="single-line valid" type="file" name="icon-3"/>
                                                     <span class="text-danger">{{ $errors->first('icon-3') }}</span>                                                        
