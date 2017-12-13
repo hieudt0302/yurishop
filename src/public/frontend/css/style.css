@@ -5993,7 +5993,7 @@ section {
 
 .subscribe,
 .subscribev3 {
-    padding: 90px 0;
+    padding: 40px 0;
     background: url('../images/uploads/sub-bg2.png') no-repeat;
     background-position: center;
     background-size: 100% auto;
@@ -13843,7 +13843,7 @@ button#close-btn {
 }
 
 footer.ht-footer {
-    padding-top: 115px;
+    padding-top: 60px;
     padding-bottom: 20px;
 }
 
