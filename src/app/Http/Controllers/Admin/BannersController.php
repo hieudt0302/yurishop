@@ -51,22 +51,30 @@ class BannersController extends Controller
         if (request()->hasFile('icon-1')) {
             $icon = $request->file('icon-1');            
             $img = Image::make($icon->getRealPath());
-            $img->resizeCanvas(null, 120)->save('images/logo/poko.png');                      
+            $img->resize(null, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('images/logo/poko.png');                      
         }
         if (request()->hasFile('icon-2')) {
             $icon = $request->file('icon-2');            
             $img = Image::make($icon->getRealPath());
-            $img->resizeCanvas(null, 120)->save('images/logo/origin.png');                      
+            $img->resize(null, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('images/logo/origin.png');                      
         }
         if (request()->hasFile('icon-3')) {
             $icon = $request->file('icon-3');            
             $img = Image::make($icon->getRealPath());
-            $img->resizeCanvas(null, 120)->save('images/logo/fairtrade.png');                      
+            $img->resize(null, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('images/logo/fairtrade.png');                      
         }    
         if (request()->hasFile('icon-4')) {
             $icon = $request->file('icon-4');            
             $img = Image::make($icon->getRealPath());
-            $img->resizeCanvas(null, 120)->save('images/logo/community-icon.png');                      
+            $img->resize(null, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('images/logo/community-icon.png');                      
         }                                                 
       
         return redirect()->back()
