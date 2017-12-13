@@ -5994,9 +5994,9 @@ section {
 .subscribe,
 .subscribev3 {
     padding: 90px 0;
-    background: url('../images/uploads/sub-bg.png') no-repeat;
+    background: url('../images/uploads/sub-bg2.png') no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: 100% auto;
 }
 
 .subscribe .sub-heading h1,

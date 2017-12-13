@@ -1,12 +1,12 @@
 .topsearch input,.topsearch input:focus{
-	background-color: #73C619;
+	background-color: #67b216;
 	border-color: none;
 	border-bottom: 1px solid #66AD18;
 }
 .main-nav a.mobile-menu{
 	display: block;
 	height: 50px;
-	background-color: #73C619;
+	background-color: #67b216;
 	margin: 0;
 	padding: 15px 20px;
 	width: 100%;
@@ -16,11 +16,11 @@
 	text-align: center;
 }
 .main-nav a.mobile-menu.expand{
-	background-color: #70BC1C;
+	background-color: #5b9b16;
 	border-bottom: 1px solid #66AD18;
 }
 .main-nav{
-	background-color: #73C619;
+	background-color: #67b216;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	position: relative;
@@ -40,7 +40,7 @@ ul.mainnavitems i, ul.mainnavitems a{
 }
 .mainnavitems.mobile-expand{
 	display: block;
-	background-color: #70BC1C;
+	background-color: #5b9b16;
 }
 .mainnavitems .has-submenu >a i{
 	display: none;
@@ -134,7 +134,7 @@ ul.nav-items li:last-child{
 		float: right;
 	}
 	.main-nav{
-		height: 100px;
+		height: 140px;
 	}
 	.main-nav .hd-logo{
 		display: block;
@@ -142,7 +142,7 @@ ul.nav-items li:last-child{
 	}
 	.main-nav .hd-logo img{
 		width: auto;
-		max-height: 80px;
+		max-height: 120px;
 		float: left;
 	}
 	ul.mainnavitems{
@@ -150,7 +150,7 @@ ul.nav-items li:last-child{
 		margin: 0;
 		padding: 0;
 		float: right;
-		margin-top: 50px;
+		margin-top: 70px;
 		position: relative;
 	}
 	ul.mainnavitems.mobile-expand{
@@ -186,8 +186,8 @@ ul.nav-items li:last-child{
 
 	ul.mainnavitems .has-submenu ul.submenu{
 		position: absolute;
-		background-color: #73C619;
-		padding: 20px 0 10px 0;
+		background-color: #67b216;
+		padding: 40px 0 10px 0;
 		margin: 0;
 	}
 	ul.mainnavitems ul.submenu li{
@@ -202,7 +202,7 @@ ul.nav-items li:last-child{
 		padding-right: 5px;
 	}
 	ul.mainnavitems ul.submenu li:hover{
-		background-color: #66AD18;
+		background-color: #5b9b16;
 	}
 	ul.mainnavitems .has-submenu:hover ul{
 		display: block;
