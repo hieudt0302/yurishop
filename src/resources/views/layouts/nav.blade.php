@@ -80,7 +80,11 @@
                 </li>
                 <li class="has-submenu">
                     <a class="accunt-select" href="#">
+                        @guest
                         @lang('header.account')
+                        @else
+                            {{Auth::user()->first_name}}
+                        @endguest
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </a>
                     <ul class="submenu" style="z-index: 9999">
