@@ -96,7 +96,6 @@
 							<span class="hot">Call for Price</span>
 						@else
 							@if(!$is_sales)
-								<span class="price2">{{FormatPrice::price($product->old_price)}}</span>
 								<span class="sub">{{FormatPrice::price($product->price)}}</span>
 							@else
 								<span class="price2">{{FormatPrice::price($product->price)}}</span>
