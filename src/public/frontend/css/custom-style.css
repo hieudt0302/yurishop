@@ -1,7 +1,7 @@
 .topsearch input,.topsearch input:focus{
-	background-color: #67b216;
+	background-color: #92cf59;
 	border-color: none;
-	border-bottom: 1px solid #66AD18;
+	border-bottom: 1px solid #5b9b16;
 }
 .main-nav a.mobile-menu{
 	display: block;
@@ -17,13 +17,15 @@
 }
 .main-nav a.mobile-menu.expand{
 	background-color: #5b9b16;
-	border-bottom: 1px solid #66AD18;
+	border-bottom: 1px solid #92cf59;
 }
 .main-nav{
-	background-color: #67b216;
+	background-color: #92cf59;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	position: relative;
+	/*background-image: url("../images/uploads/GreenbodyBG.png");
+	background-repeat: no-repeat;*/
 }
 
 .main-nav a.mobile-menu i{
@@ -50,7 +52,7 @@ ul.mainnavitems li{
 }
 
 ul.mainnavitems>li{
-	border-bottom: 1px solid #66AD18;
+	border-bottom: 1px solid #92cf59;
 	text-transform: uppercase;
 }
 ul.mainnavitems>li:last-child{
@@ -186,7 +188,7 @@ ul.nav-items li:last-child{
 
 	ul.mainnavitems .has-submenu ul.submenu{
 		position: absolute;
-		background-color: #67b216;
+		background-color: #92cf59;
 		padding: 40px 0 10px 0;
 		margin: 0;
 	}
@@ -250,4 +252,12 @@ ul.nav-items li:last-child{
 
 @media (min-width: 1200px) {
     
+}
+
+
+footer.ht-footer{
+	background-color: #178240;
+}
+footer.ht-footer .ft-heading h6, footer.ht-footer ul li a, footer.ht-footer .ft-contact ul.ct-it li i, footer.ht-footer .ft-contact .ct-icon a i{
+	color: #fff;
 }
