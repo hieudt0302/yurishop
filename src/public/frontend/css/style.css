@@ -5993,12 +5993,15 @@ section {
 
 .subscribe,
 .subscribev3 {
+    background-color: #eab600;
+    background-image: url('../images/uploads/sub-bg2.png');
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: bottom left;
+    display: block;
+    position: relative;
     padding: 40px 0;
-    background: url('../images/uploads/sub-bg2.png') no-repeat;
-    background-position: center;
-    background-size: 100% auto;
 }
-
 .subscribe .sub-heading h1,
 .subscribev3 .sub-heading h1 {
     font-family: "Playfair Display", 'Source Sans Pro', serif;
