@@ -136,7 +136,7 @@ ul.nav-items li:last-child{
 		float: right;
 	}
 	.main-nav{
-		height: 140px;
+		height: 160px;
 	}
 	.main-nav .hd-logo{
 		display: block;
@@ -152,7 +152,7 @@ ul.nav-items li:last-child{
 		margin: 0;
 		padding: 0;
 		float: right;
-		margin-top: 70px;
+		margin-top: 100px;
 		position: relative;
 	}
 	ul.mainnavitems.mobile-expand{
@@ -189,7 +189,7 @@ ul.nav-items li:last-child{
 	ul.mainnavitems .has-submenu ul.submenu{
 		position: absolute;
 		background-color: #92cf59;
-		padding: 40px 0 10px 0;
+		padding: 30px 0 10px 0;
 		margin: 0;
 	}
 	ul.mainnavitems ul.submenu li{
@@ -215,7 +215,7 @@ ul.nav-items li:last-child{
 	ul.nav-items{
 		right: 20px;
 		position: absolute;
-		top: 10px;
+		top: 30px;
 	}
 	ul.nav-items li.has-submenu ul{
 		display: none;
