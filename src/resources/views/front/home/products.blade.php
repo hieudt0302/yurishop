@@ -28,9 +28,6 @@
                             <del class="section-text">{{FormatPrice::price($product->price)}}</del> &nbsp;
                             <strong>{{FormatPrice::price($product->special_price)}}</strong>
                         	@else
-                            	@if($product->old_price > 0)
-                            	<del class="section-text">{{FormatPrice::price($product->old_price)}}</del> &nbsp;
-                            	@endif
                             	<strong>{{FormatPrice::price($product->price)}}</strong>
                         	@endif
 						</span>
@@ -49,9 +46,6 @@
                             <del class="section-text">{{FormatPrice::price($product->price)}}</del> &nbsp;
                             <strong>{{$product->special_price}}</strong>
                         	@else
-                            	@if($product->old_price > 0)
-                            	<del class="section-text">{{FormatPrice::price($product->old_price)}}</del> &nbsp;
-                            	@endif
                             	<strong>{{FormatPrice::price($product->price)}}</strong>
                         	@endif
 						</span>
@@ -70,9 +64,6 @@
                             <del class="section-text">{{FormatPrice::price($product->price)}}</del> &nbsp;
                             <strong>{{$product->special_price}}</strong>
                         	@else
-                            	@if($product->old_price > 0)
-                            	<del class="section-text">{{$product->old_price}}</del> &nbsp;
-                            	@endif
                             	<strong>{{FormatPrice::price($product->price)}}</strong>
                         	@endif
 						</span>
