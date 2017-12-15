@@ -13877,7 +13877,7 @@ footer.ht-footer ul li a {
 }
 
 footer.ht-footer ul li:hover a {
-    color: #178240;
+    color: #eab600;
     text-decoration: none;
 }
 
@@ -13909,7 +13909,7 @@ footer.ht-footer .ft-contact .ct-icon a i {
 
 footer.ht-footer .ft-contact .ct-icon a:hover i {
     color: #ffffff;
-    background-color: #178240;
+    background-color: #eab600;
     -webkit-transition: all 0.5s ease-out;
     -moz-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
@@ -13984,7 +13984,7 @@ footer.ht-footer .ft-below-left p {
 }
 
 footer.ht-footer .ft-below-left p a {
-    color: #178240;
+    color: #eab600;
 }
 
 footer.ht-footer .ft-below-left p a.pink {
@@ -14008,7 +14008,7 @@ footer.ht-footer .ft-below-right p a {
 
 footer.ht-footer .ft-below-right p a:hover {
     text-decoration: none;
-    color: #178240;
+    color: #eab600;
 }
 
 footer.ht-footer .ft-below-right p a.pink:hover {
@@ -14024,7 +14024,7 @@ footer.ht-footer .ft-below-right p a.pink:hover {
 }
 
 .ht-footer4 ul li:hover a {
-    color: #178240 !important;
+    color: #eab600 !important;
 }
 
 .ht-footer4 ul li a,
