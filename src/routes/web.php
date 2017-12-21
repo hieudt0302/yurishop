@@ -48,7 +48,7 @@ Route::get('/faqs', 'Front\FaqController@index');
 // Route::get('/products', 'Front\ProductsController@index');
 Route::get('/products/{id}', 'Front\ProductsController@show');
 Route::post('/add-to-cart', 'Front\ProductsController@addToCart');
-Route::post('/add-to-wishlist', 'Front\ProductsController@addToWishlist');
+Route::post('/add-to-wishlist', ['use'=>'Front\ProductsController@addToWishlist', 'middleware' => 'auth']);
 
 /* POST */
 // Route::get('/posts', 'Front\PostsController@index');
@@ -73,7 +73,7 @@ Route::post('/Cart/DeleteCartItem', 'Front\CartController@DeleteCartItem');
 Route::post('/Cart/MoveItemBetweenCartAndWishlist', 'Front\CartController@MoveItemBetweenCartAndWishlist');
 
 /* WISHLIST */
-Route::get('/wishlist', 'Front\ShoppingCartController@wishlist');
+Route::get('/wishlist',  ['use'=> 'Front\ShoppingCartController@wishlist' , 'middleware' => 'auth']);
 Route::post('/Cart/UpdateWishlistItem', 'Front\CartController@UpdateWishlistItem');
 Route::post('/Cart/DeleteWishlistItem', 'Front\CartController@DeleteWishlistItem');
 Route::post('/Cart/MoveItemBetweenWishlistAndCart', 'Front\CartController@MoveItemBetweenWishlistAndCart');
