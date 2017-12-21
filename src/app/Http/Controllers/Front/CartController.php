@@ -183,7 +183,16 @@ class CartController extends Controller
 
         $item =  Cart::instance('wishlist')->get($request->ItemId);  
         Cart::instance('default')->add($item->id, $item->name, $item->qty, $item->price,  ['summary' => $item->options->summary, 'source' => $item->options->source]);
+        
+        $owner = Auth::user();
+        // Restore from data if exist
+        Cart::instance('wishlist')->restore($owner->id);
+
+        // Remove new item
         Cart::instance('wishlist')->remove($request->ItemId);
+
+        // Save to data
+        Cart::instance('wishlist')->store($owner->id);
 
         return response()->json([
             'message' => 'Đã di chuyển sản phẩm sang giỏ hàng!',
