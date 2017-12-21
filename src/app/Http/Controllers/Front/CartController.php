@@ -76,18 +76,18 @@ class CartController extends Controller
             ]);
         }
 
-        $item = Cart::get($request->ItemId);  
+        $item = Cart::get($request->ItemId);          
         Cart::remove($request->ItemId);
 
         //Restore from data if exist
         $owner = Auth::user();
-        //Cart::instance('wishlist')->restore($owner->id);
+        Cart::instance('wishlist')->restore($owner->id);
 
         // Add new item
         Cart::instance('wishlist')->add($item->id, $item->name, $item->qty, $item->price, ['summary' => $item->options->summary, 'source' => $item->options->source]);
         
         //Save to data
-        //Cart::instance('wishlist')->store($owner->id);
+        Cart::instance('wishlist')->store($owner->id);
 
         
 
