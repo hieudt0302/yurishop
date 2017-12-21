@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
@@ -78,7 +79,7 @@ class CartController extends Controller
         $item = Cart::get($request->ItemId);  
         Cart::remove($request->ItemId);
         Cart::instance('wishlist')->add($item->id, $item->name, $item->qty, $item->price, ['summary' => $item->options->summary, 'source' => $item->options->source]);
-
+        Cart::instance('wishlist')->store(Auth::user()->id);
         return response()->json([
             'message' => 'Đã di chuyển sản phẩm sang danh sách mong ước!',
             'status' => 'success',
@@ -88,8 +89,6 @@ class CartController extends Controller
             'newWishlistItemCount' => Cart::instance('wishlist')->count()
         ]);
     }
-
-
 
     public function UpdateWishlistItem(Request $request)
     {
