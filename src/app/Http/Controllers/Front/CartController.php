@@ -14,7 +14,6 @@ class CartController extends Controller
 {
     public function UpdateCartItem(Request $request)
     {
-        Cart::instance('wishlist')->restore(Auth::user()->id);
         $validator = Validator::make($request->all(), [
             'ItemId' => 'required',
             'newQuantity' => 'required|numeric|min:1',
