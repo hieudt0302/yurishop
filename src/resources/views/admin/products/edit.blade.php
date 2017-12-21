@@ -544,7 +544,7 @@
         return false;
     });
     /* DELETE IMAGE */
-    $('.ajax-action-link').on("click", "button.ajax-action-link", function (e) {
+    $('td').on("click", ".ajax-action-link", function (e) {
         e.preventDefault();
         var token = '{{csrf_token()}}';
         var link = $(this);
