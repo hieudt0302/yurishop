@@ -19,7 +19,7 @@
                         </div>
                         <div class="page-body">
                             <div class="order-summary-content">
-                                @php($wishlist = Cart::restore(Auth::user()->id))
+                                @php($wishlist = Cart::instance('wishlist'))
                                 @if(!empty($wishlist)?$wishlist->count() : 0 > 0)
                                 <form action="{{url('/cart')}}" enctype="multipart/form-data" method="GET" novalidate="novalidate">
                                 <!-- {{ csrf_field() }} -->

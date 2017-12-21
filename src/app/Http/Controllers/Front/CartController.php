@@ -88,7 +88,7 @@ class CartController extends Controller
         
         //Save to data
         Cart::instance('wishlist')->store($owner->id);
-
+        
         return response()->json([
             'message' => 'Đã di chuyển sản phẩm sang danh sách mong ước!',
             'status' => 'success',
