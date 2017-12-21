@@ -457,6 +457,7 @@ class ProductsController extends Controller
                 if (strlen($product_name) > 0) 
                     $query->where('products.name', 'LIKE', '%'.strtolower($product_name).'%');
             })
+            ->whereNull('delete_at')
             ->where(function ($query) use ($from_date) {
                 if (strlen($from_date) > 0) 
                 {
