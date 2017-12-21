@@ -95,7 +95,7 @@
                         <li><a href="{{ url('/Account/Info') }}">@lang('account.my-account')</a></li>
                         <li><a href="{{ url('/wishlist') }}">@lang('account.wishlist')</a></li>
                         <li><a href="{{ url('/cart') }}"></i>@lang('shoppings.cart')</a></li>
-                        <li><a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"></i>@lang('nav.logout')</a></li>
+                        <li><a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"></i>@lang('auth.logout')</a></li>
                         @endguest
                     </ul>
                 </li>
