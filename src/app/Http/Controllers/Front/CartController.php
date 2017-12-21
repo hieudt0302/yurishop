@@ -14,6 +14,7 @@ class CartController extends Controller
 {
     public function UpdateCartItem(Request $request)
     {
+        Cart::instance('wishlist')->restore($owner->id);
         $validator = Validator::make($request->all(), [
             'ItemId' => 'required',
             'newQuantity' => 'required|numeric|min:1',
@@ -88,7 +89,9 @@ class CartController extends Controller
         
         //Save to data
         Cart::instance('wishlist')->store($owner->id);
+
         
+
         return response()->json([
             'message' => 'Đã di chuyển sản phẩm sang danh sách mong ước!',
             'status' => 'success',
