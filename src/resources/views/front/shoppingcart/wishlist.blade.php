@@ -19,7 +19,7 @@
                         </div>
                         <div class="page-body">
                             <div class="order-summary-content">
-                                @if(Cart::instance('wishlist')->count() >0)
+                                @if(Cart::instance('wishlist')->restore(Auth::user()->id)->count() >0)
                                 <form action="{{url('/cart')}}" enctype="multipart/form-data" method="GET" novalidate="novalidate">
                                 <!-- {{ csrf_field() }} -->
                                     <div class="card">
@@ -41,7 +41,7 @@
                                                 </div>
                                             </div>
                                             <div class="cart-body">
-                                                @foreach(Cart::instance('wishlist')->content() as $row)
+                                                @foreach(Cart::instance('wishlist')->restore(Auth::user()->id)->content() as $row)
                                                 <div id="{{$row->rowId}}" class="cart-row">
                                                     <div class="cart-col cart-col-main">
                                                         <div class="row row-hardcode sm-gutters">
