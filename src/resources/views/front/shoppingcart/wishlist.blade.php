@@ -19,9 +19,9 @@
                         </div>
                         <div class="page-body">
                             <div class="order-summary-content">
-                            
-                                @php(Cart::instance('wishlist')->restore(Auth->user()->id))
-                                @php(Cart::instance('wishlist')->store(Auth->user()->id))
+
+                                @php(Cart::instance('wishlist')->restore(Auth::user()->id))
+                                @php(Cart::instance('wishlist')->store(Auth::user()->id))
 
                                 @if(Cart::instance('wishlist')->count() : 0 > 0)
                                 <form action="{{url('/cart')}}" enctype="multipart/form-data" method="GET" novalidate="novalidate">
