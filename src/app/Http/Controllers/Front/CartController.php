@@ -81,7 +81,7 @@ class CartController extends Controller
 
         //Restore from data if exist
         $owner = Auth::user();
-        Cart::instance('wishlist')->restore($owner->id);
+        //Cart::instance('wishlist')->restore($owner->id);
 
         // Add new item
         Cart::instance('wishlist')->add($item->id, $item->name, $item->qty, $item->price, ['summary' => $item->options->summary, 'source' => $item->options->source]);
