@@ -80,6 +80,7 @@ class CartController extends Controller
         Cart::remove($request->ItemId);
 
         //Restore from data if exist
+        
         $owner = Auth::user();
         Cart::instance('wishlist')->restore($owner->id);
 
