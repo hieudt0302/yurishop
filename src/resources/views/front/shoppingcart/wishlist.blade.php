@@ -19,8 +19,11 @@
                         </div>
                         <div class="page-body">
                             <div class="order-summary-content">
-                                @php($wishlist = Cart::instance('wishlist'))
-                                @if(!empty($wishlist)?$wishlist->count() : 0 > 0)
+                            
+                                @php(Cart::instance('wishlist')->restore(Auth->user()->id))
+                                @php(Cart::instance('wishlist')->store(Auth->user()->id))
+
+                                @if(Cart::instance('wishlist')->count() : 0 > 0)
                                 <form action="{{url('/cart')}}" enctype="multipart/form-data" method="GET" novalidate="novalidate">
                                 <!-- {{ csrf_field() }} -->
                                     <div class="card">
@@ -42,7 +45,7 @@
                                                 </div>
                                             </div>
                                             <div class="cart-body">
-                                                @foreach($wishlist->content() as $row)
+                                                @foreach(Cart::instance('wishlist')->content() as $row)
                                                 <div id="{{$row->rowId}}" class="cart-row">
                                                     <div class="cart-col cart-col-main">
                                                         <div class="row row-hardcode sm-gutters">
