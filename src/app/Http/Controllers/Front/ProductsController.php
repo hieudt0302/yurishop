@@ -135,6 +135,13 @@ class ProductsController extends Controller
 
     public function addToWishlist(Request $request)
     {
+        if(Auth::guest())
+            return response()->json([
+                'message' => 'Vui lòng đăng nhập trước!',
+                'status' => 'error',
+                'newWishlistItemCount' => 0
+            ]);
+
         $validator = Validator::make($request->all(), [
             'id' => 'required',
             'name' => 'required',
