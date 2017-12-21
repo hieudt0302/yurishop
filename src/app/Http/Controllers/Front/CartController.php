@@ -26,7 +26,7 @@ class CartController extends Controller
             ]);
         }
        
-        Cart::update($request->ItemId, $request->newQuantity);
+        Cart::instance('default')->update($request->ItemId, $request->newQuantity);
         
         return response()->json([
             'message' => 'Đã thêm '. $request->newQuantity .' sản phẩm vào giỏ hàng!',
@@ -87,7 +87,7 @@ class CartController extends Controller
         Cart::instance('wishlist')->add($item->id, $item->name, $item->qty, $item->price, ['summary' => $item->options->summary, 'source' => $item->options->source]);
         
         //Save to data
-        Cart::instance('wishlist')->store($owner->id);
+        //Cart::instance('wishlist')->store($owner->id);
 
         
 
