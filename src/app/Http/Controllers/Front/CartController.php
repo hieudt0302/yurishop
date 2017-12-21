@@ -115,7 +115,15 @@ class CartController extends Controller
             ]);
         }
        
+        // Restore from data if exist
+        $owner = Auth::user();
+        Cart::instance('wishlist')->restore($owner->id);
+        
+        // Update new item
         Cart::instance('wishlist')->update($request->ItemId, $request->newQuantity);
+
+        // Save to data
+        Cart::instance('wishlist')->store($owner->id);
         
         return response()->json([
             'message' => 'Đã thêm '. $request->newQuantity .' sản phẩm vào giỏ hàng!',
@@ -140,8 +148,16 @@ class CartController extends Controller
             ]);
         }
        
+        // Restore from data if exist
+        $owner = Auth::user();
+        Cart::instance('wishlist')->restore($owner->id);
+
+        // Remove new item
         Cart::instance('wishlist')->remove($request->ItemId);
         
+        // Save to data
+        Cart::instance('wishlist')->store($owner->id);
+
         return response()->json([
             'message' => 'Đã xóa sản phẩm vào khỏi hàng!',
             'status' => 'success',
