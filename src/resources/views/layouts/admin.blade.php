@@ -424,6 +424,21 @@
         </li>
         <li class="treeview">
           <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Gallery</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('/admin/galleries')}}"><i class="fa fa-circle-o"></i> Danh Sách</a></li>
+            <li><a href="{{url('/admin/galleries/create')}}"><i class="fa fa-circle-o"></i> Tạo Mới</a></li>
+            <!-- <li><a href="#"><i class="fa fa-circle-o"></i> Thống Kê</a></li> -->
+            <!-- <li><a href="#"><i class="fa fa-circle-o"></i> Thiết Lập</a></li> -->
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
             <i class="fa fa-edit"></i> <span>Menu</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
