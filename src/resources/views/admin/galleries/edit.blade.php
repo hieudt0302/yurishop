@@ -39,7 +39,7 @@
                             <form action="{{url('/admin/galleries')}}/{{$gallery->id}}" method="post">
                             {!! method_field('patch') !!} 
                             {{ csrf_field()}}
-                                <input type="hidden" name="product_id" value="{{$gallery->id}}">
+                                <input type="hidden" name="gallery_id" value="{{$gallery->id}}">
                                 <div class="panel-group">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
@@ -99,13 +99,13 @@
                                 <div class="panel panel-default">
                                     <form id="form-upload-image" name="form-upload-image"  method="post" enctype="multipart/form-data"> 
                                         {{ csrf_field()}}
-                                        <input type="hidden" name="product_id" value="{{$gallery->id}}">
+                                        <input type="hidden" name="gallery_id" value="{{$gallery->id}}">
                                         <div class="panel-heading">
                                         Thêm ảnh mới
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="product_image_upload" title="">Upload ảnh</label>
+                                                <label class="col-md-3 control-label" for="gallery_image_upload" title="">Upload ảnh</label>
                                                 <div class="col-md-8">
                                                     <input type="file" id="image_upload" name="image_upload" >
                                                     <div style="width:200px;height: 200px;border: 1px solid whitesmoke;text-align: center" id="img1">
@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-body">
-                                        <div id="productpictures-grid" >
+                                        <div id="gallerypictures-grid" >
                                             <table id="medias-table" class="table table-bordered ">
                                                 <thead>
                                                     <tr>

@@ -24,7 +24,7 @@
 </section>
 <!-- Main content -->
 <section class="content">
-    <!-- PRODUCTS EDIT -->
+    <!-- GALLERIES EDIT -->
     <div class="row">
         <div class="col-md-12">
             <div class="form-horizontal">
@@ -59,7 +59,7 @@
                                                 <div class="col-md-4 col-md-offset-3">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            {{ Form::checkbox('published', old('published') , true, array('class' => 'check-box')) }}
+                                                            {{ Form::checkbox('published', old('published') , false, array('class' => 'check-box')) }}
                                                             Xuất bản
                                                         </label>
                                                     </div>
