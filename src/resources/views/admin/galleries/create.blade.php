@@ -81,7 +81,13 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                                                                     
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                                                </div>
+                                            </div>                                   
                                         </div>
                                     </div>
                                 </div>
