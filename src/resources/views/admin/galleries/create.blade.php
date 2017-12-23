@@ -59,7 +59,7 @@
                                                 <div class="col-md-4 col-md-offset-3">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            {{ Form::checkbox('published', old('published') , false, array('class' => 'check-box')) }}
+                                                            {{ Form::checkbox('published', old('published') , 1, array('class' => 'check-box')) }}
                                                             Xuất bản
                                                         </label>
                                                     </div>

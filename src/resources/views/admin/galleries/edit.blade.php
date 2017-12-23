@@ -74,7 +74,7 @@
                                                 <div class="col-md-4">
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
-                                                        <option value="{{$category->id}}" {{$gallery->category->id??0 == $category->id? 'selected':''}}>{{$category->name}}</option>
+                                                        <option value="{{$category->id}}" {{($gallery->category->id??0) == $category->id? 'selected':''}}>{{$category->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
