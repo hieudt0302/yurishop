@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Models\Category;
 use App\Models\Gallery;
-use App\Models\Language;
+use App\Models\Media;
 use Validator;
 
 use Intervention\Image\Facades\Image;
