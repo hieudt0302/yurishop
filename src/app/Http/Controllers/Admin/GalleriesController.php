@@ -127,7 +127,7 @@ class GalleriesController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'slug' => 'required|string|min:5|unique:galleries'
+            'slug' => 'required|string|min:5|unique:galleries,'.$request->slug
             
         ],
         [
