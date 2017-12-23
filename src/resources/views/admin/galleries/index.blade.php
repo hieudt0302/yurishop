@@ -99,14 +99,14 @@
                 <h4 class="modal-title">Cảnh Báo</h4>
             </div>
             <div class="modal-body">
-                <p>Bạn có muốn xóa bài viết này không?</p>
+                <p>Bạn có muốn xóa gallery này không?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
                 <form name="form-gallery-delete"  method="POST">
                     {!! csrf_field() !!}
                     <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" class="btn btn-outline" value="Xóa Bài Viết">
+                    <input type="submit" class="btn btn-outline" value="Xóa Gallery">
                 </form>
             </div>
         </div>
