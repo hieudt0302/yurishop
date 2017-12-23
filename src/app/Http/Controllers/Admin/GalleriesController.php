@@ -112,8 +112,8 @@ class GalleriesController extends Controller
         $galleryCategory = Category::where('slug', 'galleries')->first();
         
         $categories = Category::where('parent_id', $galleryCategory->id??0)->get();
-
-        return View('admin/galleries/edit',compact('gallery','categories'));
+        $tab = 1;
+        return View('admin/galleries/edit',compact('gallery','categories','tab'));
     }
 
     /**
