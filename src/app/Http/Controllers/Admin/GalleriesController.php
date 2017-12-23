@@ -225,8 +225,8 @@ class GalleriesController extends Controller
                 'status' => 'success',
                 'path' => $path,
                 'id' => $images->id,
-                'name' => $images->name,
-                'description' => $images->description,
+                'name' => $images->name??'---',
+                'description' => $images->description??'---',
                 'order' => $request->display_order
             ]);
         }
