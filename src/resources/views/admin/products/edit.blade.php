@@ -249,7 +249,7 @@
                                             <!-- REMOVE THIS TO FIX BUT: Cannot send data to server -->
                                             <!-- {!! method_field('patch') !!}  -->
                                             <!-- {{ csrf_field()}} -->
-                                            <input type="hidden" id="language_id_translate" name="language_id_translate" value="0">
+                                            <input type="hidden" name="language_id" value="{{$language_id}}">
                                             <div class="panel-body">
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="name_translate" title="">Tên sản phẩm</label>

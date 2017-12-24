@@ -279,7 +279,7 @@ class ProductsController extends Controller
     public function updateTranslation(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'name_translate' => 'required',
             'language_id' =>'required|numeric|min:1',
         ]);
 
