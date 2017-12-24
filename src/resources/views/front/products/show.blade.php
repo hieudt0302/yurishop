@@ -34,7 +34,7 @@
 						@else 
 							@if($key === 1)
 							<div class="more-img">
-								<a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a>
+								<!-- <a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a> -->
 							@endif 
 								@if($key < 4)
 									@if($key === 1)
@@ -44,7 +44,7 @@
 									@endif
 								@endif
 							@if($key + 1  == count($product->medias))
-								<a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a>
+								<!-- <a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a> -->
 							</div>
 							@endif
 						@endif
@@ -346,7 +346,18 @@
 		    } else {
 		        x.style.display = "none";
 		    }
-		});       	
+		});
+		$(".product-main-img").elevateZoom();
+
+		$(".pro-detail-infor .more-img .sub-img").click(function() {
+			var mainImage = $(".pro-detail-infor .pro-img img").attr("src");
+			var img = $(this).attr('src');
+			$(".pro-detail-infor .pro-img img").attr("src", img);
+			$(this).attr('src', mainImage);
+			$(".product-main-img").elevateZoom();
+			console.log(img);
+			console.log(mainImage);
+		});
     });
 </script>
 @endsection
