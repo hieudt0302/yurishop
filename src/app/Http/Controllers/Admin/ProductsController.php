@@ -182,7 +182,14 @@ class ProductsController extends Controller
         $tags = Tag::all();
         $languages = Language::all(); ///TODO: make condition active
         $tab = 1;
-        return View('admin/products/edit',compact('product','languages','categories','tags','tab'));
+
+        $language_id = Input::get('language_id')??0;
+        $translation =  null;
+        if(!empty( $language_id) &&   $language_id  > 0 ){
+            $translation = ProductTranslation::where('product_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->first();
+            $tab= 2;
+        }
+        return View('admin/products/edit',compact('product','languages','categories','tags','tab', 'language_id', 'translation'));
     }
 
     /**
@@ -277,11 +284,24 @@ class ProductsController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json([
-                'message' => 'Không được để trống tên sản phẩm',
-                'status' => 'error'
-            ]);
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
         }
+        if(empty(Language::find($request->language_id))){
+            return redirect()->back()
+            ->with('message', 'Vui lòng chọn ngôn ngữ.')
+            ->with('status', 'error')
+            ->withInput(['tab'=> 2]);
+        }
+        
+      
+        // if ($validator->fails()) {
+        //     return response()->json([
+        //         'message' => 'Vui lòng chọn ngôn ngữ và nhập tên sản phẩm!',
+        //         'status' => 'error'
+        //     ]);
+        // }
 
         $translation = ProductTranslation::where('language_id',$request->language_id)
         ->where('product_id',$id)->withoutGlobalScopes()
@@ -305,11 +325,16 @@ class ProductsController extends Controller
             $translation->save();
         }
 
-        return response()->json([
-            'message' => 'Cập nhật nội dung  thành công.',
-            'status' => 'success',
-            'type' => 'update'
-        ]);
+        return redirect()->back()
+        ->with('message', 'Cập nhật nội dung mới thành công')
+        ->with('status', 'success')
+        ->withInput(['tab'=> 2]);
+
+        // return response()->json([
+        //     'message' => 'Cập nhật nội dung  thành công.',
+        //     'status' => 'success',
+        //     'type' => 'update'
+        // ]);
     }
 
     public function fetchTranslation($id, $code)

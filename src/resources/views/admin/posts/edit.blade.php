@@ -152,9 +152,9 @@
                                 </form>
 
                                 <form action="{{url('/admin/posts')}}/{{$post->id}}/translation" method="post">
-                                {!! method_field('patch') !!} 
-                                {{ csrf_field()}}
-                                <input type="hidden" name="language_id" value="{{$language_id}}">
+                                    {!! method_field('patch') !!} 
+                                    {{ csrf_field()}}
+                                    <input type="hidden" name="language_id" value="{{$language_id}}">
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
