@@ -23,6 +23,49 @@
 </section>
 <!-- Main content -->
 <section class="content">
+<!-- SEARCH -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                <h3 class="box-title">Tìm kiếm</h3>
+                </div>
+                <form action="{{url('admin/posts')}}" method="POST" class="form-horizontal" >
+                {{ csrf_field() }}
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="product_name" class="col-sm-2 control-label">Tiêu Đề</label>
+                            <div class="col-sm-4">
+                                <input type="text" name="post_title" class="form-control" id="post_title" value="{{old('post_title')}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category_id" class="col-sm-2 control-label">Chủ Đề</label>
+                            <div class="col-sm-4">
+                                <select name="category_id" class="form-control select2" style="width: 100%;">
+                                    <option value="0" >-----Tất cả-----</option>
+                                    @foreach($categories as $category)
+                                       <option value="{{$category->id}}" {{ old('category_id') == $category->id? 'selected':''}}>{{$category->name}}</option>
+                                    @endforeach
+                             </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-info">
+                            <i class="fa fa-search"></i> Tìm kiếm
+                        </button>
+                        <!-- <button type="submit" class="btn btn-default pull-right">
+                            <i class="fa fa-print"></i> Xuất file
+                        </button> -->
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
