@@ -405,7 +405,7 @@ class PostsController extends Controller
         $post_title = $request->post_title;
         $category_id = $request->category_id;
 
-        $query = Product::whereNull('deleted_at')
+        $query = Post::whereNull('deleted_at')
              ->where(function ($query) use ($post_title) {
                 if (strlen($post_title) > 0) 
                     $query->where('posts.title', 'LIKE', '%'.strtolower($post_title).'%');
