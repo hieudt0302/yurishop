@@ -281,6 +281,9 @@ class ProductsController extends Controller
         $validator = Validator::make($request->all(), [
             'name_translate' => 'required',
             'language_id' =>'required|numeric|min:1',
+        ],[
+            'name_translate.required'=> 'Vui lòng nhập tên sản phẩm',
+            'language_id.required' => 'Vui lòng chọn ngôn ngữ'
         ]);
 
         if ($validator->fails()) {
@@ -288,9 +291,10 @@ class ProductsController extends Controller
             ->withErrors($validator)
             ->withInput();
         }
+
         if(empty(Language::find($request->language_id))){
             return redirect()->back()
-            ->with('message', 'Vui lòng chọn ngôn ngữ.')
+            ->with('message', 'Vui lòng chọn ngôn ngữ khác.')
             ->with('status', 'error')
             ->withInput(['tab'=> 2]);
         }
@@ -309,17 +313,17 @@ class ProductsController extends Controller
 
         if(!empty($translation))
         {
-            $translation->name = $request->name;
-            $translation->summary = $request->summary;
-            $translation->description = $request->description;
-            $translation->specs = $request->specs;
+            $translation->name = $request->name_translate;
+            $translation->summary = $request->summary_translate;
+            $translation->description = $request->description_translate;
+            $translation->specs = $request->specs_translate;
             $translation->save();
         }else{
             $translation = new  ProductTranslation();
-            $translation ->name = $request->name;
-            $translation ->summary = $request->summary;
-            $translation ->description = $request->description;
-            $translation ->specs = $request->specs;
+            $translation ->name = $request->name_translate;
+            $translation ->summary = $request->summary_translate;
+            $translation ->description = $request->description_translate;
+            $translation ->specs = $request->specs_translate;
             $translation->product_id = $id;
             $translation->language_id =  $request->language_id;
             $translation->save();
