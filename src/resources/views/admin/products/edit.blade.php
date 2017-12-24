@@ -226,7 +226,12 @@
                                                     <select id="language-select" name="language_id" class="form-control">
                                                         <option value="0">-----Chọn Ngôn Ngữ-----</option>
                                                         @foreach($languages as  $language)
-                                                        <option value="{{$language->id}}">{{$language->name}}</option>
+                                                        <!-- <option value="{{$language->id}}">{{$language->name}}</option> -->
+                                                        @if( $language_id == $language->id )
+                                                                <option value="{{$language->id}}" selected>{{$language->name}}</option>
+                                                            @else
+                                                                <option value="{{$language->id}}" >{{$language->name}}</option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -250,7 +255,7 @@
                                                     <label class="col-md-3 control-label" for="name_translate" title="">Tên sản phẩm</label>
                                                     <div class="col-md-4">
                                                         <div class="input-group input-group-required">
-                                                            <input class="form-control text-box single-line valid" id="name_translate" name="name_translate" type="text" value="">
+                                                            <input class="form-control text-box single-line valid" id="name_translate" name="name_translate" type="text" value="{{$translation->name??''}}">
                                                             <div class="input-group-btn">
                                                                 <span class="required">*</span>
                                                             </div>
@@ -260,19 +265,19 @@
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="summary_translate" title="">Giới thiệu</label>
                                                     <div class="col-md-8">
-                                                        <textarea class="form-control" id="summary_translate" name="summary_translate" rows="3"  placeholder=""></textarea>
+                                                        <textarea class="form-control" id="summary_translate" name="summary_translate" rows="3"  placeholder="">{{$translation->summary??''}}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="description_translate" title="">Mô tả</label>
                                                     <div class="col-md-8">
-                                                        <textarea class="form-control" id="description_translate" name="description_translate" rows="3"  placeholder=""></textarea>
+                                                        <textarea class="form-control" id="description_translate" name="description_translate" rows="3"  placeholder="">{!! $translation->description??'' !!}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-md-3 control-label" for="specs_translate" title="">Thông số</label>
                                                     <div class="col-md-8">
-                                                        <textarea class="form-control" id="specs_translate" name="specs_translate" rows="3"  placeholder=""></textarea>
+                                                        <textarea class="form-control" id="specs_translate" name="specs_translate" rows="3"  placeholder="">{{$translation->specs??''}}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">

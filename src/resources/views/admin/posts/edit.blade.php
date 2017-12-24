@@ -166,7 +166,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="title" title="">Lởi trích</label>
+                                                <label class="control-label col-md-3" for="title" title="">Đoạn trích</label>
                                                 <div class="col-md-8">
                                                     <textarea id="excerpt_translate" class="form-control" name="excerpt_translate" rows="3"  placeholder="">{{$translation->excerpt??''}}</textarea>
                                                 </div>
