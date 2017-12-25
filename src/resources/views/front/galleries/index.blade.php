@@ -22,7 +22,7 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<ul class="menu-filter">
                     <li class="active" data-filter="*"><a href="#">All</a></li>
-                    @foreach($galleries as $key => $gallery)
+                    @foreach($galleries as $gallery)
                     <li  data-filter=".{{str_slug($gallery->name, "-")}}"><a href="#">{{$gallery->name}}</a></li>
 					@endforeach
 
@@ -35,7 +35,7 @@
 		</div>
 		<div class="row">
 			<div class="grid gallery-items">
-                @foreach($galleries as $key => $gallery)
+                @foreach($galleries as $gallery)
                     @foreach($gallery->media => $m)
                         <div class="grid-item {{str_slug($gallery->name, "-")}} gallery-it it pro-it">
                             <a href="{{asset('/storage')}}/{{$m->thumb}}" data-lightbox="test1">
