@@ -178,7 +178,7 @@ class GalleriesController extends Controller
         $gallery = Gallery::find($id);
         if(!empty($gallery)){
             foreach($gallery->medias as $key => $media){
-                $this->uploadImage($media->id);
+                $this->destroyImage($media->id);
             }
         }
         $gallery->delete();
