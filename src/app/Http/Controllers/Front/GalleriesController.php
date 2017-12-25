@@ -15,9 +15,7 @@ class GalleriesController extends Controller
 {
     public function index()
     {     
-       $galleries = Gallery::where('published',true)
-            ->groupBy('category_id')
-            ->get();
+       $galleries = Gallery::where('published',true)->get();
 
         return view('front.galleries.index',compact('galleries'));
     }
