@@ -334,6 +334,7 @@ class ProductsController extends Controller
         ->with('status', 'success')
         ->withInput(['tab'=> 2]);
 
+        
         // return response()->json([
         //     'message' => 'Cập nhật nội dung  thành công.',
         //     'status' => 'success',

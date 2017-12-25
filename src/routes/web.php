@@ -124,7 +124,8 @@ Route::post('/Account/ChangePassword/Update', 'Auth\AccountController@ChangePass
 Route::get('/Order/Details/{id}', 'Front\OrdersController@show');
 
 
-
+/* GALLERIES */
+Route::get('/Galleries', 'Front\GalleriesController@index');
 
 /* ADMIN */
 //Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
