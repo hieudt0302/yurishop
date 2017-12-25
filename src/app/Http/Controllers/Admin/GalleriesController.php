@@ -176,6 +176,11 @@ class GalleriesController extends Controller
     public function destroy($id)
     {
         $gallery = Gallery::find($id);
+        if(!empty($gallery)){
+            foreach($gallery->medias as $key => $media){
+                $this->uploadImage($media->id);
+            }
+        }
         $gallery->delete();
 
         return redirect()->route('admin.galleries.index')

@@ -141,22 +141,6 @@
 	        	</div>					 
 			</div>	
 		</div>
-		<div class="row">
-			<div class="blogpanigation">
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<ul>
-						<li class="prev"><a href="#">prev</a></li>
-						<li class="num active"><a href="#">1</a></li>
-						<li class="num"><a href="#">2</a></li>
-						<li class="num"><a href="#">3</a></li>
-						<li><a href="#">...</a></li>
-						<li class="num2"><a href="#">13</a></li>
-						<li class="num2"><a href="#">14</a></li>
-						<li class="next"><a href="#">next</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
 	</div>
 </section>
 
