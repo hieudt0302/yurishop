@@ -36,13 +36,13 @@
 		<div class="row">
 			<div class="grid gallery-items">
                 @foreach($galleries as $gallery)
-                    @foreach($gallery->media => $m)
+                    @foreach($gallery->media as $m)
                         <div class="grid-item {{str_slug($gallery->name, "-")}} gallery-it it pro-it">
                             <a href="{{asset('/storage')}}/{{$m->thumb}}" data-lightbox="test1">
                                 <img class="pro-img" src="{{asset('/storage')}}/{{$m->source}}" alt="">
                                 <div class="hover-inner">	
-                                    <h1>{{$gallery->name}}</h1>
-                                    <span class="sub">{{$gallery->description}}</span>
+                                    <h1>{{$m->name}}</h1>
+                                    <span class="sub">{{$gallermy->description}}</span>
                                 </div>
                             </a>
                         </div>
