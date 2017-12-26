@@ -210,7 +210,7 @@ class GalleriesController extends Controller
          
         if (request()->hasFile('image_upload')) {
             $path = $request->file('image_upload')->store('images');                            
-            $fitImage = Image::make(Storage::get($path))->fit(420, 420)->encode();
+            $fitImage = Image::make(Storage::get($path))->fit(270, 170)->encode();
             Storage::put($path, $fitImage); 
 
 

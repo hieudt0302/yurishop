@@ -39,5 +39,6 @@ return [
 	'call-details' => '자세한 내용은 전화',     
 	'chat-details' => '자세한 내용 채팅',
 	'posts' => '게시물',
-    'in-stock' => '재고',	                        	                     
+    'in-stock' => '재고',
+    'our-gallery' => '우리 갤러리',      	                        	                     
 ];

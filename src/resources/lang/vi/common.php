@@ -44,5 +44,6 @@ return [
      'posts' => 'Bài viết',
      'in-stock' => 'Còn hàng',                  
      'open-map' => 'Mở bản đồ',
-     'close-map' => 'Đóng bản đồ',   
+     'close-map' => 'Đóng bản đồ',
+    'our-gallery' => 'Ảnh của chúng tôi',          
 ];

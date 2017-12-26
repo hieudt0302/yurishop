@@ -46,5 +46,6 @@ return [
      'posts' => 'Posts',
      'open-map' => 'Open the map',
      'close-map' => 'Close the map',   
-     'in-stock' => 'In stock',                         	                     
+     'in-stock' => 'In stock',
+     'our-gallery' => 'Our gallery',                              	                     
 ];
