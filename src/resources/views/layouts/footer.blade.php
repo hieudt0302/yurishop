@@ -49,6 +49,12 @@
                         <a href="{{ Setting::config('website')}}" target="blank">{{ Setting::config('website') }}</a>
                     </li>
                 </ul>
+                <div class="ct-icon">
+                    <a target="_blank" href="http://www.facebbook.com/{{ Setting::config('facebook') }}"><i class="fa fa-facebook" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Facebook"></i></a>
+                    <a target="_blank" href="http://www.twitter.com/{{ Setting::config('twitter') }}"><i class="fa fa-twitter" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Twitter"></i></a>
+                    <a target="_blank" href="skype:{{ Setting::config('skype')}}?chat"><i class="fa fa-skype" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Skype"></i></a>
+                    <a target="_blank" href="http://www.youtube.com/{{ Setting::config('youtube') }}"><i class="fa fa-youtube-play" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Youtube"></i></a>
+                </div>                
             </div>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12">
@@ -106,16 +112,19 @@
             </div>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="ft-contact">
+            <div class="ft-photo">
                 <div class="ft-heading">
-                    <h6>@lang('footer.follow-us')</h6>
+                    <h6>@lang('common.our-gallery')</h6>
                 </div>
-                <div class="ct-icon">
-                    <a target="_blank" href="http://www.facebbook.com/{{ Setting::config('facebook') }}"><i class="fa fa-facebook" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Facebook"></i></a>
-                    <a target="_blank" href="http://www.twitter.com/{{ Setting::config('twitter') }}"><i class="fa fa-twitter" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Twitter"></i></a>
-                    <a target="_blank" href="skype:{{ Setting::config('skype')}}?chat"><i class="fa fa-skype" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Skype"></i></a>
-                    <a target="_blank" href="http://www.youtube.com/{{ Setting::config('youtube') }}"><i class="fa fa-youtube-play" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Youtube"></i></a>
-                    <a target="_blank" href="http://www.vimeo.com/{{ Setting::config('vimeo') }}"><i class="fa fa-vimeo" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vimeo"></i></a>
+                <div class="photo-it">
+
+                    @foreach($footer_galleries as $gallery)
+                        @foreach($gallery->medias as $m)                    
+                            <div class="img-ft">
+                                <a href="/galleries"><img class="img-ft" src="{{asset('/storage')}}/{{$m->source}}" alt=""></a>
+                            </div>
+                        @endforeach
+                    @endforeach                    
                 </div>
             </div>
         </div>                

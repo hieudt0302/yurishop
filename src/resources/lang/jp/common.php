@@ -44,5 +44,6 @@ return [
 	 'call-details' => 'スタッフに電話をかけます',     
      'chat-details' => 'スタッフをチャットします',
      'posts' => 'ブログ',
-     'in-stock' => '在庫あり',                              	                     
+     'in-stock' => '在庫あり',
+    'our-gallery' => '私たちのギャラリー',                                     	                     
 ];

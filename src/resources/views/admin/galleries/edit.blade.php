@@ -108,7 +108,7 @@
                                                 <label class="col-md-3 control-label" for="gallery_image_upload" title="">Upload ảnh</label>
                                                 <div class="col-md-8">
                                                     <input type="file" id="image_upload" name="image_upload" >
-                                                    <div style="width:200px;height: 200px;border: 1px solid whitesmoke;text-align: center" id="img1">
+                                                    <div style="width:270px;height: 170px;border: 1px solid whitesmoke;text-align: center" id="img1">
                                                         <img width="100%" height="100%" src="{{asset('images/default-image.png')}}"/>
                                                     </div>
                                                 </div>
