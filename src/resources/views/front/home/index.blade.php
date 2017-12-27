@@ -37,7 +37,7 @@
             </div>
             <!-- End Video -->            
         </div>
-                
+
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="ab-item">
@@ -83,6 +83,10 @@
     <!-- Promo -->
     @include('front.home.promo')
     <!-- End Promo -->
+
+    <!-- Subscribe -->
+    @include('front.home.subscribe')
+    <!-- End Subscribe -->    
 
     <!-- Blogs -->
 <!--     @include('front.home.blogs') -->
