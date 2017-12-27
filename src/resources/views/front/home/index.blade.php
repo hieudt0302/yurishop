@@ -16,13 +16,28 @@
 </section> -->
 <div class="about">
     <div class="container">
+
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="ab-intro">
-                    <p>{{$pokofarms_message->translation->description??""}}</p>
+
+            <!-- Video -->
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="ab-intro">
+                        <p>- <b>{{$video_message->translation->title??""}}</b> -</p>
+                        <p>"{{$video_message->translation->description??""}}"</p>
+                        </br>
+                    </div>
                 </div>
             </div>
+
+            <div class="video-section">
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="{{ Setting::config('home_video_url') }}?autoplay=1&amp;rel=0&amp;mute=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <!-- End Video -->            
         </div>
+                
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="ab-item">
@@ -57,25 +72,7 @@
                 </div>
             </div>            
         </div>
-        <div class="row">
 
-        <!-- Video -->
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="ab-intro">
-                    <p>- <b>{{$video_message->translation->title??""}}</b> -</p>
-                    <p>"{{$video_message->translation->description??""}}"</p>
-                    </br>
-                </div>
-            </div>
-        </div>
-
-        <div class="video-wrapper">
-            <iframe width="560" height="315" src="{{ Setting::config('home_video_url') }}?autoplay=1&amp;rel=0&amp;mute=1" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <!-- End Video -->
-
-        </div>
     </div>
 </div>      
     
