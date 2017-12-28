@@ -97,11 +97,7 @@
 @section('scripts')
 <script>
 	 $(function(){
-		// $("#deleteBtn").click(function(){
-        	
-    	// });
-
-		$('#modal-delete-info-page').on('hide.bs.modal', function (e) {
+		$('#modal-delete-info-page').on('show.bs.modal', function (e) {
             var infoPageId = $(e.relatedTarget).data('id');
             var action = "{{url('admin/info-pages')}}/" + infoPageId;
             $(e.currentTarget).find('form[name="form-info-page-delete"]').attr("action", action);
