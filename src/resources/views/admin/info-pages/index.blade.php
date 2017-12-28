@@ -85,7 +85,7 @@
                 <form name="form-info-page-delete"  method="POST">
                     {!! csrf_field() !!}
                     <input type="hidden" name="_method" value="DELETE">
-                    <input type="button" class="btn btn-outline" value="Xóa Trang">
+                    <input type="submit" class="btn btn-outline" value="Xóa Trang">
                 </form>
             </div>
         </div>
