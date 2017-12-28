@@ -35,7 +35,8 @@
                     <div class="tab-content">
                         <!-- INFO TAB -->
                         <div class="{{$tab==1?'active':''}} tab-pane" id="info">
-                            <form action="{{url('/admin/faqs/create')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{url('/admin/faqs')}}/{{$faq->id}}" method="post" enctype="multipart/form-data">
+                                {!! method_field('patch') !!} 
                                 {{ csrf_field()}}
                                 <div class="panel-group">
                                     <div class="panel panel-default">
@@ -51,7 +52,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            {{ Form::checkbox('is_show', 1 , $faq->is_show ? 1 : 0 , array('class' => 'check-box')) }}
+                                                            {{ Form::checkbox('is_show', 1 , $faq->is_show ? true : false , array('class' => 'check-box')) }}
                                                         </label>
                                                     </div>
                                                 </div>
