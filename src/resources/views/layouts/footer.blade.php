@@ -92,14 +92,11 @@
                     <h6>@lang('common.our-gallery')</h6>
                 </div>
                 <div class="photo-it">
-
-                    @foreach($footer_galleries as $gallery)
-                        @foreach($gallery->medias as $m)                    
-                            <div class="img-ft">
-                                <a href="/galleries"><img class="img-ft" src="{{asset('/storage')}}/{{$m->source}}" alt=""></a>
-                            </div>
-                        @endforeach
-                    @endforeach                    
+                    @foreach($latestMediaOfGallery as $m)                    
+                        <div class="img-ft">
+                            <a href="/galleries"><img class="img-ft" src="{{asset('/storage')}}/{{$m->source}}" alt=""></a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>                

@@ -33,9 +33,14 @@ class AppServiceProvider extends ServiceProvider
 
                 $product_menu = Category::where('slug','products')->first();                
 
-                $footer_galleries = Gallery::where('published', true)->orderBy('updated_at', 'desc')->limit(9)->get();
+                // $footer_galleries = Gallery::where('published', true)->orderBy('updated_at', 'desc')->limit(9)->get();
+               
+                $latestMediaOfGallery = DB::table('medias')
+                ->whereIn('id', DB::Raw('select gm.media_id from gallery_media as gm left join galleries as g on gm.gallery_id = g.id where g.published = 1'))
+                ->limit(9)
+                ->get();
 
-				View::share(['blog_menu' => $blog_menu, 'product_menu' => $product_menu, 'footer_galleries' => $footer_galleries ]);
+				View::share(['blog_menu' => $blog_menu, 'product_menu' => $product_menu, 'latestMediaOfGallery' => $latestMediaOfGallery ]);
 			}
         }
         
