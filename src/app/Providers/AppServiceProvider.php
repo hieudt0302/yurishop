@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use App\Models\Category;
 use App\Models\Gallery;
+use App\Models\Media;
 use Validator;
 use DB;
 class AppServiceProvider extends ServiceProvider
@@ -35,11 +36,9 @@ class AppServiceProvider extends ServiceProvider
 
                 // $footer_galleries = Gallery::where('published', true)->orderBy('updated_at', 'desc')->limit(9)->get();
                
-                $latestMediaOfGallery = DB::table('medias')
-                ->whereIn('id', DB::Raw('select gm.media_id from gallery_media as gm left join galleries as g on gm.gallery_id = g.id where g.published = 1'))
+                $latestMediaOfGallery = Media::whereIn('id', DB::Raw('select gm.media_id from gallery_media as gm left join galleries as g on gm.gallery_id = g.id where g.published = 1'))
                 ->limit(9)
                 ->get();
-dd($latestMediaOfGallery);
 				View::share(['blog_menu' => $blog_menu, 'product_menu' => $product_menu, 'latestMediaOfGallery' => $latestMediaOfGallery ]);
 			}
         }
