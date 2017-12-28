@@ -68,7 +68,7 @@
                     <img src="{{ asset('images/logo/community-icon.png') }}" alt="">
                     <h2>@lang('home.community')</h2>
                     <p>{{$community_category->translation->description??""}}</p>
-                    <a class="learnmore" href="{{url('menu/posts/'.$community_category->slug)}}">@lang('common.more-details')</a>
+                    <a class="learnmore" href="{{url('subject/posts/'.$community_category->slug)}}">@lang('common.more-details')</a>
                 </div>
             </div>            
         </div>

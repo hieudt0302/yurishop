@@ -50,7 +50,7 @@
                                 <div class="col-md-7">
                                     <div class="blog-it-content2">
                                         <div class="date">
-                                            <span>@lang('blog.posted-by') {{$post_tran->post->author->last_name}} {{$post_tran->post->author->first_name}}, {{ date('d-m-Y', strtotime($post_tran->post->created_at)) }}</span>
+                                            <span>{{$post_tran->post->author->first_name}} {{$post_tran->post->author->last_name}} | {{ date('d-m-Y', strtotime($post_tran->post->created_at)) }}</span>
                                         </div>                                
                                         <h2><a href="{{url('/')}}/posts/{{$post_tran->post->slug}}">{{$post_tran->title}}</a></h2>
                                         <p>{{$post_tran->excerpt}} </p>
@@ -76,7 +76,7 @@
                         <div class="col-md-7">
                             <div class="blog-it-content2">
                                 <div class="date">
-                                    <span>@lang('blog.posted-by') {{$post->author->last_name}} {{$post->author->first_name}}, {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
+                                    <span>{{$post->author->first_name}} {{$post->author->last_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
                                 </div>                                
                                 <h2><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->translation->title}}</a></h2>
                                 <p>{{$post->translation->excerpt}} </p>
@@ -131,7 +131,7 @@
                             <img src="{{asset('/storage/images/blog/preview/')}}/{{$post->img}}" alt="post1">
                             <div class="pp-infor">
                                 <div class="date">
-                                    <span>@lang('blog.posted-by') {{$post->author->last_name}} {{$post->author->first_name}} {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
+                                    <span>{{$post->author->first_name}} {{$post->author->last_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
                                 </div>
                                 <h5><a href="{{url('/posts')}}/{{$post->slug}}">{{$post->translation->title}}</a></h5>
                             </div>
