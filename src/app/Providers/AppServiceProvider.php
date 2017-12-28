@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
                 ->whereIn('id', DB::Raw('select gm.media_id from gallery_media as gm left join galleries as g on gm.gallery_id = g.id where g.published = 1'))
                 ->limit(9)
                 ->get();
-
+dd($latestMediaOfGallery);
 				View::share(['blog_menu' => $blog_menu, 'product_menu' => $product_menu, 'latestMediaOfGallery' => $latestMediaOfGallery ]);
 			}
         }
