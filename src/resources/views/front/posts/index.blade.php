@@ -141,7 +141,7 @@
                     <br><br>
 
                     <div class="searchbytag">
-                        <h1 class="cate-heading">Tags</h1>
+                        <h1 class="cate-heading">@lang('blog.search-tags')</h1>
                         <ul class="tags">
                             @foreach($tags as $tag)
                             <li><a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a></li>

@@ -18,5 +18,6 @@ return [
      'name' => 'Tên',                       
      'email' => 'Email',
      'leave-a-comment' => 'Viết bình luận',
-     'send-comment' => 'Gửi bình luận',                    
+     'send-comment' => 'Gửi bình luận',   
+     'search-tags' => 'Tìm kiếm bằng tag',                        
 ];

@@ -44,7 +44,7 @@
                                     <div class="cmt-content">
                                         <h4><a href="#">{{$comment->name}}</a><li class="date">{{$comment->created_at}}</li></h4>
                                         <p>{{$comment->comment}}</p>
-                                        <a class="reply" href="#comment-form"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
+                                        <a class="reply" href="#comment-form"><i class="fa fa-reply" aria-hidden="true"></i>@lang('product.comment')</a>
                                     </div>  
                                 </div>
                             </div>

@@ -31,6 +31,6 @@ return [
     'poko-message' => '',                                           
     'read-more' => '阅读更多',  
     'in-stock' => '有现货',
-    'our-gallery' => '我们的画廊,        
+    'our-gallery' => '我们的画廊',        
 
 ];

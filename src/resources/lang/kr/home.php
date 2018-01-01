@@ -13,6 +13,7 @@ return [
     'product-origin' => '상품출처', 
     'product-quality' => '상품품질',  
     'community' => '커뮤니티',  
-
+    'specialty-coffee' => 'Specialty coffee',   
+    'commercial-coffee' => 'Commercial coffee',    
      
 ];

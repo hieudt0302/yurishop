@@ -15,4 +15,6 @@ return [
     'community' => 'Community',    
     'unsubscribe-success' => 'You have successfully unsubscribed from promotion. <br> Thank you for using our service',
     'back-home' => 'Back Home',
+    'specialty-coffee' => 'Specialty coffee',   
+    'commercial-coffee' => 'Commercial coffee',      
 ];

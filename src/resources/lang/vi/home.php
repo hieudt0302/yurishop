@@ -14,5 +14,7 @@ return [
     'product-quality' => 'Chất lượng sản phẩm',
     'community' => 'Cộng đồng',       
     'unsubscribe-success' => 'Bạn đã hủy đăng ký nhận thông tin khuyến mãi thành công. <br> Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.',   
-    'back-home' => 'Quay về trang chủ',	      
+    'back-home' => 'Quay về trang chủ',
+    'specialty-coffee' => 'Cà phê đặc sản',   
+    'commercial-coffee' => 'Cà phê thương phẩm',        	      
 ];
