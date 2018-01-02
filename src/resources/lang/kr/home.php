@@ -8,12 +8,12 @@ return [
     'our-blogs' => '우리의 블로그', 
     'sale-products' => '프로모션 상품',  
     'farm-activities' => '사회활동', 
-    'farm-activities-message' => '다음 메시지 변경', 
+    'farm-activities-message' => '절친한 사랑의 맛', 
     'about-us' => '우리에 대해', 
     'product-origin' => '상품출처', 
     'product-quality' => '상품품질',  
     'community' => '커뮤니티',  
-    'specialty-coffee' => 'Specialty coffee',   
-    'commercial-coffee' => 'Commercial coffee',    
+    'specialty-coffee' => '전문 커피',   
+    'commercial-coffee' => '상업용 커피',    
      
 ];

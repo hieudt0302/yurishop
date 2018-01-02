@@ -8,7 +8,7 @@ return [
 	'our-blogs' => 'Bài viết của chúng tôi',
     'sale-products' => 'Sản phẩm khuyễn mãi',
     'farm-activities' => 'Hoạt động cộng đồng',
-    'farm-activities-message' => 'Thay đổi message sau',
+    'farm-activities-message' => 'Thành quả của trái tim vì cộng đồng',
     'about-us' => 'Về chúng tôi',
     'product-origin' => 'Nguồn gốc sản phẩm',    
     'product-quality' => 'Chất lượng sản phẩm',

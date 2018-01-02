@@ -32,5 +32,11 @@ return [
     'order-received' => 'Your order has been received',  
     'thank' => 'Thank you for your purchase!',  
     'order-number' => 'Your order number',                                                    
-    'order-details' => 'Order details',  
+    'order-details' => 'Order details',
+    'update-cart-item' => 'Item is added to your cart',    
+    'delete-cart-item' => 'Item is deleted from your cart',
+    'move-to-wl' => 'Item is moved to your wishlist',
+    'update-wl-item' => 'Item is added to your wishlist',  
+    'delete-wl-item' => 'Item is deleted from your wishlist',
+    'move-to-cart' => 'Item is moved to your cart',                  
 ];

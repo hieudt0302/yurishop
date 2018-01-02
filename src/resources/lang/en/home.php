@@ -8,7 +8,7 @@ return [
 	'our-blogs' => 'Our blogs',
     'sale-products' => 'Sale',   
     'farm-activities' => 'Our Activities',
-    'farm-activities-message' => 'Change the message later',    
+    'farm-activities-message' => "Taste of farmers' love",    
     'about-us' => 'Who are we?',
     'product-origin' => 'Products origin',    
     'product-quality' => 'Products quality',

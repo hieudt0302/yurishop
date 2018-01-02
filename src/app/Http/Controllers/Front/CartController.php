@@ -29,7 +29,7 @@ class CartController extends Controller
         Cart::instance('default')->update($request->ItemId, $request->newQuantity);
         
         return response()->json([
-            'message' => 'Đã thêm '. $request->newQuantity .' sản phẩm vào giỏ hàng!',
+            'message' => trans('checkout.update-cart-item'),
             'status' => 'success',
             'type' => 'update',
             'rowId' => $request->ItemId,
@@ -54,7 +54,7 @@ class CartController extends Controller
         Cart::remove($request->ItemId);
         
         return response()->json([
-            'message' => 'Đã xóa sản phẩm vào khỏi hàng!',
+            'message' => trans('checkout.delete-cart-item'),
             'status' => 'success',
             'type' => 'remove',
             'newCartItemCount' => Cart::count(),
@@ -92,7 +92,7 @@ class CartController extends Controller
         
 
         return response()->json([
-            'message' => 'Đã di chuyển sản phẩm sang danh sách mong ước!',
+            'message' => trans('checkout.move-to-wl'),
             'status' => 'success',
             'type' => 'remove',
             'rowId' => $request->ItemId,
@@ -126,7 +126,7 @@ class CartController extends Controller
         Cart::instance('wishlist')->store($owner->id);
         
         return response()->json([
-            'message' => 'Đã thêm '. $request->newQuantity .' sản phẩm vào giỏ hàng!',
+            'message' => trans('checkout.update-wl-item'),
             'status' => 'success',
             'type' => 'update',
             'rowId' => $request->ItemId,
@@ -159,7 +159,7 @@ class CartController extends Controller
         Cart::instance('wishlist')->store($owner->id);
 
         return response()->json([
-            'message' => 'Đã xóa sản phẩm vào khỏi hàng!',
+            'message' => trans('checkout.delete-wl-item'),
             'status' => 'success',
             'type' => 'remove',
             'newCartItemCount' => Cart::instance('default')->count(),
@@ -195,7 +195,7 @@ class CartController extends Controller
         Cart::instance('wishlist')->store($owner->id);
 
         return response()->json([
-            'message' => 'Đã di chuyển sản phẩm sang giỏ hàng!',
+            'message' => trans('checkout.move-to-cart'),
             'status' => 'success',
             'type' => 'remove',
             'rowId' => $request->ItemId,

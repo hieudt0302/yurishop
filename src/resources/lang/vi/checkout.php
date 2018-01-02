@@ -32,5 +32,11 @@ return [
     'order-received' => 'Đơn hàng của bạn đã được nhận.',  
     'thank' => 'Cảm ơn đã mua hàng từ Pô Kô Famrs!',  
     'order-number' => 'Số hiệu đơn hàng',                                                    
-    'order-details' => 'Chi tiết đơn hàng',         
+    'order-details' => 'Chi tiết đơn hàng',
+    'update-cart-item' => 'Sản phẩm đã được thêm vào giỏ hàng',    
+    'delete-cart-item' => 'Sản phẩm đã được xóa khỏi giỏ hàng',
+    'move-to-wl' => 'Sản phẩm đã được chuyển sang danh sách yêu thích',
+    'update-wl-item' => 'Sản phẩm đã được thêm vào danh sách yêu thích',  
+    'delete-wl-item' => 'Sản phẩm đã được xóa khỏi danh sách yêu thích',
+    'move-to-cart' => 'Sản phẩm đã được chuyển sang giỏ hàng',              
 ];
