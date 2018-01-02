@@ -19,5 +19,5 @@ return [
      'email' => 'eメール',
      'leave-a-comment' => 'コメントを書く',
      'send-comment' => 'コメントを送る', 
-     'search-tags' => 'Search by tags',                      
+     'search-tags' => 'タグで検索',                      
 ];

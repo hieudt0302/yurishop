@@ -26,7 +26,7 @@ return [
     'categories' => '目录',
     'search' => '查询',   
     'home' => '首页',
-    'company-name' => 'Dakmark Foods 有限公司',
+    'company-name' => 'Pô Kô Farms  有限公司',
     'headquarter-address' => '123 Hùng Vương, Đăk Hà, Kon Tum',                                           
     'poko-message' => '',                                           
     'read-more' => '阅读更多',  

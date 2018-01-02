@@ -6,7 +6,7 @@ return [
     'price' => '値段',
     'best-sellers-products' => '人気商品',
     'sale-products' => 'セール中',   
-    'farm-activities' => 'ポコファーム活動',
+    'farm-activities' => 'Pô Kô Famrs活動',
     'farm-activities-message' => '農民の愛の味',    
     'about-us' => 'Pô Kô Famrs とは?',
     'product-origin' => '商品のオリジン',    
