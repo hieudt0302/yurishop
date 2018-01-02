@@ -5681,7 +5681,7 @@ section {
     color: #333333;
     font-weight: 700;
     font-style: Bold;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .bloglistpost-v1 .bg-sidebar .search,
@@ -5747,6 +5747,13 @@ section {
 .bloglistpost-v1 .bg-sidebar .categories ul li:hover,
 .bloglistpost-v2 .bg-sidebar .categories ul li:hover {
     color: #178240;
+    text-decoration: none;
+}
+
+.bloglistpost-v1 .bg-sidebar .categories a:hover,
+.bloglistpost-v2 .bg-sidebar .categories a:hover {
+    color: #178240;
+    text-decoration: none;
 }
 
 .bloglistpost-v1 .bg-sidebar .pp-posts .pp-post-it,

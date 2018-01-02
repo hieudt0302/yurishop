@@ -113,6 +113,7 @@
 
                     <div class="categories">
                         <h1 class="cate-heading">@lang('common.categories')</h1>
+                        <hr>
                         <ul>
                             @foreach($categories as $category)
                             <li>
@@ -126,6 +127,7 @@
                     </div>
                     <div class="pp-posts">
                         <h1 class="cate-heading">@lang('blog.last-posts')</h1>
+                        <hr>
                         @foreach($lastPosts as $post)                        
                         <div class="pp-post-it">
                             <img src="{{asset('/storage/images/blog/preview/')}}/{{$post->img}}" alt="post1">
@@ -139,9 +141,14 @@
                         @endforeach        
                     </div>
                     <br><br>
-
+                    @if (Setting::config('banner-blog-active')=='1')
+                    <div class="sale">
+                            <a href="{{ Setting::config('banner-blog-url') }}"><img src="{{asset('frontend/images/uploads/sale.jpg')}}" alt="post1"></a>
+                    </div>
+                    @endif
                     <div class="searchbytag">
                         <h1 class="cate-heading">@lang('blog.search-tags')</h1>
+                        <hr>
                         <ul class="tags">
                             @foreach($tags as $tag)
                             <li><a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a></li>

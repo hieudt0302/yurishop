@@ -45,7 +45,12 @@ class BannersController extends Controller
             $banner = $request->file('banner-full');            
             $img = Image::make($banner->getRealPath());
             $img->fit(1920, 400)->save('frontend/images/uploads/ads-bg3.jpg');                      
-        } 
+        }
+        if (request()->hasFile('banner-blog')) {
+            $banner = $request->file('banner-blog');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(270, 370)->save('frontend/images/uploads/sale.jpg');                      
+        }          
 
         //Icon
         if (request()->hasFile('icon-1')) {
