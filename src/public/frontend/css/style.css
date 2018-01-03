@@ -6467,8 +6467,8 @@ section {
     color: #333333;
     font-weight: '';
     font-style: Italic;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .about .ab-intro p span,
@@ -6478,7 +6478,7 @@ section {
 
 .about .ab-item,
 .aboutv2 .ab-item {
-    margin-top: 90px;
+    margin-top: 20px;
     margin-bottom: 50px;
     text-align: center;
     justify-content: center;
