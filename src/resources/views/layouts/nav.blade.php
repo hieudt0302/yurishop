@@ -80,6 +80,7 @@
                 </li>
                 <li class="has-submenu">
                     <a class="accunt-select" href="#">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;
                         @guest
                         @lang('header.account')
                         @else
