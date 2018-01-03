@@ -7045,6 +7045,9 @@ section {
     background: #f49ac1;
     border: none;
 }
+.products {
+    background-color: #fafafa;
+}
 
 .productsv4 .products-it {
     display: flex;
@@ -7905,6 +7908,7 @@ section {
     background-position: left center;
     height: 400px;
     max-width: 1920px;
+    background-color: #fafafa;
 }
 
 div.ads-right a {

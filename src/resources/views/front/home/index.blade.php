@@ -76,13 +76,14 @@
     </div>
 </div>      
     
-    <!-- Products -->
-    @include('front.home.products')
-    <!-- End Products -->
 
     <!-- Promo -->
     @include('front.home.promo')
     <!-- End Promo -->
+    
+    <!-- Products -->
+    @include('front.home.products')
+    <!-- End Products -->
 
     <!-- Subscribe -->
     @include('front.home.subscribe')
