@@ -343,8 +343,11 @@
         });
         return false;
     });
+});
 
-    function toggleImageItemEdit(editmode, id = 0){
+
+/* Toggle Edit Buton */
+function toggleImageItemEdit(editmode, id = 0){
         if (editmode) {
             $('#pnlEditMediaItemOrder' + id).show();
             $('#pnlEditMediaItemName' + id).show();
@@ -363,6 +366,5 @@
             $('#btnCancelMediaItem' + id).hide();
         }
     }
-});
 </script>
 @endsection
