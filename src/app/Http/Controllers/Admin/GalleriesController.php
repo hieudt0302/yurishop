@@ -179,29 +179,23 @@ class GalleriesController extends Controller
 
         
 
-        $gallery_media = DB::table('gallery_media')->where('media_id', $request->m_id)->first();
-        if(empty($gallery_media)){
+        DB::beginTransaction();
+        try{
+            DB::table('gallery_media')
+            ->where('media_id',$request->m_id)
+            ->update(['order' => $request->m_order]);
+            //image
+            DB::table('medias')
+            ->where('id',$request->m_id)
+            ->update(['name' => $request->m_name, 'description' => $request->m_description]);
+            
+            DB::commit();
+
+        }catch(\Exception $e){
+            DB::rollBack();
             return redirect()->back()
-            ->with('message', 'Image không còn tồn tại!')
+            ->with('message', 'Không thể cập nhật thông tin hình ảnh!')
             ->with('status', 'danger');
-        }else{
-            DB::beginTransaction();
-            try{
-                $gallery_media->order= $request->m_order;
-                $gallery_media->save();
-                //image
-                $media = Media::where('id', $request->m_id)->first();
-                $media->name = $request->m_name;
-                $media->description = $request->m_description;
-                $media->save();
-                DB::commit();
-                
-           }catch(\Exception $e){
-               DB::rollBack();
-               return redirect()->back()
-                ->with('message', 'Không thể cập nhật thông tin hình ảnh!')
-                ->with('status', 'danger');
-           }
         }
 
         //Gallery
