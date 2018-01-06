@@ -509,7 +509,7 @@
                                                                     Email
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->email}}
+                                                                    {{$order->shippingaddress->email??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingEmail" style="display:none;">
                                                                     <input type="text" name="email">
