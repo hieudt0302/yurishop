@@ -107,20 +107,20 @@
                                             <label class="col-md-3 control-label" for="CustomerId" title="">Tên Khách Hàng</label>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">
-                                                    <a href="#">{{$order->billingaddress->last_name}} {{$order->billingaddress->first_name}}</a>
+                                                    <a href="#">{{$order->billingaddress->last_name??''}} {{$order->billingaddress->first_name??''}}</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="customer_email" title="">Email Khách Hàng</label>
                                             <div class="col-md-9">
-                                                <div class="form-text-row">{{$order->billingaddress->email}}</div>
+                                                <div class="form-text-row">{{$order->billingaddress->email??''}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="customer_phone" title="">Điện Thoại Khách Hàng</label>
                                             <div class="col-md-9">
-                                                <div class="form-text-row">{{$order->billingaddress->phone}}</div>
+                                                <div class="form-text-row">{{$order->billingaddress->phone??''}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -303,7 +303,7 @@
                                                                     Tên
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->first_name}}
+                                                                    {{$order->billingaddress->first_name??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingFirstName" style="display:none;">
                                                                     <input type="text" name="first_name">
@@ -314,7 +314,7 @@
                                                                     Họ
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->last_name}}
+                                                                    {{$order->billingaddress->last_name??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingLastName" style="display:none;">
                                                                     <input type="text" name="last_name">
@@ -325,7 +325,7 @@
                                                                     Email
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->email}}
+                                                                    {{$order->billingaddress->email??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingEmail" style="display:none;">
                                                                     <input type="text" name="email">
@@ -336,7 +336,7 @@
                                                                     Điện Thoại
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->phone}}
+                                                                    {{$order->billingaddress->phone??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingPhone" style="display:none;">
                                                                     <input type="text" name="phone">
@@ -347,7 +347,7 @@
                                                                     Fax
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->fax}}
+                                                                    {{$order->billingaddress->fax??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingFax" style="display:none;">
                                                                     <input type="text" name="fax">
@@ -358,7 +358,7 @@
                                                                     Công Ty
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->company}}
+                                                                    {{$order->billingaddress->company??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingCompany" style="display:none;">
                                                                     <input type="text" name="company">
@@ -369,7 +369,7 @@
                                                                     Địa Chỉ 1
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->address1}}
+                                                                    {{$order->billingaddress->address1??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingAddress1" style="display:none;">
                                                                     <input type="text" name="address1">
@@ -380,7 +380,7 @@
                                                                     Địa Chỉ 2
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->address2}}
+                                                                    {{$order->billingaddress->address2??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingAddress2" style="display:none;">
                                                                     <input type="text" name="address2">
@@ -391,7 +391,7 @@
                                                                     Quận/Huyện
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->district}}
+                                                                    {{$order->billingaddress->district??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingDistrict" style="display:none;">
                                                                     <input type="text" name="district">
@@ -402,7 +402,7 @@
                                                                     Tỉnh/Thành Phố
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->city}}
+                                                                    {{$order->billingaddress->city??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingCity" style="display:none;">
                                                                     <input type="text" name="city">
@@ -413,7 +413,7 @@
                                                                     State / Province (Tùy chọn)
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->state_province}}
+                                                                    {{$order->billingaddress->state_province??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingStateProvince" style="display:none;">
                                                                     <input type="text" name="state_province">
@@ -424,7 +424,7 @@
                                                                     Zip / postal code
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->zipcode}}
+                                                                    {{$order->billingaddress->zipcode??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingZipCode" style="display:none;">
                                                                     <input type="text" name="zipcode">
@@ -435,7 +435,7 @@
                                                                     Quốc Gia
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->billingaddress->country}}
+                                                                    {{$order->billingaddress->country??''}}
                                                                 </td>
                                                                 <td id="tdEditBillingCountry" style="display:none;">
                                                                     <input type="text" name="country">
@@ -487,7 +487,7 @@
                                                                     Tên
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->first_name}}
+                                                                    {{$order->shippingaddress->first_name??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingFirstName" style="display:none;">
                                                                     <input type="text" name="first_name">
@@ -498,7 +498,7 @@
                                                                     Họ
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->last_name}}
+                                                                    {{$order->shippingaddress->last_name??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingLastName" style="display:none;">
                                                                     <input type="text" name="last_name">
@@ -520,7 +520,7 @@
                                                                     Điện Thoại
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->phone}}
+                                                                    {{$order->shippingaddress->phone??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingPhone" style="display:none;">
                                                                     <input type="text" name="phone">
@@ -531,7 +531,7 @@
                                                                     Fax
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->fax}}
+                                                                    {{$order->shippingaddress->fax??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingFax" style="display:none;">
                                                                     <input type="text" name="fax">
@@ -542,7 +542,7 @@
                                                                     Công Ty
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->company}}
+                                                                    {{$order->shippingaddress->company??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingCompany" style="display:none;">
                                                                     <input type="text" name="company">
@@ -553,7 +553,7 @@
                                                                     Địa Chỉ 1
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->address1}}
+                                                                    {{$order->shippingaddress->address1??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingAddress1" style="display:none;">
                                                                     <input type="text" name="address1">
@@ -564,7 +564,7 @@
                                                                     Địa Chỉ 2
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->address2}}
+                                                                    {{$order->shippingaddress->address2??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingAddress2" style="display:none;">
                                                                     <input type="text" name="address2">
@@ -575,7 +575,7 @@
                                                                     Quận/Huyện
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->district}}
+                                                                    {{$order->shippingaddress->district??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingDistrict" style="display:none;">
                                                                     <input type="text" name="district">
@@ -586,7 +586,7 @@
                                                                     Tỉnh/Thành Phố
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->city}}
+                                                                    {{$order->shippingaddress->city??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingCity" style="display:none;">
                                                                     <input type="text" name="city">
@@ -597,7 +597,7 @@
                                                                     State / Province (Tùy chọn)
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->state_province}}
+                                                                    {{$order->shippingaddress->state_province??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingStateProvince" style="display:none;">
                                                                     <input type="text" name="state_province">
@@ -608,7 +608,7 @@
                                                                     Zip / postal code
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->zipcode}}
+                                                                    {{$order->shippingaddress->zipcode??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingZipCode" style="display:none;">
                                                                     <input type="text" name="zipcode">
@@ -619,7 +619,7 @@
                                                                     Quốc Gia
                                                                 </td>
                                                                 <td>
-                                                                    {{$order->shippingaddress->country}}
+                                                                    {{$order->shippingaddress->country??''}}
                                                                 </td>
                                                                 <td id="tdEditShippingCountry" style="display:none;">
                                                                     <input type="text" name="country">
