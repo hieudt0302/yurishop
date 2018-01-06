@@ -204,12 +204,12 @@
                                                                     <i class="fa fa-pencil"></i>Cập Nhật
                                                                 </button>
                                                                 
-                                                                <button id="btnSaveMediaItem{{$detail->id}}" type="submit" class="btn btn-primary" style="display:none; width:80px;">
+                                                                <button id="btnSaveMediaItem{{$m->id}}" type="submit" class="btn btn-primary" style="display:none; width:80px;">
                                                                     <i class="fa fa-floppy-o"></i>
                                                                     Lưu
                                                                 </button>
                                                             
-                                                                <button id="btnCancelMediaItem{{$detail->id}}" type="button" class="btn btn-teal" onclick="toggleImageItemEdit(false, {{$m->id}});return false;"  style="display:none; width:80px; margin-top:4px;">
+                                                                <button id="btnCancelMediaItem{{$m->id}}" type="button" class="btn btn-teal" onclick="toggleImageItemEdit(false, {{$m->id}});return false;"  style="display:none; width:80px; margin-top:4px;">
                                                                     <i class="fa fa-close"></i>
                                                                     Hủy
                                                                 </button>
