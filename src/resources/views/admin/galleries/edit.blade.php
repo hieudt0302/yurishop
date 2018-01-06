@@ -157,8 +157,7 @@
                                                         <th>Thứ tự hiển thị</th>
                                                         <th>Tên</th>
                                                         <th>Mô tả</th>
-                                                        <th></th>
-                                                        <th></th>
+                                                        <th colspan="2">Cập Nhật</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
