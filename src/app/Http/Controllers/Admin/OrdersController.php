@@ -166,7 +166,7 @@ class OrdersController extends Controller
 
         $query = DB::table('orders')
             ->join('book_addresses', 'book_addresses.id', '=', 'orders.billing_address_id')
-            ->whereNull('orders.delete_at')
+            ->whereNull('orders.deleted_at')
             ->select('orders.*', 'book_addresses.last_name', 'book_addresses.first_name', 'book_addresses.email', 'book_addresses.phone');
         
         if (strlen($order_start_date) > 0) {
