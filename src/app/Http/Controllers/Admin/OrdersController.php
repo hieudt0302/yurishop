@@ -356,9 +356,11 @@ class OrdersController extends Controller
     public  function UpdateAddress(Request $request, $id, $address_id, $customer, $type)
     {
         $address = BookAddress::find($address_id);
+        $is_create = false;
         if(empty($address)){
             $address = new BookAddress();
             $address->user_id = $customer;
+            $is_create  =true;
         }
 
         $address->company =  $request->company??'';
@@ -376,7 +378,7 @@ class OrdersController extends Controller
         $address->email = $request->email??'';
         $address->save();
 
-        if(empty($address)){
+        if($is_create){
             $order =Order::find($id);
 
             switch($type){
