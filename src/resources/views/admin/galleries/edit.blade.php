@@ -173,7 +173,7 @@
                                                                 <div>{{$m->pivot->order}}</div>
                                                                 <div id="pnlEditMediaItemOrder{{$m->id}}" style="display: none;">
                                                                     <div class="form-group">
-                                                                        <div class="col-md-8 col-md-offset-2">
+                                                                        <div class="col-md-2">
                                                                             <input id="m_order"  name="m_order" type="text" value="{{$m->pivot->order}}" class="form-control input-sm">
                                                                         </div>
                                                                     </div>
@@ -353,11 +353,11 @@ function toggleImageItemEdit(editmode, id = 0){
             $('#pnlEditMediaItemName' + id).show();
             $('#pnlEditMediaItemDescription' + id).show();
             
-            $('#pnlEditMediaItemOrder' + id).hide();
+            $('#btnEditMediaItem' + id).hide();
             $('#btnSaveMediaItem' + id).show();
             $('#btnCancelMediaItem' + id).show();
         }else{
-            $('#pnlEditProductPrice' + id).hide();
+            $('#pnlEditMediaItemOrder' + id).hide();
             $('#pnlEditMediaItemName' + id).hide();
             $('#pnlEditMediaItemDescription' + id).hide();
 
