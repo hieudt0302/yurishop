@@ -173,7 +173,7 @@
                                                                 <div>{{$m->pivot->order}}</div>
                                                                 <div id="pnlEditMediaItemOrder{{$m->id}}" style="display: none;">
                                                                     <div class="form-group">
-                                                                        <div class="col-md-2">
+                                                                        <div class="col-md-12">
                                                                             <input id="m_order"  name="m_order" type="text" value="{{$m->pivot->order}}" class="form-control input-sm">
                                                                         </div>
                                                                     </div>

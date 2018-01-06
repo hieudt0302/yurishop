@@ -188,7 +188,7 @@ class GalleriesController extends Controller
             DB::table('medias')
             ->where('id',$request->m_id)
             ->update(['name' => $request->m_name, 'description' => $request->m_description]);
-            
+
             DB::commit();
 
         }catch(\Exception $e){
@@ -210,7 +210,7 @@ class GalleriesController extends Controller
         $categories = Category::where('parent_id', $galleryCategory->id??0)->get();
         $tab = 2;
 
-        return view('admin/galleries/edit',compact('order','tab'))
+        return view('admin/galleries/edit',compact('gallery','tab'))
         ->with('message', 'Cập nhật thông tin hình ảnh thành công!')
         ->with('status', 'success');
     }
