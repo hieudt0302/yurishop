@@ -183,7 +183,7 @@
                                                                 <div>{{$m->name}}</div>
                                                                 <div id="pnlEditMediaItemName{{$m->id}}" style="display: none;">
                                                                     <div class="form-group">
-                                                                        <div class="col-md-8 col-md-offset-2">
+                                                                        <div class="col-md-12">
                                                                             <input id="m_name"  name="m_name" type="text" value="{{$m->name}}" class="form-control input-sm">
                                                                         </div>
                                                                     </div>
@@ -193,7 +193,7 @@
                                                                 <div>{{$m->name}}</div>
                                                                 <div id="pnlEditMediaItemDescription{{$m->id}}" style="display: none;">
                                                                     <div class="form-group">
-                                                                        <div class="col-md-8 col-md-offset-2">
+                                                                        <div class="col-md-12">
                                                                             <input id="m_description"  name="m_description" type="text" value="{{$m->description}}" class="form-control input-sm">
                                                                         </div>
                                                                     </div>

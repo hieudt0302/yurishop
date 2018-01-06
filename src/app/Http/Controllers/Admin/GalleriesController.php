@@ -177,13 +177,32 @@ class GalleriesController extends Controller
             ->withInput();
         }
 
-        $gallery  = Gallery::find($id);
-        if(empty($gallery)){
-            return redirect()->back();
+        
+
+        $gallery_media = DB::table('gallery_media')->where('media_id', $request->m_id)->first();
+        if(empty($gallery_media)){
+            return redirect()->back()
+            ->with('message', 'Image không còn tồn tại!')
+            ->with('status', 'danger');
+        }else{
+            DB::beginTransaction();
+            try{
+                $gallery_media->order= $request->m_order;
+                $gallery_media->save();
+                //image
+                $media = Media::where('id', $request->m_id)->first();
+                $media->name = $request->m_name;
+                $media->description = $request->m_description;
+                $media->save();
+                DB::commit();
+                
+           }catch(\Exception $e){
+               DB::rollBack();
+               return redirect()->back()
+                ->with('message', 'Không thể cập nhật thông tin hình ảnh!')
+                ->with('status', 'danger');
+           }
         }
-
-        $media = DB::table('gallery_media')->where('m_id',$id)->first();
-
 
         //Gallery
         $gallery = Gallery::find($id);
@@ -294,6 +313,7 @@ class GalleriesController extends Controller
                 'status' => 'error',
             ]);
         }
+
         return response()->json([
             'message' =>  'Xóa thành công!',
             'status' => 'success',
