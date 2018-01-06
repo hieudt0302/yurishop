@@ -202,7 +202,9 @@
 
 <script type="text/javascript">
 $(document).ready(function(){   
-   
+    $('form input').on('keypress', function(e) {
+        return e.which !== 13;
+    });
     var orderSummary = $(".order-summary-content");
     orderSummary.on("click", ".btn-continue-shopping", function (e) {
         e.preventDefault();
