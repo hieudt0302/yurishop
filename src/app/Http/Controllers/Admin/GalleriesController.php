@@ -164,7 +164,43 @@ class GalleriesController extends Controller
     }
     
   
+    public function UpdateImage(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'm_order' => 'numeric|min:0',
+            'm_id' => 'numeric|min:1'
+        ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        $gallery  = Gallery::find($id);
+        if(empty($gallery)){
+            return redirect()->back();
+        }
+
+        $media = DB::table('gallery_media')->where('m_id',$id)->first();
+
+
+        //Gallery
+        $gallery = Gallery::find($id);
+        if(empty($gallery))
+        {
+            return redirect()->route('admin.galleries.index')
+            ->with('message', 'Gallery không tồn tại!')
+            ->with('status', 'danger');
+        }
+        $galleryCategory = Category::where('slug', 'galleries')->first();
+        $categories = Category::where('parent_id', $galleryCategory->id??0)->get();
+        $tab = 2;
+
+        return view('admin/galleries/edit',compact('order','tab'))
+        ->with('message', 'Cập nhật thông tin hình ảnh thành công!')
+        ->with('status', 'success');
+    }
    
 
     /**

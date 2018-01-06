@@ -300,5 +300,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('galleries/generateslug/{title}',['as'=>'admin.galleries.generateSlug','uses'=>'GalleriesController@GenerateSlug','middleware' => ['role:admin|manager']]);
     Route::post('galleries/{id}/image/upload',['as'=>'admin.galleries.uploadImage','uses'=>'GalleriesController@uploadImage','middleware' => ['role:admin|manager']]);
     Route::delete('galleries/images/{id}',['as'=>'admin.galleries.destroyImage','uses'=>'GalleriesController@destroyImage','middleware' => ['role:admin|manager']]);
+
+    Route::post('galleries/images/{id}/update', ['as'=>'admin.galleries.edit','uses'=>'GalleriesController@UpdateImage','middleware' => ['role:admin|manager']]);
 });
 

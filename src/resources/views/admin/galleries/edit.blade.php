@@ -162,20 +162,63 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach($gallery->medias as  $m)
+                                                    <form action="{{url('admin/galleries/images')}}/{{$gallery->id}}/update" method="post">
+                                                    {{ csrf_field()}}
+                                                        <input type="hidden" name="m_id" value="{{$m->id}}">
                                                         <tr id="table-row-{{$m->id}}">
                                                             <td>
                                                                 <a href="#"><img alt="File Not Found" src="{{asset('/storage')}}/{{$m->source}}" width="150"></a>
                                                             </td>
-                                                            <td>{{$m->pivot->order}}</td>
-                                                            <td >{{$m->name}}</td>
-                                                            <td >{{$m->description}}</td>
+                                                            <td>
+                                                                <div>{{$m->pivot->order}}</div>
+                                                                <div id="pnlEditMediaItemOrder{{$m->id}}" style="display: none;">
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-8 col-md-offset-2">
+                                                                            <input id="m_order"  name="m_order" type="text" value="{{$m->pivot->order}}" class="form-control input-sm">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
                                                             <td >
-                                                                <button class="btn btn-primary" data-id="{{$m->id}}">Sửa</button>
+                                                                <div>{{$m->name}}</div>
+                                                                <div id="pnlEditMediaItemName{{$m->id}}" style="display: none;">
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-8 col-md-offset-2">
+                                                                            <input id="m_name"  name="m_name" type="text" value="{{$m->name}}" class="form-control input-sm">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td >{{$m->description}}
+                                                                <div>{{$m->name}}</div>
+                                                                <div id="pnlEditMediaItemDescription{{$m->id}}" style="display: none;">
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-8 col-md-offset-2">
+                                                                            <input id="m_description"  name="m_description" type="text" value="{{$m->description}}" class="form-control input-sm">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td >
+                                                                <button id="btnEditMediaItem{{$m->id}}" type="button" class="btn btn-primary"  onclick="toggleImageItemEdit(true, {{$m->id}});return false;">
+                                                                    <i class="fa fa-pencil"></i>Cập Nhật
+                                                                </button>
+                                                                
+                                                                <button id="btnSaveMediaItem{{$detail->id}}" type="submit" class="btn btn-primary" style="display:none; width:80px;">
+                                                                    <i class="fa fa-floppy-o"></i>
+                                                                    Lưu
+                                                                </button>
+                                                            
+                                                                <button id="btnCancelMediaItem{{$detail->id}}" type="button" class="btn btn-teal" onclick="toggleImageItemEdit(false, {{$m->id}});return false;"  style="display:none; width:80px; margin-top:4px;">
+                                                                    <i class="fa fa-close"></i>
+                                                                    Hủy
+                                                                </button>
                                                             </td>
                                                             <td >
                                                                 <button class="btn btn-danger ajax-action-link" data-href="{{url('/admin/galleries/images')}}/{{$m->id}}" data-id="{{$m->id}}">Xóa</button>
                                                             </td>
                                                         </tr>
+                                                    </form>
                                                     @endforeach
                                                 </tbody>
                                             </table>
@@ -300,6 +343,26 @@
         });
         return false;
     });
+
+    function toggleImageItemEdit(editmode, id = 0){
+        if (editmode) {
+            $('#pnlEditMediaItemOrder' + id).show();
+            $('#pnlEditMediaItemName' + id).show();
+            $('#pnlEditMediaItemDescription' + id).show();
+            
+            $('#pnlEditMediaItemOrder' + id).hide();
+            $('#btnSaveMediaItem' + id).show();
+            $('#btnCancelMediaItem' + id).show();
+        }else{
+            $('#pnlEditProductPrice' + id).hide();
+            $('#pnlEditMediaItemName' + id).hide();
+            $('#pnlEditMediaItemDescription' + id).hide();
+
+            $('#btnEditMediaItem' + id).show();
+            $('#btnSaveMediaItem' + id).hide();
+            $('#btnCancelMediaItem' + id).hide();
+        }
+    }
 });
 </script>
 @endsection
