@@ -127,7 +127,13 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order  = Order::find($id);
+        //delete when order_status canceled!
+        $deletedRows = $order ::where('order_status', 4)->delete();
+
+        return redirect()->route('admin.orders.index')
+        ->with('message', 'Xóa đơn hàng thành công!')
+        ->with('status', 'success');
     }
     public function DetailDestroy($id, $detail_id)
     {
@@ -160,6 +166,7 @@ class OrdersController extends Controller
 
         $query = DB::table('orders')
             ->join('book_addresses', 'book_addresses.id', '=', 'orders.billing_address_id')
+            ->whereNull('orders.delete_at')
             ->select('orders.*', 'book_addresses.last_name', 'book_addresses.first_name', 'book_addresses.email', 'book_addresses.phone');
         
         if (strlen($order_start_date) > 0) {
