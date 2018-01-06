@@ -507,9 +507,9 @@
         // });
 
     $('#form-upload-image').on( 'submit', function(e) {
-      event.preventDefault();
-                var form = document.forms.namedItem("form-upload-image");
-                var formData = new FormData(form);
+        e.preventDefault();
+        var form = document.forms.namedItem("form-upload-image");
+        var formData = new FormData(form);
         $('#img1').html('<img src="{{asset("images/loader.gif")}}" style="padding-top: 40%"/>');
         $.ajax({
             type: 'POST',
