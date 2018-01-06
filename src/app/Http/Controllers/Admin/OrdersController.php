@@ -319,7 +319,7 @@ class OrdersController extends Controller
         }
 
         $order = Order::find($id);
-        $this->UpdateAddress($request, $order->billing_address_id);
+        $this->UpdateAddress($request, $order->billing_address_id, $order->customer_id);
         $tab = 2;
         return view('admin/orders/show',compact('order','tab'))
         ->with('message', 'Cập nhật địa chỉ thanh toán của khách hàng thành công!')
@@ -344,7 +344,7 @@ class OrdersController extends Controller
         }
 
         $order = Order::find($id);
-        $this->UpdateAddress($request, $order->shipping_address_id);
+        $this->UpdateAddress($request, $order->shipping_address_id, $order->customer_id);
 
         $tab = 3;
 
@@ -353,13 +353,14 @@ class OrdersController extends Controller
         ->with('status', 'success');
     }
 
-    public  function UpdateAddress(Request $request, $id)
+    public  function UpdateAddress(Request $request, $id, $customer)
     {
         $address = BookAddress::find($id);
-        if(empty( $address)){
+        if(empty($address)){
             $address = new BookAddress();
+            $address->user_id = $customer;
         }
-        
+
         $address->company =  $request->company??'';
         $address->first_name=  $request->first_name??'';
         $address->last_name=  $request->last_name??'';
