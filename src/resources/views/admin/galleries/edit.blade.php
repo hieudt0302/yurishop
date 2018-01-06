@@ -190,7 +190,6 @@
                                                                 </div>
                                                             </td>
                                                             <td >{{$m->description}}
-                                                                <div>{{$m->name}}</div>
                                                                 <div id="pnlEditMediaItemDescription{{$m->id}}" style="display: none;">
                                                                     <div class="form-group">
                                                                         <div class="col-md-12">
@@ -200,19 +199,12 @@
                                                                 </div>
                                                             </td>
                                                             <td >
-                                                                <button id="btnEditMediaItem{{$m->id}}" type="button" class="btn btn-primary"  onclick="toggleImageItemEdit(true, {{$m->id}});return false;">
-                                                                    <i class="fa fa-pencil"></i>Cập Nhật
-                                                                </button>
-                                                                
+                                                                <button id="btnEditMediaItem{{$m->id}}" type="button" class="btn btn-primary"  onclick="toggleImageItemEdit(true, {{$m->id}});return false;">Cập Nhật</button>
                                                                 <button id="btnSaveMediaItem{{$m->id}}" type="submit" class="btn btn-primary" style="display:none; width:80px;">
                                                                     <i class="fa fa-floppy-o"></i>
                                                                     Lưu
                                                                 </button>
-                                                            
-                                                                <button id="btnCancelMediaItem{{$m->id}}" type="button" class="btn btn-teal" onclick="toggleImageItemEdit(false, {{$m->id}});return false;"  style="display:none; width:80px; margin-top:4px;">
-                                                                    <i class="fa fa-close"></i>
-                                                                    Hủy
-                                                                </button>
+                                                                <button id="btnCancelMediaItem{{$m->id}}" type="button" class="btn btn-teal" onclick="toggleImageItemEdit(false, {{$m->id}});return false;"  style="display:none; width:80px; margin-top:4px;">Hủy</button>
                                                             </td>
                                                             <td >
                                                                 <button class="btn btn-danger ajax-action-link" data-href="{{url('/admin/galleries/images')}}/{{$m->id}}" data-id="{{$m->id}}">Xóa</button>
