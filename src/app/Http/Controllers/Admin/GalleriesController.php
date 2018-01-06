@@ -210,7 +210,7 @@ class GalleriesController extends Controller
         $categories = Category::where('parent_id', $galleryCategory->id??0)->get();
         $tab = 2;
 
-        return view('admin/galleries/edit',compact('gallery','tab'))
+        return view('admin/galleries/edit',compact('gallery','categories','tab'))
         ->with('message', 'Cập nhật thông tin hình ảnh thành công!')
         ->with('status', 'success');
     }
