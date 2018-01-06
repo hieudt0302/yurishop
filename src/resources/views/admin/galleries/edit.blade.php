@@ -158,6 +158,7 @@
                                                         <th>Tên</th>
                                                         <th>Mô tả</th>
                                                         <th></th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -169,7 +170,12 @@
                                                             <td>{{$m->pivot->order}}</td>
                                                             <td >{{$m->name}}</td>
                                                             <td >{{$m->description}}</td>
-                                                            <td ><button class="btn btn-danger ajax-action-link" data-href="{{url('/admin/galleries/images')}}/{{$m->id}}" data-id="{{$m->id}}"><span ></span>Xóa</button></td>
+                                                            <td >
+                                                                <button class="btn btn-primary" data-id="{{$m->id}}">Sửa</button>
+                                                            </td>
+                                                            <td >
+                                                                <button class="btn btn-danger ajax-action-link" data-href="{{url('/admin/galleries/images')}}/{{$m->id}}" data-id="{{$m->id}}">Xóa</button>
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -223,7 +229,7 @@
         e.preventDefault();
         var form = document.forms.namedItem("form-upload-image");
         var formData = new FormData(form);
-        
+
         $('#img1').html('<img src="{{asset("images/loader.gif")}}" style="padding-top: 40%"/>');
         $.ajax({
             type: 'POST',
