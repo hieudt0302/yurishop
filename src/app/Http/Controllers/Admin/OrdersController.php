@@ -356,6 +356,9 @@ class OrdersController extends Controller
     public  function UpdateAddress(Request $request, $id)
     {
         $address = BookAddress::find($id);
+        if(empty( $address)){
+            $address = new BookAddress();
+        }
         
         $address->company =  $request->company??'';
         $address->first_name=  $request->first_name??'';
@@ -370,7 +373,7 @@ class OrdersController extends Controller
         $address->phone = $request->phone??'';
         $address->fax = $request->fax??'';
         $address->email = $request->email??'';
-
         $address->save();
+       
     }    
 }
