@@ -200,7 +200,7 @@
 	                                </td>
 	                            </tr>
 	                            <tr>
-	                                <td>Banner style (1:fullwidth, 2:two columns)</td>
+	                                <td>Banner style trang chủ (1:fullwidth, 2:two columns)</td>
 	                                <td>
 	                                    <input type="text" class="form-control" name="banner-style" value="{{ Setting::config('banner-style') }}"/>
 	                                </td>
@@ -222,7 +222,19 @@
 	                                <td>
 	                                    <input type="text" class="form-control" name="right-banner-url" value="{{ Setting::config('right-banner-url') }}"/>
 	                                </td>
-	                            </tr> 	                             	                              	                                                       	                            	                            		                            	                                     
+	                            </tr>
+	                            <tr>
+	                                <td>Hiển thị banner trang bài viết (1:hiển thị)</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="banner-blog-active" value="{{ Setting::config('banner-blog-active') }}"/>
+	                                </td>
+	                            </tr>
+	                            <tr>
+	                                <td>Url cho banner trang bài viết</td>
+	                                <td>
+	                                    <input type="text" class="form-control" name="banner-blog-url" value="{{ Setting::config('banner-blog-url') }}"/>
+	                                </td>
+	                            </tr>	                             	                             	                              	                                                       	                            	                            		                            	                                     
                             </table>  
                         </div>
                     </div>

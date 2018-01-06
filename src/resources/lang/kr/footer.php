@@ -6,7 +6,7 @@ return [
     'faq' => '자주 묻는 질문', 
     'purchase-flow' => '구매안내',
     'returns' => '환불', 
-    'showroom-locations' => 'showroom의 주소  ',   
+    'showroom-locations' => '쇼룸',   
     'my-account' => '계정', 
     'sign-in' => '로그인', 
     'view-cart' => '장바구니', 

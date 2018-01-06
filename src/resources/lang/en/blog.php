@@ -18,5 +18,6 @@ return [
      'name' => 'Name',                       
      'email' => 'email',
      'leave-a-comment' => 'Leave a comment',
-     'send-comment' => 'Send comment',                
+     'send-comment' => 'Send comment',
+     'search-tags' => 'Search by tags',                    
 ];

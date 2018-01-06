@@ -25,7 +25,7 @@ return [
     'contact' => 'Liên hệ',
     'search' => 'Tìm kiếm',
     'cart' => 'Giỏ hàng',        
-    'account' => 'TÀI KHOẢN',
+    'account' => 'Tài khoản',
     'promotion' => 'Khuyến mại',    
     'enter-keyword' => 'Nhập từ khoá',   
     'call-us-now' => 'Hãy gọi cho chúng tôi',

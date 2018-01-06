@@ -19,5 +19,5 @@ return [
     'unsubscribe' => 'Unsubscribe',
     'subscribe-success' => 'You have successfully subscribed !',
     'subscribe-failed' => 'This email is already subscribed !',       
-    'about-us' => 'About',          
+    'about-us' => 'Contact us',          
 ];

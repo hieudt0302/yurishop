@@ -5681,7 +5681,7 @@ section {
     color: #333333;
     font-weight: 700;
     font-style: Bold;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .bloglistpost-v1 .bg-sidebar .search,
@@ -5747,6 +5747,13 @@ section {
 .bloglistpost-v1 .bg-sidebar .categories ul li:hover,
 .bloglistpost-v2 .bg-sidebar .categories ul li:hover {
     color: #178240;
+    text-decoration: none;
+}
+
+.bloglistpost-v1 .bg-sidebar .categories a:hover,
+.bloglistpost-v2 .bg-sidebar .categories a:hover {
+    color: #178240;
+    text-decoration: none;
 }
 
 .bloglistpost-v1 .bg-sidebar .pp-posts .pp-post-it,
@@ -6460,8 +6467,8 @@ section {
     color: #333333;
     font-weight: '';
     font-style: Italic;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .about .ab-intro p span,
@@ -6471,7 +6478,7 @@ section {
 
 .about .ab-item,
 .aboutv2 .ab-item {
-    margin-top: 90px;
+    margin-top: 20px;
     margin-bottom: 50px;
     text-align: center;
     justify-content: center;
@@ -7037,6 +7044,9 @@ section {
 .products .products-it .pro-it.arrival-it:hover .hover-inner a.cart.pink i {
     background: #f49ac1;
     border: none;
+}
+.products {
+    background-color: #fafafa;
 }
 
 .productsv4 .products-it {
@@ -7898,6 +7908,7 @@ section {
     background-position: left center;
     height: 400px;
     max-width: 1920px;
+    background-color: #fafafa;
 }
 
 div.ads-right a {

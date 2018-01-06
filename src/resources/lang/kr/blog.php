@@ -18,5 +18,6 @@ return [
      'name' => '이름',                       
      'email' => '이메일', 
      'leave-a-comment' => '코멘트 쓰기', 
-     'send-comment' => '코멘트 보내기 ',                
+     'send-comment' => '코멘트 보내기 ',   
+     'search-tags' => '태그로 검색',                    
 ];

@@ -37,26 +37,33 @@
                                         <div class="panel-body">
                                        
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Banner rộng toàn màn hình</label>
+                                                <label class="control-label col-md-3" for="slug" title="">Banner rộng toàn màn hình (home)</label>
                                                 <div class="col-md-4">
                                                     <input class="single-line valid" type="file" name="banner-full"/>
                                                     <span class="text-danger">{{ $errors->first('banner-full') }}</span>                                                        
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Banner bên trái</label>
+                                                <label class="control-label col-md-3" for="slug" title="">Banner bên trái (home)</label>
                                                 <div class="col-md-4">
                                                     <input class="single-line valid" type="file" name="banner-left"/>
                                                     <span class="text-danger">{{ $errors->first('banner-left') }}</span>                                                        
                                                 </div>
                                             </div> 
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Banner bên phải</label>
+                                                <label class="control-label col-md-3" for="slug" title="">Banner bên phải (home)</label>
                                                 <div class="col-md-4">
                                                     <input class="single-line valid" type="file" name="banner-right"/>
                                                     <span class="text-danger">{{ $errors->first('banner-right') }}</span>                                                        
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Banner trang bài viết</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="banner-blog"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-blog') }}</span>                                                        
+                                                </div>
+                                            </div>                                            
 
                                             <hr>
 

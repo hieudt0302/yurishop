@@ -18,5 +18,6 @@ return [
    'name' => '名',                       
    'email' => '邮件',
    'leave-a-comment' => '填写评论',
-   'send-comment' => '评论发送',               
+   'send-comment' => '评论发送',
+   'search-tags' => '按标签搜索',                    
 ];

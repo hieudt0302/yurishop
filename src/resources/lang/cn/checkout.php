@@ -32,5 +32,11 @@ return [
     'order-received' => '订单接收.',  
     'thank' => '感谢你的选购',  
     'order-number' => '订单号',                                                    
-    'order-details' => '订单明细',  
+    'order-details' => '订单明细',
+    'update-cart-item' => '项目已添加到您的购物车',    
+    'delete-cart-item' => '商品从您的购物车中删除',
+    'move-to-wl' => '项目被移动到您的心愿',
+    'update-wl-item' => '项目被添加到您的愿望清单',  
+    'delete-wl-item' => '项目从您的心愿清单中删除',
+    'move-to-cart' => '物品移动到您的购物车',       
 ];

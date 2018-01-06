@@ -74,12 +74,6 @@
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="right-it">
-                    <form action="{{url('/subject/')}}/{{$parent}}/{{$slug}}" method="GET" class="form-inline search-form"  autocomplete="true">
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Search" name="search" type="text" value="{{old('search')}}">
-                        </div>
-                        <button type="submit">Search</button>
-                    </form>
 				</div>
 			</div>
         </div>
