@@ -25,7 +25,7 @@
 						data-type="text" 
 						data-responsive_offset="on" 
 
-						
+						data-frames='[]'
 						data-textAlign="['left','left','left','left']"
 						data-paddingtop="[0,0,0,0]"
 						data-paddingright="[0,0,0,0]"
@@ -46,6 +46,7 @@
 						data-type="button" 
 						data-responsive_offset="on" 
 						data-responsive="off"
+						data-frames='[]'
 						data-textAlign="['left','left','left','left']"
 						data-paddingtop="[14,14,14,14]"
 						data-paddingright="[35,35,35,35]"
