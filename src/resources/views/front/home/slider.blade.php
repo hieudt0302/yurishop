@@ -25,7 +25,7 @@
 						data-type="text" 
 						data-responsive_offset="on" 
 
-						data-frames='[]'
+						data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":740,"to":"o:1;","delay":510,"ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
 						data-textAlign="['left','left','left','left']"
 						data-paddingtop="[0,0,0,0]"
 						data-paddingright="[0,0,0,0]"
@@ -46,7 +46,7 @@
 						data-type="button" 
 						data-responsive_offset="on" 
 						data-responsive="off"
-						data-frames='[]'
+						data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":1400,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
 						data-textAlign="['left','left','left','left']"
 						data-paddingtop="[14,14,14,14]"
 						data-paddingright="[35,35,35,35]"
