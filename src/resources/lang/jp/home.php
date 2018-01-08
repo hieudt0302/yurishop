@@ -13,5 +13,6 @@ return [
     'product-quality' => '商品品質',
     'community' => '共同',   
     'specialty-coffee' => '特産コーヒー',   
-    'commercial-coffee' => '商業コーヒー',         
+    'commercial-coffee' => '商業コーヒー',
+    'home-video-url' => 'https://www.youtube.com/embed/Ln6C1mUrUdY',                
 ];

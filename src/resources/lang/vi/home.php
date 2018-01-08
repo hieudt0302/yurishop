@@ -16,5 +16,6 @@ return [
     'unsubscribe-success' => 'Bạn đã hủy đăng ký nhận thông tin khuyến mãi thành công. <br> Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.',   
     'back-home' => 'Quay về trang chủ',
     'specialty-coffee' => 'Cà phê đặc sản',   
-    'commercial-coffee' => 'Cà phê thương phẩm',        	      
+    'commercial-coffee' => 'Cà phê thương phẩm',   
+    'home-video-url' => 'https://www.youtube.com/embed/Lv0Br4Ti6E4',            	      
 ];
