@@ -261,3 +261,10 @@ footer.ht-footer{
 footer.ht-footer .ft-heading h6, footer.ht-footer ul li a, footer.ht-footer .ft-contact ul.ct-it li i, footer.ht-footer .ft-contact .ct-icon a i{
 	color: #fff;
 }
+
+.rev_slider a{
+	color: rgb(142, 179, 90);
+}
+.rev_slider a:active, .rev_slider a:hover{
+	color: #fff;
+}
