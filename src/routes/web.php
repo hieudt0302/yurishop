@@ -73,7 +73,7 @@ Route::post('/Cart/DeleteCartItem', 'Front\CartController@DeleteCartItem');
 Route::post('/Cart/MoveItemBetweenCartAndWishlist', 'Front\CartController@MoveItemBetweenCartAndWishlist');
 
 /* WISHLIST */
-Route::get('/wishlist', 'Front\ShoppingCartController@wishlist');
+Route::get('/wishlist',  ['uses'=> 'Front\ShoppingCartController@wishlist' , 'middleware' => 'auth']);
 Route::post('/Cart/UpdateWishlistItem', 'Front\CartController@UpdateWishlistItem');
 Route::post('/Cart/DeleteWishlistItem', 'Front\CartController@DeleteWishlistItem');
 Route::post('/Cart/MoveItemBetweenWishlistAndCart', 'Front\CartController@MoveItemBetweenWishlistAndCart');
@@ -124,7 +124,8 @@ Route::post('/Account/ChangePassword/Update', 'Auth\AccountController@ChangePass
 Route::get('/Order/Details/{id}', 'Front\OrdersController@show');
 
 
-
+/* GALLERIES */
+Route::get('/galleries', 'Front\GalleriesController@index');
 
 /* ADMIN */
 //Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function() {
@@ -183,6 +184,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
 
     //Blog
     Route::get('posts',['as'=>'admin.posts.index','uses'=>'PostsController@index','middleware' => ['role:admin|manager']]);
+    Route::post('posts',['as'=>'admin.posts.find','uses'=>'PostsController@find','middleware' => ['role:admin|manager']]);
     Route::get('posts/create',['as'=>'admin.posts.create','uses'=>'PostsController@create','middleware' => ['role:admin|manager']]);
     Route::post('posts/create',['as'=>'admin.posts.store','uses'=>'PostsController@store','middleware' => ['role:admin|manager']]);
     Route::get('posts/{id}/edit',['as'=>'admin.posts.edit','uses'=>'PostsController@edit','middleware' => ['role:admin|manager']]);
@@ -230,6 +232,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::get('orders',['as'=>'admin.orders.index','uses'=>'OrdersController@index','middleware' => ['role:admin|manager']]);
     Route::post('orders',['as'=>'admin.orders.find','uses'=>'OrdersController@find','middleware' => ['role:admin|manager']]);
     Route::get('orders/{id}',['as'=>'admin.orders.show','uses'=>'OrdersController@show','middleware' => ['role:admin|manager']]);
+    Route::delete('orders/{id}',['as'=>'admin.orders.destroy','uses'=>'OrdersController@destroy','middleware' => ['role:admin|manager']]);
+
     //
     Route::post('orders/{id}/cancel/orderstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@CancelOrderStatus','middleware' => ['role:admin|manager']]);
     Route::post('orders/{id}/change/orderstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@ChangeOrderStatus','middleware' => ['role:admin|manager']]);
@@ -286,5 +290,19 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     //Banner
     Route::get('banners/edit',['as'=>'admin.banners.edit','uses'=>'BannersController@edit','middleware'=> ['role:admin|manager']]);
     Route::post('banners/update',['as'=>'admin.banners.update','uses'=>'BannersController@update','middleware'=> ['role:admin|manager']]); 
+
+    // Update Galleries 23/12/2017
+    //Gallery
+    Route::get('galleries',['as'=>'admin.galleries.index','uses'=>'GalleriesController@index','middleware' => ['role:admin|manager']]);
+    Route::get('galleries/create',['as'=>'admin.galleries.create','uses'=>'GalleriesController@create','middleware' => ['role:admin|manager']]);
+    Route::post('galleries/create',['as'=>'admin.galleries.store','uses'=>'GalleriesController@store','middleware' => ['role:admin|manager']]);
+    Route::get('galleries/{id}/edit',['as'=>'admin.galleries.edit','uses'=>'GalleriesController@edit','middleware' => ['role:admin|manager']]);
+    Route::patch('galleries/{id}',['as'=>'admin.galleries.update','uses'=>'GalleriesController@update','middleware' => ['role:admin|manager']]);
+    Route::delete('galleries/{id}',['as'=>'admin.galleries.destroy','uses'=>'GalleriesController@destroy','middleware' => ['role:admin|manager']]);  
+    Route::get('galleries/generateslug/{title}',['as'=>'admin.galleries.generateSlug','uses'=>'GalleriesController@GenerateSlug','middleware' => ['role:admin|manager']]);
+    Route::post('galleries/{id}/image/upload',['as'=>'admin.galleries.uploadImage','uses'=>'GalleriesController@uploadImage','middleware' => ['role:admin|manager']]);
+    Route::delete('galleries/images/{id}',['as'=>'admin.galleries.destroyImage','uses'=>'GalleriesController@destroyImage','middleware' => ['role:admin|manager']]);
+
+    Route::post('galleries/images/{id}/update', ['as'=>'admin.galleries.edit','uses'=>'GalleriesController@UpdateImage','middleware' => ['role:admin|manager']]);
 });
 

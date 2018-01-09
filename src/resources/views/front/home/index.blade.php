@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Pokofarms - Home')
+@section('title','Pô Kô Farms - Home')
 @section('content')
 
 <!-- Slider -->
@@ -16,13 +16,28 @@
 </section> -->
 <div class="about">
     <div class="container">
+
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="ab-intro">
-                    <p>{{$pokofarms_message->translation->description??""}}</p>
+
+            <!-- Video -->
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="ab-intro">
+                        <p>- <b>{{$video_message->translation->title??""}}</b> -</p>
+                        <p>"{{$video_message->translation->description??""}}"</p>
+                        </br>
+                    </div>
                 </div>
             </div>
+
+            <div class="video-section">
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="{{ Setting::config('home_video_url') }}?autoplay=1&amp;rel=0&amp;mute=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <!-- End Video -->            
         </div>
+
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="ab-item">
@@ -34,7 +49,7 @@
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="ab-item">
-                    <img src="{{ asset('images/logo/origin.jpg') }}" alt="">
+                    <img src="{{ asset('images/logo/origin.png') }}" alt="">
                     <h2>@lang('home.product-origin')</h2>
                     <p>{{$product_origin->translation->description??""}}</p>
                     <a class="learnmore" href="{{url('/product-origin')}}">@lang('common.more-details')</a>
@@ -42,7 +57,7 @@
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="ab-item">
-                    <img src="{{ asset('images/logo/fairtrade.jpg') }}" alt="">
+                    <img src="{{ asset('images/logo/fairtrade.png') }}" alt="">
                     <h2>@lang('home.product-quality')</h2>
                     <p>{{$product_quality->translation->description??""}}</p>
                     <a class="learnmore" href="{{url('/product-quality')}}">@lang('common.more-details')</a>
@@ -53,39 +68,26 @@
                     <img src="{{ asset('images/logo/community-icon.png') }}" alt="">
                     <h2>@lang('home.community')</h2>
                     <p>{{$community_category->translation->description??""}}</p>
-                    <a class="learnmore" href="{{url('menu/posts/'.$community_category->slug)}}">@lang('common.more-details')</a>
+                    <a class="learnmore" href="{{url('subject/posts/'.$community_category->slug)}}">@lang('common.more-details')</a>
                 </div>
             </div>            
         </div>
-        <div class="row">
 
-        <!-- Video -->
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="ab-intro">
-                    <p>- <b>{{$video_message->translation->title??""}}</b> -</p>
-                    <p>"{{$video_message->translation->description??""}}"</p>
-                    </br>
-                </div>
-            </div>
-        </div>
-
-        <div class="video-wrapper">
-            <iframe width="560" height="315" src="{{ Setting::config('home_video_url') }}?autoplay=1&amp;rel=0&amp;mute=1" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <!-- End Video -->
-
-        </div>
     </div>
 </div>      
+    
+
+    <!-- Promo -->
+    @include('front.home.promo')
+    <!-- End Promo -->
     
     <!-- Products -->
     @include('front.home.products')
     <!-- End Products -->
 
-    <!-- Promo -->
-    @include('front.home.promo')
-    <!-- End Promo -->
+    <!-- Subscribe -->
+    @include('front.home.subscribe')
+    <!-- End Subscribe -->    
 
     <!-- Blogs -->
 <!--     @include('front.home.blogs') -->

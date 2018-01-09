@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use App\Models\Category;
+use App\Models\Gallery;
+use App\Models\Media;
 use Validator;
 use DB;
 class AppServiceProvider extends ServiceProvider
@@ -32,7 +34,17 @@ class AppServiceProvider extends ServiceProvider
 
                 $product_menu = Category::where('slug','products')->first();                
 
-				View::share(['blog_menu' => $blog_menu, 'product_menu' => $product_menu ]);
+                // $footer_galleries = Gallery::where('published', true)->orderBy('updated_at', 'desc')->limit(9)->get();
+               
+                // $latestMediaOfGallery = Media::whereIn('id', DB::Raw('select gm.media_id from gallery_media as gm left join galleries as g on gm.gallery_id = g.id where g.published = 1'))
+                // ->limit(9)
+                // ->get();
+
+                $latestMediaOfGallery = Media::whereRaw('id in (select gm.media_id from gallery_media as gm left join galleries as g on gm.gallery_id = g.id where g.published = 1)')
+                ->limit(9)
+                ->get();
+                
+				View::share(['blog_menu' => $blog_menu, 'product_menu' => $product_menu, 'latestMediaOfGallery' => $latestMediaOfGallery ]);
 			}
         }
         

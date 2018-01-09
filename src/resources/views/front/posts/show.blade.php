@@ -12,14 +12,14 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="blogsingle-content">
                     <div class="date">
-                        <span>@lang('blog.posted-by') {{$post->author->last_name}} {{$post->author->first_name}}, {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
+                        <span>{{$post->author->first_name}} {{$post->author->last_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
                     </div>
-                    <h1>{{$post->translation->title}} </h1>
-                    <p class="quote">{{$post->translation->excerpt}}</p>
+                    <h1>{{$post->translation->title??$post->title}} </h1>
+                    <p class="quote">{{$post->translation->excerpt??'Content not found!'}}</p>
                     
 
                     <!-- Post content -->
-                    {!! $post->translation->content !!}
+                    {!! $post->translation->content??'' !!}
                     <!-- End post content -->
                     <br><br>
                     <!-- tags -->
@@ -44,7 +44,7 @@
                                     <div class="cmt-content">
                                         <h4><a href="#">{{$comment->name}}</a><li class="date">{{$comment->created_at}}</li></h4>
                                         <p>{{$comment->comment}}</p>
-                                        <a class="reply" href="#comment-form"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
+                                        <a class="reply" href="#comment-form"><i class="fa fa-reply" aria-hidden="true"></i>@lang('product.comment')</a>
                                     </div>  
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                                 </div>
                                 @else
                                     <input type="hidden" id="reader_id" name="reader_id" value="{{Auth::user()->id}}">
-                                    <input type="hidden" id="name" name="name" value="{{Auth::user()->last_name}} {{Auth::user()->first_name}}">
+                                    <input type="hidden" id="name" name="name" value="{{Auth::user()->first_name}} {{Auth::user()->last_name}}">
                                     <input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
                                 @endguest       
                                                          

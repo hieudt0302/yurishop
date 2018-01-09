@@ -30,6 +30,7 @@ class BannersController extends Controller
 
     public function update(Request $request)
     {   
+        //Banner
         if (request()->hasFile('banner-left')) {
             $banner = $request->file('banner-left');            
             $img = Image::make($banner->getRealPath());
@@ -44,10 +45,45 @@ class BannersController extends Controller
             $banner = $request->file('banner-full');            
             $img = Image::make($banner->getRealPath());
             $img->fit(1920, 400)->save('frontend/images/uploads/ads-bg3.jpg');                      
-        }         
+        }
+        if (request()->hasFile('banner-blog')) {
+            $banner = $request->file('banner-blog');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(270, 370)->save('frontend/images/uploads/sale.jpg');                      
+        }          
+
+        //Icon
+        if (request()->hasFile('icon-1')) {
+            $icon = $request->file('icon-1');            
+            $img = Image::make($icon->getRealPath());
+            $img->resize(null, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('images/logo/poko.png');                      
+        }
+        if (request()->hasFile('icon-2')) {
+            $icon = $request->file('icon-2');            
+            $img = Image::make($icon->getRealPath());
+            $img->resize(null, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('images/logo/origin.png');                      
+        }
+        if (request()->hasFile('icon-3')) {
+            $icon = $request->file('icon-3');            
+            $img = Image::make($icon->getRealPath());
+            $img->resize(null, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('images/logo/fairtrade.png');                      
+        }    
+        if (request()->hasFile('icon-4')) {
+            $icon = $request->file('icon-4');            
+            $img = Image::make($icon->getRealPath());
+            $img->resize(null, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('images/logo/community-icon.png');                      
+        }                                                 
       
         return redirect()->back()
-        ->with('message', 'Banner đã được cập nhật')
+        ->with('message', 'Banner/icon đã được cập nhật')
         ->with('status', 'success');
     }
 

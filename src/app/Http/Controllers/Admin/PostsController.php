@@ -24,12 +24,19 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::paginate(21);
+        // $posts = Post::paginate(21);
 
-        return View('admin.posts.index',compact('posts'))
-        ->with('i', (Input::get('page', 1) - 1) * 21);
+        // return View('admin.posts.index',compact('posts'))
+        // ->with('i', (Input::get('page', 1) - 1) * 21);
+
+        return $this->filter($request);
+    }
+
+    public function find(Request $request)
+    {
+        return $this->filter($request);
     }
 
     /**
@@ -391,5 +398,31 @@ class PostsController extends Controller
         return redirect()->route('admin.posts.comments')
         ->with('message', 'Đã xóa bình luận!')
         ->with('status', 'success');
+    }
+
+    public function filter(Request $request)
+    {
+        $post_title = $request->post_title;
+        $category_id = $request->category_id;
+
+        $query = Post::whereNull('deleted_at')
+             ->where(function ($query) use ($post_title) {
+                if (strlen($post_title) > 0) 
+                    $query->where('posts.title', 'LIKE', '%'.strtolower($post_title).'%');
+            })
+            ->where(function ($query) use ($category_id) {
+                if (is_numeric($category_id) > 0 && (int)$category_id > 0) 
+                    $query->whereIn('category_id', [$category_id]);
+            });
+   
+
+        $posts = $query->paginate(21);
+        $postsCategory = Category::where('slug', 'posts')->first();
+        $categories = Category::where('parent_id', $postsCategory->id)->get();
+        
+        $request->flashOnly([ 'post_title', 'category_id']);
+       
+        return View('admin.posts.index', compact('posts','categories'))
+        ->with('i', ($request->input('page', 1) - 1) * 21);
     }
 }

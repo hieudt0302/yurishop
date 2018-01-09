@@ -14,10 +14,10 @@ return [
     'my-wishlist' => 'My wishlist',
     'order-history' => 'Order history',
     'faqs' => 'FAQs',
-    'newsletter-message' => 'Stay informed with Pokofarms',
+    'newsletter-message' => 'Stay informed with<br>Pô Kô Farms',
     'subscribe' => 'Subscribe',   
     'unsubscribe' => 'Unsubscribe',
     'subscribe-success' => 'You have successfully subscribed !',
     'subscribe-failed' => 'This email is already subscribed !',       
-    'about-us' => 'About',          
+    'about-us' => 'Contact us',          
 ];

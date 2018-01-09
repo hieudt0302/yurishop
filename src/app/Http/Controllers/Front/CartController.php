@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
@@ -25,10 +26,10 @@ class CartController extends Controller
             ]);
         }
        
-        Cart::update($request->ItemId, $request->newQuantity);
+        Cart::instance('default')->update($request->ItemId, $request->newQuantity);
         
         return response()->json([
-            'message' => 'Đã thêm '. $request->newQuantity .' sản phẩm vào giỏ hàng!',
+            'message' => trans('checkout.update-cart-item'),
             'status' => 'success',
             'type' => 'update',
             'rowId' => $request->ItemId,
@@ -53,7 +54,7 @@ class CartController extends Controller
         Cart::remove($request->ItemId);
         
         return response()->json([
-            'message' => 'Đã xóa sản phẩm vào khỏi hàng!',
+            'message' => trans('checkout.delete-cart-item'),
             'status' => 'success',
             'type' => 'remove',
             'newCartItemCount' => Cart::count(),
@@ -75,12 +76,23 @@ class CartController extends Controller
             ]);
         }
 
-        $item = Cart::get($request->ItemId);  
+        $item = Cart::get($request->ItemId);          
         Cart::remove($request->ItemId);
+
+        //Restore from data if exist
+        $owner = Auth::user();
+        Cart::instance('wishlist')->restore($owner->id);
+
+        // Add new item
         Cart::instance('wishlist')->add($item->id, $item->name, $item->qty, $item->price, ['summary' => $item->options->summary, 'source' => $item->options->source]);
+        
+        //Save to data
+        Cart::instance('wishlist')->store($owner->id);
+
+        
 
         return response()->json([
-            'message' => 'Đã di chuyển sản phẩm sang danh sách mong ước!',
+            'message' => trans('checkout.move-to-wl'),
             'status' => 'success',
             'type' => 'remove',
             'rowId' => $request->ItemId,
@@ -88,8 +100,6 @@ class CartController extends Controller
             'newWishlistItemCount' => Cart::instance('wishlist')->count()
         ]);
     }
-
-
 
     public function UpdateWishlistItem(Request $request)
     {
@@ -105,10 +115,18 @@ class CartController extends Controller
             ]);
         }
        
+        // Restore from data if exist
+        $owner = Auth::user();
+        Cart::instance('wishlist')->restore($owner->id);
+        
+        // Update new item
         Cart::instance('wishlist')->update($request->ItemId, $request->newQuantity);
+
+        // Save to data
+        Cart::instance('wishlist')->store($owner->id);
         
         return response()->json([
-            'message' => 'Đã thêm '. $request->newQuantity .' sản phẩm vào giỏ hàng!',
+            'message' => trans('checkout.update-wl-item'),
             'status' => 'success',
             'type' => 'update',
             'rowId' => $request->ItemId,
@@ -130,10 +148,18 @@ class CartController extends Controller
             ]);
         }
        
+        // Restore from data if exist
+        $owner = Auth::user();
+        Cart::instance('wishlist')->restore($owner->id);
+
+        // Remove new item
         Cart::instance('wishlist')->remove($request->ItemId);
         
+        // Save to data
+        Cart::instance('wishlist')->store($owner->id);
+
         return response()->json([
-            'message' => 'Đã xóa sản phẩm vào khỏi hàng!',
+            'message' => trans('checkout.delete-wl-item'),
             'status' => 'success',
             'type' => 'remove',
             'newCartItemCount' => Cart::instance('default')->count(),
@@ -157,10 +183,19 @@ class CartController extends Controller
 
         $item =  Cart::instance('wishlist')->get($request->ItemId);  
         Cart::instance('default')->add($item->id, $item->name, $item->qty, $item->price,  ['summary' => $item->options->summary, 'source' => $item->options->source]);
+        
+        $owner = Auth::user();
+        // Restore from data if exist
+        Cart::instance('wishlist')->restore($owner->id);
+
+        // Remove new item
         Cart::instance('wishlist')->remove($request->ItemId);
 
+        // Save to data
+        Cart::instance('wishlist')->store($owner->id);
+
         return response()->json([
-            'message' => 'Đã di chuyển sản phẩm sang giỏ hàng!',
+            'message' => trans('checkout.move-to-cart'),
             'status' => 'success',
             'type' => 'remove',
             'rowId' => $request->ItemId,

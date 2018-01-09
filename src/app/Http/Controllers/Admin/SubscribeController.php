@@ -43,7 +43,7 @@ class SubscribeController extends Controller
         //         Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data, $mail_template){
         //             $message
         //             ->to($data['email'])
-        //             ->subject(strlen($mail_template->title)> 0? $mail_template->title :'Pokofarms: Tin khuyến mãi');
+        //             ->subject(strlen($mail_template->title)> 0? $mail_template->title :'Pô Kô Farms: Tin khuyến mãi');
         //         }); 
 
         //     }
@@ -65,7 +65,7 @@ class SubscribeController extends Controller
                     Mail::send('admin/subscribes/mail_template', $data, function($message) use ($data, $mail_template){
                         $message
                         ->to($data['email'])
-                        ->subject(strlen($mail_template->title)> 0? $mail_template->title :'Pokofarms: Tin khuyến mãi');
+                        ->subject(strlen($mail_template->title)> 0? $mail_template->title :'Pô Kô Farms: Tin khuyến mãi');
                     }); 
                 }                
             } 

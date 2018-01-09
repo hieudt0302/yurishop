@@ -9,15 +9,15 @@
 			</div>
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<ul class="menu-filter">
-					<li  data-filter=".new" class="active"><a href="#">@lang('home.new-products')</a></li>
-					<li  data-filter=".best-sellers"><a href="#">@lang('home.best-sellers-products')</a></li>
+					<li  data-filter=".new" class="active"><a href="#">Specialty Coffee</a></li>
+					<li  data-filter=".best-sellers"><a href="#">Commercial Coffee</a></li>
 					<li  data-filter=".sale"><a href="#">@lang('home.sale-products')</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="row">
 			<div class="products-it grid">
-			@foreach($new_products as $product)
+			@foreach($specialty_coffee as $product)
 				<div class="pro-it new col-md-3 col-sm-6 col-xs-12">
 					<a href="{{url('/products')}}/{{$product->slug}}">
 					<img class="pro-img" src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="">
@@ -34,7 +34,8 @@
 					</div>
             	</div>
             @endforeach
-			@foreach($best_sellers_products as $product)
+
+			@foreach($commercial_coffee as $product)
 				<div class="pro-it best-sellers col-md-3 col-sm-6 col-xs-12">
 					<a href="{{url('/products')}}/{{$product->slug}}">
 					<img class="pro-img" src="{{ asset('/storage') }}/{{$product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="">
@@ -51,6 +52,7 @@
 					</div>
             	</div>
             @endforeach
+			
 			@foreach($sale_products as $product)
 				<div class="pro-it sale col-md-3 col-sm-6 col-xs-12">
 					<a href="{{url('/products')}}/{{$product->slug}}">

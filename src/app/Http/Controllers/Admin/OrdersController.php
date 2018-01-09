@@ -127,7 +127,13 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order  = Order::find($id);
+        //delete when order_status canceled!
+        $deletedRows = $order ::where('order_status', 4)->delete();
+
+        return redirect()->route('admin.orders.index')
+        ->with('message', 'Xóa đơn hàng thành công!')
+        ->with('status', 'success');
     }
     public function DetailDestroy($id, $detail_id)
     {
@@ -160,6 +166,7 @@ class OrdersController extends Controller
 
         $query = DB::table('orders')
             ->join('book_addresses', 'book_addresses.id', '=', 'orders.billing_address_id')
+            ->whereNull('orders.deleted_at')
             ->select('orders.*', 'book_addresses.last_name', 'book_addresses.first_name', 'book_addresses.email', 'book_addresses.phone');
         
         if (strlen($order_start_date) > 0) {
@@ -312,7 +319,7 @@ class OrdersController extends Controller
         }
 
         $order = Order::find($id);
-        $this->UpdateAddress($request, $order->billing_address_id);
+        $this->UpdateAddress($request ,$order->id, $order->billing_address_id, $order->customer_id, 1);
         $tab = 2;
         return view('admin/orders/show',compact('order','tab'))
         ->with('message', 'Cập nhật địa chỉ thanh toán của khách hàng thành công!')
@@ -337,7 +344,7 @@ class OrdersController extends Controller
         }
 
         $order = Order::find($id);
-        $this->UpdateAddress($request, $order->shipping_address_id);
+        $this->UpdateAddress($request, $order->id, $order->shipping_address_id, $order->customer_id, 2);
 
         $tab = 3;
 
@@ -346,10 +353,16 @@ class OrdersController extends Controller
         ->with('status', 'success');
     }
 
-    public  function UpdateAddress(Request $request, $id)
+    public  function UpdateAddress(Request $request, $id, $address_id, $customer, $type)
     {
-        $address = BookAddress::find($id);
-        
+        $address = BookAddress::find($address_id);
+        $is_create = false;
+        if(empty($address)){
+            $address = new BookAddress();
+            $address->user_id = $customer;
+            $is_create  =true;
+        }
+
         $address->company =  $request->company??'';
         $address->first_name=  $request->first_name??'';
         $address->last_name=  $request->last_name??'';
@@ -363,7 +376,24 @@ class OrdersController extends Controller
         $address->phone = $request->phone??'';
         $address->fax = $request->fax??'';
         $address->email = $request->email??'';
-
         $address->save();
+
+        if($is_create){
+            $order =Order::find($id);
+
+            switch($type){
+                case 1:
+                    $order->billing_address_id =  $address->id;
+                 break;
+                 case 2:
+                    $order->shipping_address_id =  $address->id;
+                 break;
+
+                 default: break;
+            }
+           
+           $order->save();
+        }
+
     }    
 }

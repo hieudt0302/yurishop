@@ -32,5 +32,12 @@ return [
     'order-received' => '注文が成功に登録されました。',  
     'thank' => 'ご購入、ありがとうございました!',  
     'order-number' => '注文番号',                                                    
-    'order-details' => '注文詳細',  
+    'order-details' => '注文詳細',
+    'update-cart-item' => 'アイテムはカートに追加されした',    
+    'delete-cart-item' => 'アイテムはカートから削除されました',
+    'move-to-wl' => 'アイテムは欲しいリストに移動されました',
+    'update-wl-item' => 'アイテムは欲しいリストに追加されました',  
+    'delete-wl-item' => 'アイテムは欲しいリストから削除されました',
+    'move-to-cart' => 'アイテムがカートに移動されました',       
+       
 ];

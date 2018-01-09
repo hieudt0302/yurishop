@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
@@ -134,6 +135,13 @@ class ProductsController extends Controller
 
     public function addToWishlist(Request $request)
     {
+        if(Auth::guest())
+            return response()->json([
+                'message' => 'Vui lòng đăng nhập trước!',
+                'status' => 'error',
+                'newWishlistItemCount' => 0
+            ]);
+
         $validator = Validator::make($request->all(), [
             'id' => 'required',
             'name' => 'required',
@@ -150,7 +158,16 @@ class ProductsController extends Controller
         }
        
         $product = Product::find($request->id);
-        $cartItem = Cart::instance('wishlist')->add($request->id, $request->name, $request->quantity, $request->price, ['summary'=>$product->translation->summary??'', 'source' =>  $product->GetMediaByOrderAsc()->source??'']);
+
+        //Restore from data if exist
+        $owner = Auth::user();
+        Cart::instance('wishlist')->restore($owner->id);
+
+        // Add new item
+        Cart::instance('wishlist')->add($request->id, $request->name, $request->quantity, $request->price, ['summary'=>$product->translation->summary??'', 'source' =>  $product->GetMediaByOrderAsc()->source??'']);
+
+        // Save to data
+        Cart::instance('wishlist')->store($owner->id);
 
         return response()->json([
             'message' => 'Đã thêm '. $request->quantity .' sản phẩm vào wishlist!',

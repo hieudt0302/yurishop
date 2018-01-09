@@ -55,7 +55,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            {{ Form::checkbox('published', old('published') , true , array('class' => 'check-box')) }}
+                                                            {{ Form::checkbox('published', 1 , true, array('class' => 'check-box')) }}
                                                         </label>
                                                     </div>
                                                 </div>

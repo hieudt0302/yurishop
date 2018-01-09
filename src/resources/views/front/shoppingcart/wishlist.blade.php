@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Pokofarms - Wishlist')
+@section('title','Pô Kô Farms - Wishlist')
 
 @section('header')
 @parent
@@ -19,7 +19,11 @@
                         </div>
                         <div class="page-body">
                             <div class="order-summary-content">
-                                @if(Cart::instance('wishlist')->count() >0)
+
+                                @php(Cart::instance('wishlist')->restore(Auth::user()->id))
+                                @php(Cart::instance('wishlist')->store(Auth::user()->id))
+
+                                @if(Cart::instance('wishlist')->count()  > 0)
                                 <form action="{{url('/cart')}}" enctype="multipart/form-data" method="GET" novalidate="novalidate">
                                 <!-- {{ csrf_field() }} -->
                                     <div class="card">
@@ -198,7 +202,9 @@
 
 <script type="text/javascript">
 $(document).ready(function(){   
-   
+    $('form input').on('keypress', function(e) {
+        return e.which !== 13;
+    });
     var orderSummary = $(".order-summary-content");
     orderSummary.on("click", ".btn-continue-shopping", function (e) {
         e.preventDefault();

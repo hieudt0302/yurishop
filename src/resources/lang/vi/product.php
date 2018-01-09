@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'product' => 'Sản phẩm',
+	'product' => 'Mua hàng',
 	'products' => 'Sản phẩm của chúng tôi',     
 	'price' => 'Giá',
 	'sale' => 'Giảm giá', 
