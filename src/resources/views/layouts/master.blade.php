@@ -68,9 +68,35 @@
             <input type="text" class="search-top" name="key" placeholder="@lang('header.enter-keyword')">
         {!! Form::close() !!}
     </div>
+    <div class="mobile-menu">
+	    <nav id="menu">
+	        <ul class="main-menu clearfix">
+	            <li><a href="{{ url('/')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+	            <li><a href="{{ url('/about')}}">Pô Kô Farms</a></li>
+	            @foreach($blog_menu as $menu)
+	            <li>
+	                <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}">{{$menu->translation->name??$menu->name}}</a>
+	            </li>  
+	            @endforeach
+
+	            <li><a href="#">{{$product_menu->translation->name??$product_menu->name}}</a><i class="ion-ios-arrow-down it1"></i>
+	                <ul class="sub-menu sub1">
+	                    @foreach($product_menu->GetMenuSubLevel1() as $sub)
+	                    <li>
+	                        <a href="{{url('/subject')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
+	                            <i class="fa fa-angle-right" aria-hidden="true"></i> {{$sub->translation->name??$sub->name}}
+	                        </a>
+	                    </li>
+	                    @endforeach
+	                </ul>
+	            </li>
+	            <li><a href="{{ url('/contact')}}">@lang('header.contact')</a></li>
+	        </ul>
+	    </nav>
+	</div>
 	
     <!-- Main Page -->
-	<div id="page2" class="allpage">
+	<div id="page" class="allpage">
 		@yield('top')
 
 		<!-- Navigation panel -->
