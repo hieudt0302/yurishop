@@ -43,8 +43,8 @@
             <div class="col-md-12">
                 <h1>@lang('header.promotion')</h1>
                 <ul class="breadcumb">
-                    <li><a href="#">@lang('common.home')</a></li>
-                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <li><a href="{{ Setting::config('website')}}">@lang('common.home')</a></li>
+                    <li><span>/</span>@lang('product.product')</li>
                     <li><span>/</span>@lang('header.promotion')</li>
                 </ul>
             </div>
@@ -54,8 +54,8 @@
             <div class="col-md-12">
                 <h1>{{$category->translation->name??'List'}}</h1>
                 <ul class="breadcumb">
-                    <li><a href="#">@lang('common.home')</a></li>
-                    <li><span>/</span><a href="#">@lang('product.product')</a></li>
+                    <li><a href="{{ Setting::config('website')}}">@lang('common.home')</a></li>
+                    <li><span>/</span>@lang('product.product')</li>
                     <li><span>/</span>{{$category->translation->name??'List'}}</li>
                 </ul>
             </div>
@@ -74,12 +74,6 @@
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12">
 				<div class="right-it">
-                    <form action="{{url('/subject/')}}/{{$parent}}/{{$slug}}" method="GET" class="form-inline search-form"  autocomplete="true">
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Search" name="search" type="text" value="{{old('search')}}">
-                        </div>
-                        <button type="submit">Search</button>
-                    </form>
 				</div>
 			</div>
         </div>

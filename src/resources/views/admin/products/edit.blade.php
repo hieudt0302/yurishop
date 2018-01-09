@@ -82,7 +82,7 @@
                                                 <div class="col-md-4">
                                                     <select name="category_id" class="form-control">
                                                         @foreach($categories as  $category)
-                                                        <option value="{{$category->id}}" {{$product->category->id == $category->id? 'selected':''}}>{{$category->name}}</option>
+                                                        <option value="{{$category->id}}" {{($product->category->id??0) == $category->id? 'selected':''}}>{{$category->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -216,69 +216,81 @@
                         <!-- CONTENT TAB -->
                         <div class="{{$tab==2?'active':''}} tab-pane" id="content">
                             <div class="panel-group">
-                                <!-- Language Select -->
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" for="name" title="">Ngôn ngữ</label>
-                                            <div class="col-md-4">
-                                                <select id="language-select" name="language_id" class="form-control">
-                                                    <option value="0">-----Chọn Ngôn Ngữ-----</option>
-                                                    @foreach($languages as  $language)
-                                                    <option value="{{$language->id}}">{{$language->name}}</option>
-                                                    @endforeach
-                                                </select>
+                                <form id="getTranslation" action="{{url('/admin/products')}}/{{$product->id}}/edit" method="GET">
+                                    <!-- Language Select -->
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="name" title="">Ngôn ngữ</label>
+                                                <div class="col-md-4">
+                                                    <select id="language-select" name="language_id" class="form-control">
+                                                        <option value="0">-----Chọn Ngôn Ngữ-----</option>
+                                                        @foreach($languages as  $language)
+                                                        <!-- <option value="{{$language->id}}">{{$language->name}}</option> -->
+                                                        @if( $language_id == $language->id )
+                                                                <option value="{{$language->id}}" selected>{{$language->name}}</option>
+                                                            @else
+                                                                <option value="{{$language->id}}" >{{$language->name}}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Translate Content -->
-                                <div class="panel panel-default">
-                                    <form id="update-content-translation" method="POST">
-                                        <!-- REMOVE THIS TO FIX BUT: Cannot send data to server -->
-                                        <!-- {!! method_field('patch') !!}  -->
-                                        {{ csrf_field()}}
-                                        <input type="hidden" id="language_id_translate" name="language_id_translate" value="0">
-                                        <div class="panel-body">
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="name_translate" title="">Tên sản phẩm</label>
-                                                <div class="col-md-4">
-                                                    <div class="input-group input-group-required">
-                                                        <input class="form-control text-box single-line valid" id="name_translate" name="name_translate" type="text" value="">
-                                                        <div class="input-group-btn">
-                                                            <span class="required">*</span>
+                                </form>
+
+                                <form action="{{url('/admin/products')}}/{{$product->id}}/translation" method="post">
+                                {!! method_field('patch') !!} 
+                                {{ csrf_field()}}
+                                    <!-- Translate Content -->
+                                    <div class="panel panel-default">
+                                        <!-- <form id="update-content-translation" method="POST"> -->
+                                            <!-- REMOVE THIS TO FIX BUT: Cannot send data to server -->
+                                            <!-- {!! method_field('patch') !!}  -->
+                                            <!-- {{ csrf_field()}} -->
+                                            <input type="hidden" name="language_id" value="{{$language_id}}">
+                                            <div class="panel-body">
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="name_translate" title="">Tên sản phẩm</label>
+                                                    <div class="col-md-4">
+                                                        <div class="input-group input-group-required">
+                                                            <input class="form-control text-box single-line valid" id="name_translate" name="name_translate" type="text" value="{{$translation->name??''}}">
+                                                            <div class="input-group-btn">
+                                                                <span class="required">*</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="summary_translate" title="">Giới thiệu</label>
-                                                <div class="col-md-8">
-                                                    <textarea class="form-control" id="summary_translate" name="summary_translate" rows="3"  placeholder=""></textarea>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="summary_translate" title="">Giới thiệu</label>
+                                                    <div class="col-md-8">
+                                                        <textarea class="form-control" id="summary_translate" name="summary_translate" rows="3"  placeholder="">{{$translation->summary??''}}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="description_translate" title="">Mô tả</label>
+                                                    <div class="col-md-8">
+                                                        <textarea class="form-control" id="description_translate" name="description_translate" rows="3"  placeholder="">{!! $translation->description??'' !!}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3 control-label" for="specs_translate" title="">Thông số</label>
+                                                    <div class="col-md-8">
+                                                        <textarea class="form-control" id="specs_translate" name="specs_translate" rows="3"  placeholder="">{{$translation->specs??''}}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-3">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <button type="submit" class="btn btn-primary">Cập Nhật</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="description_translate" title="">Mô tả</label>
-                                                <div class="col-md-8">
-                                                    <textarea class="form-control" id="description_translate" name="description_translate" rows="3"  placeholder=""></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="specs_translate" title="">Thông số</label>
-                                                <div class="col-md-8">
-                                                    <textarea class="form-control" id="specs_translate" name="specs_translate" rows="3"  placeholder=""></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-3">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <button type="submit" class="btn btn-primary">Cập Nhật</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                        <!-- </form> -->
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <!-- PRICTURES TAB -->
@@ -381,7 +393,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Phản Hổi</h4>
+                <h4 class="modal-title">Phản Hồi</h4>
             </div>
             <div class="modal-body">
                 <p id="modal-message">Cập nhật thành công!</p>
@@ -439,60 +451,65 @@
 
     // TAB: CONTENT
         $('#language-select').on('change', function() {
-            var code_id = this.value;
-            $('#language_id_translate').val(code_id);
-            $.ajax({
-                type: "GET",
-                url: '{{url("/admin/products")}}/{{$product->id}}/'+ code_id +'/fetch',
-                data:{
-                    '_token': '{{csrf_token()}}'
-                },
-                success:function(response){
-                $('#name_translate').val(response['name']);
-                $('#summary_translate').val(response['summary']);
-                $('#description_translate').val(response['description']);
-                $('#specs_translate').val(response['specs']);
-                },
-                error:function(response){
-                    alert('Không thể gửi yêu cầu về server');
-                }
-            });
-        })
+            $('form#getTranslation').submit();
+            return false;
+        })    
 
-        $('#update-content-translation' ).on( 'submit', function(e) {
-            e.preventDefault();
-            var language_id = $(this).find('input[name=language_id_translate]').val();
-            var name = $(this).find('input[name=name_translate]').val();
-            var summary = $(this).find('textarea[name=summary_translate]').val();
-            var description = $(this).find('textarea[name=description_translate]').val();
-            var specs = $(this).find('textarea[name=specs_translate]').val();
+        // $('#language-select').on('change', function() {
+        //     var code_id = this.value;
+        //     $('#language_id_translate').val(code_id);
+        //     $.ajax({
+        //         type: "GET",
+        //         url: '{{url("/admin/products")}}/{{$product->id}}/'+ code_id +'/fetch',
+        //         data:{
+        //             '_token': '{{csrf_token()}}'
+        //         },
+        //         success:function(response){
+        //         $('#name_translate').val(response['name']);
+        //         $('#summary_translate').val(response['summary']);
+        //         $('#description_translate').val(response['description']);
+        //         $('#specs_translate').val(response['specs']);
+        //         },
+        //         error:function(response){
+        //             alert('Không thể gửi yêu cầu về server');
+        //         }
+        //     });
+        // })
 
-            $.ajax({
-                type: "POST",
-                url: '{{url("/admin/products")}}/{{$product->id}}/translation',
-                data:{
-                    'language_id':language_id,
-                    'name': name,
-                    'summary': summary,
-                    'description': description,
-                    'specs': specs,
-                    '_method': 'PATCH'
-                },
-                success:function(response){
-                    // alert(response['message']);
-                    $('#modal-message').html(response['message'])
-                    $("#modal-alert-update").modal();
-                },
-                error:function(response){
-                    alert(response['message']);
-                }
-            });
-        });
+        // $('#update-content-translation' ).on( 'submit', function(e) {
+        //     e.preventDefault();
+        //     var language_id = $(this).find('input[name=language_id_translate]').val();
+        //     var name = $(this).find('input[name=name_translate]').val();
+        //     var summary = $(this).find('textarea[name=summary_translate]').val();
+        //     var description = $(this).find('textarea[name=description_translate]').val();
+        //     var specs = $(this).find('textarea[name=specs_translate]').val();
+
+        //     $.ajax({
+        //         type: "POST",
+        //         url: '{{url("/admin/products")}}/{{$product->id}}/translation',
+        //         data:{
+        //             'language_id':language_id,
+        //             'name': name,
+        //             'summary': summary,
+        //             'description': description,
+        //             'specs': specs,
+        //             '_method': 'PATCH'
+        //         },
+        //         success:function(response){
+        //             // alert(response['message']);
+        //             $('#modal-message').html(response['message'])
+        //             $("#modal-alert-update").modal();
+        //         },
+        //         error:function(response){
+        //             alert(response['message']);
+        //         }
+        //     });
+        // });
 
     $('#form-upload-image').on( 'submit', function(e) {
-      event.preventDefault();
-                var form = document.forms.namedItem("form-upload-image");
-                var formData = new FormData(form);
+        e.preventDefault();
+        var form = document.forms.namedItem("form-upload-image");
+        var formData = new FormData(form);
         $('#img1').html('<img src="{{asset("images/loader.gif")}}" style="padding-top: 40%"/>');
         $.ajax({
             type: 'POST',
@@ -544,7 +561,8 @@
         return false;
     });
     /* DELETE IMAGE */
-    $('.ajax-action-link').on("click",  function (e) {
+    // $('td').on("click", ".ajax-action-link", function (e) {
+    $(document).on("click", ".ajax-action-link", function(e) {
         e.preventDefault();
         var token = '{{csrf_token()}}';
         var link = $(this);

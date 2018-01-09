@@ -182,7 +182,14 @@ class ProductsController extends Controller
         $tags = Tag::all();
         $languages = Language::all(); ///TODO: make condition active
         $tab = 1;
-        return View('admin/products/edit',compact('product','languages','categories','tags','tab'));
+
+        $language_id = Input::get('language_id')??0;
+        $translation =  null;
+        if(!empty( $language_id) &&   $language_id  > 0 ){
+            $translation = ProductTranslation::where('product_id',$id)->where('language_id', $language_id)->withoutGlobalScopes()->first();
+            $tab= 2;
+        }
+        return View('admin/products/edit',compact('product','languages','categories','tags','tab', 'language_id', 'translation'));
     }
 
     /**
@@ -272,16 +279,33 @@ class ProductsController extends Controller
     public function updateTranslation(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'name_translate' => 'required',
             'language_id' =>'required|numeric|min:1',
+        ],[
+            'name_translate.required'=> 'Vui lòng nhập tên sản phẩm',
+            'language_id.required' => 'Vui lòng chọn ngôn ngữ'
         ]);
 
         if ($validator->fails()) {
-            return response()->json([
-                'message' => 'Không được để trống tên sản phẩm',
-                'status' => 'error'
-            ]);
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
         }
+
+        if(empty(Language::find($request->language_id))){
+            return redirect()->back()
+            ->with('message', 'Vui lòng chọn ngôn ngữ khác.')
+            ->with('status', 'error')
+            ->withInput(['tab'=> 2]);
+        }
+        
+      
+        // if ($validator->fails()) {
+        //     return response()->json([
+        //         'message' => 'Vui lòng chọn ngôn ngữ và nhập tên sản phẩm!',
+        //         'status' => 'error'
+        //     ]);
+        // }
 
         $translation = ProductTranslation::where('language_id',$request->language_id)
         ->where('product_id',$id)->withoutGlobalScopes()
@@ -289,27 +313,33 @@ class ProductsController extends Controller
 
         if(!empty($translation))
         {
-            $translation->name = $request->name;
-            $translation->summary = $request->summary;
-            $translation->description = $request->description;
-            $translation->specs = $request->specs;
+            $translation->name = $request->name_translate;
+            $translation->summary = $request->summary_translate;
+            $translation->description = $request->description_translate;
+            $translation->specs = $request->specs_translate;
             $translation->save();
         }else{
             $translation = new  ProductTranslation();
-            $translation ->name = $request->name;
-            $translation ->summary = $request->summary;
-            $translation ->description = $request->description;
-            $translation ->specs = $request->specs;
+            $translation ->name = $request->name_translate;
+            $translation ->summary = $request->summary_translate;
+            $translation ->description = $request->description_translate;
+            $translation ->specs = $request->specs_translate;
             $translation->product_id = $id;
             $translation->language_id =  $request->language_id;
             $translation->save();
         }
 
-        return response()->json([
-            'message' => 'Cập nhật nội dung  thành công.',
-            'status' => 'success',
-            'type' => 'update'
-        ]);
+        return redirect()->back()
+        ->with('message', 'Cập nhật nội dung mới thành công')
+        ->with('status', 'success')
+        ->withInput(['tab'=> 2]);
+
+        
+        // return response()->json([
+        //     'message' => 'Cập nhật nội dung  thành công.',
+        //     'status' => 'success',
+        //     'type' => 'update'
+        // ]);
     }
 
     public function fetchTranslation($id, $code)
@@ -457,6 +487,7 @@ class ProductsController extends Controller
                 if (strlen($product_name) > 0) 
                     $query->where('products.name', 'LIKE', '%'.strtolower($product_name).'%');
             })
+            ->whereNull('deleted_at')
             ->where(function ($query) use ($from_date) {
                 if (strlen($from_date) > 0) 
                 {

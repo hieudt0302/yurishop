@@ -12,6 +12,12 @@
             Thêm mới
         </a>
       </div>
+      <div class="row">
+        <div class="col-xs-12">
+            @include('notifications.status_message') 
+            @include('notifications.errors_message') 
+        </div>
+    </div> 
 </section>
 <!-- Main content -->
 <section class="content">
@@ -85,7 +91,7 @@
                 <form name="form-info-page-delete"  method="POST">
                     {!! csrf_field() !!}
                     <input type="hidden" name="_method" value="DELETE">
-                    <input type="button" class="btn btn-outline" value="Xóa Trang">
+                    <input type="submit" class="btn btn-outline" value="Xóa Trang">
                 </form>
             </div>
         </div>
@@ -97,15 +103,11 @@
 @section('scripts')
 <script>
 	 $(function(){
-		$("#deleteBtn").click(function(){
-        	alert('fire');
-    	});
-
-		// $('#modal-delete-info-page').on('hide.bs.modal', function (e) {
-        //     var infoPageId = $(e.relatedTarget).data('id');
-        //     var action = "{{url('admin/info-pages')}}/" + infoPageId;
-        //     $(e.currentTarget).find('form[name="form-info-page-delete"]').attr("action", action);
-        // })
+		$('#modal-delete-info-page').on('show.bs.modal', function (e) {
+            var infoPageId = $(e.relatedTarget).data('id');
+            var action = "{{url('admin/info-pages')}}/" + infoPageId;
+            $(e.currentTarget).find('form[name="form-info-page-delete"]').attr("action", action);
+        })
 	});
 </script>
 @endsection

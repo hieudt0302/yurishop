@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Chi Tiết Đơn Hàng - Pokofarms')
+@section('title','Chi Tiết Đơn Hàng - Pô Kô Farms')
 @section('header')
 @parent
 <!-- OVERRIDER MASTER CSS -->

@@ -13,7 +13,7 @@ return [
     'my-wishlist' => 'Danh sách muốn mua',
     'order-history' => 'Lịch sử mua hàng',
     'faqs' => 'Câu hỏi thường gặp',        
-    'newsletter-message' => 'Đăng kí nhận tin từ Pokofarms',
+    'newsletter-message' => 'Đăng kí nhận tin từ <br>Pô Kô Farms',
     'subscribe' => 'Đăng ký',
     'unsubscribe' => 'Hủy đăng ký nhận mail',
     'subscribe-success' => 'Bạn đã đăng ký thành công !',

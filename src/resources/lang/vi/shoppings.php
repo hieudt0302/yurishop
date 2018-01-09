@@ -13,7 +13,7 @@ return [
 	'order-stat-cancel' => 'Hủy',
 	'order-stat-unclear' => 'Không xác định',	
 	'items' => 'Sản phẩm',
-	'add-cart' => 'Thêm vào giở hàng',
+	'add-cart' => 'Thêm vào giỏ hàng',
 	'filter' => 'Lọc',
 	'filter-price' => 'Lọc theo giá',	
 	'related-products' => 'Sản phẩm liên quan',

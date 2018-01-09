@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Pokofarms - Giỏ Hàng')
+@section('title','Pô Kô Farms - Giỏ Hàng')
 
 @section('header')
 @parent
@@ -53,7 +53,7 @@
                 <div id="content-center" class="col-lg-12">
                     <div class="page shopping-cart-page">
                         <div class="page-title">
-                            <h1 class="h3">@lang('shoppings.shopping-cart')</h1>
+                            <h1 class="h3">@lang('shoppings.cart')</h1>
                         </div>
                         <div class="page-body">
                             <div class="order-summary-content">
@@ -224,7 +224,10 @@
 
 <script type="text/javascript">
 $(document).ready(function(){   
-   
+    $('form input').on('keypress', function(e) {
+        return e.which !== 13;
+    });
+
     var orderSummary = $(".order-summary-content");
     orderSummary.on("click", ".btn-continue-shopping", function (e) {
         e.preventDefault();

@@ -121,7 +121,7 @@ class FaqController extends Controller
         }
 
         $faq = Faq::find($id);
-        $faq->question = $request->title;
+        $faq->question = $request->question;
         $faq->is_show = $request->is_show;
         $faq->save();
               

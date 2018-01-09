@@ -195,8 +195,10 @@ class InfoPagesController extends Controller
     {
         $info_page = InfoPage::find($id);
         $info_page->delete();
-        session()->flash('success_message', "Xóa thành công!");        
-        return redirect()->route('admin.info-pages.index'); 
+       
+        return redirect()->route('admin.info-pages.index')
+        ->with('message', 'Xóa thành công!')
+        ->with('status', 'success');
     }
     public function GenerateSlug($title)
     {

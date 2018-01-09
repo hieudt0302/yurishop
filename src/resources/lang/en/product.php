@@ -2,7 +2,7 @@
 
 return [
 	'' => '',	
-	'product' => 'Product',
+	'product' => 'Ordering',
 	'products' => 'Our Products',     
 	'price' => 'Price',
 	'sale' => 'Sale',

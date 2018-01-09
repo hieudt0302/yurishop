@@ -165,7 +165,15 @@
                                 <td>{{$order->phone}}</td>
                                 <td>{{$order->order_start_date}}</td>
                                 <td>{{FormatPrice::price($order->order_total)}}</td>
-                                <td></td>
+                                <td>
+                                    @if($order->order_status === 4 )
+                                    <div class="tools">
+                                    <a type="button" class="btn btn-danger" data-order-id="{{$order->id}}" data-toggle="modal" data-target="#modal-delete-order">
+                                    <i class="fa fa-ban"></i>
+                                    </a> 
+                                  </div>
+                                  @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -193,11 +201,44 @@
         </div>
     </div>
 </section>
+
+<!-- QUESTION TO DELETE -->
+<div class="modal modal-danger fade" id="modal-delete-order">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Cảnh Báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa đơn hàng này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+                <form name="form-order-delete"  method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-outline" value="Xóa Đơn Hàng">
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection 
 
 @section('scripts') 
 <script>
     $(function(){
+
+        $('#modal-delete-order').on('show.bs.modal', function (e) {
+            var orderID = $(e.relatedTarget).data('order-id');
+            var action = "{{url('admin/orders')}}/" + orderID;
+            $(e.currentTarget).find('form[name="form-order-delete"]').attr("action", action);
+        })  
+
          //Date picker
         $('#start_datepicker, #end_datepicker').datepicker({
             format : 'yyyy-mm-dd',

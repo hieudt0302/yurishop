@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Pokofarms - Tìm kiếm')
+@section('title','Pô Kô Farms - Tìm kiếm')
 @section('content')
 
 <!-- Head Section -->

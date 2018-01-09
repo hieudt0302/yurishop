@@ -18,5 +18,6 @@ return [
      'name' => '名前',                       
      'email' => 'eメール',
      'leave-a-comment' => 'コメントを書く',
-     'send-comment' => 'コメントを送る',                
+     'send-comment' => 'コメントを送る', 
+     'search-tags' => 'タグで検索',                      
 ];
