@@ -15,5 +15,5 @@ return [
     'community' => '커뮤니티',  
     'specialty-coffee' => '전문 커피',   
     'commercial-coffee' => '상업용 커피',    
-     
+    'home-video-url' => 'https://www.youtube.com/embed/x8va5FEB5iY',        
 ];

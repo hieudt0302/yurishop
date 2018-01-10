@@ -83,7 +83,7 @@ class HomeController extends Controller
     public function about()
     { 
         $info_page_translation = $this->getInfoPageTranslation('about');
-        return View("front.home.infopage",compact('info_page_translation'));
+        return View("front.home.about",compact('info_page_translation'));
     }
 
     public function returns()
@@ -113,7 +113,7 @@ class HomeController extends Controller
     public function product_quality()
     {
         $info_page_translation = $this->getInfoPageTranslation('product-quality');
-        return View("front.home.infopage",compact('info_page_translation'));
+        return View("front.home.product_quality",compact('info_page_translation'));
     }   
 
     public function promotion()
