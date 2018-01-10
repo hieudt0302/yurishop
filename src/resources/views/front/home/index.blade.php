@@ -75,15 +75,18 @@
 
     </div>
 </div>      
-    
-
+    <!-- Quotes -->
+    @include('front.home.quotes')
+    <!-- End Quotes -->
+        
     <!-- Promo -->
     @include('front.home.promo')
     <!-- End Promo -->
-    
+
     <!-- Products -->
     @include('front.home.products')
     <!-- End Products -->
+
 
     <!-- Subscribe -->
     @include('front.home.subscribe')

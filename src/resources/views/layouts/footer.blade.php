@@ -98,9 +98,22 @@
                         </div>
                     @endforeach
                 </div>
+                <ul class="infor-it">
+                    <li>
+                        <a href="{{ url('/galleries') }}">@lang('common.see-more')</a>
+                    </li>
+                </ul>                
             </div>
-        </div>                
+        </div> 
+        <img class="ft-line" src="frontend/images/uploads/div-line.png" alt="line">               
     </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="ft-below-left">
+                <p>Copyright © 2018 <a href="#">Pokofarms</a> - All Rights Reserved</p>
+            </div>
+        </div>
+    </div>    
 </div>
 </footer>
 
