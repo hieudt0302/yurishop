@@ -175,7 +175,8 @@
   		$('a.search-top-bt').click(function(){
   			showorhideSearch();
   		});
-
+  		//$('.langchoose')..dropdown('toggle');
+  		$(".dropdown-toggle").dropdown();
   		function showorhideSearch(el){
   			if ( $('.topsearch').hasClass('show') ){
 				$('.topsearch').removeClass('show');

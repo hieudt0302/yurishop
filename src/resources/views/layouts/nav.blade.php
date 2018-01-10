@@ -4,7 +4,7 @@
         <div class="row">
             <nav id="mainNav" class="navbar navbar-default navbar-custom">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="col-md-2 col-sm-2 col-xs-12">
                     <div class="row">
                         <div class="main-logo">
                             <div class="col-md-5">
@@ -42,7 +42,7 @@
                             </li>  
                             @endforeach
                             <li class="dropdown first">
-                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">{{$product_menu->translation->name??$product_menu->name}} <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">{{$product_menu->translation->name??$product_menu->name}}</a>
                                 <ul class="dropdown-menu level1">
                                     @foreach($product_menu->GetMenuSubLevel1() as $sub)
                                     <li>
@@ -59,15 +59,15 @@
                                 </a>
                             </li>
 
-                            <li class="">
+                            <li class="devider">
                                 &nbsp; &nbsp;
                             </li>
                             <li>
-                                <a class="main-right-menu search-top-bt" href="javascript:void(0);"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="Search"></i></a>
+                                <a class="main-right-menu search-top-bt" href="javascript:void(0);"><i class="ion-ios-search-strong" data-toggle="tooltip" data-placement="top" title="Search"></i></a>
                             </li>
                             <li>
-                                <a class="main-right-menu shopping-cart" href="{{ url('/cart') }}">
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')
+                                <a class="main-right-menu shopping-cart cartItemCount" href="{{ url('/cart') }}">
+                                    <i class="ion-ios-cart" aria-hidden="true"></i>&nbsp;<span>{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</span>
                                 </a>
                             </li>
                             <li class="dropdown first">
@@ -77,7 +77,7 @@
                                     @else
                                         {{Auth::user()->first_name}}
                                     @endguest
-                                    &nbsp;<i class="fa fa-angle-down" aria-hidden="true"></i>
+                                    
                                 </a>
                                 <ul class="dropdown-menu level1">
                                     @guest
@@ -91,39 +91,7 @@
                                     @endguest
                                 </ul>
                             </li>
-                            <li class="dropdown first">
-                                <a class="main-right-menu btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ strtoupper(app()->getLocale()) }}
-                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu level1">
-                                    <li>
-                                        <a href="{{URL::asset('')}}language/vi">
-                                            Tiếng Việt
-                                        </a>                                        
-                                    </li>
-                                    <li>
-                                        <a href="{{URL::asset('')}}language/en">
-                                            English
-                                        </a>                                        
-                                    </li> 
-                                    <li>
-                                        <a href="{{URL::asset('')}}language/cn">
-                                            中文
-                                        </a>                                        
-                                    </li> 
-                                    <li>
-                                        <a href="{{URL::asset('')}}language/jp">
-                                            日本語
-                                        </a>                                        
-                                    </li> 
-                                    <li>
-                                        <a href="{{URL::asset('')}}language/kr">
-                                            한국어
-                                        </a>                                        
-                                    </li>
-                                </ul>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
