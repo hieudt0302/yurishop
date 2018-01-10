@@ -67,7 +67,8 @@
                             </li>
                             <li>
                                 <a class="main-right-menu shopping-cart cartItemCount" href="{{ url('/cart') }}">
-                                    <i class="ion-ios-cart" aria-hidden="true"></i>&nbsp;<span>{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</span>
+                                <!-- DON'T REMOVE shopping-cart-icon class -->
+                                    <i class="ion-ios-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;<span>{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</span>
                                 </a>
                             </li>
                             <li class="dropdown first">
