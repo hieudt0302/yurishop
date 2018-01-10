@@ -66,9 +66,9 @@
                                 <a class="main-right-menu search-top-bt" href="javascript:void(0);"><i class="ion-ios-search-strong" data-toggle="tooltip" data-placement="top" title="Search"></i></a>
                             </li>
                             <li>
-                                <a class="main-right-menu shopping-cart cartItemCount" href="{{ url('/cart') }}">
+                                <a class="main-right-menu shopping-cart" href="{{ url('/cart') }}">
                                 <!-- DON'T REMOVE shopping-cart-icon class -->
-                                    <i class="ion-ios-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;<span>{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</span>
+                                    <i class="ion-ios-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;<span class="cartItemCount">{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</span>
                                 </a>
                             </li>
                             <li class="dropdown first">
