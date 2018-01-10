@@ -104,8 +104,33 @@
                     </li>
                 </ul>                
             </div>
-        </div> 
-        <img class="ft-line" src="frontend/images/uploads/div-line.png" alt="line">               
+            <div class="langchoose btn-group dropup">
+                <button type="button" class="btn btn-default"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ strtoupper(app()->getLocale()) }}</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ strtoupper(app()->getLocale()) }}</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li>
+                        <a href="{{URL::asset('')}}language/vi">Tiếng Việt</a>
+                    </li>
+                    <li>
+                        <a href="{{URL::asset('')}}language/en">English</a>
+                    </li>
+                    <li>
+                        <a href="{{URL::asset('')}}language/cn">中文</a>
+                    </li>
+                    <li>
+                        <a href="{{URL::asset('')}}language/jp">日本語</a>
+                    </li>
+                    <li>
+                        <a href="{{URL::asset('')}}language/kr">한국어</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>                
+        <img class="ft-line" src="frontend/images/uploads/div-line.png" alt="line">   
     </div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
