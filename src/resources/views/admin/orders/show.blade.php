@@ -706,7 +706,9 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach($order->orderdetails as $detail)
-                                                    {{dd($order->orderdetails->get()}}
+                                                    @if(empty($detail->product))
+                                                    @continue
+                                                    @endif
                                                     <form action="{{url('admin/orders')}}/{{$order->id}}/details/update" method="post">
                                                     {{ csrf_field()}}
                                                         <input type="hidden" name="order_detail_id" value="{{$detail->id}}">
