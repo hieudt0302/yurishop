@@ -207,7 +207,7 @@ class PostsController extends Controller
         return redirect()->back()
         ->with('message', 'Bài viết đã được cập nhật')
         ->with('status', 'success')
-        ->withInput(['tab'=> 1]);
+        ->withInput();
     }
 
     public function updateTranslation(Request $request, $id)
@@ -226,7 +226,7 @@ class PostsController extends Controller
             return redirect()->back()
             ->with('message', 'Vui lòng chọn ngôn ngữ.')
             ->with('status', 'error')
-            ->withInput(['tab'=> 2]);
+            ->withInput();
         }
 
         $translation = PostTranslation::where('post_id', $id)
