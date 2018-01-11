@@ -47,9 +47,9 @@
                     <li>
                         <a href="{{ url('/faqs') }}">@lang('footer.faq')</a>
                     </li>
-                    <li>
+<!--                     <li>
                         <a href="{{ url('/showrooms') }}">@lang('footer.showroom-locations')</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

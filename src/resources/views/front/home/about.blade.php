@@ -14,7 +14,7 @@
     </div>
 </div>
 <!-- End Head Section -->
-<section id="decorate">
+<!-- <section id="decorate">
     <div class="row">
         <div class="container">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -33,7 +33,25 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<section id="aboutv1">
+    <div class="container">
+        <div class="row">
+            <div class="decorate">
+                <img src="frontend/images/logo2.png" alt="decorate">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="ab-intro">
+                    <p>{!! $info_page_translation->description !!}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <!-- Info Page Section -->
 <section class="page-section" id="about">
