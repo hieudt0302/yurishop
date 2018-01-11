@@ -38,13 +38,13 @@
         <div class="form-group row row-hardcode">
             <label class="col-sm-3 col-form-label" for="address2">@lang('profile.address') 2</label>
             <div class="col-sm-9">
-                <input class="form-control" id="address2" name="address2" placeholder="{{ __('checkout.optional')}}" type="text" value="">
+                <input class="form-control" id="address2" name="address2" type="text" value="">
             </div>
         </div>
         <div class="form-group row row-hardcode">
             <label class="col-sm-3 col-form-label" for="address2">@lang('profile.district')</label>
             <div class="col-sm-9">
-                <input class="form-control" id="district" name="district" placeholder="{{ __('checkout.optional')}}" type="text" value="">
+                <input class="form-control" id="district" name="district"  type="text" value="">
             </div>
         </div>
 
@@ -96,7 +96,7 @@
         <div class="form-group row row-hardcode">
             <label class="col-sm-3 col-form-label" for="fax">@lang('profile.fax')</label>
             <div class="col-sm-9">
-                <input class="form-control" id="fax" name="fax" placeholder="{{ __('checkout.optional')}}" type="tel" value="">
+                <input class="form-control" id="fax" name="fax"  type="tel" value="">
             </div>
         </div>
 
