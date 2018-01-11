@@ -90,6 +90,9 @@
                                     <li><a href="{{ url('/wishlist') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> @lang('account.wishlist')</a></li>
                                     <li><a href="{{ url('/cart') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> @lang('shoppings.cart')</a></li>
                                     <li><a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-angle-right" aria-hidden="true"></i> @lang('auth.logout')</a></li>
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
                                     @endguest
                                 </ul>
                             </li>

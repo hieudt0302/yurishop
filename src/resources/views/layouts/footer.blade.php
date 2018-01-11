@@ -83,6 +83,9 @@
                         <a href="{{ url('/Account/Orders') }}">@lang('footer.order-history')</i></a>
                     </li>
                 </ul>
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
                 @endif                
             </div>
         </div>
