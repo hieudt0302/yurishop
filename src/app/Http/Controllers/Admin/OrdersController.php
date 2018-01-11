@@ -206,7 +206,7 @@ class OrdersController extends Controller
         }
 
 
-        $orders = $query->paginate(21);
+        $orders = $query->orderBy('created_at','desc')->paginate(21);
         $request->flashOnly(['order_start_date', 'order_end_date', 'customer_name', 'billing_email', 'order_no','orders_status','shippings_status','payments_status']);
 
         $tab = 1;
