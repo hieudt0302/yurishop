@@ -187,9 +187,11 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-3">
+                                                    @if($order->order_status!==4)
                                                     <button type="button" name="btnEditOrderTotals" onclick="toggleOrderTotals(true);return false;" id="btnEditOrderTotals" class="btn btn-primary">
                                                     Cập Nhật Phí/Thuế
                                                     </button>
+                                                    @endif
                                                     <button type="submit" name="" id="btnSaveOrderTotals" class="btn btn-primary" style="display: none;">
                                                         Lưu
                                                     </button>
@@ -214,9 +216,11 @@
                                             <div class="col-md-9 col-md-offset-3">
                                                 <div class="input-group input-group-short">
                                                     <div class="input-group-btn">
+                                                        @if($order->order_status!==4)
                                                         <button type="submit" name="btnChangePaymentStatus" onclick="toggleChangePaymentStatus(true);return false;" id="btnChangePaymentStatus" class="btn btn-primary" style="display: inline-block;">
                                                         Đổi Trạng Thái
                                                         </button>
+                                                        @endif
                                                         <form action="{{url('/admin/orders')}}/{{$order->id}}/change/paymentstatus" method="POST">
                                                         {{ csrf_field()}}
                                                             <div id="pnlChangePaymentStatus" style="margin-top: 3px; display: none;">
@@ -251,10 +255,11 @@
                                             <div class="col-md-9 col-md-offset-3">
                                                 <div class="input-group input-group-short">
                                                     <div class="input-group-btn">
-                                                       
+                                                        @if($order->order_status!==4)
                                                         <button type="submit" name="btnChangeShippingStatus" onclick="toggleChangeShippingStatus(true);return false;" id="btnChangeShippingStatus" class="btn btn-primary" style="display: inline-block;">
                                                         Đổi Trạng Thái
                                                         </button>
+                                                        @endif
                                                         <form action="{{url('/admin/orders')}}/{{$order->id}}/change/shippingstatus" method="POST">
                                                         {{ csrf_field()}}
                                                             <div id="pnlChangeShippingStatus" style="margin-top: 3px; display: none;">
