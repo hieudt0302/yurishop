@@ -711,7 +711,8 @@
                                                         <input type="hidden" name="order_detail_id" value="{{$detail->id}}">
                                                         <tr>
                                                             <td style="text-align: left; width: 15%;">
-                                                                <em><a href="{{url('/admin/products')}}/{{$detail->product->slug}}">{{$detail->product->name}}</a></em>
+                                                                <em>
+                                                                </em>
                                                                 <p>
                                                                     <strong>SKU</strong><text>:</text> {{$detail->product->sku}}
                                                                 </p>
