@@ -104,7 +104,8 @@
                     </li>
                 </ul>                
             </div>
-            <div class="langchoose btn-group dropup">
+            <br>
+            <div class="langchoose btn-group dropup float-right">
                 <button type="button" class="btn btn-default"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ strtoupper(app()->getLocale()) }}</button>
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="caret"></span>
