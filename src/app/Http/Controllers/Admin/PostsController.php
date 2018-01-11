@@ -427,7 +427,7 @@ class PostsController extends Controller
             });
    
 
-        $posts = $query->paginate(21);
+        $posts = $query->orderBy('created_at','desc')->paginate(21);
         $postsCategory = Category::where('slug', 'posts')->first();
         $categories = Category::where('parent_id', $postsCategory->id)->get();
         
