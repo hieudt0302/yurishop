@@ -254,7 +254,7 @@ class PostsController extends Controller
         return redirect()->back()
         ->with('message', 'Cập nhật nội dung mới thành công')
         ->with('status', 'success')
-        ->withInput(['tab'=> 2]);
+        ->withInput();
     }
 
     public function fetchTranslation($id, $code)
