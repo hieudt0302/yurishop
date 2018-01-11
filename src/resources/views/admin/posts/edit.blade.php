@@ -107,7 +107,7 @@
                                                 <div class="col-md-4 col-md-offset-3">
                                                     <div style="height: 200px; border: 1px solid whitesmoke;text-align: center">
                                                         @if(strlen($post->img) > 0)
-                                                            <img width="100%" height="100%" src="{{asset('storage')}}/{{$post->img}}"/>
+                                                            <img width="100%" height="100%" src="{{asset('storage/images/blog')}}/{{$post->img}}"/>
                                                         @else 
                                                             <img width="100%" height="100%" src="{{asset('images/no-image.png')}}"/>
                                                         @endif                                                        
