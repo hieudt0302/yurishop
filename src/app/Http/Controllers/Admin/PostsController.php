@@ -358,8 +358,8 @@ class PostsController extends Controller
         $tag_ids = DB::table('taggables')->pluck('tag_id')->toArray();
         //dd($tag_ids);
         Tag::whereNotIn('id', $tag_ids)->delete();
-
     }
+    
       /* COMMENT */
       public function comments(Request $request)
       {

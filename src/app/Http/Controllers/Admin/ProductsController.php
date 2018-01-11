@@ -559,6 +559,11 @@ class ProductsController extends Controller
             $tags = Tag::whereIn('id',$tagIds)->get();
             $product->tags()->sync($tags); 
         }
+        
+         //delete tag not use
+         $tag_ids = DB::table('taggables')->pluck('tag_id')->toArray();
+         //dd($tag_ids);
+         Tag::whereNotIn('id', $tag_ids)->delete();
     }
 
     /* REVIEWS */
