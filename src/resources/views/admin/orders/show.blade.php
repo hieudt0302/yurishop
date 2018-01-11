@@ -62,12 +62,12 @@
                                                             <div class="form-text-row">{{__('status.order.'.$order->order_status)}}</div>
                                                         </strong>
                                                         @if($order->order_status!==4)
-                                                        <button type="button" name="" id="cancelorder" class="btn bg-red" style="margin-right: 3px;" data-toggle="modal" data-target="#cancelorder-action-confirmation">
-                                                            Hủy Đơn Hàng
-                                                        </button>
-                                                        <button type="submit" name="btnChangeOrderStatus" onclick="toggleChangeOrderStatus(true);return false;" id="btnChangeOrderStatus" class="btn btn-primary" style="display: inline-block;">
-                                                        Đổi Trạng Thái
-                                                        </button>
+                                                            <button type="button" name="" id="cancelorder" class="btn bg-red" style="margin-right: 3px;" data-toggle="modal" data-target="#cancelorder-action-confirmation">
+                                                                Hủy Đơn Hàng
+                                                            </button>
+                                                            <button type="submit" name="btnChangeOrderStatus" onclick="toggleChangeOrderStatus(true);return false;" id="btnChangeOrderStatus" class="btn btn-primary" style="display: inline-block;">
+                                                            Đổi Trạng Thái
+                                                            </button>
                                                         @endif
                                                         <form action="{{url('/admin/orders')}}/{{$order->id}}/change/orderstatus" method="POST">
                                                         {{ csrf_field()}}
@@ -706,12 +706,14 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach($order->orderdetails as $detail)
+                                                    {{dd($detail)}}
                                                     <form action="{{url('admin/orders')}}/{{$order->id}}/details/update" method="post">
                                                     {{ csrf_field()}}
                                                         <input type="hidden" name="order_detail_id" value="{{$detail->id}}">
                                                         <tr>
                                                             <td style="text-align: left; width: 15%;">
                                                                 <em>
+                                                                    <a href="{{url('/admin/products')}}/{{$detail->product->slug}}">{{$detail->product->name}}</a>
                                                                 </em>
                                                                 <p>
                                                                     <strong>SKU</strong><text>:</text> {{$detail->product->sku}}
