@@ -14,12 +14,12 @@ class ChangeOrdersColumnDefaultValue extends Migration
     public function up()
     {
         Schema::table('orders', function ($table) {
-            $table->tinyInteger('payment_method')->default(1);
-            $table->tinyInteger('shipping_method')->default(1);
+            $table->tinyInteger('payment_method')->default(1)->change();
+            $table->tinyInteger('shipping_method')->default(1)->change();
 
-            $table->tinyInteger('order_status')->default(1);
-            $table->tinyInteger('payment_status')->default(1);
-            $table->tinyInteger('shipping_status')->default(1);
+            $table->tinyInteger('order_status')->default(1)->change();
+            $table->tinyInteger('payment_status')->default(1)->change();
+            $table->tinyInteger('shipping_status')->default(1)->change();
         });
     }
 
