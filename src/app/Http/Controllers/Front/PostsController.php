@@ -23,21 +23,21 @@ class PostsController extends Controller
     {     
         $tags = Tag::has('posts')->get();
         $comments = Tag::has('posts')->get();
-        $lastPosts = Post::take(10)->get(); ///TODO: move number limit to database setting
-        $post_group = Post::all()->groupBy('category_id');  ///TODO: move number limit to database setting
+        $lastPosts = Post::take(10)->get(); 
+        $post_group = Post::all()->groupBy('category_id');  
         return View('front/posts/index-allcat', compact('post_group','tags','comments', 'lastPosts'));        
     }
 
     public function filterByTag($slug)
     {     
         $tags = Tag::has('posts')->get();
-        $lastPosts = Post::where('published',1)->take(4)->get(); ///TODO: move number limit to database setting
+        $lastPosts = Post::where('published',1)->take(4)->get(); 
         $post_category = Category::where('slug','posts')->firstOrFail();
         $categories = Category::where('parent_id',$post_category->id)->get(); 
 
         
         //POSTS
-        $posts = Tag::where('slug', $slug)->first()->posts()->paginate(21);  ///TODO: move number limit to database setting
+        $posts = Tag::where('slug', $slug)->first()->posts()->paginate(21);  
         
         return View('front/posts/index', compact('posts', 'lastPosts','tags','post_category','categories'))
         ->with('i', ($page??1 - 1) * 21);    
@@ -76,7 +76,7 @@ class PostsController extends Controller
         $post = Post::where('slug',$slug)->firstOrFail();
         $post_category = Category::where('slug','posts')->firstOrFail();
         $categories = Category::where('parent_id',$post_category->id)->get();
-        $last_posts = Post::take(10)->get(); ///TODO: move number limit to database setting        
+        $last_posts = Post::take(10)->get();         
         return View('front/posts/show', compact('post','categories','last_posts','post_category'));
     }
 
@@ -123,7 +123,7 @@ class PostsController extends Controller
 
         $tags = Tag::has('posts')->get();
         $comments = Tag::has('posts')->get();
-        $lastPosts = Post::take(10)->get(); ///TODO: move number limit to database setting
+        $lastPosts = Post::take(10)->get(); 
         $post_category = Category::where('slug','posts')->firstOrFail();
         $categories = Category::where('parent_id',$post_category->id)->get();        
         return view('front/posts/index',compact('posts','search_key','tags','comments', 'lastPosts','categories','post_category')); 
