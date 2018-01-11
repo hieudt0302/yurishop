@@ -512,7 +512,7 @@ class ProductsController extends Controller
             });
    
 
-        $products = $query->paginate(21);
+        $products = $query->orderBy('created_at','desc')->paginate(21);
         $shopCategory = Category::where('slug', 'products')->firstOrFail();
         $categories = Category::where('parent_id', $shopCategory->id)->get();
         
@@ -558,7 +558,7 @@ class ProductsController extends Controller
             }
             $tags = Tag::whereIn('id',$tagIds)->get();
             $product->tags()->sync($tags); 
-            
+
         }else{
             //delete all tags of product
             $product->tags()->detach();
