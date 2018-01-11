@@ -454,9 +454,11 @@
                                                 <div class="col-md-9 col-md-offset-3">
                                                     <div class="input-group input-group-short">
                                                         <div class="input-group-btn">
+                                                           @if($order->order_status!==4)
                                                             <button type="button" id="btnEditChangeBillingAddress" onclick="toggleChangeBillingAddress(true);return false;" class="btn btn-primary">
                                                             Cập Nhật
                                                             </button>
+                                                            @endif
                                                             <button type="submit" id="btnSaveChangeBillingAddress" class="btn btn-primary" style="margin-left: 3px; display: none;">
                                                             Lưu
                                                             </button>
@@ -638,9 +640,11 @@
                                                 <div class="col-md-9 col-md-offset-3">
                                                     <div class="input-group input-group-short">
                                                         <div class="input-group-btn">
+                                                             @if($order->order_status!==4)
                                                             <button type="button" id="btnEditChangeShippingAddress" onclick="toggleChangeShippingAddress(true);return false;" class="btn btn-primary">
                                                             Cập Nhật
                                                             </button>
+                                                            @endif
                                                             <button type="submit" id="btnSaveChangeShippingAddress" class="btn btn-primary" style="margin-left: 3px; display: none;">
                                                             Lưu
                                                             </button>
@@ -706,9 +710,6 @@
                                                     {{ csrf_field()}}
                                                         <input type="hidden" name="order_detail_id" value="{{$detail->id}}">
                                                         <tr>
-                                                            <!-- <td >
-                                                                <img src="{{asset('/images/no-image.png')}}" alt="{{$detail->product->name}}" title="{{$detail->product->name}}"  style="width: 120px;">
-                                                            </td> -->
                                                             <td style="text-align: left; width: 15%;">
                                                                 <em><a href="{{url('/admin/products')}}/{{$detail->product->slug}}">{{$detail->product->name}}</a></em>
                                                                 <p>
@@ -749,11 +750,12 @@
                                                                 {{FormatPrice::price($detail->total)}}
                                                             </td>
                                                             <td style="width: 15%;">
+                                                                @if($order->order_status!==4)
                                                                 <button id="btnEditOrderItem{{$detail->id}}" type="button" class="btn btn-primary"  onclick="toggleOrderItemEdit(true, {{$detail->id}});return false;">
                                                                     <i class="fa fa-pencil"></i>
                                                                     Cập Nhật
                                                                 </button>
-                                                                
+                                                                @endif
                                                                 <button id="btnSaveOrderItem{{$detail->id}}" type="submit" class="btn btn-primary" style="display:none; width:80px;">
                                                                     <i class="fa fa-floppy-o"></i>
                                                                     Lưu
