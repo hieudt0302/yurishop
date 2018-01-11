@@ -7,7 +7,7 @@
 			<div class="col-md-12">
 				<h1>Opps, Page not found!</h1>
 				<p> Please go back to<a href="{{url('/')}}">Home Page</a></p>
-				<img src="images/error-img.png" alt="Pokofarms">
+				<img src="{{asset('images/error-img.png')}}" alt="Pokofarms">
 			</div>
 		</div>
 	</div>
