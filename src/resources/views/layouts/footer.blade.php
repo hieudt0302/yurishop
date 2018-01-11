@@ -71,7 +71,7 @@
                 @else                                    
                 <ul class="acc-it">
                     <li>
-                        <a href="{{ url('/logout') }}">@lang('auth.logout')</i></a>
+                        <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">@lang('auth.logout')</i></a>
                     </li>
                     <li>
                         <a href="{{ url('/cart') }}">@lang('footer.view-cart')</i></a>
