@@ -22,7 +22,7 @@
                                 <p class="name">Mrs. Tuyen <span>/  @lang('quote.role2')</span></p>
                             </div>
                             <div class="test-item item plant-it">
-                                <img class="ava" src="frontend/images/uploads/plantava1.png" alt="">
+                                <img class="ava" src="frontend/images/uploads/plantava3.png" alt="">
                                 <p class="quote">
                                     "@lang('quote.quote3')"
                                 </p>
