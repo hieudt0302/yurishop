@@ -89,7 +89,7 @@
 
 
     <!-- Subscribe -->
-    @include('front.home.subscribe')
+<!--     @include('front.home.subscribe') -->
     <!-- End Subscribe -->    
 
     <!-- Blogs -->
