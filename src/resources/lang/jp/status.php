@@ -16,7 +16,8 @@ return [
         1 => 'Pending',
         2 => 'Processing',
         3 => 'Complete',
-        4 => 'Cancelled'
+        4 => 'Cancelled',
+        5 => 'Returns'
     ],
 
     'shipping' => [

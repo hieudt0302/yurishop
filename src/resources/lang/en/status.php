@@ -13,26 +13,27 @@ return [
     */
 
     'order' => [
-        1 => 'Chờ xử lý',
-        2 => 'Đang xử lý',
-        3 => 'Hoàn thành',
-        4 => 'Đã huỷ'
+        1 => 'Pending',
+        2 => 'Processing',
+        3 => 'Complete',
+        4 => 'Cancelled',
+        5 => 'Returns'
     ],
 
     'shipping' => [
-        1 => 'Chưa yêu cầu ship',
-        2 => 'Chưa ship',
-        3 => 'Đã gửi ship một phần đơn hàng',
-        4 => 'Đã gửi ship',
-        5 => 'Đã giao hàng',
+        1 => 'Shipping Not Required',
+        2 => 'Not Yet Shipped',
+        3 => 'Partially Shipped',
+        4 => 'Shipped',
+        5 => 'Delivered',
     ],
 
     'payment' => [
-        1 => 'Chờ xử lý',
-        2 => 'Đã xác thực',
-        3 => 'Đã thanh toán',
-        4 => 'Đã hoàn tiền một phần',
-        5 => 'Đã hoàn tiền',
-        6 => 'Hủy bỏ',
+        1 => 'Pending',
+        2 => 'Authorized',
+        3 => 'Paid',
+        4 => 'Partially Refunded',
+        5 => 'Refunded',
+        6 => 'Voided',
     ]
 ];
