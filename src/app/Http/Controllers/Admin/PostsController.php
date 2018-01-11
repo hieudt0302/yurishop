@@ -13,6 +13,7 @@ use App\Models\PostTranslation;
 use App\Models\Language;
 use Validator;
 use App\Models\Comment;
+use DB;
 
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
@@ -352,6 +353,10 @@ class PostsController extends Controller
             $tags = Tag::whereIn('id',$tagIds)->get();
             $post->tags()->sync($tags); 
         }
+
+        //delete tag not use
+        Tag::whereNotIn('id', DB::Raw('select tag_id from taggables'))->delete();
+
     }
       /* COMMENT */
       public function comments(Request $request)
