@@ -329,3 +329,7 @@ header nav li.devider{
 .langchoose .dropdown-menu li a{
 	color: #178240;
 }
+header nav ul.hd-menu{
+	margin-left: 10px;
+	width: 100%;
+}

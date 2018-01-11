@@ -26,22 +26,22 @@
                             <li class="hidden">
                                 <a href="#page-top"></a>
                             </li>
-                            <li>
+                            <li style="float: left">
                                 <a href="{{ url('/')}}"><i class="fa fa-home" aria-hidden="true"></i></a>
                             </li>
-                            <li>
+                            <li style="float: left">
                                 <a href="{{ url('/about')}}">
                                 Pô Kô Farms
                                 </a>
                             </li>
                             @foreach($blog_menu as $menu)
-                            <li>
+                            <li style="float: left">
                                 <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}">
                                 {{$menu->translation->name??$menu->name}}
                                 </a>
                             </li>  
                             @endforeach
-                            <li class="dropdown first">
+                            <li class="dropdown first" style="float: left">
                                 <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">{{$product_menu->translation->name??$product_menu->name}}</a>
                                 <ul class="dropdown-menu level1">
                                     @foreach($product_menu->GetMenuSubLevel1() as $sub)
@@ -53,24 +53,16 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li>
+                            <li style="float: left">
                                 <a href="{{ url('/contact')}}">
                                     @lang('header.contact')
                                 </a>
                             </li>
 
-                            <li class="devider">
+                            <li class="devider" style="float: left">
                                 &nbsp; &nbsp;
-                            </li>
-                            <li>
-                                <a class="main-right-menu search-top-bt" href="javascript:void(0);"><i class="ion-ios-search-strong" data-toggle="tooltip" data-placement="top" title="Search"></i></a>
-                            </li>
-                            <li>
-                                <a class="main-right-menu shopping-cart cartItemCount" href="{{ url('/cart') }}">
-                                    <i class="ion-ios-cart" aria-hidden="true"></i>&nbsp;<span>{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</span>
-                                </a>
-                            </li>
-                            <li class="dropdown first">
+                            </li>                            
+                            <li class="dropdown first" style="float: right">
                                 <a class="main-right-menu btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
                                     @guest
                                         @lang('header.account')
@@ -91,7 +83,14 @@
                                     @endguest
                                 </ul>
                             </li>
-                            
+                            <li style="float: right">
+                                <a class="main-right-menu shopping-cart cartItemCount" href="{{ url('/cart') }}">
+                                    <i class="ion-ios-cart" aria-hidden="true"></i>&nbsp;<span>{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</span>
+                                </a>
+                            </li>
+                            <li style="float: right">
+                                <a class="main-right-menu search-top-bt" href="javascript:void(0);"><i class="ion-ios-search-strong" data-toggle="tooltip" data-placement="top" title="Search"></i></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
