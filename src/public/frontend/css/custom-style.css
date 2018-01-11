@@ -1,7 +1,7 @@
 .topsearch input,.topsearch input:focus{
-	background-color: #178240;
+	background-color: #558B2F;
 	border-color: none;
-	border-bottom: 1px solid #147037;
+	border-bottom: 1px solid #558B2F;
 }
 .main-nav a.mobile-menu{
 	display: block;
@@ -16,11 +16,11 @@
 	text-align: center;
 }
 .main-nav a.mobile-menu.expand{
-	background-color: #147037;
-	border-bottom: 1px solid #178240;
+	background-color: #558B2F;
+	border-bottom: 1px solid #558B2F;
 }
 .main-nav{
-	background-color: #178240;
+	background-color: #558B2F;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	position: relative;
@@ -52,7 +52,7 @@ ul.mainnavitems li{
 }
 
 ul.mainnavitems>li{
-	border-bottom: 1px solid #178240;
+	border-bottom: 1px solid #558B2F;
 	text-transform: uppercase;
 }
 ul.mainnavitems>li:last-child{
@@ -188,7 +188,7 @@ ul.nav-items li:last-child{
 
 	ul.mainnavitems .has-submenu ul.submenu{
 		position: absolute;
-		background-color: #178240;
+		background-color: #558B2F;
 		padding: 30px 0 10px 0;
 		margin: 0;
 	}
@@ -256,7 +256,7 @@ ul.nav-items li:last-child{
 
 
 footer.ht-footer{
-	background-color: #178240;
+	background-color: #558B2F;
 }
 footer.ht-footer .ft-heading h6, footer.ht-footer ul li a, footer.ht-footer .ft-contact ul.ct-it li i, footer.ht-footer .ft-contact .ct-icon a i{
 	color: #fff;
@@ -269,7 +269,7 @@ footer.ht-footer .ft-heading h6, footer.ht-footer ul li a, footer.ht-footer .ft-
 }
 
 nav#mainNav{
-	background-color: #178240 !important;
+	background-color: #558B2F !important;
 }
 .ht-header .hd-logo img.logo{
 	margin-top: 5px;
@@ -327,7 +327,7 @@ header nav li.devider{
 	}
 }
 .langchoose .dropdown-menu li a{
-	color: #178240;
+	color: #558B2F;
 }
 header nav ul.hd-menu{
 	margin-left: 10px;
