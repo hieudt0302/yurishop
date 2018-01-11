@@ -8298,7 +8298,7 @@ img.div-line2 {
 .history {
     padding-top: 55px;
     padding-bottom: 150px;
-    background: url('../images/uploads/sab-bgv4.jpg');
+    background: url('../images/uploads/aboutv1-bg.jpg');
     background-position: 0 0;
     background-repeat: no-repeat;
 }
@@ -8335,7 +8335,7 @@ img.div-line2 {
 }
 
 .history-content .heading-sec {
-    background: url('../frontend/frontend/images/uploadsheading-bg.png') no-repeat;
+    background: url('../images/uploads/heading-bg.png') no-repeat;
     text-align: center;
     background-position: center;
     background-size: 40%;
@@ -8442,9 +8442,9 @@ img.div-line2 {
 }
 
 #aboutv1 {
-    padding-top: 120px;
-    padding-bottom: 120px;
-    background-image: url('../frontend/frontend/images/uploadsaboutv1-bg.jpg');
+    padding-top: 50px;
+    padding-bottom: 30px;
+    background-image: url('../images/uploads/aboutv1-bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -8452,12 +8452,12 @@ img.div-line2 {
 
 #aboutv1 .decorate {
     text-align: center;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 #aboutv1 .ab-intro {
     text-align: center;
-    margin-bottom: 120px;
+    margin-bottom: 30px;
 }
 
 #aboutv1 .ab-intro p {
