@@ -22,7 +22,7 @@
                                     <h1 class="h3">@lang('account.orders')</h1>
                                 </div>
                                 <div class="card-deck card-cols-sm-1 order-list">
-                                    @foreach(Auth::user()->orders as $order)
+                                    @foreach($orders as $order)
                                     <div class="card card-shadow order-item">
                                         <div class="card-block">
                                             <h4 class="card-title mb-4">@lang('account.order') #: {{$order->order_no}}</h4>

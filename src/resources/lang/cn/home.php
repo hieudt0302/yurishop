@@ -14,5 +14,5 @@ return [
 	'product-quality' => '产品品质',
     'specialty-coffee' => '特色咖啡',   
     'commercial-coffee' => '商业咖啡',    
-	    
+    'home-video-url' => 'https://www.youtube.com/embed/Ln6C1mUrUdY',   	    
 ];

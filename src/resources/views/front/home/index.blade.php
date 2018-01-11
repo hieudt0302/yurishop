@@ -32,7 +32,7 @@
 
             <div class="video-section">
                 <div class="video-wrapper">
-                    <iframe width="560" height="315" src="{{ Setting::config('home_video_url') }}?autoplay=1&amp;rel=0&amp;mute=1" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="{{ __('home.home-video-url')}}?autoplay=1&amp;rel=0&amp;mute=1" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
             <!-- End Video -->            
@@ -43,7 +43,7 @@
                 <div class="ab-item">
                     <img src="{{ asset('images/logo/poko.png') }}" alt="">
                     <h2>@lang('home.about-us')</h2>
-                    <p>{{$about_us->translation->description??""}}</p>
+                    <p>{{ str_pad($about_us->translation->description??"",200) }}</p>
                     <a class="learnmore" href="{{url('/about')}}">@lang('common.more-details')</a>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                 <div class="ab-item">
                     <img src="{{ asset('images/logo/origin.png') }}" alt="">
                     <h2>@lang('home.product-origin')</h2>
-                    <p>{{$product_origin->translation->description??""}}</p>
+                    <p>{{ str_pad($product_origin->translation->description??"",200) }}</p>
                     <a class="learnmore" href="{{url('/product-origin')}}">@lang('common.more-details')</a>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                 <div class="ab-item">
                     <img src="{{ asset('images/logo/fairtrade.png') }}" alt="">
                     <h2>@lang('home.product-quality')</h2>
-                    <p>{{$product_quality->translation->description??""}}</p>
+                    <p>{{ str_pad($product_quality->translation->description??"",200) }}</p>
                     <a class="learnmore" href="{{url('/product-quality')}}">@lang('common.more-details')</a>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                 <div class="ab-item">
                     <img src="{{ asset('images/logo/community-icon.png') }}" alt="">
                     <h2>@lang('home.community')</h2>
-                    <p>{{$community_category->translation->description??""}}</p>
+                    <p>{{ str_pad($community_category->translation->description??"",200)}}</p>
                     <a class="learnmore" href="{{url('subject/posts/'.$community_category->slug)}}">@lang('common.more-details')</a>
                 </div>
             </div>            
@@ -75,18 +75,21 @@
 
     </div>
 </div>      
-    
-
+    <!-- Quotes -->
+    @include('front.home.quotes')
+    <!-- End Quotes -->
+        
     <!-- Promo -->
     @include('front.home.promo')
     <!-- End Promo -->
-    
+
     <!-- Products -->
     @include('front.home.products')
     <!-- End Products -->
 
+
     <!-- Subscribe -->
-    @include('front.home.subscribe')
+<!--     @include('front.home.subscribe') -->
     <!-- End Subscribe -->    
 
     <!-- Blogs -->

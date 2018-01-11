@@ -16,5 +16,6 @@ return [
     'unsubscribe-success' => 'You have successfully unsubscribed from promotion. <br> Thank you for using our service',
     'back-home' => 'Back Home',
     'specialty-coffee' => 'Specialty coffee',   
-    'commercial-coffee' => 'Commercial coffee',      
+    'commercial-coffee' => 'Commercial coffee',
+    'home-video-url' => 'https://www.youtube.com/embed/Ln6C1mUrUdY',          
 ];

@@ -71,7 +71,7 @@
                 @else                                    
                 <ul class="acc-it">
                     <li>
-                        <a href="{{ url('/logout') }}">@lang('auth.logout')</i></a>
+                        <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">@lang('auth.logout')</i></a>
                     </li>
                     <li>
                         <a href="{{ url('/cart') }}">@lang('footer.view-cart')</i></a>
@@ -83,6 +83,9 @@
                         <a href="{{ url('/Account/Orders') }}">@lang('footer.order-history')</i></a>
                     </li>
                 </ul>
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
                 @endif                
             </div>
         </div>
@@ -98,8 +101,14 @@
                         </div>
                     @endforeach
                 </div>
+                <ul class="infor-it">
+                    <li>
+                        <a href="{{ url('/galleries') }}">@lang('common.see-more')</a>
+                    </li>
+                </ul>                
             </div>
-            <div class="langchoose btn-group dropup">
+            <br>
+            <div class="langchoose btn-group dropup float-right">
                 <button type="button" class="btn btn-default"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ strtoupper(app()->getLocale()) }}</button>
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="caret"></span>
@@ -125,7 +134,15 @@
             </div>
 
         </div>                
+        <img class="ft-line" src="frontend/images/uploads/div-line.png" alt="line">   
     </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="ft-below-left">
+                <p>Copyright © 2018 <a href="#">Pokofarms</a> - All Rights Reserved</p>
+            </div>
+        </div>
+    </div>    
 </div>
 </footer>
 

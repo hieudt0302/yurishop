@@ -1,0 +1,331 @@
+.topsearch input,.topsearch input:focus{
+	background-color: #178240;
+	border-color: none;
+	border-bottom: 1px solid #147037;
+}
+.main-nav a.mobile-menu{
+	display: block;
+	height: 50px;
+	background-color: #67b216;
+	margin: 0;
+	padding: 15px 20px;
+	width: 100%;
+	text-decoration: none;
+	border: none;
+	color: #fff;
+	text-align: center;
+}
+.main-nav a.mobile-menu.expand{
+	background-color: #147037;
+	border-bottom: 1px solid #178240;
+}
+.main-nav{
+	background-color: #178240;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	position: relative;
+	/*background-image: url("../images/uploads/GreenbodyBG.png");
+	background-repeat: no-repeat;*/
+}
+
+.main-nav a.mobile-menu i{
+	float: left;
+	margin-top: 4px
+}
+ul.mainnavitems{
+	display: none;
+	margin: 0;
+	padding: 5px 20px;
+}
+ul.mainnavitems i, ul.mainnavitems a{
+	color: #fff;
+}
+.mainnavitems.mobile-expand{
+	display: block;
+	background-color: #147037;
+}
+.mainnavitems .has-submenu >a i{
+	display: none;
+}
+ul.mainnavitems li{
+	padding: 5px 0;
+}
+
+ul.mainnavitems>li{
+	border-bottom: 1px solid #178240;
+	text-transform: uppercase;
+}
+ul.mainnavitems>li:last-child{
+	border-bottom: none;
+}
+.main-nav .hd-logo{
+	display: none;
+}
+#top-Nav{
+	display: block;
+	float: none;
+	padding: 10px 20px;
+}
+ul.nav-items{
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0 5px;
+	background-color: #EEBF25;
+	border-radius: 16px;
+	font-size: 14px;
+	text-align: center;
+	position: relative;
+}
+ul.nav-items li{
+	display: inline-block;
+	border-right: 1px solid #D8AF29;
+	padding: 5px 0px;
+}
+ul.nav-items li a{
+	padding: 0px 10px;
+}
+ul.nav-items li.has-submenu ul{
+	display: none;
+	margin: 0;
+	padding: 15px 0;
+}
+ul.nav-items li.has-submenu.expand ul{
+	display: block;
+	position: absolute;
+}
+ul.nav-items li li{
+	display: block;
+	background-color: #EEBF25;
+	text-align: left;
+	width: 150px;
+	padding: 5px 10px;
+}
+ul.nav-items li li a{
+	padding: 0;
+}
+ul.nav-items li a, ul.nav-items li i{
+	text-decoration: none;
+	border: none;
+	color: #fff;
+
+}
+ul.nav-items li:last-child{
+	border-right: none;
+}
+@media (max-width: 991px) {
+    .main-nav .container{
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+}
+@media (min-width: 768px) {
+    
+}
+
+@media (min-width: 992px) {
+	.main-nav .container{
+		position: relative;
+	}
+    .main-nav a.mobile-menu{
+    	display: none;
+    }
+    #top-Nav{
+		display: absolute;
+		float: right;
+	}
+	.main-nav{
+		height: 160px;
+	}
+	.main-nav .hd-logo{
+		display: block;
+		padding-top: 10px;
+	}
+	.main-nav .hd-logo img{
+		width: auto;
+		max-height: 120px;
+		float: left;
+	}
+	ul.mainnavitems{
+		display: block;
+		margin: 0;
+		padding: 0;
+		float: right;
+		margin-top: 100px;
+		position: relative;
+	}
+	ul.mainnavitems.mobile-expand{
+		background-color: transparent;
+	}
+	ul.mainnavitems i, ul.mainnavitems a{
+		text-decoration: none;
+		color: #fff;
+	}
+	ul.mainnavitems .has-submenu >a i{
+		display: inline;
+		padding: 0 5px;
+	}
+	ul.mainnavitems li{
+		display: inline-block;
+		padding: 0;
+	}
+	ul.mainnavitems li a{
+		padding: 0 8px;
+	}
+
+	ul.mainnavitems>li{
+		border-bottom: none;
+		text-transform: uppercase;
+	}
+	ul.mainnavitems>li:hover a, ul.mainnavitems>li:hover i{
+		color: #FFF700;
+	}
+	
+	ul.mainnavitems li ul{
+		display: none;
+	}
+
+	ul.mainnavitems .has-submenu ul.submenu{
+		position: absolute;
+		background-color: #178240;
+		padding: 30px 0 10px 0;
+		margin: 0;
+	}
+	ul.mainnavitems ul.submenu li{
+		display: block;
+		padding: 5px;
+		width: 200px;
+	}
+	ul.mainnavitems ul.submenu li a, ul.mainnavitems ul.submenu li i{
+		color: #fff;
+	}
+	ul.mainnavitems ul.submenu li i{
+		padding-right: 5px;
+	}
+	ul.mainnavitems ul.submenu li:hover{
+		background-color: #147037;
+	}
+	ul.mainnavitems .has-submenu:hover ul{
+		display: block;
+		
+	}
+	
+
+	ul.nav-items{
+		right: 20px;
+		position: absolute;
+		top: 30px;
+	}
+	ul.nav-items li.has-submenu ul{
+		display: none;
+		margin: 0;
+		padding: 5px 0;
+	}
+	ul.nav-items li.has-submenu:hover ul{
+		display: block;
+		position: absolute;
+	}
+	ul.nav-items li li{
+		display: block;
+		background-color: #EEBF25;
+		text-align: left;
+		width: 150px;
+		padding: 5px 10px;
+	}
+	ul.nav-items li li:hover{
+		background-color: #DCB021;
+	}
+	ul.nav-items li li a{
+		padding: 0;
+	}
+	ul.nav-items li a, ul.nav-items li i{
+		text-decoration: none;
+		border: none;
+		color: #fff;
+
+	}
+	ul.nav-items li:last-child{
+		border-right: none;
+	}
+}
+
+@media (min-width: 1200px) {
+    
+}
+
+
+footer.ht-footer{
+	background-color: #178240;
+}
+footer.ht-footer .ft-heading h6, footer.ht-footer ul li a, footer.ht-footer .ft-contact ul.ct-it li i, footer.ht-footer .ft-contact .ct-icon a i{
+	color: #fff;
+}
+.rev_slider a{
+	color: rgb(142, 179, 90);
+}
+.rev_slider a:active, .rev_slider a:hover{
+	color: #fff;
+}
+
+nav#mainNav{
+	background-color: #178240 !important;
+}
+.ht-header .hd-logo img.logo{
+	margin-top: 5px;
+}
+
+img.logo{
+	max-height: 100px;
+}
+
+header nav ul.hd-menu{
+	float: left;
+}
+
+header nav ul.hd-menu li a {
+    color: #696969;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: "Open Sans", 'Source Sans Pro', serif;
+    font-weight: 400;
+    margin-right: 15px;
+    padding: 40px 0 40px 0;
+    border: none;
+    background: none;
+}
+header nav ul.hd-menu li a:hover, header nav ul.hd-menu li a:active, li.dropdown a:hover, li.dropdown a:active, header nav ul.hd-menu li.dropdown a.lv1:hover, header nav ul.hd-menu li.dropdown.open a.lv1{
+	color: #FBCA29 !important;
+}
+header nav ul.hd-menu li.dropdown a{
+	margin-right: 15px;
+	font-weight: 400;
+}
+.navbar-nav>li>a{
+	font-size: 15px !important;
+	color: #fff !important;
+}
+a.main-right-menu{
+	font-weight: 400 !important;
+	margin-right: 15px !important;
+}
+li.dropdown a.main-right-menu i{
+	margin-left: 2px !important;
+}
+.main-right-menu i{
+	font-size: 18px;
+}
+header nav li.devider{
+	margin-right: 20px;
+}
+.mobile-btn button{
+	color: #fff !important;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.main-right-menu span{
+		display: none;
+	}
+}
+.langchoose .dropdown-menu li a{
+	color: #178240;
+}

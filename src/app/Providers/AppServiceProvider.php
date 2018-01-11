@@ -40,11 +40,14 @@ class AppServiceProvider extends ServiceProvider
                 // ->limit(9)
                 // ->get();
 
-                $latestMediaOfGallery = Media::whereRaw('id in (select gm.media_id from gallery_media as gm left join galleries as g on gm.gallery_id = g.id where g.published = 1)')
-                ->limit(9)
-                ->get();
+                $latestMediaOfGallery = null;
+                if (Schema::hasTable('gallery_media')) {
+                    $latestMediaOfGallery = Media::whereRaw('id in (select gm.media_id from gallery_media as gm left join galleries as g on gm.gallery_id = g.id where g.published = 1)')
+                    ->limit(9)
+                    ->get();
+                }
                 
-				View::share(['blog_menu' => $blog_menu, 'product_menu' => $product_menu, 'latestMediaOfGallery' => $latestMediaOfGallery ]);
+				 View::share(['blog_menu' => $blog_menu, 'product_menu' => $product_menu, 'latestMediaOfGallery' => $latestMediaOfGallery ]);
 			}
         }
         

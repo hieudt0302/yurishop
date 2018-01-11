@@ -85,4 +85,7 @@
         </div>
     </div>
 </section>
+    <!-- Subscribe -->
+    @include('front.home.subscribe')
+    <!-- End Subscribe -->    
 @endsection

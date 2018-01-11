@@ -67,7 +67,9 @@ class AccountController extends Controller
 
     public function Orders()
     {
-        return View('front.myaccount.orders');
+        $orders = Order::where('customer_id',Auth::user()->id)->orderBy('created_at','desc')->get();
+
+        return View('front.myaccount.orders', compact('orders'));
     }
 
     public function Addresses()

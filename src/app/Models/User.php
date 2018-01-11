@@ -45,7 +45,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     // protected $dates = ['date_of_birth']; //=>this make bug in seed. TODO fix this
 
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'username',
+        'first_name', 'last_name','phone', 'email', 'password', 'username','date_of_birth',
     ];
     /**
      * Get the products for the user.
