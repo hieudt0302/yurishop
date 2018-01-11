@@ -65,10 +65,10 @@
                                                         <button type="button" name="" id="cancelorder" class="btn bg-red" style="margin-right: 3px;" data-toggle="modal" data-target="#cancelorder-action-confirmation">
                                                             Hủy Đơn Hàng
                                                         </button>
-                                                        @endif
                                                         <button type="submit" name="btnChangeOrderStatus" onclick="toggleChangeOrderStatus(true);return false;" id="btnChangeOrderStatus" class="btn btn-primary" style="display: inline-block;">
                                                         Đổi Trạng Thái
                                                         </button>
+                                                        @endif
                                                         <form action="{{url('/admin/orders')}}/{{$order->id}}/change/orderstatus" method="POST">
                                                         {{ csrf_field()}}
                                                             <div id="pnlChangeOrderStatus" style="margin-top: 3px; display: none;">
@@ -868,17 +868,17 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="cancelorder-action-confirmation-title">Are you sure?</h4>
+                <h4 class="modal-title" id="cancelorder-action-confirmation-title">Cảnh báo!</h4>
             </div>
             <div class="modal-body">
-                Are you sure you want to cancel this order?
+                Bạn có chắc chắn muốn hủy đơn hàng này không?
             </div>
             <div class="modal-footer">
                 <form action="{{url('/admin/orders')}}/{{$order->id}}/cancel/orderstatus" method="POST">
                     {{ csrf_field()}}
-                    <button type="submit" class="btn btn-danger pull-right">Yes </button>
+                    <button type="submit" class="btn btn-danger pull-right">Hủy Đơn Hàng </button>
                 </form>
-                <span class="btn btn-default pull-right margin-r-5" data-dismiss="modal">No, cancel</span>
+                <span class="btn btn-default pull-right margin-r-5" data-dismiss="modal">Không, Đừng Hủy</span>
             </div>
         </div>
     </div>
