@@ -42,7 +42,7 @@
                             </li>  
                             @endforeach
                             <li class="dropdown first">
-                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">{{$product_menu->translation->name??$product_menu->name}}</a>
+                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">{{$product_menu->translation->name??$product_menu->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu level1">
                                     @foreach($product_menu->GetMenuSubLevel1() as $sub)
                                     <li>
@@ -68,17 +68,18 @@
                             <li>
                                 <a class="main-right-menu shopping-cart" href="{{ url('/cart') }}">
                                 <!-- DON'T REMOVE shopping-cart-icon class -->
-                                    <i class="ion-ios-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;<span class="cartItemCount">{{ Cart::instance('default')->count(false) }} @lang('shoppings.items')</span>
+                                    <i class="ion-ios-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;<span class="cartItemCount">({{ Cart::instance('default')->count(false) }})</span>
                                 </a>
                             </li>
                             <li class="dropdown first">
                                 <a class="main-right-menu btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                    <i class="fa fa-user-o" aria-hidden="true"></i>
                                     @guest
                                         @lang('header.account')
                                     @else
                                         {{Auth::user()->first_name}}
                                     @endguest
-                                    
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu level1">
                                     @guest
