@@ -537,7 +537,7 @@ class ProductsController extends Controller
 
     public function SelectTags($product, $tagIds)
     {
-        if(is_array($tagIds)){
+        if(is_array($tagIds) && count($tagIds) > 0){
             foreach($tagIds as $key =>  $id)
             {
                 if(empty(Tag::find($id)))
@@ -558,7 +558,14 @@ class ProductsController extends Controller
             }
             $tags = Tag::whereIn('id',$tagIds)->get();
             $product->tags()->sync($tags); 
+            
+        }else{
+            //delete all tags of product
+            $product->tags()->detach();
         }
+
+
+        
         
          //delete tag not use
          $tag_ids = DB::table('taggables')->pluck('tag_id')->toArray();

@@ -331,7 +331,7 @@ class PostsController extends Controller
 
     public function SelectTags($post, $tagIds)
     {
-        if(is_array($tagIds)){
+        if(is_array($tagIds) && count($tagIds) > 0){
             foreach($tagIds as $key =>  $id)
             {
                 if(empty(Tag::find($id)))
@@ -352,10 +352,14 @@ class PostsController extends Controller
             }
             $tags = Tag::whereIn('id',$tagIds)->get();
             $post->tags()->sync($tags); 
+        }else{
+            //delete all tags of post
+            $post->tags()->detach();
         }
 
         //delete tag not use
         $tag_ids = DB::table('taggables')->pluck('tag_id')->toArray();
+
         //dd($tag_ids);
         Tag::whereNotIn('id', $tag_ids)->delete();
     }
