@@ -268,7 +268,7 @@
                                                                 <td class="cart-summary-label">
                                                                     <span class="text-nowrap">@lang('checkout.shipping'):</span>
                                                                     <span class="font-weight-medium">
-                                                                        Pickup
+                                                                    {{__('method.shipping.'. $shippingMethodId . '.name')}}
                                                                     </span>
                                                                 </td>
                                                                 <td class="cart-summary-value">
