@@ -355,9 +355,9 @@ class PostsController extends Controller
         }
 
         //delete tag not use
-        $tag_ids = DB::table('taggables')->select('tag_id')->toArray();
+        $tag_ids = DB::table('taggables')->select('tag_id')->get()->toArray();
         Tag::whereNotIn('id', $tag_ids)->delete();
-        
+
     }
       /* COMMENT */
       public function comments(Request $request)
