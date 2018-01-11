@@ -1,7 +1,7 @@
 .topsearch input,.topsearch input:focus{
-	background-color: #558B2F;
+	background-color: #178240;
 	border-color: none;
-	border-bottom: 1px solid #558B2F;
+	border-bottom: 1px solid #147037;
 }
 .main-nav a.mobile-menu{
 	display: block;
@@ -16,11 +16,11 @@
 	text-align: center;
 }
 .main-nav a.mobile-menu.expand{
-	background-color: #558B2F;
-	border-bottom: 1px solid #558B2F;
+	background-color: #147037;
+	border-bottom: 1px solid #178240;
 }
 .main-nav{
-	background-color: #558B2F;
+	background-color: #178240;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	position: relative;
@@ -42,7 +42,7 @@ ul.mainnavitems i, ul.mainnavitems a{
 }
 .mainnavitems.mobile-expand{
 	display: block;
-	background-color: #558B2F;
+	background-color: #147037;
 }
 .mainnavitems .has-submenu >a i{
 	display: none;
@@ -52,7 +52,7 @@ ul.mainnavitems li{
 }
 
 ul.mainnavitems>li{
-	border-bottom: 1px solid #558B2F;
+	border-bottom: 1px solid #178240;
 	text-transform: uppercase;
 }
 ul.mainnavitems>li:last-child{
@@ -188,7 +188,7 @@ ul.nav-items li:last-child{
 
 	ul.mainnavitems .has-submenu ul.submenu{
 		position: absolute;
-		background-color: #558B2F;
+		background-color: #178240;
 		padding: 30px 0 10px 0;
 		margin: 0;
 	}
@@ -204,7 +204,7 @@ ul.nav-items li:last-child{
 		padding-right: 5px;
 	}
 	ul.mainnavitems ul.submenu li:hover{
-		background-color: #558B2F;
+		background-color: #147037;
 	}
 	ul.mainnavitems .has-submenu:hover ul{
 		display: block;
@@ -256,7 +256,7 @@ ul.nav-items li:last-child{
 
 
 footer.ht-footer{
-	background-color: #558B2F;
+	background-color: #178240;
 }
 footer.ht-footer .ft-heading h6, footer.ht-footer ul li a, footer.ht-footer .ft-contact ul.ct-it li i, footer.ht-footer .ft-contact .ct-icon a i{
 	color: #fff;
@@ -269,7 +269,7 @@ footer.ht-footer .ft-heading h6, footer.ht-footer ul li a, footer.ht-footer .ft-
 }
 
 nav#mainNav{
-	background-color: #558B2F !important;
+	background-color: #178240 !important;
 }
 .ht-header .hd-logo img.logo{
 	margin-top: 5px;
@@ -326,17 +326,10 @@ header nav li.devider{
 		display: none;
 	}
 }
-
-.langchoose{
-	float: right;
-}
-
-.langchoose .btn{
-	background-color: #558B2F;
-	color: #fff;
-	border: 1px solid #fff;
-}
-
 .langchoose .dropdown-menu li a{
-	color: #558B2F;
+	color: #178240;
+}
+header nav ul.hd-menu{
+	margin-left: 10px;
+	width: 100%;
 }
