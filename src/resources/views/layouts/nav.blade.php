@@ -1,4 +1,3 @@
-BEGIN | Header -->
 <div class="sticky-wrapper" style="height: 110px;">
     <header class="ht-header" id="hd-fixed">
         <div class="row">
@@ -67,9 +66,9 @@ BEGIN | Header -->
                                     <i class="fa fa-shopping-cart " aria-hidden="true"></i>&nbsp;<span class="cartItemCount">({{ Cart::instance('default')->count(false) }})</span>
                                 </a>
                             </li>
-<!--                             <li style="float: right">
-                                <a>|</a>
-                            </li>  -->                                                                                                                 
+    <!--                             <li style="float: right">
+                                    <a>|</a>
+                                </li>  -->                                                                                                                 
                             <li class="dropdown first" style="float: right">
                                 <a class="main-right-menu btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">    
                                     @guest
