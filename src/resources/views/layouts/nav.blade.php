@@ -1,4 +1,4 @@
-<!-- BEGIN | Header -->
+BEGIN | Header -->
 <div class="sticky-wrapper" style="height: 110px;">
     <header class="ht-header" id="hd-fixed">
         <div class="row">
@@ -42,7 +42,7 @@
                             </li>  
                             @endforeach
                             <li class="dropdown first" style="float: left">
-                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">{{$product_menu->translation->name??$product_menu->name}}</a>
+                                <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">{{$product_menu->translation->name??$product_menu->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu level1">
                                     @foreach($product_menu->GetMenuSubLevel1() as $sub)
                                     <li>
@@ -61,15 +61,24 @@
 
                             <li class="devider" style="float: left">
                                 &nbsp; &nbsp;
-                            </li>                            
+                            </li>                          
+                            <li style="float: right">
+                                <a class="main-right-menu shopping-cart cartItemCount" href="{{ url('/cart') }}">
+                                    <i class="fa fa-shopping-cart " aria-hidden="true"></i>&nbsp;<span class="cartItemCount">({{ Cart::instance('default')->count(false) }})</span>
+                                </a>
+                            </li>
+<!--                             <li style="float: right">
+                                <a>|</a>
+                            </li>  -->                                                                                                                 
                             <li class="dropdown first" style="float: right">
-                                <a class="main-right-menu btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                <a class="main-right-menu btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">    
                                     @guest
-                                        @lang('header.account')
+                                        <i class="fa fa-user-circle-o " aria-hidden="true"></i>
                                     @else
+                                        <i class="fa fa-user-circle-o " aria-hidden="true"></i>
                                         {{Auth::user()->first_name}}
                                     @endguest
-                                    
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu level1">
                                     @guest
@@ -84,13 +93,11 @@
                                     @endguest
                                 </ul>
                             </li>
+<!--                             <li style="float: right">
+                                <a>|</a>
+                            </li>  -->                                                                                                     
                             <li style="float: right">
-                                <a class="main-right-menu shopping-cart cartItemCount" href="{{ url('/cart') }}">
-                                    <i class="ion-ios-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;<span class="cartItemCount">({{ Cart::instance('default')->count(false) }})</span>
-                                </a>
-                            </li>
-                            <li style="float: right">
-                                <a class="main-right-menu search-top-bt" href="javascript:void(0);"><i class="ion-ios-search-strong" data-toggle="tooltip" data-placement="top" title="Search"></i></a>
+                                <a class="main-right-menu search-top-bt" href="javascript:void(0);"><i class="fa fa-search" aria-hidden="true"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -100,4 +107,4 @@
         </div>
     </header>
 </div>
-<!-- END | Header -->
+<!-- END | Header

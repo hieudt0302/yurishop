@@ -1,4 +1,4 @@
-.topsearch input,.topsearch input:focus{
+g.topsearch input,.topsearch input:focus{
 	background-color: #558B2F;
 	border-color: none;
 	border-bottom: 1px solid #558B2F;
@@ -289,7 +289,7 @@ header nav ul.hd-menu li a {
     text-transform: uppercase;
     font-family: "Open Sans", 'Source Sans Pro', serif;
     font-weight: 400;
-    margin-right: 15px;
+    margin-right: 20px;
     padding: 40px 0 40px 0;
     border: none;
     background: none;
@@ -307,7 +307,7 @@ header nav ul.hd-menu li.dropdown a{
 }
 a.main-right-menu{
 	font-weight: 400 !important;
-	margin-right: 15px !important;
+	margin-right: 25px !important;
 }
 li.dropdown a.main-right-menu i{
 	margin-left: 2px !important;
@@ -326,9 +326,17 @@ header nav li.devider{
 		display: none;
 	}
 }
+ 
+ .langchoose .btn{
+ 	background-color: #558B2F;
+ 	color: #fff;
+ 	border: 1px solid #fff;
+ }
+
 .langchoose .dropdown-menu li a{
 	color: #558B2F;
 }
+
 header nav ul.hd-menu{
 	margin-left: 10px;
 	width: 100%;
