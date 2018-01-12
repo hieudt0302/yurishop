@@ -57,7 +57,7 @@ Sharing together and developing together, make the world better with quality cof
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="heading-sec">
                     <h1>{{$info_page_translation->title}}</h1>
-                    <h4 class="grey">-{!! $info_page_translation->description !!}-</h4>
+                    <h4 class="green">-{!! $info_page_translation->description !!}-</h4>
                 </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -75,19 +75,24 @@ Sharing together and developing together, make the world better with quality cof
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="ab-item">
                     <img src="frontend/images/uploads/abflower1.png" alt="">
-                    <h2>Our vision</h2>
-                    <p>ô Kô Farms determines to become a sustainable development cooperative, that helps farmers to have a better life through responsible coffee producing. Furthermore, Pô Kô Farms will be the first choice of customers who want to buy Fairtrade certified coffee in particular and agricutural  products in general from Vietnam.</p>
+                    <h2>@lang('about.our-vision')</h2>
+                    <p>@lang('about.vision-details')</p>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="ab-item">
                     <img src="frontend/images/uploads/abflower2.png" alt="">
-                    <h2>Our mission</h2>
-                    <p>Pô Kô Farms aims to become a cooperative that specializes in producing and supplying high quality Fairtrade certified coffee for current buyers and new customers in the future.
-By growing and selling Fairtrade certified coffee, Pô Kô Farms wishes to improve farmers income and quality of life for their  households .
-Sharing together and developing together, make the world better with quality coffee.</p>
+                    <h2>@lang('about.our-mission')</h2>
+                    <p>@lang('about.mission-details')</p>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="farm-img">
+            <img src="frontend/images/uploads/aboutv1-bg-footer.jpg" alt="farm">
         </div>
     </div>
 </div>

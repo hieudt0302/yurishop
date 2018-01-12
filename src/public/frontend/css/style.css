@@ -6779,6 +6779,11 @@ section {
     color: #f49ac1;
 }
 
+.heading-sec h4.green {
+    color: #558B2F;
+    font-weight: bold;
+}
+
 .products .heading-sec,
 .blog .heading-sec,
 #process .heading-sec,
@@ -10012,7 +10017,7 @@ img.div-line2 {
 }
 
 .floweraboutv1 {
-    background: #ffffff;
+    background: url('../images/uploads/aboutv1-bg.jpg') no-repeat;
 }
 
 .floweraboutv1 .ab-decorate {

@@ -326,12 +326,16 @@ header nav li.devider{
 		display: none;
 	}
 }
- 
- .langchoose .btn{
+
+.langchoose{
+ 	float: right;
+}
+
+.langchoose .btn{
  	background-color: #558B2F;
  	color: #fff;
  	border: 1px solid #fff;
- }
+}
 
 .langchoose .dropdown-menu li a{
 	color: #558B2F;
