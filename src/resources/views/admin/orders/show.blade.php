@@ -810,7 +810,7 @@
                                                 <tbody role="rowgroup">
                                                     @foreach($order->ordernotes as $key =>$note)
                                                     <tr style="margin-top:4px;">
-                                                        <td >{{$key}}</td>
+                                                        <td >{{$key + 1}}</td>
                                                         <td >{{$note->created_at}}</td>
                                                         <td >{{$note->note}}</td>
                                                         <td >
