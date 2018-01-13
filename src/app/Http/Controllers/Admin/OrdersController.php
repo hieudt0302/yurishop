@@ -350,7 +350,7 @@ class OrdersController extends Controller
         $order->shipping_status =  $request->shipping_status; //refer Lang/method.php
         $order->save();
         //add note
-        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái vận chuyển toán từ '. \Lang::get('status.payment.' . $origin) . ' => '. \Lang::get('status.payment.' . $order->payment_status);
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái vận chuyển từ '. \Lang::get('status.shipping.' . $origin) . ' => '. \Lang::get('status.shipping.' . $order->shipping_status);
         $this->AddNewNote($id, $note);
         $tab = 1;
        
