@@ -822,7 +822,7 @@
                                                     @endforeach
                                                 </tbody>
                                             </table>
-                                            <div ><a href="#" title="Refresh"><span >Làm Mới</span></a></div>
+                                            <div ><a id="note-refresh" type="button" class="fa fa-refresh" href="javascript:void(0)" title="Refresh"><span >Làm Mới</span></a></div>
                                         </div>
 
                                     </div>
@@ -980,6 +980,10 @@
             var action = "{{url('admin/orders')}}/"+'{{$order->id}}/notes/' + noteID;
             $(e.currentTarget).find('form[name="form-note-delete"]').attr("action", action);
         })  
+
+        $('#note-refresh').on('click', function(e){
+            location.reload(true);
+        })
     });
 
     function toggleChangeOrderStatus(editmode) {
