@@ -171,7 +171,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <div class="form-text-row">{{__('method.shipping.'.$order->shipping_method.'name')}}</div>
+                                                <div class="form-text-row">{{__('method.shipping.'.$order->shipping_method.'.name')}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -181,7 +181,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <div class="form-text-row">{{__('method.payment.'.$order->payment_method.'name')}}</div>
+                                                <div class="form-text-row">{{__('method.payment.'.$order->payment_method.'.name')}}</div>
                                             </div>
                                         </div>
                                         <hr>
