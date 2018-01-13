@@ -55,7 +55,10 @@ class OrdersController extends Controller
     public function storenote(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'order_note' => 'string|legnth:4',
+            'order_note' => 'string|min: 5',
+        ],
+        [
+            'order_note.min' => 'Nội dung cần tối thiểu 5 ký tự!'
         ]);
 
         if ($validator->fails()) {
