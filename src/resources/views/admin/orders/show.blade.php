@@ -828,9 +828,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody role="rowgroup">
+                                                    @($note_index =count($order->ordernotes) + 1)
                                                     @foreach($order->ordernotes as $key =>$note)
                                                     <tr style="margin-top:4px;">
-                                                        <td >{{$key + 1}}</td>
+                                                        <td >{{$note_index - 1}}</td>
                                                         <td >{{$note->created_at}}</td>
                                                         <td title="{{$note->note}}" style="word-wrap: break-word">{{$note->note}}</td>
                                                         <td >
