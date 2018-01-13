@@ -34,7 +34,7 @@
                         <li class="{{$tab==2?'active':''}}"><a href="#billing_address" data-toggle="tab">Địa Chỉ Thanh Toán</a></li>
                         <li class="{{$tab==3?'active':''}}"><a href="#shipping_address" data-toggle="tab">Địa Chỉ Vận Chuyển</a></li>
                         <li class="{{$tab==4?'active':''}}"><a href="#products" data-toggle="tab">Sản  Phẩm</a></li>
-                        <!-- <li><a href="#order_notes" data-toggle="tab">Order Note(s)</a></li> -->
+                        <li class="{{$tab==5?'active':''}}"><a href="#order_notes" data-toggle="tab">Ghi Chú</a></li>
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
