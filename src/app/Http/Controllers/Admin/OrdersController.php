@@ -143,8 +143,10 @@ class OrdersController extends Controller
 
         $order  = Order::find($id);
         $detail  = OrderDetail::find($request->order_detail_id);
-        $origin  = new OrderDetail();
-        $origin = $detail;
+        $origin1 = $detail->price;
+        $origin2 = $detail->quantity;
+        $origin3 = $detail->discount;
+
         $detail->price = $request->price;
         $detail->quantity = $request->quantity;
         $detail->discount = $request->discount;
@@ -157,9 +159,9 @@ class OrdersController extends Controller
         //add note
         $note = 'Người dùng ['. Auth::user()->username . '] đã cập nhật sản phẩm [' 
         . $origin->product->name . '] với thay đổi Giá Tiền: ' 
-        . $origin->price . ' => ' . $detail->price 
-        . ', Số Lượng: ' . $origin->quantity . ' => ' . $detail->quantity 
-        . ', Giảm Giá: ' . $origin->discount . ' => ' . $detail->discount;
+        . $origin1 . ' => ' . $detail->price 
+        . ', Số Lượng: ' . $origin2 . ' => ' . $detail->quantity 
+        . ', Giảm Giá: ' . $origin3 . ' => ' . $detail->discount;
         $this->AddNewNote($id, $note);
 
         $tab = 4;
@@ -190,7 +192,7 @@ class OrdersController extends Controller
         $order  = Order::find($id);
 
         $detail = OrderDetail::find($detail_id);
-        $origin = $detail;
+        $origin = $detail->product->name;
         $detail->delete();
 
         $order->order_total = $order->orderdetails->sum('total');
@@ -198,7 +200,7 @@ class OrdersController extends Controller
 
         //add note
         $note = 'Người dùng ['. Auth::user()->username . '] đã xóa sản phẩm [' 
-        . $origin->product->name . ']';
+        . $origin . ']';
 
         $this->AddNewNote($id, $note);
 
@@ -292,8 +294,7 @@ class OrdersController extends Controller
     public function ChangeOrderStatus(Request $request, $id)
     {
         $order = Order::find($id);
-        $origin  = new Order();
-        $origin =  $order;
+        $origin =  $order->order_status;
         $order->order_status =  $request->order_status; //refer Lang/method.php
 
         if(is_numeric($request->order_status)){
@@ -324,7 +325,7 @@ class OrdersController extends Controller
 
         $order->save();
         //add note
-        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái đơn hàng từ'. \Lang::get('status.order.' . $origin->order_status) . ' => '. \Lang::get('status.order.' . $order->order_status);
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái đơn hàng từ'. \Lang::get('status.order.' . $origin) . ' => '. \Lang::get('status.order.' . $order->order_status);
         $this->AddNewNote($id, $note);
 
         $tab = 1;
@@ -333,12 +334,11 @@ class OrdersController extends Controller
     public function ChangePaymentStatus(Request $request, $id)
     {
         $order = Order::find($id);
-        $origin  = new Order();
         $origin =  $order->payment_status;
         $order->payment_status =  $request->payment_status; //refer Lang/method.php
         $order->save();
         //add note
-        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái thanh toán từ'. \Lang::get('status.payment.' . $origin) . ' => '. \Lang::get('status.payment.' . $order->payment_status);
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái thanh toán từ '. \Lang::get('status.payment.' . $origin) . ' => '. \Lang::get('status.payment.' . $order->payment_status);
         $this->AddNewNote($id, $note);
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
@@ -346,12 +346,11 @@ class OrdersController extends Controller
     public function ChangeShippingStatus(Request $request, $id)
     {
         $order = Order::find($id);
-        $origin  = new Order();
         $origin =  $order->shipping_status;
         $order->shipping_status =  $request->shipping_status; //refer Lang/method.php
         $order->save();
         //add note
-        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái vận chuyển toán từ'. \Lang::get('status.payment.' . $origin) . ' => '. \Lang::get('status.payment.' . $order->payment_status);
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái vận chuyển toán từ '. \Lang::get('status.payment.' . $origin) . ' => '. \Lang::get('status.payment.' . $order->payment_status);
         $this->AddNewNote($id, $note);
         $tab = 1;
        
@@ -360,15 +359,18 @@ class OrdersController extends Controller
     public function UpdateOrderFee(Request $request, $id)
     {
         $order = Order::find($id);
-        $origin =  $order;
+
+        $origin1 =  $order->order_tax;
+        $origin2 =  $order->order_shipping_price;
+        
         $order->order_tax =  $request->order_tax; 
         $order->order_shipping_price =  $request->order_shipping_price; 
         $order->order_total = $order->order_tax  + $order->order_shipping_price +  $order->orderdetails->sum('total');
         $order->save();
          //add note
          $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi Tax: '
-         . $origin->order_tax. ' => ' . $order->order_tax 
-         . ', Phí Vận Chuyển: '.$origin->order_shipping_price. ' => ' . $order->order_shipping_price  ;
+         . $origin1. ' => ' . $order->order_tax 
+         . ', Phí Vận Chuyển: '.$origin2. ' => ' . $order->order_shipping_price  ;
 
          $this->AddNewNote($id, $note);
         $tab = 1;
@@ -452,20 +454,18 @@ class OrdersController extends Controller
         $address->email = $request->email??'';
         $address->save();
 
-        $type_content = '';
+        $type_content = $type==1?'hóa đơn.':'hàng.';
+
         if($is_create){
             $order =Order::find($id);
 
             switch($type){
                 case 1:
                     $order->billing_address_id =  $address->id;
-                    $type_content = 'hóa đơn.';
                  break;
                  case 2:
                     $order->shipping_address_id =  $address->id;
-                    $type_content = 'nhận hàng.';
                  break;
-
                  default: break;
             }
            
@@ -473,7 +473,7 @@ class OrdersController extends Controller
         }
 
          //add note
-         $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi địa chỉ ' .  $type_content;
+         $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi địa chỉ nhận' .  $type_content;
          $this->AddNewNote($id, $note);
     }   
     
