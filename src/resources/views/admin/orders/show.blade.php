@@ -156,12 +156,32 @@
                                         <div class="form-group">
                                             <div class="">
                                                 <div class="label-wrapper">
-                                                
                                                 <label class="col-md-3 control-label" for="OrderTotal" title="">Tổng Tiền Đơn Hàng</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-text-row">{{FormatPrice::price($order->order_total)}}</div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group">
+                                            <div class="">
+                                                <div class="label-wrapper">
+                                                <label class="col-md-3 control-label" for="OrderTotal" title="">Phương Thức Vận Chuyển</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-text-row">{{trans('method.shipping.'.$order->shipping_method)}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="">
+                                                <div class="label-wrapper">
+                                                <label class="col-md-3 control-label" for="OrderTotal" title="">Phương Thức Thanh Toán</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-text-row">{{trans('method.payment.'.$order->payment_method)}}</div>
                                             </div>
                                         </div>
                                         <hr>

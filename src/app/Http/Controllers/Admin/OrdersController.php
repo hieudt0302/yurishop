@@ -143,6 +143,7 @@ class OrdersController extends Controller
 
         $order  = Order::find($id);
         $detail  = OrderDetail::find($request->order_detail_id);
+        $origin  = new OrderDetail();
         $origin = $detail;
         $detail->price = $request->price;
         $detail->quantity = $request->quantity;
@@ -291,6 +292,7 @@ class OrdersController extends Controller
     public function ChangeOrderStatus(Request $request, $id)
     {
         $order = Order::find($id);
+        $origin  = new Order();
         $origin =  $order;
         $order->order_status =  $request->order_status; //refer Lang/method.php
 
@@ -331,11 +333,12 @@ class OrdersController extends Controller
     public function ChangePaymentStatus(Request $request, $id)
     {
         $order = Order::find($id);
+        $origin  = new Order();
         $origin =  $order;
         $order->payment_status =  $request->payment_status; //refer Lang/method.php
         $order->save();
         //add note
-        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi phương thức thanh toán từ'. \Lang::get('method.payment.' . $origin->payment_status) . ' => '. \Lang::get('method.payment.' . $order->payment_status);
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi phương thức thanh toán từ'. \Lang::get('status.payment.' . $origin->payment_status) . ' => '. \Lang::get('method.payment.' . $order->payment_status);
         $this->AddNewNote($id, $note);
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
@@ -343,11 +346,12 @@ class OrdersController extends Controller
     public function ChangeShippingStatus(Request $request, $id)
     {
         $order = Order::find($id);
+        $origin  = new Order();
         $origin =  $order;
         $order->shipping_status =  $request->shipping_status; //refer Lang/method.php
         $order->save();
         //add note
-        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi phương vận chuyển toán từ'. \Lang::get('method.payment.' . $origin->payment_status) . ' => '. \Lang::get('method.payment.' . $order->payment_status);
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi phương vận chuyển toán từ'. \Lang::get('status.payment.' . $origin->payment_status) . ' => '. \Lang::get('method.payment.' . $order->payment_status);
         $this->AddNewNote($id, $note);
         $tab = 1;
        
@@ -455,11 +459,11 @@ class OrdersController extends Controller
             switch($type){
                 case 1:
                     $order->billing_address_id =  $address->id;
-                    $type_content = 'địa chỉ nhận hóa đơn.';
+                    $type_content = 'hóa đơn.';
                  break;
                  case 2:
                     $order->shipping_address_id =  $address->id;
-                    $type_content = 'địa chỉ nhận hàng.';
+                    $type_content = 'nhận hàng.';
                  break;
 
                  default: break;
@@ -469,7 +473,7 @@ class OrdersController extends Controller
         }
 
          //add note
-         $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi ' .  $type_content;
+         $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi địa chỉ ' .  $type_content;
          $this->AddNewNote($id, $note);
     }   
     
