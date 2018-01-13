@@ -69,10 +69,12 @@ class OrdersController extends Controller
             ->withInput(['tab']);
         }
 
-        $note = new OrderNote();
-        $note->note = $request->order_note;
-        $note->order_id = $request->order_id;
-        $note->save();
+        // $note = new OrderNote();
+        // $note->note = $request->order_note;
+        // $note->order_id = $request->order_id;
+        // $note->save();
+
+        $this->AddNewNote($request->order_id, $request->order_note);
 
         $order = Order::find($request->order_id);
         return view('admin/orders/show', compact('order','tab'));
@@ -141,6 +143,7 @@ class OrdersController extends Controller
 
         $order  = Order::find($id);
         $detail  = OrderDetail::find($request->order_detail_id);
+        $origin = $detail;
         $detail->price = $request->price;
         $detail->quantity = $request->quantity;
         $detail->discount = $request->discount;
@@ -149,6 +152,12 @@ class OrdersController extends Controller
 
         $order->order_total = $order->orderdetails->sum('total');
         $order->save();
+
+        //add note
+        $this->AddNewNote($id, Auth::user()->username . ' đã cập nhật sản phẩm [' . $origin->product->name??'Unknown' 
+        . '] với thay đổi Giá Tiền: ' . $origin->price . ' => ' . $detail->price 
+        . ', Số Lượng: ' . $origin->quantity . ' => ' . $detail->quantity 
+        . ', Giảm Giá: ' . $origin->discount . ' => ' . $detail->discount);
 
         $tab = 4;
 
@@ -433,5 +442,13 @@ class OrdersController extends Controller
            $order->save();
         }
 
-    }    
+    }   
+    
+    public function AddNewNote($order_id, $note)
+    {
+        $note = new OrderNote();
+        $note->note = $note;
+        $note->order_id = $order_id;
+        $note->save();
+    }
 }

@@ -822,7 +822,7 @@
                                                     @endforeach
                                                 </tbody>
                                             </table>
-                                            <div ><a id="note-refresh" type="button" class="fa fa-refresh" href="javascript:void(0)" title="Refresh"><span >Làm Mới</span></a></div>
+                                            <!-- <div ><a id="note-refresh" type="button" class="fa fa-refresh" href="javascript:void(0)" title="Refresh"><span >Làm Mới</span></a></div> -->
                                         </div>
 
                                     </div>
