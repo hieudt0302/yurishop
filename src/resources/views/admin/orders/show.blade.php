@@ -787,7 +787,7 @@
                             </div>
                         </div>
                         <!-- ORDER NOTE(s) TAB -->
-                        <!-- <div class="tab-pane" id="order_notes">
+                        <div class="tab-pane {{$tab==5?'active':''}} " id="order_notes">
                             <div class="panel-group">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
@@ -865,7 +865,7 @@
                                     </div>
                                 </div>
                             </div>                        
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
