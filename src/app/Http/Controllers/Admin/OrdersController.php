@@ -158,7 +158,7 @@ class OrdersController extends Controller
 
         //add note
         $note = 'Người dùng ['. Auth::user()->username . '] đã cập nhật sản phẩm [' 
-        . $origin->product->name . '] với thay đổi Giá Tiền: ' 
+        . $detail->product->name . '] với thay đổi Giá Tiền: ' 
         . $origin1 . ' => ' . $detail->price 
         . ', Số Lượng: ' . $origin2 . ' => ' . $detail->quantity 
         . ', Giảm Giá: ' . $origin3 . ' => ' . $detail->discount;
