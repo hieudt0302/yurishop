@@ -473,7 +473,7 @@ class OrdersController extends Controller
         }
 
          //add note
-         $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi địa chỉ nhận' .  $type_content;
+         $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi địa chỉ nhận ' .  $type_content;
          $this->AddNewNote($id, $note);
     }   
     
