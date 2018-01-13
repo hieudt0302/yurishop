@@ -62,7 +62,7 @@
                                 &nbsp; &nbsp;
                             </li>                          
                             <li style="float: right">
-                                <a class="main-right-menu shopping-cart cartItemCount" href="{{ url('/cart') }}">
+                                <a class="main-right-menu shopping-cart" href="{{ url('/cart') }}">
                                     <i class="fa fa-shopping-cart " aria-hidden="true"></i>&nbsp;<span class="cartItemCount">({{ Cart::instance('default')->count(false) }})</span>
                                 </a>
                             </li>
