@@ -792,7 +792,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div id="ordernotes-grid" data-role="grid" class="k-grid k-widget">
-                                            <table role="grid">
+                                            <table style="table-layout: fixed; width: 100%">
                                                 <colgroup>
                                                     <col style="width:60px">
                                                     <col style="width:200px">
@@ -812,7 +812,7 @@
                                                     <tr style="margin-top:4px;">
                                                         <td >{{$key + 1}}</td>
                                                         <td >{{$note->created_at}}</td>
-                                                        <td title="{{$note->note}}">{{$note->note}}</td>
+                                                        <td title="{{$note->note}}" style="word-wrap: break-word">{{$note->note}}</td>
                                                         <td >
                                                             <a type="button" class="btn btn-danger" data-note-id="{{$note->id}}" data-toggle="modal" data-target="#modal-delete-note">
                                                                 <i class="fa fa-trash"></i>

@@ -473,10 +473,10 @@ class OrdersController extends Controller
          $this->AddNewNote($id, $note);
     }   
     
-    public function AddNewNote($order_id, $note)
+    public function AddNewNote($order_id, $order_note)
     {
         $note = new OrderNote();
-        $note->note = $note;
+        $note->note = $order_note;
         $note->order_id = $order_id;
         $note->save();
     }
