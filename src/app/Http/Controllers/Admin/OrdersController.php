@@ -58,21 +58,22 @@ class OrdersController extends Controller
             'order_note' => 'string|min: 5',
         ],
         [
-            'order_note.min' => 'Nội dung cần tối thiểu 5 ký tự!'
+            'order_note.min' => 'Bạn cần nhập nội dung theo dõi tối thiểu 5 ký tự!'
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
             ->withErrors($validator)
-            ->withInput();
+            ->withInput(['tab'=>5]);
         }
 
         $note = new OrderNote();
         $note->note = $request->order_note;
+        $note->order_id = $request->order_id;
         $note->save();
 
-        $tab = 5;
         $order = Order::find($request->order_id);
+        $tab = 5;
         return view('admin/orders/show',compact('order','tab'));
     }
     /**
