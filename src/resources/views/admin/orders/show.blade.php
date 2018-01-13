@@ -801,19 +801,21 @@
                                                 </colgroup> -->
                                                 <thead class="k-grid-header" role="rowgroup">
                                                     <tr role="row">
+                                                        <th>No.</th>
                                                         <th >Ngày Tạo</th>
                                                         <th >Nội Dung</th>
-                                                        <!-- <th  style="text-align:center" >Hiển Thị Với Khách Hàng</th> -->
                                                         <th >Xóa</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody role="rowgroup">
+                                                    @foreach($order->ordernotes as $key =>$note)
                                                     <tr >
-                                                        <td >{{}}</td>
-                                                        <td >{{}}</td>
-                                                        <td style="text-align:center" ><i class="fa fa-close false-icon"></i></td>
+                                                        <td >{{$key}}</td>
+                                                        <td >{{$note->created_at}}</td>
+                                                        <td >{{$note->note}}</td>
                                                         <td ><a href="#"><span ></span>Xóa</a></td>
                                                     </tr>
+                                                    @endfor
                                                 </tbody>
                                             </table>
                                             <div ><a href="#" title="Refresh"><span >Làm Mới</span></a></div>
