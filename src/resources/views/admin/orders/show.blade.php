@@ -815,7 +815,7 @@
                                                         <td >{{$note->note}}</td>
                                                         <td ><a href="#"><span ></span>Xóa</a></td>
                                                     </tr>
-                                                    @endfor
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                             <div ><a href="#" title="Refresh"><span >Làm Mới</span></a></div>
