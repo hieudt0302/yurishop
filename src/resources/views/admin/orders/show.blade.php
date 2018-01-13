@@ -828,7 +828,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody role="rowgroup">
-                                                    @($note_index = count($order->ordernotes))
+                                                    @php($note_index = count($order->ordernotes))
                                                     @foreach($order->ordernotes as $key =>$note)
                                                     <tr style="margin-top:4px;">
                                                         <td >{{$note_index - $key}}</td>
