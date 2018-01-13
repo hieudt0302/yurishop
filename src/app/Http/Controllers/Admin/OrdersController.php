@@ -54,17 +54,19 @@ class OrdersController extends Controller
 
     public function storenote(Request $request)
     {
+        $tab = 5;
         $validator = Validator::make($request->all(), [
             'order_note' => 'string|min: 5',
         ],
         [
+            'order_note.string' => 'Nội dung theo dõi không được để trống',
             'order_note.min' => 'Bạn cần nhập nội dung theo dõi tối thiểu 5 ký tự!'
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
             ->withErrors($validator)
-            ->withInput(['tab'=>5]);
+            ->withInput(['tab']);
         }
 
         $note = new OrderNote();
@@ -73,8 +75,19 @@ class OrdersController extends Controller
         $note->save();
 
         $order = Order::find($request->order_id);
+        return view('admin/orders/show', compact('order','tab'));
+    }
+
+    public function destroynote($id, $note_id)
+    {
+        $note  = OrderNote::find($note_id);
+        $note->delete();
+
         $tab = 5;
-        return view('admin/orders/show',compact('order','tab'));
+        $order = Order::find($id);
+        return view('admin/orders/show',compact('order','tab'))
+        ->with('message', 'Xóa ghi chú theo dõi thành công!')
+        ->with('status', 'danger');
     }
     /**
      * Display the specified resource.

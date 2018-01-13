@@ -813,7 +813,11 @@
                                                         <td >{{$key}}</td>
                                                         <td >{{$note->created_at}}</td>
                                                         <td >{{$note->note}}</td>
-                                                        <td ><a href="#"><span ></span>Xóa</a></td>
+                                                        <td >
+                                                            <a type="button" class="btn btn-danger" data-detail-id="{{$note->id}}" data-toggle="modal" data-target="#modal-delete-note">
+                                                                <i class="fa fa-trash"></i>
+                                                            </a> 
+                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -883,30 +887,56 @@
 
 <!-- QUESTION TO DELETE -->
 <div class="modal modal-danger fade" id="modal-delete-detail">
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Cảnh Báo</h4>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Cảnh Báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa sản phẩm này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
+                <form name="form-detail-delete"  method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-outline" value="Xóa Sản Phẩm">
+                </form>
+            </div>
         </div>
-        <div class="modal-body">
-            <p>Bạn có muốn xóa sản phẩm này không?</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Đóng</button>
-            <form name="form-detail-delete"  method="POST">
-                {!! csrf_field() !!}
-                <input type="hidden" name="_method" value="DELETE">
-                <input type="submit" class="btn btn-outline" value="Xóa Sản Phẩm">
-            </form>
-        </div>
+        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-content -->
-</div>
 <!-- /.modal-dialog -->
 </div>
 
+
+<!-- QUESTION TO DELETE NOTE-->
+<div class="modal modal-danger fade" id="modal-delete-note">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Cảnh Báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có muốn xóa ghi chú theo dõi này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Không, đừng xóa</button>
+                <form name="form-note-delete"  method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-outline" value="Xóa">
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 @endsection 
 
 @section('scripts') 
@@ -938,10 +968,17 @@
         });
 
        $('#cancelorder').attr("data-toggle", "modal").attr("data-target", "#cancelorder-action-confirmation");
+
        $('#modal-delete-detail').on('show.bs.modal', function (e) {
             var detailID = $(e.relatedTarget).data('detail-id');
             var action = "{{url('admin/orders')}}/"+'{{$order->id}}/details/' + detailID;
             $(e.currentTarget).find('form[name="form-detail-delete"]').attr("action", action);
+        })  
+
+        $('#modal-delete-note').on('show.bs.modal', function (e) {
+            var noteID = $(e.relatedTarget).data('note-id');
+            var action = "{{url('admin/orders')}}/"+'{{$order->id}}/notes/' + noteID;
+            $(e.currentTarget).find('form[name="form-note-delete"]').attr("action", action);
         })  
     });
 
