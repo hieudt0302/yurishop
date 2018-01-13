@@ -34,7 +34,7 @@
                         <li class="{{$tab==2?'active':''}}"><a href="#billing_address" data-toggle="tab">Địa Chỉ Thanh Toán</a></li>
                         <li class="{{$tab==3?'active':''}}"><a href="#shipping_address" data-toggle="tab">Địa Chỉ Vận Chuyển</a></li>
                         <li class="{{$tab==4?'active':''}}"><a href="#products" data-toggle="tab">Sản  Phẩm</a></li>
-                        <li class="{{$tab==5?'active':''}}"><a href="#order_notes" data-toggle="tab">Ghi Chú</a></li>
+                        <li class="{{$tab==5?'active':''}}"><a href="#order_notes" data-toggle="tab">Theo Dõi</a></li>
                     </ul>
                     <div class="tab-content">
                         <!-- INFO TAB -->
@@ -793,40 +793,30 @@
                                     <div class="panel-body">
                                         <div id="ordernotes-grid" data-role="grid" class="k-grid k-widget">
                                             <table role="grid">
-                                                <colgroup>
+                                                <!-- <colgroup>
                                                     <col style="width:200px">
                                                     <col>
                                                     <col style="width:200px">
-                                                    <col style="width:150px">
                                                     <col style="width:100px">
-                                                </colgroup>
+                                                </colgroup> -->
                                                 <thead class="k-grid-header" role="rowgroup">
                                                     <tr role="row">
-                                                        <th role="columnheader" data-field="CreatedOn" data-title="Created on" class="k-header">Created on</th>
-                                                        <th role="columnheader" data-field="Note" data-title="Note" class="k-header">Note</th>
-                                                        <th role="columnheader" data-field="DownloadId" data-title="Attached file" style="text-align:center" class="k-header">Attached file</th>
-                                                        <th role="columnheader" data-field="DisplayToCustomer" data-title="Display to customer" style="text-align:center" class="k-header">Display to customer</th>
-                                                        <th class="k-header">Delete</th>
+                                                        <th >Ngày Tạo</th>
+                                                        <th >Nội Dung</th>
+                                                        <!-- <th  style="text-align:center" >Hiển Thị Với Khách Hàng</th> -->
+                                                        <th >Xóa</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody role="rowgroup">
-                                                    <tr data-uid="8ab853c8-a5ed-40df-8fc9-7bb05fe14f9f" role="row">
-                                                        <td role="gridcell">10/14/2017 11:18:25 PM</td>
-                                                        <td role="gridcell">Order item has been edited</td>
-                                                        <td style="text-align:center" role="gridcell"> No file attached </td>
-                                                        <td style="text-align:center" role="gridcell"> <i class="fa fa-close false-icon"></i> </td>
-                                                        <td role="gridcell"><a class="k-button k-button-icontext k-grid-delete" href="#"><span class="k-icon k-delete"></span>Delete</a></td>
-                                                    </tr>
-                                                    <tr class="k-alt" data-uid="0d3f2714-1d0a-4fc0-91fb-bbf382388290" role="row">
-                                                        <td role="gridcell">3/13/2017 6:20:09 PM</td>
-                                                        <td role="gridcell">Order placed</td>
-                                                        <td style="text-align:center" role="gridcell"> No file attached </td>
-                                                        <td style="text-align:center" role="gridcell"> <i class="fa fa-close false-icon"></i> </td>
-                                                        <td role="gridcell"><a class="k-button k-button-icontext k-grid-delete" href="#"><span class="k-icon k-delete"></span>Delete</a></td>
+                                                    <tr >
+                                                        <td >{{}}</td>
+                                                        <td >{{}}</td>
+                                                        <td style="text-align:center" ><i class="fa fa-close false-icon"></i></td>
+                                                        <td ><a href="#"><span ></span>Xóa</a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <div class="k-pager-wrap k-grid-pager k-widget" data-role="pager"><a href="#" class="k-pager-refresh k-link" title="Refresh"><span class="k-icon k-i-refresh">Refresh</span></a></div>
+                                            <div ><a href="#" title="Refresh"><span >Làm Mới</span></a></div>
                                         </div>
 
                                     </div>
@@ -834,24 +824,23 @@
                                 <div class="panel panel-default">
                                     
                                     <div class="panel-heading">
-                                        Add order note
+                                        Thêm Nội Dung
                                     </div>
                                     <div class="panel-body">
                                         <div class="form-group">
                                             <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="col-md-3 control-label" for="AddOrderNoteMessage" title="">Note</label>
+                                                <div ><label class="col-md-3 control-label" title="">Nội Dung</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
                                                 <textarea class="form-control" cols="20" id="AddOrderNoteMessage" name="AddOrderNoteMessage" rows="4"></textarea>
-                                                <span class="field-validation-valid" data-valmsg-for="AddOrderNoteMessage" data-valmsg-replace="true"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="col-md-3 control-label" for="AddOrderNoteDisplayToCustomer" title="">Display to customer</label>
+                                            <!-- <div class="col-md-3">
+                                                <div class="label-wrapper"><label class="col-md-3 control-label" for="AddOrderNoteDisplayToCustomer" title="">Hiển Thị Với Khách Hàng</label>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="col-md-9">
                                                 <input class="check-box" id="AddOrderNoteDisplayToCustomer" name="AddOrderNoteDisplayToCustomer" type="checkbox" value="true"><input name="AddOrderNoteDisplayToCustomer" type="hidden" value="false">
                                                 <span class="field-validation-valid" data-valmsg-for="AddOrderNoteDisplayToCustomer" data-valmsg-replace="true"></span>
