@@ -447,6 +447,7 @@ class OrdersController extends Controller
     
     public function AddNewNote($order_id, $note)
     {
+        dd($note);
         $note = new OrderNote();
         $note->note = $note;
         $note->order_id = $order_id;
