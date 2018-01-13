@@ -325,7 +325,7 @@ class OrdersController extends Controller
 
         $order->save();
         //add note
-        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái đơn hàng từ'. \Lang::get('status.order.' . $origin) . ' => '. \Lang::get('status.order.' . $order->order_status);
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái đơn hàng từ '. \Lang::get('status.order.' . $origin) . ' => '. \Lang::get('status.order.' . $order->order_status);
         $this->AddNewNote($id, $note);
 
         $tab = 1;
