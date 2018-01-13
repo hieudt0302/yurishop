@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\OrderNote;
 use App\Models\BookAddress;
 use Validator;
 use DB;
@@ -51,6 +52,26 @@ class OrdersController extends Controller
         //
     }
 
+    public function storenote(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'order_note' => 'string|legnth:4',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+            ->withErrors($validator)
+            ->withInput();
+        }
+
+        $note = new OrderNote();
+        $note->note = $request->order_note;
+        $note->save();
+
+        $tab = 5;
+        $order = Order::find($request->order_id);
+        return view('admin/orders/show',compact('order','tab'));
+    }
     /**
      * Display the specified resource.
      *

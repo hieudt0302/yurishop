@@ -233,7 +233,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::post('orders',['as'=>'admin.orders.find','uses'=>'OrdersController@find','middleware' => ['role:admin|manager']]);
     Route::get('orders/{id}',['as'=>'admin.orders.show','uses'=>'OrdersController@show','middleware' => ['role:admin|manager']]);
     Route::delete('orders/{id}',['as'=>'admin.orders.destroy','uses'=>'OrdersController@destroy','middleware' => ['role:admin|manager']]);
-
+    //
+    Route::post('orders/{id}/notes/create',['as'=>'admin.orders.show','uses'=>'OrdersController@storenote','middleware' => ['role:admin|manager']]);
     //
     Route::post('orders/{id}/cancel/orderstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@CancelOrderStatus','middleware' => ['role:admin|manager']]);
     Route::post('orders/{id}/change/orderstatus',['as'=>'admin.orders.show','uses'=>'OrdersController@ChangeOrderStatus','middleware' => ['role:admin|manager']]);

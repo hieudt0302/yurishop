@@ -796,7 +796,7 @@
                                                 <colgroup>
                                                     <col style="width:60px">
                                                     <col style="width:200px">
-                                                    <col style="width:300px">
+                                                    <col style="width:400px">
                                                     <col style="width:100px">
                                                 </colgroup>
                                                 <thead>
@@ -829,30 +829,24 @@
                                         Thêm Nội Dung
                                     </div>
                                     <div class="panel-body">
-                                        <div class="form-group">
-                                            <div class="col-md-3">
-                                                <div ><label class="col-md-3 control-label" title="">Nội Dung</label>
+                                        <form action="{{url('admin/orders/')}}/{{$order->id}}/notes/create" method="POST" class="form-horizontal">
+                                         {{ csrf_field() }}
+                                         <input type="hidden" name="order_id" value="{{$order->id}}">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <div ><label class="col-md-3 control-label" title="">Nội Dung</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <textarea class="form-control" cols="20" id="order_note" name="order_note" rows="4"></textarea>
                                                 </div>
                                             </div>
-                                            <div class="col-md-9">
-                                                <textarea class="form-control" cols="20" id="AddOrderNoteMessage" name="AddOrderNoteMessage" rows="4"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <!-- <div class="col-md-3">
-                                                <div class="label-wrapper"><label class="col-md-3 control-label" for="AddOrderNoteDisplayToCustomer" title="">Hiển Thị Với Khách Hàng</label>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-md-offset-3">
+                                                    <button type="submit" class="btn btn-primary">Thêm</button>
                                                 </div>
-                                            </div> -->
-                                            <div class="col-md-9">
-                                                <input class="check-box" id="AddOrderNoteDisplayToCustomer" name="AddOrderNoteDisplayToCustomer" type="checkbox" value="true"><input name="AddOrderNoteDisplayToCustomer" type="hidden" value="false">
-                                                <span class="field-validation-valid" data-valmsg-for="AddOrderNoteDisplayToCustomer" data-valmsg-replace="true"></span>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-9 col-md-offset-3">
-                                                <button type="button" id="addOrderNote" class="btn btn-primary">Add order note</button>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>                        
