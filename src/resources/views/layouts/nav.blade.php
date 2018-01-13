@@ -63,12 +63,10 @@
                             </li>                          
                             <li style="float: right">
                                 <a class="main-right-menu shopping-cart" href="{{ url('/cart') }}">
-                                    <i class="fa fa-shopping-cart " aria-hidden="true"></i>&nbsp;<span class="cartItemCount">({{ Cart::instance('default')->count(false) }})</span>
+                                <!-- PLEASE DONT REMOVE CLASS FOR ADD CART HERE -->
+                                    <i class="fa fa-shopping-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;<span class="cartItemCount">({{ Cart::instance('default')->count(false) }})</span>
                                 </a>
-                            </li>
-    <!--                             <li style="float: right">
-                                    <a>|</a>
-                                </li>  -->                                                                                                                 
+                            </li>                                                                                                               
                             <li class="dropdown first" style="float: right">
                                 <a class="main-right-menu btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">    
                                     @guest
