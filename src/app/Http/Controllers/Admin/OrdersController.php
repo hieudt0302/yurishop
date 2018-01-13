@@ -154,8 +154,8 @@ class OrdersController extends Controller
         $order->save();
 
         //add note
-        $note = 'Người dùng '. Auth::user()->username . " đã cập nhật sản phẩm [" . $origin->product->name??'Unknown' 
-        . "] với thay đổi Giá Tiền: " . $origin->price . ' => ' . $detail->price 
+        $note = 'Người dùng '. Auth::user()->username . " đã cập nhật sản phẩm ' . $origin->product->name??'Unknown' 
+        . ' với thay đổi Giá Tiền: ' . $origin->price . ' => ' . $detail->price 
         . ', Số Lượng: ' . $origin->quantity . ' => ' . $detail->quantity 
         . ', Giảm Giá: ' . $origin->discount . ' => ' . $detail->discount;
         $this->AddNewNote($id, $note);
