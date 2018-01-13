@@ -796,7 +796,7 @@
                                                 <colgroup>
                                                     <col style="width:60px">
                                                     <col style="width:200px">
-                                                    <col style="width:400px">
+                                                    <col style="width:600px">
                                                     <col style="width:100px">
                                                 </colgroup>
                                                 <thead>
