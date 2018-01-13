@@ -171,7 +171,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <div class="form-text-row">{{trans('method.shipping.'.$order->shipping_method)}}</div>
+                                                <div class="form-text-row">{{__('method.shipping.'.$order->shipping_method)}}</div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -181,7 +181,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <div class="form-text-row">{{trans('method.payment.'.$order->payment_method)}}</div>
+                                                <div class="form-text-row">{{__('method.payment.'.$order->payment_method)}}</div>
                                             </div>
                                         </div>
                                         <hr>
