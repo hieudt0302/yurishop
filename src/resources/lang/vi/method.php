@@ -2,18 +2,15 @@
 
 return [
     'shipping' => [
+        // 2 => [
+        //     'name' => 'Pickup',
+        //     'description' => 'Get your order directly from us.'
+        // ],
         1 => [
-            'name' => 'Pickup',
-            'description' => 'Get your order directly from us.'
-        ],
-        2 => [
             'name' => 'Shipping',
             'description' => 'Your order will be sent to you by our shipping partners.'
         ],
-        // 3 => [
-        //     'name' => '',
-        //     'description' => ''
-        // ],
+        
     ],
 
     'payment' => [

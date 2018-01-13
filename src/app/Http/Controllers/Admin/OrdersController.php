@@ -189,10 +189,17 @@ class OrdersController extends Controller
         $order  = Order::find($id);
 
         $detail = OrderDetail::find($detail_id);
+        $origin = $detail;
         $detail->delete();
 
         $order->order_total = $order->orderdetails->sum('total');
         $order->save();
+
+        //add note
+        $note = 'Người dùng ['. Auth::user()->username . '] đã xóa sản phẩm [' 
+        . $origin->product->name . ']';
+
+        $this->AddNewNote($id, $note);
 
         $tab= 4;
 
@@ -272,6 +279,11 @@ class OrdersController extends Controller
         $order->payment_status = 6; //Voided
 
         $order->save();
+        
+        //add note
+        $note = 'Người dùng ['. Auth::user()->username . '] đã hủy đơn hàng này';
+        $this->AddNewNote($id, $note);
+        
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
     }
@@ -279,18 +291,10 @@ class OrdersController extends Controller
     public function ChangeOrderStatus(Request $request, $id)
     {
         $order = Order::find($id);
+        $origin =  $order;
         $order->order_status =  $request->order_status; //refer Lang/method.php
 
         if(is_numeric($request->order_status)){
-            // if( $request->order_status == 2){ //IF Processing
-            // }else if( $request->order_status == 2){ //IF Processing
-            // }else if( $request->order_status == 3){ //IF Complete
-            //     $order->shipping_status = 5; //Delivered
-            //     $order->payment_status = 3; //Paid
-            // }else if($request->order_status == 4){//IF Cancelled
-            //     $order->shipping_status = 1; //Shipping Not Required
-            //     $order->payment_status = 6; //Voided
-            // }
             switch ($request->order_status) {
                 case 1://Pending
                     $order->shipping_status = 1; //Delivered
@@ -317,24 +321,34 @@ class OrdersController extends Controller
         }
 
         $order->save();
-        
+        //add note
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi trạng thái đơn hàng từ'. \Lang::get('status.order.' . $origin->order_status) . ' => '. \Lang::get('status.order.' . $order->order_status);
+        $this->AddNewNote($id, $note);
+
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
     }
     public function ChangePaymentStatus(Request $request, $id)
     {
         $order = Order::find($id);
+        $origin =  $order;
         $order->payment_status =  $request->payment_status; //refer Lang/method.php
         $order->save();
+        //add note
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi phương thức thanh toán từ'. \Lang::get('method.payment.' . $origin->payment_status) . ' => '. \Lang::get('method.payment.' . $order->payment_status);
+        $this->AddNewNote($id, $note);
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
     }
     public function ChangeShippingStatus(Request $request, $id)
     {
         $order = Order::find($id);
+        $origin =  $order;
         $order->shipping_status =  $request->shipping_status; //refer Lang/method.php
         $order->save();
-        
+        //add note
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi phương vận chuyển toán từ'. \Lang::get('method.payment.' . $origin->payment_status) . ' => '. \Lang::get('method.payment.' . $order->payment_status);
+        $this->AddNewNote($id, $note);
         $tab = 1;
        
         return view('admin/orders/show',compact('order','tab'));
@@ -342,10 +356,17 @@ class OrdersController extends Controller
     public function UpdateOrderFee(Request $request, $id)
     {
         $order = Order::find($id);
+        $origin =  $order;
         $order->order_tax =  $request->order_tax; 
         $order->order_shipping_price =  $request->order_shipping_price; 
         $order->order_total = $order->order_tax  + $order->order_shipping_price +  $order->orderdetails->sum('total');
         $order->save();
+         //add note
+         $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi Tax: '
+         . $origin->order_tax. ' => ' . $order->order_tax 
+         . ', Phí Vận Chuyển: '.$origin->order_shipping_price. ' => ' . $order->order_shipping_price  ;
+
+         $this->AddNewNote($id, $note);
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
     }
@@ -427,15 +448,18 @@ class OrdersController extends Controller
         $address->email = $request->email??'';
         $address->save();
 
+        $type_content = '';
         if($is_create){
             $order =Order::find($id);
 
             switch($type){
                 case 1:
                     $order->billing_address_id =  $address->id;
+                    $type_content = 'địa chỉ nhận hóa đơn.';
                  break;
                  case 2:
                     $order->shipping_address_id =  $address->id;
+                    $type_content = 'địa chỉ nhận hàng.';
                  break;
 
                  default: break;
@@ -444,11 +468,13 @@ class OrdersController extends Controller
            $order->save();
         }
 
+         //add note
+         $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi ' .  $type_content;
+         $this->AddNewNote($id, $note);
     }   
     
     public function AddNewNote($order_id, $note)
     {
-        dd($note);
         $note = new OrderNote();
         $note->note = $note;
         $note->order_id = $order_id;

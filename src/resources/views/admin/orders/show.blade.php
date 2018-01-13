@@ -812,7 +812,7 @@
                                                     <tr style="margin-top:4px;">
                                                         <td >{{$key + 1}}</td>
                                                         <td >{{$note->created_at}}</td>
-                                                        <td >{{$note->note}}</td>
+                                                        <td title="{{{{$note->note}}}}">{{$note->note}}</td>
                                                         <td >
                                                             <a type="button" class="btn btn-danger" data-note-id="{{$note->id}}" data-toggle="modal" data-target="#modal-delete-note">
                                                                 <i class="fa fa-trash"></i>
