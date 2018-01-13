@@ -793,13 +793,13 @@
                                     <div class="panel-body">
                                         <div id="ordernotes-grid" data-role="grid" class="k-grid k-widget">
                                             <table role="grid">
-                                                <!-- <colgroup>
+                                                <colgroup>
+                                                    <col style="width:60px">
                                                     <col style="width:200px">
-                                                    <col>
-                                                    <col style="width:200px">
+                                                    <col style="width:300px">
                                                     <col style="width:100px">
-                                                </colgroup> -->
-                                                <thead class="k-grid-header" role="rowgroup">
+                                                </colgroup>
+                                                <thead>
                                                     <tr role="row">
                                                         <th>No.</th>
                                                         <th >Ngày Tạo</th>
