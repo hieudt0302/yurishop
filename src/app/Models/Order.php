@@ -18,7 +18,7 @@ class Order extends Model
      }
      public function ordernotes()
      {
-         return $this->hasMany('App\Models\OrderNote');
+         return $this->hasMany('App\Models\OrderNote')->orderBy('created_at','desc');
      }
 
      /**
