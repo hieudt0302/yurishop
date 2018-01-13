@@ -338,7 +338,7 @@ class OrdersController extends Controller
         $order->payment_status =  $request->payment_status; //refer Lang/method.php
         $order->save();
         //add note
-        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi phương thức thanh toán từ'. \Lang::get('status.payment.' . $origin->payment_status) . ' => '. \Lang::get('method.payment.' . $order->payment_status);
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi phương thức thanh toán từ'. \Lang::get('status.payment.' . $origin->payment_status) . ' => '. \Lang::get('status.payment.' . $order->payment_status);
         $this->AddNewNote($id, $note);
         $tab = 1;
         return view('admin/orders/show',compact('order','tab'));
@@ -351,7 +351,7 @@ class OrdersController extends Controller
         $order->shipping_status =  $request->shipping_status; //refer Lang/method.php
         $order->save();
         //add note
-        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi phương vận chuyển toán từ'. \Lang::get('status.payment.' . $origin->payment_status) . ' => '. \Lang::get('method.payment.' . $order->payment_status);
+        $note = 'Người dùng ['. Auth::user()->username . '] đã thay đổi phương vận chuyển toán từ'. \Lang::get('status.payment.' . $origin->payment_status) . ' => '. \Lang::get('status.payment.' . $order->payment_status);
         $this->AddNewNote($id, $note);
         $tab = 1;
        
