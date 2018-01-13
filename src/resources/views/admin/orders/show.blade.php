@@ -809,12 +809,12 @@
                                                 </thead>
                                                 <tbody role="rowgroup">
                                                     @foreach($order->ordernotes as $key =>$note)
-                                                    <tr >
+                                                    <tr style="margin-top:4px;">
                                                         <td >{{$key}}</td>
                                                         <td >{{$note->created_at}}</td>
                                                         <td >{{$note->note}}</td>
                                                         <td >
-                                                            <a type="button" class="btn btn-danger" data-detail-id="{{$note->id}}" data-toggle="modal" data-target="#modal-delete-note">
+                                                            <a type="button" class="btn btn-danger" data-note-id="{{$note->id}}" data-toggle="modal" data-target="#modal-delete-note">
                                                                 <i class="fa fa-trash"></i>
                                                             </a> 
                                                         </td>
