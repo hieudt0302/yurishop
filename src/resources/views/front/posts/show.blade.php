@@ -5,8 +5,8 @@
 @include('layouts.share')
 @endsection
 @section('content')
-<section class="blogsingle">
-    <img class="blog-img" src="images/uploads/blogsingle.png" alt="">
+<div class="blogsingle">
+    <img class="blog-img" src="/frontend/images/uploads/blogsingle.png" alt="">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -84,5 +84,12 @@
             </div>
         </div>
     </div>
-</section>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="farm-img">
+            <img src="{{asset('frontend/images/uploads/blogsingle-bg-footer.jpg')}}" alt="farm">
+        </div>
+    </div>
+</div>
 @endsection
