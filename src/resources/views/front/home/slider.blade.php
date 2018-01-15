@@ -46,13 +46,13 @@
 						data-type="button" 
 						data-responsive_offset="on" 
 						data-responsive="off"
-						data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":1400,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bg:rgba(142, 179, 90, 1.00);bw:1px 1px 1px 1px;"}]'
+						data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":1400,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255, 255, 255, 1.00);bg:rgba(85, 139, 47, 1.00);bw:1px 1px 1px 1px;"}]'
 						data-textAlign="['left','left','left','left']"
 						data-paddingtop="[14,14,14,14]"
 						data-paddingright="[35,35,35,35]"
 						data-paddingbottom="[14,14,14,14]"
 						data-paddingleft="[35,35,35,35]"
-						style="z-index: {{$slider->id}}6; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 400; color: rgba(142, 179, 90, 1.00);font-family:Lato;text-transform:uppercase;background-color:rgba(255, 255, 255, 1.00);border-color:rgba(142, 179, 90, 0);border-style:solid;border-width:1px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:0.1em;cursor:pointer;">@lang('common.more-details')</a>
+						style="z-index: {{$slider->id}}6; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 400; color: rgba(85, 139, 47, 1.00);font-family:Lato;text-transform:uppercase;background-color:rgba(255, 255, 255, 1.00);border-color:rgba(85, 139, 47, 0);border-style:solid;border-width:1px;border-radius:30px 30px 30px 30px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;letter-spacing:0.1em;cursor:pointer;">@lang('common.more-details')</a>
 				</li>
 				@endforeach
 			</ul>
