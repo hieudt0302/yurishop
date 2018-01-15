@@ -21,10 +21,19 @@
     <div class="container relative">
         <div class="section-text mb-50 mb-sm-20">
             <div class="row">
-                {!! $info_page_translation->content !!}
+                <div class="infopage-content">
+                    {!! $info_page_translation->content !!}
+                </div>
             </div>
         </div>
     </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="farm-img">
+            <img src="{{asset('frontend/images/uploads/infopage-bg-footer.jpg')}}" alt="farm">
+        </div>
+    </div>
+</div>    
 </section>
 
 <!-- End Info Page Section -->

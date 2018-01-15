@@ -345,3 +345,11 @@ header nav ul.hd-menu{
 	margin-left: 10px;
 	width: 100%;
 }
+
+.infopage-content {
+    width: 80%;
+    padding: 50px 25px 80px 25px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #ffffff;
+}
