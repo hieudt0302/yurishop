@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="sub-heading">
-                    <h1 style="color: #178240">@lang('footer.newsletter-message')</h1>
+                    <h1 style="color: #558B2F">@lang('footer.newsletter-message')</h1>
                 </div>
             </div>
             <div class="col-md-5 col-sm-5 col-xs-12">
