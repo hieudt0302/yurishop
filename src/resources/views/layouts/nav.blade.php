@@ -60,13 +60,7 @@
 
                             <li class="devider" style="float: left">
                                 &nbsp; &nbsp;
-                            </li>                          
-                            <li style="float: right">
-                                <a class="main-right-menu shopping-cart" href="{{ url('/cart') }}">
-                                <!-- PLEASE DONT REMOVE CLASS FOR ADD CART HERE -->
-                                    <i class="fa fa-shopping-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;<span class="cartItemCount">({{ Cart::instance('default')->count(false) }})</span>
-                                </a>
-                            </li>                                                                                                               
+                            </li>               
                             <li class="dropdown first" style="float: right">
                                 <a class="main-right-menu btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">    
                                     @guest
@@ -89,7 +83,14 @@
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                                     @endguest
                                 </ul>
-                            </li>
+                            </li>           
+                            <li style="float: right">
+                                <a class="main-right-menu shopping-cart" href="{{ url('/cart') }}">
+                                <!-- PLEASE DONT REMOVE CLASS FOR ADD CART HERE -->
+                                    <i class="fa fa-shopping-cart shopping-cart-icon" aria-hidden="true"></i>&nbsp;<span class="cartItemCount">({{ Cart::instance('default')->count(false) }})</span>
+                                </a>
+                            </li>                                                                                                               
+                            
 <!--                             <li style="float: right">
                                 <a>|</a>
                             </li>  -->                                                                                                     
