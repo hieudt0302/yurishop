@@ -39,7 +39,7 @@
                 </div>
                 <ul class="infor-it">
                     <li>
-                        <a href="{{ url('/purchase-flow') }}">@lang('footer.purchase-flow')</a>
+                        <a href="{{ url('/payment-methods') }}">@lang('footer.purchase-flow')</a>
                     </li>
                     <li>
                         <a href="{{ url('/returns') }}">@lang('footer.returns')</a>

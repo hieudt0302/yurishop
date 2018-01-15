@@ -4,7 +4,7 @@ return [
     'follow-us' => 'Kết Nối',
     'customer-support' => 'Hỗ Trợ Khách Hàng',
     'faq' => 'Câu hỏi thường gặp',
-    'purchase-flow' => 'Hướng dẫn mua hàng',
+    'purchase-flow' => 'Phương pháp thanh toán',
     'returns' => 'Trả hàng',
     'showroom-locations' => 'Địa chỉ showroom',      
     'my-account' => 'Tài khoản',

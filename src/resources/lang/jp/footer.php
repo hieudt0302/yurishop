@@ -4,7 +4,7 @@ return [
     '' => '',
     'follow-us' => 'Pô Kô Farmsと接続',
     'customer-support' => '顧客サポート',
-    'purchase-flow' => '購入フロー',
+    'purchase-flow' => 'お支払い方法',
     'returns' => '返品',
     'showroom-locations' => 'ショールーム',    
     'my-account' => 'アカウント',

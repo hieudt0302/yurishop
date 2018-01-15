@@ -92,17 +92,11 @@ class HomeController extends Controller
         return View("front.home.infopage",compact('info_page_translation'));
     }
 
-    public function purchase_flow()
+    public function payment_methods()
     {
-        $info_page_translation = $this->getInfoPageTranslation('purchase-flow');
+        $info_page_translation = $this->getInfoPageTranslation('payment-methods');
         return View("front.home.infopage",compact('info_page_translation'));
     }    
-
-    public function showrooms()
-    {
-        $info_page_translation = $this->getInfoPageTranslation('showrooms');
-        return View("front.home.infopage",compact('info_page_translation'));
-    }
     
     public function product_origin()
     {

@@ -4,7 +4,7 @@ return [
     'follow-us' => '연결', 
     'customer-support' => '고객 지원', 
     'faq' => '자주 묻는 질문', 
-    'purchase-flow' => '구매안내',
+    'purchase-flow' => '지불 방법',
     'returns' => '환불', 
     'showroom-locations' => '쇼룸',   
     'my-account' => '계정', 

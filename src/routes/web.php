@@ -26,7 +26,7 @@ Route::get('/', 'Front\HomeController@index');
 Route::get('/about', 'Front\HomeController@about');
 Route::get('/returns', 'Front\HomeController@returns');
 Route::get('/showrooms', 'Front\HomeController@showrooms');
-Route::get('/purchase-flow', 'Front\HomeController@purchase_flow');
+Route::get('/payment-methods', 'Front\HomeController@payment_methods');
 Route::post('/search', 'Front\HomeController@search');
 Route::get('/product-origin', 'Front\HomeController@product_origin');
 Route::get('/product-quality', 'Front\HomeController@product_quality');

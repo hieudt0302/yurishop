@@ -5,7 +5,7 @@ return [
     'follow-us' => 'Follow Us',
     'customer-support' => 'How Can We Help?',
     'faq' => 'Frequently asked questions',
-    'purchase-flow' => 'Purchase flow',
+    'purchase-flow' => 'Payment methods',
     'returns' => 'Returns',
     'showroom-locations' => 'Showroom locations',    
     'my-account' => 'My Account',

@@ -4,7 +4,7 @@ return [
     'follow-us' => '连接',
     'customer-support' => '客户服务',
     'faq' => '常见问题',
-    'purchase-flow' => '导购',
+    'purchase-flow' => '支付方式',
     'returns' => '退货',
     'showroom-locations' => '商店地址',      
     'my-account' => '账号',

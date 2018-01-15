@@ -73,7 +73,7 @@
                                         <i class="fa fa-user-circle-o " aria-hidden="true"></i>
                                     @else
                                         <i class="fa fa-user-circle-o " aria-hidden="true"></i>
-                                        {{Auth::user()->first_name}}
+                                        {{Auth::user()->last_name}}
                                     @endguest
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
