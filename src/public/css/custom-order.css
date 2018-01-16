@@ -3371,23 +3371,6 @@ tbody.collapse.show {
     position: relative
 }
 
-.dropdown-toggle::after {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: .3em;
-    vertical-align: middle;
-    content: "";
-    border-top: .3em solid;
-    border-right: .3em solid transparent;
-    border-left: .3em solid transparent
-}
-
-.dropup .dropdown-toggle::after {
-    border-top: 0;
-    border-bottom: .3em solid
-}
-
 .dropdown-menu {
     position: absolute;
     top: 100%;
