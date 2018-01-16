@@ -43,7 +43,7 @@
                 <div class="ab-item">
                     <img src="{{ asset('images/logo/poko.png') }}" alt="">
                     <h2>@lang('home.about-us')</h2>
-                    <p>{{ str_pad($about_us->translation->description??"",200) }}</p>
+                    <p>{{ str_pad($pokofarms_message->translation->description??"",200) }}</p>
                     <a class="learnmore" href="{{url('/about')}}">@lang('common.more-details')</a>
                 </div>
             </div>
