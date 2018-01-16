@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'title' => 'Member quotes',
-    'message' => 'Voices from our members',   
-    'quote1' => 'Participating in Po Ko Farms brings many benefits for me and my family. My husband and I not only learn how to grow and process high quality coffee, but also how to protect our health when working in the field.',
-    'quote2' => 'Since my family joined Pô Kô Farms, my husband loved and shared with me more. He took me to participate in the activities for women organized by Pô Kô Farms, I have a organization to communicate, to share.',
-    'quote3' => 'Joining in Pô Kô Farms gave me the opportunity to go to India in 2009. This was a fruitful trip and opened up a new view of life, about producing activities of farmers in all over the world. This is also the first time I was on a plane, the first time I stepped out of the Vietnam border. I feel renewed. Thanks to coffee, Fairtrade and Pô Kô Farms, I have motivation to support my children to develop.',
-    'role1' => 'Member of Pô Kô Farms',                    
-    'role2' => 'Wife of member of Pô Kô Farms',                    
-    'role3' => 'Member of the management board',                    
+    'title' => '회원 인용문',
+    'message' => '회원들의 목소리',   
+    'quote1' => 'Po Ko Farms에 참여하면 나와 가족에게 많은 혜택을 가져다줍니다. 남편과 나는 고품질의 커피를 재배하고 가공하는 방법을 배우는 것뿐만 아니라 현장에서 일할 때 우리의 건강을 보호하는 방법을 배우게됩니다.',
+    'quote2' => '우리 가족이 포 코 농장에 입사 한 이래로, 남편은 나를 더 사랑하고 나누었습니다. 그는 포 코 팜 (Pô Kô Farms)이 조직 한 여성을위한 활동에 참여하기 위해 나를 데려갔습니다. 나는 의사 소통 할 조직을 가지고 있습니다.',
+    'quote3' => 'Pô Kô Farms에 가입하면 2009 년에 인도에 갈 수있는 기회를 얻었습니다. 이것은 유익한 여행이었고 전 세계의 농민 활동을 창출하는 삶에 대한 새로운 시각을 열었습니다. 이것은 내가 비행기에 처음으로 올 때였습니다. 제가 베트남 국경에서 처음으로 나왔습니다. 나는 새롭게 느껴진다. Coffee, Fairtrade, Pô Kô Farms 덕분에 저는 아이들이 발전 할 수 있도록 동기를 부여했습니다.',
+    'role1' => 'Pô Kô Farms 회원',                    
+    'role2' => 'Pô Kô Farms 회원 아내',                    
+    'role3' => '경영 이사회 구성원',                    
 
 ];
