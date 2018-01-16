@@ -61,10 +61,10 @@
                             <div class="row">
                                 @guest
                                 <div class="col-md-6">
-                                    <input name="name"  type="text" placeholder="{{ __('blog.name') }} *">
+                                    <input class="name" name="name"  type="text" placeholder="{{ __('blog.name') }} *">
                                 </div>
                                 <div class="col-md-6">
-                                    <input name="email" type="text" placeholder="{{ __('blog.email') }} *">
+                                    <input class="email" name="email" type="text" placeholder="{{ __('blog.email') }} *">
                                 </div>
                                 @else
                                     <input type="hidden" id="reader_id" name="reader_id" value="{{Auth::user()->id}}">
