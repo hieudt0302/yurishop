@@ -309,7 +309,7 @@
                success:function(response){
                     console.log(response['newCartItemCount']); //debug
 					//$('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
-					$('.cartItemCount').html(response['newCartItemCount'] + ' ' + '{{trans('shoppings.items')}}' );
+					$('.cartItemCount').html('(' + response['newCartItemCount'] + ')' );//+ '{{trans('shoppings.items')}}' 
                },
                error:function(response){
                     console.log(response['newCartItemCount']); //debug
