@@ -259,8 +259,8 @@ class GalleriesController extends Controller
          
         if (request()->hasFile('image_upload')) {
             $path = $request->file('image_upload')->store('images');                            
-            $fitImage = Image::make(Storage::get($path))->fit(270, 170)->encode();
-            Storage::put($path, $fitImage); 
+            $fitImage = Image::make(Storage::get($path))->fit(810, 510)->encode();
+            Storage::put($path, $fitImage);            
 
 
             $gallery = Gallery::find($request->gallery_id);
