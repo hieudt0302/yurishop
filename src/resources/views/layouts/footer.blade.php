@@ -1,7 +1,7 @@
 <footer class="ht-footer">
 <div class="container">
     <div class="row">
-        <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="ft-contact">
                 <div class="ft-heading">
                     <h6>@lang('footer.about-us')</h6>
@@ -9,7 +9,7 @@
                 <ul class="ct-it">
                     <li>
                         <i class="ion-ios-home"></i>
-                        <a href="javascript:void(0)">{{ Setting::config('address') }}</a>
+                        <a href="javascript:void(0)">{!! Setting::config('address') <!!></!!>}</a>
                     </li>
                     <li>
                         <i class="ion-ios-telephone"></i>
@@ -53,7 +53,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="col-md-2 col-sm-2 col-xs-12">
             <div class="ft-account">
                 <div class="ft-heading">
                     <h6>@lang('footer.my-account')</h6>
