@@ -2,7 +2,7 @@
 
 return [
     '' => '',
-    'my-account' => 'My 계정',
+    'my-account' => '내 계정',
     'wishlist' => '희망 목록',
     'customer-info' => '고객 정보',
     'addresses' => '구애',

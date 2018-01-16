@@ -65,26 +65,28 @@
                 @else
                 <!-- Post -->
                 @foreach($posts as $post)
-                <div class="blogpost-v2">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="video2">
-                                <img src="{{asset('/storage/images/blog/')}}/{{$post->img}}" alt="">
+                    @if(!empty($post->translation->title))
+                    <div class="blogpost-v2">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="video2">
+                                    <img src="{{asset('/storage/images/blog/')}}/{{$post->img}}" alt="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="blog-it-content2">
-                                <div class="date">
-                                    <span>{{$post->author->first_name}} {{$post->author->last_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
-                                </div>                                
-                                <h2><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->translation->title}}</a></h2>
-                                <p>{{$post->translation->excerpt}} </p>
-                                <a class="readmore2" href="{{url('/')}}/posts/{{$post->slug}}">/ &nbsp; @lang('common.read-more')</a>
+                            <div class="col-md-7">
+                                <div class="blog-it-content2">
+                                    <div class="date">
+                                        <span>{{$post->author->first_name}} {{$post->author->last_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
+                                    </div>                                
+                                    <h2><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->translation->title}}</a></h2>
+                                    <p>{{$post->translation->excerpt??""}} </p>
+                                    <a class="readmore2" href="{{url('/')}}/posts/{{$post->slug}}">/ &nbsp; @lang('common.read-more')</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <hr>
+                    <hr>
+                    @endif
                 @endforeach
                 <!-- End Post -->
                 @endif                
@@ -127,7 +129,8 @@
                     <div class="pp-posts">
                         <h1 class="cate-heading">@lang('blog.last-posts')</h1>
                         <hr>
-                        @foreach($lastPosts as $post)                        
+                        @foreach($lastPosts as $post)
+                        @if(!empty($post->translation->title))                        
                         <div class="pp-post-it">
                             <img src="{{asset('/storage/images/blog/preview/')}}/{{$post->img}}" alt="post1">
                             <div class="pp-infor">
@@ -137,6 +140,7 @@
                                 <h5><a href="{{url('/posts')}}/{{$post->slug}}">{{$post->translation->title}}</a></h5>
                             </div>
                         </div>
+                        @endif
                         @endforeach        
                     </div>
                     <br><br>
