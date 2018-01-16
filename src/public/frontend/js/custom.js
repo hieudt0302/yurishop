@@ -1,5 +1,23 @@
 //js for dropdown menu
  $(document).ready(function() {
+ 	setMaxheight('.is-same-height .ab-items .ab-item img', getMaxHeight('.is-same-height .ab-items .ab-item img'));
+ 	setMaxheight('.is-same-height .ab-items .ab-item h2', getMaxHeight('.is-same-height .ab-items .ab-item h2'));
+ 	setMaxheight('.is-same-height .ab-items .ab-item p', getMaxHeight('.is-same-height .ab-items .ab-item p'));
+ 	setMaxheight('.is-same-height .ab-items .ab-item a', getMaxHeight('.is-same-height .ab-items .ab-item a'));
+ 	function getMaxHeight(el){
+ 		var maxHeightEL = 0;
+ 		$(el).each(function(){
+	 		var he = $(this).height();
+	 		if (he>maxHeightEL){
+	 			maxHeightEL = he;
+	 		}
+	 	});
+	 	return maxHeightEL;
+ 	}
+
+ 	function setMaxheight(el, h){
+ 		$(el).height(h);
+ 	}
  	// 	$("button.menu-btn").click(function openNav() {
 		// 	document.getElementById("mySidenav").style.display = "block";
 		// 	document.getElementById("page").style.transform = "translateX(-400px)";
@@ -137,6 +155,7 @@
                 $(this).children('.dropdown-menu').slideUp(300);
             }
         );
+
   // 		function menuRes(){
   // 			if ( window.innerWidth < 992 ){
 	 //  			$('.main-nav a.mobile-menu').click(function(e){

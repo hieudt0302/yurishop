@@ -38,8 +38,8 @@
             <!-- End Video -->            
         </div>
 
-        <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="row is-same-height">
+            <div class="col-md-3 col-sm-3 col-xs-12 ab-items">
                 <div class="ab-item">
                     <img src="{{ asset('images/logo/poko.png') }}" alt="">
                     <h2>@lang('home.about-us')</h2>
@@ -47,7 +47,7 @@
                     <a class="learnmore" href="{{url('/about')}}">@lang('common.more-details')</a>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-3 col-xs-12 ab-items">
                 <div class="ab-item">
                     <img src="{{ asset('images/logo/origin.png') }}" alt="">
                     <h2>@lang('home.product-origin')</h2>
@@ -55,7 +55,7 @@
                     <a class="learnmore" href="{{url('/product-origin')}}">@lang('common.more-details')</a>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-3 col-xs-12 ab-items">
                 <div class="ab-item">
                     <img src="{{ asset('images/logo/fairtrade.png') }}" alt="">
                     <h2>@lang('home.product-quality')</h2>
@@ -63,7 +63,7 @@
                     <a class="learnmore" href="{{url('/product-quality')}}">@lang('common.more-details')</a>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-3 col-xs-12 ab-items">
                 <div class="ab-item">
                     <img src="{{ asset('images/logo/community-icon.png') }}" alt="">
                     <h2>@lang('home.community')</h2>
