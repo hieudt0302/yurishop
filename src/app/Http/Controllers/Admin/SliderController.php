@@ -93,7 +93,6 @@ class SliderController extends Controller
 
         $slider = Slider::find($id);
 
-        $slider->image = '' ;
         if (request()->hasFile('img')) {
             $image = $request->file('img');
             $img_path = $image->storeAs('images/slider',$image->getClientOriginalName());                              
