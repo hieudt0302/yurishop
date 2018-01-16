@@ -10,6 +10,7 @@ return [
 	'farm-activities' => '共同活动',
 	'farm-activities-message' => '农民的爱的味道',
 	'about-us' => '关于我们',
+    'community' => '社区', 	
 	'product-origin' => '产品来源',    
 	'product-quality' => '产品品质',
     'specialty-coffee' => '特色咖啡',   

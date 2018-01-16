@@ -15,7 +15,7 @@ return [
 
     '' => '',
     'home' => 'ホーム',
-    'about-us' => 'ポコファーム',
+    'about-us' => 'Pô Kô Farms',
     'shop' => 'ショップ',
     'product' => '商品一覧',    
     'products' => '商品',

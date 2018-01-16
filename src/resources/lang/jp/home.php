@@ -8,7 +8,7 @@ return [
     'sale-products' => 'セール中',   
     'farm-activities' => 'Pô Kô Famrs活動',
     'farm-activities-message' => '農民の愛の味',    
-    'about-us' => 'Pô Kô Famrs とは?',
+    'about-us' => 'Pô Kô Farms とは?',
     'product-origin' => '商品のオリジン',    
     'product-quality' => '商品品質',
     'community' => '共同',   
