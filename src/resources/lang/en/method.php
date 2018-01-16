@@ -16,11 +16,11 @@ return [
     'payment' => [
         1 =>[
             'name' => 'Prepayment',
-            'description' =>'Once your order is placed, you will be contacted by our staff to confirm the order.'
+            'description' =>''
         ],
         2 => [
             'name' => 'Cash on delivery',
-            'description' => 'Once your order is placed, you will be contacted by our staff to confirm the order.'
+            'description' => ''
          ],
     ]
 ];

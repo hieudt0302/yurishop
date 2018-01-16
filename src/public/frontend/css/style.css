@@ -8300,9 +8300,9 @@ img.div-line2 {
 }
 
 .history {
-    padding-top: 55px;
+/*    padding-top: 55px;*/
     padding-bottom: 150px;
-    background: url('../images/uploads/aboutv1-bg.jpg');
+/*    background: url('../images/uploads/aboutv1-bg.jpg');*/
     background-position: 0 0;
     background-repeat: no-repeat;
 }

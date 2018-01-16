@@ -16,11 +16,11 @@ return [
     'payment' => [
         1 => [
            'name' => '대금 상환',
-           'description' => '주문이 접수되면 당사 직원이 연락하여 주문을 확인합니다.'
+           'description' => ''
         ],
         2 =>[
             'name' => '선불',
-            'description' =>'주문이 접수되면 당사 직원이 연락하여 주문을 확인합니다.'
+            'description' =>''
         ],
         
     ]

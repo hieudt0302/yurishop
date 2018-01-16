@@ -8,19 +8,19 @@ return [
         // ],
         1 => [
             'name' => 'Shipping',
-            'description' => 'Your order will be sent to you by our shipping partners.'
+            'description' => 'Sản phẩm sẽ được chuyển thông qua dịch vụ giao hàng.'
         ],
         
     ],
 
     'payment' => [
         1 => [
-           'name' => 'Cash on delivery',
-           'description' => 'Once your order is placed, you will be contacted by our staff to confirm the order.'
+           'name' => 'Thanh toán khi nhận hàng',
+           'description' => ''
         ],
         2 =>[
-            'name' => 'Prepayment',
-            'description' =>'Once your order is placed, you will be contacted by our staff to confirm the order.'
+            'name' => 'Thanh toán trước bằng chuyển khoản',
+            'description' =>''
         ],
         // 3 => [
         //     'name' => '',
