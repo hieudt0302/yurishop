@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'our-vision' => 'Our vision',
-    'our-mission' => 'Our mission',
-    'vision-details' => 'Pô Kô Farms determines to become a sustainable development cooperative, that helps farmers to have a better life through responsible coffee producing. Furthermore, Pô Kô Farms will be the first choice of customers who want to buy Fairtrade certified coffee in particular and agricutural products in general from Vietnam.',
-    'mission-details' => 'Pô Kô Farms aims to become a cooperative that specializes in producing and supplying high quality Fairtrade certified coffee for current buyers and new customers in the future. By growing and selling Fairtrade certified coffee, Pô Kô Farms wishes to improve farmers income and quality of life for their households . Sharing together and developing together, make the world better with quality coffee.',                    
+    'our-vision' => '我们的愿景',
+    'our-mission' => '我们的任务',
+    'vision-details' => 'PôKô农场决定成为一个可持续的发展合作社，通过负责任的咖啡生产，帮助农民获得更好的生活。 此外，PôKô农场将成为首选购买公平贸易认证咖啡的客户，以及来自越南的一般农业产品。',
+    'mission-details' => 'PôKô农场的目标是成为一个专门为当前买家和新客户生产和供应高品质Fairtrade认证咖啡的合作社。 通过种植和销售公平贸易认证的咖啡，PôKô农场希望提高农民的收入和家庭生活质量。 共同分享和共同发展，以优质咖啡让世界变得更美好。',                    
 
 ];

@@ -2,11 +2,11 @@
 
 return [
     '' => '',
-    'message' => 'Pô Kô Farms always focus on controlling and improving product quality. In order to have good quality coffee with Dak Ha unique flavor, Pô Kô Farms always cares and perfects the producing activities from caring coffee trees, harvesting, preliminary processing to preservation and delivery.',
-    'title1' => 'Verification of soil samples',
-    'detail1' => 'Every year, Pô Kô Farms always takes soil samples to determine the most efficient growing coffee methods to achieve the best quality and yield.',                    
-    'title2' => 'Research for continuous improvement',
-    'detail2' => 'Every year, the management board of Pô Kô Farms focuses on updating the latest farming and processing methods. We will train our farmers, in order to improve their knowledge of agriculture, improve their knowledge of coffee and improve quality.',   
-    'title3' => 'Sample evaluation',
-    'detail3' => 'The Boards and the quality control department of the Pô Kô Farms evaluates the quality of products to assess the quality of inputs and the related output before delivery to customers. The purpose of the sample evaluation is to provide Pô Kô Farms with a production plan for upcoming crops and to ensure that the product adhere to the customer’s quality requirements.',       
+    'message' => 'Pô Kô Farmsは常に製品品質の管理と改善に重点を置いています。 Pô Kô Farmsは、ダク・ハのユニークな風味を持つ良質のコーヒーを保つために、コーヒーツリーのケア、収穫、予備処理から保存および配送への生産活動を常に心配し完璧にしています。',
+    'title1' => '土壌サンプルの検証',
+    'detail1' => '毎年、Pô Kô Farmsは常に最高の品質と収量を達成する最も効率的な栽培方法を決定するために土壌サンプルを採取します。',                    
+    'title2' => '継続的改善のための研究',
+    'detail2' => '毎年、Pô Kô Farmsの管理委員会は、最新の農法と加工方法の更新に重点を置いています。 私たちは、農業に関する知識を向上させ、コーヒーの知識を向上させ、品質を向上させるために農民を訓練します。',   
+    'title3' => 'サンプル評価',
+    'detail3' => '役員会とPô Kô Farmsの品質管理部門は、製品の品質を評価して、顧客への出荷前にインプットの質と関連するアウトプットを評価します。 サンプル評価の目的は、今後の作物の生産計画をPô Kô Farmsに提供し、製品が顧客の品質要件を確実に満たすようにすることです。',       
 ];

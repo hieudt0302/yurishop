@@ -2,11 +2,11 @@
 
 return [
     '' => '',
-    'message' => 'Pô Kô Farms always focus on controlling and improving product quality. In order to have good quality coffee with Dak Ha unique flavor, Pô Kô Farms always cares and perfects the producing activities from caring coffee trees, harvesting, preliminary processing to preservation and delivery.',
-    'title1' => 'Verification of soil samples',
-    'detail1' => 'Every year, Pô Kô Farms always takes soil samples to determine the most efficient growing coffee methods to achieve the best quality and yield.',                    
-    'title2' => 'Research for continuous improvement',
-    'detail2' => 'Every year, the management board of Pô Kô Farms focuses on updating the latest farming and processing methods. We will train our farmers, in order to improve their knowledge of agriculture, improve their knowledge of coffee and improve quality.',   
-    'title3' => 'Sample evaluation',
-    'detail3' => 'The Boards and the quality control department of the Pô Kô Farms evaluates the quality of products to assess the quality of inputs and the related output before delivery to customers. The purpose of the sample evaluation is to provide Pô Kô Farms with a production plan for upcoming crops and to ensure that the product adhere to the customer’s quality requirements.',       
+    'message' => 'PôKô农场始终专注于控制和提高产品质量。 为了使用达哈哈独特的风味品质，咖啡农庄始终关心和完善咖啡树，收获，初步加工，保存和交付的生产活动。',
+    'title1' => '土壤样品的验证',
+    'detail1' => '每年，PôKô农场都会采取土壤样本来确定最有效的咖啡种植方法，以达到最好的质量和产量。',                    
+    'title2' => '研究不断改进',
+    'detail2' => 'PôKô农场的管理委员会每年都致力于更新最新的农业和加工方法。 培养农民，提高农业知识，提高咖啡知识，提高素质。',   
+    'title3' => '样品评估',
+    'detail3' => 'PôKô农场的董事会和质量控制部门对产品的质量进行评估，以便在交付给客户之前评估投入品的质量和相关的产出。 样本评估的目的是为PôKô农场提供即将到来的作物的生产计划，并确保产品符合客户的质量要求。',       
 ];
