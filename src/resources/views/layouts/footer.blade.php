@@ -9,7 +9,7 @@
                 <ul class="ct-it">
                     <li>
                         <i class="ion-ios-home"></i>
-                        <a href="javascript:void(0)">{!! Setting::config('address') <!!></!!>}</a>
+                        <a href="javascript:void(0)">{{ Setting::config('address') }}</a>
                     </li>
                     <li>
                         <i class="ion-ios-telephone"></i>
