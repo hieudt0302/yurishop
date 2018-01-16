@@ -5,10 +5,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1>Gallery</h1>
+				<h1>@lang('common.our-gallery')</h1>
 				<ul class="breadcumb">
-					<li><a href="{{url('/')}}">Home</a></li>
-					<li><span>/</span>Gallery</li>
+					<li><a href="{{url('/')}}">@lang('header.home')</a></li>
+					<li><span>/</span>@lang('common.our-gallery')</li>
 				</ul>
 			</div>
 		</div>
