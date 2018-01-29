@@ -1,134 +1,125 @@
 
 <!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7 no-js" lang="en-US">
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8 no-js" lang="en-US">
-<![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en" class="no-js">
-<head>
-	<!-- Basic need -->
-	<title>@yield('title')</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="author" content="">
-	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<link rel="profile" href="#">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">
-	<!-- <link rel="shortcut icon" href="images/favicon.ico"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:bold,black,regular"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Playfair+Display:bold,italic,bolditalic"> -->
-	<!-- Fonts -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700&amp;subset=cyrillic,vietnamese" rel="stylesheet">	 -->
-	<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900" > -->
-	<!-- <link  rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:400,700,900"> -->
-	<!-- -->
-	<link  rel="stylesheet" type="text/css" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-	<link  rel="stylesheet" type="text/css"  href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<!-- Mobile specific meta -->
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-	<meta name="format-detection" content="telephone-no">
-	<!-- CSS files -->
-	<!-- CSS files -->
-    <link rel="stylesheet" href="{{asset('frontend/css/plugins.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/style.css')}}">
-	<link rel="stylesheet" href="{{asset('css/video.css')}}">	
-	<link rel="stylesheet" href="{{asset('frontend/css/custom-style.css')}}">
-	<link rel="apple-touch-icon" sizes="180x180" href="{{asset('frontend/images/favicons/apple-touch-icon.png')}}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{asset('frontend/images/favicons/favicon-32x32.png')}}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{asset('frontend/images/favicons/favicon-16x16.png')}}">
-	<link rel="manifest" href="{{asset('frontend/images/favicons/manifest.json')}}">
-	<link rel="mask-icon" href="{{asset('frontend/images/favicons/safari-pinned-tab.svg')}}" color="#5bbad5">
-	<meta name="theme-color" content="#ffffff">
-	<link rel="stylesheet" href="{{asset('frontend/css/font-awesome.min.css')}}">	
-	<!-- <link rel="stylesheet" href="{{asset('frontend/css/animate.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/bootstrap-dropdownhover.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/font-awesome.min.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/hover-min.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/ionicons.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/lightbox.min.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/nivo-lightbox.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/normalize.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/organie.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/owl.carousel.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/owl.theme.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/owl.transitions.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/pushy.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/revicons.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/settings.css')}}"> -->
-	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-	@yield('header')
-<meta name="google-site-verification" content="SBNKsjbUQHBBai8E7O5TxOH4R1pHOiD1F2qaSZbPxBk" />	
-</head>
-<body>
-	<div class="topsearch">
-		{!! Form::open(array('url' => '/search')) !!}
-            <input type="text" class="search-top" name="key" placeholder="@lang('header.enter-keyword')">
-        {!! Form::close() !!}
-    </div>
-    <div class="mobile-menu">
-	    <nav id="menu">
-	        <ul class="main-menu clearfix">
-	            <li><a href="{{ url('/')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-	            <li><a href="{{ url('/about')}}">Pô Kô Farms</a></li>
-	            @foreach($blog_menu as $menu)
-	            <li>
-	                <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}">{{$menu->translation->name??$menu->name}}</a>
-	            </li>  
-	            @endforeach
+	<head>
 
-	            <li><a href="#">{{$product_menu->translation->name??$product_menu->name}}</a><i class="ion-ios-arrow-down it1"></i>
-	                <ul class="sub-menu sub1">
-	                    @foreach($product_menu->GetMenuSubLevel1() as $sub)
-	                    <li>
-	                        <a href="{{url('/subject')}}/{{$sub->parent->slug}}/{{$sub->slug}}">
-	                            <i class="fa fa-angle-right" aria-hidden="true"></i> {{$sub->translation->name??$sub->name}}
-	                        </a>
-	                    </li>
-	                    @endforeach
-	                </ul>
-	            </li>
-	            <li><a href="{{ url('/contact')}}">@lang('header.contact')</a></li>
-	        </ul>
-	    </nav>
-	</div>
-	
-    <!-- Main Page -->
-	<div id="page" class="allpage">
-		@yield('top')
+		<!-- Basic -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
 
-		<!-- Navigation panel -->
-		@include('layouts.nav')
+		<title>Demo Shop 4 | Porto - Responsive HTML5 Template 5.7.2</title>	
 
-		<!-- End Navigation panel -->
-		@yield('content')
+		<meta name="keywords" content="HTML5 Template" />
+		<meta name="description" content="Porto - Responsive HTML5 Template">
+		<meta name="author" content="okler.net">
 
-		<!-- Foter -->
-		@include('layouts.footer')
-		<!-- End Foter -->
-		<!-- End Main Page -->
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="{{asset('frontend/img/favicon.ico')}}" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="{{asset('frontend/img/apple-touch-icon.png')}}">
 
- 	</div>
-	<script src="{{asset('frontend/js/plugins.js')}}"></script>
-	<script src="{{asset('frontend/js/custom.js')}}"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="{{asset('frontend/js/jquery.elevateZoom-3.0.8.min.js')}}"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJyWgPF1EBDeQjx4ctp4e_DuoLi7Zf8OA" type="text/javascript"></script>
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<script>
-		(function() {
-			$.ajaxSetup({
-				headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				}
-			});
-		})();
-	</script>
-    @yield('scripts')
-</body>
+		<!-- Web Fonts  -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/vendor/font-awesome/css/font-awesome.min.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/vendor/animate/animate.min.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/vendor/simple-line-icons/css/simple-line-icons.min.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/vendor/owl.carousel/assets/owl.carousel.min.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/vendor/owl.carousel/assets/owl.theme.default.min.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/vendor/magnific-popup/magnific-popup.min.css')}}">
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="{{asset('frontend/css/theme.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/css/theme-elements.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/css/theme-blog.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/css/theme-shop.css')}}">
+
+		<!-- Current Page CSS -->
+		<link rel="stylesheet" href="{{asset('frontend/vendor/rs-plugin/css/settings.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/vendor/rs-plugin/css/layers.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/vendor/rs-plugin/css/navigation.css')}}">
+
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="{{asset('frontend/css/skins/skin-shop-4.css')}}"> 
+
+		<!-- Demo CSS -->
+		<link rel="stylesheet" href="{{asset('frontend/css/demos/demo-shop-4.css')}}">
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">
+
+		<!-- Head Libs -->
+		<script src="{{asset('frontend/vendor/modernizr/modernizr.min.js')}}"></script>
+
+	</head>
+	<body>
+		
+	    <!-- Main Page -->
+		<div class="body">
+			@yield('top')
+
+			<!-- Navigation panel -->
+			@include('layouts.nav')
+
+			<!-- End Navigation panel -->
+			@yield('content')
+
+			<!-- Foter -->
+			@include('layouts.footer')
+			<!-- End Foter -->
+			<!-- End Main Page -->
+
+	 	</div>
+	 	
+		<!-- Vendor -->
+		<script src="{{asset('frontend/vendor/jquery/jquery.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/jquery.appear/jquery.appear.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/jquery-cookie/jquery-cookie.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/common/common.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/jquery.validation/jquery.validation.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/jquery.gmap/jquery.gmap.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/jquery.lazyload/jquery.lazyload.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/isotope/jquery.isotope.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/vide/vide.min.js')}}"></script>
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="{{asset('frontend/js/theme.js')}}"></script>
+
+
+		<script src="{{asset('frontend/vendor/rs-plugin/js/jquery.themepunch.tools.min.js')}}"></script>
+		<script src="{{asset('frontend/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js')}}"></script>
+
+		<!-- Current Page Vendor and Views -->
+		<script src="{{asset('frontend/js/views/view.contact.js')}}"></script>
+
+
+
+		<!-- Demo -->
+		<script src="{{asset('frontend/js/demos/demo-shop-4.js')}}"></script>
+		
+		<!-- Theme Custom -->
+		<script src="{{asset('frontend/js/custom.js')}}"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="{{asset('frontend/js/theme.init.js')}}"></script>
+		<script>
+			(function() {
+				$.ajaxSetup({
+					headers: {
+						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					}
+				});
+			})();
+		</script>
+	    @yield('scripts')
+	</body>
 </html>

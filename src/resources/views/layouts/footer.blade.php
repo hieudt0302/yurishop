@@ -1,149 +1,105 @@
-<footer class="ht-footer">
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="ft-contact">
-                <div class="ft-heading">
-                    <h6>@lang('footer.about-us')</h6>
-                </div>
-                <ul class="ct-it">
-                    <li>
-                        <i class="ion-ios-home"></i>
-                        <a href="javascript:void(0)">{{ Setting::config('address') }}</a>
-                    </li>
-                    <li>
-                        <i class="ion-ios-telephone"></i>
-                        <a href="javascript:void(0)">{{ Setting::config('phone') }}</a>
-                    </li>
-                    <li>
-                        <i class="ion-ios-email"></i>
-                        <a href="mailto:{{ Setting::config('email') }}">{{ Setting::config('email') }}</a>
-                    </li>
-                    <li>
-                        <i class="ion-android-globe"></i>
-                        <a href="{{ Setting::config('website')}}" target="blank">{{ Setting::config('website') }}</a>
-                    </li>
-                </ul>
-                <div class="ct-icon">
-                    <a target="_blank" href="http://www.facebbook.com/{{ Setting::config('facebook') }}"><i class="fa fa-facebook" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Facebook"></i></a>
-                    <a target="_blank" href="http://www.twitter.com/{{ Setting::config('twitter') }}"><i class="fa fa-twitter" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Twitter"></i></a>
-                    <a target="_blank" href="skype:{{ Setting::config('skype')}}?chat"><i class="fa fa-skype" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Skype"></i></a>
-                    <a target="_blank" href="http://www.youtube.com/{{ Setting::config('youtube') }}"><i class="fa fa-youtube-play" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Youtube"></i></a>
-                </div>                
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-ribbon">
+                <span>Kết nối với chúng tôi</span>
             </div>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="ft-infor">
-                <div class="ft-heading">
-                    <h6>@lang('footer.customer-support')</h6>
-                </div>
-                <ul class="infor-it">
+            
+            <div class="col-md-3">
+                <h4>Tài khoản</h4>
+                <ul class="links">
                     <li>
-                        <a href="{{ url('/payment-methods') }}">@lang('footer.purchase-flow')</a>
+                        <i class="fa fa-caret-right text-color-primary"></i>
+                        <a href="{{ url('/about')}}">Về chúng tôi</a>
+                    </li>                 
+                    @guest
+                    <li>
+                        <i class="fa fa-caret-right text-color-primary"></i>
+                        <a href="{{ url('/login') }}">Đăng nhập</a>
                     </li>
                     <li>
-                        <a href="{{ url('/returns') }}">@lang('footer.returns')</a>
+                        <i class="fa fa-caret-right text-color-primary"></i>
+                        <a href="{{ url('/register') }}">Đăng kí</a>
                     </li>
-                    <li>
-                        <a href="{{ url('/faqs') }}">@lang('footer.faq')</a>
-                    </li>
-<!--                     <li>
-                        <a href="{{ url('/showrooms') }}">@lang('footer.showroom-locations')</a>
-                    </li> -->
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-2 col-xs-12">
-            <div class="ft-account">
-                <div class="ft-heading">
-                    <h6>@lang('footer.my-account')</h6>
-                </div>
 
-                @if (Auth::guest())
-                <ul class="acc-it">
+                    @else
                     <li>
-                        <a href="{{ url('/login') }}">@lang('footer.sign-in')</a>
+                        <i class="fa fa-caret-right text-color-primary"></i>
+                        <a href="{{ url('/Account') }}">Tài khoản</a>
                     </li>
                     <li>
-                        <a href="{{ url('/register') }}">@lang('auth.register')</i></a>
+                        <i class="fa fa-caret-right text-color-primary"></i>
+                        <a href="{{ url('/Account/Orders') }}">Lịch sử mua hàng</a>
                     </li>
+                    @endguest
                 </ul>
-                @else                                    
-                <ul class="acc-it">
-                    <li>
-                        <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">@lang('auth.logout')</i></a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/cart') }}">@lang('footer.view-cart')</i></a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/wishlist') }}">@lang('footer.my-wishlist')</i></a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/Account/Orders') }}">@lang('footer.order-history')</i></a>
-                    </li>
-                </ul>
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-                @endif                
             </div>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="ft-photo">
-                <div class="ft-heading">
-                    <h6>@lang('common.our-gallery')</h6>
+            <div class="col-md-3">
+                <div class="contact-details">
+                    <h4>Thông tin liên hệ</h4>
+                    <ul class="contact">
+                        <li><p><i class="fa fa-map-marker"></i> <strong>Địa chỉ:</strong><br> 1234 Street Name, City, US</p></li>
+                        <li><p><i class="fa fa-phone"></i> <strong>Phone:</strong><br> (123) 456-7890</p></li>
+                        <li><p><i class="fa fa-envelope-o"></i> <strong>Email:</strong><br> <a href="mailto:mail@example.com">mail@example.com</a></p></li>
+                        <li><p><i class="fa fa-clock-o"></i> <strong>Thời gian làm việc:</strong><br> T.Hai - C.Nhật / 9:00AM - 8:00PM</p></li>
+                    </ul>
                 </div>
-                <div class="photo-it">
-                    @foreach($latestMediaOfGallery as $m)                    
-                        <div class="img-ft">
-                            <a href="/galleries"><img class="img-ft" src="{{asset('/storage')}}/{{$m->source}}" alt=""></a>
+            </div>
+            <div class="col-md-3">
+                <h4>Vì sao chọn shop ML</h4>
+                <ul class="features">
+                    <li>
+                        <i class="fa fa-check text-color-primary"></i>
+                        <a href="#">Nguồn gốc hàng rõ ràng</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-check text-color-primary"></i>
+                        <a href="#">Giá cạnh tranh nhất thị trường</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-check text-color-primary"></i>
+                        <a href="#">Chia sẻ kinh nghiệm sử dụng</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <div class="newsletter">
+                    <h4>Hãy là người đầu tiên</h4>
+                    <p class="newsletter-info">Nhận thông tin về Sự kiện,<br> Sales và Ưu tiên. Đăng ký nhận thông tin ngay hôm nay.</p>
+
+                    <div class="alert alert-success hidden" id="newsletterSuccess">
+                        <strong>Thành công!</strong> Bạn đã được thêm vào danh sách nhận mail.
+                    </div>
+
+                    <div class="alert alert-danger hidden" id="newsletterError"></div>
+
+
+                    <p>Nhập thông tin email của bạn:</p>
+                    <form id="newsletterForm" action="{{asset('frontend/php/newsletter-subscribe.php')}}" method="POST">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">Gửi yêu cầu</button>
+                            </span>
                         </div>
-                    @endforeach
+                    </form>
                 </div>
-                <ul class="infor-it">
-                    <li>
-                        <a href="{{ url('/galleries') }}">@lang('common.see-more')</a>
-                    </li>
-                </ul>                
-            </div>
-            <br>
-            <div class="langchoose btn-group dropup float-right">
-                <button type="button" class="btn btn-default"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ strtoupper(app()->getLocale()) }}</button>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ strtoupper(app()->getLocale()) }}</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                    <li>
-                        <a href="{{URL::asset('')}}language/vi">Tiếng Việt</a>
-                    </li>
-                    <li>
-                        <a href="{{URL::asset('')}}language/en">English</a>
-                    </li>
-                    <li>
-                        <a href="{{URL::asset('')}}language/cn">中文</a>
-                    </li>
-                    <li>
-                        <a href="{{URL::asset('')}}language/jp">日本語</a>
-                    </li>
-                    <li>
-                        <a href="{{URL::asset('')}}language/kr">한국어</a>
-                    </li>
-                </ul>
-            </div>
-
-        </div>                
-<!--         <img class="ft-line" src="{{asset('frontend/images/uploads/div-line.png')}}" alt="line">   --> 
-    </div>
-<!--     <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="ft-below-left">
-                <p>Copyright © 2018 <a href="#">Pokofarms</a> - All Rights Reserved</p>
             </div>
         </div>
-    </div>   -->  
-</div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img alt="Porto Website Template" class="img-responsive" src="{{asset('frontend/img/demos/shop/logo-footer.png')}}">
+            </a>
+            <ul class="social-icons">
+                <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+            <p class="copyright-text">© Copyright 2018. All Rights Reserved.</p>
+        </div>
+    </div>
 </footer>
 
 <script type="text/javascript">
