@@ -66,8 +66,8 @@
                     <div class="col-md-4">
                         <i class="fa fa-truck bar-icon"></i>
                         <div class="bar-textarea">
-                            <h3>GIẢI QUYẾT ĐƠN HÀNG TRONG 24H</h3>
-                            <p>Đơn giản hóa mọi thủ tục.</p>
+                            <h3>MIỄN PHÍ VẬN CHUYỂN</h3>
+                            <p>Miễn phí vận chuyển mọi đơn hàng trên 500k.</p>
                         </div>
                     </div>
                     <div class="col-md-4">

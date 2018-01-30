@@ -5,90 +5,115 @@
 @include('layouts.share')
 @endsection
 @section('content')
-<div class="blogsingle">
-    <img class="blog-img" src="/frontend/images/uploads/blogsingle.png" alt="">
+
+<section class="page-header mb-lg">
+
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="blogsingle-content">
-                    <div class="date">
-                        <span>{{$post->author->first_name}} {{$post->author->last_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
-                    </div>
-                    <h1>{{$post->translation->title??$post->title}} </h1>
-                    <p class="quote">{{$post->translation->excerpt??'Content not found!'}}</p>
-                    
+        <ul class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
 
-                    <!-- Post content -->
-                    {!! $post->translation->content??'' !!}
-                    <!-- End post content -->
-                    <br><br>
-                    <!-- tags -->
-                    <div class="tags">
-                        <i class="fa fa-tag" aria-hidden="true"></i>
-                        @foreach($post->tags as $tag)
-                        <a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a>, 
-                        @endforeach
-                    </div>
-                    <hr>
+            <li><a href="#">Blog</a></li>
+            <li class="active">{{$post->translation->title??$post->title}}</li>
+        </ul>
+    </div>
+</section>
 
-                    <!-- comment -->
-                    <div class="comment">
-                        <h2 class="cmt-heading">{{ __('blog.comment') }}<span>({{count($post->comments)}})</span></h2>
-                        @foreach($post->comments as  $comment)
-                        <div class="cmt-it">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="images/uploads/cmt1.png" alt="">
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="cmt-content">
-                                        <h4><a href="#">{{$comment->name}}</a><li class="date">{{$comment->created_at}}</li></h4>
-                                        <p>{{$comment->comment}}</p>
-                                        <a class="reply" href="#comment-form"><i class="fa fa-reply" aria-hidden="true"></i>@lang('product.comment')</a>
-                                    </div>  
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="blog-posts single-post">
+
+                <article class="post post-large blog-single-post">
+                    <div class="post-image">
+                        <div class="owl-carousel owl-theme" data-plugin-options="{'items':1}">
+                            <div>
+                                <div class="img-thumbnail">
+                                    <img class="img-responsive" src="{{asset('/storage/images/blog/')}}/{{$post->img}}" alt="Post">
                                 </div>
                             </div>
                         </div>
-                        @endforeach
                     </div>
-                    <hr>
-                    <!-- comment form -->
-                    <form id="comment-form" class="post-cmt" method="post" action="{{url('/posts')}}/{{$post->id}}/comment" >
-                    {{ csrf_field() }}
-                    <input type="hidden" id="post_id" name="post_id" value="{{$post->id}}">
-                        <label>@lang('blog.leave-a-comment')</label>
-                            {{ csrf_field() }}
-                            <div class="row">
-                                @guest
-                                <div class="col-md-6">
-                                    <input class="name" name="name"  type="text" placeholder="{{ __('blog.name') }} *">
-                                </div>
-                                <div class="col-md-6">
-                                    <input class="email" name="email" type="text" placeholder="{{ __('blog.email') }} *">
-                                </div>
-                                @else
-                                    <input type="hidden" id="reader_id" name="reader_id" value="{{Auth::user()->id}}">
-                                    <input type="hidden" id="name" name="name" value="{{Auth::user()->first_name}} {{Auth::user()->last_name}}">
-                                    <input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
-                                @endguest       
-                                                         
+
+                    <div class="post-date">
+                        <span class="day">{{ date('d', strtotime($post->created_at)) }}</span>
+                        <span class="month">{{ date('m', strtotime($post->created_at)) }}</span>
+                    </div>
+
+                    <div class="post-content">
+
+                        <h2><a href="#">{{$post->translation->title??$post->title}}</a></h2>
+
+                        <div class="post-meta">
+                            <span><i class="fa fa-user"></i> Đăng bởi <a href="#">{{$post->author->first_name}}</a> </span>
+                            <span><i class="fa fa-tag"></i>
+                                @foreach($post->tags as $tag)
+                                <a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a>&nbsp;  
+                                @endforeach
+                             </span>
+                            <span><i class="fa fa-comments"></i> <a href="#">{{count($post->comments)}} Đánh giá</a></span>
+                        </div>
+
+                        {!! $post->translation->content??'' !!}
+                        
+                        <div class="post-block post-share">
+                            <h3 class="h4 heading-primary"><i class="fa fa-share"></i>Chia sẻ bài viết</h3>
+
+                            <!-- AddThis Button BEGIN -->
+                            <div class="addthis_toolbox addthis_default_style ">
+                                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                                <a class="addthis_button_tweet"></a>
+                                <a class="addthis_button_pinterest_pinit"></a>
+                                <a class="addthis_counter addthis_pill_style"></a>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input  name="comment" class="comt" type="textarea" placeholder="{{ __('blog.comment') }}*">
-                                </div>
-                            </div>
-                            <input class="submit" type="submit" value="{{ __('blog.send-comment') }}">
-                    </form>
-                </div>
+                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53"></script>
+                            <!-- AddThis Button END -->
+
+                        </div>
+
+                    </div>
+                </article>
+
             </div>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="farm-img">
-            <img src="{{asset('frontend/images/uploads/blogsingle-bg-footer.jpg')}}" alt="farm">
+
+        <div class="col-md-3">
+            <aside class="sidebar">
+
+                <h4>Danh mục blog</h4>
+                <ul class="nav nav-list">
+                    @foreach($categories as $category)
+                    <li><a href="{{url('/menu')}}/{{$post_category->slug}}/{{$category->slug}}">{{$category->translation->name}}</a></li>
+                    @endforeach
+                </ul>
+
+                <h4>Bài viết gần đây</h4>
+                <ul class="simple-post-list">
+                    @foreach($lastPosts as $post)
+                    <li>
+                        <div class="post-image">
+                            <div class="img-thumbnail">
+                                <a href="{{url('/posts')}}/{{$post->slug}}">
+                                    <img src="{{asset('/storage/images/blog/preview/')}}/{{$post->img}}" alt="Post">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="post-info">
+                            <a href="{{url('/posts')}}/{{$post->slug}}">{{$post->translation->title}}</a>
+                            <div class="post-meta">
+                                {{$post->author->first_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}
+                            </div>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
+
+                <h4>Tags</h4>
+                <div class="tagcloud">
+                    @foreach($tags as $tag)
+                    <a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a>
+                    @endforeach
+                </div>
+            </aside>
         </div>
     </div>
 </div>

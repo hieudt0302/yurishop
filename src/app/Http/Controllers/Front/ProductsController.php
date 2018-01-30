@@ -62,6 +62,14 @@ class ProductsController extends Controller
             return abort(404);
         $starAvg = $product->comments->avg('rate');
         
+        $best_seller_products = Product::where('published',1)
+                                ->where('special_price', '>', 0)
+                                ->where('special_price_start_date', '<=', date('Y-m-d', time()))
+                                ->where('special_price_end_date', '>=', date('Y-m-d', time()))
+                                ->orderBy('created_at', 'desc')
+                                ->limit(4)
+                                ->get();  
+
         $is_sales = false;
         if(!empty($product->special_price_start_date) && !empty($product->special_price_end_date)){
             if($product->special_price_start_date <= date('Y-m-d H:i:s') && $product->special_price_end_date >= date('Y-m-d H:i:s') ){
@@ -69,7 +77,7 @@ class ProductsController extends Controller
             }
         }
 
-        return View('front.products.show', compact('product','starAvg','is_sales'));
+        return View('front.products.show', compact('product','starAvg','is_sales','best_seller_products'));
     }
 
     /**

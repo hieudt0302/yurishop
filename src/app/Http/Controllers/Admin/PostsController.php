@@ -191,11 +191,11 @@ class PostsController extends Controller
 
             $image = $request->file('img');
             $img_path = $image->storeAs('images/blog',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(370, 230)->encode();
+            $img = Image::make(Storage::get($img_path))->fit(1850, 500)->encode();
             Storage::put($img_path, $img);                     
             $post->img = $image->getClientOriginalName();
             $img_path = $image->storeAs('images/blog/preview',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(80, 100)->encode();
+            $img = Image::make(Storage::get($img_path))->fit(300, 200)->encode();
             Storage::put($img_path, $img);  
         }
 

@@ -6,169 +6,112 @@
 @endsection
 @section('content')
 
-<div class="hero">
+<section class="page-header mb-lg">
+
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                @if(!empty($search_key))
-                    <h1>@lang('common.search-results')</h1>
-                @else               
-                    <h1>{{$category->translation->name??$category->name??$post_category->translation->name??$post_category->name}}</h1>
-                    <ul class="breadcumb">
-                        <li><a href="{{ Setting::config('website')}}">@lang('common.home')</a></li>
-                        <li><span>/</span>@lang('common.posts')</li>
-                        <li><span>/</span>{{$category->translation->name??$category->name??$post_category->translation->name??$post_category->name}}</li>
-                    </ul>
-                @endif
-            </div>
-        </div>
-    </div>
-</div>
-<section class="bloglistpost-v1 bloglistpost-v2">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9 col-sm-8 col-xs-12">
+        <ul class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
 
-                <div class="left">
-                    @if(!empty($search_key) && count($posts)==0)
-                        @lang('common.zero-search-message')&nbsp;{{$search_key}}
-                    @endif 
-                </div>
-
-                @if(!empty($search_key) && count($posts)!=0)
-                    <!-- Post -->
-                    @foreach($posts as $post_tran)
-                        @if($post_tran->post->published)
-                        <div class="blogpost-v2">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="video2">
-                                        <img src="{{asset('/storage/images/blog/')}}/{{$post_tran->post->img}}" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="blog-it-content2">
-                                        <div class="date">
-                                            <span>{{$post_tran->post->author->first_name}} {{$post_tran->post->author->last_name}} | {{ date('d-m-Y', strtotime($post_tran->post->created_at)) }}</span>
-                                        </div>                                
-                                        <h2><a href="{{url('/')}}/posts/{{$post_tran->post->slug}}">{{$post_tran->title}}</a></h2>
-                                        <p>{{$post_tran->excerpt}} </p>
-                                        <a class="readmore2" href="{{url('/')}}/posts/{{$post_tran->post->slug}}">/ &nbsp; @lang('common.read-more')</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        @endif
-                    @endforeach
-                    <!-- End Post -->
-                @else
-                <!-- Post -->
-                @foreach($posts as $post)
-                    @if(!empty($post->translation->title))
-                    <div class="blogpost-v2">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="video2">
-                                    <img src="{{asset('/storage/images/blog/')}}/{{$post->img}}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="blog-it-content2">
-                                    <div class="date">
-                                        <span>{{$post->author->first_name}} {{$post->author->last_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
-                                    </div>                                
-                                    <h2><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->translation->title}}</a></h2>
-                                    <p>{{$post->translation->excerpt??""}} </p>
-                                    <a class="readmore2" href="{{url('/')}}/posts/{{$post->slug}}">/ &nbsp; @lang('common.read-more')</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    @endif
-                @endforeach
-                <!-- End Post -->
-                @endif                
-                
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-12">
-                <div class="bg-sidebar">
-                    <div class="search">
-                        {!! Form::open(array('method'=>'post','url' => '/posts','class'=>'form-inline form','role'=>'form')) !!}
-                            <div class="search-wrap">
-                                <button class="search-button hidden" type="submit" title="Start Search">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                                @if(!empty($search_key))
-                                    <input type="text" class="search-input" name="key" placeholder="{{$search_key}}">
-                                    <i class="fa fa-search" aria-hidden="true"></i>                                                                
-                                @else
-                                    <input type="text" class="search-input" name="key" placeholder="{{ __('common.search') }}">
-                                    <i class="fa fa-search" aria-hidden="true"></i>                                                               
-                                @endif  
-                            </div>
-                        {!! Form::close() !!}
-                    </div>
-                    <br><br>
-
-                    <div class="categories">
-                        <h1 class="cate-heading">@lang('common.categories')</h1>
-                        <hr>
-                        <ul>
-                            @foreach($categories as $category)
-                            <li>
-                                <a href="{{url('/menu')}}/{{$post_category->slug}}/{{$category->slug}}" title="">{{$category->translation->name}}</a>
-                                <small>
-                                    - {{$category->postsCount}}
-                                </small>
-                            </li>
-                            @endforeach                            
-                        </ul>
-                    </div>
-                    <div class="pp-posts">
-                        <h1 class="cate-heading">@lang('blog.last-posts')</h1>
-                        <hr>
-                        @foreach($lastPosts as $post)
-                        @if(!empty($post->translation->title))                        
-                        <div class="pp-post-it">
-                            <img src="{{asset('/storage/images/blog/preview/')}}/{{$post->img}}" alt="post1">
-                            <div class="pp-infor">
-                                <div class="date">
-                                    <span>{{$post->author->first_name}} {{$post->author->last_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}</span>
-                                </div>
-                                <h5><a href="{{url('/posts')}}/{{$post->slug}}">{{$post->translation->title}}</a></h5>
-                            </div>
-                        </div>
-                        @endif
-                        @endforeach        
-                    </div>
-                    <br><br>
-                    @if (Setting::config('banner-blog-active')=='1')
-                    <div class="sale">
-                            <a href="{{ Setting::config('banner-blog-url') }}"><img src="{{asset('frontend/images/uploads/sale.jpg')}}" alt="post1"></a>
-                    </div>
-                    @endif
-                    <div class="searchbytag">
-                        <h1 class="cate-heading">@lang('blog.search-tags')</h1>
-                        <hr>
-                        <ul class="tags">
-                            @foreach($tags as $tag)
-                            <li><a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <li class="active">Blog</li>
+        </ul>
     </div>
 </section>
-<div class="blogpanigation">
-    <div class="container">
+
+<div class="container">
+    <div class="row">
         <div class="col-md-9">
-            {{ $posts->links() }}
+            <div class="toolbar">
+            </div>
+
+            <div class="blog-posts">
+                @foreach($posts as $post)
+                <article class="post post-large">
+                    <div class="post-image">
+                        <div class="owl-carousel owl-theme" data-plugin-options="{'items':1}">
+                            <div>
+                                <div class="img-thumbnail">
+                                    <img class="img-responsive" src="{{asset('/storage/images/blog/')}}/{{$post->img}}" alt="Post">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-date">
+                        <span class="day">{{ date('d', strtotime($post->created_at)) }}</span>
+                        <span class="month">{{ date('m', strtotime($post->created_at)) }}</span>
+                    </div>
+
+                    <div class="post-content">
+
+                        <h2><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->translation->title}}</a></h2>
+                        <p>{{$post->translation->excerpt??""}}</p>
+
+                        <a href="{{url('/')}}/posts/{{$post->slug}}" class="btn btn-xs btn-link">Đọc thêm</a>
+
+                        <div class="post-meta">
+                            <span><i class="fa fa-user"></i> Đăng bởi <a href="#">{{$post->author->first_name}}</a> </span>
+                            <span><i class="fa fa-tag"></i>
+                                @foreach($post->tags as $tag)
+                                <a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a>&nbsp; 
+                                @endforeach                                
+                            </span>
+                        </div>
+
+                    </div>
+                </article>
+                @endforeach
+            </div>
+
+            <div class="toolbar">
+                <div class="sorter">
+                    <ul class="pagination">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <aside class="sidebar">
+
+                <h4>Danh mục blog</h4>
+                <ul class="nav nav-list">
+                    @foreach($categories as $category)
+                    <li><a href="{{url('/menu')}}/{{$post_category->slug}}/{{$category->slug}}">{{$category->translation->name}}</a></li>
+                    @endforeach
+                </ul>
+
+                <h4>Bài viết gần đây</h4>
+                <ul class="simple-post-list">
+                    @foreach($lastPosts as $post)
+                    <li>
+                        <div class="post-image">
+                            <div class="img-thumbnail">
+                                <a href="{{url('/posts')}}/{{$post->slug}}">
+                                    <img src="{{asset('/storage/images/blog/preview/')}}/{{$post->img}}" alt="Post">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="post-info">
+                            <a href="{{url('/posts')}}/{{$post->slug}}">{{$post->translation->title}}</a>
+                            <div class="post-meta">
+                                {{$post->author->first_name}} | {{ date('d-m-Y', strtotime($post->created_at)) }}
+                            </div>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
+
+                <h4>Tags</h4>
+                <div class="tagcloud">
+                    @foreach($tags as $tag)
+                    <a href="{{url('/subject/posts/tags')}}/{{$tag->slug}}">{{$tag->name}}</a>
+                    @endforeach
+                </div>
+            </aside>
         </div>
     </div>
-</div>
-<!-- End Section -->
+</div>    
 @endsection

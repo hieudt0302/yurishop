@@ -5,297 +5,370 @@
 @include('layouts.share')
 @endsection
 @section('content')
-<div class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>@lang('common.product-details')</h1>
-                <ul class="breadcumb">
-                    <li><a href="{{ Setting::config('website')}}">@lang('common.home')</a></li>
-                    <li><span>/</span>@lang('product.product')</li>
-                    <li><span>/</span>{{$product->translation->name??$product->name}}</li>
-                </ul>
-            </div>
-        </div>
-    </div>		
-</div>
+<section class="page-header mb-lg">
 
-<section class="productdetail blogsingle shoplist">
 	<div class="container">
-		<div class="row">
-			<div class="pro-detail-infor list-item">
-				<div class="col-md-4 col-sm-4 col-xs-12">
-				@if(count($product->medias) > 0)
-					@foreach($product->medias as $key =>  $media)
-						@if($key === 0)
-						<div class="pro-img">
-							<img src="{{asset('/storage')}}/{{$media->source}}" alt="" class="product-main-img">
-						</div>
-						@else 
-							@if($key === 1)
-							<div class="more-img">
-								<!-- <a href="#" class="prev"><i class="ion-ios-arrow-thin-left"></i></a> -->
-							@endif 
-								@if($key < 4)
-									@if($key === 1)
-									<img class="sub-img img1" src="{{asset('/storage')}}/{{$media->source}}" alt="">
-									@else
-									<img class="sub-img" src="{{asset('/storage')}}/{{$media->source}}" alt="">
-									@endif
-								@endif
-							@if($key + 1  == count($product->medias))
-								<!-- <a href="#" class="next"><i class="ion-ios-arrow-thin-right"></i></a> -->
-							</div>
-							@endif
-						@endif
-					@endforeach
-				@else
-					<div class="pro-img">
-						<img src="{{asset('/images/no-image.png')}}" alt="" class="product-main-img">
-					</div>
-				@endif 
-				</div>
-				<div class="col-md-8 col-sm-8 col-xs-12">
-					<div class="pro-list-it it">
-						
-						<h4 class="hd-after"><a href="#">{{$product->translation->name??$product->name}}</a></h4>
-						<span class="right">
-							<span class="star-rate small">
-                                @if($starAvg>=1)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                @endif
-                                @if($starAvg>=2)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-star-o"></i>
-                                @endif
-                                @if($starAvg>=3)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                @endif
-                                @if($starAvg>=4)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                @endif
-                                @if($starAvg>=5)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                @endif
-						 	</span><br>
-						 	<span class="rv">({{count($product->comments)}} @lang('product.reviews'))</span>
-						</span>
+		<ul class="breadcrumb">
+			<li><a href="#">Trang chủ</a></li>
 
-						@if($product->sold_off)
-							<span class="hot">Sold Off</span>
-						@elseif($product->call_for_price)
-							<span class="hot">Call for Price</span>
-						@else
-							@if(!$is_sales)
-								<span class="sub">{{FormatPrice::price($product->price)}}</span>
-							@else
-								<span class="price2">{{FormatPrice::price($product->price)}}</span>
-								<span class="sub">{{FormatPrice::price($product->special_price)}}</span>
-								<span class="hot">@lang('product.sale')</span>
-							@endif
-						@endif
-
-						<p class="para">{{$product->translation->summary??''}}</p>
-						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
-						@if(!$product->call_for_price && !$product->disable_buy_button && !$product->sold_off)
-							<div class="right-it">
-									<form class="quantity" method="post" action="#">
-										<div class="numbers-row">
-											<input type="text" name="quantity" id="french-hens" value="1">
-										</div>
-									</form>
-									
-									<span class="check">
-										<i class="fa fa-check-circle" aria-hidden="true"></i>@lang('common.in-stock')
-									</span>	
-							</div>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line">
-						@endif
-						<div class="pro-description"> 
-							<p>SKU:<span>{{$product->sku}}</span></p>
-							<p>@lang('common.categories'):<span>{{$product->category->translation->name??''}}</span></p>
-							<!-- <p>Expire date<span>01/11/2015</span></p> -->
-							<p>Tags:<span>
-                                    @foreach($product->tags as $tag)
-                                		{{$tag->name}}, 
-                                		@endforeach
-                                </span></p>
-						</div>
-						<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">
-						@if(!$product->call_for_price && !$product->disable_buy_button && !$product->sold_off)
-							<a class="readmore add-shoopingcart" href="javascript:void(0)">@lang('shoppings.add-cart')</a>
-							@if(!$product->disable_wishlist_button)
-							<a class="add-wishlist" href="javascript:void(0)"><i class="fa fa-heart wishlist-icon" aria-hidden="true"></i></a>
-							@endif
-						@endif
-
-						<a class="call" href="javascript:void(0)"><i class="fa fa-phone" aria-hidden="true"></i></a>
-						
-						<a class="chat" target="_blank" href="http://www.messenger.com/t/{{ Setting::config('messenger') }}"  data-toggle="tooltip" data-placement="top" title="{{ __('common.chat-details')}}"><i class="fa fa-weixin" aria-hidden="true"></i></a>
-
-						<div id="call-number" style="display:none;">
-							<br>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line-3">		
-							<!-- TODO: Get Phone from setting data -->
-						  	<h2 class="cmt-heading">{{ __('common.call-details')}}: {{ Setting::config('hotline') }}.</h2>
-						</div>
-					</div>	
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="tabs  blogsingle-content">
-					<span class="tab-links">
-						<li class="active"><a href="#tab1">@lang('product.description')</a></li>
-						<li><a href="#tab2">@lang('product.add-info')</a></li>
-						<li><a href="#tab3">@lang('product.reviews') <span>({{count($product->comments)}})</span></a></li>
-					</span>
-					<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4" width="100">
-				    <div class="tab-content">
-				        <div id="tab1" class="tab active comment list-item">
-				            <h2 class="cmt-heading">@lang('product.description')</span></h2>
-				            <div class="cmt-it pro-list-it ">
-								<div class="row">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-                                        {!!$product->translation->description??''!!}
-									</div>
-								
-								</div>
-							</div>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
-			
-				        </div>
-				        <div id="tab2" class="tab comment list-item">
-				           <h2 class="cmt-heading">@lang('product.specs')</span></h2>
-				            <div class="cmt-it pro-list-it ">
-								<div class="row">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-                                        <p>
-                                            {!!$product->translation->specs??''!!}
-                                        </p>
-									</div>
-								</div>
-							</div>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
-				        </div>
-				        <div id="tab3" class="tab comment list-item">
-				        	<h2 class="cmt-heading">@lang('product.reviews')({{count($product->comments)}})</span></h2>
-                            @foreach($product->comments as  $review)
-                            <div class="cmt-it pro-list-it ">
-								<div class="row">
-									<div class="col-md-2 col-sm-2 col-xs-2">
-										<img src="{{asset('frontend/images/uploads/cmt1.png')}}" alt="">
-									</div>
-									<div class="col-md-10 col-sm-10 col-xs-10">
-										<div class="cmt-content">
-											<h4><a href="#">{{$review->name}}</a><span class="date">{{date('M d, Y',strtotime($review->created_at))}}</span></h4>
-											<span class="right">
-												<span class="star-rate small">
-                                                    @if($review->rate>=1)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    @else
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    @endif
-                                                    @if($review->rate>=2)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    @else
-                                                    <i class="fa fa-star-o"></i>
-                                                    @endif
-                                                    @if($review->rate>=3)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    @else
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    @endif
-                                                    @if($review->rate>=4)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    @else
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    @endif
-                                                    @if($review->rate>=5)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    @else
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    @endif
-											 	</span>
-											</span>
-											<p>{{$review->comment}}</p>
-											<a class="reply" href="#review-form"><i class="fa fa-reply" aria-hidden="true"></i>@lang('product.comment')</a>
-										</div>	
-									</div>
-								</div>
-							</div>
-							<img src="{{asset('frontend/images/uploads/div-line.png')}}" alt="" class="div-line4">
-                            @endforeach
-                            
-			       	 	</div>
-				    </div>
-				    <!-- comment form -->
-					<form id="review-form" method="post" action="{{url('/products')}}/{{$product->id}}/review"  class="post-cmt">
-                    {{ csrf_field() }}
-                    <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
-                        <label>@lang('product.add-review')</label>
-                            @guest
-							<div class="row">
-								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input name="name" class="name" type="text" placeholder="{{ __('profile.name')}}">
-								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input name="email" class="email" type="text" placeholder="E-{{ __('profile.email')}}*">
-								</div>
-								<div class="col-md-4 col-sm-4 col-xs-12">
-									<input name="website" class="website" type="text" placeholder="Website">
-								</div>
-                            </div>
-                            @else
-                            <input type="hidden" id="reviewer_id" name="reviewer_id" value="{{Auth::user()->id}}">
-                            <input type="hidden" id="name" name="name" value="{{Auth::user()->last_name}} {{Auth::user()->first_name}}">
-                            <input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
-                            <input type="hidden" id="website" name="website" value="">
-                            @endguest
-							<div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <!-- Rating -->
-                                    <select name="rate">
-                                        <option value="0">-- @lang('product.select-one')--</option>
-                                        <option value="1">1 Star</option>
-                                        <option value="2">2 Star</option>
-                                        <option value="3">3 Star</option>
-                                        <option value="4">4 Star</option>
-                                        <option value="5">5 Star</option>
-                                    </select>
-                                </div>
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<input name="comment" class="comt" type="textarea" placeholder="{{ __('product.comment')}}*">
-								</div>
-                            </div>
-							<input class="submit" type="submit" value="{{ __('product.send-review')}}">
-					</form>
-				</div>
-			</div>
-		</div>
+			<li><a href="#">Sản phẩm</a></li>
+			<li class="active">{{$product->translation->name??$product->name}}</li>
+		</ul>
 	</div>
 </section>
 
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="product-view">
+				<div class="product-essential">
+					<div class="row">
+						<div class="product-img-box col-sm-5">
+							<div class="product-img-box-wrapper">
+                                <div class="product-img-wrapper">
+                                	<img id="product-zoom" src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" data-zoom-image="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product main image">
+                                </div>
+
+								<a href="#" class="product-img-zoom" title="Zoom">
+									<span class="glyphicon glyphicon-search"></span>
+								</a>
+							</div>
+
+							<div class="owl-carousel manual" id="productGalleryThumbs">
+								@foreach($product->medias as $media)
+								<div class="product-img-wrapper">
+									<a href="#" data-image="{{asset('/storage')}}/{{$media->source}}" data-zoom-image="{{asset('/storage')}}/{{$media->source}}" class="product-gallery-item">
+                                        <img src="{{asset('/storage')}}/{{$media->source}}" alt="product">
+                                    </a>
+								</div>
+								@endforeach
+								
+								
+							
+							</div>
+						</div>
+
+						<div class="product-details-box col-sm-7">
+							<h1 class="product-name">
+								{{$product->translation->name??$product->name}}
+							</h1>
+
+							<div class="product-rating-container">
+                                <div class="product-ratings">
+									<div class="ratings-box">
+										<div class="rating" style="width:60%"></div>
+									</div>
+								</div>
+                                <div class="review-link">
+                                    <a href="#" class="review-link-in" rel="nofollow"> <span class="count">{{count($product->comments)}}</span> đánh giá từ khách hàng</a> | 
+                                    <a href="#" class="write-review-link" rel="nofollow">Đánh giá sản phẩm</a>
+                                </div>
+                            </div>
+
+                            <div class="product-short-desc">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							</div>
+
+							<div class="product-detail-info">
+								<div class="product-price-box">
+									@if(!$is_sales)
+									<span class="product-price">{{FormatPrice::price($product->price)}}</span>
+									@else
+									<span class="old-price">{{FormatPrice::price($product->price)}}</span>
+									<span class="product-price">{{FormatPrice::price($product->special_price)}}</span>
+									@endif
+								</div>
+								@if(!$product->call_for_price && !$product->disable_buy_button && !$product->sold_off)
+								<p class="availability">
+									<span class="font-weight-semibold">Tình trạng kho:</span>
+									Còn hàng
+								</p>
+								@endif
+							</div>
+
+							<div class="product-detail-options">
+								<div class="row">
+									<div class="col-xs-6">
+										<label><span class="required">*</span>Màu sắc:<span class="text-primary">Đen</span></label>
+										<ul class="configurable-filter-list filter-list-color">
+											<li>
+												<a href="#">
+													<span style="background-color: #000"></span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span style="background-color: #21284f"></span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span style="background-color: #272725"></span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span style="background-color: #006b20"></span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span style="background-color: #68686a"></span>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="col-xs-6">
+										<label><span class="required">*</span>Size:<span class="text-primary">S</span></label>
+										<ul class="configurable-filter-list">
+											<li>
+												<a href="#">S</a>
+											</li>
+											<li>
+												<a href="#">M</a>
+											</li>
+											<li>
+												<a href="#">L</a>
+											</li>
+											<li>
+												<a href="#">XL</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="product-actions">
+								<div class="product-detail-qty">
+                                    <input type="text" value="1" name="quantity" class="vertical-spinner" id="product-vqty">
+                                </div>
+								<a href="#" class="addtocart" title="Add to Cart">
+									<i class="fa fa-shopping-cart"></i>
+									<span>Thêm vào giỏ hàng</span>
+								</a>
+								
+								<div class="actions-right">
+									<a href="#" class="addtowishlist" title="Thêm vào Wishlist">
+										<i class="fa fa-heart"></i>
+									</a>
+								</div>
+							</div>
+
+							<div class="product-share-box">
+								<div class="addthis_inline_share_toolbox"></div>
+								 
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel-group produt-panel" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1One">
+									Mô tả sản phẩm
+								</a>
+							</h4>
+						</div>
+						<div id="collapse1One" class="accordion-body collapse">
+							<div class="panel-body">
+								<div class="product-desc-area">
+									{!!$product->translation->description??''!!}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1Two">
+									Thông tin khác
+								</a>
+							</h4>
+						</div>
+						<div id="collapse1Two" class="accordion-body collapse">
+							<div class="panel-body">
+								{!!$product->translation->specs??''!!}
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1Four">
+									Đánh giá ({{count($product->comments)}})
+								</a>
+							</h4>
+						</div>
+						<div id="collapse1Four" class="accordion-body collapse">
+							<div class="panel-body">
+								<div class="add-product-review">
+									<h3 class="text-uppercase heading-text-color font-weight-semibold">CHO CHÚNG TÔI BIẾT CẢM NHẬN CỦA BẠN</h3>
+									<form action="#">
+										<table class="ratings-table">
+											<thead>
+												<tr>
+													<th>1 sao</th>
+													<th>2 sao</th>
+													<th>3 sao</th>
+													<th>4 sao</th>
+													<th>5 sao</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<input type="radio" name="ratings[1]" id="Quality_1" value="1" class="radio">
+													</td>
+													<td>
+														<input type="radio" name="ratings[1]" id="Quality_2" value="2" class="radio">
+													</td>
+													<td>
+														<input type="radio" name="ratings[1]" id="Quality_3" value="3" class="radio">
+													</td>
+													<td>
+														<input type="radio" name="ratings[1]" id="Quality_4" value="4" class="radio">
+													</td>
+													<td>
+														<input type="radio" name="ratings[1]" id="Quality_5" value="5" class="radio">
+													</td>
+												</tr>
+											</tbody>
+										</table>
+
+										<div class="form-group">
+											<label>Tên<span class="required">*</span></label>
+											<input type="text" class="form-control" required>
+										</div>
+										<div class="form-group">
+											<label>Đánh giá chung<span class="required">*</span></label>
+											<input type="text" class="form-control" required>
+										</div>
+										<div class="form-group mb-xlg">
+											<label>Đánh giá chi tiết<span class="required">*</span></label>
+											<textarea cols="5" rows="6" class="form-control"></textarea>
+										</div>
+
+										<div class="text-right">
+											<input type="submit" class="btn btn-primary" value="Submit Review">
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<h2 class="slider-title">
+                <span class="inline-title">Sản phẩm được yêu thích</span>
+                <span class="line"></span>
+            </h2>
+
+            <div class="owl-carousel owl-theme" data-plugin-options="{'items':4, 'margin':20, 'nav':true, 'dots': false, 'loop': false}">
+				@foreach($best_seller_products as $product)
+				<div class="product">
+					<figure class="product-image-area">
+						<a href="#" title="Product Name" class="product-image">
+							<img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name">
+							<img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name" class="product-hover-image">
+						</a>
+						<div class="product-label"><span class="discount">-10%</span></div>
+						<div class="product-label"><span class="new">New</span></div>
+					</figure>
+					<div class="product-details-area">
+						<h2 class="product-name"><a href="#" title="Product Name">{{$product->translation->name??$product->name}}</a></h2>
+						<div class="product-ratings">
+							<div class="ratings-box">
+								<div class="rating" style="width:60%"></div>
+							</div>
+						</div>
+
+						<div class="product-price-box">
+							@if(!$is_sales)
+							<span class="product-price">{{FormatPrice::price($product->price)}}</span>
+							@else
+							<span class="old-price">{{FormatPrice::price($product->price)}}</span>
+							<span class="product-price">{{FormatPrice::price($product->special_price)}}</span>
+							@endif
+						</div>
+
+						<div class="product-actions">
+							<a href="#" class="addtowishlist" title="Thêm vào Wishlist">
+								<i class="fa fa-heart"></i>
+							</a>
+							<a href="javascript:void(0)" class="addtocart" title="Thêm vào giỏ hàng">
+								<i class="fa fa-shopping-cart"></i>
+								<span>Thêm vào giỏ hàng</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				@endforeach
+			</div>
+		</div>
+		<aside class="col-md-3 sidebar product-sidebar">
+			<div class="feature-box feature-box-style-3">
+				<div class="feature-box-icon">
+					<i class="fa fa-truck"></i>
+				</div>
+				<div class="feature-box-info">
+					<h4>MIỄN PHÍ VẬN CHUYỂN</h4>
+					<p class="mb-none">Miễn phí vận chuyển mọi đơn hàng trên 500k.</p>
+				</div>
+			</div>
+
+			<div class="feature-box feature-box-style-3">
+				<div class="feature-box-icon">
+					<i class="fa fa-dollar"></i>
+				</div>
+				<div class="feature-box-info">
+					<h4>HOÀN TIỀN 100%</h4>
+					<p class="mb-none">Khi có bất cứ sai sót nào về sản phẩm.</p>
+				</div>
+			</div>
+
+			<div class="feature-box feature-box-style-3">
+				<div class="feature-box-icon">
+					<i class="fa fa-support"></i>
+				</div>
+				<div class="feature-box-info">
+					<h4>HỖ TRỢ ONLINE 24/7</h4>
+					<p class="mb-none">Hỗ trợ thông qua Messenger và Skyple.</p>
+				</div>
+			</div>
+
+			<hr class="mt-xlg">
+
+			<div class="owl-carousel owl-theme" data-plugin-options="{'items':1, 'margin': 5}">
+				<a href="#">
+					<img class="img-responsive" src="{{asset('frontend/img/demos/shop/banners/banner1.jpg')}}" alt="Banner">
+				</a>
+				<a href="#">
+					<img class="img-responsive" src="{{asset('frontend/img/demos/shop/banners/banner2.jpg')}}" alt="Banner">
+				</a>
+			</div>
+
+			<hr class="mb-xlg">
+		</aside>
+	</div>
+</div>
 
 @endsection
 
 @section('scripts')
 
+<!-- Current Page Vendor and Views -->
+<script src="{{asset('frontend/js/views/view.contact.js')}}"></script>
+
+<script src="{{asset('frontend/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+<script src="{{asset('frontend/vendor/elevatezoom/jquery.elevatezoom.js')}}"></script>
 
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
 <script>
      $(document).ready(function(){      
-        $('.add-shoopingcart').click(function() {
+        $('.addtocart').click(function() {
             var quantity = $("input[name='quantity']").val();
             $.ajax({
                type:'POST',
@@ -309,7 +382,7 @@
                success:function(response){
                     console.log(response['newCartItemCount']); //debug
 					//$('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
-					$('.cartItemCount').html('(' + response['newCartItemCount'] + ')' );//+ '{{trans('shoppings.items')}}' 
+					$('.cart-qty').html('(' + response['newCartItemCount'] + ')' );//+ '{{trans('shoppings.items')}}' 
                },
                error:function(response){
                     console.log(response['newCartItemCount']); //debug
@@ -317,7 +390,7 @@
             });
 		});
 		
-		$('.add-wishlist').click(function() {
+		$('.addtowishlist').click(function() {
 			// $(this).effect("shake", {
             //     times: 1
 			// }, 200);
@@ -349,17 +422,6 @@
 		    } else {
 		        x.style.display = "none";
 		    }
-		});
-		$(".product-main-img").elevateZoom();
-
-		$(".pro-detail-infor .more-img .sub-img").click(function() {
-			var mainImage = $(".pro-detail-infor .pro-img img").attr("src");
-			var img = $(this).attr('src');
-			$(".pro-detail-infor .pro-img img").attr("src", img);
-			$(this).attr('src', mainImage);
-			$(".product-main-img").elevateZoom();
-			console.log(img);
-			console.log(mainImage);
 		});
     });
 </script>

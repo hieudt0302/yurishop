@@ -25,7 +25,7 @@ class MenuController extends Controller
             //RELATED
             $tags = Tag::has('products')->get();
             $comments = Tag::has('products')->get();
-            $lastProducts = Product::where('published',1)->take(4)->get(); 
+            $lastProducts = Product::where('published',1)->take(6)->get(); 
 
             // GET PRODUCTS
             $results = $category->publishedProducts()
@@ -37,10 +37,10 @@ class MenuController extends Controller
                 ->Where('product_translations.name','LIKE', '%'. $search . '%')
 				->groupBy('product_id');
             })
-            ->paginate(21);  
+            ->paginate(12);  
 
             return View('front/products/index', compact('results','tags','comments', 'lastProducts','category','parent','slug'))
-            ->with('i', ($page??1 - 1) * 21);
+            ->with('i', ($page??1 - 1) * 12);
 
         } elseif ($parent == "posts") {
 
