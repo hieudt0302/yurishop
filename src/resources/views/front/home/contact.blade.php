@@ -3,90 +3,81 @@
 @section('title','Pô Kô Farms - '.__('header.contact'))
 @section('content')
 
-<!-- Head Section -->
-<div class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>@lang('header.contact')</h1>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Head Section -->
+<div class="container">
 
-<section class="contact blogsingle">
-    <div class="container">
-        @include('notifications.status_message') 
-        @include('notifications.errors_message')
-        @if (session()->has('success_message'))
-            <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div>
-        @endif
-        @if (session()->has('error_message'))
-            <div class="alert alert-danger">
-                {{ session()->get('error_message') }}
-            </div>
-        @endif
-        <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="contact-left">
-                    <div class="ct-it">
-                        <h4>@lang('contact.address')</h4>
-                        {{ Setting::config('address') }}
-                        <hr>
-                    </div>
-                    <div class="ct-it">
-                        <h4>@lang('contact.phone')</h4>
-                        <p>Mobile: {{ Setting::config('phone') }}<br>
-                        Hotline: {{ Setting::config('hotline') }}</p>
-                        <hr>
-                    </div>
-                    <div class="ct-it">
-                        <h4>@lang('contact.email')</h4>
-                        <p>{{ Setting::config('email') }}</p>
-                        <hr>
-                    </div>
-                    <div class="ct-it ct-icon">
-                        <h4>@lang('contact.social')</h4><br>
-                        <a target="_blank" href="http://www.facebbook.com/{{ Setting::config('facebook') }}"><i class="fa fa-facebook" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Facebook"></i></a>
-                        <a target="_blank" href="http://www.twitter.com/{{ Setting::config('twitter') }}"><i class="fa fa-twitter" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Twitter"></i></a>
-                        <a target="_blank" href="http://www.youtube.com/{{ Setting::config('youtube') }}"><i class="fa fa-youtube-play" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Youtube"></i></a>
-                        <a target="_blank" href="http://www.vimeo.com/{{ Setting::config('vimeo') }}"><i class="fa fa-vimeo" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Vimeo"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8 col-sm-8 col-xs-12">
-                <div class="contact-form blogsingle-content">
-                    <!-- comment form -->
-                    {!! Form::open(array('route' => 'front.send-contact', 'class' => 'post-cmt')) !!}
-                        <label>@lang('contact.review')</label>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                <input class="name" type="text" name="name" placeholder="@lang('contact.name')">
-                            </div>
-                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                <input class="email" type="text" name="email" placeholder="@lang('contact.email')*">
-                            </div>
-                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                <input class="website" type="text" name="phone" placeholder="@lang('contact.phone')">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                <input  class="comt" type="text" name="message" placeholder="@lang('contact.message')*">
-                            </div>
-                        </div>
-                        <input class="submit" type="submit" value="@lang('contact.submit')">
-                    {!! Form::close() !!}
-                </div>
-            </div>
-        </div>
+    <div class="row">
         <br><br><br>
+        <div class="col-md-6">
+            @if (session()->has('success_message'))
+            <div class="alert alert-success mt-lg" id="contactSuccess">
+                <strong>Thành công!</strong> Tin nhắn của bạn đã được gửi tới chúng tôi.
+            </div>
+            @endif
+                
+            @if (session()->has('error_message'))
+            <div class="alert alert-danger  mt-lg" id="contactError">
+                <strong>Lỗi!</strong> Tin nhắn chưa được gửi.
+                <span class="font-size-xs mt-sm display-block" id="mailErrorMessage"></span>
+            </div>
+            @endif
+
+            <h2 class="mb-sm mt-sm"><strong>Liên hệ</strong></h2>
+            {!! Form::open(array('route' => 'front.send-contact', 'class' => 'post-cmt')) !!}
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label>Tên *</label>
+                            <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Email *</label>
+                            <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label>Tiêu đề</label>
+                            <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control" name="subject" id="subject" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label>Tin nhắn *</label>
+                            <textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="message" id="message" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="submit" value="Gửi" class="btn btn-primary btn-lg mb-xlg" data-loading-text="Loading...">
+                    </div>
+                </div>
+            {!! Form::close() !!}
+        </div>
+        <div class="col-md-6">
+
+            <h4 class="heading-primary"><strong>Cửa hàng chính</strong></h4>
+            <ul class="list list-icons list-icons-style-3 mt-xlg">
+                <li><i class="fa fa-map-marker"></i> <strong>Địa chỉ:</strong> {{ Setting::config('address') }}</li>
+                <li><i class="fa fa-phone"></i> <strong>Phone:</strong> {{ Setting::config('phone') }}</li>
+                <li><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com"> {{ Setting::config('email') }}</a></li>
+            </ul>
+
+            <hr>
+
+            <h4 class="heading-primary"><strong>Giờ mở cửa</strong></h4>
+            <ul class="list list-icons list-dark mt-xlg">
+                <li><i class="fa fa-clock-o"></i> Thứ 2 - Thứ 6 : 9am - 5pm</li>
+                <li><i class="fa fa-clock-o"></i> Thứ 7 - Chủ Nhật: 9am - 2pm</li>
+            </ul>
+
+        </div>
+
     </div>
-</section>
-    <!-- Subscribe -->
-    @include('front.home.subscribe')
-    <!-- End Subscribe -->    
+
+</div>
 @endsection

@@ -4,42 +4,46 @@
 @section('title','Pô Kô Farms - FAQ')
 @section('content')
 <!-- Head Section -->
-<div class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>@lang('common.faq')</h1>
-            </div>
-        </div>
-    </div>
-</div>
+<section class="page-header mb-lg">
 
-<div class="aboutplantads">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="plantads-r">
-                    <div class="panel-group" id="accordion">
-                        @foreach ($faqs as $faq)
-                        <div class="panel panel-default">
-                           <div class="panel-heading">
-                              <h4 class="panel-title">
-                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$faq->id}}">
-                                 {{$faq->translation->question}}
-                                 </a>
-                              </h4>
-                           </div><!--/.panel-heading -->
-                           <div id="collapse-{{$faq->id}}" class="panel-collapse collapse">
-                              <div class="panel-body">
-                                 <p>{{$faq->translation->answer}}</p>
-                              </div><!--/.panel-body -->
-                           </div><!--/.panel-collapse -->
-                        </div><!-- /.panel --> 
-                        @endforeach                       
-                    </div><!-- /.panel-group -->
-                </div>
-            </div>
-        </div>
+        <ul class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
+
+            <li class="active">FAQ</li>
+        </ul>
     </div>
+</section>
+<div class="container">
+
+  <h2>Câu hỏi thường gặp</h2>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p class="lead">
+        Xin vui lòng tham khảo nội dung dưới cho những vấn đề thường gặp, nếu không đủ hoặc chưa thỏa mãn, vui lòng liên hệ với chúng tôi qua địa chỉ Messenger hoặc Skype ở phía dưới.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="toggle toggle-primary" data-plugin-toggle>
+        @foreach ($faqs as $faq)
+        <section class="toggle">
+          <label>{{$faq->translation->question}}</label>
+          <p>{{$faq->translation->answer}}</p>
+        </section>
+        @endforeach  
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 @endsection
