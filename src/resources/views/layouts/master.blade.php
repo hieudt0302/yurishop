@@ -44,10 +44,10 @@
 		<link rel="stylesheet" href="{{asset('frontend/vendor/rs-plugin/css/navigation.css')}}">
 
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="{{asset('frontend/css/skins/skin-shop-4.css')}}"> 
+		<link rel="stylesheet" href="{{asset('frontend/css/skins/skin-shop-8.css')}}"> 
 
 		<!-- Demo CSS -->
-		<link rel="stylesheet" href="{{asset('frontend/css/demos/demo-shop-4.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/css/demos/demo-shop-8.css')}}">
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">
@@ -90,7 +90,7 @@
 		<script src="{{asset('frontend/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
 		<script src="{{asset('frontend/vendor/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
 		<script src="{{asset('frontend/vendor/vide/vide.min.js')}}"></script>
-		
+		<script type="text/javascript" src="{{ asset('frontend/js/jquery.ajaxchimp.min.js') }}"></script> 
 		<!-- Theme Base, Components and Settings -->
 		<script src="{{asset('frontend/js/theme.js')}}"></script>
 

@@ -73,7 +73,7 @@
                 <div class="header-column">
                     <div class="header-logo">
                         <a href="demo-shop-4.html">
-                            <img alt="Porto" width="111" height="51" src="{{asset('frontend/img/demos/shop/logo-shop-white.png')}}">
+                            <img alt="Porto" width="111" height="51" src="{{asset('frontend/img/demos/shop/logo-shop-red.png')}}">
                         </a>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                                 <i class="fa fa-phone"></i>
                                 <span>0945889886</span>
                                 <span class="split"></span>
-                                <a href="{{ url('/contacts') }}">LIÊN HỆ</a>
+                                <a href="{{ url('/contact') }}">LIÊN HỆ</a>
                             </div>
 
                             <div class="cart-dropdown">
@@ -177,32 +177,21 @@
                                     Trang chủ
                                 </a>
                             </li>
+                            @foreach($products_menu as $menu)
                             <li>
-                                <a href="{{ url('/')}}">
-                                    Mỹ phẩm <span class="tip tip-hot">Hot!</span>
+                                <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}">
+                                    {{$menu->translation->name??$menu->name}}
                                 </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/')}}">
-                                    Thời trang
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/')}}">
-                                    Mẹ và bé <span class="tip tip-hot">Hot!</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('/')}}">
-                                    Sản phẩm khác
-                                </a>
-                            </li>                                                                                                                                           
-                            
+                            </li>                                                                                                                                         
+                            @endforeach
+
+                            @foreach($blogs_menu as $menu)
                             <li class="pull-right">
-                                <a href="demo-shop-4-contact-us.html">
-                                    Blog 
+                                <a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}">
+                                    {{$menu->translation->name??$menu->name}}
                                 </a>
                             </li>
+                            @endforeach                          
                         </ul>
                     </nav>
                 </div>

@@ -29,33 +29,24 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $about_us = InfoPage::where('slug','about')->first();
-        $product_origin = InfoPage::where('slug','product-origin')->first();
-        $product_quality = InfoPage::where('slug','product-quality')->first();
-        $pokofarms_message = InfoPage::where('slug', 'pokofarms-message')->firstOrFail();        
-        $video_message = InfoPage::where('slug', 'video-message')->firstOrFail(); 
-                
-        $community_category = Category::where('slug', 'community')->firstOrFail();
-
-
+    {               
         // $new_products = Product::where('published',1)->orderBy('created_at', 'desc')->limit(4)->get();
        
-        $specialty_coffee = Product::leftJoin('categories','products.category_id','=','categories.id')
-                                        ->where('products.published',1)
-                                        ->where('categories.slug','specialty-coffee') ///This is hard-code
-                                        ->orderBy('products.created_at', 'desc')
-                                        ->limit(4)
-                                        ->select('products.*')
-                                        ->get();
+        // $specialty_coffee = Product::leftJoin('categories','products.category_id','=','categories.id')
+        //                                 ->where('products.published',1)
+        //                                 ->where('categories.slug','specialty-coffee') ///This is hard-code
+        //                                 ->orderBy('products.created_at', 'desc')
+        //                                 ->limit(4)
+        //                                 ->select('products.*')
+        //                                 ->get();
 
-        $commercial_coffee = Product::leftJoin('categories','products.category_id','=','categories.id')
-                                        ->where('products.published',1)
-                                        ->where('categories.slug','commercial-coffee') ///This is hard-code
-                                        ->orderBy('products.created_at', 'desc')
-                                        ->limit(4)
-                                        ->select('products.*')
-                                        ->get();
+        // $commercial_coffee = Product::leftJoin('categories','products.category_id','=','categories.id')
+        //                                 ->where('products.published',1)
+        //                                 ->where('categories.slug','commercial-coffee') ///This is hard-code
+        //                                 ->orderBy('products.created_at', 'desc')
+        //                                 ->limit(4)
+        //                                 ->select('products.*')
+        //                                 ->get();
 
         // $best_sellers_products = Product::join('order_details','products.id', '=', 'order_details.product_id')
         //                                 ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
@@ -76,7 +67,7 @@ class HomeController extends Controller
         $sliders = Slider::where('is_show',1)->get();      
 
         //var_dump($best_sellers_products); die();  
-        return View("front/home/index",compact('about_us', 'product_origin', 'product_quality', 'pokofarms_message', 'video_message', 'specialty_coffee', 'commercial_coffee', 'sale_products', 'new_blogs','sliders','community_category'));
+        return View("front/home/index",compact('sale_products', 'new_blogs','sliders'));
 
     }
 

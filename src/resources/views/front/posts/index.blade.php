@@ -79,7 +79,7 @@
                 <h4>Danh mục blog</h4>
                 <ul class="nav nav-list">
                     @foreach($categories as $category)
-                    <li><a href="{{url('/menu')}}/{{$post_category->slug}}/{{$category->slug}}">{{$category->translation->name}}</a></li>
+                    <li><a href="{{url('/subject')}}/{{$post_category->slug}}/{{$category->slug}}">{{$category->translation->name}}</a></li>
                     @endforeach
                 </ul>
 

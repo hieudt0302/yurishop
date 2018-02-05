@@ -105,9 +105,9 @@
                     <div id="panel-filter-category" class="accordion-body collapse in">
                         <div class="panel-body">
                             <ul>
-                                <li><a href="#">Mỹ Phẩm</a></li>
-                                <li><a href="#">Thời Trang</a></li>
-                                <li><a href="#">Mẹ &amp; Bé</a></li>
+                                @foreach($products_menu as $menu)
+                                <li><a href="{{url('/subject')}}/{{$menu->parent->slug}}/{{$menu->slug}}">{{$menu->translation->name??$menu->name}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

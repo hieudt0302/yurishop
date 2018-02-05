@@ -25,29 +25,20 @@ class AppServiceProvider extends ServiceProvider
 		
 		if(DB::connection()->getDatabaseName()){
 			if (Schema::hasTable('categories')) {
-                $blogCategory = Category::where('slug','posts')->first();
+                $productsCategory = Category::where('slug','products')->first();
+                $blogsCategory = Category::where('slug','posts')->first();
 
-				$blog_menu = Category::where('is_menu_avaiable',1)
-                ->where('parent_id',$blogCategory->id??0)
+				$products_menu = Category::where('is_menu_avaiable',1)
+                ->where('parent_id',$productsCategory->id??0)
 				->orderBy('order','asc')
 				->get();
 
-                $product_menu = Category::where('slug','products')->first();                
-
-                // $footer_galleries = Gallery::where('published', true)->orderBy('updated_at', 'desc')->limit(9)->get();
-               
-                // $latestMediaOfGallery = Media::whereIn('id', DB::Raw('select gm.media_id from gallery_media as gm left join galleries as g on gm.gallery_id = g.id where g.published = 1'))
-                // ->limit(9)
-                // ->get();
-
-                $latestMediaOfGallery = null;
-                if (Schema::hasTable('gallery_media')) {
-                    $latestMediaOfGallery = Media::whereRaw('id in (select gm.media_id from gallery_media as gm left join galleries as g on gm.gallery_id = g.id where g.published = 1)')
-                    ->limit(9)
-                    ->get();
-                }
+                $blogs_menu = Category::where('is_menu_avaiable',1)
+                ->where('parent_id',$blogsCategory->id??0)
+                ->orderBy('order','asc')
+                ->get();                            
                 
-				 View::share(['blog_menu' => $blog_menu, 'product_menu' => $product_menu, 'latestMediaOfGallery' => $latestMediaOfGallery ]);
+				 View::share(['blogs_menu' => $blogs_menu, 'products_menu' => $products_menu]);
 			}
         }
         
