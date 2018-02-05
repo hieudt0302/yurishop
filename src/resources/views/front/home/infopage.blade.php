@@ -4,37 +4,31 @@
 @section('content')
 
 <!-- Head Section -->
-<div class="hero">
+<section class="page-header mb-lg">
+
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>{{$info_page_translation->title}}</h1>
-            </div>
-        </div>
+        <ul class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
+
+            <li class="active">{{$info_page_translation->title}}</li>
+        </ul>
     </div>
-</div>
+</section>
 <!-- End Head Section -->
 
 
 <!-- Info Page Section -->
-<section class="page-section" id="about">
-    <div class="container relative">
-        <div class="section-text mb-50 mb-sm-20">
-            <div class="row">
-                <div class="infopage-content">
-                    {!! $info_page_translation->content !!}
-                </div>
-            </div>
+<div class="container">
+
+    <h2><strong>{{$info_page_translation->title}}</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <p>{!! $info_page_translation->content !!}</p>
         </div>
     </div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="farm-img">
-            <img src="{{asset('frontend/images/uploads/infopage-bg-footer.jpg')}}" alt="farm">
-        </div>
-    </div>
-</div>    
-</section>
+
+</div>
 
 <!-- End Info Page Section -->
 

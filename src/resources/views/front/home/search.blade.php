@@ -3,134 +3,148 @@
 @section('content')
 
 <!-- Head Section -->
-<div class="hero">
+<section class="page-header mb-lg">
+
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>@lang('common.search-results')</h1>
-            </div>
-        </div>
+        <ul class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
+
+            <li class="active">Kết quả tìm kiếm</li>
+        </ul>
     </div>
-</div>
+</section>
 <!-- End Head Section -->
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 col-md-push-3">
+            <div class="toolbar mb-none">
+                <div class="sorter">
+                    <div class="sort-by">
+                        <label>Sắp xếp theo:</label>
+                        <select>
+                            <option value="Name">Tên</option>
+                            <option value="Price">Giá</option>
+                        </select>
+                    </div>
 
-<section class="shopgrid products">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="heading-sec">
-                    <h1>@lang('header.products')</h1>                
-                </div>              
+                    <ul class="pagination">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="left">
-                @if(!empty($search_key) && count($products)==0)
-                    @lang('common.zero-search-message')&nbsp;{{$search_key}}
-                @endif 
-            </div>            
-        </div>
-        @foreach($products as $key => $product_tran)
-            @if($key == 0 || $key%4 === 0)
-            <div class="row">
-                <div class="products-it">
-            @endif                    
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="pro-it">
-                            <a href="{{url('/products')}}/{{$product_tran->product->slug}}">
-                            <img class="pro-img" src="{{ asset('/storage') }}/{{$product_tran->product->GetMediaByOrderAsc()->source??'images/no-image.png'}}" alt="">
-                            <div class="pro-infor">
-                                <h2>{{$product_tran->name??$product_tran->product->name}}</h2>
-                                <span class="pro-cost">{{$product_tran->product->price}}</span>
+
+            <ul class="products-list">
+                @if(count($products)!=0)
+                @foreach($products as $product)
+                <li>
+                    <div class="product product-list">
+                        <figure class="product-image-area">
+                            <a href="{{url('/products')}}/{{$product->slug}}" title="Product Name" class="product-image">
+                                <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name">
+                            </a>
+                            <div class="product-label"><span class="discount">-10%</span></div>
+                            <div class="product-label"><span class="new">New</span></div>
+                        </figure>
+                        <div class="product-details-area">
+                            <h2 class="product-name"><a href="demo-shop-4-product-details.html" title="Product Name">{{$product->translation->name??$product->name}}</a></h2>
+                            <div class="product-ratings">
+                                <div class="ratings-box">
+                                    <div class="rating" style="width:60%"></div>
+                                </div>
+                            </div>
+
+                            <div class="product-price-box">
+                                <span class="old-price">$99.00</span>
+                                <span class="product-price">{{FormatPrice::price($product->price)}}</span>
+                            </div>
+
+                            <div class="product-actions">
+                                <a href="#" class="addtowishlist" title="Add to Wishlist">
+                                    <i class="fa fa-heart"></i>
+                                </a>
+                                <a href="#" class="addtocart" title="Add to Cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Thêm vào giỏ hàng</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-            @if(($key > 0 && ($key+1) %4 === 0) || $key +1 ===count($products))
-                </div>
-            </div>
-            @endif
-        @endforeach
-        
-        
-        <div class="row">
-            <div class="blogpanigation">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-<!--                     <ul>
-                        <li class="prev"><a href="#">prev</a></li>
-                        <li class="num"><a href="#">1</a></li>
-                        <li class="num active"><a href="#">2</a></li>
-                        <li class="num"><a href="#">3</a></li>
-                        <li><a href="#">...</a></li>
-                        <li class="num2"><a href="#">13</a></li>
-                        <li class="num2"><a href="#">14</a></li>
-                        <li class="next"><a href="#">next</a></li>
-                    </ul> -->
-                    {{ $products->links() }}
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                </li>
+                @endforeach
+                @endif      
+            </ul>
 
-<hr>
-
-<div class="blog">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="heading-sec">
-                    <h1>@lang('header.blogs')</h1>
-                </div>
-            </div>
-        </div>      
-        <div class="row">
-
-            <div class="left">
-                @if(!empty($search_key) && count($posts)==0)
-                    @lang('common.zero-search-message')&nbsp;{{$search_key}}
-                @endif 
-            </div>
-
-            @if(!empty($search_key) && count($posts)!=0)
-            @foreach($posts as $post_tran)
-            @if($post_tran->post->published)
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <div class="blog-it-left">
-                    <a href="{{url('/posts')}}/{{$post_tran->post->slug}}">
-                        <img class="blog-img" src="{{asset('/storage/images/blog/')}}/{{$post_tran->post->img}}" alt="">
-                    </a>
-                    <div class="blog-ct-left">
-                        <div class="date">
-                            <span>{!! date('F jS, Y', strtotime($post_tran->post->updated_at)) !!}</span>
-                        </div>
-                        <h2><a href="{{url('/posts')}}/{{$post_tran->post->slug}}"> {{ $post_tran->title??'' }} </a></h2>
-                        <p> {{ $post_tran->excerpt??'' }} </p>
-                        <a class="readmore2" href="{{url('/posts')}}/{{$post_tran->post->slug}}">/ &nbsp; @lang('common.more-details')</a>
+            <div class="toolbar-bottom">
+                <div class="toolbar">
+                    <div class="sorter">
+                        <ul class="pagination">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            @endif
-            @endforeach
-            @endif
         </div>
 
-        <div class="row">
-            <div class="blogpanigation">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-<!--                     <ul>
-                        <li class="prev"><a href="#">prev</a></li>
-                        <li class="num"><a href="#">1</a></li>
-                        <li class="num active"><a href="#">2</a></li>
-                        <li class="num"><a href="#">3</a></li>
-                        <li><a href="#">...</a></li>
-                        <li class="num2"><a href="#">13</a></li>
-                        <li class="num2"><a href="#">14</a></li>
-                        <li class="next"><a href="#">next</a></li>
-                    </ul> -->
-                    {{ $posts->links() }}
+        <aside class="col-md-3 col-md-pull-9 sidebar shop-sidebar">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" href="#panel-filter-category">
+                                Danh mục
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="panel-filter-category" class="accordion-body collapse in">
+                        <div class="panel-body">
+                            <ul>
+                                <li><a href="#">Mỹ Phẩm</a></li>
+                                <li><a href="#">Thời Trang</a></li>
+                                <li><a href="#">Mẹ &amp; Bé</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>    
+
+            <h4>Sản phẩm mới</h4>
+            <div class="owl-carousel owl-theme" data-plugin-options="{'items':1, 'margin': 5, 'dots': false, 'nav': true}">
+                @php($index = 0)
+                @foreach($lastProducts as $product)
+                @if($index == 0 || $index % 3 == 0)                
+                <div>
+                @endif                                      
+                    <div class="product product-sm">
+                        <figure class="product-image-area">
+                            <a href="{{url('/products')}}/{{$product->slug}}" title="Product Name" class="product-image">
+                                <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name">
+                            </a>
+                        </figure>
+                        <div class="product-details-area">
+                            <h2 class="product-name"><a href="{{url('/products')}}/{{$product->slug}}" title="Product Name">{{$product->translation->name??$product->name}}</a></h2>
+                            <div class="product-ratings">
+                                <div class="ratings-box">
+                                    <div class="rating" style="width:0%"></div>
+                                </div>
+                            </div>
+
+                            <div class="product-price-box">
+                                <span class="product-price">{{FormatPrice::price($product->price)}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    @php($index = $index+1)
+                @if(($index > 0 && $index % 3 === 0) || $index === count($lastProducts))                                        
+                </div>
+                @endif
+                @endforeach
+            </div>
+        </aside>
     </div>
 </div>
-
 @endsection

@@ -223,15 +223,11 @@ class HomeController extends Controller
         $search_key = $request->input('key'); 
         
 
-        $products = ProductTranslation::where("name", "LIKE", "%$search_key%")
-        ->paginate(12);             
+        $products = Product::where("name", "LIKE", "%$search_key%")
+        ->paginate(12);
+        $lastProducts = Product::take(4)->get();                       
 
-
-        $posts = PostTranslation::where("title", "LIKE", "%$search_key%")
-        ->paginate(4);             
-
-
-        return view('front/home/search',compact('products','posts','search_key'));
+        return view('front/home/search',compact('products','search_key','lastProducts'));
     }      
 
     function getInfoPageTranslation($slug){

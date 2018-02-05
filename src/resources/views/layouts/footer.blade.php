@@ -67,22 +67,23 @@
                     <h4>Hãy là người đầu tiên</h4>
                     <p class="newsletter-info">Nhận thông tin về Sự kiện,<br> Sales và Ưu tiên. Đăng ký nhận thông tin ngay hôm nay.</p>
 
-                    <div class="alert alert-success hidden" id="newsletterSuccess">
+                    <div class="alert subscribe-success" id="newsletterSuccess" style="display:none;">
                         <strong>Thành công!</strong> Bạn đã được thêm vào danh sách nhận mail.
                     </div>
-
-                    <div class="alert alert-danger hidden" id="newsletterError"></div>
+                    <div class="alert subscribe-failed" id="newsletterError" style="display:none;">
+                        <strong>Lỗi!</strong> Có lỗi xảy ra khi đăng kí.
+                    </div>                    
 
 
                     <p>Nhập thông tin email của bạn:</p>
-                    <form id="newsletterForm" action="{{asset('frontend/php/newsletter-subscribe.php')}}" method="POST">
+                    <form id="newsletterForm">
                         <div class="input-group">
-                            <input class="form-control" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
+                            <input class="form-control" placeholder="Email" name="subscribe_email" id="newsletterEmail" type="text">
                             <span class="input-group-btn">
-                                <button class="btn btn-primary" type="submit">Gửi yêu cầu</button>
+                                <button class="btn btn-primary subscribe1" type="submit">Gửi yêu cầu</button>
                             </span>
                         </div>
-                    </form>
+                    </form>                        
                 </div>
             </div>
         </div>
@@ -103,27 +104,27 @@
 </footer>
 
 <script type="text/javascript">
-    // $('a.subscribe1').click(function() {  
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "{{url('/subscribe')}}" ,
-    //         data: {
-    //             "email": $("input[name='subscribe_email']").val(),
-    //         },
-    //         success: function(res){
-    //             if(res.success){
-    //                 $(".subscribe-success").show();
-    //                 $(".subscribe-failed").hide();
-    //             }
-    //             else{
-    //                 $(".subscribe-success").hide();
-    //                 $(".subscribe-failed").show();
-    //             }
+    $('button.subscribe1').click(function() {  
+        $.ajax({
+            type: "POST",
+            url: "{{url('/subscribe')}}" ,
+            data: {
+                "email": $("input[name='subscribe_email']").val(),
+            },
+            success: function(res){
+                if(res.success){
+                    $(".subscribe-success").show();
+                    $(".subscribe-failed").hide();
+                }
+                else{
+                    $(".subscribe-success").hide();
+                    $(".subscribe-failed").show();
+                }
                 
-    //         },
-    //         error:function(res){
-    //             console.log("Error!");  
-    //         }
-    //     });            
-    // });
+            },
+            error:function(res){
+                console.log("Error!");  
+            }
+        });            
+    });
 </script>

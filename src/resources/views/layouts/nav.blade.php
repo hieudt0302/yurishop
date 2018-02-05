@@ -152,12 +152,12 @@
                         
                         <div class="header-search">
                             <a href="#" class="search-toggle"><i class="fa fa-search"></i></a>
-                            <form action="#" method="get">
+                            {!! Form::open(array('url' => '/search')) !!}
                                 <div class="header-search-wrapper">
-                                    <input type="text" class="form-control" name="q" id="q" placeholder="Tìm kiếm..." required>
+                                    <input type="text" class="form-control" name="key" id="q" placeholder="Tìm kiếm..." required>
                                     <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                                 </div>
-                            </form>
+                            {!! Form::close() !!}
                         </div>
 
                         <a href="#" class="mmenu-toggle-btn" title="Toggle menu">

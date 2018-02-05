@@ -13,7 +13,7 @@
             @if(!empty($promo)&&$promo==true)
             <li class="active">Khuyến mại</li>
             @else
-            <li class="active">{{$category->translation->name??'List'}}</li>
+            <li class="active">{{$category->translation->name??'Danh sách sản phẩm'}}</li>
             @endif
         </ul>
     </div>
@@ -141,7 +141,7 @@
                         </div>
                     </div>
                     @php($index = $index+1)
-                @if(($index > 0 && $index % 3 === 0) || $index === count($results))                                        
+                @if(($index > 0 && $index % 3 === 0) || $index === count($lastProducts))                                        
                 </div>
                 @endif
                 @endforeach
