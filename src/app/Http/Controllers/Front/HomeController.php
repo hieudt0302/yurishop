@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {               
-        // $new_products = Product::where('published',1)->orderBy('created_at', 'desc')->limit(4)->get();
+         $new_products = Product::where('published',1)->orderBy('created_at', 'desc')->limit(4)->get();
        
         // $specialty_coffee = Product::leftJoin('categories','products.category_id','=','categories.id')
         //                                 ->where('products.published',1)
@@ -67,7 +67,7 @@ class HomeController extends Controller
         $sliders = Slider::where('is_show',1)->get();      
 
         //var_dump($best_sellers_products); die();  
-        return View("front/home/index",compact('sale_products', 'new_blogs','sliders'));
+        return View("front/home/index",compact('sale_products', 'new_blogs','sliders','new_products'));
 
     }
 

@@ -14,12 +14,11 @@
             <div class="row">
                 <div class="col-md-9 col-md-push-3">
                     <div class="owl-carousel owl-theme home-banner-slider" data-plugin-options="{'items':1, 'loop': false, 'margin': 5}">
+                        @foreach($sliders as $slider)
                         <div>
-                            <img class="img-responsive" src="{{asset('frontend/img/demos/shop/slides/shop4/slide1.jpg')}}" alt="Slide">
+                            <img class="img-responsive" src="{{asset('/storage/'.$slider->image) }}" alt="Slide">
                         </div>
-                        <div>
-                            <img class="img-responsive" src="{{asset('frontend/img/demos/shop/slides/shop4/slide2.jpg')}}" alt="Slide">
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-md-3 col-md-pull-9">
@@ -138,26 +137,22 @@
 
     <div class="container mb-lg">
         <h2 class="slider-title">
-            <span class="inline-title">GALAXY PHONES JUST ARRIVED</span>
+            <span class="inline-title">SẢN PHẨM MỚI</span>
             <span class="line"></span>
         </h2>
 
         <div class="owl-carousel owl-theme manual new-products-carousel">
+            @foreach ($new_products as $product)
             <div class="product">
                 <figure class="product-image-area">
-                    <a href="demo-shop-4-product-details.html" title="Product Name" class="product-image">
-                        <img src="{{asset('frontend/img/demos/shop/products/shop4/product1.jpg')}}" alt="Product Name">
-                    </a>
-
-                    <a href="#" class="product-quickview">
-                        <i class="fa fa-share-square-o"></i>
-                        <span>Quick View</span>
+                    <a href="{{url('/products')}}/{{$product->slug}}" title="Product Name" class="product-image">
+                        <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name">
                     </a>
                     <div class="product-label"><span class="discount">-10%</span></div>
                     <div class="product-label"><span class="new">New</span></div>
                 </figure>
                 <div class="product-details-area">
-                    <h2 class="product-name"><a href="demo-shop-4-product-details.html" title="Product Name">Motorola Phone-Grey</a></h2>
+                    <h2 class="product-name"><a href="{{url('/products')}}/{{$product->slug}}" title="Product Name">{{$product->translation->name??$product->name}}</a></h2>
                     <div class="product-ratings">
                         <div class="ratings-box">
                             <div class="rating" style="width:60%"></div>
@@ -166,7 +161,7 @@
 
                     <div class="product-price-box">
                         <span class="old-price">$99.00</span>
-                        <span class="product-price">$89.00</span>
+                        <span class="product-price">{{FormatPrice::price($product->price)}}</span>
                     </div>
 
                     <div class="product-actions">
@@ -175,236 +170,14 @@
                         </a>
                         <a href="#" class="addtocart" title="Add to Cart">
                             <i class="fa fa-shopping-cart"></i>
-                            <span>Add to Cart</span>
-                        </a>
-                        <a href="#" class="comparelink" title="Add to Compare">
-                            <i class="glyphicon glyphicon-signal"></i>
+                            <span>Thêm vào giỏ hàng</span>
                         </a>
                     </div>
                 </div>
             </div>
-
-            <div class="product">
-                <figure class="product-image-area">
-                    <a href="demo-shop-4-product-details.html" title="Product Name" class="product-image">
-                        <img src="{{asset('frontend/img/demos/shop/products/shop4/product4.jpg')}}" alt="Product Name">
-                        <img src="{{asset('frontend/img/demos/shop/products/shop4/product4-2.jpg')}}" alt="Product Name" class="product-hover-image">
-                    </a>
-
-                    <a href="#" class="product-quickview">
-                        <i class="fa fa-share-square-o"></i>
-                        <span>Quick View</span>
-                    </a>
-                    <div class="product-label"><span class="discount">-25%</span></div>
-                </figure>
-                <div class="product-details-area">
-                    <h2 class="product-name"><a href="demo-shop-4-product-details.html" title="Product Name">Samsung Phone-Grey</a></h2>
-                    <div class="product-ratings">
-                        <div class="ratings-box">
-                            <div class="rating" style="width:0%"></div>
-                        </div>
-                    </div>
-
-                    <div class="product-price-box">
-                        <span class="old-price">$120.00</span>
-                        <span class="product-price">$90.00</span>
-                    </div>
-
-                    <div class="product-actions">
-                        <a href="#" class="addtowishlist" title="Add to Wishlist">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                        <a href="#" class="addtocart" title="Add to Cart">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Add to Cart</span>
-                        </a>
-                        <a href="#" class="comparelink" title="Add to Compare">
-                            <i class="glyphicon glyphicon-signal"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product">
-                <figure class="product-image-area">
-                    <a href="demo-shop-4-product-details.html" title="Product Name" class="product-image">
-                        <img src="{{asset('frontend/img/demos/shop/products/shop4/product3.jpg')}}" alt="Product Name">
-                    </a>
-
-                    <a href="#" class="product-quickview">
-                        <i class="fa fa-share-square-o"></i>
-                        <span>Quick View</span>
-                    </a>
-                </figure>
-                <div class="product-details-area">
-                    <h2 class="product-name"><a href="demo-shop-4-product-details.html" title="Product Name">Samsung Galaxy 4G</a></h2>
-                    <div class="product-ratings">
-                        <div class="ratings-box">
-                            <div class="rating" style="width:60%"></div>
-                        </div>
-                    </div>
-
-                    <div class="product-price-box">
-                        <span class="product-price">$70.00</span>
-                    </div>
-
-                    <div class="product-actions">
-                        <a href="#" class="addtowishlist" title="Add to Wishlist">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                        <a href="#" class="addtocart" title="Add to Cart">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Add to Cart</span>
-                        </a>
-                        <a href="#" class="comparelink" title="Add to Compare">
-                            <i class="glyphicon glyphicon-signal"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product">
-                <figure class="product-image-area">
-                    <a href="demo-shop-4-product-details.html" title="Product Name" class="product-image">
-                        <img src="{{asset('frontend/img/demos/shop/products/shop4/product5.jpg')}}" alt="Product Name">
-                    </a>
-
-                    <a href="#" class="product-quickview">
-                        <i class="fa fa-share-square-o"></i>
-                        <span>Quick View</span>
-                    </a>
-                    <div class="product-label"><span class="discount">-20%</span></div>
-                </figure>
-                <div class="product-details-area">
-                    <h2 class="product-name"><a href="demo-shop-4-product-details.html" title="Product Name">Motorola Phone</a></h2>
-                    <div class="product-ratings">
-                        <div class="ratings-box">
-                            <div class="rating" style="width:80%"></div>
-                        </div>
-                    </div>
-
-                    <div class="product-price-box">
-                        <span class="old-price">$100.00</span>
-                        <span class="product-price">$90.00</span>
-                    </div>
-
-                    <div class="product-actions">
-                        <a href="#" class="addtowishlist" title="Add to Wishlist">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                        <a href="#" class="addtocart" title="Add to Cart">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Add to Cart</span>
-                        </a>
-                        <a href="#" class="comparelink" title="Add to Compare">
-                            <i class="glyphicon glyphicon-signal"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product">
-                <figure class="product-image-area">
-                    <a href="demo-shop-4-product-details.html" title="Product Name" class="product-image">
-                        <img src="{{asset('frontend/img/demos/shop/products/shop4/product5.jpg')}}" alt="Product Name">
-                    </a>
-
-                    <a href="#" class="product-quickview">
-                        <i class="fa fa-share-square-o"></i>
-                        <span>Quick View</span>
-                    </a>
-                </figure>
-                <div class="product-details-area">
-                    <h2 class="product-name"><a href="demo-shop-4-product-details.html" title="Product Name">Samsung Phone</a></h2>
-                    <div class="product-ratings">
-                        <div class="ratings-box">
-                            <div class="rating" style="width:0%"></div>
-                        </div>
-                    </div>
-
-                    <div class="product-price-box">
-                        <span class="product-price">$70.00</span>
-                    </div>
-
-                    <div class="product-actions">
-                        <a href="#" class="addtowishlist" title="Add to Wishlist">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                        <a href="#" class="addtocart" title="Add to Cart">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Add to Cart</span>
-                        </a>
-                        <a href="#" class="comparelink" title="Add to Compare">
-                            <i class="glyphicon glyphicon-signal"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product">
-                <figure class="product-image-area">
-                    <a href="demo-shop-4-product-details.html" title="Product Name" class="product-image">
-                        <img src="{{asset('frontend/img/demos/shop/products/shop4/product1.jpg')}}" alt="Product Name">
-                    </a>
-
-                    <a href="#" class="product-quickview">
-                        <i class="fa fa-share-square-o"></i>
-                        <span>Quick View</span>
-                    </a>
-                    <div class="product-label"><span class="new">New</span></div>
-                </figure>
-                <div class="product-details-area">
-                    <h2 class="product-name"><a href="demo-shop-4-product-details.html" title="Product Name">Samsung Galaxy-White</a></h2>
-                    <div class="product-ratings">
-                        <div class="ratings-box">
-                            <div class="rating" style="width:80%"></div>
-                        </div>
-                    </div>
-
-                    <div class="product-price-box">
-                        <span class="product-price">$80.00</span>
-                    </div>
-
-                    <div class="product-actions">
-                        <a href="#" class="addtowishlist" title="Add to Wishlist">
-                            <i class="fa fa-heart"></i>
-                        </a>
-                        <a href="#" class="addtocart" title="Add to Cart">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Add to Cart</span>
-                        </a>
-                        <a href="#" class="comparelink" title="Add to Compare">
-                            <i class="glyphicon glyphicon-signal"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
-
-    <div class="newsletter-popup mfp-hide" id="newsletter-popup-form" style="background-image: url(../img/demos/shop/newsletter_popup_bg.jpg)">
-        <div class="newsletter-popup-content">
-            <img src="{{asset('frontend/img/demos/shop/logo-shop.png')}}" alt="Logo" class="img-responsive center-block">
-            <h2>BE THE FIRST TO KNOW</h2>
-            <p>Subscribe to the Porto eCommerce newsletter to receive timely updates from your favorite products.</p>
-            <form action="#">
-                <div class="input-group">
-                    <input type="email" class="form-control" id="newsletter-email" name="newsletter-email" placeholder="Email address" required>
-                    <span class="input-group-btn">
-                        <input type="submit" class="btn btn-default" value="Go!">
-                    </span>
-                </div><!-- End .from-group -->
-            </form>
-            <div class="newsletter-subscribe">
-                <div class="checkbox mb-none">
-                    <label>
-                        <input type="checkbox" value="1">
-                       Don't show this popup again
-                    </label>
-                </div>
-            </div>
-        </div><!-- End .newsletter-popup-content -->
-    </div><!-- End .newsletter-popup -->
-
-    </div>
+</div>
 @endsection
