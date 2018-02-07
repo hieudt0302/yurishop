@@ -56,7 +56,7 @@
 							<div class="product-rating-container">
                                 <div class="product-ratings">
 									<div class="ratings-box">
-										<div class="rating" style="width:60%"></div>
+										<div class="rating" style="width:{{$product->comments->avg('rate')/5*100}}%"></div>
 									</div>
 								</div>
                                 <div class="review-link">
@@ -267,6 +267,7 @@
             </h2>
 
             <div class="owl-carousel owl-theme" data-plugin-options="{'items':4, 'margin':20, 'nav':true, 'dots': false, 'loop': false}">
+				@php($curDate = Carbon\Carbon::now())
 				@foreach($best_seller_products as $product)
 				<div class="product">
 					<figure class="product-image-area">
@@ -274,24 +275,25 @@
 							<img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name">
 							<img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name" class="product-hover-image">
 						</a>
-						<div class="product-label"><span class="discount">-10%</span></div>
-						<div class="product-label"><span class="new">New</span></div>
+						@if($product->special_price != 0 && $product->special_price_start_date  <= $curDate && $curDate <= $product->special_price_end_date )
+						<div class="product-label"><span class="discount">SALE</span></div>
+						@endif
 					</figure>
 					<div class="product-details-area">
 						<h2 class="product-name"><a href="#" title="Product Name">{{$product->translation->name??$product->name}}</a></h2>
 						<div class="product-ratings">
 							<div class="ratings-box">
-								<div class="rating" style="width:60%"></div>
+								<div class="rating" style="width:{{$product->comments->avg('rate')/5*100}}%"></div>
 							</div>
 						</div>
 
 						<div class="product-price-box">
-							@if(!$is_sales)
-							<span class="product-price">{{FormatPrice::price($product->price)}}</span>
-							@else
-							<span class="old-price">{{FormatPrice::price($product->price)}}</span>
-							<span class="product-price">{{FormatPrice::price($product->special_price)}}</span>
-							@endif
+                            @if($product->special_price != 0 && $product->special_price_start_date  <= $curDate && $curDate <= $product->special_price_end_date )
+                            <span class="old-price">{{FormatPrice::price($product->price)}}</span>
+                            <span class="product-price">{{FormatPrice::price($product->special_price)}}</span>
+                            @else
+                            <span class="product-price">{{FormatPrice::price($product->price)}}</span>
+                            @endif
 						</div>
 
 						<div class="product-actions">
@@ -300,8 +302,11 @@
 							</a>
 							<a href="javascript:void(0)" class="addtocart" title="Thêm vào giỏ hàng">
 								<i class="fa fa-shopping-cart"></i>
-								<span>Thêm vào giỏ hàng</span>
+								<span>Đặt hàng</span>
 							</a>
+                            <a href="{{url('/products')}}/{{$product->slug}}" class="comparelink" title="Xem thêm">
+                                <i class="fa fa-search"></i>
+                            </a> 							
 						</div>
 					</div>
 				</div>

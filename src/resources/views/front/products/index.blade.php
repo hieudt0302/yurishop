@@ -55,23 +55,31 @@
                             <h2 class="product-name"><a href="demo-shop-4-product-details.html" title="Product Name">{{$product->translation->name??$product->name}}</a></h2>
                             <div class="product-ratings">
                                 <div class="ratings-box">
-                                    <div class="rating" style="width:60%"></div>
+                                    <div class="rating" style="width:{{$product->comments->avg('rate')/5*100}}%"></div>
                                 </div>
                             </div>
 
                             <div class="product-price-box">
-                                <span class="old-price">$99.00</span>
+                                @php($curDate = Carbon\Carbon::now())
+                                @if($product->special_price != 0 && $product->special_price_start_date  <= $curDate && $curDate <= $product->special_price_end_date )
+                                <span class="old-price">{{FormatPrice::price($product->price)}}</span>
+                                <span class="product-price">{{FormatPrice::price($product->special_price)}}</span>
+                                @else
                                 <span class="product-price">{{FormatPrice::price($product->price)}}</span>
+                                @endif
                             </div>
 
                             <div class="product-actions">
-                                <a href="#" class="addtowishlist" title="Add to Wishlist">
+                                <a href="#" class="addtowishlist" title="Thêm vào danh sách yêu thích">
                                     <i class="fa fa-heart"></i>
                                 </a>
-                                <a href="#" class="addtocart" title="Add to Cart">
+                                <a href="#" class="addtocart" title="Thêm vào giỏ hàng">
                                     <i class="fa fa-shopping-cart"></i>
-                                    <span>Thêm vào giỏ hàng</span>
+                                    <span>Đặt hàng</span>
                                 </a>
+                                <a href="{{url('/products')}}/{{$product->slug}}" class="comparelink" title="Xem thêm">
+                                    <i class="fa fa-search"></i>
+                                </a>                                   
                             </div>
                         </div>
                     </div>
@@ -131,12 +139,17 @@
                             <h2 class="product-name"><a href="{{url('/products')}}/{{$product->slug}}" title="Product Name">{{$product->translation->name??$product->name}}</a></h2>
                             <div class="product-ratings">
                                 <div class="ratings-box">
-                                    <div class="rating" style="width:0%"></div>
+                                    <div class="rating" style="width:{{$product->comments->avg('rate')/5*100}}%"></div>
                                 </div>
                             </div>
 
                             <div class="product-price-box">
+                                @if($product->special_price != 0 && $product->special_price_start_date  <= $curDate && $curDate <= $product->special_price_end_date )
+                                <span class="old-price">{{FormatPrice::price($product->price)}}</span>
+                                <span class="product-price">{{FormatPrice::price($product->special_price)}}</span>
+                                @else
                                 <span class="product-price">{{FormatPrice::price($product->price)}}</span>
+                                @endif
                             </div>
                         </div>
                     </div>
