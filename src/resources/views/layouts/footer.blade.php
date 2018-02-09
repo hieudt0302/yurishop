@@ -7,11 +7,7 @@
             
             <div class="col-md-3">
                 <h4>Tài khoản</h4>
-                <ul class="links">
-                    <li>
-                        <i class="fa fa-caret-right text-color-primary"></i>
-                        <a href="{{ url('/about')}}">Về chúng tôi</a>
-                    </li>                 
+                <ul class="links">               
                     @guest
                     <li>
                         <i class="fa fa-caret-right text-color-primary"></i>
@@ -46,19 +42,19 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h4>Vì sao chọn shop ML</h4>
-                <ul class="features">
+                <h4>Hỗ trợ khách hàng</h4>
+                <ul class="links">
                     <li>
-                        <i class="fa fa-check text-color-primary"></i>
-                        <a href="#">Nguồn gốc hàng rõ ràng</a>
+                        <i class="fa fa-caret-right text-color-primary"></i>
+                        <a href="{{ url('/payment-methods') }}">Phương thức thanh toán</a>
                     </li>
                     <li>
-                        <i class="fa fa-check text-color-primary"></i>
-                        <a href="#">Giá cạnh tranh nhất thị trường</a>
+                        <i class="fa fa-caret-right text-color-primary"></i>
+                        <a href="{{ url('/returns') }}">Trả hàng</a>
                     </li>
                     <li>
-                        <i class="fa fa-check text-color-primary"></i>
-                        <a href="#">Chia sẻ kinh nghiệm sử dụng</a>
+                        <i class="fa fa-caret-right text-color-primary"></i>
+                        <a href="{{ url('/faqs') }}">Câu hỏi thường gặp</a>
                     </li>
                 </ul>
             </div>
@@ -103,8 +99,9 @@
     </div>
 </footer>
 
+@section('scripts')
 <script type="text/javascript">
-    $('button.subscribe1').click(function() {  
+    $('.subscribe1').click(function() {  
         $.ajax({
             type: "POST",
             url: "{{url('/subscribe')}}" ,
@@ -126,5 +123,6 @@
                 console.log("Error!");  
             }
         });            
-    });
+    });   
 </script>
+@endsection

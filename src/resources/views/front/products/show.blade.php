@@ -142,13 +142,13 @@
 								<div class="product-detail-qty">
                                     <input type="text" value="1" name="quantity" class="vertical-spinner" id="product-vqty">
                                 </div>
-								<a href="#" class="addtocart" title="Add to Cart">
+								<a href="javascript:void(0)" class="addtocart" title="Add to Cart">
 									<i class="fa fa-shopping-cart"></i>
 									<span>Thêm vào giỏ hàng</span>
 								</a>
 								
 								<div class="actions-right">
-									<a href="#" class="addtowishlist" title="Thêm vào Wishlist">
+									<a href="javascript:void(0)" class="addtowishlist" title="Thêm vào Wishlist">
 										<i class="fa fa-heart"></i>
 									</a>
 								</div>
@@ -294,19 +294,6 @@
                             @else
                             <span class="product-price">{{FormatPrice::price($product->price)}}</span>
                             @endif
-						</div>
-
-						<div class="product-actions">
-							<a href="#" class="addtowishlist" title="Thêm vào Wishlist">
-								<i class="fa fa-heart"></i>
-							</a>
-							<a href="javascript:void(0)" class="addtocart" title="Thêm vào giỏ hàng">
-								<i class="fa fa-shopping-cart"></i>
-								<span>Đặt hàng</span>
-							</a>
-                            <a href="{{url('/products')}}/{{$product->slug}}" class="comparelink" title="Xem thêm">
-                                <i class="fa fa-search"></i>
-                            </a> 							
 						</div>
 					</div>
 				</div>
