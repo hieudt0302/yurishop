@@ -37,65 +37,89 @@
                                         <div class="panel-body">
                                        
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Banner rộng toàn màn hình (home)</label>
+                                                <label class="control-label col-md-3" for="slug" title="">Banner Homepage bên trái 1</label>
                                                 <div class="col-md-4">
-                                                    <input class="single-line valid" type="file" name="banner-full"/>
-                                                    <span class="text-danger">{{ $errors->first('banner-full') }}</span>                                                        
+                                                    <input class="single-line valid" type="file" name="banner-left-1"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-left-1') }}</span>                                                        
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Banner bên trái (home)</label>
+                                           <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Banner Homepage bên trái 2</label>
                                                 <div class="col-md-4">
-                                                    <input class="single-line valid" type="file" name="banner-left"/>
-                                                    <span class="text-danger">{{ $errors->first('banner-left') }}</span>                                                        
-                                                </div>
-                                            </div> 
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Banner bên phải (home)</label>
-                                                <div class="col-md-4">
-                                                    <input class="single-line valid" type="file" name="banner-right"/>
-                                                    <span class="text-danger">{{ $errors->first('banner-right') }}</span>                                                        
+                                                    <input class="single-line valid" type="file" name="banner-left-2"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-left-2') }}</span>                                                        
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Banner trang bài viết</label>
+                                           <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Banner Homepage bên trái 3</label>
                                                 <div class="col-md-4">
-                                                    <input class="single-line valid" type="file" name="banner-blog"/>
-                                                    <span class="text-danger">{{ $errors->first('banner-blog') }}</span>                                                        
+                                                    <input class="single-line valid" type="file" name="banner-left-3"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-left-3') }}</span>                                                        
                                                 </div>
-                                            </div>                                            
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Banner Homepage ở giữa 1</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="banner-middle-1"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-middle-1') }}</span>                                                        
+                                                </div>
+                                            </div>
+                                           <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Banner Homepage ở giữa 2</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="banner-middle-2"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-middle-2') }}</span>                                                        
+                                                </div>
+                                            </div>
+                                           <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Banner Homepage ở giữa 3</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="banner-middle-3"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-middle-3') }}</span>                                                        
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Banner Homepage bên phải 1</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="banner-right-1"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-right-1') }}</span>                                                        
+                                                </div>
+                                            </div>
+                                           <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Banner Homepage bên phải 2</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="banner-right-2"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-right-2') }}</span>                                                        
+                                                </div>
+                                            </div>
+                                           <div class="form-group">
+                                                <label class="control-label col-md-3" for="slug" title="">Banner Homepage bên phải 3</label>
+                                                <div class="col-md-4">
+                                                    <input class="single-line valid" type="file" name="banner-right-3"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-right-3') }}</span>                                                        
+                                                </div>
+                                            </div>
 
                                             <hr>
-
+                                                                                                                                    
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Icon logo</label>
+                                                <label class="control-label col-md-3" for="slug" title="">Banner quảng cáo 1</label>
                                                 <div class="col-md-4">
-                                                    <input class="single-line valid" type="file" name="icon-1"/>
-                                                    <span class="text-danger">{{ $errors->first('icon-1') }}</span>                                                        
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Icon nguồn gốc sản phẩm</label>
-                                                <div class="col-md-4">
-                                                    <input class="single-line valid" type="file" name="icon-2"/>
-                                                    <span class="text-danger">{{ $errors->first('icon-2') }}</span>                                                        
+                                                    <input class="single-line valid" type="file" name="banner-ads-1"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-ads-1') }}</span>                                                        
                                                 </div>
                                             </div> 
                                             <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Icon chất lượng sản phẩm</label>
+                                                <label class="control-label col-md-3" for="slug" title="">Banner quảng cáo 2</label>
                                                 <div class="col-md-4">
-                                                    <input class="single-line valid" type="file" name="icon-3"/>
-                                                    <span class="text-danger">{{ $errors->first('icon-3') }}</span>                                                        
+                                                    <input class="single-line valid" type="file" name="banner-ads-2"/>
+                                                    <span class="text-danger">{{ $errors->first('banner-ads-2') }}</span>                                                        
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3" for="slug" title="">Icon cộng đồng</label>
-                                                <div class="col-md-4">
-                                                    <input class="single-line valid" type="file" name="icon-4"/>
-                                                    <span class="text-danger">{{ $errors->first('icon-4') }}</span>                                                        
-                                                </div>
-                                            </div>                                                                                            
-
+                                           
                                             <hr>
 
                                             <div class="form-group">

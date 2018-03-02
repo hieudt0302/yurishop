@@ -30,57 +30,70 @@ class BannersController extends Controller
 
     public function update(Request $request)
     {   
-        //Banner
-        if (request()->hasFile('banner-left')) {
-            $banner = $request->file('banner-left');            
+        //HP Banner left
+        if (request()->hasFile('banner-left-1')) {
+            $banner = $request->file('banner-left-1');            
             $img = Image::make($banner->getRealPath());
-            $img->fit(960, 400)->save('frontend/images/uploads/ads-bg1.jpg');                      
-        } 
-        if (request()->hasFile('banner-right')) {
-            $banner = $request->file('banner-right');            
-            $img = Image::make($banner->getRealPath());
-            $img->fit(960, 400)->save('frontend/images/uploads/ads-bg2.jpg');                      
-        } 
-        if (request()->hasFile('banner-full')) {
-            $banner = $request->file('banner-full');            
-            $img = Image::make($banner->getRealPath());
-            $img->fit(1920, 400)->save('frontend/images/uploads/ads-bg3.jpg');                      
+            $img->fit(270, 308)->save('frontend/img/banners/banner-left-1.jpg');                      
         }
-        if (request()->hasFile('banner-blog')) {
-            $banner = $request->file('banner-blog');            
+        if (request()->hasFile('banner-left-2')) {
+            $banner = $request->file('banner-left-2');            
             $img = Image::make($banner->getRealPath());
-            $img->fit(270, 370)->save('frontend/images/uploads/sale.jpg');                      
+            $img->fit(270, 421)->save('frontend/img/banners/banner-left-2.jpg');                      
+        } 
+        if (request()->hasFile('banner-left-3')) {
+            $banner = $request->file('banner-left-3');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(270, 246)->save('frontend/img/banners/banner-left-3.jpg');                      
+        } 
+
+        //HP Banner midle                 
+        if (request()->hasFile('banner-middle-1')) {
+            $banner = $request->file('banner-middle-1');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(560, 361)->save('frontend/img/banners/banner-middle-1.jpg');                      
+        }
+        if (request()->hasFile('banner-middle-2')) {
+            $banner = $request->file('banner-middle-2');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(560, 295)->save('frontend/img/banners/banner-middle-2.jpg');                      
+        }
+        if (request()->hasFile('banner-middle-3')) {
+            $banner = $request->file('banner-middle-3');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(560, 294)->save('frontend/img/banners/banner-middle-3.jpg');                      
+        }
+
+        //HP Banner right                 
+        if (request()->hasFile('banner-right-1')) {
+            $banner = $request->file('banner-right-1');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(270, 216)->save('frontend/img/banners/banner-right-1.jpg');                      
+        }
+        if (request()->hasFile('banner-right-2')) {
+            $banner = $request->file('banner-right-2');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(270, 523)->save('frontend/img/banners/banner-right-2.jpg');                      
+        }
+        if (request()->hasFile('banner-right-3')) {
+            $banner = $request->file('banner-right-3');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(270, 246)->save('frontend/img/banners/banner-right-3.jpg');                      
+        }        
+                        
+         
+        if (request()->hasFile('banner-ads-1')) {
+            $banner = $request->file('banner-ads-1');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(270, 350)->save('frontend/img/banners/banner-ads-1.jpg');                      
+        }
+        if (request()->hasFile('banner-ads-2')) {
+            $banner = $request->file('banner-ads-2');            
+            $img = Image::make($banner->getRealPath());
+            $img->fit(270, 350)->save('frontend/img/banners/banner-ads-2.jpg');                      
         }          
 
-        //Icon
-        if (request()->hasFile('icon-1')) {
-            $icon = $request->file('icon-1');            
-            $img = Image::make($icon->getRealPath());
-            $img->resize(null, 120, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save('images/logo/poko.png');                      
-        }
-        if (request()->hasFile('icon-2')) {
-            $icon = $request->file('icon-2');            
-            $img = Image::make($icon->getRealPath());
-            $img->resize(null, 120, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save('images/logo/origin.png');                      
-        }
-        if (request()->hasFile('icon-3')) {
-            $icon = $request->file('icon-3');            
-            $img = Image::make($icon->getRealPath());
-            $img->resize(null, 120, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save('images/logo/fairtrade.png');                      
-        }    
-        if (request()->hasFile('icon-4')) {
-            $icon = $request->file('icon-4');            
-            $img = Image::make($icon->getRealPath());
-            $img->resize(null, 120, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save('images/logo/community-icon.png');                      
-        }                                                 
+                                                      
       
         return redirect()->back()
         ->with('message', 'Banner/icon đã được cập nhật')

@@ -93,24 +93,24 @@
 
                     <div class="col-sm-3 col-xs-6">
                         <a href="#" class="banner">
-                            <img src="{{asset('frontend/img/demos/shop/banners/shop4/banner1.jpg')}}" alt="Banner">
+                            <img src="{{asset('frontend/img/banners/banner-left-1.jpg')}}" alt="Banner">
                         </a>
                         <a href="#" class="banner">
-                            <img src="{{asset('frontend/img/demos/shop/banners/shop4/banner2.jpg')}}" alt="Banner">
+                            <img src="{{asset('frontend/img/banners/banner-left-2.jpg')}}" alt="Banner">
                         </a>
                         <a href="#" class="banner">
-                            <img src="{{asset('frontend/img/demos/shop/banners/shop4/banner3.jpg')}}" alt="Banner">
+                            <img src="{{asset('frontend/img/banners/banner-left-3.jpg')}}" alt="Banner">
                         </a>
                     </div>
                     <div class="col-sm-3 col-xs-6 col-sm-push-6">
                         <a href="#" class="banner">
-                            <img src="{{asset('frontend/img/demos/shop/banners/shop4/banner7.jpg')}}" alt="Banner">
+                            <img src="{{asset('frontend/img/banners/banner-right-1.jpg')}}" alt="Banner">
                         </a>
                         <a href="#" class="banner">
-                            <img src="{{asset('frontend/img/demos/shop/banners/shop4/banner8.jpg')}}" alt="Banner">
+                            <img src="{{asset('frontend/img/banners/banner-right-2.jpg')}}" alt="Banner">
                         </a>
                         <a href="#" class="banner">
-                            <img src="{{asset('frontend/img/demos/shop/banners/shop4/banner9.jpg')}}" alt="Banner">
+                            <img src="{{asset('frontend/img/banners/banner-right-3.jpg')}}" alt="Banner">
                         </a>
                     </div>
 
@@ -118,13 +118,13 @@
 
                     <div class="col-sm-6 col-sm-pull-3">
                         <a href="#" class="banner">
-                            <img src="{{asset('frontend/img/demos/shop/banners/shop4/banner4.jpg')}}" alt="Banner">
+                            <img src="{{asset('frontend/img/banners/banner-middle-1.jpg')}}" alt="Banner">
                         </a>
                         <a href="#" class="banner">
-                            <img src="{{asset('frontend/img/demos/shop/banners/shop4/banner5.jpg')}}" alt="Banner">
+                            <img src="{{asset('frontend/img/banners/banner-middle-2.jpg')}}" alt="Banner">
                         </a>
                         <a href="#" class="banner">
-                            <img src="{{asset('frontend/img/demos/shop/banners/shop4/banner6.jpg')}}" alt="Banner">
+                            <img src="{{asset('frontend/img/banners/banner-middle-3.jpg')}}" alt="Banner">
                         </a>
                     </div>
 

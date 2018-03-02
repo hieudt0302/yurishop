@@ -335,10 +335,10 @@
 
 			<div class="owl-carousel owl-theme" data-plugin-options="{'items':1, 'margin': 5}">
 				<a href="#">
-					<img class="img-responsive" src="{{asset('frontend/img/demos/shop/banners/banner1.jpg')}}" alt="Banner">
+					<img class="img-responsive" src="{{asset('frontend/img/banners/banner-ads-1.jpg')}}" alt="Banner">
 				</a>
 				<a href="#">
-					<img class="img-responsive" src="{{asset('frontend/img/demos/shop/banners/banner2.jpg')}}" alt="Banner">
+					<img class="img-responsive" src="{{asset('frontend/img/banners/banner-ads-2.jpg')}}" alt="Banner">
 				</a>
 			</div>
 
