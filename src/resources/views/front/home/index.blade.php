@@ -188,5 +188,60 @@
             
         </div>
     </div>
+
+    <div class="container mb-lg">
+        <h2 class="slider-title">
+            <span class="inline-title">SẢN PHẨM ĐƯỢC YÊU THÍCH</span>
+            <span class="line"></span>
+        </h2>
+
+        <div class="owl-carousel owl-theme manual new-products-carousel">
+            @php($curDate = Carbon\Carbon::now())            
+            @foreach ($new_products as $product)
+            <div class="product">
+                <figure class="product-image-area">
+                    <a href="{{url('/products')}}/{{$product->slug}}" title="Product Name" class="product-image">
+                        <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name">
+                    </a>
+                    @if($product->special_price != 0 && $product->special_price_start_date  <= $curDate && $curDate <= $product->special_price_end_date )
+                    <div class="product-label"><span class="discount">SALE</span></div>
+                    @endif
+                </figure>
+                <div class="product-details-area">
+                    <h2 class="product-name"><a href="{{url('/products')}}/{{$product->slug}}" title="Product Name">{{$product->translation->name??$product->name}}</a></h2>
+                    <div class="product-ratings">
+                        <div class="ratings-box">
+                            <div class="rating" style="width:{{$product->comments->avg('rate')/5*100}}%"></div>
+                        </div>
+                    </div>
+
+                    <div class="product-price-box">
+                        @if($product->special_price != 0 && $product->special_price_start_date  <= $curDate && $curDate <= $product->special_price_end_date )
+                        <span class="old-price">{{FormatPrice::price($product->price)}}</span>
+                        <span class="product-price">{{FormatPrice::price($product->special_price)}}</span>
+                        @else
+                        <span class="product-price">{{FormatPrice::price($product->price)}}</span>
+                        @endif
+                    </div>
+
+                    <div class="product-actions">
+                        <a href="#" class="addtowishlist" title="Thêm vào danh sách yêu thích">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                        <a href="#" class="addtocart" title="Thêm vào giỏ hàng">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>Đặt hàng</span>
+                        </a>
+                        <a href="{{url('/products')}}/{{$product->slug}}" class="comparelink" title="Xem thêm">
+                            <i class="fa fa-search"></i>
+                        </a>                        
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            
+        </div>
+    </div>
+
 </div>
 @endsection

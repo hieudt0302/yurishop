@@ -203,10 +203,32 @@
 						</div>
 						<div id="collapse1Four" class="accordion-body collapse">
 							<div class="panel-body">
+										<ul class="comments">
+											<li>
+												<div class="comment">
+													<div class="img-thumbnail">
+														<img class="avatar" alt="" src="{{asset('frontend/img/avatars/avatar-2.jpg')}}">
+													</div>
+													<div class="comment-block">
+														<div class="comment-arrow"></div>
+														<span class="comment-by">
+															<strong>John Doe</strong>
+															<span class="pull-right">
+																<div title="Rated 5.00 out of 5" class="star-rating">
+																	<span style="width:100%"><strong class="rating">5.00</strong> out of 5</span>
+																</div>
+															</span>
+														</span>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
+													</div>
+												</div>
+											</li>
+										</ul>
+										<hr class="tall">									
 								<div class="add-product-review">
 									<h3 class="text-uppercase heading-text-color font-weight-semibold">CHO CHÚNG TÔI BIẾT CẢM NHẬN CỦA BẠN</h3>
-									<form action="#">
-										<table class="ratings-table">
+									<form method="post" action="{{url('/products')}}/{{$product->id}}/review">
+<!-- 										<table class="ratings-table">
 											<thead>
 												<tr>
 													<th>1 sao</th>
@@ -235,23 +257,38 @@
 													</td>
 												</tr>
 											</tbody>
-										</table>
-
+										</table> -->									
+	                                    {{ csrf_field() }}
+	                                    <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
+	                                    <select name="rate">
+	                                        <option value="0">-- @lang('product.select-one')--</option>
+	                                        <option value="1">1 Sao</option>
+	                                        <option value="2">2 Sao</option>
+	                                        <option value="3">3 Sao</option>
+	                                        <option value="4">4 Sao</option>
+	                                        <option value="5">5 Sao</option>
+	                                    </select>										
+										@guest
 										<div class="form-group">
 											<label>Tên<span class="required">*</span></label>
-											<input type="text" class="form-control" required>
+											<input type="text" class="form-control" name="name" required>
 										</div>
 										<div class="form-group">
-											<label>Đánh giá chung<span class="required">*</span></label>
-											<input type="text" class="form-control" required>
+											<label>Email<span class="required">*</span></label>
+											<input type="text" class="form-control" name="email" required>
 										</div>
+										@else																				
+			                            <input type="hidden" id="reviewer_id" name="reviewer_id" value="{{Auth::user()->id}}">
+			                            <input type="hidden" id="name" name="name" value="{{Auth::user()->last_name}} {{Auth::user()->first_name}}">
+			                            <input type="hidden" id="email" name="email" value="{{Auth::user()->email}}">
+										@endguest
 										<div class="form-group mb-xlg">
 											<label>Đánh giá chi tiết<span class="required">*</span></label>
-											<textarea cols="5" rows="6" class="form-control"></textarea>
+											<textarea cols="5" rows="6" class="form-control" name="comment"></textarea>
 										</div>
 
 										<div class="text-right">
-											<input type="submit" class="btn btn-primary" value="Submit Review">
+											<input type="submit" class="btn btn-primary" value="Gửi đánh giá">
 										</div>
 									</form>
 								</div>
@@ -327,7 +364,7 @@
 				</div>
 				<div class="feature-box-info">
 					<h4>HỖ TRỢ ONLINE 24/7</h4>
-					<p class="mb-none">Hỗ trợ thông qua Messenger và Skyple.</p>
+					<p class="mb-none">Hỗ trợ thông qua Messenger và Skype.</p>
 				</div>
 			</div>
 
