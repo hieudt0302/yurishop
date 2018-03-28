@@ -44,10 +44,10 @@
 		<link rel="stylesheet" href="{{asset('frontend/vendor/rs-plugin/css/navigation.css')}}">
 
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="{{asset('frontend/css/skins/skin-shop-4.css')}}"> 
+		<link rel="stylesheet" href="{{asset('frontend/css/skins/skin-shop-11.css')}}"> 
 
 		<!-- Demo CSS -->
-		<link rel="stylesheet" href="{{asset('frontend/css/demos/demo-shop-4.css')}}">
+		<link rel="stylesheet" href="{{asset('frontend/css/demos/demo-shop-11.css')}}">
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">
@@ -104,7 +104,7 @@
 
 
 		<!-- Demo -->
-		<script src="{{asset('frontend/js/demos/demo-shop-4.js')}}"></script>
+		<script src="{{asset('frontend/js/demos/demo-shop-11.js')}}"></script>
 		
 		<!-- Theme Custom -->
 		<script src="{{asset('frontend/js/custom.js')}}"></script>

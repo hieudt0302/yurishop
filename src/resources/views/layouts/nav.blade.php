@@ -71,12 +71,25 @@
         <div class="header-container container">
             <div class="header-row">
                 <div class="header-column">
+                    <div class="header-search">
+                        <a href="#" class="search-toggle"><i class="fa fa-search"></i></a>
+                        {!! Form::open(array('url' => '/search')) !!}
+                            <div class="header-search-wrapper">
+                                <input type="text" class="form-control" name="key" id="q" placeholder="Tìm kiếm..." required>
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+
+                <div class="header-column header-column-center">
                     <div class="header-logo">
-                        <a href="demo-shop-4.html">
+                        <a href="/">
                             <img alt="Porto" width="111" height="51" src="{{asset('frontend/img/demos/shop/logo-shop-red.png')}}">
                         </a>
                     </div>
                 </div>
+
                 <div class="header-column">
                     <div class="row">
                         <div class="cart-area">
@@ -150,15 +163,6 @@
                             </div>
                         </div>
                         
-                        <div class="header-search">
-                            <a href="#" class="search-toggle"><i class="fa fa-search"></i></a>
-                            {!! Form::open(array('url' => '/search')) !!}
-                                <div class="header-search-wrapper">
-                                    <input type="text" class="form-control" name="key" id="q" placeholder="Tìm kiếm..." required>
-                                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                                </div>
-                            {!! Form::close() !!}
-                        </div>
 
                         <a href="#" class="mmenu-toggle-btn" title="Toggle menu">
                             <i class="fa fa-bars"></i>

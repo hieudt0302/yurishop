@@ -1,10 +1,6 @@
 <footer id="footer">
     <div class="container">
         <div class="row">
-            <div class="footer-ribbon">
-                <span>Kết nối với chúng tôi</span>
-            </div>
-            
             <div class="col-md-3">
                 <h4>Tài khoản</h4>
                 <ul class="links">               
