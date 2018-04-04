@@ -85,7 +85,7 @@
                 <div class="header-column header-column-center">
                     <div class="header-logo">
                         <a href="/">
-                            <img alt="Porto" width="111" height="51" src="{{asset('frontend/img/demos/shop/logo-shop-red.png')}}">
+                            <img alt="Porto" width="210" height="70" src="{{asset('images/yuri-logo.png')}}">
                         </a>
                     </div>
                 </div>

@@ -82,8 +82,8 @@
     </div>
     <div class="footer-copyright">
         <div class="container">
-            <a href="index.html" class="logo">
-                <img alt="Porto Website Template" class="img-responsive" src="{{asset('frontend/img/demos/shop/logo-footer.png')}}">
+            <a href="/" class="logo">
+                <img alt="Porto Website Template" class="img-responsive" src="{{asset('images/yuri-logo-footer.png')}}">
             </a>
             <ul class="social-icons">
                 <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
