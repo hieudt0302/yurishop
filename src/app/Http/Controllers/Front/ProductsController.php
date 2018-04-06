@@ -71,13 +71,14 @@ class ProductsController extends Controller
                                 ->get();  
 
         $is_sales = false;
+        $tags = $product->tags; 
         if(!empty($product->special_price_start_date) && !empty($product->special_price_end_date)){
             if($product->special_price_start_date <= date('Y-m-d H:i:s') && $product->special_price_end_date >= date('Y-m-d H:i:s') ){
                 $is_sales = true;
             }
         }
 
-        return View('front.products.show', compact('product','starAvg','is_sales','best_seller_products'));
+        return View('front.products.show', compact('product','starAvg','is_sales','best_seller_products','tags'));
     }
 
     /**
@@ -199,5 +200,20 @@ class ProductsController extends Controller
         $lastProducts = Product::take(10)->get(); ///TODO: move number limit to database setting        
 
         return view('front/products/index',compact('products','search_key','tags','comments', 'lastProducts'));
-    }     
+    }
+
+    public function filterByTag($slug)
+    {     
+        //RELATED
+        $tags = Tag::has('products')->get();
+        $comments = Tag::has('products')->get();
+        $lastProducts = Product::where('published',1)->take(6)->get(); 
+
+        // GET PRODUCTS
+        //POSTS
+        $results = Tag::where('slug', $slug)->first()->products()->paginate(12);   
+
+        return View('front/products/index', compact('results','tags','comments', 'lastProducts','slug'));
+
+    }         
 }

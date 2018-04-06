@@ -101,7 +101,7 @@
                             </div>
 
                             <div class="cart-dropdown">
-                                <a href="#" class="cart-dropdown-icon">
+                                <a href="{{ url('/cart') }}" class="cart-dropdown-icon">
                                     <i class="minicart-icon"></i>
                                     <span class="cart-info">
                                         <span class="cart-qty">{{ Cart::instance('default')->count(false) }}</span>
@@ -109,7 +109,7 @@
                                     </span>
                                 </a>
 
-                                <div class="cart-dropdownmenu right">
+                                <!-- <div class="cart-dropdownmenu right">
                                     <div class="dropdownmenu-wrapper">
                                         <div class="cart-products">
                                             <div class="product product-sm">
@@ -159,7 +159,7 @@
                                             <a href="demo-shop-4-checkout.html" class="btn btn-primary">Thanh toán</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         

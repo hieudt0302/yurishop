@@ -64,11 +64,7 @@
 
             <div class="toolbar">
                 <div class="sorter">
-                    <ul class="pagination">
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
-                    </ul>
+                    {{ $posts->links() }}
                 </div>
             </div>
         </div>

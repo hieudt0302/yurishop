@@ -2,6 +2,7 @@
 @section('title',$product->name)
 @section('header')
 <!-- Share Nav -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @include('layouts.share')
 @endsection
 @section('content')
@@ -87,55 +88,16 @@
 							</div>
 
 							<div class="product-detail-options">
-								<div class="row">
-									<div class="col-xs-6">
-										<label><span class="required">*</span>Màu sắc:<span class="text-primary">Đen</span></label>
-										<ul class="configurable-filter-list filter-list-color">
-											<li>
-												<a href="#">
-													<span style="background-color: #000"></span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<span style="background-color: #21284f"></span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<span style="background-color: #272725"></span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<span style="background-color: #006b20"></span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<span style="background-color: #68686a"></span>
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="col-xs-6">
-										<label><span class="required">*</span>Size:<span class="text-primary">S</span></label>
-										<ul class="configurable-filter-list">
-											<li>
-												<a href="#">S</a>
-											</li>
-											<li>
-												<a href="#">M</a>
-											</li>
-											<li>
-												<a href="#">L</a>
-											</li>
-											<li>
-												<a href="#">XL</a>
-											</li>
-										</ul>
-									</div>
-								</div>
+				                <h4>Tags</h4>
+				                <div class="tagcloud">
+				                	<ul class="configurable-filter-list">
+					                    @foreach($tags as $tag)
+					                    <li>
+					                    	<a href="{{url('/subject/products/tags')}}/{{$tag->slug}}">{{$tag->name}}</a>
+					                    </li>
+					                    @endforeach
+				                    </ul>
+				                </div>								
 							</div>
 
 							<div class="product-actions">
@@ -394,11 +356,18 @@
 <script src="{{asset('frontend/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
 <script src="{{asset('frontend/vendor/elevatezoom/jquery.elevatezoom.js')}}"></script>
 
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
 <script>
      $(document).ready(function(){      
         $('.addtocart').click(function() {
             var quantity = $("input[name='quantity']").val();
+			$.ajaxSetup({
+			  headers: {
+			    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			  }
+			});  
+			          
             $.ajax({
                type:'POST',
                url:'{{ url("/add-to-cart") }}',              

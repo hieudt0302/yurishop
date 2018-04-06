@@ -69,10 +69,9 @@ class MenuController extends Controller
                 ->Where('post_translations.title','LIKE', '%'. $search . '%')
 				->groupBy('post_id');
             })
-            ->paginate(21);  
+            ->paginate(10);  
             
-            return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories','category','parent','slug'))
-            ->with('i', ($page??1 - 1) * 21);
+            return View('front/posts/index', compact('posts', 'lastPosts','tags','comments','post_category','categories','category','parent','slug'));
         }
     }
 }

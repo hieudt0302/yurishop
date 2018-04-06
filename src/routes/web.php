@@ -49,6 +49,7 @@ Route::get('/faqs', 'Front\FaqController@index');
 Route::get('/products/{id}', 'Front\ProductsController@show');
 Route::post('/add-to-cart', 'Front\ProductsController@addToCart');
 Route::post('/add-to-wishlist', 'Front\ProductsController@addToWishlist');
+Route::get('/subject/products/tags/{slug}', 'Front\ProductsController@filterByTag');
 
 /* POST */
 // Route::get('/posts', 'Front\PostsController@index');

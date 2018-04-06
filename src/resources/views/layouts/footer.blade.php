@@ -17,8 +17,12 @@
                     @else
                     <li>
                         <i class="fa fa-caret-right text-color-primary"></i>
-                        <a href="{{ url('/Account') }}">Tài khoản</a>
+                        <a href="{{ url('/cart') }}">Giỏ hàng</a>
                     </li>
+                    <li>
+                        <i class="fa fa-caret-right text-color-primary"></i>
+                        <a href="{{ url('/wishlist') }}">Danh sách muốn mua</a>
+                    </li>                    
                     <li>
                         <i class="fa fa-caret-right text-color-primary"></i>
                         <a href="{{ url('/Account/Orders') }}">Lịch sử mua hàng</a>
@@ -56,8 +60,8 @@
             </div>
             <div class="col-md-3">
                 <div class="newsletter">
-                    <h4>Hãy là người đầu tiên</h4>
-                    <p class="newsletter-info">Nhận thông tin về Sự kiện,<br> Sales và Ưu tiên. Đăng ký nhận thông tin ngay hôm nay.</p>
+                    <h4>Đăng kí nhận thông tin</h4>
+                    <p class="newsletter-info">Để không bỏ lỡ thông tin ưu đãi, sản phẩm mới.</p>
 
                     <div class="alert subscribe-success" id="newsletterSuccess" style="display:none;">
                         <strong>Thành công!</strong> Bạn đã được thêm vào danh sách nhận mail.
@@ -65,9 +69,6 @@
                     <div class="alert subscribe-failed" id="newsletterError" style="display:none;">
                         <strong>Lỗi!</strong> Có lỗi xảy ra khi đăng kí.
                     </div>                    
-
-
-                    <p>Nhập thông tin email của bạn:</p>
                     <form id="newsletterForm">
                         <div class="input-group">
                             <input class="form-control" placeholder="Email" name="subscribe_email" id="newsletterEmail" type="text">
@@ -77,6 +78,11 @@
                         </div>
                     </form>                        
                 </div>
+                <hr>
+                <div class="column one">
+                    <h4>Facebook</h4>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flydoanmydoan%2F&tabs=timeline&width=300&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                </div>                
             </div>
         </div>
     </div>

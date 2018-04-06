@@ -32,11 +32,8 @@
                         </select>
                     </div>
 
-                    <ul class="pagination">
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
-                    </ul>
+                {{ $results->links() }}
+                
                 </div>
             </div>
 
@@ -87,14 +84,11 @@
                 @endforeach      
             </ul>
 
+
             <div class="toolbar-bottom">
                 <div class="toolbar">
                     <div class="sorter">
-                        <ul class="pagination">
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
-                        </ul>
+                        {{ $results->links() }}
                     </div>
                 </div>
             </div>
