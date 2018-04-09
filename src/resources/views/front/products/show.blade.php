@@ -375,7 +375,7 @@
                     'id': '{{$product->id}}',//just test
                     'name': '{{$product->name}}',//just test
                     'price': {{$product->price}},//just test
-                    'quantity': quantity,//just test
+                    'quantity': quantity  ,//just test
                 },
                success:function(response){
                     console.log(response['newCartItemCount']); //debug

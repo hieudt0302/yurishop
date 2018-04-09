@@ -67,8 +67,8 @@
             @foreach ($new_products as $product)
             <div class="product">
                 <figure class="product-image-area">
-                    <a href="{{url('/products')}}/{{$product->slug}}" title="Product Name" class="product-image">
-                        <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name">
+                    <a href="{{url('/products')}}/{{$product->slug}}" title="" class="product-image">
+                        <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="">
                     </a>                   
                     @if($product->special_price != 0 && $product->special_price_start_date  <= $curDate && $curDate <= $product->special_price_end_date )
                     <div class="product-label"><span class="discount">SALE</span></div>
@@ -108,8 +108,8 @@
             @foreach ($new_products as $product)
             <div class="product">
                 <figure class="product-image-area">
-                    <a href="{{url('/products')}}/{{$product->slug}}" title="Product Name" class="product-image">
-                        <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name">
+                    <a href="{{url('/products')}}/{{$product->slug}}" title="" class="product-image">
+                        <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="">
                     </a>
                    
                     @if($product->special_price != 0 && $product->special_price_start_date  <= $curDate && $curDate <= $product->special_price_end_date )
@@ -150,8 +150,8 @@
             @foreach ($new_products as $product)
             <div class="product">
                 <figure class="product-image-area">
-                    <a href="{{url('/products')}}/{{$product->slug}}" title="Product Name" class="product-image">
-                        <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product Name">
+                    <a href="{{url('/products')}}/{{$product->slug}}" title="" class="product-image">
+                        <img src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="">
                     </a>                   
                     @if($product->special_price != 0 && $product->special_price_start_date  <= $curDate && $curDate <= $product->special_price_end_date )
                     <div class="product-label"><span class="discount">SALE</span></div>
@@ -178,11 +178,12 @@
             @endforeach
             
         </div>
-    </div>
+    </div>          
 
-    <span class="line"></span>            
-
-    <div class="container mb-xlg">
+    <div class="container">
+        <h2 class="slider-title v2 heading-primary text-center mt-sm">
+            THƯƠNG HIỆU CHÍNH 
+        </h2>        
 
         <div class="owl-carousel owl-theme manual clients-carousel owl-no-narrow">
             <a href="#" title="Brand Name" class="client">
@@ -217,6 +218,47 @@
             </a>                        
         </div>
     </div>
+
+    <div class="container">
+        <h2 class="slider-title v2 heading-primary text-center mt-sm">
+            BÀI VIẾT MỚI 
+        </h2>
+
+        <div>
+            @foreach($new_blogs as $post)
+            <article class="post col-md-6">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="post-image">
+                            <div class="img-thumbnail">
+                                <a href="{{url('/posts')}}/{{$post->slug}}">
+                                    <img class="img-responsive" src="{{asset('/storage/images/blog/preview/')}}/{{$post->img}}" alt="Post">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-7">
+                        <div class="post-date">
+                            <span class="day">{{ date('d', strtotime($post->created_at)) }}</span>
+                            <span class="month">{{ date('m', strtotime($post->created_at)) }}</span>
+                        </div>
+
+                        <div class="post-content">
+
+                            <h2><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->translation->title}}</a></h2>
+                            <p>{{$post->translation->excerpt??""}}</p>
+
+                            <a href="{{url('/')}}/posts/{{$post->slug}}" class="btn btn-link">Đọc thêm</a>
+
+                        </div>
+                    </div>
+                </div>
+            </article>
+            @endforeach
+        </div>
+    </div>
+
 
 </div>
 @endsection

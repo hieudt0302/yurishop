@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title','Poko Farms - Product')
 @section('header')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Share Nav -->
 @include('layouts.share')
 @endsection
@@ -67,10 +68,10 @@
                             </div>
 
                             <div class="product-actions">
-                                <a href="#" class="addtowishlist" title="Thêm vào danh sách yêu thích">
+                                <a href="javascript:void(0)" data-id="{{$product->id}}" data-name="{{$product->name}}" class="addtowishlist" title="Thêm vào danh sách yêu thích">
                                     <i class="fa fa-heart"></i>
                                 </a>
-                                <a href="#" class="addtocart" title="Thêm vào giỏ hàng">
+                                <a href="javascript:void(0)" data-id="{{$product->id}}" data-name="{{$product->name}}" class="addtocart" title="Thêm vào giỏ hàng">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Đặt hàng</span>
                                 </a>
@@ -156,4 +157,87 @@
         </aside>
     </div>
 </div>
+@endsection
+
+
+@section('scripts')
+
+<!-- Current Page Vendor and Views -->
+<script src="{{asset('frontend/js/views/view.contact.js')}}"></script>
+
+<script src="{{asset('frontend/vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+<script src="{{asset('frontend/vendor/elevatezoom/jquery.elevatezoom.js')}}"></script>
+
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="{{ asset('js/flytocart.js') }}"></script>
+<script>
+     $(document).ready(function(){      
+        $('.addtocart').click(function() {
+            var quantity = $("input[name='quantity']").val();
+            var id = $(this).attr("data-id") 
+            var name = $(this).attr("data-name") 
+            var price = 0;            
+            $.ajaxSetup({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });  
+                      
+            $.ajax({
+               type:'POST',
+               url:'{{ url("/add-to-cart") }}',              
+               data: {
+                    'id': id,//just test
+                    'name': name,//just test
+                    'price': {{$product->price}},//just test
+                    'quantity': quantity  ,//just test
+                },
+               success:function(response){
+                    console.log(response['newCartItemCount']); //debug
+                    //$('.cartItemCount').html($('.cartItemCount').html().replace (/\((.*?)\)/g,"(" + response['newCartItemCount'] + ")"));
+                    $('.cart-qty').html('(' + response['newCartItemCount'] + ')' );//+ '{{trans('shoppings.items')}}' 
+               },
+               error:function(response){
+                    console.log(response['newCartItemCount']); //debug
+               }
+            });
+        });
+        
+        $('.addtowishlist').click(function() {
+            var id = $(this).attr("data-id") 
+            var name = $(this).attr("data-name")             
+            // $(this).effect("shake", {
+            //     times: 1
+            // }, 200);
+            
+            $.ajax({
+               type:'POST',
+               url:'{{ url("/add-to-wishlist") }}',              
+               data: {
+                    'id': id,//just test
+                    'name': name,//just test
+                    'price': 0,//just test
+                    'quantity': 1,//just test
+                },
+               success:function(response){
+                    console.log(response['message']); //debug
+                   if(response['status'] === 'error')
+                    window.location.href = "/login";
+                    
+               },
+               error:function(response){
+                    console.log(response['message']); //debug
+               }
+            });
+        });
+        $('.call').click(function() {
+            var x = document.getElementById("call-number");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        });
+    });
+</script>
 @endsection
