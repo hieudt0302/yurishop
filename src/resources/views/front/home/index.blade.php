@@ -178,7 +178,9 @@
             @endforeach
             
         </div>
-    </div>          
+    </div>
+
+    <hr>          
 
     <div class="container">
         <h2 class="slider-title v2 heading-primary text-center mt-sm">
@@ -186,38 +188,40 @@
         </h2>        
 
         <div class="owl-carousel owl-theme manual clients-carousel owl-no-narrow">
-            <a href="#" title="Brand Name" class="client">
+            <a href="{{url('/subject/products/tags/shisheido')}}" title="Brand Name" class="client">
                 <img class="img-responsive" src="frontend/img/brands/shisheido.png" alt="Brand">
             </a>
-            <a href="#" title="Brand Name" class="client">
+            <a href="{{url('/subject/products/tags/shu_uemura')}}" title="Brand Name" class="client">
                 <img class="img-responsive" src="frontend/img/brands/shu_uemura.jpg" alt="Brand">
             </a>
-            <a href="#" title="Brand Name" class="client">
+            <a href="{{url('/subject/products/tags/kose')}}" title="Brand Name" class="client">
                 <img class="img-responsive" src="frontend/img/brands/kose.png" alt="Brand">
             </a>
-            <a href="#" title="Brand Name" class="client">
+            <a href="{{url('/subject/products/tags/kanebo')}}" title="Brand Name" class="client">
                 <img class="img-responsive" src="frontend/img/brands/kanebo.png" alt="Brand">
             </a>            
-            <a href="#" title="Brand Name" class="client">
+            <a href="{{url('/subject/products/tags/muji')}}" title="Brand Name" class="client">
                 <img class="img-responsive" src="frontend/img/brands/muji.png" alt="Brand">
             </a>
-            <a href="#" title="Brand Name" class="client">
+            <a href="{{url('/subject/products/tags/hm')}}" title="Brand Name" class="client">
                 <img class="img-responsive" src="frontend/img/brands/hm.png" alt="Brand">
             </a>
-            <a href="#" title="Brand Name" class="client">
+            <a href="{{url('/subject/products/tags/uniqlo')}}" title="Brand Name" class="client">
                 <img class="img-responsive" src="frontend/img/brands/uniqlo.png" alt="Brand">
             </a>
-            <a href="#" title="Brand Name" class="client">
+            <a href="{{url('/subject/products/tags/gu')}}" title="Brand Name" class="client">
                 <img class="img-responsive" src="frontend/img/brands/gu.png" alt="Brand">
             </a>
-            <a href="#" title="Brand Name" class="client">
+            <a href="{{url('/subject/products/tags/meiji')}}" title="Brand Name" class="client">
                 <img class="img-responsive" src="frontend/img/brands/meiji.png" alt="Brand">
             </a>
-            <a href="#" title="Brand Name" class="client">
+            <a href="{{url('/subject/products/tags/morinaga')}}" title="Brand Name" class="client">
                 <img class="img-responsive" src="frontend/img/brands/morinaga.jpg" alt="Brand">
             </a>                        
         </div>
     </div>
+
+    <hr>
 
     <div class="container">
         <h2 class="slider-title v2 heading-primary text-center mt-sm">

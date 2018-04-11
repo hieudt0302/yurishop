@@ -211,7 +211,7 @@ class ProductsController extends Controller
 
         // GET PRODUCTS
         //POSTS
-        $results = Tag::where('slug', $slug)->first()->products()->paginate(12);   
+        $results = Tag::where('slug', $slug)->firstOrFail()->products()->paginate(12);   
 
         return View('front/products/index', compact('results','tags','comments', 'lastProducts','slug'));
 

@@ -1,6 +1,18 @@
 @extends('layouts.master')
-@section('title','Pô Kô Farms - 404')
+@section('title','Yurishop - 404')
 @section('content')
+
+<section class="page-header mb-lg">
+
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="#">Trang chủ</a></li>
+
+            <li class="active">Page not found</li>
+        </ul>
+    </div>
+</section>
+
 <div class="container">
 
 	<section class="page-not-found">
