@@ -48,12 +48,12 @@ class HomeController extends Controller
         //                                 ->select('products.*')
         //                                 ->get();
 
-        // $best_sellers_products = Product::join('order_details','products.id', '=', 'order_details.product_id')
-        //                                 ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
-        //                                 ->groupBy('product_id')
-        //                                 ->orderBy('count', 'desc')
-        //                                 ->limit(4)
-        //                                 ->get();
+        $best_sellers_products = Product::join('order_details','products.id', '=', 'order_details.product_id')
+                                        ->select('products.*', DB::raw('COUNT(order_details.product_id) as count'))
+                                        ->groupBy('product_id')
+                                        ->orderBy('count', 'desc')
+                                        ->limit(4)
+                                        ->get();
 
 
         $sale_products = Product::where('published',1)
@@ -67,7 +67,7 @@ class HomeController extends Controller
         $sliders = Slider::where('is_show',1)->get();      
 
         //var_dump($best_sellers_products); die();  
-        return View("front/home/index",compact('sale_products', 'new_blogs','sliders','new_products'));
+        return View("front/home/index",compact('sale_products', 'new_blogs','sliders','new_products','best_sellers_products'));
 
     }
 

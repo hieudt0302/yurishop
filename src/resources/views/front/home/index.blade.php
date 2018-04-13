@@ -103,9 +103,8 @@
             <span class="line"></span>
         </h2>
 
-        <div class="owl-carousel owl-theme manual top-products-carousel">
-            @php($curDate = Carbon\Carbon::now())            
-            @foreach ($new_products as $product)
+        <div class="owl-carousel owl-theme manual top-products-carousel">           
+            @foreach ($best_sellers_products as $product)
             <div class="product">
                 <figure class="product-image-area">
                     <a href="{{url('/products')}}/{{$product->slug}}" title="" class="product-image">
@@ -145,9 +144,8 @@
             <span class="line"></span>
         </h2>
 
-        <div class="owl-carousel owl-theme manual top-products-carousel">
-            @php($curDate = Carbon\Carbon::now())            
-            @foreach ($new_products as $product)
+        <div class="owl-carousel owl-theme manual top-products-carousel">            
+            @foreach ($sale_products as $product)
             <div class="product">
                 <figure class="product-image-area">
                     <a href="{{url('/products')}}/{{$product->slug}}" title="" class="product-image">
@@ -251,7 +249,7 @@
                         <div class="post-content">
 
                             <h2><a href="{{url('/')}}/posts/{{$post->slug}}">{{$post->translation->title}}</a></h2>
-                            <p>{{$post->translation->excerpt??""}}</p>
+                            <p>{{ str_limit($post->translation->excerpt??"", $limit = 150, $end = '...') }}</p>
 
                             <a href="{{url('/')}}/posts/{{$post->slug}}" class="btn btn-link">Đọc thêm</a>
 

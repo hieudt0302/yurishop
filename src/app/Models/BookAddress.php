@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+//use Illuminate\Database\Eloquent\SoftDeletes;
 class BookAddress extends Model
 {
-    use SoftDeletes;
+    //use SoftDeletes;
      /**
      * The database table used by the model.
      *
