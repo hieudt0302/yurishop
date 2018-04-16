@@ -24,15 +24,6 @@
             <div class="blog-posts single-post">
 
                 <article class="post post-large blog-single-post">
-                    <div class="post-image">
-                        <div class="owl-carousel owl-theme" data-plugin-options="{'items':1}">
-                            <div>
-                                <div class="img-thumbnail">
-                                    <img class="img-responsive" src="{{asset('/storage/images/blog/')}}/{{$post->img}}" alt="Post">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="post-date">
                         <span class="day">{{ date('d', strtotime($post->created_at)) }}</span>
