@@ -100,6 +100,7 @@ class SliderController extends Controller
             Storage::put($img_path, $img);                     
             $slider->image = $img_path;                      
         }    
+        //test
 
         $slider->title = $request->title;
         $slider->url = $request->url;
