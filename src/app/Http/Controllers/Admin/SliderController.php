@@ -50,7 +50,7 @@ class SliderController extends Controller
         if (request()->hasFile('img')) {
             $image = $request->file('img');
             $img_path = $image->storeAs('images/slider',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(850, 421)->encode();
+            $img = Image::make(Storage::get($img_path))->fit(1500, 300)->encode();
             Storage::put($img_path, $img);                     
             $slider->image = $img_path;                      
         }           
@@ -96,7 +96,7 @@ class SliderController extends Controller
         if (request()->hasFile('img')) {
             $image = $request->file('img');
             $img_path = $image->storeAs('images/slider',$image->getClientOriginalName());                              
-            $img = Image::make(Storage::get($img_path))->fit(850, 421)->encode();
+            $img = Image::make(Storage::get($img_path))->fit(1500, 300)->encode();
             Storage::put($img_path, $img);                     
             $slider->image = $img_path;                      
         }    
