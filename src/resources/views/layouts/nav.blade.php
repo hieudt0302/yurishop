@@ -102,7 +102,7 @@
 
                             <div class="cart-dropdown">
                                 <a href="{{ url('/cart') }}" class="cart-dropdown-icon">
-                                    <i class="minicart-icon"></i>
+                                    <i class="minicart-icon shopping-cart-icon"></i>
                                     <span class="cart-info">
                                         <span class="cart-qty">{{ Cart::instance('default')->count(false) }}</span>
                                         <span class="cart-text">sản phẩm</span>
