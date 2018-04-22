@@ -26,7 +26,7 @@
 					<div class="row">
 						<div class="product-img-box col-sm-5">
 							<div class="product-img-box-wrapper">
-                                <div class="product-img-wrapper">
+                                <div class="product-img-wrapper product-main-img">
                                 	<img id="product-zoom" src="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" data-zoom-image="{{asset('/storage')}}/{{$product->GetMediaByOrderAsc()->thumb??'images/no-image.png'}}" alt="Product main image">
                                 </div>
 
@@ -104,7 +104,7 @@
 								<div class="product-detail-qty">
                                     <input type="text" value="1" name="quantity" class="vertical-spinner" id="product-vqty">
                                 </div>
-								<a href="javascript:void(0)" class="addtocart" title="Add to Cart">
+								<a href="javascript:void(0)" class="addtocart add-shoopingcart" title="Add to Cart">
 									<i class="fa fa-shopping-cart"></i>
 									<span>Thêm vào giỏ hàng</span>
 								</a>
